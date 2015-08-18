@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Indirect connection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C20110814192906.10523h0brm6769r6%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000333.html">
+   <LINK REL="Next"  HREF="000328.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Indirect connection</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C20110814192906.10523h0brm6769r6%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Indirect connection">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun Aug 14 19:29:06 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000333.html">[X2go-User] Indirect connection
+</A></li>
+        <LI>Next message: <A HREF="000328.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#317">[ date ]</a>
+              <a href="thread.html#317">[ thread ]</a>
+              <a href="subject.html#317">[ subject ]</a>
+              <a href="author.html#317">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Paul,
+
+On Sa 13 Aug 2011 14:06:26 CEST Paul van der Vlis wrote:
+
+&gt;&gt;&gt;<i> Of cause I can make a port forwarding, or an SSH tunnel from the fat
+</I>&gt;&gt;&gt;<i> client to my computer, but maybe you have a better and more flexible idea?
+</I>
+&gt;<i> No, it are very normal fat-clients behind NAT, and only I (the sysadmin)
+</I>&gt;<i> need connect to them, to help the people when there are problems. I am
+</I>&gt;<i> looking for an easy and flexible way to connect.
+</I>
+PyHoca-GUI is targetted at system administrators who use X2go for  
+system administration. This is my primary use case...
+
+What I do is:
+
+   o place a linux machine in the customer network and make it accessible via
+     X2go (open SSH port with reverse NAT to this machine only)
+   o from their on...
+       - Windows clients: use X2go sessions as RDP-proxy connections
+       - Linux clients: PyHoca-GUI has SSH proxy support included, check
+         the config dialog Window for this
+
+PyHoca-GUI's great advantage compared to x2goclient is the handling of  
+multiple sessions to the same session profile as well as to multiple  
+session profiles.
+
+&gt;<i> ( Hmmm, IPv6 is an option here. But I have many other customers where
+</I>&gt;<i> the ISP does not offer IPv6. )
+</I>
+No IPv6 ISP needed, use an IPv6 tunnel broker (e.g. SixXS):
+<A HREF="http://en.wikipedia.org/wiki/List_of_IPv6_tunnel_brokers">http://en.wikipedia.org/wiki/List_of_IPv6_tunnel_brokers</A>
+
+Greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/16fd77ed/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/16fd77ed/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000333.html">[X2go-User] Indirect connection
+</A></li>
+	<LI>Next message: <A HREF="000328.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#317">[ date ]</a>
+              <a href="thread.html#317">[ thread ]</a>
+              <a href="subject.html#317">[ subject ]</a>
+              <a href="author.html#317">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

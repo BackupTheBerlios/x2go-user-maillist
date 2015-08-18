@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Broker + User-side HTTP(S) proxy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Broker%20%2B%20User-side%20HTTP%28S%29%20proxy&In-Reply-To=%3C20131028083432.Horde.BtUbTJAahimU2ODN9TRHrw1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001730.html">
+   <LINK REL="Next"  HREF="001736.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Broker + User-side HTTP(S) proxy</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Broker%20%2B%20User-side%20HTTP%28S%29%20proxy&In-Reply-To=%3C20131028083432.Horde.BtUbTJAahimU2ODN9TRHrw1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Broker + User-side HTTP(S) proxy">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Oct 28 09:34:32 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001730.html">[X2Go-User] Broker + User-side HTTP(S) proxy
+</A></li>
+        <LI>Next message: <A HREF="001736.html">[X2Go-User] X2Go-User Digest, Vol 38, Issue 25
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1731">[ date ]</a>
+              <a href="thread.html#1731">[ thread ]</a>
+              <a href="subject.html#1731">[ subject ]</a>
+              <a href="author.html#1731">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mathias,
+Cc: to Heinrich Schuchardt
+
+On  Mo 28 Okt 2013 08:00:08 CET, Mathias Ewald wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I am using X2go broker with SSH proxy to have X2go servers sit behind
+</I>&gt;<i> the broker not directly reachable from the internet. Like this, I need
+</I>&gt;<i> Users have access to ports 443 (usually not a problem) and SSH (very
+</I>&gt;<i> often a problem). Problem is that users tend to sit behind transparent
+</I>&gt;<i> http/https proxies, so SSH won't get out. I would like to see
+</I>&gt;<i> everything being done through HTTPs so we can trick proxies.
+</I>&gt;<i>
+</I>&gt;<i> Is this going to be implemented in the near future or maybe even
+</I>&gt;<i> already possible somehow?
+</I>&gt;<i>
+</I>&gt;<i> cheers
+</I>&gt;<i> Mathias
+</I>
+X2Go Client has a not very well tested patch for HTTPs proxying  
+(instead of SSH proxying) included. However, this requires a recent  
+libssh (IIRC &gt;= 5.x) version.
+
+I have also done a quick test against a non-transparent proxy that  
+does not require authentication. The session startup failed with this  
+setup. I will Cc: the provider of that patch in this mail.
+
+@Heinrich: you provide this patch [1]. Do you have any clue on the  
+status of this patch? Does it work in one of your setups?
+
+
+Greets,
+Mike
+
+[1]  
+<A HREF="http://code.x2go.org/gitweb?p=x2goclient.git;a=commitdiff;h=33c6eeb64f212bc2ffbd43b6b6cd2d52276425ff">http://code.x2go.org/gitweb?p=x2goclient.git;a=commitdiff;h=33c6eeb64f212bc2ffbd43b6b6cd2d52276425ff</A>
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-keys
+Size: 7251 bytes
+Desc: ?ffentlicher PGP-Schl?ssel
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131028/63176ae2/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20131028/63176ae2/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131028/63176ae2/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131028/63176ae2/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001730.html">[X2Go-User] Broker + User-side HTTP(S) proxy
+</A></li>
+	<LI>Next message: <A HREF="001736.html">[X2Go-User] X2Go-User Digest, Vol 38, Issue 25
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1731">[ date ]</a>
+              <a href="thread.html#1731">[ thread ]</a>
+              <a href="subject.html#1731">[ subject ]</a>
+              <a href="author.html#1731">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

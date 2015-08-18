@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAAWyt1qma9rvWu81ODCYv2bAH2b%3DsG%3Df0yDhYM2DmOgzc75RtQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001805.html">
+   <LINK REL="Next"  HREF="001809.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAAWyt1qma9rvWu81ODCYv2bAH2b%3DsG%3Df0yDhYM2DmOgzc75RtQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">bd.dali at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 07:08:11 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001805.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001809.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1806">[ date ]</a>
+              <a href="thread.html#1806">[ thread ]</a>
+              <a href="subject.html#1806">[ subject ]</a>
+              <a href="author.html#1806">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>If anyone needs to set up a test environment for latency issues I can
+recommend WANem, &quot;The Wide Area Network emulator&quot;. I've used it to emulate
+real world high latency links in my job environment and the results are
+very close to reality. Just remember to set half the latency on ingoing and
+the other half on outgoing packets, e.g. 100 + 100 to emulate a 200ms
+latency.
+
+Cheers,
+Daniel
+
+
+2013/11/24 Nirav Shah &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">shah.niravk at gmail.com</A>&gt;
+
+&gt;<i> Thanks Steve.
+</I>&gt;<i>
+</I>&gt;<i> I have tried VNCs before and I found X2Go better than any other. I tried
+</I>&gt;<i> to throttle using Charles with specifying 300-400 ms latency but from my
+</I>&gt;<i> location, it always shows the same result (70ms ping time).
+</I>&gt;<i>
+</I>&gt;<i> I am going to try some other tool to check this issue. It is possible to
+</I>&gt;<i> change few settings in java application like heap memory etc.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Sat, Nov 23, 2013 at 7:51 PM, Steve Bergman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sbergman27 at gmail.com</A>&gt;wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> No. Although both use the same underlying NX libraries, you can't mix and
+</I>&gt;&gt;<i> match X2GO/FreeNX clients/servers. (Although you *can* run x2goserver and
+</I>&gt;&gt;<i> FreeNX server in parallel on the same server. In fact, I'm doing this right
+</I>&gt;&gt;<i> now in preparation for our transition to x2go.) I'm finding x2go to perform
+</I>&gt;&gt;<i> at least as well as NX. And FreeNX is more or less an abandoned project at
+</I>&gt;&gt;<i> this point, as is NeatX. It's probably not worth the trouble of trying to
+</I>&gt;&gt;<i> get FreeNX installed and working on CentOS. (CentOS 4 was the last release
+</I>&gt;&gt;<i> that I've installed FreeNX on.)  I've no reason to think FreeNX would do
+</I>&gt;&gt;<i> any better than x2go. But if there's a way to up the cache size in x2go,
+</I>&gt;&gt;<i> that might be worth a try. I've looked in the sessions and settings files
+</I>&gt;&gt;<i> in ~/.x2goclient/ and there don't seem to be any hidden options there that
+</I>&gt;&gt;<i> would apply. I'm guessing that we're probably getting the NX default values
+</I>&gt;&gt;<i> of 16MB RAM cache and 32MB disk cache, which ought to cover most situations
+</I>&gt;&gt;<i> reasonably well.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> One other option that would be easy enough to try would be one of the
+</I>&gt;&gt;<i> VNCs. In general, x2go way outperforms them. But you never know. For this
+</I>&gt;&gt;<i> particular workload, something like tightvnc, tigervnc, or vnc4 might work
+</I>&gt;&gt;<i> better. I doubt it. But vnc is easy to set up for a test.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any possibility that changing settings in the java application might
+</I>&gt;&gt;<i> mitigate the problem?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> BTW, thanks for the reference to 'charles':
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="http://www.charlesproxy.com/documentation/proxying/throttling/">http://www.charlesproxy.com/documentation/proxying/throttling/</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I didn't know about this, and had been looking for something similar.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> -Steve
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Nirav Shah
+</I>&gt;<i> (C) (412) 296-9491
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/0636c425/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/0636c425/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001805.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001809.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1806">[ date ]</a>
+              <a href="thread.html#1806">[ thread ]</a>
+              <a href="subject.html#1806">[ subject ]</a>
+              <a href="author.html#1806">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

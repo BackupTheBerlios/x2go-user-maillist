@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3C52B8FA4D.1070806%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001872.html">
+   <LINK REL="Next"  HREF="001881.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3C52B8FA4D.1070806%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Tue Dec 24 04:06:53 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001872.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+        <LI>Next message: <A HREF="001881.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1873">[ date ]</a>
+              <a href="thread.html#1873">[ thread ]</a>
+              <a href="subject.html#1873">[ subject ]</a>
+              <a href="author.html#1873">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 24.12.2013 02:33, schrieb Luciano Gabriel Andino:
+&gt;<i> Hi there)) I am trying to configure x2go/pxe and this is my first question.
+</I>&gt;<i>
+</I>&gt;<i> I did a clientsession in server and scp transfer to pxe server. PXE
+</I>&gt;<i> server is ready, client booted but I can't login cause this message
+</I>&gt;<i> appears (in client):
+</I>&gt;<i>
+</I>&gt;<i> &quot;Access denied: Authentication that can continue....&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> while it was possible to login from a linux box. The idea is that a any
+</I>&gt;<i> user can access to his account from anyclient. how can I store this
+</I>&gt;<i> publickeys?
+</I>
+I'm not sure what went wrong there, but I'm also not quite sure what 
+you're trying to accomplish. So I've typed down the answers to the three 
+most likely interpretations of your question that I can come up with. If 
+none of this matches what your intention is, please rephrase your 
+question, explain in greater detail what you're trying to accomplish 
+(expected behavior versus actual behavior), and post again.
+
+--------------------------------
+
+The following is assuming that while you want every user to be able to 
+use every client, you *do* want authentication (i.e. every user has a 
+dedicated account that no one else should be using):
+
+1) The easiest way would be using passwords only. You do not HAVE to use 
+public key files, though of course they provide greater security WHEN - 
+and ONLY WHEN - implemented and used correctly.
+
+2) If you want to use two-factor authentication, my guess is that you 
+could either
+2a) put the secret keys (the public key of each user needs to be in the 
+user's home directory, in a subdirectory called &quot;.ssh&quot;, and a file named 
+&quot;authorized_keys&quot;, with proper restrictive permissions in place) on a 
+USB key fob, set up the Thin Client Environment so that it looks for USB 
+devices and tries to mount them automatically, and have a symlink from 
+.ssh/id_rsa or id_dsa on the TCE user's home directory on the thin 
+client point to the mountpoint of the USB device (which needs to contain 
+a linux filesystem so the permissions work) or
+2b) use Smartcard-Based authentication, which requires cards and reader 
+hardware. This is something I've never used myself, though, so you 
+should contact one of the core developers (Mike Gabriel seems to be the 
+most active one these days) about how that works.
+
+
+--------------------------------
+
+Now, assuming that you don't care about security at all, because you 
+want everyone to be able to log in as everyone (think Infokiosk), you 
+could of course dump all the secret keys for your pseudo-users into 
+id_rsa_something or id_dsa_something files (as above, with proper 
+restrictive permissions in place), make them part of the TCE NFS image 
+and reference them in your sessions file - but that is something you 
+should really only do if you DO NOT NEED NOR WANT ANY SECURITY AT ALL 
+and are simply looking for a way that users aren't bothered with having 
+to enter a password.
+
+--------------------------------
+
+If you think you should use Keyfiles AND Passwords to the keyfiles, AND 
+are looking for a way to centrally store the keyfiles so nobody needs a 
+USB key fob or smartcard, you are making your system LESS secure than a 
+password-only solution without keyfiles. So if that was your intent, DO 
+NOT DO THAT.
+The reason is that while you can regularly change passwords on secret 
+keyfiles, ANY copy of a secret keyfile with a known password WILL ALWAYS 
+grant access to the account with the matching public keyfile.
+So if anybody at any time gets hold of the keyfile AND the then-current 
+password, changing the password on your keyfile DOES NOT LOCK HIM OUT.
+You NEED to generate completely NEW keyfiles in that situation. THIS IS 
+BAD. So avoid this approach at all costs.
+
+--------------------------------
+
+Sorry that this message is rather long, but these are some newbie 
+mistakes I'm seeing again and again, and I'd like to keep you from 
+making these mistakes, if only for the sake of your users.
+
+-Stefan
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001872.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+	<LI>Next message: <A HREF="001881.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1873">[ date ]</a>
+              <a href="thread.html#1873">[ thread ]</a>
+              <a href="subject.html#1873">[ subject ]</a>
+              <a href="author.html#1873">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

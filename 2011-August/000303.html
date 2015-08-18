@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problems setting print system in x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go&In-Reply-To=%3C4E3AE8AD.9010402%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000301.html">
+   <LINK REL="Next"  HREF="000304.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problems setting print system in x2go</H1>
+    <B>Mario OROZ</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go&In-Reply-To=%3C4E3AE8AD.9010402%40gmail.com%3E"
+       TITLE="[X2go-User] Problems setting print system in x2go">mario.oroz at gmail.com
+       </A><BR>
+    <I>Thu Aug  4 20:45:01 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000301.html">[X2go-User] Fwd: Re:  x2go Client on Max OS X
+</A></li>
+        <LI>Next message: <A HREF="000304.html">[X2go-User] libssh-4 0.4.7 for Lenny?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>El 03/08/2011 12:18 p.m., Ted Barnes escribi&#243;:
+&gt;<i> HI Mario:
+</I>&gt;<i>
+</I>&gt;<i> How are you?  I'm writing in regard to the x2go printing conversation you were having with John Sullivan on:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00108.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00108.html</A>
+</I>&gt;<i>
+</I>&gt;<i> I've written him, gotten some helpful suggestions (e.g., putting in debug statements), but he couldn't remember exactly how it had been solved.
+</I>&gt;<i>
+</I>&gt;<i> By any chance do you recall if you figured it out and could that share that with me?  I can reproduce your discussion exactly - i.e., when I try to print from an Ubuntu server running x2goprint nothing comes out on the Windows client side...when I used his &quot;mount&quot; command suggestion, I get a mount like you described.
+</I>&gt;<i>
+</I>&gt;<i> Some &quot;output&quot; files do show up in the server (not what I print per se some files with the job #'s) in the root directory, and when I tried the things you suggested with x.txt and .ready I got the same results including nothing happening on the XP client side.  I think there's some sort of problem using the mount point in tmp (maybe a permissions issue?)....
+</I>&gt;<i>
+</I>&gt;<i> John thought maybe the script wasn't marked as executable (though he said first his recollection was foggy).
+</I>&gt;<i>
+</I>&gt;<i> If you would and have a chance, please let me know if you can shed any light on this!  Thanks and 
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Best,
+</I>&gt;<i>
+</I>&gt;<i> Ted
+</I>&gt;<i>
+</I>Hello Ted;
+
+
+What I did was, while connected to the remote desktop x, with a user belonging
+to the group x2gousers (and / or group x2gouser, documentation is ambiguous!) I
+created a couple of files in the directory that appears when you run the mount
+command (mentioned by John in the other thread on the list),  a pdf file (/ tmp
+/ [remote user's spool directory] / x.pdf) and another named x.pdf.ready (/ tmp
+/ [remote user's spool directory] / x.pdf.ready). Immediately a window appears
+asking, in the client PC, howprint the file received! That's all, so no problems
+with the client side, in x2goclient for windows.
+
+I do not think the problem is in mounting the user's spool directory.
+There may be a permissions issue, related to the user x2goprint, which the
+documentation is added to the file / etc / sudoers, but in the installation on
+Debian systems is never created.
+
+The questionis; to make a debugging or rewriting the scripts cups-x2go and
+x2go2print (the latter is called by cups-x2go),
+Having clear which is the road that runs when selecting a printer in cups, the
+files involved in a print job, directories involved in tehe print job, and what
+the directory structure that handles x2goserver when a particular user is
+connected, you could have more knowledge what does the scripts mentioned.
+I mean the specification of the operation of printing on x2go instalation.
+  
+Maybe we can find this information on the development list?
+
+And know some Perl! :-)
+
+regards
+Mario.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000301.html">[X2go-User] Fwd: Re:  x2go Client on Max OS X
+</A></li>
+	<LI>Next message: <A HREF="000304.html">[X2go-User] libssh-4 0.4.7 for Lenny?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#303">[ date ]</a>
+              <a href="thread.html#303">[ thread ]</a>
+              <a href="subject.html#303">[ subject ]</a>
+              <a href="author.html#303">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

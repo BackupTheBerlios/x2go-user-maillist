@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Problems with broker-session-autologin
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problems%20with%20broker-session-autologin&In-Reply-To=%3C525A9B3E.1020304%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001659.html">
+   <LINK REL="Next"  HREF="001662.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Problems with broker-session-autologin</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problems%20with%20broker-session-autologin&In-Reply-To=%3C525A9B3E.1020304%40vxpertise.net%3E"
+       TITLE="[X2Go-User] Problems with broker-session-autologin">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Sun Oct 13 15:08:14 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001659.html">[X2Go-User] pyhoca-gui error
+</A></li>
+        <LI>Next message: <A HREF="001662.html">[X2Go-User] mouse gestures on x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1660">[ date ]</a>
+              <a href="thread.html#1660">[ thread ]</a>
+              <a href="subject.html#1660">[ subject ]</a>
+              <a href="author.html#1660">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+the way I understand the broker-session-autologin feature as described 
+on 
+<A HREF="http://wiki.x2go.org/doku.php/wiki:advanced:x2gobroker:loadbalancing?s[">http://wiki.x2go.org/doku.php/wiki:advanced:x2gobroker:loadbalancing?s[</A>]=autologin 
+is that a user will not have to type username and password to the x2go 
+server machine he is logging in to.
+
+
+Therefore we create an SSH key pair on the broker with
+
+x2gobroker-keygen
+
+and then import it on the X2go server with x2gobroker-agent installed using
+
+x2gobroker-pubkeyauthorizer --broker-url 
+http(s)://&lt;broker-server&gt;:&lt;port&gt;/&lt;basepatch&gt;/pubkeys/
+
+
+It looks like step 1 worked fine:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at x2gobroker</A>:~$ ls -l .ssh
+total 12
+-rw------- 1 x2gobroker x2gobroker 1683 Oct 13 07:26 id_rsa
+-rw-r--r-- 1 x2gobroker x2gobroker  380 Oct 13 07:26 id_rsa.pub
+-rw-r--r-- 1 x2gobroker x2gobroker  222 Oct 13 07:34 known_hosts
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at x2gobroker</A>:~$
+
+On the desktop (x2go server) the key was imported:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at desktop</A>:~# ls -l /var/lib/x2gobroker/.ssh/
+total 4
+-rw-r--r-- 1 x2gobroker x2gobroker 422 Okt 13 13:30 authorized_keys
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at desktop</A>:~# cat /var/lib/x2gobroker/.ssh/authorized_keys
+ssh-rsa 
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDBHBNRsjCy80ihzJmKxK7I3Gfn8FMlr+I8MyLbZbMHBdlKhHnAP2qm2AfsWwJa2hP62RgS2Ussxk0d9b7pLe43GfS3xcZR6+/YPSYblFqmTx2NPTV9A8ycG0wGr/RYh6qgWOTBlPoyGbZeFa538iSt/6iNNln+fbFBOwmTDi+UondjVovIhERAC96tFMVLQdRg+4vMViOZkUdmn2+7VVpeYEAmdNPtXd8fluSYYLZo8D8RFPn8IHf3LWr6OXpos/7AOglsxJy2A3EtEkif7boKHV7XyRviKsamahhuNTw1HelbZvr8eAB/TPKWI80giszKPz+1H8PFU4KM2paB8T9f 
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at x2gobroker.</A>***************
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at desktop</A>:~#
+
+With a session of this configuration
+
+[vs55-dev-mathias]
+setsessiontitle=true
+krblogin=false
+pack=16m-jpeg
+quality=9
+speed=2
+usesshproxy=true
+sshproxytype=SSH
+sshproxyhost=88.198.244.99
+sshproxyport=22
+sshproxyautologin=false
+sshproxysamepass=false
+sshproxysameuser=false
+width=800
+height=600
+dpi=96
+fullscreen=false
+maxdim=false
+multidisp=false
+xinerama=false
+usekbd=true
+sound=false
+soundtunnel=false
+defsndport=false
+soundsystem=none
+startsoundsystem=false
+useexports=false
+useiconv=false
+iconvform=UTF-8
+iconvto=UTF-8
+fstunnel=true
+print=false
+usemimebox=false
+mimeboxaction=OPEN
+autostart=false
+xdmcpserver=localhost
+command=XFCE4
+published=false
+sessiontitle=vXLT - vSphere 5.5 Dev
+host=10.173.20.16
+user=student0
+name=vSphere 5.5 Dev
+command=XFCE
+sshproxyuser=mathias
+sshproxysameuser=false
+acl-groups-allow=mathias
+acl-groups-deny=ALL
+acl-clients-allow=ALL
+acl-any-order=deny-allow
+broker-session-autologin=true
+
+I would assume I did everything as described in the link above but here 
+is what happens:
+
+1) x2goclient --broker-url ....
+2) session profiles received
+3) click session above
+4) enter password to ssh proxy
+5) get window with title &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">student0 at 10.173.20.16</A>&quot; and text &quot;Enter 
+password to decrypt key&quot;
+
+Now which password?? I didn't set any...
+
+In the meantime, x2goclient logs this:
+
+x2go-DEBUG-../onmainwindow.cpp:2160&gt; Reading 3 sessions from config file.
+x2go-DEBUG-../onmainwindow.cpp:2757&gt; Starting session with key.
+x2go-DEBUG-../httpbrokerclient.cpp:459&gt; cmd request answer: &quot;Access 
+granted SERVER:10.173.20.16:22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:441&gt; parsing &quot;Access granted 
+SERVER:10.173.20.16:22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:480&gt; starting parser
+x2go-DEBUG-../httpbrokerclient.cpp:499&gt; server IP: &quot;10.173.20.16&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:500&gt; server port: &quot;22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:507&gt; parsing has finished
+x2go-DEBUG-../onmainwindow.cpp:1165&gt; Removing apps from tray
+x2go-DEBUG-../onmainwindow.cpp:3307&gt; Server: &quot;10.173.20.16&quot;
+x2go-INFO-8&gt; &quot;Starting connection to server: 10.173.20.16:22&quot;
+x2go-DEBUG-../onmainwindow.cpp:2796&gt; Start new ssh connection to 
+server:&quot;10.173.20.16&quot;:&quot;22&quot; krbLogin: false
+x2go-DEBUG-../httpbrokerclient.cpp:518&gt; sslError ,code:&quot;The host name 
+did not match any of the valid hosts for this certificate&quot;:
+x2go-DEBUG-../httpbrokerclient.cpp:518&gt; sslError ,code:&quot;The certificate 
+is self-signed, and untrusted&quot;:
+x2go-DEBUG-../httpbrokerclient.cpp:459&gt; cmd request answer: &quot;Access 
+granted SERVER:10.173.20.16:22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:441&gt; parsing &quot;Access granted 
+SERVER:10.173.20.16:22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:480&gt; starting parser
+x2go-DEBUG-../httpbrokerclient.cpp:499&gt; server IP: &quot;10.173.20.16&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:500&gt; server port: &quot;22&quot;
+x2go-DEBUG-../httpbrokerclient.cpp:507&gt; parsing has finished
+x2go-DEBUG-../onmainwindow.cpp:1165&gt; Removing apps from tray
+x2go-DEBUG-../onmainwindow.cpp:3307&gt; Server: &quot;10.173.20.16&quot;
+x2go-INFO-8&gt; &quot;Starting connection to server: 10.173.20.16:22&quot;
+x2go-DEBUG-../onmainwindow.cpp:2796&gt; Start new ssh connection to 
+server:&quot;10.173.20.16&quot;:&quot;22&quot; krbLogin: false
+x2go-DEBUG-../onmainwindow.cpp:2891&gt; SSH connection established.
+x2go-DEBUG-../onmainwindow.cpp:3117&gt; Continue normal x2go session
+x2go-DEBUG-../onmainwindow.cpp:3497&gt; &quot;Session data: &quot;
+x2go-DEBUG-../onmainwindow.cpp:3500&gt; Starting new managed session.
+x2go-DEBUG-../onmainwindow.cpp:1165&gt; Removing apps from tray
+x2go-DEBUG-../onmainwindow.cpp:3940&gt; Executing remote command: 
+&quot;x2gostartagent 800x600 adsl 16m-jpeg-9 unix-kde-depth_24 us auto 1 D XFCE&quot;
+x2go-DEBUG-../onmainwindow.cpp:1423&gt; Close event received.
+x2go-INFO-6&gt; &quot;Closing x2goclient...&quot;
+x2go-DEBUG-../onmainwindow.cpp:1276&gt; Saving settings...
+x2go-DEBUG-../onmainwindow.cpp:1285&gt; Saved  settings.
+x2go-DEBUG-../onmainwindow.cpp:1307&gt; Waiting for the SSH connection to 
+finish...
+x2go-DEBUG-../onmainwindow.cpp:1309&gt; Waited  for the SSH connection to 
+finish.
+x2go-INFO-7&gt; &quot;Closed  x2goclient.&quot;
+
+
+
+x2gobroker shows this in the logs:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:~# tail -n 0 -f /var/log/x2gobroker/*
+==&gt; /var/log/x2gobroker/access.log &lt;==
+
+==&gt; /var/log/x2gobroker/access.log.1 &lt;==
+
+==&gt; /var/log/x2gobroker/access.log.2.gz &lt;==
+
+==&gt; /var/log/x2gobroker/authservice.log &lt;==
+
+==&gt; /var/log/x2gobroker/authservice.log.1 &lt;==
+
+==&gt; /var/log/x2gobroker/authservice.log.2.gz &lt;==
+
+==&gt; /var/log/x2gobroker/broker.log &lt;==
+
+==&gt; /var/log/x2gobroker/broker.log.1 &lt;==
+
+==&gt; /var/log/x2gobroker/broker.log.2.gz &lt;==
+
+==&gt; /var/log/x2gobroker/error.log &lt;==
+
+==&gt; /var/log/x2gobroker/error.log.1 &lt;==
+
+==&gt; /var/log/x2gobroker/wsgi.log &lt;==
+
+==&gt; /var/log/x2gobroker/wsgi.log.2013-10-10_06 &lt;==
+
+==&gt; /var/log/x2gobroker/wsgi.log.2013-10-13_06 &lt;==
+
+==&gt; /var/log/x2gobroker/broker.log &lt;==
+2013-10-13 09:41:25,008 - broker - INFO - client address is 87.151.248.112
+2013-10-13 09:41:25,008 - broker - DEBUG - username: mathias, password: 
+XXXXX, task: listsessions, profile_id: , cookie:
+2013-10-13 09:41:25,009 - broker - DEBUG - 
+base_broker.X2GoBroker.get_authentication_mechanism(): found 
+default-auth-mech in global config section: pam
+2013-10-13 09:41:25,010 - broker - DEBUG - 
+base_broker.X2GoBroker._do_authenticate(): authenticating user=mathias 
+with password=&lt;hidden&gt; against backend=inifile.
+2013-10-13 09:41:25,010 - broker - DEBUG - connecting to authentication 
+service socket /run/x2gobroker/x2gobroker-authservice.socket
+2013-10-13 09:41:25,011 - broker - DEBUG - sending username=mathias, 
+password=&lt;hidden&gt;, service=x2gobroker to authentication service
+2013-10-13 09:41:25,026 - broker - INFO - authentication against PAM 
+service &#187;x2gobroker&#171; succeeded for user &#187;mathias&#171;
+2013-10-13 09:41:25,027 - broker - DEBUG - 
+base_broker.X2GoBroker.check_access(): result of authentication check 
+is: True
+2013-10-13 09:41:25,034 - broker - DEBUG - 
+base_broker.X2GoBroker.get_session_autologin(): found 
+default-session-autologin in global config section: False
+2013-10-13 09:41:25,087 - broker - DEBUG - 
+base_broker.X2GoBroker.get_agent_query_mode(): found 
+default-agent-query-mode in global config section: none
+2013-10-13 09:41:25,094 - broker - DEBUG - 
+base_broker.X2GoBroker.get_session_autologin(): found 
+broker-session-autologin in session profile with ID vs55-dev-mathias: 
+true. This one has precendence over the default value.
+2013-10-13 09:41:25,144 - broker - DEBUG - 
+base_broker.X2GoBroker.get_agent_query_mode(): found 
+default-agent-query-mode in global config section: none
+2013-10-13 09:41:25,151 - broker - DEBUG - 
+base_broker.X2GoBroker.get_session_autologin(): found 
+default-session-autologin in global config section: False
+2013-10-13 09:41:25,206 - broker - DEBUG - 
+base_broker.X2GoBroker.get_session_autologin(): found 
+default-session-autologin in global config section: False
+2013-10-13 09:41:25,259 - broker - DEBUG - 
+base_broker.X2GoBroker.get_agent_query_mode(): found 
+default-agent-query-mode in global config section: none
+2013-10-13 09:41:31,634 - broker - INFO - client address is 87.151.248.112
+2013-10-13 09:41:31,635 - broker - DEBUG - username: mathias, password: 
+XXXXX, task: selectsession, profile_id: vs55-dev-mathias, cookie:
+2013-10-13 09:41:31,636 - broker - DEBUG - 
+base_broker.X2GoBroker.get_authentication_mechanism(): found 
+default-auth-mech in global config section: pam
+2013-10-13 09:41:31,636 - broker - DEBUG - 
+base_broker.X2GoBroker._do_authenticate(): authenticating user=mathias 
+with password=&lt;hidden&gt; against backend=inifile.
+2013-10-13 09:41:31,636 - broker - DEBUG - connecting to authentication 
+service socket /run/x2gobroker/x2gobroker-authservice.socket
+2013-10-13 09:41:31,637 - broker - DEBUG - sending username=mathias, 
+password=&lt;hidden&gt;, service=x2gobroker to authentication service
+2013-10-13 09:41:31,652 - broker - INFO - authentication against PAM 
+service &#187;x2gobroker&#171; succeeded for user &#187;mathias&#171;
+2013-10-13 09:41:31,652 - broker - DEBUG - 
+base_broker.X2GoBroker.check_access(): result of authentication check 
+is: True
+2013-10-13 09:41:31,659 - broker - DEBUG - 
+base_broker.X2GoBroker.get_agent_query_mode(): found 
+default-agent-query-mode in global config section: none
+
+
+I am not sure how the mechanism works so that the client can log in 
+using pub key as a user for whom no ssh public key was installed, so I 
+need your help.
+
+cheers
+Mathias
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001659.html">[X2Go-User] pyhoca-gui error
+</A></li>
+	<LI>Next message: <A HREF="001662.html">[X2Go-User] mouse gestures on x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1660">[ date ]</a>
+              <a href="thread.html#1660">[ thread ]</a>
+              <a href="subject.html#1660">[ subject ]</a>
+              <a href="author.html#1660">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go with git submodules
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20with%20git%20submodules&In-Reply-To=%3CCAJ0cceaa08mrMP-0jo8-2ChF1peUdoRRyYrEuhvM%2BMbGw7bc6Q%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001104.html">
+   <LINK REL="Next"  HREF="001106.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go with git submodules</H1>
+    <B>Reinhard Tartler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20with%20git%20submodules&In-Reply-To=%3CCAJ0cceaa08mrMP-0jo8-2ChF1peUdoRRyYrEuhvM%2BMbGw7bc6Q%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2go with git submodules">siretart at gmail.com
+       </A><BR>
+    <I>Wed Nov  7 12:25:01 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001104.html">[X2Go-User] x2go with git submodules
+</A></li>
+        <LI>Next message: <A HREF="001106.html">[X2Go-User] X2Go-Blog:  Co-operation between Canonical, X2Go, Edubuntu and Fleten.net in Denmark
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1105">[ date ]</a>
+              <a href="thread.html#1105">[ thread ]</a>
+              <a href="subject.html#1105">[ subject ]</a>
+              <a href="author.html#1105">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Wed, Nov 7, 2012 at 11:42 AM, Ralf Hemmecke &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">hemmecke at gmail.com</A>&gt; wrote:
+&gt;&gt;&gt;<i> Maybe I should rather subscribe to the x2go-developer list. Looking at
+</I>&gt;&gt;&gt;<i> <A HREF="http://www.x2go.org/doku.php/wiki:development:git">http://www.x2go.org/doku.php/wiki:development:git</A>
+</I>&gt;&gt;&gt;<i> tells me about &quot;Checkout all repos:&quot;. A bash-script? That looks like
+</I>&gt;&gt;&gt;<i> x2go should rather use &quot;git submodules&quot; no?
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> maybe I shouldn't do this before knowing x2go better, but since I was
+</I>&gt;<i> somehow shocked by this bash script...
+</I>&gt;<i>
+</I>&gt;<i> I've actually executed it and found out that I should delete the
+</I>&gt;<i> deprecated line *and* the line
+</I>&gt;<i>
+</I>&gt;<i> x2goagent.git \
+</I>&gt;<i>
+</I>&gt;<i> since also that gives a 'permission denied error'.
+</I>&gt;<i>
+</I>&gt;<i> Furthermore, when I look at <A HREF="http://code.x2go.org/gitweb,">http://code.x2go.org/gitweb,</A> I somehow get
+</I>&gt;<i> the impression that the list on the webpage is completely outdated.
+</I>&gt;<i>
+</I>&gt;<i> So, here my suggestion. Use git submodules and tell developers to clone
+</I>&gt;<i> the sources like
+</I>&gt;<i>
+</I>&gt;<i>   git clone <A HREF="git://code.x2go.org/x2org.git">git://code.x2go.org/x2org.git</A>
+</I>&gt;<i>   cd x2org
+</I>&gt;<i>   git submodule init
+</I>&gt;<i>   git submodule update
+</I>&gt;<i>
+</I>&gt;<i> Someone from the core developers should (of course create the initial
+</I>&gt;<i> x2org.git.
+</I>&gt;<i>
+</I>&gt;<i> For demonstration purposes you can start with
+</I>&gt;<i>
+</I>&gt;<i>   git clone <A HREF="git://github.com/hemmecke/x2go.git">git://github.com/hemmecke/x2go.git</A>
+</I>&gt;<i>
+</I>&gt;<i> but some core developer should actually produce a x2go.git like
+</I>&gt;<i>
+</I>&gt;<i>   mkdir x2go
+</I>&gt;<i>   cd x2go
+</I>&gt;<i>   git init
+</I>&gt;<i>   for r in buildscripts.git ,,, ; do \
+</I>&gt;<i>     git submodule add <A HREF="git://code.x2go.org/$r;">git://code.x2go.org/$r;</A> \
+</I>&gt;<i>   done
+</I>&gt;<i>   git commit
+</I>&gt;<i>
+</I>&gt;<i> with the correct list of (sub-)projects or simply clone my x2go.git and
+</I>&gt;<i> add the missing projects via
+</I>&gt;<i>
+</I>&gt;<i>   git submodule add <A HREF="git://code.x2go.org/libjpeg-turbo.git">git://code.x2go.org/libjpeg-turbo.git</A>
+</I>&gt;<i>
+</I>&gt;<i> and then publish that x2go.git repo somewhere.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> This probably doesn't give you the exactly same setup as you had before,
+</I>&gt;<i> since (as you can see from the <A HREF="git://,">git://,</A> everyone would only get read
+</I>&gt;<i> access to the repository.
+</I>&gt;<i>
+</I>&gt;<i> But hey, we are dealing with git, nobody actually needs write access to
+</I>&gt;<i> anybody elses repository. The X2GO project has just to declare some of
+</I>&gt;<i> the many repositories as the OFFICIAL one and one or two people would be
+</I>&gt;<i> responsible to push into this OFFICIAL repository. For collaboration
+</I>&gt;<i> there is github and all the other free git-repository hosting providers.
+</I>&gt;<i>
+</I>&gt;<i> But of course, that is all up to the inner core of developers who
+</I>&gt;<i> decide. I've just made my suggestion. Feel free to adapt to your actual
+</I>&gt;<i> needs. (Since I am too new, I don't yet know them.)
+</I>
+Implementing what you suggest is very likely to break our build
+infrastructure, which automatically builds nightly debian packages for
+debian and ubuntu. I'm not saying that it was impossible to do what
+you suggest, but we must ensure first that changing the repository
+organization does not cause regressions for our users.
+
+
+-- 
+regards,
+    Reinhard
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001104.html">[X2Go-User] x2go with git submodules
+</A></li>
+	<LI>Next message: <A HREF="001106.html">[X2Go-User] X2Go-Blog:  Co-operation between Canonical, X2Go, Edubuntu and Fleten.net in Denmark
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1105">[ date ]</a>
+              <a href="thread.html#1105">[ thread ]</a>
+              <a href="subject.html#1105">[ subject ]</a>
+              <a href="author.html#1105">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

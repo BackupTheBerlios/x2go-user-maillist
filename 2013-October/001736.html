@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Digest, Vol 38, Issue 25
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2038%2C%20Issue%2025&In-Reply-To=%3C52705220.7080809%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001731.html">
+   <LINK REL="Next"  HREF="001737.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Digest, Vol 38, Issue 25</H1>
+    <B>Ted Barnes</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2038%2C%20Issue%2025&In-Reply-To=%3C52705220.7080809%40gmail.com%3E"
+       TITLE="[X2Go-User] X2Go-User Digest, Vol 38, Issue 25">madogdevelopment at gmail.com
+       </A><BR>
+    <I>Wed Oct 30 01:26:08 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001731.html">[X2Go-User] Broker + User-side HTTP(S) proxy
+</A></li>
+        <LI>Next message: <A HREF="001737.html">[X2Go-User] session broker setup (was: Re:  X2Go-User Digest, Vol 38, Issue 25)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1736">[ date ]</a>
+              <a href="thread.html#1736">[ thread ]</a>
+              <a href="subject.html#1736">[ subject ]</a>
+              <a href="author.html#1736">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike:
+
+Thanks for the help...no joy yet, but some updates (in a separate email, 
+I'd like to circle back around on using SSL/SSH and the option of using 
+x2goplugin with SSL as an alternative short term):
+
+1)  I mis-wrote earlier - the server I'm using is Wheezy, and the client 
+Squeeze.  Not sure that matters, but wanted to convey as such.
+
+2)  FYI, can go to server's webpage and get generic apache &quot;It works! 
+This is the default web page for this server. The web server software is 
+running but no content has been added, yet.&quot;, so think apache is 
+running.  SSH is running as well on the server.
+
+3)  Again FYI have been trying x2gobroker-wsgi (not x2gobroker-daemon)
+
+4)  When I try:
+x2goclient --broker-url=<A HREF="http://xxx.xxx.xxx.xxx/plain/inifile">http://xxx.xxx.xxx.xxx/plain/inifile</A>
+
+I get an error window:
+Login Failed!  Please try again
+
+When I try:
+
+x2goclient --broker-url=&quot;<A HREF="ssh://xxx.xxx.xxx.xxx/usr/bin/x2gobroker">ssh://xxx.xxx.xxx.xxx/usr/bin/x2gobroker</A> 
+--backend=inifile&quot;
+
+I get:
+sh: 1: /usr/bin/x2gobroker: not found
+
+FYI:  on the server, there isn't an x2gobroker in /usr/bin....there is 
+an x2gobroker script in /usr/sbin.
+
+If I try:
+x2goclient --broker-url=&quot;<A HREF="ssh://xxx.xxx.xxx.xxx/usr/sbin/x2gobroker">ssh://xxx.xxx.xxx.xxx/usr/sbin/x2gobroker</A> 
+--backend=inifile&quot;
+
+I get an error window with a fair amount of info:
+2013-10-29 19:01:05,325 - broker - INFO - X2Go Session Broker (0.0.2.3), 
+written by Mike Gabriel (X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-10-29 19:01:05,325 - broker - INFO - Setting up the broker's 
+environment...
+2013-10-29 19:01:05,325 - broker - INFO -   X2GOBROKER_DEBUG: True
+2013-10-29 19:01:05,326 - broker - INFO -   X2GOBROKER_CONFIG: 
+/etc/x2go/x2gobroker.conf
+2013-10-29 19:01:05,326 - broker - INFO -   X2GOBROKER_AGENT_CMD: 
+/usr/lib/x2go/x2gobroker-agent
+2013-10-29 19:01:05,326 - broker - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: 
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-10-29 19:01:05,326 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND: 
+zeroconf
+2013-10-29 19:01:05,326 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+2013-10-29 19:01:05,326 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+2013-10-29 19:01:05,327 - broker - WARNING - X2Go Session Broker has 
+been started interactively by user ted, better run as user x2gobroker.
+2013-10-29 19:01:05,327 - broker - INFO - Automatically switching to 
+DEBUG mode due to interactive launch of this application.
+usage: x2gobroker [-h] [-C CONFIG_FILE] [-b BIND_ADDRESS] [-d]
+x2gobroker: error: unrecognized arguments: --backend=inifile --user ted 
+--task listsessions
+
+
+On 10/29/13 11:00, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A> wrote:
+&gt;<i> Send X2Go-User mailing list submissions to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of X2Go-User digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>     1. Re: x2go session broker connect problem (Mike Gabriel)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Tue, 29 Oct 2013 08:18:12 +0000
+</I>&gt;<i> From: Mike Gabriel&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> To:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2Go-User] x2go session broker connect problem
+</I>&gt;<i> Message-ID:
+</I>&gt;<i> 	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">20131029081812.Horde.okJoiab6YGTA8vs8g2sQGA2 at mail.das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 	
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;utf-8&quot;; Format=&quot;flowed&quot;;
+</I>&gt;<i> 	DelSp=&quot;Yes&quot;
+</I>&gt;<i>
+</I>&gt;<i> Hi Ted,
+</I>&gt;<i>
+</I>&gt;<i> On  Fr 25 Okt 2013 19:28:11 CEST, Ted Barnes wrote:
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> Am trying to get up to speed on x2go session broker, but am having
+</I>&gt;&gt;<i> trouble.  Any suggestions?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When try to connect I get:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Error
+</I>&gt;&gt;<i> Login failed!
+</I>&gt;&gt;<i> Please try again.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Along with...
+</I>&gt;&gt;<i> broker url:<A HREF="http://xxx.xxx.xxx.xxx/:8080/plain/inifilebroker">http://xxx.xxx.xxx.xxx/:8080/plain/inifilebroker</A>
+</I>&gt;&gt;<i> url:<A HREF="http://xxx.xxxx.xxx.xxx/:8080/plain/inifile">http://xxx.xxxx.xxx.xxx/:8080/plain/inifile</A>
+</I>&gt;&gt;<i>      
+</I>&gt;<i> For the X2Go Session Broker standalone daemon (python-tornado
+</I>&gt;<i> implementation) the X2Go Client cmdline is:
+</I>&gt;<i>
+</I>&gt;<i> x2goclient --broker-url=<A HREF="http://&lt;host">http://&lt;host</A>&gt;:8080/plain/inifile
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> or....
+</I>&gt;&gt;<i> broker url:<A HREF="http://user@xxx.xxx.xxx.xxx/cgi-bin/x2gobroker.cfgi">http://user@xxx.xxx.xxx.xxx/cgi-bin/x2gobroker.cfgi</A>
+</I>&gt;&gt;<i>      
+</I>&gt;<i> For the WSGI implementation of X2Go Session Broker, the URL varies.
+</I>&gt;<i> For our default setup [1], use this X2Go Client cmdline:
+</I>&gt;<i>
+</I>&gt;<i> x2goclient --broker-url=<A HREF="http://&lt;host">http://&lt;host</A>&gt;/x2gobroker/plain/inifile
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> [...]
+</I>&gt;&gt;<i>      
+</I>&gt;<i> If you use the SSH implementation of X2Go Session Broker (available
+</I>&gt;<i> with 0.0.3.0, currently as preview in the nightly builds):
+</I>&gt;<i>
+</I>&gt;<i> x2goclient --broker-url=&quot;<A HREF="ssh://&lt;host">ssh://&lt;host</A>&gt;/usr/bin/x2gobroker --backend=inifile&quot;
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> However, when I try from the command line with an &quot;x2goclient
+</I>&gt;&gt;<i> --broker-...&quot; type of command, I get the Error message.
+</I>&gt;&gt;<i>      
+</I>&gt;<i> This is not surprising me, as you have not used the correct URLs, so far.
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> x2gobroker-authservice (wasn't sure if I should install this for my
+</I>&gt;&gt;<i> initial tests)
+</I>&gt;&gt;<i>      
+</I>&gt;<i> Yes. The authentication system of the X2Go Session Broker uses PAM by
+</I>&gt;<i> default. PAM authentication requires root privileges. The X2Go Session
+</I>&gt;<i> Broker's Authentication Service runs with root privileges whereas the
+</I>&gt;<i> broker itself runs as user x2gobroker.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i> [1]
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=x2gobroker.git;a=blob;f=etc/x2gobroker-wsgi.apache.conf">http://code.x2go.org/gitweb?p=x2gobroker.git;a=blob;f=etc/x2gobroker-wsgi.apache.conf</A>
+</I>&gt;<i>    
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001731.html">[X2Go-User] Broker + User-side HTTP(S) proxy
+</A></li>
+	<LI>Next message: <A HREF="001737.html">[X2Go-User] session broker setup (was: Re:  X2Go-User Digest, Vol 38, Issue 25)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1736">[ date ]</a>
+              <a href="thread.html#1736">[ thread ]</a>
+              <a href="subject.html#1736">[ subject ]</a>
+              <a href="author.html#1736">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

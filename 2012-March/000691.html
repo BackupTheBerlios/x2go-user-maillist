@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3CCADZYHDASQo77NN5%3DsiGBF177FheDR4BvPon8yVXfy6sy7T%3Dx1w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000677.html">
+   <LINK REL="Next"  HREF="000678.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting</H1>
+    <B>Benjamin Shadwick</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3CCADZYHDASQo77NN5%3DsiGBF177FheDR4BvPon8yVXfy6sy7T%3Dx1w%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting">benshadwick at gmail.com
+       </A><BR>
+    <I>Fri Mar  9 05:56:04 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000677.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+        <LI>Next message: <A HREF="000678.html">[X2Go-User] Problem with X2GO session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#691">[ date ]</a>
+              <a href="thread.html#691">[ thread ]</a>
+              <a href="subject.html#691">[ subject ]</a>
+              <a href="author.html#691">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike,
+
+I just upgraded x2goserver and friends to the new versions in the Ubuntu
+x2go stable PPA, and I have verified that my problem has indeed been fixed
+by the broken links fix that you mentioned.
+
+Thanks,
+- Ben S.
+
+On Thu, Mar 1, 2012 at 10:41 PM, Benjamin Shadwick &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">benshadwick at gmail.com</A>&gt;wrote:
+
+&gt;<i> Thanks Mike. I'll try to remember to verify the fix (by removing my
+</I>&gt;<i> workaround) when it is pushed to the stable PPA.
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Mar 1, 2012 at 10:33 PM, Mike Gabriel &lt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Di 28 Feb 2012 06:29:21 CET Benjamin Shadwick wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  I'm using Xubuntu 11.10 and can no longer login after upgrading to a
+</I>&gt;&gt;&gt;<i> recent
+</I>&gt;&gt;&gt;<i> stable version of x2goserver. I tried changing my session to open a
+</I>&gt;&gt;&gt;<i> Terminal instead of starting an X session, then tried to start the X
+</I>&gt;&gt;&gt;<i> session from the Terminal prompt, and got the following error message:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> xscreensaver: error while loading shared libraries: libNX_Xext.so.6:
+</I>&gt;&gt;&gt;<i> cannot
+</I>&gt;&gt;&gt;<i> open shared object file: No such file or directory
+</I>&gt;&gt;&gt;<i> xfce4-session: error while loading shared libraries: libNX_Xext.so.6:
+</I>&gt;&gt;&gt;<i> cannot open shared object file: No such file or directory
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> My LD_LIBRARY_PATH was set to just /usr/lib/nx/X11/Xinerama but
+</I>&gt;&gt;&gt;<i> libNX_Xext.so.6 was in /usr/lib/nx/X11
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I added /usr/lib/nx/X11 to LD_LIBRARY_PATH, and that seemed to get things
+</I>&gt;&gt;&gt;<i> working again. Since I am already using a script to set some environment
+</I>&gt;&gt;&gt;<i> variables in order to get a Xubuntu desktop instead of a plain XFCE one,
+</I>&gt;&gt;&gt;<i> I
+</I>&gt;&gt;&gt;<i> just added the LD_LIBRARY_PATH fix to that for now.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i> just for the record, this has been fixed yesterday:
+</I>&gt;&gt;<i> <A HREF="http://article.gmane.org/**gmane.linux.terminal-server.**x2go.devel/3496&lt;http://article.gmane.org/gmane.linux.terminal-server.x2go.devel/3496">http://article.gmane.org/**gmane.linux.terminal-server.**x2go.devel/3496&lt;http://article.gmane.org/gmane.linux.terminal-server.x2go.devel/3496</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Greets,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Mike
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> freeBusy:
+</I>&gt;&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> X2Go-User mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/0229e9b4/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/0229e9b4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000677.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+	<LI>Next message: <A HREF="000678.html">[X2Go-User] Problem with X2GO session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#691">[ date ]</a>
+              <a href="thread.html#691">[ thread ]</a>
+              <a href="subject.html#691">[ subject ]</a>
+              <a href="author.html#691">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

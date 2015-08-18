@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C52778F66.4040602%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001754.html">
+   <LINK REL="Next"  HREF="001760.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26</H1>
+    <B>Ted Barnes</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C52778F66.4040602%40gmail.com%3E"
+       TITLE="[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26">madogdevelopment at gmail.com
+       </A><BR>
+    <I>Mon Nov  4 13:13:26 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001754.html">[X2Go-User] AssertionError in x2gobroker-wsgi
+</A></li>
+        <LI>Next message: <A HREF="001760.html">[X2Go-User] PostgreSQL backend and broker issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1755">[ date ]</a>
+              <a href="thread.html#1755">[ thread ]</a>
+              <a href="subject.html#1755">[ subject ]</a>
+              <a href="author.html#1755">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike:
+
+How are you?  I think I may have misposted my last response - apologies 
+if this ends up being a double post...
+
+X2Go-User Non-Digest, Vol 38, Issue 26
+
+Hi Mike:
+
+Thanks again for the help...think we're making progress.  Same results 
+though.... think it's still an authorization issue.
+
+I made path changes (var/run/x2gobroker/x2gobroker-authservice.socket) 
+in both &quot;x2gobroker-wsgi.apache.conf&quot; and /etc/default/python-x2gobroker 
+(as well as some other tweaks in python-x2gobroker).
+
+Looking in &quot;broker.log&quot; it has a line:
+2013-11-02 11:58:00,671 - broker - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+
+...which seems to suggest it is still looking for &quot; 
+/run/x2gobroker/x2gobroker-authservice.socket&quot; instead of 
+&quot;var/run/x2gobroker/x2gobroker-authservice.socket&quot;.  FYI - there is no 
+&quot;/run&quot; on my Squeeze server.
+
+Q: Am I missing a config statement or is this hard coded somewhere?
+
+Have again attached logs and configs.....
+
+****x2go Logs****
+*authservice.log*
+2013-11-02 11:50:59,620 - authservice - INFO - X2Go Session Broker 
+(0.0.3.0), written by Mike Gabriel (X2Go Project) 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-11-02 11:50:59,621 - authservice - INFO - Setting up the PAM 
+authentication service's environment...
+2013-11-02 11:50:59,621 - authservice - INFO -   X2GOBROKER_DEBUG: True
+2013-11-02 11:50:59,621 - authservice - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: 
+/var/run/x2gobroker/x2gobroker-authservice.socket
+-----------------------------------
+*broker.log*
+2013-11-02 11:58:00,670 - broker - INFO - X2Go Session Broker (0.0.3.0),
+2013-11-02 11:58:00,671 - broker - INFO -   written by Mike Gabriel 
+(X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-11-02 11:58:00,671 - broker - INFO - Setting up the broker's 
+environment...
+2013-11-02 11:58:00,671 - broker - INFO -   X2GOBROKER_DEBUG: False
+2013-11-02 11:58:00,671 - broker - INFO -   X2GOBROKER_CONFIG: 
+/etc/x2go/x2gobroker.conf
+2013-11-02 11:58:00,671 - broker - INFO -   X2GOBROKER_AGENT_CMD: 
+/usr/lib/x2go/x2gobroker-agent
+2013-11-02 11:58:00,671 - broker - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+2013-11-02 11:58:00,671 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND: 
+zeroconf
+2013-11-02 11:58:00,672 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+2013-11-02 11:58:00,672 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+2013-11-02 11:58:01,328 - broker - INFO - client address is xxx.xxx.xxx.xxx
+2013-11-02 11:58:01,329 - broker - DEBUG - username: user, password: 
+XXXXX, task: listsessions, profile_id: , cookie:
+2013-11-02 11:58:01,329 - broker - DEBUG - 
+base_broker.X2GoBroker.get_authentication_mechanism(): found 
+default-auth-mech in global config section: pam
+2013-11-02 11:58:01,582 - broker - DEBUG - 
+base_broker.X2GoBroker._do_authenticate(): authenticating user=user with 
+password=&lt;hidden&gt; against backend=inifile.
+2013-11-02 11:58:01,583 - broker - DEBUG - connecting to authentication 
+service socket /run/x2gobroker/x2gobroker-authservice.socket
+2013-11-02 11:58:03,670 - broker - DEBUG - 
+base_broker.X2GoBroker.check_access(): result of authentication check 
+is: False
+-----------------------------------
+*error.log*
+2013-11-02 11:58:01,583 - error - ERROR - Authentication against 
+authentication service failed, trying direct PAM authentication (which 
+is likely to fail on most PAM setups).
+2013-11-02 11:58:03,671 - error - ERROR - HTTP request error: HTTP 401: 
+Unauthorized
+-----------------------------------
+*wsgi.log*
+wsgilog.log: Sat, 02 Nov 2013 11:58:03 ERROR Server got itself in trouble
+Traceback (most recent call last):
+   File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 
+179, in __call__
+     return self.application(environ, start_response)
+   File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+     return _tornado_application(environ, start_response)
+   File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in 
+__call__
+     assert handler._finished
+AssertionError
+-----------------------------------
+-----------------------------------
+CONFIGS
+*x2gobroker.conf*
+
+###
+### GLOBAL section
+###
+
+[global]
+#enable-uccs-output = true
+#my-uccs-url-base = <A HREF="http://localhost:8080/">http://localhost:8080/</A>
+default-auth-mech = pam
+default-user-db = libnss
+default-group-db = libnss
+
+
+###
+### BACKEND section
+###
+
+
+[zeroconf]
+#enable = true
+#auth-mech = pam
+#user-db = libnss
+#group-db = libnss
+#desktop-shell = GNOME
+
+[inifile]
+enable = true
+session-profiles = /etc/x2go/broker/x2gobroker-sessionprofiles.conf
+
+-----------------------------------
+*x2gobroker-wsgi.apache.conf*
+SetEnv X2GOBROKER_DEBUG on
+
+WSGIDaemonProcess x2gobroker user=x2gobroker group=x2gobroker 
+processes=5 threads=15
+WSGIPassAuthorization On
+
+SetEnv X2GOBROKER_DEFAULT_BACKEND inifile
+
+SetEnv X2GOBROKER_CONFIG /etc/x2go/x2gobroker.conf
+
+SetEnv X2GOBROKER_SESSIONPROFILES 
+/etc/x2go/broker/x2gobroker-sessionprofiles.conf
+
+SetEnv X2GOBROKER_AUTHSOCKET 
+/var/run/x2gobroker/x2gobroker-authservice.socket
+
+
+WSGIScriptAlias /x2gobroker /usr/bin/x2gobroker
+WSGIProcessGroup x2gobroker
+
+&lt;Directory /usr/bin/x2gobroker&gt;
+     Order deny,allow
+     Deny from all
+
+     # grant explicit access below
+     Allow from localhost
+     Allow from localhost-ip6
+
+     Options +FollowSymLinks
+     Options -Indexes
+&lt;/Directory&gt;
+-----------------------------------
+*x2gobroker-sessionprofiles.conf*
+
+
+[DEFAULT]
+command=TERMINAL
+defsndport=true
+useiconv=false
+iconvfrom=UTF-8
+height=600
+export=
+quality=9
+fullscreen=false
+layout=
+useexports=true
+width=800
+speed=2
+soundsystem=pulse
+print=true
+type=auto
+sndport=4713
+xinerama=true
+variant=
+usekbd=true
+fstunnel=true
+applications=TERMINAL,WWWBROWSER,MAILCLIENT,OFFICE
+multidisp=false
+sshproxyport=22
+sound=true
+rootless=false
+iconvto=UTF-8
+soundtunnel=true
+dpi=96
+sshport=22
+setdpi=0
+pack=16m-jpeg
+directrdp=false
+
+[GNOME]
+user=
+host=xxx.xxx.xxx.xxx
+name=GNOME
+command=GNOME
+rootless=false
+acl-groups-allow=gnome-users,admins,user
+acl-groups-deny=ALL
+acl-clients-deny=ALL
+#acl-clients-allow=10.1.0.0/16
+acl-clients-allow=xxx.xxx.xxx.xxx/24
+acl-any-order=deny-allow
+broker-session-autologin=true
+sshport=22
+
+*/etc/default/python-x2gobroker*
+# X2Go Broker Session Broker (common) configuration for Debian
+
+# The posix user/group ID the broker runs under (do not change!)
+# if you change those nonetheless, make sure that the log file
+# directory (default: /var/log/x2gobroker) and files in there are
+# writable by that user
+#X2GOBROKER_DAEMON_USER=x2gobroker
+#X2GOBROKER_DAEMON_GROUP=x2gobroker
+
+# The posix user under which the x2gobroker-agent can be launched on
+# remote X2Go Servers.
+X2GOBROKER_AGENT_USER=x2gobroker
+
+# Control debug mode (0=disable, 1=enable).
+#
+# Apart from verbose logging in /var/log/x2gobroker/*.log, this will
+# also make the broker available through http GET method requests
+# (otherwise: POST method requests only) and you will be able to test
+# the broker through your web browser
+#
+# This value has an effect on all (Python-based) X2Go Session Broker
+# services and can be overridden in /etc/default/x2gobroker-* files.
+X2GOBROKER_DEBUG=1
+
+# Default X2Go Session Broker backend (available: zeroconf, inifile)
+X2GOBROKER_DEFAULT_BACKEND=inifile
+
+# Path to the X2Go Session Broker's configuration file
+X2GOBROKER_CONFIG=/etc/x2go/x2gobroker.conf
+
+# Path to the X2Go Session Broker's session profiles file (when using 
+the inifile backend)
+X2GOBROKER_SESSIONPROFILES=/etc/x2go/broker/x2gobroker-sessionprofiles.conf
+
+# Path to the X2Go Session Broker's agent command
+#X2GOBROKER_AGENT_CMD=/usr/lib/x2go/x2gobroker-agent
+
+# The unix socket file for communication between the broker and the 
+authentication service.
+X2GOBROKER_AUTHSERVICE_SOCKET=/var/run/x2gobroker/x2gobroker-authservice.socket
+-----------------------------------
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001754.html">[X2Go-User] AssertionError in x2gobroker-wsgi
+</A></li>
+	<LI>Next message: <A HREF="001760.html">[X2Go-User] PostgreSQL backend and broker issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1755">[ date ]</a>
+              <a href="thread.html#1755">[ thread ]</a>
+              <a href="subject.html#1755">[ subject ]</a>
+              <a href="author.html#1755">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

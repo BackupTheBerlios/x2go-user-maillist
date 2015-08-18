@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2go-server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C20110926131356.11644zd16w2lk778%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000396.html">
+   <LINK REL="Next"  HREF="000398.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2go-server</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C20110926131356.11644zd16w2lk778%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] x2go-server">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Sep 26 13:13:56 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000396.html">[X2go-User] x2go-server
+</A></li>
+        <LI>Next message: <A HREF="000398.html">[X2go-User] x2go-server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#397">[ date ]</a>
+              <a href="thread.html#397">[ thread ]</a>
+              <a href="subject.html#397">[ subject ]</a>
+              <a href="author.html#397">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+On Mo 26 Sep 2011 11:45:42 CEST &quot;John A. Sullivan III&quot; wrote:
+
+&gt;<i> On Sun, 2011-09-25 at 21:58 +0200, Thomas Ritter wrote:
+</I>&gt;&gt;<i> Hi,
+</I>
+&gt;&gt;<i> 1) The RAM fills with old x2go-sessions. They are not killed by any
+</I>&gt;&gt;<i> service anytime. The used RAM grows up and the server-performance
+</I>&gt;&gt;<i> decrease.
+</I>
+When testing I have also observed such situations: x2goagents  
+remaining running while the X2go session is marked as finished in the  
+X2go database.
+
+&gt;&gt;<i>    I &quot;solved&quot; the problem by killing all x2goagents-prozesses with
+</I>&gt;&gt;<i> cron twice a day.
+</I>
+It's at most a workaround... not a solution... We'll have to check  
+that X2go upstream-wise.
+
+&gt;&gt;<i> 2) The home-directories of my users fill with log-files like
+</I>&gt;&gt;<i> these : /home/pcag01/.x2go/S-es01-119-1313081349_stDKDE_dp24 and they
+</I>&gt;&gt;<i> are not deleted.
+</I>
+Over the last weekend I have added code that will (at least) remove  
+these session directories in case the session has finished  
+successfully (session meaning here: if the executed command of the  
+session returns with a clean exitcode).
+
+&gt;&gt;<i> 3) My logfiles in /var/log like message or syslog grow up to a few
+</I>&gt;&gt;<i> hundred MB for example with entries like these:
+</I>&gt;&gt;<i> Sep 22 06:30:24 ltspserver01 ltspserver01 console-kit-daemon[24530]:
+</I>&gt;&gt;<i> WARNING: Record was not written to disk (File too large)
+</I>&gt;&gt;<i> Sep 22 06:30:55 ltspserver01 last message repeated 606 times
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Is there anyone who understands what my server makes?
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> I can confirm the problem but I've never taken the time to investigate
+</I>&gt;<i> why X2Go does that and how to address it - John
+</I>
+The problem under 3)... ist that X2go specific? John, have you seen  
+that one, too? Under what conditions???
+
+Greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110926/b8f7629c/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110926/b8f7629c/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000396.html">[X2go-User] x2go-server
+</A></li>
+	<LI>Next message: <A HREF="000398.html">[X2go-User] x2go-server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#397">[ date ]</a>
+              <a href="thread.html#397">[ thread ]</a>
+              <a href="subject.html#397">[ subject ]</a>
+              <a href="author.html#397">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

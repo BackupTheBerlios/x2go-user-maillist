@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] No protocol specified
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20No%20protocol%20specified&In-Reply-To=%3C510A402B.6090904%40tbz-pariv.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001273.html">
+   <LINK REL="Next"  HREF="001275.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] No protocol specified</H1>
+    <B>Thomas Guettler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20No%20protocol%20specified&In-Reply-To=%3C510A402B.6090904%40tbz-pariv.de%3E"
+       TITLE="[X2Go-User] No protocol specified">hv at tbz-pariv.de
+       </A><BR>
+    <I>Thu Jan 31 10:58:03 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001273.html">[X2Go-User] OT: Starting a session from the server
+</A></li>
+        <LI>Next message: <A HREF="001275.html">[X2Go-User] x2goclient 4.0.1.0 for windows is available
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1274">[ date ]</a>
+              <a href="thread.html#1274">[ thread ]</a>
+              <a href="subject.html#1274">[ subject ]</a>
+              <a href="author.html#1274">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+evince (pdf viewer) does not work on my Ubuntu 12.04
+
+===&gt; evince /tmp/foo.pdf
+No protocol specified
+No protocol specified
+Cannot parse arguments: Cannot open display:
+
+
+but everything else works (thunderbird, firefox, emacs, gnome-terminal, xeyes, ...)
+
+===&gt; echo $DISPLAY
+:<i>50
+</I>
+Here are version informations. Please let me know, if you need more info.
+
+--------------- Terminalserver
+===&gt; lsb_release -a
+No LSB modules are available.
+Distributor ID:	Ubuntu
+Description:	Ubuntu 12.04.1 LTS
+Release:	12.04
+Codename:	precise
+(GNU/Linux 3.2.0-34-generic x86_64)
+
+===&gt; dpkg -s x2goserver  | grep Ver
+Version: 4.1.0.0-0~699~precise1
+
+evince 3.4.0-0ubuntu1
+
+------------------ thinclient
+
+client: opensuse with x2goclient-4.0.0.1-2.1.i586
+
+thinclient:~ # lsb_release -a
+LSB Version:	n/a
+Distributor ID:	SUSE LINUX
+Description:	openSUSE 12.1 (i586)
+Release:	12.1
+Codename:	Asparagus
+
+rpm -qf /usr/bin/x2goclient
+x2goclient-4.0.0.1-2.1.i586
+
+------------------------ strace
+<A HREF="http://pastebin.com/q5Yff09s">http://pastebin.com/q5Yff09s</A>
+
+-- 
+Thomas Guettler, <A HREF="http://www.thomas-guettler.de/">http://www.thomas-guettler.de/</A>
+E-Mail: guettli (*) thomas-guettler + de
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001273.html">[X2Go-User] OT: Starting a session from the server
+</A></li>
+	<LI>Next message: <A HREF="001275.html">[X2Go-User] x2goclient 4.0.1.0 for windows is available
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1274">[ date ]</a>
+              <a href="thread.html#1274">[ thread ]</a>
+              <a href="subject.html#1274">[ subject ]</a>
+              <a href="author.html#1274">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [newb] display size ignored
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5Bnewb%5D%20display%20size%20ignored&In-Reply-To=%3Cl9c7sj%24sgn%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001876.html">
+   <LINK REL="Next"  HREF="001883.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [newb] display size ignored</H1>
+    <B>Neal Becker</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5Bnewb%5D%20display%20size%20ignored&In-Reply-To=%3Cl9c7sj%24sgn%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] [newb] display size ignored">ndbecker2 at gmail.com
+       </A><BR>
+    <I>Tue Dec 24 16:06:06 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001876.html">[X2Go-User] [newb] display size ignored
+</A></li>
+        <LI>Next message: <A HREF="001883.html">[X2Go-User] [newb] display size ignored
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1878">[ date ]</a>
+              <a href="thread.html#1878">[ thread ]</a>
+              <a href="subject.html#1878">[ subject ]</a>
+              <a href="author.html#1878">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Neal Becker wrote:
+
+&gt;<i> Just trying x2go on fedora 20.
+</I>&gt;<i> 
+</I>&gt;<i> Starting a kde session, the display size is ignored.  It takes the entire
+</I>&gt;<i> display.  xdpyinfo reports:
+</I>&gt;<i> screen #0:
+</I>&gt;<i>   dimensions:    1920x1200 pixels (423x264 millimeters)
+</I>&gt;<i>   resolution:    115x115 dots per inch
+</I>&gt;<i> 
+</I>&gt;<i> The physical screen is (local X):
+</I>&gt;<i> screen #0:
+</I>&gt;<i>   dimensions:    1680x1050 pixels (371x232 millimeters)
+</I>&gt;<i>   resolution:    115x115 dots per inch
+</I>
+Found my answer (note: the x2go FAQ says to remove kscreen.  This is a non-
+starter (would remove many other dependent packages).  Here's the correct 
+answer:
+
+Daniel Vr&#225;til 2013-04-29 15:06:20 UTC
+Hi,
+
+unfortunately, I don't think there is a easy way to solve this. 
+
+In general, this is not a bug. Using two applications that handle display 
+resolution is not supported, as it can lead to many unexpectable situations and 
+race conditions.
+
+In your case I would suggest you disable KScreen KDED module (System Settings -&gt; 
+Startup and Shutdown -&gt; Service Manager, uncheck &quot;KScreen 2&quot;), since x2go 
+handles resolution switches for you and only use the KScreen KCM to manually 
+change output settings (rotation, enabling/disabling outputs etc).
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001876.html">[X2Go-User] [newb] display size ignored
+</A></li>
+	<LI>Next message: <A HREF="001883.html">[X2Go-User] [newb] display size ignored
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1878">[ date ]</a>
+              <a href="thread.html#1878">[ thread ]</a>
+              <a href="subject.html#1878">[ subject ]</a>
+              <a href="author.html#1878">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

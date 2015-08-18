@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20on%20CentOS%206.2%20with%20PyHoca%20as%20Client&In-Reply-To=%3C4FDF77F0.3060805%40laukamp.me%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000877.html">
+   <LINK REL="Next"  HREF="000879.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client</H1>
+    <B>Lukas Laukamp</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20on%20CentOS%206.2%20with%20PyHoca%20as%20Client&In-Reply-To=%3C4FDF77F0.3060805%40laukamp.me%3E"
+       TITLE="[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client">lukas at laukamp.me
+       </A><BR>
+    <I>Mon Jun 18 20:48:16 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000877.html">[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client
+</A></li>
+        <LI>Next message: <A HREF="000879.html">[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#878">[ date ]</a>
+              <a href="thread.html#878">[ thread ]</a>
+              <a href="subject.html#878">[ subject ]</a>
+              <a href="author.html#878">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 18.06.2012 18:34, schrieb John A. Sullivan III:
+&gt;<i> On Sat, 2012-06-16 at 13:54 +0200, Lukas Laukamp wrote:
+</I>&gt;&gt;<i> Hey all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I want to use X2Go at CentOS 6.2. So I installed a KVM virtual maschine
+</I>&gt;&gt;<i> with a CentOS 6.2 minimal system. I installed GNOME and X11 with a yum
+</I>&gt;&gt;<i> groupinstall command like follows:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> yum groupinstall &quot;Desktop&quot; &quot;Desktop Platform&quot; &quot;X Window System&quot; &quot;Fonts&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Than I added the RHEL6 X2Go Rep which is listed at the X2Go Page
+</I>&gt;&gt;<i> (<A HREF="http://www.x2go.org/doku.php/external:linux-distributions">http://www.x2go.org/doku.php/external:linux-distributions</A>).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Than I installed x2goserver, python-x2go and x2gognomebindings like
+</I>&gt;&gt;<i> follows:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> yum install x2goserver python-x2go x2gognomebindings
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After this I added a profil in PyHoca, to connect to the server and
+</I>&gt;&gt;<i> tried to start a GNOME session. PyHoca says that it starts the session
+</I>&gt;&gt;<i> and immediatly after the startup it says that the session is shut down.
+</I>&gt;&gt;<i> So PyHoca doesn't get to the point that it start a session window or
+</I>&gt;&gt;<i> something like that it directly shut down the session.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The only thing I found on a logfile (/var/log/messages) is that the
+</I>&gt;&gt;<i> session got start correctly. Here is the log entry:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Jun 15 20:45:45 testdom0 /usr/bin/x2gostartagent: successfully started
+</I>&gt;&gt;<i> X2Go agent session with ID lukas-51-1339785943_stDGNOME_dp17
+</I>&gt;&gt;<i> Jun 15 20:45:49 testdom0 /usr/bin/x2goruncommand: launching session with
+</I>&gt;&gt;<i> Xsession-x2go mechanism, using STARTUP=&quot;gnome-session&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> There is no more information in the logfiles, no errors, no warnings or
+</I>&gt;&gt;<i> something like that.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Does someone have a working x2goserver on CentOS and can explain what to
+</I>&gt;&gt;<i> do to get it running with PyHoca as client? Or can someone give me
+</I>&gt;&gt;<i> information where the error could be located?
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> I do not know if this is still an issue with the newer versions but, in
+</I>&gt;<i> older versions of X2Go Server on some distributions, one needed to have
+</I>&gt;<i> started X before hand.  We never fully resolved the issue but it wasn't
+</I>&gt;<i> that X had to be running.  It was that starting X started some process
+</I>&gt;<i> which X2Go needed but could not start as a non-privileged user.  If you
+</I>&gt;<i> start X from the console, even if it fails, does that now enable you to
+</I>&gt;<i> connect using X2Go Client? - John
+</I>&gt;<i>
+</I>
+Hello John,
+
+I have set the system from runlevel 3 to 5 so that X is running and then 
+I can connect to the x2goserver and the session starts. So it seems that 
+it was the problem which you have explained that the x2goserver can't 
+start the X session correctly and so the session directly get closed.
+
+I want to thank you for the help and only can say to all developers, 
+supports and contributers do further such a good work. The support for 
+different distributions seems to grow now and I only can say that X2Go 
+is the most useful tool which I use everyday.
+
+Best Regards
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000877.html">[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client
+</A></li>
+	<LI>Next message: <A HREF="000879.html">[X2Go-User] X2Go on CentOS 6.2 with PyHoca as Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#878">[ date ]</a>
+              <a href="thread.html#878">[ thread ]</a>
+              <a href="subject.html#878">[ subject ]</a>
+              <a href="author.html#878">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

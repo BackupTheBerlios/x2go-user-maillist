@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C20131123223532.Horde.sYdV6qdHfr1dx51XvLcRRw1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001799.html">
+   <LINK REL="Next"  HREF="001801.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C20131123223532.Horde.sYdV6qdHfr1dx51XvLcRRw1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Latency Issues">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Nov 23 23:35:32 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001799.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001801.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1800">[ date ]</a>
+              <a href="thread.html#1800">[ thread ]</a>
+              <a href="subject.html#1800">[ subject ]</a>
+              <a href="author.html#1800">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Nirav,
+
+On  Sa 23 Nov 2013 22:47:23 CET, Nirav Shah wrote:
+
+&gt;<i> Thanks Steve and Mike for the guidance you have provided. I really
+</I>&gt;<i> appreciate your help.
+</I>&gt;<i>
+</I>&gt;<i> My servers are available in California and the developers are working in
+</I>&gt;<i> Europe and in India. So the ping time varies from 150 ms to 400 ms. I have
+</I>&gt;<i> selected ADSL with 16m-jpeg connection. The developers are accessing Linux
+</I>&gt;<i> environment with GNome. They use some Java 2D graphics for the development.
+</I>&gt;<i> Their normal bandwidth (tested using Speedtest.net) is around 3-5 MBPS.
+</I>&gt;<i>
+</I>&gt;<i> The replies from Mike and Steve, I understood that  for this kind of high
+</I>&gt;<i> latency I should use &quot;WAN&quot; connection speed with compression method - &quot;No
+</I>&gt;<i> Pack&quot;. Is this my understanding correct?
+</I>
+I am really not an expert on this, but you could try that (maybe not  
+,,No Pack''). On IRC there is a guy called &quot;TheUser&quot;. Ask him about  
+that question once he appears again. He had another WAN based  
+recommendation that I forgot again.
+
+Using speed = LAN is identical to normal X11 over SSH.
+
+&gt;<i>  I have already set Image quality to 1 and disabled audio/print/shared
+</I>&gt;<i> folder support.
+</I>&gt;<i>
+</I>&gt;<i> I have also used libjpeg-turbo library on the server side (Linux OS).
+</I>
+You should have libjpeg-turbo on the client, as well. But for this you  
+need an nxproxy that uses the compat libs from libjpeg-turbo. If you  
+build statically, then you need to build against libjpeg-turbo directly.
+
+&gt;<i> Will this kind of setup work? If I upgrade hardware on my server/client,
+</I>&gt;<i> will it make any difference? Can X2go handle this kind of latency issues
+</I>&gt;<i> with some settings? Is there any minimum bandwidth required with this
+</I>&gt;<i> latency?
+</I>
+All good questions that I do not have an experienced answer for. I  
+only know that several other people have struggled with this.
+
+Mike
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/83e4073b/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/83e4073b/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001799.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001801.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1800">[ date ]</a>
+              <a href="thread.html#1800">[ thread ]</a>
+              <a href="subject.html#1800">[ subject ]</a>
+              <a href="author.html#1800">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

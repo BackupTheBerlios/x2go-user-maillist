@@ -1,0 +1,195 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C52920E8A.3060605%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001810.html">
+   <LINK REL="Next"  HREF="001814.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>bmullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C52920E8A.3060605%40gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 15:34:50 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001810.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001814.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1812">[ date ]</a>
+              <a href="thread.html#1812">[ thread ]</a>
+              <a href="subject.html#1812">[ subject ]</a>
+              <a href="author.html#1812">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Nivav
+
+If you are on a Wireless network that is only used by yourself try both 
+settings and see which performs better.
+
+The reason I mentioned the local WiFi setup consideration is that some 
+folks forget that WiFi being shared by alot of users impacts 
+jitter/latency.   Some of this could be addressed by utilizing multiple 
+access-points or WiFi routers and then connect those multiple wifi 
+devices into a small ethernet hub or switch ... which then connects to 
+your WAN connection for internet access.
+
+With multiple wifi devices tho you do need to think about what wifi 
+frequency spectrum each is using as you wouldn't want both using the 
+same spectrum even if they are configured as different wifi networks for 
+your users.
+
+Brian
+
+
+
+On 11/24/2013 09:24 AM, Nirav Shah wrote:
+&gt;<i> Hi Brian,
+</I>&gt;<i>
+</I>&gt;<i> Thanks a lot for your tips to improve the performance. So now, I am 
+</I>&gt;<i> going to try:
+</I>&gt;<i>
+</I>&gt;<i> 1) If download link is good then I will try &quot;LAN&quot; settings
+</I>&gt;<i> 2) When it is in wireless network , I will try &quot;WAN&quot; settings.
+</I>&gt;<i>
+</I>&gt;<i> Yesterday, I tried different settings using LAN, WAN, ADSL with 
+</I>&gt;<i> simulated latency but I was not able to identify the difference 
+</I>&gt;<i> between different settings. I might need to run some youtube video to 
+</I>&gt;<i> see the difference.
+</I>&gt;<i>
+</I>&gt;<i> Thanks again for your help.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Sun, Nov 24, 2013 at 8:36 AM, bmullan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at gmail.com</A> 
+</I>&gt;<i> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at gmail.com</A>&gt;&gt; wrote:
+</I>&gt;<i>
+</I>&gt;<i>     I should have added a little more info related to this.
+</I>&gt;<i>
+</I>&gt;<i>     I use Amazon's EC2 cloud quite a bit with x2go.
+</I>&gt;<i>
+</I>&gt;<i>     My AWS EC2 server runs ubuntu 13.10 x64 and I have the x2goserver
+</I>&gt;<i>     installed on it with the xubuntu-desktop (re xfce desktop).
+</I>&gt;<i>
+</I>&gt;<i>     However, on that server I think installing xubuntu-desktop must
+</I>&gt;<i>     have auto-magically installed &quot;libjpeg-turbo-progs&quot; because I did
+</I>&gt;<i>     not have to install it manually.
+</I>&gt;<i>
+</I>&gt;<i>     My home PC has an 18Mbps downlink from the internet and a 3 Mbps
+</I>&gt;<i>     uplink (I use ATT uVerse).
+</I>&gt;<i>
+</I>&gt;<i>     Now regards the X2GO client CONNECTION SETTINGS.
+</I>&gt;<i>
+</I>&gt;<i>     Setting the Client to WAN
+</I>&gt;<i>
+</I>&gt;<i>       * logging into the AWS x2goserver's XFCE and then running
+</I>&gt;<i>         firefox I goto youtube and play a music video.
+</I>&gt;<i>       * video is a bit choppy (I know that's subjective &lt;g&gt;).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     Setting the Client to LAN (no compression)
+</I>&gt;<i>
+</I>&gt;<i>       * logging into the AWS x2goserver's XFCE and then running
+</I>&gt;<i>         firefox I goto youtube and play a music video.
+</I>&gt;<i>       * video is almost perfect - re less choppiness than with Client
+</I>&gt;<i>         set to WAN.
+</I>&gt;<i>
+</I>&gt;<i>     So at least in my experience whether you set the Client to WAN or
+</I>&gt;<i>     LAN &quot;may&quot; depend on your downlink speed from the remote x2goserver.
+</I>&gt;<i>     If you have a fast enough WAN connection at your client you may
+</I>&gt;<i>     find doing no compression at all (re LAN) provides a better
+</I>&gt;<i>     experience.
+</I>&gt;<i>
+</I>&gt;<i>     Lastly, don't forget to consider what your &quot;local&quot; lan consists
+</I>&gt;<i>     of.    If your Client PC is on a Wireless network and sharing that
+</I>&gt;<i>     Wireless network with
+</I>&gt;<i>     multiple other Wireless network users you may find that your
+</I>&gt;<i>     wireless network is having a bigger impact on QoS of the video in
+</I>&gt;<i>     the remote desktop
+</I>&gt;<i>     than the remote server, local PC or the WAN.
+</I>&gt;<i>
+</I>&gt;<i>     my .02
+</I>&gt;<i>     Brian Mullan
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>     On 11/24/2013 07:51 AM, bmullan wrote:
+</I>&gt;&gt;<i>     Mike, Shah et al
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     I've used libturbo-jpeg for a couple years with x2go after I
+</I>&gt;&gt;<i>     first learned about it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     You might check your Distro...  but at least for Ubuntu I believe
+</I>&gt;&gt;<i>     libturbo-jpeg is the default installed by Ubuntu now.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     */NOTE:   in the following - I _did have to_ install
+</I>&gt;&gt;<i>     &quot;libjpeg-turbo-progs&quot; separately /*
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     On my Ubuntu 13.10 x64 system if I run Synaptic and search for
+</I>&gt;&gt;<i>     &quot;libturbo&quot; I find:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>         */Independent JPEG Group's JPEG runtime library (dependency
+</I>&gt;&gt;<i>         package) /*
+</I>&gt;&gt;<i>         *//*
+</I>&gt;&gt;<i>         */libjpeg8 dependency package, depending on libjpeg-turbo8./*
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     You might do the same on your Distro to find out what libjpeg is
+</I>&gt;&gt;<i>     being used today.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     Brian
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -- 
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i> Nirav Shah
+</I>&gt;<i> (C) (412) 296-9491
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/05a1f33f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/05a1f33f/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001810.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001814.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1812">[ date ]</a>
+              <a href="thread.html#1812">[ thread ]</a>
+              <a href="subject.html#1812">[ subject ]</a>
+              <a href="author.html#1812">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

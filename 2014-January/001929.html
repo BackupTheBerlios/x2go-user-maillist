@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3C52CB12BA.5020605%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001934.html">
+   <LINK REL="Next"  HREF="001930.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3C52CB12BA.5020605%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Mon Jan  6 21:31:54 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001934.html">[X2Go-User] @Mike#1 Re: x2go &amp; firefox, overload + lockups
+</A></li>
+        <LI>Next message: <A HREF="001930.html">[X2Go-User] Pulseaudio muffles sounds from other applications in	Windows 7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1929">[ date ]</a>
+              <a href="thread.html#1929">[ thread ]</a>
+              <a href="subject.html#1929">[ subject ]</a>
+              <a href="author.html#1929">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 26.12.2013 14:59, schrieb Luciano Gabriel Andino:
+
+&gt;<i> hello! thanks for your answer. I will try to explain what I try to do
+</I>&gt;<i> and maybe you can recommend the best option.
+</I>&gt;<i> Actually, I'm using thinstation's image for booting diskless station to
+</I>&gt;<i> access a Linux server using XDMCP.
+</I>
+This seems a bit strange to me - why the extra hassle of using 
+thinstation when X2Go has a ThinClientEdition of its own?
+I'm not saing thinstation is a bad product, in fact, I toyed around with 
+it a few years ago too. It just doesn't seem to make sense when you want 
+to connect via X2Go, when X2Go natively supports XDMCP as a session 
+type, and has a ThinClientEdition. Then again, I've never used XDMCP, so 
+maybe this is where the misunderstanding and confusion starts.
+
+
+&gt;<i> My LAN has about 25 MSI wind nettop clients, no HD but can boot using
+</I>&gt;<i> PXE. I am just trying testing x2go to see if there is an important
+</I>&gt;<i> improvement in terms of graphical response at client side.
+</I>&gt;<i> At the same time, I'm interesting to access my KDE session from outside
+</I>&gt;<i> (Internet) with a normal computer. The problem is I don't know which can
+</I>&gt;<i> be the best option for diskless computers in LAN, thinking that
+</I>&gt;<i> sometimes any user
+</I>&gt;<i> needs to access his account from a different station.
+</I>&gt;<i> Options I understood you told, are:
+</I>&gt;<i> 1) using no public keys (no encryption?) how can be done?
+</I>
+&quot;No public keys&quot; does NOT mean &quot;no encryption&quot;. X2Go uses SSH, and SSH 
+can work with keyfiles (which may be password-protected or not) or just 
+plain passwords, without any keyfiles involved.
+
+It all depends on your needs - security vs. usability.
+Of course, planting a passwordless ssh key file into the image will 
+allow everyone to sign in - into every account that has the coresponding 
+keyfile - without ever having to type a single password.
+Unbeatable ease of use - but a security nightmare.
+
+The other extreme is the two-factor authentication, requiring each user 
+to *know* something - her/his own personal password for the keyfile on 
+her/his USB key fob or smartcard - and to *be in posession of* something 
+- the actual key fob/smartcard. Especially with smartcards, which aren't 
+easily copied like USB key fobs, this is VERY secure. But the complexity 
+makes it harder to use.
+
+Two &quot;middle ground&quot; scenarios are passwordless keyfiles on USB key fobs 
+- plug in, click on the session you want to start, and you're in - and 
+passwords without keyfiles - select the session, type in the password, 
+and off you go. With these two, I'd prefer the &quot;password only&quot; approach, 
+as with server-checked passwords, you have the option to set minimum 
+requirements regarding length and complexity, while you cannot enforce 
+those on passwords for keyfiles.
+
+
+&gt;<i> 2) In this option, I don't understand if .ssh/authorized_keys must be on
+</I>&gt;<i> home user directory in server or in usb stick?
+</I>
+.ssh/authorized_keys goes on the server (user homedir) and contains the 
+public key. Private key goes on the USB key fob.
+
+
+&gt;<i> Is there any
+</I>&gt;<i> documentation for this?
+</I>
+That's nothing X2Go-specific. If you're lacking experience with SSH 
+authentication methods, you should turn to the SSH documentation. :-)
+
+
+&gt;<i> Also seems users need to have their own stick to
+</I>&gt;<i> attach in station they want to use.
+</I>
+Indeed, that's the idea behind two-factor authentication.
+
+
+&gt;<i> 3) I can store session and public keys in exported fs (not recommended).
+</I>
+No. Storing *private* keys anywhere where more than one person can 
+access them is not recommended. But that's what you'd have to do if 
+you're looking for a way users neither have to carry a USB key fob NOR 
+have to enter any password at all.
+
+
+&gt;<i> Also I am in doubt if users change their Linux account's password or
+</I>&gt;<i> they access from different station, I need to introduce changes in
+</I>&gt;<i> publickeys.
+</I>
+I'm not sure what you're trying to say here - but maybe you'd also like 
+to take a look at the PAM (Pluggable Authentication Module) 
+documentation (PAM is a standard Linux thing, nothing X2Go-specific)? 
+After all, with proper settings, you can enforce minimum password 
+requirements and regular password changes for standard Unix/Linux 
+passwords just fine. It's only the password complexity for private key 
+files that you don't have any control over. And although I've never 
+needed it - as far as I know, it is also possible to define which user 
+is allowed to log into the server from which machine. After all, that's 
+something that even Microsoft Windows could do more than 10 years ago, 
+and these guys are usually way behind Unix/Linux when it comes to 
+security and multiuser stuff.
+
+-Stefan
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001934.html">[X2Go-User] @Mike#1 Re: x2go &amp; firefox, overload + lockups
+</A></li>
+	<LI>Next message: <A HREF="001930.html">[X2Go-User] Pulseaudio muffles sounds from other applications in	Windows 7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1929">[ date ]</a>
+              <a href="thread.html#1929">[ thread ]</a>
+              <a href="subject.html#1929">[ subject ]</a>
+              <a href="author.html#1929">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

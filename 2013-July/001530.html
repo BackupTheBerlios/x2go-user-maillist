@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot; unexpected'
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%27Connection%20failed%20sh%3A%201%3A%20Syntax%20error%3A%20%22%28%22%0A%20unexpected%27&In-Reply-To=%3C20130728190615.11388ubwn4xwfc7b%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001528.html">
+   <LINK REL="Next"  HREF="001527.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot; unexpected'</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%27Connection%20failed%20sh%3A%201%3A%20Syntax%20error%3A%20%22%28%22%0A%20unexpected%27&In-Reply-To=%3C20130728190615.11388ubwn4xwfc7b%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot; unexpected'">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun Jul 28 19:06:15 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001528.html">[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot;	unexpected'
+</A></li>
+        <LI>Next message: <A HREF="001527.html">[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot;	unexpected'
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1530">[ date ]</a>
+              <a href="thread.html#1530">[ thread ]</a>
+              <a href="subject.html#1530">[ subject ]</a>
+              <a href="author.html#1530">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mihai,
+
+On So 28 Jul 2013 05:41:12 CEST Mihai Moldovan wrote:
+
+&gt;<i> * On 27.07.2013 09:32 PM, Tom Harris wrote:
+</I>&gt;&gt;<i> I had seen some problems similar to this in the past when the user account
+</I>&gt;&gt;<i> used a shell other than bash.   In the Ubuntu I was using, the default shell
+</I>&gt;&gt;<i> was /bin/sh, which failed.   I also saw tickets regarding issues with tcsh.
+</I>&gt;<i>
+</I>&gt;<i> If this is true, x2go's behavior is completely wrong. It shouldn't rely on
+</I>&gt;<i> something like &quot;default&quot; shell but only use scripts with a correct  
+</I>&gt;<i> hashbang to
+</I>&gt;<i> be sure they get executed whatever the system *expects*, (x)or be using POSIX
+</I>&gt;<i> features only and thus ensure execution in any POSIX compatible  
+</I>&gt;<i> shell (is there
+</I>&gt;<i> any non-POSIX compatible shell?)
+</I>
+X2Go Client used to presume /bin/bash as the server-side user shell.  
+But that has been fixed (I hope) completely. Now server-side commands  
+are like ,,sh -c ....''. Same with Python X2Go.
+
+My guess about the reported issue is a broken command call in X2Go  
+Client somewhere. But for this to detect, I need someone who observes  
+the issue with X2Go Client (4.0.1.1 or newer, version is important,  
+not yet released) and posts the debug output (x2goclient --debug).
+
+Thanks+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/7fdc075b/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/7fdc075b/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001528.html">[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot;	unexpected'
+</A></li>
+	<LI>Next message: <A HREF="001527.html">[X2Go-User] 'Connection failed sh: 1: Syntax error: &quot;(&quot;	unexpected'
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1530">[ date ]</a>
+              <a href="thread.html#1530">[ thread ]</a>
+              <a href="subject.html#1530">[ subject ]</a>
+              <a href="author.html#1530">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

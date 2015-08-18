@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Review: changes and features in X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Review%3A%20changes%20and%20features%20in%20X2Go&In-Reply-To=%3C4F2B928E.9080507%40obviously-nice.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000583.html">
+   <LINK REL="Next"  HREF="000586.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Review: changes and features in X2Go</H1>
+    <B>Oleksandr Shneyder</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Review%3A%20changes%20and%20features%20in%20X2Go&In-Reply-To=%3C4F2B928E.9080507%40obviously-nice.de%3E"
+       TITLE="[X2go-User] Review: changes and features in X2Go">oleksandr.shneyder at obviously-nice.de
+       </A><BR>
+    <I>Fri Feb  3 08:53:50 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000583.html">[X2go-User] how to completely remove/purge and reinstall
+</A></li>
+        <LI>Next message: <A HREF="000586.html">[X2go-User] Using x2go with on Ubuntu Server with Encrypted Home	Folders
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#584">[ date ]</a>
+              <a href="thread.html#584">[ thread ]</a>
+              <a href="subject.html#584">[ subject ]</a>
+              <a href="author.html#584">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello X2Go users,
+
+I want to describe some changes we made in X2Go recently.
+
+== Multi display support features. ==
+There are two new features in X2Go to support desktops with more then
+one physical display.
+
+1. Run X2Go Session in &quot;full screen&quot; mode on one of several physical
+displays.
+With this feature you can use one of your physical monitors to display
+X2Go session in &quot;full screen&quot; mode.
+On this photo you can see a Windows 7 notebook with a connected VGA
+monitor running X2Go Session on display 2:
+<A HREF="http://www.x2go.org/_media/news:two_sess.png">http://www.x2go.org/_media/news:two_sess.png</A>
+
+You can configure this feature using Session Preferences dialog in X2Go
+client:
+<A HREF="http://www.x2go.org/_media/news:multidisp_set.png">http://www.x2go.org/_media/news:multidisp_set.png</A>
+
+Push &quot;Identify all displays&quot; button to find out the numbers of a
+physical displays:
+<A HREF="http://www.x2go.org/_media/news:ident_dsip.png">http://www.x2go.org/_media/news:ident_dsip.png</A>
+
+2. Using two or more physical displays as one large virtual display
+(Xinerama)
+The advantage of Xinerama feature is to only maximize windows to the
+dimensions of the active physical display. This can be very useful not
+only for thinclients with more then one physical displays, but also if
+user stretch their X2Go sessions over more then one display in &quot;window&quot;
+mode.
+
+X2Go Session running 3 maximized LibreOffice windows is stretched over 3
+physical displays:
+<A HREF="http://www.x2go.org/_media/news:xinerama.png">http://www.x2go.org/_media/news:xinerama.png</A>
+
+Xinerama configuration of X2Go session will be automatically updated
+every time when user moving or resizing his X2Go Session window.
+
+==Verifying if port is free before resuming X2Go Session ==
+
+On start of an X2Go session 3 tcp ports for ssh tunnels (graphic, sound,
+sshfs) are reserved. The values of these ports are stored in the X2Go
+session database and used by X2Go clients every time an X2Go session
+gets resumed. Sometimes it can happen that one of these ports is already
+used by another application after the session had been suspended. As
+result, X2Go client will be unable to resume such session or start sound
+or sshfs tunnel. To avoid this problem X2Go server (&gt;= 3.1.0.0) will
+verify if these ports are still unused before the session will be
+resumed. In other case new ports will be reserved. The new port values
+will be updated in database and sent to the X2Go client.
+
+IMPORTANT: Older versions of X2Go client will be compatible with newest
+X2Go servers. If ports have changed between suspend and resume of a
+session, older x2goclients will try to reconnect and fail. But on the
+next attempt, X2Go client will retrieve the updated port values from the
+X2Go session database.
+
+
+regards,
+Alex
+-- 
+Oleksandr Shneyder
+Dipl. Informatik
+X2go Core Developer Team
+
+email:  <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">oleksandr.shneyder at obviously-nice.de</A>
+web: www.obviously-nice.de
+
+--&gt; X2go - <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">everywhere at home</A>
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 262 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120203/86e62421/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120203/86e62421/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000583.html">[X2go-User] how to completely remove/purge and reinstall
+</A></li>
+	<LI>Next message: <A HREF="000586.html">[X2go-User] Using x2go with on Ubuntu Server with Encrypted Home	Folders
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#584">[ date ]</a>
+              <a href="thread.html#584">[ thread ]</a>
+              <a href="subject.html#584">[ subject ]</a>
+              <a href="author.html#584">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

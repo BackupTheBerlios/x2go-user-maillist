@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Impossible to connect since update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Impossible%20to%20connect%20since%20update&In-Reply-To=%3Cloom.20130307T135342-289%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001304.html">
+   <LINK REL="Next"  HREF="001306.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Impossible to connect since update</H1>
+    <B>Thomas Roemer</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Impossible%20to%20connect%20since%20update&In-Reply-To=%3Cloom.20130307T135342-289%40post.gmane.org%3E"
+       TITLE="[X2Go-User] Impossible to connect since update">tidirium at mediaschredder.org
+       </A><BR>
+    <I>Thu Mar  7 14:13:28 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001304.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+        <LI>Next message: <A HREF="001306.html">[X2Go-User] exotic multi-display / multi-monitor configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1305">[ date ]</a>
+              <a href="thread.html#1305">[ thread ]</a>
+              <a href="subject.html#1305">[ subject ]</a>
+              <a href="author.html#1305">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Daniel Lindgren &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bd.dali at ...</A>&gt; writes:
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> It could be a port conflict issue.
+</I>&gt;<i> Are you using X2Go Client to simultaneously connect to several servers from
+</I>the same client?&#160;
+&gt;<i> Are you using X2Go Client on the server to connect to another server?
+</I>
+Mar  7 14:32:44 host sshd[30946]: Accepted publickey for root from 192.168.1.1
+port 36925 ssh2
+Mar  7 14:32:44 host systemd-logind[819]: New session 193 of user root.
+Mar  7 14:32:47 host sshd[31249]: Accepted publickey for root from 192.168.1.1
+port 36929 ssh2
+Mar  7 14:32:47 host systemd-logind[819]: New session 194 of user root.
+Mar  7 14:32:47 host sshd[30946]: error: connect_to localhost port 30160: failed.
+Mar  7 14:32:47 host sshd[30946]: channel_by_id: 0: bad id: channel free
+Mar  7 14:32:47 host sshd[30946]: Disconnecting: Received ieof for nonexistent
+channel 0.
+Mar  7 14:32:47 host systemd-logind[819]: Removed session 193.
+
+After an Update to the actual version on an OpenSUSE 12.1 box there is this
+error above. The client connection was fine befor. No multiple connections are
+using, nor a server to server connection.
+The previous version was: 3.1.1.2-2.1 
+
+x2goserver current:
+Version: 4.0.0.0-5.1
+<A HREF="obs://build.opensuse.org/X11">obs://build.opensuse.org/X11</A>
+
+Any suggestions for updates to other packages that depend to this or other?
+
+
+PS: x2go is a very nice work! Thanks! It's fun to use it, if it works
+properly... ;-D
+
+
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001304.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+	<LI>Next message: <A HREF="001306.html">[X2Go-User] exotic multi-display / multi-monitor configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1305">[ date ]</a>
+              <a href="thread.html#1305">[ thread ]</a>
+              <a href="subject.html#1305">[ subject ]</a>
+              <a href="author.html#1305">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

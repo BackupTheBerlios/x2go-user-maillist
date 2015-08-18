@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] session resuming after disconnect/reconnect
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20session%20resuming%20after%20disconnect/reconnect&In-Reply-To=%3Czarafa.5087b5ad.03be.12a444a139b5f586%40srvgr1.ubrichter.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001082.html">
+   <LINK REL="Next"  HREF="001085.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] session resuming after disconnect/reconnect</H1>
+    <B>richter at ecos.de</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20session%20resuming%20after%20disconnect/reconnect&In-Reply-To=%3Czarafa.5087b5ad.03be.12a444a139b5f586%40srvgr1.ubrichter.de%3E"
+       TITLE="[X2Go-User] session resuming after disconnect/reconnect">richter at ecos.de
+       </A><BR>
+    <I>Wed Oct 24 11:32:29 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001082.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+        <LI>Next message: <A HREF="001085.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1084">[ date ]</a>
+              <a href="thread.html#1084">[ thread ]</a>
+              <a href="subject.html#1084">[ subject ]</a>
+              <a href="author.html#1084">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I will debug this further when I have a some spare time.
+
+Is there any documentation that describes how this port forwarding and ssh stuff works?
+
+Gerald
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Mike Gabriel [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>]
+</I>&gt;<i> Sent: Wednesday, October 24, 2012 10:22 AM
+</I>&gt;<i> To: Gerald Richter - ECOS
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2Go-User] session resuming after disconnect/reconnect
+</I>&gt;<i> 
+</I>&gt;<i> Hi Gerald,
+</I>&gt;<i> 
+</I>&gt;<i> On Mi 24 Okt 2012 07:03:36 CEST  wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; when a session gets disconnected (e.g. network connection is lost,
+</I>&gt;<i> &gt; computer is powered down, without disconnect) I cannot simply resume
+</I>&gt;<i> &gt; the session after the next connect.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, this is a known issue with SSH and port forwarding. As X2Go media is
+</I>&gt;<i> transported over SSH port forwarding connections all parts of a session
+</I>&gt;<i> (graphics, audio, sshfs) are affected by disrupted connections that do not
+</I>&gt;<i> properly close open SSH port forwarding requests.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; I have first to pause the session, that wait a long time (don't know
+</I>&gt;<i> &gt; exactly how long, but needs to be more than 30-60 seconds) and than I
+</I>&gt;<i> &gt; am able to resume the session.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, this exactly describes the phenomen. I have tried to catch these
+</I>&gt;<i> situations in Python X2Go code, but these precautions only work on some
+</I>&gt;<i> occasions.
+</I>&gt;<i> 
+</I>&gt;<i> &gt; If I simply pause/resume the session or try to take it over, the
+</I>&gt;<i> &gt; operation fails and the session is closed.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Looks like after the pause of the old session, something does not get
+</I>&gt;<i> &gt; terminated correctly and needs to timeout before I can resume the
+</I>&gt;<i> &gt; session.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Simply pausing/resuming a session works without problems, as long as
+</I>&gt;<i> &gt; the ssh session isn't closed in between. It also works if I pause the
+</I>&gt;<i> &gt; session, than disconnect the ssh connection. Than I can resume after I
+</I>&gt;<i> &gt; have reconnected to the server.
+</I>&gt;<i> 
+</I>&gt;<i> What also works is restarting the SSH daemon on the server side.
+</I>&gt;<i> 
+</I>&gt;<i> Unfortunately, I cannot give more of a solution to this. If you find any ways to
+</I>&gt;<i> tweak the ssh daemon then we could put that into a README for Python
+</I>&gt;<i> X2Go (or into the wiki of X2Go).
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> 
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i> 
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-</A>
+</I>&gt;<i> netzwerkteam.de.xfb
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001082.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+	<LI>Next message: <A HREF="001085.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1084">[ date ]</a>
+              <a href="thread.html#1084">[ thread ]</a>
+              <a href="subject.html#1084">[ subject ]</a>
+              <a href="author.html#1084">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can Only Keep One Session at a Time
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3CCAAWyt1r2kfRS8TKro%2B2AHtTsDoFq-r42D-iuyaiOzdph-jvtKQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000921.html">
+   <LINK REL="Next"  HREF="000923.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can Only Keep One Session at a Time</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3CCAAWyt1r2kfRS8TKro%2B2AHtTsDoFq-r42D-iuyaiOzdph-jvtKQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Can Only Keep One Session at a Time">bd.dali at gmail.com
+       </A><BR>
+    <I>Mon Jul  9 06:32:04 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000921.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+        <LI>Next message: <A HREF="000923.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#922">[ date ]</a>
+              <a href="thread.html#922">[ thread ]</a>
+              <a href="subject.html#922">[ subject ]</a>
+              <a href="author.html#922">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> I am only able to keep one session of x2go open at a time. When I start a
+</I>&gt;<i> new client, the first session terminates by itself. I restart it, and the
+</I>&gt;<i> other session terminates.
+</I>&gt;<i> These are to two separate hosts. On both ends is Debian Testing, kept
+</I>&gt;<i> current.
+</I>
+Could be a TCP port conflict. Try changing the value for SSH_PORT to
+30200 in /usr/bin/x2gostartagent on one of the target machines so they
+are using different port ranges. End all X2Go sessions (not just
+disconnect, log out) before you try again.
+
+Cheers,
+Daniel
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000921.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+	<LI>Next message: <A HREF="000923.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#922">[ date ]</a>
+              <a href="thread.html#922">[ thread ]</a>
+              <a href="subject.html#922">[ subject ]</a>
+              <a href="author.html#922">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

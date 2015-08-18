@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%200.4.0.1%20created%20bad%20config%20file&In-Reply-To=%3Cloom.20130314T164514-658%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001323.html">
+   <LINK REL="Next"  HREF="001336.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file</H1>
+    <B>Dirk Eddelbuettel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%200.4.0.1%20created%20bad%20config%20file&In-Reply-To=%3Cloom.20130314T164514-658%40post.gmane.org%3E"
+       TITLE="[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file">edd at debian.org
+       </A><BR>
+    <I>Thu Mar 14 16:51:26 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001323.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+        <LI>Next message: <A HREF="001336.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1335">[ date ]</a>
+              <a href="thread.html#1335">[ thread ]</a>
+              <a href="subject.html#1335">[ subject ]</a>
+              <a href="author.html#1335">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Mike,
+
+Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at ...</A>&gt; writes:
+&gt;<i> On Mi 13 M&#228;r 2013 17:39:55 CET Dirk Eddelbuettel wrote:
+</I>
+[...]
+&gt;<i> &gt; In order to permit multiple machine entries, I fiddled with PyHoca 
+</I>(0.4.0.1),
+&gt;<i> &gt; but seem to have corrupted the file by adding multiple entries with
+</I>&gt;<i> &gt; the same key.
+</I>[...]
+
+&gt;<i> This is indeed unwanted behaviour. If, in any case, you happen to be  
+</I>&gt;<i> able to retrace how you got to this exception, I would be very glad if  
+</I>&gt;<i> you could file an upstream bug for that.
+</I>
+I should indeed be able to.  I was mostly alternating between 'add' and 'alter' 
+in the PyHOCA GUI.  Guess that was a mistake...
+
+&gt;<i> X2Go uses debbugs, so the submission mail address is: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">submit at ...</A>
+</I>&gt;<i> 
+</I>&gt;<i> The configuration file for ,,sessions'' is
+</I>&gt;<i> 
+</I>&gt;<i>    C:Users&lt;user&gt;.x2goclientsessions.
+</I>
+Your mail did not make it back to me.  And on gmane, this was garbled. 
+
+I did find .x2go earlier, but it seems it only has state / cache directories
+but did NOT find the x2goclientsessions directory:
+
+ .
+ ..
+ .ssh
+ S-50
+ S-51
+ S-52
+ S-53
+ S-54
+ S-55
+ S-56
+ S-57
+ S-58
+ S-MyUserId-50-1349097110_stRTERMINAL_dp32
+ S-MyUserId-50-1363043503_stRTERMINAL_dp32
+ S-MyUserId-50-1363098708_stDGNOME_dp32
+ S-MyUserId-50-1363099618_stDGNOME_dp32
+ S-MyUserId-50-1363100039_stDGNOME_dp24
+ S-edd-50-1360249312_stDUNITY_dp32
+ S-edd-50-1360249728_stDLXDE_dp32
+ S-edd-51-1360249774_stDGNOME_dp32
+ S-edd-51-1363057896_stDGNOME_dp24
+ S-edd-52-1360249828_stDKDE_dp32
+ S-edd-53-1360253128_stDUNITY_dp32
+ S-edd-54-1360266637_stDgnome-session-fallback_dp32
+ S-edd-55-1360266997_stDKDE_dp32
+ S-edd-56-1360281329_stDstartxfce4_dp32
+ S-edd-57-1360281417_stDstartxfce4_dp32
+ S-edd-58-1360596335_stDstartxfce4_dp32
+ cache-unix-kde-depth_24
+ cache-unix-kde-depth_32
+ etc
+ pulse
+ ssh
+
+(slighty edited dired view from Emacs on that windoze box)
+
+Tschoe from Chicago,  Dirk
+
+
+
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001323.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+	<LI>Next message: <A HREF="001336.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1335">[ date ]</a>
+              <a href="thread.html#1335">[ thread ]</a>
+              <a href="subject.html#1335">[ subject ]</a>
+              <a href="author.html#1335">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

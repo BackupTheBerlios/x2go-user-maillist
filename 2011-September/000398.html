@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2go-server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C1317039579.1082.220.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000397.html">
+   <LINK REL="Next"  HREF="000400.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2go-server</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C1317039579.1082.220.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] x2go-server">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Mon Sep 26 14:19:39 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000397.html">[X2go-User] x2go-server
+</A></li>
+        <LI>Next message: <A HREF="000400.html">[X2go-User] X2go i18n team
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 2011-09-26 at 13:13 +0200, Mike Gabriel wrote:
+&gt;<i> Hi Thomas,
+</I>&gt;<i> 
+</I>&gt;<i> On Mo 26 Sep 2011 11:45:42 CEST &quot;John A. Sullivan III&quot; wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; On Sun, 2011-09-25 at 21:58 +0200, Thomas Ritter wrote:
+</I>&gt;<i> &gt;&gt; Hi,
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt; 1) The RAM fills with old x2go-sessions. They are not killed by any
+</I>&gt;<i> &gt;&gt; service anytime. The used RAM grows up and the server-performance
+</I>&gt;<i> &gt;&gt; decrease.
+</I>&gt;<i> 
+</I>&gt;<i> When testing I have also observed such situations: x2goagents  
+</I>&gt;<i> remaining running while the X2go session is marked as finished in the  
+</I>&gt;<i> X2go database.
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt;    I &quot;solved&quot; the problem by killing all x2goagents-prozesses with
+</I>&gt;<i> &gt;&gt; cron twice a day.
+</I>&gt;<i> 
+</I>&gt;<i> It's at most a workaround... not a solution... We'll have to check  
+</I>&gt;<i> that X2go upstream-wise.
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt; 2) The home-directories of my users fill with log-files like
+</I>&gt;<i> &gt;&gt; these : /home/pcag01/.x2go/S-es01-119-1313081349_stDKDE_dp24 and they
+</I>&gt;<i> &gt;&gt; are not deleted.
+</I>&gt;<i> 
+</I>&gt;<i> Over the last weekend I have added code that will (at least) remove  
+</I>&gt;<i> these session directories in case the session has finished  
+</I>&gt;<i> successfully (session meaning here: if the executed command of the  
+</I>&gt;<i> session returns with a clean exitcode).
+</I>&gt;<i> 
+</I>&gt;<i> &gt;&gt; 3) My logfiles in /var/log like message or syslog grow up to a few
+</I>&gt;<i> &gt;&gt; hundred MB for example with entries like these:
+</I>&gt;<i> &gt;&gt; Sep 22 06:30:24 ltspserver01 ltspserver01 console-kit-daemon[24530]:
+</I>&gt;<i> &gt;&gt; WARNING: Record was not written to disk (File too large)
+</I>&gt;<i> &gt;&gt; Sep 22 06:30:55 ltspserver01 last message repeated 606 times
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Is there anyone who understands what my server makes?
+</I>&gt;<i> &gt; &lt;snip&gt;
+</I>&gt;<i> &gt; I can confirm the problem but I've never taken the time to investigate
+</I>&gt;<i> &gt; why X2Go does that and how to address it - John
+</I>&gt;<i> 
+</I>&gt;<i> The problem under 3)... ist that X2go specific? John, have you seen  
+</I>&gt;<i> that one, too? Under what conditions???
+</I>&gt;<i> 
+</I>&gt;<i> G&lt;snp&gt;
+</I>I haven't seen three but I haven't looked for it.  My guess it is
+related to running out of resources but I haven't thought it through -
+John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000397.html">[X2go-User] x2go-server
+</A></li>
+	<LI>Next message: <A HREF="000400.html">[X2go-User] X2go i18n team
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#398">[ date ]</a>
+              <a href="thread.html#398">[ thread ]</a>
+              <a href="subject.html#398">[ subject ]</a>
+              <a href="author.html#398">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

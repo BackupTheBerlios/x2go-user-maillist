@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Ubuntu 10.04 only black screen
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%2010.04%20only%20black%20screen&In-Reply-To=%3C4DD4CA39.4000102%40stegbauer.info%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000152.html">
+   <LINK REL="Next"  HREF="000155.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Ubuntu 10.04 only black screen</H1>
+    <B>Tobias Dinse</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%2010.04%20only%20black%20screen&In-Reply-To=%3C4DD4CA39.4000102%40stegbauer.info%3E"
+       TITLE="[X2go-user] Ubuntu 10.04 only black screen">tobias.dinse at stegbauer.info
+       </A><BR>
+    <I>Thu May 19 09:43:53 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000152.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+        <LI>Next message: <A HREF="000155.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>ok, solved. After adding
+
+tobi    ALL=(ALL) NOPASSWD: /usr/bin/x2gopgwrapper
+
+to sudo i can access to the gnome desktop.
+
+regards
+
+
+On 19.05.2011 09:32, Tobias Dinse wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> today i have installed the x2go-server on our virtual Ubuntu 10.04 
+</I>&gt;<i> Server maschine. I have also installed Ubuntu-Desktop (gnome).After 
+</I>&gt;<i> adding a new User to the Group x2gousers I tried to Connect to the 
+</I>&gt;<i> x2go-server. I Can Login but I get only a black Screen. I selected 
+</I>&gt;<i> Gnome as Desktop on the x2go-client.
+</I>&gt;<i>
+</I>&gt;<i> Client Log:
+</I>&gt;<i>
+</I>&gt;<i> NXPROXY - Version 3.4.0
+</I>&gt;<i>
+</I>&gt;<i> Copyright (C) 2001, 2010
+</I>&gt;<i> NoMachine.
+</I>&gt;<i>
+</I>&gt;<i> See
+</I>&gt;<i> <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+</I>&gt;<i>
+</I>&gt;<i> Info: Proxy running in
+</I>&gt;<i> client mode with pid '2807'.
+</I>&gt;<i>
+</I>&gt;<i> Session: Starting session
+</I>&gt;<i> at 'Thu May 19 09:32:24 2011'.
+</I>&gt;<i>
+</I>&gt;<i> Info: Connecting to remote
+</I>&gt;<i> host 'localhost:30040'.
+</I>&gt;<i>
+</I>&gt;<i> Info: Connection to remote
+</I>&gt;<i> proxy 'localhost:30040' established.
+</I>&gt;<i>
+</I>&gt;<i> Info: Connection with
+</I>&gt;<i> remote proxy completed.
+</I>&gt;<i>
+</I>&gt;<i> Warning: Unrecognized
+</I>&gt;<i> session type 'unix-kde-depth_24'. Assuming agent session.
+</I>&gt;<i>
+</I>&gt;<i> Info: Using LAN link
+</I>&gt;<i> parameters 1536/24/1/0.
+</I>&gt;<i>
+</I>&gt;<i> Info: Using pack method
+</I>&gt;<i> '16m-jpeg-9' with session 'unix-kde-depth_24'.
+</I>&gt;<i>
+</I>&gt;<i> Info: Not using NX delta
+</I>&gt;<i> compression.
+</I>&gt;<i>
+</I>&gt;<i> Info: Not using ZLIB data
+</I>&gt;<i> compression.
+</I>&gt;<i>
+</I>&gt;<i> Info: Not using ZLIB
+</I>&gt;<i> stream compression.
+</I>&gt;<i>
+</I>&gt;<i> Info: Not using a
+</I>&gt;<i> persistent cache.
+</I>&gt;<i>
+</I>&gt;<i> Info: Forwarding X11
+</I>&gt;<i> connections to display ':0.0'.
+</I>&gt;<i>
+</I>&gt;<i> Session: Session started
+</I>&gt;<i> at 'Thu May 19 09:32:25 2011'.
+</I>&gt;<i>
+</I>&gt;<i> Info: Established X server
+</I>&gt;<i> connection.
+</I>&gt;<i>
+</I>&gt;<i> Info: Using shared memory
+</I>&gt;<i> parameters 1/2048K.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Any Idea?
+</I>&gt;<i>
+</I>&gt;<i> Thanks &amp; regards
+</I>&gt;<i>
+</I>&gt;<i> Tobias
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-user mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-user at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110519/aafb3c3d/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110519/aafb3c3d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000152.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+	<LI>Next message: <A HREF="000155.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#153">[ date ]</a>
+              <a href="thread.html#153">[ thread ]</a>
+              <a href="subject.html#153">[ subject ]</a>
+              <a href="author.html#153">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

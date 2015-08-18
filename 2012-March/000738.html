@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go client - multiple sessions?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%20-%20multiple%20sessions%3F&In-Reply-To=%3C1332438585.3461.22.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000737.html">
+   <LINK REL="Next"  HREF="000739.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go client - multiple sessions?</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%20-%20multiple%20sessions%3F&In-Reply-To=%3C1332438585.3461.22.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] X2Go client - multiple sessions?">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Thu Mar 22 18:49:45 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000737.html">[X2Go-User] X2Go client - multiple sessions?
+</A></li>
+        <LI>Next message: <A HREF="000739.html">[X2Go-User] X2Go client - multiple sessions?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#738">[ date ]</a>
+              <a href="thread.html#738">[ thread ]</a>
+              <a href="subject.html#738">[ subject ]</a>
+              <a href="author.html#738">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2012-03-22 at 13:12 -0400, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">scain at exgenesis.com</A> wrote:
+&gt;<i>   
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> On March 22, 2012 at 12:28 PM &quot;John A. Sullivan III&quot;
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jsullivan at opensourcedevel.com</A>&gt; wrote: 
+</I>&gt;<i> 
+</I>&gt;<i> &gt; On Thu, 2012-03-22 at 11:11 -0400, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">scain at exgenesis.com</A> wrote: 
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; Is this a known limitation of the x2go client?  Is there some
+</I>&gt;<i> trick to 
+</I>&gt;<i> &gt; &gt; getting multiple sessions working correctly?  
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &lt;snip&gt; 
+</I>&gt;<i> &gt; Just to make sure I understand, I assume you are running multiple
+</I>&gt;<i> client 
+</I>&gt;<i> &gt; instances on the same physical desktop but are your trying to
+</I>&gt;<i> connect 
+</I>&gt;<i> &gt; those multiple clients to the same X2Go server (different users) or
+</I>&gt;<i> to 
+</I>&gt;<i> &gt; different X2Go servers? Thanks - John 
+</I>&gt;<i> &gt; 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Sorry for being unclear.  I am running multiple client instances on
+</I>&gt;<i> the same physical desktop but they are each connecting to a different
+</I>&gt;<i> remote host.  However, the user name is the same for each host if that
+</I>&gt;<i> is at all relevant. 
+</I>&lt;snip&gt;
+Ok - I do wish X2Go handled that a little more elegantly.  It may be on
+a to do list somewhere.  In the meantime, the work around is to manually
+edit /usr/bin/x2gostartagent (and remember to edit it after every
+upgrade - it would be a little better if this was a configurable option)
+and change a couple of parameters:
+
+#X2GO_PORT=49 #First port for X2GO=50
+#SSH_PORT=30000 #First ssh port 30001
+X2GO_PORT=59
+SSH_PORT=30020
+
+In other words, set the different X2Go servers to start on different SSH
+ports.  I do not recall if different X2Go ports are necessary.  Does
+that help? Good luck - John
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000737.html">[X2Go-User] X2Go client - multiple sessions?
+</A></li>
+	<LI>Next message: <A HREF="000739.html">[X2Go-User] X2Go client - multiple sessions?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#738">[ date ]</a>
+              <a href="thread.html#738">[ thread ]</a>
+              <a href="subject.html#738">[ subject ]</a>
+              <a href="author.html#738">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

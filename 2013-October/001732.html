@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%204.0.0%20can%27t%20resume%20certain%20sessions&In-Reply-To=%3CCAJBj3vdBoctcdQxOCG56vo%2BSZPVU0StXRMj6Ni%2BCvMwo-QNGVQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001700.html">
+   <LINK REL="Next"  HREF="001685.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go client 4.0.0 can't resume certain sessions</H1>
+    <B>John Williams</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%204.0.0%20can%27t%20resume%20certain%20sessions&In-Reply-To=%3CCAJBj3vdBoctcdQxOCG56vo%2BSZPVU0StXRMj6Ni%2BCvMwo-QNGVQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] X2Go client 4.0.0 can't resume certain sessions">jwilliams4200 at gmail.com
+       </A><BR>
+    <I>Mon Oct 28 10:20:23 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001700.html">[X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+</A></li>
+        <LI>Next message: <A HREF="001685.html">[X2Go-User] o
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1732">[ date ]</a>
+              <a href="thread.html#1732">[ thread ]</a>
+              <a href="subject.html#1732">[ subject ]</a>
+              <a href="author.html#1732">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, Oct 18, 2013 at 7:18 AM, Sebastian Flothow
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sebastian.flothow at gip.com</A>&gt; wrote:
+&gt;<i> The behavior is as follows: The affected version of the client is able to
+</I>&gt;<i> start new sessions, and also resume suspended sessions; however, resuming
+</I>&gt;<i> sessions after some delay (a few hours) causes the client to hang. Other
+</I>&gt;<i> versions of the client are then still able to resume this session, but even
+</I>&gt;<i> when resuming and suspending the session with a working client version,
+</I>&gt;<i> attempting to resume the session immediately afterwards in an affected
+</I>&gt;<i> client causes it to freeze.
+</I>&gt;<i>
+</I>&gt;<i> I've tried the following versions so far:
+</I>&gt;<i>
+</I>&gt;<i> 3.99.2.1 on Linux: works
+</I>&gt;<i> 3.99.2.2 on Windows: works (n.b. filename is x2goclient-3.99.2.1-setup.exe)
+</I>&gt;<i> 4.0.0.3 on Windows: affected
+</I>&gt;<i> 4.0.1.1 on Linux: works
+</I>&gt;<i>
+</I>&gt;<i> Server side versions are:
+</I>&gt;<i> x2goagent: 3.5.0.21
+</I>&gt;<i> x2goserver: 4.0.1.6
+</I>&gt;<i> x2goserver-xsession: 4.0.1.6
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Can anybody confirm that this is something which has been fixed in client
+</I>&gt;<i> 4.0.1? If so, when is there going to be a 4.0.1 client for Windows? (In the
+</I>&gt;<i> meantime, we're downgrading our Windows users to 3.99.)
+</I>
+I spent some time testing several versions of the Windows client, and
+I can confirm the behavior you mention, and add a few more versions:
+
+Note that the problem is somewhat intermittent. Waiting a few hours to
+resume a session makes it more likely to hang during connection, but
+it does not always hang. So I spent some time with each version,
+repeatedly trying to resume sesssions, sometimes immediately,
+sometimes after the session has been suspended for hours. When I say
+it &quot;works&quot; I mean that I never got it to hang. When I say that it
+hangs, I mean that it hung at least once (usually more than once,
+though).
+
+Linux server:
+x2go-agent 3.5.0.21
+x2goserver 4.0.1.6
+
+Windows client:
+3.99.2.1 filename (3.99.2.2 about box): works
+3.99.3.1-pre1_interims (old pulseaudio): hangs
+4.0.0.3: hangs
+4.0.0.3_interims (old pulseaudio): hangs
+4.0.1.0-pre02 : hangs
+
+So it appears that this issue was introduced between
+3.99.2.1(3.99.2.2) and 3.99.3.1-pre1. Also, it does NOT appear to be a
+consequence of the new pulseaudio version, since the old interims
+version has the same issue.
+
+Perhaps the program maintainer can check the changelog between then
+and deduce what is causing the intermittent hang during connection
+issue.
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001700.html">[X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+</A></li>
+	<LI>Next message: <A HREF="001685.html">[X2Go-User] o
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1732">[ date ]</a>
+              <a href="thread.html#1732">[ thread ]</a>
+              <a href="subject.html#1732">[ subject ]</a>
+              <a href="author.html#1732">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

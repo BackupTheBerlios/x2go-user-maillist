@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problem with xfreerdp ( any version )
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20xfreerdp%20%28%20any%20version%20%29&In-Reply-To=%3C20120131204412.130128aw5r7d52fg%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000578.html">
+   <LINK REL="Next"  HREF="000580.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problem with xfreerdp ( any version )</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20xfreerdp%20%28%20any%20version%20%29&In-Reply-To=%3C20120131204412.130128aw5r7d52fg%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Problem with xfreerdp ( any version )">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Jan 31 20:44:12 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000578.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+        <LI>Next message: <A HREF="000580.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Helmer,
+
+thanks for reporting this!!! I cross-post this to x2go-dev ML to make  
+sure that Alex gets notice of this.
+
+On Di 31 Jan 2012 19:41:58 CET Helmer Teles wrote:
+
+&gt;<i>
+</I>&gt;<i> On Tuesday 31 January 2012 13:31:01 John A. Sullivan III wrote:
+</I>&gt;&gt;<i> &gt; After last x2goagent update both of them produce the same problem.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Forget to mention in last email, i'm using x2go/stable ppa. Today i've
+</I>&gt;&gt;<i> &gt; tried with the nightly ppa and the problem persist.
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Thanks for your help. I didn't make a backup of my previous VM and i
+</I>&gt;&gt;<i> &gt; can't rollback.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;<i> Oops! I see it in the title - sorry - John
+</I>
+We added Xinerama support to x2goagent/nxagent. It feels as if this  
+fails with xfreerdp.
+
+With the latest version of x2goclient (nightly builds) you can  
+enable/disable the xinerama feature in the session profile (near the  
+other display settings like full screen, dpi, etc.). You also have to  
+install latest NX (aka x2goagent) on the server for this to work.  
+Could you check if disabling xinerama support in the session profile  
+will ship around your problem? If xinerama is already disabled in your  
+session profile, please test nonetheless. Before the option was  
+introduced (yesterday), it was enabled by default and not shown in the  
+session profile manager.
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120131/e2f62075/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120131/e2f62075/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000578.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+	<LI>Next message: <A HREF="000580.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#579">[ date ]</a>
+              <a href="thread.html#579">[ thread ]</a>
+              <a href="subject.html#579">[ subject ]</a>
+              <a href="author.html#579">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

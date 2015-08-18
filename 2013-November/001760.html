@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] PostgreSQL backend and broker issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PostgreSQL%20backend%20and%20broker%20issues&In-Reply-To=%3CCA%2BYXe5kW2%3DdY5GbQuTugFbwUbtAqmoZGjPgEP7jXgfo5sLANQg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001755.html">
+   <LINK REL="Next"  HREF="001761.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] PostgreSQL backend and broker issues</H1>
+    <B>Michael Gale</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PostgreSQL%20backend%20and%20broker%20issues&In-Reply-To=%3CCA%2BYXe5kW2%3DdY5GbQuTugFbwUbtAqmoZGjPgEP7jXgfo5sLANQg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] PostgreSQL backend and broker issues">gale.michael at gmail.com
+       </A><BR>
+    <I>Sat Nov  9 17:20:37 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001755.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+        <LI>Next message: <A HREF="001761.html">[X2Go-User] PostgreSQL backend and broker issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1760">[ date ]</a>
+              <a href="thread.html#1760">[ thread ]</a>
+              <a href="subject.html#1760">[ subject ]</a>
+              <a href="author.html#1760">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+    I am currently trying to get a multinode installation up and running, I
+am looking at supporting over 300 end users.
+
+On the servers I have:
+x2goagent: 3.5.0.21
+x2goserver: 4.0.1.6
+x2goserver-extensions: 4.0.1.6
+x2goserver-xsession: 4.0.1.6
+
+On the broker I have:
+x2goagent: 3.5.0.21
+x2goserver: 4.0.1.6
+x2goserver-extensions: 4.0.1.6
+plus the broker package
+
+
+Some weird things I can't resolve or figure out from the documentation.
+1. On ServerB I can run 'x2golistsessions --all-servers' as a logged
+regular user however it fails on ServerA. Can't figure out why.
+
+2. On ServerA I could run '/usr/lib/x2go/x2gobroker-agent ubuntu
+listsession' until I ran '/usr/sbin/x2godbadmin --adduser ubuntu' on
+ServerB, than ServerA broke.
+
+So I think I know what is happening but can you confirm:
+1. NFS is required for the sharing of /home/* because of configs that are
+stored under /home/&lt;user&gt;/.x2go/ for example the sqlpass file.
+2. I need to run &quot;/usr/sbin/x2godbadmin --adduser &lt;username&gt;&quot; for every
+users that will login with an x2goclient? Is there a way to automatically
+run this?
+3. It looks like the broker is attempting to deploy SSH keys??
+--snip--
+2013-11-09 16:10:39,837 - broker - DEBUG - Executing agent command on
+remote host (x2go-server): sh -c &quot;/usr/lib/x2go/x2gobroker-agent ubuntu
+addauthkey 'no-X11-forwarding,no-pty,no-user-rc ssh-rsa
+AAAAB3NzaC1yc2EAAAADAQABAAABAQDWXTLaWn6lX+tQMkCrDkU7B+LnOYlmHxftCKamZWHH9ZQLODj+A9Lq9gq6bcBJCT3pQdbj2fr3HCiPiDAw5/vO2bs3ixhSy3nCevoJbRcz8bx1JiRQgAalb8yL9DeztsXnCqHb2Et3c3F78N8CFC0RuxoKtjEzrvB8DhgpE5OQdQwqG7GYZ6z6dXstSY85DRTwYer5CVyT18Luv3q8Gew8mThcFJIGgAHwSKByqwyTPitPll138a2VwmN5Wqd8+WfYdixYxLk52sc8lBhR55URxmNaRUtnXO1DTmoVUe/908wO5BBRA1S9yWLmC4EVPg2CiYN5oNCCBKNtUNLR4KMV
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">ubuntu at 192.168.1.3</A>' '%h/.x2go/authorized_keys'&quot;
+--snip--
+
+Where is this used? The x2goclient (QT version) is connecting to the broker
+over HTTPS and the x2goservers over SSH.
+
+BTW this is an awesome set of products, I would be willing to update some
+of the documentation on the web site if you can give me an account to the
+wiki.
+
+Thanks
+Michael
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131109/22325a71/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131109/22325a71/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001755.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+	<LI>Next message: <A HREF="001761.html">[X2Go-User] PostgreSQL backend and broker issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1760">[ date ]</a>
+              <a href="thread.html#1760">[ thread ]</a>
+              <a href="subject.html#1760">[ subject ]</a>
+              <a href="author.html#1760">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

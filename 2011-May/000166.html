@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] x2go thinclient - custom xorg.conf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3CBANLkTi%3D%2B7_McCq6FGch4tCX_eTG9Aaaf8A%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000165.html">
+   <LINK REL="Next"  HREF="000168.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] x2go thinclient - custom xorg.conf</H1>
+    <B>Neil Hunt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3CBANLkTi%3D%2B7_McCq6FGch4tCX_eTG9Aaaf8A%40mail.gmail.com%3E"
+       TITLE="[X2go-user] x2go thinclient - custom xorg.conf">nwhunt at gmail.com
+       </A><BR>
+    <I>Tue May 24 14:26:55 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000165.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+        <LI>Next message: <A HREF="000168.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#166">[ date ]</a>
+              <a href="thread.html#166">[ thread ]</a>
+              <a href="subject.html#166">[ subject ]</a>
+              <a href="author.html#166">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stefan,
+
+I tried long and hard to get the xorg.conf file to work with my monitors to
+no avail. Debian simply did not have the intelligence to detect various
+monitor configurations and I finally had to unfortunately give up.
+
+Probably not the answer you want, however I can say that we went a different
+route and it's worked just fine: we decided to create a custom Ubuntu Live
+CD image and boot to that via PXE. Ubuntu picks up virtually any monitor
+settings and audio works great as well over PXE. I created a custom kiosk
+mode so a user boots up right to a full-screen x2go client, just as the
+x2go-thinclient package did. The two links I used were
+
+<A HREF="https://help.ubuntu.com/community/LiveCDCustomization">https://help.ubuntu.com/community/LiveCDCustomization</A>
+
+and for setting up the kiosk mode, I used this description (made for NX, but
+just replace the NX settings with the x2go_gtk client and all worked fine).
+<A HREF="http://blog.nistu.de/A_kiosk_setup_with_nxclient.html">http://blog.nistu.de/A_kiosk_setup_with_nxclient.html</A>
+
+Let me know if you have any questions.
+
+Neil
+
+&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 2
+</I>&gt;<i> Date: Tue, 24 May 2011 00:59:55 +0200
+</I>&gt;<i> From: &quot;Stefan&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lists at nosolution.doesntexist.org</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2go-user] x2go thinclient - custom xorg.conf
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">201105240059.56128.lists at nosolution.doesntexist.org</A>&gt;
+</I>&gt;<i> Content-Type: text/plain;  charset=&quot;iso-8859-1&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Am Montag, 23. Mai 2011 schrieb Stefan:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I installed recently x2go-one and the thinclient-netboot-environment. So
+</I>&gt;<i> &gt; far all works fine. (Sound and printing not yet tested).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; At the same network we have also a ltsp installation but I think to
+</I>&gt;<i> replace
+</I>&gt;<i> &gt; ist step by step with x2go mainly because of spee issues.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; One of the main questions I have ist if it's possible to offer custom
+</I>&gt;<i> &gt; xorg.conf to the clients which boot via pxe.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Some of our monitors are not correctly recognized by the x-server an need
+</I>&gt;<i> a
+</I>&gt;<i> &gt; special xorg.conf.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; In the ltsp changeroot there is the possibility to offer something like
+</I>&gt;<i> &gt; xorg.conf.00:00:00:00:00 with mac-address as a suffix.
+</I>&gt;<i>
+</I>&gt;<i> I've confused this: is not in ltsp but in the pxe configuration ;-)
+</I>&gt;<i> In ltsp you define the specifics for each host in the lts.conf
+</I>&gt;<i> but maybe the client mac is still a good starting point.
+</I>&gt;<i>
+</I>&gt;<i> Stefan
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-user mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-user at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> End of X2go-user Digest, Vol 9, Issue 13
+</I>&gt;<i> ****************************************
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110524/65559d29/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110524/65559d29/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000165.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+	<LI>Next message: <A HREF="000168.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#166">[ date ]</a>
+              <a href="thread.html#166">[ thread ]</a>
+              <a href="subject.html#166">[ subject ]</a>
+              <a href="author.html#166">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

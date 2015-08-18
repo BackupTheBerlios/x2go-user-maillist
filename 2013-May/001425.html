@@ -1,0 +1,278 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver-xsession: package for SUSE?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver-xsession%3A%20package%20for%20SUSE%3F&In-Reply-To=%3C20130527133347.0864417CCB5%40mx3-out.mindef.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001424.html">
+   <LINK REL="Next"  HREF="001426.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver-xsession: package for SUSE?</H1>
+    <B>J.Witvliet at mindef.nl</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver-xsession%3A%20package%20for%20SUSE%3F&In-Reply-To=%3C20130527133347.0864417CCB5%40mx3-out.mindef.nl%3E"
+       TITLE="[X2Go-User] x2goserver-xsession: package for SUSE?">J.Witvliet at mindef.nl
+       </A><BR>
+    <I>Mon May 27 15:33:42 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001424.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+        <LI>Next message: <A HREF="001426.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1425">[ date ]</a>
+              <a href="thread.html#1425">[ thread ]</a>
+              <a href="subject.html#1425">[ subject ]</a>
+              <a href="author.html#1425">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>See below...
+
+-----Original Message-----
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-bounces at lists.berlios.de</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-bounces at lists.berlios.de</A>] On Behalf Of Lentes, Bernd
+Sent: Monday, May 27, 2013 2:43 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Subject: Re: [X2Go-User] x2goserver-xsession: package for SUSE?
+
+
+Hans wrote:
+
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">J.Witvliet at mindef.nl</A> [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">J.Witvliet at mindef.nl</A>]
+</I>&gt;<i> Sent: Monday, May 27, 2013 10:37 AM
+</I>&gt;<i> To: Lentes, Bernd; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: RE: [X2Go-User] x2goserver-xsession: package for SUSE?
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> The wiki says: zypper ar
+</I>&gt;<i> <A HREF="obs://X11:RemoteDesktop:x2go/openSUSE_12.3">obs://X11:RemoteDesktop:x2go/openSUSE_12.3</A> x2go
+</I>&gt;<i> Probably some wiki-editor inflicted typo's.  ;-)
+</I>&gt;<i> Correct url is
+</I>&gt;<i> <A HREF="http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt">http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt</A>
+</I>&gt;<i> op:/x2go/SLE_11/x86_64/
+</I>&gt;<i>
+</I>&gt;<i> So the repo to add is: X11:/RemoteDesktop:/x2go/SLE_11/
+</I>&gt;<i> The pre-amble depends how you obtain you code (I got a local
+</I>&gt;<i> copy of the entire OBS) but I assume not many people will do that...
+</I>&gt;<i>
+</I>&gt;<i> Hans
+</I>&gt;<i>
+</I>
+Hi Hans,
+
+i added the repository:
+
+pc60181:/etc/x2go # zypper ar <A HREF="http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDesktop:/x2go/SLE_11/">http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDesktop:/x2go/SLE_11/</A> x2go
+Adding repository 'x2go' [done]
+Repository 'x2go' successfully added
+Enabled: Yes
+Autorefresh: No
+GPG check: Yes
+URI: <A HREF="http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDesktop:/x2go/SLE_11/">http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDesktop:/x2go/SLE_11/</A>
+
+
+
+but still no x2goserver-xsession package:
+
+pc60181:/etc/x2go # zypper se -s xsession
+Refreshing service 'nu_novell_com'.
+Loading repository data...
+Reading installed packages...
+No packages found.
+
+pc60181:/etc/x2go # zypper se -s x2goserver
+Refreshing service 'nu_novell_com'.
+Loading repository data...
+Reading installed packages...
+
+S | Name                 | Type       | Version     | Arch   | Repository
+--+----------------------+------------+-------------+--------+-----------
+i | x2goserver           | package    | 4.0.0.1-4.1 | x86_64 | x2go
+v | x2goserver           | package    | 4.0.0.1-4.1 | i586   | x2go
+  | x2goserver           | srcpackage | 4.0.0.1-4.1 | noarch | x2go
+  | x2goserver-debuginfo | package    | 4.0.0.1-4.1 | x86_64 | x2go
+  | x2goserver-debuginfo | package    | 4.0.0.1-4.1 | i586   | x2go
+
+=======================================================================
+
+Hi Bernd,
+
+I suspect that the xsession you look for, is not a separate package, but a file included in x2goserver package
+Could be wrong though....
+Rpm -qpl x2goserver-4.0.0.1-4.1.x86_64.rpm gives:
+
+==&gt; /etc/X11/Xsession.d
+/etc/X11/Xsession.options
+/etc/init.d/x2gocleansessions
+/etc/permissions.d/x2goserver
+/etc/sudoers.d
+/etc/sudoers.d/x2go
+/etc/x2go
+/etc/x2go/Xresources
+==&gt; /etc/x2go/Xsession 
+==&gt; /etc/x2go/Xsession.d
+/etc/x2go/Xsession.options
+/etc/x2go/x2go_logout
+/etc/x2go/x2go_logout.d
+/etc/x2go/x2go_logout.d/010_userscripts.sh
+/etc/x2go/x2goagent.options
+/etc/x2go/x2goserver.conf
+/etc/x2go/x2gosql
+/etc/x2go/x2gosql/passwords
+/etc/x2go/x2gosql/sql
+/usr/bin/x2gobasepath
+/usr/bin/x2gocmdexitmessage
+/usr/bin/x2gofeature
+/usr/bin/x2gofeaturelist
+/usr/bin/x2gogetapps
+/usr/bin/x2gogetservers
+/usr/bin/x2golistdesktops
+/usr/bin/x2golistmounts
+/usr/bin/x2golistsessions
+/usr/bin/x2gomountdirs
+/usr/bin/x2gopath
+/usr/bin/x2goprint
+/usr/bin/x2goresume-session
+/usr/bin/x2goruncommand
+/usr/bin/x2goserver-run-extensions
+/usr/bin/x2gosessionlimit
+/usr/bin/x2gosetkeyboard
+/usr/bin/x2goshowblocks
+/usr/bin/x2gostartagent
+/usr/bin/x2gosuspend
+/usr/bin/x2gosuspend-agent
+/usr/bin/x2gosuspend-session
+/usr/bin/x2goterminate
+/usr/bin/x2goterminate-session
+/usr/bin/x2goumount-session
+/usr/bin/x2goversion
+/usr/lib/x2go
+/usr/lib/x2go/extensions
+/usr/lib/x2go/extensions/fail-resume.d
+/usr/lib/x2go/extensions/fail-start.d
+/usr/lib/x2go/extensions/fail-suspend.d
+/usr/lib/x2go/extensions/fail-terminate.d
+/usr/lib/x2go/extensions/post-resume.d
+/usr/lib/x2go/extensions/post-runcommand.d
+/usr/lib/x2go/extensions/post-start.d
+/usr/lib/x2go/extensions/post-suspend.d
+/usr/lib/x2go/extensions/post-terminate.d
+/usr/lib/x2go/extensions/pre-resume.d
+/usr/lib/x2go/extensions/pre-runcommand.d
+/usr/lib/x2go/extensions/pre-start.d
+/usr/lib/x2go/extensions/pre-suspend.d
+/usr/lib/x2go/extensions/pre-terminate.d
+/usr/lib/x2go/x2gochangestatus
+/usr/lib/x2go/x2gocreatesession
+/usr/lib/x2go/x2gogetagent
+/usr/lib/x2go/x2gogetdisplays
+/usr/lib/x2go/x2gogetports
+/usr/lib/x2go/x2gogetstatus
+/usr/lib/x2go/x2goinsertport
+/usr/lib/x2go/x2goinsertsession
+/usr/lib/x2go/x2golistsessions_sql
+/usr/lib/x2go/x2gologlevel
+/usr/lib/x2go/x2goresume
+/usr/lib/x2go/x2gormport
+/usr/lib/x2go/x2gosqlitewrapper
+/usr/lib/x2go/x2gosqlitewrapper.pl
+/usr/lib/x2go/x2gosuspend-agent
+/usr/lib/x2go/x2gosyslog
+/usr/lib64/x2go
+/usr/lib64/x2go/x2godbwrapper.pm
+/usr/lib64/x2go/x2gologlevel.pm
+/usr/sbin/x2gocleansessions
+/usr/sbin/x2godbadmin
+/usr/sbin/x2golistsessions_root
+/usr/share/man/man8/x2gobasepath.8.gz
+/usr/share/man/man8/x2gocleansessions.8.gz
+/usr/share/man/man8/x2gocmdexitmessage.8.gz
+/usr/share/man/man8/x2godbadmin.8.gz
+/usr/share/man/man8/x2gofeature.8.gz
+/usr/share/man/man8/x2gofeaturelist.8.gz
+/usr/share/man/man8/x2gofm.8.gz
+/usr/share/man/man8/x2gogetservers.8.gz
+/usr/share/man/man8/x2golistdesktops.8.gz
+/usr/share/man/man8/x2golistmounts.8.gz
+/usr/share/man/man8/x2golistsessions.8.gz
+/usr/share/man/man8/x2golistsessions_root.8.gz
+/usr/share/man/man8/x2gomountdirs.8.gz
+/usr/share/man/man8/x2gopath.8.gz
+/usr/share/man/man8/x2goprint.8.gz
+/usr/share/man/man8/x2goresume-session.8.gz
+/usr/share/man/man8/x2goruncommand.8.gz
+/usr/share/man/man8/x2goserver-run-extensions.8.gz
+/usr/share/man/man8/x2gosessionlimit.8.gz
+/usr/share/man/man8/x2gosetkeyboard.8.gz
+/usr/share/man/man8/x2goshowblocks.8.gz
+/usr/share/man/man8/x2gostartagent.8.gz
+/usr/share/man/man8/x2gosuspend-agent.8.gz
+/usr/share/man/man8/x2gosuspend-session.8.gz
+/usr/share/man/man8/x2gosuspend.8.gz
+/usr/share/man/man8/x2goterminate-session.8.gz
+/usr/share/man/man8/x2goterminate.8.gz
+/usr/share/man/man8/x2goumount-session.8.gz
+/usr/share/man/man8/x2goversion.8.gz
+/usr/share/x2go
+/usr/share/x2go/versions
+/usr/share/x2go/versions/VERSION.x2goserver
+/usr/share/x2go/versions/VERSION.x2goserver-compat
+/usr/share/x2go/versions/VERSION.x2goserver-extensions
+/usr/share/x2go/versions/VERSION.x2goserver-fmbindings
+/usr/share/x2go/versions/VERSION.x2goserver-printing
+/usr/share/x2go/versions/VERSION.x2goserver-pyhoca
+/usr/share/x2go/versions/VERSION.x2goserver-xsession
+/usr/share/x2go/x2gofeature.d
+/usr/share/x2go/x2gofeature.d/x2goserver-compat.features
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features
+/usr/share/x2go/x2gofeature.d/x2goserver-fmbindings.features
+/usr/share/x2go/x2gofeature.d/x2goserver-printing.features
+/usr/share/x2go/x2gofeature.d/x2goserver-xsession.features
+/usr/share/x2go/x2gofeature.d/x2goserver.features
+/var/lib/x2go
+/var/spool/x2goprint
+
+
+______________________________________________________________________
+Dit bericht kan informatie bevatten die niet voor u is bestemd. Indien u niet de geadresseerde bent of dit bericht abusievelijk aan u is toegezonden, wordt u verzocht dat aan de afzender te melden en het bericht te verwijderen. De Staat aanvaardt geen aansprakelijkheid voor schade, van welke aard ook, die verband houdt met risico's verbonden aan het electronisch verzenden van berichten.
+
+This message may contain information that is not intended for you. If you are not the addressee or if this message was sent to you by mistake, you are requested to inform the sender and delete the message. The State accepts no liability for damage of any kind resulting from the risks inherent in the electronic transmission of messages.
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001424.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+	<LI>Next message: <A HREF="001426.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1425">[ date ]</a>
+              <a href="thread.html#1425">[ thread ]</a>
+              <a href="subject.html#1425">[ subject ]</a>
+              <a href="author.html#1425">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

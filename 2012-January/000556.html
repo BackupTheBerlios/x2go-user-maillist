@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] libjpeg-turbo use with X2GO
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20libjpeg-turbo%20use%20with%20X2GO&In-Reply-To=%3C20120123185737.20241niu885yywlt%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000547.html">
+   <LINK REL="Next"  HREF="000548.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] libjpeg-turbo use with X2GO</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20libjpeg-turbo%20use%20with%20X2GO&In-Reply-To=%3C20120123185737.20241niu885yywlt%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] libjpeg-turbo use with X2GO">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Jan 23 18:57:37 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000547.html">[X2go-User] libjpeg-turbo use with X2GO
+</A></li>
+        <LI>Next message: <A HREF="000548.html">[X2go-User] Blank x2go client screen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#556">[ date ]</a>
+              <a href="thread.html#556">[ thread ]</a>
+              <a href="subject.html#556">[ subject ]</a>
+              <a href="author.html#556">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Waldek,
+
+cross-posting to x2go-dev ML as we should not SPAM the x2go-user list  
+with such complex stuff ;-) Maybe you want to subscribe to x2go-dev?
+
+On Sa 21 Jan 2012 12:59:46 CET Waldek wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> Anybody try to configure for example ubutu to configure x2goserver  
+</I>&gt;<i> to use libjpeg-tubro (  
+</I>&gt;<i> <A HREF="http://sourceforge.net/projects/libjpeg-turbo/">http://sourceforge.net/projects/libjpeg-turbo/</A> ) instead libjpeg ? I  
+</I>&gt;<i> have read that for example OpenNX client for neatx or freenx server  
+</I>&gt;<i> recommend to use this because libjpeg-turbo have speed improvement   
+</I>&gt;<i> than standard libjpeg and it will be use full to reduce transfer for  
+</I>&gt;<i> x2go session. I don't know how to configure (or is it possible?)  
+</I>&gt;<i> x2goserver on ubutu to use libjpeg-turbo
+</I>&gt;<i>
+</I>&gt;<i> Regards
+</I>
+libjpeg-turbo support (from my perspective) is a distribution issue.  
+Libjpeg-turbo is pending for Debian sid inclusion:
+<A HREF="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=612341">http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=612341</A>
+
+As we do not have plans to ship libjpeg-turbo within the X2Go  
+repository currently, I guess we will have to wait for distro  
+inclusion in Debian/Ubuntu.
+
+With other distros that already have libjpeg8 (optionally) replaced by  
+libjpeg-turbo, it should be possible to compile NX (redistributed)  
+against the faster libary.
+
+There also is another NX related project on git.ethersoft.ru that  
+provides NX with libjpeg-turbo. However, that repos only builds NX for  
+FreeNX.
+
+Greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120123/37e74808/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120123/37e74808/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000547.html">[X2go-User] libjpeg-turbo use with X2GO
+</A></li>
+	<LI>Next message: <A HREF="000548.html">[X2go-User] Blank x2go client screen
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#556">[ date ]</a>
+              <a href="thread.html#556">[ thread ]</a>
+              <a href="subject.html#556">[ subject ]</a>
+              <a href="author.html#556">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

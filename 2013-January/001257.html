@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] follow up: connection failed xhost: unable to open	display (again)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20follow%20up%3A%20connection%20failed%20xhost%3A%20unable%20to%20open%0A%09display%20%28again%29&In-Reply-To=%3CCAOk18jy%2B1TmF9XLScR2xcoKsTR41mJzsirWXgK69BMLS_boX3A%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001256.html">
+   <LINK REL="Next"  HREF="001258.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] follow up: connection failed xhost: unable to open	display (again)</H1>
+    <B>nigra truo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20follow%20up%3A%20connection%20failed%20xhost%3A%20unable%20to%20open%0A%09display%20%28again%29&In-Reply-To=%3CCAOk18jy%2B1TmF9XLScR2xcoKsTR41mJzsirWXgK69BMLS_boX3A%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] follow up: connection failed xhost: unable to open	display (again)">nigratruo at gmail.com
+       </A><BR>
+    <I>Fri Jan 18 20:57:20 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001256.html">[X2Go-User] x2go client on Mountain Lion
+</A></li>
+        <LI>Next message: <A HREF="001258.html">[X2Go-User] wiki be horked ...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1257">[ date ]</a>
+              <a href="thread.html#1257">[ thread ]</a>
+              <a href="subject.html#1257">[ subject ]</a>
+              <a href="author.html#1257">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+following up on the subject, I found out some more things:
+
+quote:
+I also noticed that it works for user Z, I can open a session. But
+currently never for user Y.
+
+It really does not work for this user and I don't understand why. I have
+enough space on the filesystem, I erased the .x2go directories in user Ys
+home folder. I can login over ssh with Y, so that is not a problem.
+This problem by the way started happening after a I had a power failure on
+my server, so I wonder if something got corrupted. I reinstalled (purged)
+x2goserver, so the x2go install should be fine.
+
+I now receive the xhost unable to open display on any system I try it with,
+with different OSes.
+
+
+When connecting from Windows 7 to user Z, I can establish a X2go session
+and when I use the Client app via gui, it fails to connect to user Y, BUT
+if I run it in the CLI, it works:
+
+*<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mm at myserver</A>:~$ x2goclient-cli --user Y --server localhost
+Password:
+xhost:  unable to open display &quot;&quot;
+xhost:  unable to open display &quot;&quot;
+ln: creating symbolic link `/tmp/.x2go-Y/session-C-Y-52-1358533596.log':
+File exists
+xhost:  unable to open display &quot;&quot;*
+
+
+So these xhost error messages are coming from the x2goserver and only for
+that one user (which is the strangest thing)
+
+So far I have not been able to enable debugging logging in x2goserver,
+editing the config file and restarting the server. The x2goserver does
+totally minimal logging and does not show what is wrong and why I cannot
+establish the connection.
+
+
+I have had lots and lots of trouble with xhost errors in the past, on any
+Linux box and the documentation that exists on it is totally shady and
+unconclusive. X seems to have a very weird idea of what security means and
+how it is instituted. (at where root is not allowed to access a users
+desktop without prior having given permission to it)
+
+There must be something special about user Y, something that x2go saved in
+the home dir. What directories would I have to clean up to erase all cache
+/ config files that x2go might store there when an external client connects
+to it?
+
+Any pointers would be welcome.
+
+Thanks,
+
+Markus
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130118/d40a94ee/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130118/d40a94ee/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001256.html">[X2Go-User] x2go client on Mountain Lion
+</A></li>
+	<LI>Next message: <A HREF="001258.html">[X2Go-User] wiki be horked ...
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1257">[ date ]</a>
+              <a href="thread.html#1257">[ thread ]</a>
+              <a href="subject.html#1257">[ subject ]</a>
+              <a href="author.html#1257">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [newb] display size ignored
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5Bnewb%5D%20display%20size%20ignored&In-Reply-To=%3C52BA2314.4040307%40ast.cam.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001879.html">
+   <LINK REL="Next"  HREF="001884.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [newb] display size ignored</H1>
+    <B>Roderick Johnstone</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5Bnewb%5D%20display%20size%20ignored&In-Reply-To=%3C52BA2314.4040307%40ast.cam.ac.uk%3E"
+       TITLE="[X2Go-User] [newb] display size ignored">rmj at ast.cam.ac.uk
+       </A><BR>
+    <I>Wed Dec 25 01:13:08 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001879.html">[X2Go-User] [newb] display size ignored
+</A></li>
+        <LI>Next message: <A HREF="001884.html">[X2Go-User] [newb] display size ignored
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1880">[ date ]</a>
+              <a href="thread.html#1880">[ thread ]</a>
+              <a href="subject.html#1880">[ subject ]</a>
+              <a href="author.html#1880">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 24/12/13 19:10, Neal Becker wrote:
+&gt;&gt;<i>
+</I>&gt;&gt;<i> PS Now I'm fighting wrong keyboard mappings (see my post to the Fedora
+</I>&gt;&gt;<i> kde list). I managed to get x2go to set the correct type and layout but
+</I>&gt;&gt;<i> I think kde is overriding it. I got this all working in the beta, but
+</I>&gt;&gt;<i> its broken again in the F20 release.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I did notice this in the x2go log, maybe related?
+</I>&gt;<i>
+</I>&gt;<i> nxagentXkbGetRules: WARNING! Failed to stat file
+</I>&gt;<i> [/usr/lib64/nx/X11/xkb/rules/xorg]: Unknown error -1.
+</I>
+Yes, I noticed that too. I think that is fixed by touching the file
+usr/share/X11/xkb/keymap.dir. Anyway, touching the keymap.dir file seems 
+to be needed for the keyboard mapping to work at all.
+
+Actually there are three cases of different settings in the client. 
+Currently I only have the case of setting the keyboard type and layout 
+explicitly, working. I will be reporting the non-working cases, but need 
+some time for more testing to be sure of whats not working.
+
+By putting some debugging into /usr/bin/startkde I can see that the 
+keymap is set correctly before starting kde but once the session is 
+established its changed to a us keyboard layout.
+
+Roderick
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001879.html">[X2Go-User] [newb] display size ignored
+</A></li>
+	<LI>Next message: <A HREF="001884.html">[X2Go-User] [newb] display size ignored
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1880">[ date ]</a>
+              <a href="thread.html#1880">[ thread ]</a>
+              <a href="subject.html#1880">[ subject ]</a>
+              <a href="author.html#1880">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

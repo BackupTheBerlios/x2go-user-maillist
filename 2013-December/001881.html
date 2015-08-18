@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3CCAPzpdNg7%3DVj0H%2B2fMJiHWNTB5muc9tn25bGgn-At%3DUMdGHPrxA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001873.html">
+   <LINK REL="Next"  HREF="001874.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;</H1>
+    <B>Luciano Gabriel Andino</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pxe%3A%20%22Access%20denied%3A%20Authentication%20that%20can%0A%09continue....%22&In-Reply-To=%3CCAPzpdNg7%3DVj0H%2B2fMJiHWNTB5muc9tn25bGgn-At%3DUMdGHPrxA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;">malucosfe at gmail.com
+       </A><BR>
+    <I>Thu Dec 26 14:59:56 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001873.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+        <LI>Next message: <A HREF="001874.html">[X2Go-User] New user x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1881">[ date ]</a>
+              <a href="thread.html#1881">[ thread ]</a>
+              <a href="subject.html#1881">[ subject ]</a>
+              <a href="author.html#1881">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>2013/12/24 Stefan Baur &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">newsgroups.mail2 at stefanbaur.de</A>&gt;
+
+&gt;<i> Am 24.12.2013 02:33, schrieb Luciano Gabriel Andino:
+</I>&gt;<i>
+</I>&gt;<i>  Hi there)) I am trying to configure x2go/pxe and this is my first
+</I>&gt;&gt;<i> question.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I did a clientsession in server and scp transfer to pxe server. PXE
+</I>&gt;&gt;<i> server is ready, client booted but I can't login cause this message
+</I>&gt;&gt;<i> appears (in client):
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &quot;Access denied: Authentication that can continue....&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> while it was possible to login from a linux box. The idea is that a any
+</I>&gt;&gt;<i> user can access to his account from anyclient. how can I store this
+</I>&gt;&gt;<i> publickeys?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I'm not sure what went wrong there, but I'm also not quite sure what
+</I>&gt;<i> you're trying to accomplish. So I've typed down the answers to the three
+</I>&gt;<i> most likely interpretations of your question that I can come up with. If
+</I>&gt;<i> none of this matches what your intention is, please rephrase your question,
+</I>&gt;<i> explain in greater detail what you're trying to accomplish (expected
+</I>&gt;<i> behavior versus actual behavior), and post again.
+</I>&gt;<i>
+</I>&gt;<i> --------------------------------
+</I>&gt;<i>
+</I>&gt;<i> The following is assuming that while you want every user to be able to use
+</I>&gt;<i> every client, you *do* want authentication (i.e. every user has a dedicated
+</I>&gt;<i> account that no one else should be using):
+</I>&gt;<i>
+</I>&gt;<i> 1) The easiest way would be using passwords only. You do not HAVE to use
+</I>&gt;<i> public key files, though of course they provide greater security WHEN - and
+</I>&gt;<i> ONLY WHEN - implemented and used correctly.
+</I>&gt;<i>
+</I>&gt;<i> 2) If you want to use two-factor authentication, my guess is that you
+</I>&gt;<i> could either
+</I>&gt;<i> 2a) put the secret keys (the public key of each user needs to be in the
+</I>&gt;<i> user's home directory, in a subdirectory called &quot;.ssh&quot;, and a file named
+</I>&gt;<i> &quot;authorized_keys&quot;, with proper restrictive permissions in place) on a USB
+</I>&gt;<i> key fob, set up the Thin Client Environment so that it looks for USB
+</I>&gt;<i> devices and tries to mount them automatically, and have a symlink from
+</I>&gt;<i> .ssh/id_rsa or id_dsa on the TCE user's home directory on the thin client
+</I>&gt;<i> point to the mountpoint of the USB device (which needs to contain a linux
+</I>&gt;<i> filesystem so the permissions work) or
+</I>&gt;<i> 2b) use Smartcard-Based authentication, which requires cards and reader
+</I>&gt;<i> hardware. This is something I've never used myself, though, so you should
+</I>&gt;<i> contact one of the core developers (Mike Gabriel seems to be the most
+</I>&gt;<i> active one these days) about how that works.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Now, assuming that you don't care about security at all, because you want
+</I>&gt;<i> everyone to be able to log in as everyone (think Infokiosk), you could of
+</I>&gt;<i> course dump all the secret keys for your pseudo-users into id_rsa_something
+</I>&gt;<i> or id_dsa_something files (as above, with proper restrictive permissions in
+</I>&gt;<i> place), make them part of the TCE NFS image and reference them in your
+</I>&gt;<i> sessions file - but that is something you should really only do if you DO
+</I>&gt;<i> NOT NEED NOR WANT ANY SECURITY AT ALL and are simply looking for a way that
+</I>&gt;<i> users aren't bothered with having to enter a password.
+</I>&gt;<i>
+</I>&gt;<i> --------------------------------
+</I>&gt;<i>
+</I>&gt;<i> If you think you should use Keyfiles AND Passwords to the keyfiles, AND
+</I>&gt;<i> are looking for a way to centrally store the keyfiles so nobody needs a USB
+</I>&gt;<i> key fob or smartcard, you are making your system LESS secure than a
+</I>&gt;<i> password-only solution without keyfiles. So if that was your intent, DO NOT
+</I>&gt;<i> DO THAT.
+</I>&gt;<i> The reason is that while you can regularly change passwords on secret
+</I>&gt;<i> keyfiles, ANY copy of a secret keyfile with a known password WILL ALWAYS
+</I>&gt;<i> grant access to the account with the matching public keyfile.
+</I>&gt;<i> So if anybody at any time gets hold of the keyfile AND the then-current
+</I>&gt;<i> password, changing the password on your keyfile DOES NOT LOCK HIM OUT.
+</I>&gt;<i> You NEED to generate completely NEW keyfiles in that situation. THIS IS
+</I>&gt;<i> BAD. So avoid this approach at all costs.
+</I>&gt;<i>
+</I>&gt;<i> --------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Sorry that this message is rather long, but these are some newbie mistakes
+</I>&gt;<i> I'm seeing again and again, and I'd like to keep you from making these
+</I>&gt;<i> mistakes, if only for the sake of your users.
+</I>&gt;<i>
+</I>&gt;<i> -Stefan
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+hello! thanks for your answer. I will try to explain what I try to do and
+maybe you can recommend the best option.
+Actually, I'm using thinstation's image for booting diskless station to
+access a Linux server using XDMCP.
+My LAN has about 25 MSI wind nettop clients, no HD but can boot using PXE.
+I am just trying testing x2go to see if there is an important improvement
+in terms of graphical response at client side.
+At the same time, I'm interesting to access my KDE session from outside
+(Internet) with a normal computer. The problem is I don't know which can be
+the best option for diskless computers in LAN, thinking that sometimes any
+user
+needs to access his account from a different station.
+Options I understood you told, are:
+1) using no public keys (no encryption?) how can be done?
+
+2) In this option, I don't understand if .ssh/authorized_keys must be on
+home user directory in server or in usb stick? Is there any documentation
+for this? Also seems users need to have their own stick to attach in
+station they want to use.
+
+3) I can store session and public keys in exported fs (not recommended).
+
+Also I am in doubt if users change their Linux account's password or they
+access from different station, I need to introduce changes in publickeys.
+
+
+-- 
+Saludos!!
+
+Luciano Andino
+GNU/Linux user #185103
+Santa Fe - Argentina
+-----------------------------------------------
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131226/041e1c91/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131226/041e1c91/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001873.html">[X2Go-User] pxe: &quot;Access denied: Authentication that can	continue....&quot;
+</A></li>
+	<LI>Next message: <A HREF="001874.html">[X2Go-User] New user x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1881">[ date ]</a>
+              <a href="thread.html#1881">[ thread ]</a>
+              <a href="subject.html#1881">[ subject ]</a>
+              <a href="author.html#1881">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

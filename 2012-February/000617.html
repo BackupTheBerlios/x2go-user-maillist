@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problem with X2Go and VMWare Tools
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20X2Go%20and%20VMWare%20Tools&In-Reply-To=%3CCAAWyt1oThBN1PJiM1mjRM%2B176WyCG%2Be5CTMbtEG2C96z2%3Dn6%3Dw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000614.html">
+   <LINK REL="Next"  HREF="000618.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problem with X2Go and VMWare Tools</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20X2Go%20and%20VMWare%20Tools&In-Reply-To=%3CCAAWyt1oThBN1PJiM1mjRM%2B176WyCG%2Be5CTMbtEG2C96z2%3Dn6%3Dw%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Problem with X2Go and VMWare Tools">bd.dali at gmail.com
+       </A><BR>
+    <I>Sat Feb 18 19:54:17 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000614.html">[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails - workaround
+</A></li>
+        <LI>Next message: <A HREF="000618.html">[X2go-User] Suggestion - x2go Community &amp; Core-Dev's should set a date for a Week of Wiki updating/cleanup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#617">[ date ]</a>
+              <a href="thread.html#617">[ thread ]</a>
+              <a href="subject.html#617">[ subject ]</a>
+              <a href="author.html#617">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi.
+
+I've been troubleshooting a weird problem with X2Go for a while, when
+connecting to Gnome sessions in virtual machines the top and bottom
+panels are displayed but the desktop/background never shows up and the
+mouse pointer never stops spinning. It's like the Gnome session
+startup reaches 99% and then just waits forever for something.
+
+It turns out it's related to VMWare Tools. I use VMWare Hypervisor
+(ESXi) 5, I can't say if the problem started when I upgraded from ESXi
+4 to 5, but it's fairly recent.
+
+I discovered that there are two instances of vmtoolsd running, the
+process list looks something like this when the X2Go session reaches
+&quot;wait forever&quot; state:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at labblinux</A>:~# ps auxw | grep vmware
+dali     12906  1.4  1.4 174604 14588 ?        S    18:47   0:00
+/usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr
+dali     12956  1.4  0.3 174604  3680 ?        S    18:47   0:00
+/usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr
+root     12971  0.0  0.0   7556   860 pts/0    S+   18:47   0:00 grep vmware
+
+If I &quot;kill -1 12906&quot; the other vmtoolsd (12956) dies(!):
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at labblinux</A>:~# kill -1 12906
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at labblinux</A>:~# ps auxw | grep vmware
+dali     12906  0.4  1.4 174604 14616 ?        S    18:47   0:00
+/usr/lib/vmware-tools/sbin64/vmtoolsd -n vmusr
+root     13041  0.0  0.0   7556   860 pts/0    S+   18:48   0:00 grep vmware
+
+Simultaneously the X2Go/Gnome session startup successfully finishes.
+
+Starting a Gnome session locally on the virtual machine console
+successfully finishes. I've tried using xrdp instead of X2Go and had
+no problems starting sessions, both using X11rdp and X11vnc on the
+server side. There's only one vmtoolsd running unless it's a X2Go
+session.
+
+I've unsuccessfully tried to figure out what the root cause is. It
+seems related to X2Go login/startup, somehow vmtoolsd starts twice and
+there's a conflict blocking Gnome startup.
+
+I did however find a workaround; uninstall VMWare Tools and install
+the open-vm-tools package from the Debian repository (contrib has to
+be added). No problems with X2Go so far and VMWare seems happy with
+the open source tools (Shutdown/Restart Guest is available in vSphere
+Client).
+
+I posted this to both x2go-user and x2go-dev for informational
+purposes. Maybe a wiki page would be the best place for this info? The
+wiki is however in a sad state and needs some serious cleanup. I
+personally don't think the template used is aesthetically pleasing and
+would prefer the default template or Arctic template which I've used
+extensively in all my DokuWiki installs.
+
+Cheers,
+Daniel
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000614.html">[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails - workaround
+</A></li>
+	<LI>Next message: <A HREF="000618.html">[X2go-User] Suggestion - x2go Community &amp; Core-Dev's should set a date for a Week of Wiki updating/cleanup
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#617">[ date ]</a>
+              <a href="thread.html#617">[ thread ]</a>
+              <a href="subject.html#617">[ subject ]</a>
+              <a href="author.html#617">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

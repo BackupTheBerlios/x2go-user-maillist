@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Issue with keyboard layout settings / altGr key
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Issue%20with%20keyboard%20layout%20settings%20/%20altGr%20key&In-Reply-To=%3C1345387015.26364.YahooMailNeo%40web171205.mail.ir2.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000965.html">
+   <LINK REL="Next"  HREF="000970.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Issue with keyboard layout settings / altGr key</H1>
+    <B>bigot julien</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Issue%20with%20keyboard%20layout%20settings%20/%20altGr%20key&In-Reply-To=%3C1345387015.26364.YahooMailNeo%40web171205.mail.ir2.yahoo.com%3E"
+       TITLE="[X2Go-User] Issue with keyboard layout settings / altGr key">laloutre20042004 at yahoo.fr
+       </A><BR>
+    <I>Sun Aug 19 16:36:55 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000965.html">[X2Go-User] x2go connecting timout with TCE
+</A></li>
+        <LI>Next message: <A HREF="000970.html">[X2Go-User] Issue with keyboard layout settings / altGr key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#966">[ date ]</a>
+              <a href="thread.html#966">[ thread ]</a>
+              <a href="subject.html#966">[ subject ]</a>
+              <a href="author.html#966">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Hello,
+
+I'm lookings for help for configuring the keyboard layout in X2go sessions.
+I'm not sure i'm on the good mailing-list for that, please excuse me if i'm not. 
+
+
+I'm using X2goserver&#160; 3.1.1.3 on a debian machine,&#160; and i connect from windows with X2goClient 3.99.2.2, on a lxde desktop session. 
+
+
+By default,&#160; i'm connected with a french keyboard layout, so it's good, apparently,&#160; but the AltGr Key&#160; does not work, nor does the &quot;ctrl+alt&quot; combo supposed to behave&#160; the same way.
+It means i can't type letters such as &quot; #, {, |, @ &quot; ... 
+
+
+
+So i tried to switch to us layout keyboard ( not the best solution,&#160; but at least, will reduce the need for an AltGr key ) , but i didn't managed to. 
+
+
+I tried several way i found on the faq,&#160; on the mailing list, etc..
+
+1) In the session preference, on the client :&#160;&#160; the parameter keyboard layout / model is ignored, i'm still in french. 
+
+
+2) using setxkbmap in a terminal during the session : it returns an error&#160;
+
+# setxkbmap us
+&gt;<i>No protocol specified
+</I>&gt;<i> Cannot open display &quot;:51.0&quot;
+</I>
+
+3) Putting &quot;auto&quot; in keyboard type session preference,&#160; then from the session,&#160; editing ~/.x2go/&lt;session&gt;/keyboard , then call x2gosetkeyboard.&#160; The command&#160; return no error,&#160; but makes no change. 
+
+
+
+
+Any help on how to get the AltGr key to function properly,&#160; or, by default, any help on how to switch to the us keyboard&#160; will be greatly appreciated.&#160;
+
+
+Thanks in advance, 
+
+
+
+Julien. 
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000965.html">[X2Go-User] x2go connecting timout with TCE
+</A></li>
+	<LI>Next message: <A HREF="000970.html">[X2Go-User] Issue with keyboard layout settings / altGr key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#966">[ date ]</a>
+              <a href="thread.html#966">[ thread ]</a>
+              <a href="subject.html#966">[ subject ]</a>
+              <a href="author.html#966">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

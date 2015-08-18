@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] RDP packing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20RDP%20packing&In-Reply-To=%3C20110721235543.69315eby2drbrvq7%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000258.html">
+   <LINK REL="Next"  HREF="000260.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] RDP packing</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20RDP%20packing&In-Reply-To=%3C20110721235543.69315eby2drbrvq7%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] RDP packing">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Jul 21 23:55:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000258.html">[X2go-User] RDP packing
+</A></li>
+        <LI>Next message: <A HREF="000260.html">[X2go-User] RDP packing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Do 21 Jul 2011 22:00:34 CEST &quot;John A. Sullivan III&quot; wrote:
+
+&gt;<i> Hello, all.  We are still trying to address the very poor performance of
+</I>&gt;<i> rdesktop sessions transmitted over NX - much slower than native RDP
+</I>&gt;<i> although we were expecting it to be much faster.  In reading the NX
+</I>&gt;<i> documentation, we saw that they have a packing algorithm especially for
+</I>&gt;<i> RDP.  However, whenever we enable this packing algorithm, the session
+</I>&gt;<i> aborts.  Has anyone successfully used it? How do we troubleshoot this
+</I>&gt;<i> issue? Thanks - John
+</I>
+The actual pack methods support by libxcomp3 seem to be in this file:
+
+<A HREF="http://code.x2go.org/gitweb?p=nxcomp.git;a=blob;f=Loop.cpp;h=76622d820f58e56453e51a8bd1d0127f7f4e5d32;hb=68b507b01d1a7aeab734a2955ddb2d513dbe8ace">http://code.x2go.org/gitweb?p=nxcomp.git;a=blob;f=Loop.cpp;h=76622d820f58e56453e51a8bd1d0127f7f4e5d32;hb=68b507b01d1a7aeab734a2955ddb2d513dbe8ace</A>
+
+Obviously, x2goclient (and pyhoca-gui) offer more pack methods than  
+currently supported.
+
+@Alex: any clue on this??? We should remove the non-NX methods?
+
+@John: I currently am logged in on from my Debsqueeze notebook to an  
+x2goserver in my office (LAN) that draws in 3 rdesktop session from  
+three machines via DSL (WAN, 3500bit/s). All three work very smoothly  
+while at the same time another host here draws backups from some  
+servers on the internet... I use 16m-png-jpeg-9 for that.
+
+Cheers,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110721/5b29a642/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110721/5b29a642/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000258.html">[X2go-User] RDP packing
+</A></li>
+	<LI>Next message: <A HREF="000260.html">[X2go-User] RDP packing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#259">[ date ]</a>
+              <a href="thread.html#259">[ thread ]</a>
+              <a href="subject.html#259">[ subject ]</a>
+              <a href="author.html#259">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

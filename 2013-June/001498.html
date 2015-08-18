@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go and ssh forwarding
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20and%20ssh%20forwarding&In-Reply-To=%3CCAHeJaPK9p2V_v-y8Hagu5rjCu8AGXbPyC6%2B3J5dsTJ65FNPFeQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001495.html">
+   <LINK REL="Next"  HREF="001499.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go and ssh forwarding</H1>
+    <B>Kjell Otto</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20and%20ssh%20forwarding&In-Reply-To=%3CCAHeJaPK9p2V_v-y8Hagu5rjCu8AGXbPyC6%2B3J5dsTJ65FNPFeQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] X2Go and ssh forwarding">otto.kjell at gmail.com
+       </A><BR>
+    <I>Thu Jun 27 13:05:32 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001495.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+        <LI>Next message: <A HREF="001499.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1498">[ date ]</a>
+              <a href="thread.html#1498">[ thread ]</a>
+              <a href="subject.html#1498">[ subject ]</a>
+              <a href="author.html#1498">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>As I remember, this feature is not very well tested, I've come across the
+usage in the codebase... only thing I can recall is that the informations
+were not really used already.
+
+If anything is not working there, tell us Andreas, I think I might be able
+to help then ;)
+
+Greetings,
+Kjellski
+
+
+2013/6/26 Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+
+&gt;<i> Hi Andreas,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Di 25 Jun 2013 16:29:41 CEST Andreas Yankopolus wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Mike,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  SSH agent forwardings are only supported by the Python X2Go Client named
+</I>&gt;&gt;&gt;<i> PyHoca-GUI. X2Go Client does not support forwarding of agent auth requests.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> It's not looking like PyHoca-GUI plays well with OS X. Is it possible to
+</I>&gt;&gt;<i> set up port forwarding manually and point X2Go at localhost when
+</I>&gt;&gt;<i> connecting? Or maybe there's some other option?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Aftern thinking it through, you should be able to use the SSH proxy
+</I>&gt;<i> feature (Connection tab of X2Go Client). Configure the public.ip.address as
+</I>&gt;<i> the SSH proxy and the private.ip.address as X2Go Host. Enable SSH Agent
+</I>&gt;<i> authentication for both target machines (SSH Proxy, X2Go Host).
+</I>&gt;<i>
+</I>&gt;<i>  Andreas
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, herweg 7, 24357 fleckeby
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130627/281e9841/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130627/281e9841/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001495.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+	<LI>Next message: <A HREF="001499.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1498">[ date ]</a>
+              <a href="thread.html#1498">[ thread ]</a>
+              <a href="subject.html#1498">[ subject ]</a>
+              <a href="author.html#1498">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

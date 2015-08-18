@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Ist X2Go eine ernsthafte L&#246;sung oder Bananensoftware?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20%3D%3Fiso-8859-1%3Fq%3FIst_X2Go_eine_ernsthafte_L%3DF6sung_oder%3F%3D%0A%20%3D%3Fiso-8859-1%3Fq%3F_Bananensoftware%3D3F%3F%3D&In-Reply-To=%3C58DE2420-7C10-4C45-8AE1-78AF80F59310%40izsr.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000145.html">
+   <LINK REL="Next"  HREF="000147.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Ist X2Go eine ernsthafte L&#246;sung oder Bananensoftware?</H1>
+    <B>Tim-Ole Alexander Golz</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20%3D%3Fiso-8859-1%3Fq%3FIst_X2Go_eine_ernsthafte_L%3DF6sung_oder%3F%3D%0A%20%3D%3Fiso-8859-1%3Fq%3F_Bananensoftware%3D3F%3F%3D&In-Reply-To=%3C58DE2420-7C10-4C45-8AE1-78AF80F59310%40izsr.de%3E"
+       TITLE="[X2go-user] Ist X2Go eine ernsthafte L&#246;sung oder Bananensoftware?">toag at izsr.de
+       </A><BR>
+    <I>Sun May 15 19:48:42 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000145.html">[X2go-user] Packages.x2go.org shortly under construction
+</A></li>
+        <LI>Next message: <A HREF="000147.html">[X2go-user] Ist X2Go eine ernsthafte L&#246;sung  oder Bananensoftware?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo, Liste,
+
+
+entschuldigt die etwas provokante Frage, aber wir m&#252;ssen mal ernsthaft fragen, ob es da draussen jemanden gibt, der X2go einigermassen brauchbar installiert und eingerichtet bekommen hat - sonst brechen wir an dieser Stelle (nach drei Tagen Ausprobieren) lieber ab und suchen nach einer anderen L&#246;sung.
+
+Es ist eine schwierige Gratwanderung, OpenSource-Projekte konstruktiv zu kritisieren: ich weiss die aufopferungsvollen Bem&#252;hungen der vielen Entwickler durchaus zu sch&#228;tzen, und eine Spende oder die Entrichtung sonstiger finanzieller Unterst&#252;tzung ist f&#252;r uns selbstverst&#228;ndlich. Und sicher dankt kaum jemand den Entwicklern die Arbeit.
+
+Auf der anderen Seite: Eine Software, bei der *dermassen* viel *nicht* funktioniert, ist uns selten untergekommen - und das erstaunt mich vor allem deswegen, weil X2Go in letzter Zeit eine sehr positive Presse erfahren hat.
+
+Wir suchen nach einer Alternative zu FreeNX und haben zu Testzwecken einen Debian Squeeze installiert; dann haben wir es mit Leny versucht, schliesslich mit Ubuntu 11.04 - es funktioniert (fast) NICHTS ... 
+
+Keine der Anleitungen, die man bei X2go zu Debian und Ubuntu findet, ist stimmig, aber so etwas kennen wir ja aus der OpenSource-Welt (und auch aus der Microsoftwelt, &#252;brigens!!): entweder stimmt der Keyserver nicht (was ja noch vernachl&#228;ssigbar ist), oder der empfohlene x2goserver-home ist nirgends in den Repositories vorhanden; oder man nimmt die Squeeze-Repositories und hat dann kein Script x2gocreatebase.sh, oder es gibt ansonsten jeder Menge Unstimmigkeiten und Fehlermeldungen. Nun ja, wir beissen uns irgendwie durch, und schliesslich haben wir einen X2goserver installiert, per PHPLdapAdmin User angelegt, der Gruppe x2gousers hinzugef&#252;gt, /home-Verzeichnisse angelegt und uns testweise per ssh auf dem X2goserver eingeloggt - die LDAP-Anbindung fukntioniert also, und ein Starten des X2goservers f&#252;hrt auch zu keinen Fehlermeldungen.
+
+Es gelang uns bisher aber weder mit Mac (10.5.6 auf Intel), Windows (XP) noch Ubuntu 11.04, eine Verbindung zustande zu bringen.
+
+- unter dem Mac kommt es trotz vorhandener X11-Application zu einer Fehlermeldung, dass kein X11 vorhanden w&#228;re, und dann zu einem Timeout im Vwerbindungfenster. Das Mac-Log sagt dabei:
+
+macbook DirectoryService[11]: Failed Authentication return is being delayed due to over five
+
+
+- unter XP erscheint die ssh-Key-Abfrage und wird best&#228;tigt, es erscheint f&#252;r den Bruchteil einer Sekunde ein Fenster (der KDE-Desktop?), dann bricht die Verbindung ab mit dem Windows-Fenster
+
+&quot;Befehl konnte nicht ausgef&#252;hrt werden: startkde&quot;
+
+Im Client erscheint:
+
+NXPROXY - Version 3.0.0
+
+Copyright (C) 2001, 2007 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '4080'.
+Session: Starting session at 'Sun May 15 19:36:27 2011'.
+Info: Connecting to remote host 'localhost:30001'.
+Info: Connection to remote proxy 'localhost:30001' established.
+Warning: Connected to remote version 3.4.0 with local version 3.0.0.
+Warning: Consider checking <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for updates.
+Info: Connection with remote proxy completed.
+Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming agent session.
+Warning: Failed to read data from the X auth command.
+Warning: Generating a fake cookie for X authentication.
+Info: Using ADSL link parameters 512/24/1/0.
+Info: Using cache parameters 4/4096KB/8192KB/8192KB.
+Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_32'.
+Info: Using ZLIB data compression 1/1/32.
+Info: Using ZLIB stream compression 4/4.
+Info: No suitable cache file found.
+Info: Forwarding X11 connections to display 'localhost:0'.
+Session: Session started at 'Sun May 15 19:36:27 2011'.
+Info: Established X server connection.
+Info: Using shared memory parameters 0/0K.
+
+Als wir C:\Dokumente und Einstellungen ... \.x2go gel&#246;scht hatten, konnten wir wenigstens ein schwarzes KDE-Fenster sehen - aber es bliebt schwarz, nichts verwertbares ist damit anzufangen :-(
+
+- und unter Ubuntu 11.04 f&#252;hrt weder die Installation und der Aufruf von /usr/bin/x2goclient noch von /usr/bin/x2goclient-gtk (mit vorweg installiertem pinentry) zu irgend etwas  - die Anwendung startet schlicht nicht, das Aufrufen per
+
+/usr/bin/x2goclient
+
+oder 
+
+/usr/bin/x2goclient-gtk
+
+f&#252;hrt zu:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at ubuntu11</A>:/# /usr/bin/x2goclient_gtk 
+**
+GLib-GIO:ERROR:/build/buildd/glib2.0-2.28.6/./gio/gdbusconnection.c:2279:initable_init: assertion failed: (connection-&gt;initialization_error == NULL)
+Abgebrochen
+
+beziehungsweise
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at ubuntu11</A>:/# /usr/bin/x2goclient
+/usr/bin/x2goclient: error while loading shared libraries: libQtNetwork.so.4: cannot open shared object file: No such file or directory
+
+Huffda ... jetzt sind diverse Arbeitstunden vergangen, und es ist nicht irgendwo ein Lichtlein zu sehen - wenn wenigstens irgend einer der Clients funktionieren w&#252;rde ... wir testen jetzt nur nochmal Ubuntu 10.10.
+
+Deswegen die wirklich ernst gemeinte Frage: gibt es irgendwo X2go im Produzktioveinsatz? Mit einer Infrastruktur aus Feld-, Wald- und Wiesen-Debian, Ubuntu, Windows XP? Wobei wir eine der Hauptkriterien - die Verbindungsm&#246;glichkeit von IGEL-Clients aus - noch gar nicht getestet haben, ich kann mir im Moment nicht vorstellen, dass der Netboot funktioniert, wenn schon keiner der Clients brauchbar ist.
+
+Im Gegenzug helfen wir gerne aus mit Dokus schreiben, Webspace zur Verf&#252;gung stellen, Spenden zahlen - aber es sollte doch irgendwo eine halbewgs brauchbare Installationsm&#246;glichkeit f&#252;r X2go geben?! Im Moment kann sich das hier bei uns niemand vorstellen :-(
+
+
+Vielen Dank im Voraus f&#252;r eventuelle Tips / Hilfe / Hinweise!!
+
+
+Tim-Ole Golz
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110515/987aee8f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110515/987aee8f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000145.html">[X2go-user] Packages.x2go.org shortly under construction
+</A></li>
+	<LI>Next message: <A HREF="000147.html">[X2go-user] Ist X2Go eine ernsthafte L&#246;sung  oder Bananensoftware?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#146">[ date ]</a>
+              <a href="thread.html#146">[ thread ]</a>
+              <a href="subject.html#146">[ subject ]</a>
+              <a href="author.html#146">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

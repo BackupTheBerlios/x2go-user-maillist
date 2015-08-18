@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Folder sharing does not work with x2goclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C448D3E4E-7B5A-4163-AAC9-36CFC5794A06%40opensolutions.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000828.html">
+   <LINK REL="Next"  HREF="000827.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Folder sharing does not work with x2goclient</H1>
+    <B>Stephan Diehl</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C448D3E4E-7B5A-4163-AAC9-36CFC5794A06%40opensolutions.net%3E"
+       TITLE="[X2Go-User] Folder sharing does not work with x2goclient">stephan.diehl at opensolutions.net
+       </A><BR>
+    <I>Wed May  9 12:46:59 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000828.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+        <LI>Next message: <A HREF="000827.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#830">[ date ]</a>
+              <a href="thread.html#830">[ thread ]</a>
+              <a href="subject.html#830">[ subject ]</a>
+              <a href="author.html#830">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike,
+
+i have disabled the key deletion in x2gomountdirs and do a manual sshfs call with the existing key files. Then i can see that the x2goserver ist not trusting the x2goclient (sshfs server) and after accepting the hash he is asking me for the password (not trusting my key).
+
+On the x2go client side in the sshd debug log you can see that the sshd is not trusting the client.
+
+So, there is a generally trust problem between server and client :-) and it is client side, because the old x2goclient 3.01(windows and linux) can still share his folders.
+
+Any ideas how to debug this, MIke? Is the latest 3.99 Linux client folder sharing working on your client?
+
+Stephan
+
+Am 09.05.2012 um 11:43 schrieb Mike Gabriel:
+
+&gt;<i> Hi Stefan,
+</I>&gt;<i> 
+</I>&gt;<i> On Di 08 Mai 2012 17:28:04 CEST Stephan Diehl wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> But why is a server modification nedded? The old x2goclient 3.01 for windows and linux can still mount local folders without any problems. This has to be an issue on the client side.
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Is there an old x2goclient.deb (Ver. 3.01) available? Then i can install it on the new client os and test if this issue is from x2go or the system (like sshd).
+</I>&gt;<i> 
+</I>&gt;<i> Best insight you will get when looking at debug output of the client-side sshd (/etc/ssh/sshd_config) and the debug output of the X2Go server (/etc/x2go/x2goserver.conf).
+</I>&gt;<i> 
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> 
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i> 
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+Stephan Diehl 
+Gesch&#228;ftsf&#252;hrer 
+
+Open Solutions GmbH &amp; Co. KG
+Luisenweg 109
+20537 Hamburg
+
+Fon: 040 / 7070806 - 70
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">stephan.diehl at opensolutions.net</A>
+Web: www.opensolutions.net 
+
+Registergericht: Amtsgericht Hamburg, HRA 105 704
+Pers&#246;nlich haftende Gesellschafterin: Open Solutions GmbH
+Registergericht: Amtsgericht Hamburg, HRB 999 00
+Gesch&#228;ftsf&#252;hrer: Stephan Diehl
+USt-Id-Nr: DE253775678; Steuer-Nr: 46/649/00349
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120509/06c153a5/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120509/06c153a5/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4372 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120509/06c153a5/attachment.bin">https://lists.berlios.de/pipermail/x2go-user/attachments/20120509/06c153a5/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000828.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+	<LI>Next message: <A HREF="000827.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#830">[ date ]</a>
+              <a href="thread.html#830">[ thread ]</a>
+              <a href="subject.html#830">[ subject ]</a>
+              <a href="author.html#830">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

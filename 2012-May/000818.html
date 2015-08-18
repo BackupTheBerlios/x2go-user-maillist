@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4uMFOXE6rwMAJNYtVdYoP9Y6Vzs0d%3DxuDrX2EgGh%2B7e5Q%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000817.html">
+   <LINK REL="Next"  HREF="000819.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4uMFOXE6rwMAJNYtVdYoP9Y6Vzs0d%3DxuDrX2EgGh%2B7e5Q%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Thu May  3 13:03:11 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000817.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found	reason for failed remote desktop session starts
+</A></li>
+        <LI>Next message: <A HREF="000819.html">[X2Go-User] Lubuntu 12.04 and X2GoServer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#818">[ date ]</a>
+              <a href="thread.html#818">[ thread ]</a>
+              <a href="subject.html#818">[ subject ]</a>
+              <a href="author.html#818">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike
+
+I've had private msgs from several folks about this edit of fixing this
+same problem for them also and I think all of them were 64bit linux.
+Below is yesterday's post to the x2go-user alias by another person.
+
+I've not had time yet to try a combo of 32 bit client &amp; server to see if
+x2go &amp; ssh are different with this setting than 64bit but will try to do so
+this weekend if possible.    If there is a difference then its either the
+ssh libraries/implementation or its an x2go s/w difference in how the x64
+and x32 are working.
+
+FYI, per your request I had already deleted the wiki entry for this last
+week.
+
+Brian
+
+
+---------- Forwarded message ----------
+From: BSAD &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go at bradner.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Cc:
+Date: Wed, 2 May 2012 17:32:56 +0000 (UTC)
+Subject: Re: [X2Go-User] ubuntu 12.04 and x2go server installation - found
+reason for failed remote desktop session starts
+brian mullan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at ...</A>&gt; writes:
+
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I should have also mentioned that my x2go client &amp; x2go server are both 64
+</I>bit.   Not sure if that makes a difference but it may.
+&gt;<i> ---------- Forwarded message ----------From: brian mullan
+</I>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at gmail.com</A>&gt;
+&gt;<i> Date: Sun, Apr 29, 2012 at 10:55 AMSubject: Re: X2Go-User Digest, Vol 20,
+</I>Issue 20To: x2go-user &lt;at&gt; lists.berlios.deMike I never tried pyhoca just
+the regular x2go client but I will check if there is a difference between
+the two.   But I do know that changing that sshd_config entry back to no
+causes x2go session to fail and changing it to yes .. works.I'll try pyhoca
+first before deleting the wiki entry.---------- Forwarded message ----------
+&gt;<i>
+</I>&gt;<i> From: Mike Gabriel
+</I>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;To: x2go-user
+&lt;at&gt; lists.berlios.de
+&gt;<i> Cc: Date: Sun, 29 Apr 2012 00:35:30 +0200
+</I>&gt;<i> Subject: Re: [X2Go-User] ubuntu 12.04 and x2go server installation - found
+</I>reason for failed remote desktop session startsHi Brian,
+&gt;<i> On Mi 25 Apr 2012 00:01:16 CEST brian mullan wrote:
+</I>&gt;<i> then edit /etc/ssh/sshd_config and enable ChallengeResponseAuthentication
+</I>to YES *ChallengeResponseAuthentication yes*
+&gt;<i>
+</I>&gt;<i> I cannot confirm that this setting change in sshd_config is necessary. I
+</I>just tested Ubuntu precise with X2Go and server logins were successful with
+x2goclient and pyhoca-gui without the above change being applied.   Please
+check your setup again and remove the part in the wiki that suggests the
+above named change. Or explain in more detail why you think this is
+necessary. Let's track this down fully, so we get a clearer sight on what
+is happening here.  On the server you now also must install
+x2goserver-xsession
+&gt;<i> *sudo apt-get install x2goserver-xsession*
+</I>&gt;<i>
+</I>&gt;<i> Thanks for reporting this. This indeed may have been a bug in
+</I>x2goruncommand.  My patch is currently being discussed on the x2go-dev
+ML:
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=c13ffe1cb2c39edfacab52bc62e278469da19c9e">http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=c13ffe1cb2c39edfacab52bc62e278469da19c9e</A>
+&gt;<i> With the given patch applied, the x2goserver-xsession package becomes
+</I>optional again. Packages for testing will be available in the
+nightly-builds soon.
+&gt;<i> So basically, I think, we should remove this part from the wiki again, as
+</I>well. But before doing that, we have to wait for acceptance of my patch by
+the other developers.
+&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>*
+I was having the same problem as you on Lubuntu 12.04 (which uses LXDE) and
+I can confirm that your sshd_config change fixed it for me. Of note, Top
+shows 3 zombie processes as soon as x2goserver is installed and running.
+Still shows it,
+but at least now it is working.
+
+Also 64-bit (running in Hyper-V). *
+
+
+
+
+_______________________________________________
+X2Go-User mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120503/f75d1775/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120503/f75d1775/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000817.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found	reason for failed remote desktop session starts
+</A></li>
+	<LI>Next message: <A HREF="000819.html">[X2Go-User] Lubuntu 12.04 and X2GoServer
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#818">[ date ]</a>
+              <a href="thread.html#818">[ thread ]</a>
+              <a href="subject.html#818">[ subject ]</a>
+              <a href="author.html#818">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

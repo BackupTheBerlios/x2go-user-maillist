@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2goclient X-forwarding-problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20X-forwarding-problem&In-Reply-To=%3C201108101010.51923.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000323.html">
+   <LINK REL="Next"  HREF="000309.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2goclient X-forwarding-problem</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20X-forwarding-problem&In-Reply-To=%3C201108101010.51923.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2go-User] x2goclient X-forwarding-problem">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Wed Aug 10 10:10:51 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000323.html">[X2go-User] Keyboard and X2Go v3
+</A></li>
+        <LI>Next message: <A HREF="000309.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Am Friday 15 July 2011 schrieb Stefan:
+&gt;<i> Am Freitag, 15. Juli 2011 schrieb Stefan:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; I've the following setup:
+</I>&gt;<i> &gt;  * a remote Xserver-session on a client via xdmcp and gdm3.
+</I>&gt;<i> &gt;  * In this session I want to use x2goclient to access a remote server
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Starting a X2go-session with x2goclient I get the following error:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; ....
+</I>&gt;<i> &gt; ....
+</I>&gt;<i> &gt; Info: No suitable cache file found.
+</I>&gt;<i> &gt; Info: Forwarding X11 connections to display '192.168.0.50:0.0'.
+</I>&gt;<i> &gt; Session: Session started at 'Thu Jul 14 12:12:50 2011'.
+</I>&gt;<i> &gt; Warning: X connection failed with error 'Invalid MIT-MAGIC-COOKIE-1 key'.
+</I>&gt;<i> &gt; Session: Session started at 'Thu Jul 14 12:12:16 2011'.
+</I>&gt;<i> &gt; Warning: X connection failed with error 'Invalid MIT-MAGIC-COOKIE-1 key'.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Obviously there is a problem with the access to the xserver. Using kdm
+</I>&gt;<i> &gt; (kde4) instead of gdm3 it works (partly). Maybe the difference is, that
+</I>&gt;<i> &gt; gdm3 doesn't use ~/.Xauthority any more. See here:
+</I>&gt;<i> &gt; <A HREF="http://bugs.debian.org/cgi-">http://bugs.debian.org/cgi-</A>
+</I>&gt;<i> &gt; bin/bugreport.cgi?bug=586685
+</I>&gt;<i> &gt; Maybe the proposed workaround helps here. I'll try.
+</I>&gt;<i> 
+</I>&gt;<i> As in the bugreport proposed I wrote
+</I>&gt;<i> 
+</I>&gt;<i> if [[ $XAUTHORITY != ~/.Xauthority ]]; then
+</I>&gt;<i>     XAUTHORITY=~/.Xauthority xauth merge $XAUTHORITY
+</I>&gt;<i>     export XAUTHORITY=~/.Xauthority
+</I>&gt;<i> fi
+</I>&gt;<i> 
+</I>&gt;<i> in my ~/.xsession file but no success.
+</I>&gt;<i> 
+</I>&gt;<i> But there is another (maybe bigger) problem:
+</I>&gt;<i> 
+</I>&gt;<i> giving access to the xserver using
+</I>&gt;<i>   xhost +XCLIENT-SERVER # in my case 192.168.0.51
+</I>&gt;<i> 
+</I>&gt;<i> the x2gosession starts - but ends up in several nameless windows with no
+</I>&gt;<i> content. This doesn't happen if I open the x2goclient directly in a
+</I>&gt;<i> xserver- session (without window-manager). Than all works fine.
+</I>&gt;<i> 
+</I>&gt;<i> What does this mean??
+</I>
+I found the mistake. Obviously the there was a misconfiguration while 
+upgrading the client - so the desktop-environment wasn't started through the 
+command desktop environment in the client settings but as &quot;other application&quot;.
+
+So now everything works fine. (apart from gdm3)
+
+stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000323.html">[X2go-User] Keyboard and X2Go v3
+</A></li>
+	<LI>Next message: <A HREF="000309.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#308">[ date ]</a>
+              <a href="thread.html#308">[ thread ]</a>
+              <a href="subject.html#308">[ subject ]</a>
+              <a href="author.html#308">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

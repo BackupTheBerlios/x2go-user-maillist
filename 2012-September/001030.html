@@ -1,0 +1,230 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] New X2Go releases: x2goserver, cups-x2go, x2goplasmabindings, python-x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20releases%3A%20x2goserver%2C%20cups-x2go%2C%0A%20x2goplasmabindings%2C%20python-x2go&In-Reply-To=%3C20120925203517.15483jodnyk1pf1h%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001033.html">
+   <LINK REL="Next"  HREF="001040.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] New X2Go releases: x2goserver, cups-x2go, x2goplasmabindings, python-x2go</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20releases%3A%20x2goserver%2C%20cups-x2go%2C%0A%20x2goplasmabindings%2C%20python-x2go&In-Reply-To=%3C20120925203517.15483jodnyk1pf1h%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] New X2Go releases: x2goserver, cups-x2go, x2goplasmabindings, python-x2go">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Sep 25 20:35:17 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001033.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+        <LI>Next message: <A HREF="001040.html">[X2Go-User] Incorrect keymapping?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1030">[ date ]</a>
+              <a href="thread.html#1030">[ thread ]</a>
+              <a href="subject.html#1030">[ subject ]</a>
+              <a href="author.html#1030">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go component releases:
+
+   - x2goserver (3.1.1.4)
+   - cups-x2go (3.0.0.4)
+   - x2goplasmabindings (with plasma-widget-x2go, 3.0.1.4)
+   - python-x2go (0.2.0.10)
+
+All new packages will be available in our stable repositories (Debian,  
+     Ubuntu) within the next 24h.
+
+In the past months we skipped some minor announcements of release that  
+were related to inclusion of some X2Go components in Debian (being  
+available wheezy, partly in jessie).
+
+In the new X2Go Server release several issues got addressed:
+
+  o Audio support (pulseaudio) with X2Go-proxied RDP sessions
+  o Media support (client-side shared folders) for X2Go-proxied RDP sessions
+  o XDCMP session type fixed
+  o Fix KWin crashes on Kubuntu 12.04 (sponsored by Rohloff AG, thanks  
+Mirco!!!)
+  o Fix Xinerama with x2goserver-xsession package installed (also:  
+thanks Mirco)
+
+In cups-x2go Helmer Teles provided us with a patch that now allows to  
+specify the number of copies in a print job. Thanks to Helmer for that.
+
+In Python X2Go we fixed these issues:
+
+  o Colour depth issues on Windows Clients (16 vs 17 bit)
+  o Keyboard focus in X2Go-proxied RDP session against Windows 7 / 2008
+  o Fix session crashes due to left over bash-like commands
+  o Prepare for DirectRDP session options...
+
+A Windows version of PyHoca-GUI with latest Python X2Go in it will be  
+deferred till the release of PyHoca-GUI 0.2.0.5 (due in a couple of  
+weeks, I guess).
+
+In the Plasma widget for X2Go we adapted the code to become aware of  
+the modified mount points for SSHfs shares (introduced with X2Go  
+Server 3.1.1.2).
+
+light+love,
+Mike
+
+
+x2goserver (3.1.1.4-0~x2go1) unstable; urgency=low
+
+   [ Jan Engelhardt ]
+   * New upstream version (3.1.1.4):
+     - Add -pie as linker flag. Fixes non-position-independent-executable
+       (x2gosqlitewrapper.c). The executable is now completely position
+       independent.
+
+   [ Mike Gabriel ]
+   * New upstream version (3.1.1.4):
+     - Fix x2gosessionlimit script.
+     - Wrap padsp around rdesktop calls if pulse is used as audio protocol.
+     - Add option ,,-r sound:local'' to rdesktop calls if pulse is enabled.
+     - Proxy X2Go client-side shares into remote desktop session.
+     - For applications inside of a session, use NX's Xrandr library instead
+       of Xorg's Xrandr library (partially closes #28).
+     - Make sure when launching desktop session through the Xsession mechanism
+       that the LD_LIBRARY_PATH variable stays intact. Closes #29.
+     - Only extend LD_LIBRARY_PATH by Xrandr extension for KDE. Breaks GNOME.
+   * /debian/control:
+     + Maintainer change in package: X2Go Developers  
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+     + Depend on nx-libs (&gt;=3.5.0.15-0~) which has the Xrandr symlinks folder.
+     + Add rdesktop and pulseaudio-utils to Suggests.
+     + Priority: optional.
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.1.1.4):
+     - Remove &quot;-nolisten tcp&quot; option with XDMCP sessions.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 25 Sep 2012 13:15:11 +0200
+
+
+cups-x2go (3.0.0.4-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.0.0.4):
+     - Add more debug messages.
+     - Use proper project name where appropriate and possible (,,X2Go'').
+   * Maintainer change in package: X2Go Developers &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+
+   [ Helmer Teles ]
+   * New upstream version (3.0.0.4):
+     - Fix ignoring number of copies to be printed for single pages.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 25 Sep 2012 15:59:04 +0200
+
+
+python-x2go (0.2.0.10-0~x2go1) unstable; urgency=low
+
+   * New upstream version (0.2.0.10):
+     - Use session type 'D' for X2Go-proxied RDP session when run in
+       fullscreen mode. Fixes upstream issue #27.
+     - Indentation fix in defaults.py.
+     - Make Python X2Go aware of DirectRDP settings in session profiles.
+     - Ignore DirectRDP options in session profile config for now.
+     - Remove bashism from X2Go server command calls. Caused servers
+       with no installed x2goserver-xsession package to crash desktop
+       sessions (observed with KDE4 on Ubuntu 12.04).
+     - Handle 16bit and 17bit colour depth (Windows clients) as
+       equal when resuming sessions.
+   * Maintainer change in package: X2Go Developers &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 25 Sep 2012 16:03:24 +0200
+
+
+x2goplasmabindings (3.0.1.4-0~x2go1) unstable; urgency=low
+
+   * New upstream version (3.0.1.4):
+     - Fix version file.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 25 Sep 2012 15:53:38 +0200
+
+x2goplasmabindings (3.0.1.3-0~x2go1) unstable; urgency=low
+
+   * New upstream version (3.0.1.3):
+     - Make plasme-widget-x2go of new mount points of spool and mimebox share.
+     - Make plasma-widget-x2go aware of new path names in x2goserver (&gt;=
+       3.1.1.3).
+   * /debian/control:
+     + Maintainer change in package: X2Go Developers  
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+     + Priorty: optional.
+     + Depend on x2goserver &gt;= 3.1.1.2.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 25 Sep 2012 15:48:05 +0200
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120925/621bf1e7/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120925/621bf1e7/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001033.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+	<LI>Next message: <A HREF="001040.html">[X2Go-User] Incorrect keymapping?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1030">[ date ]</a>
+              <a href="thread.html#1030">[ thread ]</a>
+              <a href="subject.html#1030">[ subject ]</a>
+              <a href="author.html#1030">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

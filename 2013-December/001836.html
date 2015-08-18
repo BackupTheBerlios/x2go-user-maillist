@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%09hostname%20in%20%24DISPLAY&In-Reply-To=%3C1386258362.28600.YahooMailNeo%40web122103.mail.ne1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001834.html">
+   <LINK REL="Next"  HREF="001838.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY</H1>
+    <B>Nick Ingegneri</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%09hostname%20in%20%24DISPLAY&In-Reply-To=%3C1386258362.28600.YahooMailNeo%40web122103.mail.ne1.yahoo.com%3E"
+       TITLE="[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY">n_ingegneri at yahoo.com
+       </A><BR>
+    <I>Thu Dec  5 16:46:02 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001834.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+        <LI>Next message: <A HREF="001838.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1836">[ date ]</a>
+              <a href="thread.html#1836">[ thread ]</a>
+              <a href="subject.html#1836">[ subject ]</a>
+              <a href="author.html#1836">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Harvey,
+
+Thanks for suggesting the &quot;ssh -Y&quot;.&#160; That works (as done &quot;ssh -X&quot;) but unfortunately it doesn't solve my problem. We are trying to drop X2Go into an existing environment as a replacement for a current solution, and can't force a change in how users connect to the remote machines. For X2Go we really need to figure out how to get this working with a simple &quot;xhost +&quot; and &quot;setenv DISPLAY host:display&quot;.
+
+Interestingly, it looks like freenx/opennx work fine in this mode, but we would prefer not to use that solution as it appears to be a dead end.&#160; There must be something different about how freenx/opennx set up security vs X2Go, but I can't find much documentation on configuring security in X2Go.
+
+I'll spend some more time in the man pages, but any other suggestions here would be greatly appreciated.
+
+Thanks
+
+
+
+
+On Wednesday, December 4, 2013 8:22 PM, Harvey Eneman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">harvey.eneman at oracle.com</A>&gt; wrote:
+ 
+If you haven't already, I suggest that use &quot;ssh -Y&quot; to setup trusted X11
+forwarding when you connect to the remote linux box from a terminal
+window (eg. xterm) on the &quot;local&quot; linux host.&#160; This will set the DISPLAY
+environment variable to a local display on the remote host that is
+securely forwarded to local linux host for display on the Windows machine.
+
+
+On 12/4/13, 5:53 PM, Nick Ingegneri wrote:
+&gt;<i> Can anybody assist me with debugging what I am doing wrong in this case?
+</I>&gt;<i> 
+</I>&gt;<i> I am running the X2Go client in Window 7 and the X2Go server on a RedHat 6 machine. I would like to have a remote linux host export the display back to the X2Go server, which would then forward it to the Windows 7 client.
+</I>&gt;<i> 
+</I>&gt;<i> Starting a new X2Go session, this works on the local host:
+</I>&gt;<i> 
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ echo $DISPLAY
+</I>&gt;<i> :84
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xhost +
+</I>&gt;<i> access control disabled, clients can connect from any host
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xclock
+</I>&gt;<i> # note - the xclock starts without problems
+</I>&gt;<i> 
+</I>&gt;<i> But on a remote host, I found I could not connect to that display, even with &quot;xhost +&quot; already set:
+</I>&gt;<i> 
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$ setenv DISPLAY localmachine:84
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$ xclock
+</I>&gt;<i> Error: Can't open display: localmachine:84
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$
+</I>&gt;<i> 
+</I>&gt;<i> As an experiment, I tried setting the DISPLAY on localmachine to use the hostname, after which it could not connect to the display:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ setenv DISPLAY localmachine:84
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xclock
+</I>&gt;<i> Error: Can't open display: localmachine:84
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xhost
+</I>&gt;<i> xhost:&#160; unable to open display &quot;localmachine:84&quot;
+</I>&gt;<i> 
+</I>&gt;<i> I'm probably missing something obvious, but don't have any idea what is misconfigured.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks!
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+&gt;<i> 
+</I>
+_______________________________________________
+X2Go-User mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131205/5854a90a/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131205/5854a90a/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001834.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+	<LI>Next message: <A HREF="001838.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1836">[ date ]</a>
+              <a href="thread.html#1836">[ thread ]</a>
+              <a href="subject.html#1836">[ subject ]</a>
+              <a href="author.html#1836">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

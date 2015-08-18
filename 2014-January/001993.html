@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Limiting clipboard sharing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Limiting%20clipboard%20sharing&In-Reply-To=%3CCAMKht8gqJZUZeYZOfqu0_-rZxYuqC1R%2Bz3TrWL%3DrhrL58OZtzg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001992.html">
+   <LINK REL="Next"  HREF="001994.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Limiting clipboard sharing</H1>
+    <B>Michael DePaulo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Limiting%20clipboard%20sharing&In-Reply-To=%3CCAMKht8gqJZUZeYZOfqu0_-rZxYuqC1R%2Bz3TrWL%3DrhrL58OZtzg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Limiting clipboard sharing">mikedep333 at gmail.com
+       </A><BR>
+    <I>Tue Jan 28 06:40:23 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001992.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+        <LI>Next message: <A HREF="001994.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1993">[ date ]</a>
+              <a href="thread.html#1993">[ thread ]</a>
+              <a href="subject.html#1993">[ subject ]</a>
+              <a href="author.html#1993">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kris,
+
+I'm the Windows maintainer for X2Go Client (and soon, PyHoca-GUI).
+
+My advise is about the Windows X2Go Client. Others can probably advise
+you on the Linux X2Go client.
+
+Anyway, if you are using the Windows X2Go Client, you can override the
+X server setting under:
+Options -&gt; Settings -&gt; X-server Settings
+You can point it to X2Go's own integrated X server, VcXsrv, and pass
+the --noclipboard option.
+The integrated X server is located at:
+On 64-bit Windows: C:\Program Files (x86)\x2goclient\VcXsrv\vcxsrv.exe
+On 32-bit Window: C:\Program Files\x2goclient\VcXsrv\vcxsrv.exe
+
+There are other clipboard options for VcXsrv that I am not an expert
+on. I've attached the full arguments list for VcXsrv 1.14.2.1 (VcXsrv
+1.14.2.1 is included with X2Go Client 4.0.1.2 and 4.0.1.3)
+
+-Mike#2
+
+On Mon, Jan 27, 2014 at 12:46 PM, Kris Ilowiecki &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">kril at sourcecap.ch</A>&gt; wrote:
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i> I am quite new to X2Go, and really impressed by it. I'd like to switch from
+</I>&gt;<i> opennx to X2Go, but I can't find a way to limit clipboard sharing.
+</I>&gt;<i>
+</I>&gt;<i> Opennx, as well as other NX forks, has the options to enable clipboard
+</I>&gt;<i> sharing both ways, one-way, or disable it completely. So far I have failed
+</I>&gt;<i> to find a setting to limit this in X2Go.
+</I>&gt;<i>
+</I>&gt;<i> I'd need clipboard sharing to work only in the client-&gt;server
+</I>&gt;<i> direction, or at least to disable it completely.
+</I>&gt;<i>
+</I>&gt;<i> I have searched for it for quite a while, but the best I have managed to
+</I>&gt;<i> find is a bug report
+</I>&gt;<i> <A HREF="http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=258">http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=258</A>
+</I>&gt;<i> and a mailing list question without a single reply.
+</I>&gt;<i>
+</I>&gt;<i> Is there some way to configure it?
+</I>&gt;<i> If not, is it going to be hard to write a patch that would turn
+</I>&gt;<i> this off at compilation time?
+</I>&gt;<i> I've also been thinking of using some external programs to achieve the
+</I>&gt;<i> effect, e.g. putting X2Go inside Xephyr, or the other way round...
+</I>&gt;<i>
+</I>&gt;<i> Any hints most welcome
+</I>&gt;<i>
+</I>&gt;<i> Many thanks,
+</I>&gt;<i> Kris
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: VCXSrv.0.log
+Type: application/octet-stream
+Size: 7459 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140128/3c8b0b84/attachment.obj">https://lists.berlios.de/pipermail/x2go-user/attachments/20140128/3c8b0b84/attachment.obj</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001992.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+	<LI>Next message: <A HREF="001994.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1993">[ date ]</a>
+              <a href="thread.html#1993">[ thread ]</a>
+              <a href="subject.html#1993">[ subject ]</a>
+              <a href="author.html#1993">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

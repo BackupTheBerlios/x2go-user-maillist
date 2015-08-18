@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Printing Security
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Printing%20Security&In-Reply-To=%3C8CEA8EDA54C8C3B-1A54-2A70F%40webmail-m100.sysops.aol.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000564.html">
+   <LINK REL="Next"  HREF="000562.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Printing Security</H1>
+    <B>senrabdet at aol.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Printing%20Security&In-Reply-To=%3C8CEA8EDA54C8C3B-1A54-2A70F%40webmail-m100.sysops.aol.com%3E"
+       TITLE="[X2go-User] Printing Security">senrabdet at aol.com
+       </A><BR>
+    <I>Tue Jan 24 21:26:54 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000564.html">[X2go-User] AD integration?
+</A></li>
+        <LI>Next message: <A HREF="000562.html">[X2go-User] Printing Security
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#559">[ date ]</a>
+              <a href="thread.html#559">[ thread ]</a>
+              <a href="subject.html#559">[ subject ]</a>
+              <a href="author.html#559">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All - 
+
+
+There is a post on the new site re printing security (see below).  Does anyone have experience with Possible Solution 1?  We're hoping to get a few more pointers, maybe some extra documentation, some &quot;here's how you avoid these pitfalls&quot;.  Thanks!
+
+
+
+
+X2goServer == CUPS Server, latest implementation (as of 20110909):
+
+cups-x2go CUPS backend runs as root
+
+as root the backend launches x2goprint (without sudo!!!)
+
+x2goprint script changes owner ship of PDF file and pushes it into SSHFS share towards the X2go client.
+
+using X2go printing locally (X2go server == CUPS server) then security (sudo) is not an issue any more(?)
+
+Nope still is (not a big one, though): Using CUPS the user can easily be faked, allowing to fill someone else's quota or print at their home printer.
+
+
+
+
+X2goServer != CUPS Server:
+
+The Cups-server connects the x2go-Server as x2goprint-user using ssh-key auth.
+
+x2goprint-user executes sudo to change the ownership of the PDF file and pushes it into SSHFS share towards the X2go client.
+
+This script can currently be exploited.
+
+If someone becomes x2goprint he might become root.
+
+
+
+
+Possible solution 1
+
+
+Start a local cups-server for every user
+
+Server listens on a File-socket owned by the user
+
+Add a PDF-Printer to that server (as the cups-user runs as that user, there should be no issues with file permissions)
+
+Import printers from global server
+
++ Secure solution, as no other user is involved
+
+- Every user needs an extra instance (The extra memory usage should not be too much)
+
+
+Possible solution 2
+
+
+Write a simple C-Program 'x2goprinter' that is run as the user who wants to print unsing the s-Bit
+
+The Program writes stdin to argv[1] in the printing-directory
+
+It also checks whether the user is x2goprint or root
+
++ Can be easily adopted
+
+- x2goprint must be installed by the client
+
+- s-bit &#8594; Needs security checks
+
+
+
+
+
+
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120124/bffa9085/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120124/bffa9085/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000564.html">[X2go-User] AD integration?
+</A></li>
+	<LI>Next message: <A HREF="000562.html">[X2go-User] Printing Security
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#559">[ date ]</a>
+              <a href="thread.html#559">[ thread ]</a>
+              <a href="subject.html#559">[ subject ]</a>
+              <a href="author.html#559">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

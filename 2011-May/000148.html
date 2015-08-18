@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] X2go-user Digest, Vol 9, Issue 6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2go-user%20Digest%2C%20Vol%209%2C%20Issue%206&In-Reply-To=%3CEA2CB409-C935-4C51-964B-78B1DFD68F31%40izsr.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000150.html">
+   <LINK REL="Next"  HREF="000149.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] X2go-user Digest, Vol 9, Issue 6</H1>
+    <B>Tim-Ole Alexander Golz</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2go-user%20Digest%2C%20Vol%209%2C%20Issue%206&In-Reply-To=%3CEA2CB409-C935-4C51-964B-78B1DFD68F31%40izsr.de%3E"
+       TITLE="[X2go-user] X2go-user Digest, Vol 9, Issue 6">toag at izsr.de
+       </A><BR>
+    <I>Sun May 15 22:00:32 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000150.html">[X2go-user] Ist X2Go eine ernsthafte L&#246;sung   oder Bananensoftware?
+</A></li>
+        <LI>Next message: <A HREF="000149.html">[X2go-user] X2go-user Digest, Vol 9, Issue 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, Mike,
+
+
+thanx for your answer - and sorry, I actually forgot the reminder on the Mailman-website regarding the language ... by the way: a bit strange since X2go is as well a german-based project (as far as I can see) as the main part of information on the web is in german, too ... ;-) but there may not be enough interest for a standalone german-list.
+
+
+a brief conclusion (Mike, you got it fairly good!):
+
+- we are working on a (professional) project with server-based computing. The main interest is to supersede Microsofts RDP and Nomachines NX.
+- we tried X2Go with the Installation-documents from www.x2go.org on different virtual machines (Debian Lenny, Squeeze, Ubuntu) - the installation is more or less straightforward, but the documentation is unfortunately full of errors. But it *is* possible to get X2go to work on the serverside - and the LDAP-scripts are very good (so far as we can see)!
+- but none of the clients we tried worked :-( We tried those for MacOS on an 10.5.6-Intel-System, for Windows on a XP-System, and finally two clients for Ubuntu (x2goclient and x2goclient-gtk). It all results in more or less meaningful errormessages, crashes of the appliance and tine-outs on the client :-(
+
+We have *not* yet tested the Webclient and the Netboot-Environment.
+
+
+&gt;<i> Mike: I personally use X2go productively as a system administrator. In  
+</I>&gt;<i> all networks I administrate there is one desktop workstation that runs  
+</I>&gt;<i> x2goserver. I use GNOME or LXDE to access the network components from  
+</I>&gt;<i> this X2go server. I install x2goserver from the new squeeze repos and  
+</I>&gt;<i> everything works out of the box (sqlite). As clients I use x2gocleint
+</I>
+Sounds good! As we are documenting all the steps we execute in test-environments - do you have a (working! ;-)) step-by-step-documentation for, lets say, Squeeze?
+
+Oh, of course: I could send you our three documentations (Debian Squeeze / Debian Lenny / Ubuntu) where we have written down all the errors and broken links and strange behaviours we have experienced with x2go. 
+
+
+&gt;<i> I also work for a company in the Netherlands that uses X2go for  
+</I>&gt;<i> full-featured SaaS.
+</I>
+So there may be hope ... ;-)
+
+
+&gt;<i> TRANSLATED: As an exchange we are willing to support with writing  
+</I>&gt;<i> documentation, providing Webspace, donate money - but there should be  
+</I>&gt;<i> a sort of usable installation method for X2go?! Currently, no one in  
+</I>&gt;<i> you team can imagine such a method. :-(
+</I>&gt;<i> 
+</I>&gt;<i> Basically, there has been quite some change in the team structure of  
+</I>&gt;<i> the project that might have lead or lead the situation you have  
+</I>&gt;<i> described in your mail (in German):
+</I>&gt;<i> 
+</I>&gt;<i>  (a) 4 computer scientists from University of Erlangen have joined the project
+</I>&gt;<i>      team
+</I>&gt;<i>  (b) I also have joined the project team and contributed new code (Python)
+</I>&gt;<i>      that relates to X2go
+</I>&gt;<i>  (c) development has moved (and is still moving) over to Git based development
+</I>&gt;<i>  (d) code repository, package repository, wiki etc. have changed hosting and
+</I>&gt;<i>      technology (esp. package building)
+</I>&gt;<i> 
+</I>&gt;<i> Technically, due to different contributions there also have been  
+</I>&gt;<i> changes in concepts and code:
+</I>&gt;<i> 
+</I>&gt;<i>   (a) due to security issues the x2goserver code underwent a complete rewrite;
+</I>&gt;<i>       for database setup - after taking a look at /etc/x2go - now use:
+</I>&gt;<i>       x2godbadmin --createdb
+</I>
+OK! &#8730;
+
+&gt;<i>   (b) x2goserver-one and x2goserver-home are obsolete, use x2goserver package
+</I>&gt;<i>       instead.
+</I>
+OK! &#8730;
+
+&gt;<i> The default installation will be an sqlite based x2goserver.
+</I>&gt;<i>       For PostGres mode you have to configure the database part manually.
+</I>&gt;<i>       This, unfortunately, still lacks documentation
+</I>&gt;<i>   (c) x2goclient-gtk is deprecated. The development will focus on x2goclient
+</I>&gt;<i>       (qt4)
+</I>
+OK! &#8730;
+
+&gt;<i>   (d) the new X2go Thin Client Environment (for squeeze) is currently under
+</I>&gt;<i>       heavy construction. I have a already 90% working setup under a  
+</I>&gt;<i> Skolelinux
+</I>&gt;<i>       test installation up and running. I currently also have a little project
+</I>&gt;<i>       with another company running that have asked for an X2go TCE  
+</I>&gt;<i> which I will
+</I>&gt;<i>       provide them in a week or so...
+</I>
+Sounds interesting!
+
+&gt;<i> We probably should take your criticism very seriously with respect to  
+</I>&gt;<i> the mass of changes that have occurred recently and the lack of  
+</I>&gt;<i> transparent documentation for these changes in our Wiki.
+</I>
+as I mentioned before: we are willing to help with documentation, webspace, maybe money ? ;-) as long this is a serious project. On the other hand; there are damn few alternatives to X2go ...
+
+Not to forget: of course we can pay for regular X2go-Support and give the results and experiences back to the community. And we understand that X2go is a very ambitious project with little ressources ...
+
+
+greetings from the other side of the Eems! ;-)
+
+
+toag
+
+
+
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000150.html">[X2go-user] Ist X2Go eine ernsthafte L&#246;sung   oder Bananensoftware?
+</A></li>
+	<LI>Next message: <A HREF="000149.html">[X2go-user] X2go-user Digest, Vol 9, Issue 6
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#148">[ date ]</a>
+              <a href="thread.html#148">[ thread ]</a>
+              <a href="subject.html#148">[ subject ]</a>
+              <a href="author.html#148">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

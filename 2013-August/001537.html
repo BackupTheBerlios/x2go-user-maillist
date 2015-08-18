@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Xwin start failure: unsafe environment error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Xwin%20start%20failure%3A%20unsafe%20environment%20error&In-Reply-To=%3Cloom.20130813T234449-761%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001538.html">
+   <LINK REL="Next"  HREF="001539.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Xwin start failure: unsafe environment error</H1>
+    <B>Matthew McGlone</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Xwin%20start%20failure%3A%20unsafe%20environment%20error&In-Reply-To=%3Cloom.20130813T234449-761%40post.gmane.org%3E"
+       TITLE="[X2Go-User] Xwin start failure: unsafe environment error">mcglonem at hotmail.com
+       </A><BR>
+    <I>Tue Aug 13 23:48:53 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001538.html">[X2Go-User] Missing Dependencies while installing on RHEL5
+</A></li>
+        <LI>Next message: <A HREF="001539.html">[X2Go-User] x2golxdebindings for squeeze relies on	'update-icon-caches' being available in it's postinst script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1537">[ date ]</a>
+              <a href="thread.html#1537">[ thread ]</a>
+              <a href="subject.html#1537">[ subject ]</a>
+              <a href="author.html#1537">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Gertjan Hofman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">gertjan_hofman at ...</A>&gt; writes:
+
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &#160;
+</I>&gt;<i> Hello,
+</I>&gt;<i> &#160;
+</I>&gt;<i> I am running&#160; 3.99.2.1 on&#160; Win-7 64 bit,&#160; accessing a Linux desktop 
+</I>locally. Worked fine for a while although I some time got an error which is 
+not persistent: when connecting to the session I get:
+&gt;<i> &#160;
+</I>&gt;<i> Xserver aborted due to an unsafe environment.
+</I>&gt;<i> &#160;Win was started with the following command line: (null).
+</I>&gt;<i> &#160;
+</I>&gt;<i> A quick google of the error brings me to the parsing the args of the x-
+</I>server.&#160;&#160; Is the x-server being started with a wrong command line ?&#160; Is this 
+an x2go issue or xwin ?
+&gt;<i> &#160;
+</I>&gt;<i> If any one can tell me how to collect more info, much appreciated.
+</I>&gt;<i> &#160;
+</I>&gt;<i> Thanks
+</I>&gt;<i> Gertjan
+</I>&gt;<i> &#160;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &lt;div&gt;&lt;div&gt;
+</I>&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;Hello,&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;I am running&#160; 3.99.2.1 on&#160; Win-7 64 bit,&#160; accessing a 
+</I>Linux desktop locally. Worked fine for a while although I some time got an 
+error which is not persistent: when connecting to the session I get:&lt;/div&gt;
+&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;Xserver aborted due to an unsafe environment.&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;&#160;Win was started with the following command line: (null).&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;A quick google of the error brings me to the parsing the args of the 
+</I>x-server.&#160;&#160; Is the x-server being started with a wrong command 
+line ?&#160; Is this an x2go issue or xwin ?&lt;/div&gt;
+&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;If any one can tell me how to collect more info, much appreciated.
+</I>&lt;/div&gt;
+&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;Thanks&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;Gertjan&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;/div&gt;&lt;/div&gt;
+</I>&gt;<i> 
+</I>
+Had a similar issue which was caused by the system path variable being too 
+long, as reported in the Xwin.log file.  After removing some uneeded entries 
+in the path X2GoClient was able to the start a session.
+
+
+
+
+
+
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001538.html">[X2Go-User] Missing Dependencies while installing on RHEL5
+</A></li>
+	<LI>Next message: <A HREF="001539.html">[X2Go-User] x2golxdebindings for squeeze relies on	'update-icon-caches' being available in it's postinst script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1537">[ date ]</a>
+              <a href="thread.html#1537">[ thread ]</a>
+              <a href="subject.html#1537">[ subject ]</a>
+              <a href="author.html#1537">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

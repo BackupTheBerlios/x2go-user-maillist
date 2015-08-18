@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Preseeding Ubuntu remote-login-service.conf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Preseeding%20Ubuntu%20remote-login-service.conf&In-Reply-To=%3C5295465B.9010006%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001818.html">
+   <LINK REL="Next"  HREF="001820.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Preseeding Ubuntu remote-login-service.conf</H1>
+    <B>Kjetil Fleten</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Preseeding%20Ubuntu%20remote-login-service.conf&In-Reply-To=%3C5295465B.9010006%40fleten.net%3E"
+       TITLE="[X2Go-User] Preseeding Ubuntu remote-login-service.conf">kjetil at fleten.net
+       </A><BR>
+    <I>Wed Nov 27 02:09:47 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001818.html">[X2Go-User] Started getting weird error: Connection failed. Cannot open display &quot;default display&quot;
+</A></li>
+        <LI>Next message: <A HREF="001820.html">[X2Go-User] Preseeding Ubuntu remote-login-service.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1819">[ date ]</a>
+              <a href="thread.html#1819">[ thread ]</a>
+              <a href="subject.html#1819">[ subject ]</a>
+              <a href="author.html#1819">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>We are successfully using Mike's excellent guide to Unity Greeter with
+X2Go Remote Login Support.
+<A HREF="http://sunweavers.net/blog/unity-greeter-with-x2go-remote-login-support">http://sunweavers.net/blog/unity-greeter-with-x2go-remote-login-support</A>
+One of the things we want to do next, is to tweak the
+remote-login-service.conf so that username and password are passed to
+the UCCS-like WebUI of the X2Go Session Broker automaticly.
+I have tried add a line to the config file, but the syntax is obviously
+wrong:
+
+[Remote Login Service]
+Servers=MyUCCSTest
+
+[Server MyUCCSTest]
+Name=Remote Login
+URI=<A HREF="http://x2gobroker.localdomain:8080/uccs/inifile/">http://x2gobroker.localdomain:8080/uccs/inifile/</A>
+echo &lt;mypassword&gt; | thin-client-config-agent &lt;myuserid&gt;
+
+I have also tried a lot of other variations over the above, with no success.
+
+This test works:
+$ SERVER_ROOT=<A HREF="http://x2gobroker.localdomain:8080/uccs/inifile/">http://x2gobroker.localdomain:8080/uccs/inifile/</A>
+$ export SERVER_ROOT
+$ echo &lt;mypassword&gt; | thin-client-config-agent &lt;myuserid&gt;
+
+Can &lt;mypassword&gt; and &lt;myuserid&gt; be implemented in a similar way to the
+conf file ?
+Anyone that have a good tip ?
+
+-- 
+
+Med vennlig hilsen / best regards
+
+Kjetil Fleten
+
+Fleten.net AS, Tyinvegen 5151, 2975 Vang i Valdres, Noreg
+Tlf +47 95861348, ORG nr. 999 542 018 (NO)
+
+S&#248;ndergade 27, 8740 Br&#230;dstrup, Danmark
+Tlf. +45 41153148 CVR. nr. 35479228 (DK)
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">thats-IT at fleten.net</A>, www.fleten.net &lt;<A HREF="http://www.fleten.net">http://www.fleten.net</A>&gt;
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131127/2c5976dc/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131127/2c5976dc/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001818.html">[X2Go-User] Started getting weird error: Connection failed. Cannot open display &quot;default display&quot;
+</A></li>
+	<LI>Next message: <A HREF="001820.html">[X2Go-User] Preseeding Ubuntu remote-login-service.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1819">[ date ]</a>
+              <a href="thread.html#1819">[ thread ]</a>
+              <a href="subject.html#1819">[ subject ]</a>
+              <a href="author.html#1819">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Client for PowerPC Macs ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C4F8C1764.1020209%40googlemail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000795.html">
+   <LINK REL="Next"  HREF="000779.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Client for PowerPC Macs ?</H1>
+    <B>Mark Dammer</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C4F8C1764.1020209%40googlemail.com%3E"
+       TITLE="[X2Go-User] Client for PowerPC Macs ?">mark.dammer at googlemail.com
+       </A><BR>
+    <I>Mon Apr 16 14:58:12 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000795.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+        <LI>Next message: <A HREF="000779.html">[X2Go-User] next x2goclient release / translation work in progress
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#787">[ date ]</a>
+              <a href="thread.html#787">[ thread ]</a>
+              <a href="subject.html#787">[ subject ]</a>
+              <a href="author.html#787">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike
+
+I just tried it on a G4 running 10.4 &quot;Tiger&quot;. The application crashes 
+with an error like this:
+dyld: Symbol not found: ___stack_chk_guard
+Referenced from: 
+/Applications/x2goclient.app/Contents/MacOS/./../Frameworks/QtCore.framework/Versions/4/Qtcore
+Expected in: /usr/lib/libSystem.B.dylib
+
+Doing some research on the net I found that it looks that the problem is 
+that the GCC stack smashing protector is not supported under &quot;Tiger&quot; and 
+that the package should be built without the  -fstack-protector-all option.
+
+I do not know how bugs are filed for x2go, but it would be great if that 
+would be done so that the client can run on older PPC Macs as well.
+
+Mark
+
+On 16/04/12 08:49, Mike Gabriel wrote:
+&gt;<i> Hi Mark,
+</I>&gt;<i>
+</I>&gt;<i> On Di 10 Apr 2012 12:10:39 CEST Mark Dammer wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Is there a client that runs on PowerPC Macs with 10.4 &quot;Tiger&quot; 
+</I>&gt;&gt;<i> installed ?
+</I>&gt;&gt;<i> I tried to install the latest 3.99 Mac client on an older G4 with 
+</I>&gt;&gt;<i> &quot;Tiger&quot; installed, but the system complains that the software can not 
+</I>&gt;&gt;<i> run on this computer (X11 is installed). Tried to download the older 
+</I>&gt;&gt;<i> &quot;Pre-GIT&quot; image, but the image that was zipped seems to be corrupt: 
+</I>&gt;&gt;<i> MacOS unzips the file, but fails to mount the resulting .dmg.
+</I>&gt;&gt;<i> thanks for any help, Mark
+</I>&gt;<i>
+</I>&gt;<i> just for the record, as I am not sure, if you read the x2go-dev 
+</I>&gt;<i> mailing list...
+</I>&gt;<i>
+</I>&gt;<i> Mihai Moldovan has lately provided a new .DMG file for X2Go Client 
+</I>&gt;<i> that has PowerPC binaries included:
+</I>&gt;<i> <A HREF="http://code.x2go.org/releases/binary-macosx/x2goclient/x2goclient-3.99.2.0.dmg">http://code.x2go.org/releases/binary-macosx/x2goclient/x2goclient-3.99.2.0.dmg</A> 
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Please try that.
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120416/3f56b9b2/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120416/3f56b9b2/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000795.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+	<LI>Next message: <A HREF="000779.html">[X2Go-User] next x2goclient release / translation work in progress
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#787">[ date ]</a>
+              <a href="thread.html#787">[ thread ]</a>
+              <a href="subject.html#787">[ subject ]</a>
+              <a href="author.html#787">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

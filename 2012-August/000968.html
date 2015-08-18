@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go kubuntu 12.4
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20kubuntu%2012.4&In-Reply-To=%3C50315857.4060308%40rohloff.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000979.html">
+   <LINK REL="Next"  HREF="000969.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go kubuntu 12.4</H1>
+    <B>Mirco Rohloff</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20kubuntu%2012.4&In-Reply-To=%3C50315857.4060308%40rohloff.de%3E"
+       TITLE="[X2Go-User] x2go kubuntu 12.4">mirco at rohloff.de
+       </A><BR>
+    <I>Sun Aug 19 23:19:19 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000979.html">[X2Go-User] Issue with keyboard layout settings / altGr key
+</A></li>
+        <LI>Next message: <A HREF="000969.html">[X2Go-User] x2go thinclient shutdown button crashed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+i want to use Kubuntu 12.4 LTS with X2go. After any Login the Kdesktop 
+restarts with folloing Krash Report. Has anybody a workaroung for this 
+problem?
+
+Thanks Mirco
+
+
+Application: KWin (kwin), signal: Segmentation fault
+Using host libthread_db library &quot;/lib/x86_64-linux-gnu/libthread_db.so.1&quot;.
+[Current thread is 1 (Thread 0x7fc671dfe780 (LWP 15661))]
+
+Thread 3 (Thread 0x7fc655994700 (LWP 15663)):
+#0  0x00007fc66ce0bee8 in ?? () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#1  0x00007fc66ce0dd31 in 
+QEventDispatcherUNIX::processEvents(QFlags&lt;QEventLoop::ProcessEventsFlag&gt;) 
+() from /usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#2  0x00007fc66cddac82 in 
+QEventLoop::processEvents(QFlags&lt;QEventLoop::ProcessEventsFlag&gt;) () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#3  0x00007fc66cddaed7 in 
+QEventLoop::exec(QFlags&lt;QEventLoop::ProcessEventsFlag&gt;) () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#4  0x00007fc66ccd9fa7 in QThread::exec() () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#5  0x00007fc66cdba9ff in ?? () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#6  0x00007fc66ccdcfcb in ?? () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#7  0x00007fc665f03e9a in start_thread () from 
+/lib/x86_64-linux-gnu/libpthread.so.0
+#8  0x00007fc6716154bd in clone () from /lib/x86_64-linux-gnu/libc.so.6
+#9  0x0000000000000000 in ?? ()
+
+Thread 2 (Thread 0x7fc655193700 (LWP 15664)):
+#0  0x00007fc665f07d84 in pthread_cond_wait@@GLIBC_2.3.2 () from 
+/lib/x86_64-linux-gnu/libpthread.so.0
+#1  0x00007fc66e0cb222 in ?? () from 
+/usr/lib/x86_64-linux-gnu/libQtScript.so.4
+#2  0x00007fc66e0cb259 in ?? () from 
+/usr/lib/x86_64-linux-gnu/libQtScript.so.4
+#3  0x00007fc665f03e9a in start_thread () from 
+/lib/x86_64-linux-gnu/libpthread.so.0
+#4  0x00007fc6716154bd in clone () from /lib/x86_64-linux-gnu/libc.so.6
+#5  0x0000000000000000 in ?? ()
+
+Thread 1 (Thread 0x7fc671dfe780 (LWP 15661)):
+[KCrash Handler]
+#6  0x00007fc6715a602c in free () from /lib/x86_64-linux-gnu/libc.so.6
+#7  0x00007fc66f057819 in XFree () from 
+/usr/lib/x86_64-linux-gnu/libX11.so.6
+#8  0x00007fc66ebff2ee in XRRUpdateConfiguration () from 
+/usr/lib/x86_64-linux-gnu/libXrandr.so.2
+#9  0x00007fc67194cc60 in ?? () from 
+/usr/lib/kde4/libkdeinit/libkdeinit4_kwin.so
+#10 0x00007fc67193e4b8 in ?? () from 
+/usr/lib/kde4/libkdeinit/libkdeinit4_kwin.so
+#11 0x00007fc66c1cdb85 in ?? () from /usr/lib/x86_64-linux-gnu/libQtGui.so.4
+#12 0x00007fc66c1dcf98 in QApplication::x11ProcessEvent(_XEvent*) () 
+from /usr/lib/x86_64-linux-gnu/libQtGui.so.4
+#13 0x00007fc66c207b3a in ?? () from /usr/lib/x86_64-linux-gnu/libQtGui.so.4
+#14 0x00007fc66cddac82 in 
+QEventLoop::processEvents(QFlags&lt;QEventLoop::ProcessEventsFlag&gt;) () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#15 0x00007fc66cddaed7 in 
+QEventLoop::exec(QFlags&lt;QEventLoop::ProcessEventsFlag&gt;) () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#16 0x00007fc66cddff67 in QCoreApplication::exec() () from 
+/usr/lib/x86_64-linux-gnu/libQtCore.so.4
+#17 0x00007fc671940c36 in kdemain () from 
+/usr/lib/kde4/libkdeinit/libkdeinit4_kwin.so
+#18 0x00007fc67154476d in __libc_start_main () from 
+/lib/x86_64-linux-gnu/libc.so.6
+#19 0x0000000000400661 in _start ()
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000979.html">[X2Go-User] Issue with keyboard layout settings / altGr key
+</A></li>
+	<LI>Next message: <A HREF="000969.html">[X2Go-User] x2go thinclient shutdown button crashed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#968">[ date ]</a>
+              <a href="thread.html#968">[ thread ]</a>
+              <a href="subject.html#968">[ subject ]</a>
+              <a href="author.html#968">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

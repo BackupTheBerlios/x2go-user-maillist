@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go TCE on USB key with Debian live-build ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20TCE%20on%20USB%20key%20with%20Debian%20live-build%20%3F&In-Reply-To=%3C1337698628.6581.YahooMailNeo%40web121906.mail.ne1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000856.html">
+   <LINK REL="Next"  HREF="000854.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go TCE on USB key with Debian live-build ?</H1>
+    <B>Charlie BRAVO</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20TCE%20on%20USB%20key%20with%20Debian%20live-build%20%3F&In-Reply-To=%3C1337698628.6581.YahooMailNeo%40web121906.mail.ne1.yahoo.com%3E"
+       TITLE="[X2Go-User] X2Go TCE on USB key with Debian live-build ?">tech.cbkoncept at yahoo.com
+       </A><BR>
+    <I>Tue May 22 16:57:08 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000856.html">[X2Go-User] x2goplugin
+</A></li>
+        <LI>Next message: <A HREF="000854.html">[X2Go-User] X2Go TCE on USB key with Debian live-build ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#853">[ date ]</a>
+              <a href="thread.html#853">[ thread ]</a>
+              <a href="subject.html#853">[ subject ]</a>
+              <a href="author.html#853">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello to everybody,
+
+This is our first post on x2go. Sorry if the question seems stupid or if we are not at the right place.
+We googled during days without finding a precise answer...
+
+We have to use thin clients to connect to x2go-servers.
+Thus, we looked the &quot;Installation of the X2Go TCE based on Debian&quot; (<A HREF="http://wiki.x2go.org/doku.php/wiki:components:tce">http://wiki.x2go.org/doku.php/wiki:components:tce</A>)
+That looks not bad&#160;&#160; :-)
+But we cannot use a PXE server.
+So, we need the &quot;same&quot; thing, but on a CD, or better, on an USB key.
+
+We saw on archived posts (for example: <A HREF="http://www.mail-archive.com/x2go-dev@lists.berlios.de/msg02233.html">http://www.mail-archive.com/x2go-dev@lists.berlios.de/msg02233.html</A>) that this question was discussed, but not considered &quot;making sense&quot;.
+The links which are given there (for example for &quot;apt-get install x2go-rootfs&quot;) do not seem any more up to date...
+And the wiki &quot;X2Go Live&quot; (<A HREF="http://wiki.x2go.org/doku.php/wiki:components:x2golive">http://wiki.x2go.org/doku.php/wiki:components:x2golive</A>) seems... empty.
+
+
+For other reasons, we use a little &quot;live-build&quot; (<A HREF="http://live.debian.net/">http://live.debian.net/</A>) but we are not experts.
+
+
+Our first question:
+
+After runnig &quot;x2gothinclient_update&quot; we have a &quot;X2go TCE chroot&quot; (under /opt/x2gothinclient/chroot/).
+
+Is there a simple way to use this directory with live-build to build a binary image?
+That is, avoiding the &quot;bootstrap&quot; stage and the &quot;chroot&quot; stage, but starting directly with the &quot;binary&quot; stage?
+
+
+Our second (more global) question:
+
+It looks like the &quot;X2go TCE chroot&quot; (under /opt/x2gothinclient/chroot/) obtained with &quot;x2gothinclient_create&quot; is built in a similar way what live-build could do (are we wrong?).
+
+As said previously (in the archive posts), it seems that the project x2go decided not to maintain both solutions: TCE and live-build.
+
+But, *maybe* would-it be possible to maintain both results for a single effort?
+live-build can build different kinds of images (lb_config -b|--binary-images iso|iso-hybrid|net|tar|hdd) of which &quot;net&quot;.
+
+Instead of maintaining the &quot;x2gothinclient_create&quot; package, would it not be possible to just maintain the accurate options to be entered to &quot;lb config&quot;, &quot;lb build&quot;, etc... and the additional &quot;includes&quot; or &quot;modified packages&quot; or &quot;hooks&quot; and to let the user choose between the options &quot;--binary-images&quot; (&quot;hdd&quot; or &quot;net&quot;)?
+
+Thus both needs could be satisfied just with a single effort&#160; ;-)
+
+
+Thank you for your answers.
+
+In the rush, we just need a way to &quot;put&quot; the PXE-chroot on a &quot;live&quot; USB key...
+
+Best Regards,
+Charlie
+--
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000856.html">[X2Go-User] x2goplugin
+</A></li>
+	<LI>Next message: <A HREF="000854.html">[X2Go-User] X2Go TCE on USB key with Debian live-build ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#853">[ date ]</a>
+              <a href="thread.html#853">[ thread ]</a>
+              <a href="subject.html#853">[ subject ]</a>
+              <a href="author.html#853">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] question regarding x2goclient armel builds
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C004901cc67d6%246afdc520%2440f94f60%24%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000356.html">
+   <LINK REL="Next"  HREF="000357.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] question regarding x2goclient armel builds</H1>
+    <B>Jimmy Knowles</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C004901cc67d6%246afdc520%2440f94f60%24%40gmail.com%3E"
+       TITLE="[X2go-User] question regarding x2goclient armel builds">lespedeza at gmail.com
+       </A><BR>
+    <I>Wed Aug 31 14:06:29 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000356.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+        <LI>Next message: <A HREF="000357.html">[X2go-User] X2Go problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#360">[ date ]</a>
+              <a href="thread.html#360">[ thread ]</a>
+              <a href="subject.html#360">[ subject ]</a>
+              <a href="author.html#360">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike
+
+I did some more thinking/tinkering and think that what Brian says makes more sense
+
+&gt;<i>Not sure if you remember but when I was trying to get PyHoca working on a
+</I>&gt;<i>chrooted Ubuntu environment on the
+</I>&gt;<i>nook color tablet I was also getting the RandR error in the logs.
+</I>&gt;<i>
+</I>&gt;<i>Initial authentication would work but before I'd see any remote display it
+</I>&gt;<i>would crash.
+</I>&gt;<i>
+</I>&gt;<i>My environment was an Android tablet, chrooted Ubuntu running LXDE so it was
+</I>&gt;<i>running Ubuntu's x-server at the time.
+</I>
+I was able to ssh -X (via the xterm that the webos-internals have packaged for the touchpad) and was able to successfully start lxde without any segfault or any major issues.  So, it seems that as Brian suggests it is more a problem of the xserver in the chrooted Debian than it is a problem of the webos Xserver.
+
+In essence, I've found a solution for now.  Thanks again for your help and your work on the x2go packages, I'll still be using them from my other windoze and linux machines.
+
+Jimmy
+
+
+
+&gt;<i> -----Original Message-----
+</I>&gt;<i> From: Mike Gabriel [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>]
+</I>&gt;<i> Sent: Wednesday, August 31, 2011 2:15 AM
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lespedeza at gmail.com</A>
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: RE: [X2go-User] question regarding x2goclient armel builds
+</I>&gt;<i> 
+</I>&gt;<i> Hi Jimmy,
+</I>&gt;<i> 
+</I>&gt;<i> On Mi 31 Aug 2011 00:56:00 CEST Jimmy Knowles wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Mike,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Thanks for your help.  I think I may know why this isn't working.
+</I>&gt;<i> &gt; The Xserver is one that the webos-internals group has put together to
+</I>&gt;<i> &gt; run on top of the touchpad's OS (webos) and they haven't really
+</I>&gt;<i> &gt; included RandR support yet. This is what I found on the git for their
+</I>&gt;<i> &gt; Xserver,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &quot;We just enable it, and report the single resolution we support.
+</I>&gt;<i> &gt; (Doesn't allow setting rotation/sizes/reflections yet)&quot;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Do you think this is what would cause all the issues trying to get an
+</I>&gt;<i> &gt; x session to work?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I tried most of the things you suggested with the x2goclient and it
+</I>&gt;<i> &gt; segfaulted on all of them.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; The only thing that I was able to get to work was opening an lxde
+</I>&gt;<i> &gt; session inside of Xnest.   And even for that, it ran slow,
+</I>&gt;<i> &gt; complained about RandR missing, and eventually crashed (couldn't find
+</I>&gt;<i> &gt; in the logs why though).
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I'll try and see if the webos-internals guys have plans to further
+</I>&gt;<i> &gt; implement RandR. I have other options since rdesktop seems to work,
+</I>&gt;<i> &gt; but would prefer to use x2go.
+</I>&gt;<i> 
+</I>&gt;<i> Very good debugging!!! This absolutely smells like your pad's Xserver does not
+</I>&gt;<i> support the full X specification. This is probably the problem here.
+</I>&gt;<i> 
+</I>&gt;<i> Keep us up-to-date if you find new solutions etc.!!!
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> --
+</I>&gt;<i> 
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i> 
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000356.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+	<LI>Next message: <A HREF="000357.html">[X2go-User] X2Go problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#360">[ date ]</a>
+              <a href="thread.html#360">[ thread ]</a>
+              <a href="subject.html#360">[ subject ]</a>
+              <a href="author.html#360">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

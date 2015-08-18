@@ -1,0 +1,525 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problems setting print system in x2go [Resolved]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C4E496BF5.5070505%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000302.html">
+   <LINK REL="Next"  HREF="000343.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problems setting print system in x2go [Resolved]</H1>
+    <B>Mario OROZ</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C4E496BF5.5070505%40gmail.com%3E"
+       TITLE="[X2go-User] Problems setting print system in x2go [Resolved]">mario.oroz at gmail.com
+       </A><BR>
+    <I>Mon Aug 15 20:56:53 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000302.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+        <LI>Next message: <A HREF="000343.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#335">[ date ]</a>
+              <a href="thread.html#335">[ thread ]</a>
+              <a href="subject.html#335">[ subject ]</a>
+              <a href="author.html#335">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>El 02/08/2011 11:47 p.m., John A. Sullivan III escribi&#243;:
+&gt;<i> On Tue, 2011-08-02 at 17:10 -0300, Mario OROZ wrote: 
+</I>&gt;&gt;<i> El 02/08/2011 03:20 p.m., John A. Sullivan III escribi&#243;:
+</I>&gt;&gt;&gt;<i> On Tue, 2011-08-02 at 15:12 -0300, Mario OROZ wrote:
+</I>&gt;&gt;&gt;&gt;<i> El 02/08/2011 02:37 p.m., John A. Sullivan III escribi:
+</I>&gt;&gt;&gt;&gt;&gt;<i> On Mon, 2011-08-01 at 16:49 -0300, Mario OROZ wrote:
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Hello, I'm new to the list.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I use a server x2go on a Debian 6.0 with Windows XP clients.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I do not understand how to set the printing to print on printers on the client side.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I installed cups-x2go, and created a printer with cups cups-driver that provides
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> x2go.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I installed cups-x2go, and created a printer using the driver that provides
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> cups-x2go.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> On the client windows, menu Option / Settings / Printing tab is checked the
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> &quot;Show this dialog Before start printing&quot;
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Can anyone tell me of some howto or explain how to configure the local client
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> printing from the server windows x2go
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Already, thanks
+</I>&gt;&gt;&gt;&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;&gt;&gt;&gt;<i> Hi, Mario.  Could you be a bit more detailed about where you are finding
+</I>&gt;&gt;&gt;&gt;&gt;<i> the problem.  When you print from your X2Go desktop to the X2Go printer,
+</I>&gt;&gt;&gt;&gt;&gt;<i> what happens? Thanks - John
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> When I try to print from the client x2go desktop to the x2go printer nothings
+</I>&gt;&gt;&gt;&gt;<i> happens!
+</I>&gt;&gt;&gt;&gt;<i> The print job is queued in the spool of the x2go printer (cups
+</I>&gt;&gt;&gt;&gt;<i> server), nothings happens from the client side!
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> What I need is to understand how to configure the printing system, on both the
+</I>&gt;&gt;&gt;&gt;<i> client
+</I>&gt;&gt;&gt;&gt;<i> and the server side, to achieve redirect the print jobs on the server side to
+</I>&gt;&gt;&gt;&gt;<i> client's local printer.
+</I>&gt;&gt;&gt;&gt;<i> I saw no documentation on this configuration.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> This is achievable with the current version of x2goserver/x2goprint/cups-x2go?
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Since then, thanks for your answer
+</I>&gt;&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;&gt;<i> Is the cups server running on the X2Go server? 
+</I>&gt;&gt;<i> Yes! x2go server and tne cups server are in the same PC.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> If not, I believe it
+</I>&gt;&gt;&gt;<i> needs the ability to SSH to it to transfer the file.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> The printing is also dependent upon sshfs working properly.  This should
+</I>&gt;&gt;&gt;<i> be relatively automagic assuming it is not being blocked by Windows.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> On the X2Go server side, if you issue a mount command, do you see a
+</I>&gt;&gt;&gt;<i> print spool directory, e.g., 
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sshuser at 127.0.0.1</A>:/cygdrive/C/DOCUME~1/MYID~1/X2GO~1/S-9270~1/spool
+</I>&gt;&gt;&gt;<i> on /tmp/spool_myid/myid-63-1312305869_stDKDE_dp32 type fuse.sshfs
+</I>&gt;&gt;&gt;<i> (rw,nosuid,nodev,max_read=65536,user=myid)
+</I>&gt;&gt;<i> I can see this type of mount!
+</I>&gt;&gt;<i> being logged in with my username, from the server in a console;  can change dir
+</I>&gt;&gt;<i> to /tmp/spool_mario/mario-60-1312310981_stDGNOME_dp32
+</I>&gt;&gt;<i> and I created 2 files in that directory:
+</I>&gt;&gt;<i> $ Echo &quot;some text&quot;&gt; x.txt
+</I>&gt;&gt;<i> $ Echo &quot;x.txt&quot;&gt; x.txt.ready
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On the client PC, the window for print for x2go emerged.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Pressing the print button gave an error:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Window Title: Printing error
+</I>&gt;&gt;<i> Failed to execute command:
+</I>&gt;&gt;<i> C:\Archivos de programa\GhostGum\gsview\gsprint.exe -query -color C:/Documents
+</I>&gt;&gt;<i> and Settings/mario/.x2go/S-mario-60-1312310981_stDGNOME_dp32/spool/x.txt
+</I>&gt;&gt;<i> [OK button]
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> But that is not important; for now!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The important thing is that apparently the print jobs are not placed / created
+</I>&gt;&gt;<i> in the directory
+</I>&gt;&gt;<i> /tmp/spool_mario/mario-60-1312310981_stDGNOME_dp32
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> why?
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> I really don't know.  It has been quite a while since I setup X2Go
+</I>&gt;<i> printing and our environment is very specialized.  If I recall
+</I>&gt;<i> correctly, the X2Go print driver is a script or somewhere there is a
+</I>&gt;<i> script involved which places the files in the appropriate tmp directory.
+</I>&gt;<i> Is there any chance that script is not executable?
+</I>&gt;<i>
+</I>&gt;<i> You may wish to find that script and edit it by adding some debug
+</I>&gt;<i> information.  I usually add a logger command to send output or simply
+</I>&gt;<i> statements about where I am in the script to the syslog.  This way, you
+</I>&gt;<i> can find out where the script is breaking.  Hope that helps - John
+</I>&gt;<i>
+</I>
+
+Hello people!
+
+I changed the cups-x2go script, so I could print on a client XP.
+Also modify x2goprint, but not its functionality, just add a few lines to logging.
+The problem, from what little I could understand, is that the user x2goprint it
+is not created
+in the installation package x2goserver.*.deb,
+#&#183;addgroup --system x2goprint
+# adduser --system --no-create-home --shell /bin/bash --group --home
+/var/spool/cups/x2goprint  x2goprint
+# passwd -d x2goprint 
+####  Surely there is a better way to create this user.
+Besides having some leftover variables like $sess.
+And x2goprint generates a problem when it checks if there is a mount point in
+the session called
+$spooldir when there is *additionaly* a shared directory configured for the
+remote user on
+the client PC for export.
+
+Y commented the 2 script with #mario# tags for clarity
+
+I copy here:
+
+[BEGIN_cups-x2go]
+
+#!/usr/bin/perl
+# x2go CUPS backend
+# Copyright 2009-2011 Obviously Nice
+#
+#  This program is free software; you can redistribute it and/or modify it
+#  under the terms of the GNU General Public License as published by the
+#  Free Software Foundation; either version 2 of the License, or (at your
+#  option) any later version.
+#
+#  This program is distributed in the hope that it will be useful, but
+#  WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General
+#  Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Free Software Foundation, Inc.,
+#  51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+
+use Sys::Syslog qw( :DEFAULT setlogsock);
+#mario# module to log to syslog
+use Sys::Hostname;
+use File::Basename;
+use File::Copy;
+use strict;
+
+setlogsock('unix');
+openlog($0,'','user');
+#mario# for log to syslog
+
+my $x2goserver = &quot;local&quot;;
+my $printdsa = &quot;/root/.x2go/ssh/.x2goprint/id_dsa&quot;;
+my $ps2pdf = &quot;/usr/bin/gs -q -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH -dSAFER
+-sDEVICE=pdfwrite -sOutputFile=\&quot;%s.pdf\&quot; -dAutoRotatePages=/PageByPage
+-dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode
+-dPDFSETTINGS=/prepress -c .setpdfwrite -f /usr/bin/margen-offset.ps \&quot;%s\&quot;&quot;;
+my $cfgfile=&quot;/etc/cups/cups-x2go.conf&quot;;
+my $userName;
+my @sessions;
+my $host=hostname();
+
+
+sub readconfig
+{
+ if( -e $cfgfile)
+ {
+     open(CFG,&quot;&lt;$cfgfile&quot;);
+     while(!eof(CFG))
+     {
+         my $ln=&lt;CFG&gt;;
+         my $nocomln=(split(&quot;#&quot;,$ln))[0];
+         $nocomln=~s/\n//g;
+         my @valarr=split(&quot;=&quot;,$nocomln);
+         my $option=@valarr[0];
+         shift(@valarr);
+         my $value=join(&quot;=&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">, at valarr</A>);
+         $option=~s/ //g;
+         if($option eq &quot;x2goserver&quot;)
+         {
+             $x2goserver=$value;
+             $x2goserver=~s/ //g
+         }
+         if($option eq &quot;printdsa&quot;)
+         {
+             $printdsa=$value;
+         }
+         if($option eq &quot;ps2pdf&quot;)
+         {
+             $ps2pdf=$value;
+         }
+
+     }
+     close(CFG);
+ }
+}
+
+sub getsessions
+{
+  my $sesslist;
+  if ( $x2goserver eq &quot;local&quot; )
+  {
+       open (SQLCONF, &quot;&lt;/etc/x2go/x2gosql/sql&quot;);
+       my $cfgline=&lt;SQLCONF&gt;;
+       close (SQLCONF);
+       if(($cfgline=~m/local/)||($cfgline=~m/sqlite/))
+       {
+            $sesslist=`su $userName -c &quot;x2golistsessions --all-servers&quot;`;
+       }
+  }
+  else
+  {
+          $sesslist=`ssh -i $printdsa x2goprint\@$x2goserver &quot;sudo x2goprint
+$userName&quot;`;
+  }
+  @sessions=split(&quot;\n&quot;,$sesslist);
+}
+
+
+sub printfile
+{
+    my ($pfile,$tfile,$phost, $sess)=@_;
+    my $bname=basename($pfile);
+    if($phost eq $host)
+    {
+       my ($tm,$tm,$uid,$gid,$tm,$tm,$tm,$spooldir)=getpwnam(&quot;x2goprint&quot;);
+       #mario# I create the user x2goprint with home=/var/spool/cups/x2goprint
+       #mario# drwxrwxr-x 2 x2goprint x2goprint 4096 ago 12 20:20
+/var/spool/cups/x2goprint
+       #mario# and put x2goprint to sudoers like the manual.
+       my $spfile=&quot;$spooldir/$bname&quot;;
+       #mario# eliminate $sess from $spooldir$sess$bname and put &quot;/&quot; here.
+       syslog('info', &quot;spfile-&gt; $spfile&quot;);
+
+       copy($pfile, $spfile);
+       syslog('info', &quot;printfile copy pfile-&gt; $pfile to spfile-&gt; $spfile&quot;);
+
+       copy($tfile, &quot;$spfile.title&quot;);
+       syslog('info', &quot;printfile copy tfile-&gt; $tfile to spfile.title-&gt;
+$spfile.title&quot;);
+
+       chown $uid,$gid,$spfile;
+       chown $uid,$gid,&quot;$spfile.title&quot;;
+       #mario# added the above line to $spfile.title
+       system( &quot;su x2goprint -c \&quot;sudo x2goprint $userName $sess $bname
+$bname.title\&quot;&quot; );
+       #mario# eliminate 2nd and 3th mention off $sess; in $bname and $bname.title
+       syslog('info', &quot;su x2goprint -c sudo x2goprint $userName $sess $bname
+$bname.title&quot;);
+    }
+    else
+    {
+           system (&quot;scp -i $printdsa $pfile $tfile
+x2goprint\@$x2goserver:~x2goprint/&quot;);
+           system( &quot;ssh -i $printdsa  x2goprint\@$x2goserver \&quot;sudo x2goprint
+$userName $sess $bname $bname.title\&quot;&quot; );
+    }
+}
+
+my $uname=$ENV{USER};
+
+
+if (!$ARGV[0])
+{
+    print &quot;file cups-x2go:/ \&quot;Virtual X2GO Printer\&quot; \&quot;CUPS-X2GO\&quot;
+\&quot;MFG:Generic;MDL:CUPS-X2GO Printer;DES:Generic CUPS-X2GO
+Printer;CLS:PRINTER;CMD:POSTSCRIPT;\&quot;\n&quot;;
+    exit 0;
+}
+
+if (scalar(@ARGV) &lt; 5 || scalar(@ARGV) &gt; 6)
+{
+    print STDERR &quot;ERROR: Usage: cups-x2go job-id user title copies options
+[file]\n&quot;;
+    exit 1;
+}
+
+my $jobID;
+my $jobTitle;
+my $copies;
+my $printOptions;
+my $printFile;
+
+($jobID, $userName, $jobTitle, $copies, $printOptions, $printFile) =  @ARGV;
+my $sepa = &quot;-&gt;-&quot;;
+#mario# to separate de printjob filename
+syslog('info', &quot;I received from cups-&gt; $jobID $userName $jobTitle $copies
+$printOptions $sepa $printFile&quot;);
+#mario# to see what he received from cups
+my $tempFile;
+if (!$printFile)
+{
+    my $jid = $jobID;
+    my $uid = $userName;
+    $jid =~ s/\W//g; #sanity check
+    $uid =~ s/\W//g; #sanity check
+    $tempFile = &quot;$ENV{TMPDIR}/$jid-$uid-cupsjob$$&quot;;
+    syslog('info', &quot;Come from STDIN -&gt; it create tempFile = $tempFile\n&quot;);
+    #mario# Come from stdin?
+    open (OUT, &quot;&gt;$tempFile&quot;) or die &quot;ERROR: Cannot write $tempFile: $!\n&quot;;
+    while(&lt;STDIN&gt;)
+    {
+        print OUT &quot;$_&quot;;
+    }
+    close OUT;
+
+    $printFile = $tempFile;
+}
+
+readconfig();
+
+$ps2pdf=~s/%s/$printFile/g;
+system($ps2pdf);
+$printFile=&quot;$printFile.pdf&quot;;
+my $titleFile=&quot;$printFile.title&quot;;
+open (TITLE,&quot;&gt;$titleFile&quot;);
+print TITLE $jobTitle;
+close (TITLE);
+
+getsessions();
+for(my $i=0; $i&lt;scalar(@sessions);$i++ )
+{
+     my @sinfo=split(&quot;\\|&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">, at sessions</A>[$i]);
+     if(@sinfo[4] eq &quot;R&quot;)
+     {
+         printfile( $printFile, $titleFile, @sinfo[3], @sinfo[1]);
+
+         syslog('info', &quot;Call to printfile function with: $printFile $titleFile
+@sinfo[3] @sinfo[1]\n&quot;);
+         #mario# to see how i call printfile function!
+     }
+}
+
+unlink ($printFile);
+unlink ($titleFile);
+closelog;
+#mario# to close syslog logging.
+
+[END_cups-x2go]
+
+======================//======================//=====================
+======================//======================//=====================
+
+[BEGIN_x2goprint]
+
+#!/usr/bin/perl
+
+# Copyright (C) 2007-2011 X2go Project - <A HREF="http://wiki.x2go.org">http://wiki.x2go.org</A>
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the
+# Free Software Foundation, Inc.,
+# 51 Franklin St, Fifth Floor, Boston, MA 02110-1301, USA.
+#
+# Copyright (C) 2007-2011  Oleksandr Shneyder &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">oleksandr.shneyder at obviously-nice.de</A>&gt;
+# Copyright (C) 2007-2011  Heinz-Markus Graesing
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">heinz-m.graesing at obviously-nice.de</A>&gt;
+
+use Sys::Syslog qw( :DEFAULT setlogsock);
+#mario# module to log to syslog
+use File::Basename;
+use File::Copy;
+use File::Path;
+use strict;
+
+use lib &quot;/usr/lib/x2go&quot;;
+use x2godbwrapper;
+
+
+setlogsock('unix');
+openlog($0,'','user');
+#mario# for log to syslog
+
+
+
+if (scalar(@ARGV) ==1)
+{
+     system (&quot;su @ARGV[0] -c \&quot;x2golistsessions --all-servers\&quot; &quot;);
+}
+elsif (scalar(@ARGV) != 4)
+{
+    print STDERR &quot;ERROR: Usage:\nx2goprint user session file
+titleFile\nx2goprint user\n&quot;;
+    exit 1;
+}
+
+my ($user, $session, $file, $titleFile)=@ARGV;
+syslog('info', &quot;X2GOPRINT receive ARGS: $user $session $file $titleFile&quot;);
+#mario# wath args come from cups-x2go
+my ($tm,$tm,$uid,$gid,$tm,$tm,$tm,$homedir)=getpwnam(&quot;x2goprint&quot;);
+my $printdir=$homedir;
+
+
+my $title;
+if( -e &quot;$printdir/$titleFile&quot;)
+{
+     open (TITLE,&quot;&lt;$printdir/$titleFile&quot;);
+     $title=&lt;TITLE&gt;;
+     close (TITLE);
+     unlink(&quot;$printdir/$titleFile&quot;);
+}
+
+
+($tm,$tm,$uid,$gid,$tm,$tm,$tm,$homedir)=getpwnam($user);
+
+my $spoolbase=&quot;/tmp/spool_$user&quot;;
+my $spooldir=&quot;$spoolbase/$session&quot;;
+my $spooltmp=&quot;$spoolbase/tmp&quot;;
+mkpath($spooltmp);
+chown $uid, $gid, &quot;$spooltmp&quot;;
+chmod 0700, &quot;$spooltmp&quot;;
+
+my ($mounts)=db_getmounts($session);
+
+if( $mounts=~m/$spooldir/)
+#mario# here, if I have an exported directory (shared folder) from the client
+does not match the conditions outlined in the if
+#mario# and jump the copy of the printjob to the client. PLEASE see this problem!
+{
+     move(&quot;$printdir/$file&quot;, &quot;$spooltmp&quot;) or die &quot;$!: Can't move $file to
+$spooltmp/&quot;;
+     chown $uid, $gid, &quot;$spooltmp/$file&quot;;
+     system(&quot;su $user -c \&quot;mv $spooltmp/$file $spooldir\&quot;&quot;);
+     syslog('info', &quot;X2GOPRINT: su $user -c mv $spooltmp/$file $spooldir&quot;);
+     #mario# $user move file from the server to client sshfs $spooldir direcoty
+mounted
+     open (RFILE,&quot;&gt;$spooltmp/$file.ready&quot;);
+     print RFILE &quot;$file\n$title&quot;;
+     close (RFILE);
+
+     chown $uid, $gid, &quot;$spooltmp/$file.ready&quot;;
+     system (&quot;su $user -c \&quot;mv $spooltmp/$file.ready $spooldir\&quot;&quot;);
+     syslog('info', &quot;X2GOPRINT: su $user -c mv $spooltmp/$file.ready $spooldir&quot;);
+     #mario# the same as above...
+}
+else
+{
+     unlink(&quot;$printdir/$file&quot;);
+}
+
+closelog;
+#mario# close the log to syslog
+
+[END_x2goprint]
+
+=====================================/////===============================
+
+with Debian 6.0 server
+repository apt-get:
+    deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+    deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+And Win XP SP3
+
+What are the repositories of *Production*?
+
+I hope will be useful to someone
+
+Mario.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000302.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+	<LI>Next message: <A HREF="000343.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#335">[ date ]</a>
+              <a href="thread.html#335">[ thread ]</a>
+              <a href="subject.html#335">[ subject ]</a>
+              <a href="author.html#335">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

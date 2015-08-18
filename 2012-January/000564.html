@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] AD integration?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20AD%20integration%3F&In-Reply-To=%3CCAJxwJyg1hSKmUU_W19Xsxt715e2OeJBP6S4JHc1hDHT1kOE7hQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000561.html">
+   <LINK REL="Next"  HREF="000559.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] AD integration?</H1>
+    <B>Jonathan Brown</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20AD%20integration%3F&In-Reply-To=%3CCAJxwJyg1hSKmUU_W19Xsxt715e2OeJBP6S4JHc1hDHT1kOE7hQ%40mail.gmail.com%3E"
+       TITLE="[X2go-User] AD integration?">jbssfl at gmail.com
+       </A><BR>
+    <I>Wed Jan 25 16:14:20 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000561.html">[X2go-User] AD integration?
+</A></li>
+        <LI>Next message: <A HREF="000559.html">[X2go-User] Printing Security
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#564">[ date ]</a>
+              <a href="thread.html#564">[ thread ]</a>
+              <a href="subject.html#564">[ subject ]</a>
+              <a href="author.html#564">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike thanks for the helpful reply... Got this set up on a Kubuntu
+proxmox kvm vm on our corp network w/centrify to ADjoin and x2go and indeed
+it works very nicely and AD users can login without even specifying the
+domain name.. which is kind of nice.  Very pleased with the quality and
+speed of x2go.. seems comparable to NX, much easier setup and sound
+(haven't tested printer)... works out of the box...  yeah it's nice to have
+the AD groups on the ADclient... we have a group called unixadmins so a
+simple %unixadmins addition to the sudoers file allows an AD user in that
+group to sudo su -l to root with their AD pw on the box...
+
+Cheers, Jon
+
+On Wed, Jan 25, 2012 at 2:36 AM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Jonathan,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Di 24 Jan 2012 18:07:29 CET Jonathan Brown wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have been researching various options and it seems that x2go is
+</I>&gt;&gt;<i> preferable as it is based on nx and is actively developed.  I want to try
+</I>&gt;&gt;<i> it out, however just had a quick question on AD integration.  I understand
+</I>&gt;&gt;<i> there is this ldap option for the client, however, what about just joining
+</I>&gt;&gt;<i> the host server to a domain using likewise or centrify, and then once
+</I>&gt;&gt;<i> confirmed that users can log in via console and ssh with AD, can we not
+</I>&gt;&gt;<i> use
+</I>&gt;&gt;<i> the x2go client to log in as AD user? Also would their be a designation
+</I>&gt;&gt;<i> such as DOMAIN\ADusername ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks!
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Once you can log in to a Linux-AD-Client via SSH you can start using X2Go
+</I>&gt;<i> right away.
+</I>&gt;<i>
+</I>&gt;<i> Users that shall be allowed to use client-side folder sharing have to be
+</I>&gt;<i> in the ,,fuse'' group on the Linux machine. This fuse group normally is a
+</I>&gt;<i> local group (/etc/passwd), but it surely is possible to place that group
+</I>&gt;<i> into AD.
+</I>&gt;<i>
+</I>&gt;<i> I found it quite helpful to have the UNIX extensions activated in AD. So
+</I>&gt;<i> that special posix attributes like uidNumber and gidNumber get stored in
+</I>&gt;<i> LDAP and are recognized by the Linux-AD-Client. This allows you to have
+</I>&gt;<i> multiple Linux boxes on site that have the same user account base
+</I>&gt;<i> (usernames, uidNumbers, gidNumbers, all matching... which is not the case
+</I>&gt;<i> if you use standalone winbind/AD client implementations).
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+*&quot;It is only when each individual has achieved inner peace that we will see
+lasting outer peace in the world&quot;
+*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120125/6ff72381/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120125/6ff72381/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000561.html">[X2go-User] AD integration?
+</A></li>
+	<LI>Next message: <A HREF="000559.html">[X2go-User] Printing Security
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#564">[ date ]</a>
+              <a href="thread.html#564">[ thread ]</a>
+              <a href="subject.html#564">[ subject ]</a>
+              <a href="author.html#564">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

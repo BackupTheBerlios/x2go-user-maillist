@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver and recent GNOME Desktops
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20and%20recent%20GNOME%20Desktops&In-Reply-To=%3C52A07BE6.7070601%40grnet.gr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001843.html">
+   <LINK REL="Next"  HREF="001842.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver and recent GNOME Desktops</H1>
+    <B>Nikos Skalkotos</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20and%20recent%20GNOME%20Desktops&In-Reply-To=%3C52A07BE6.7070601%40grnet.gr%3E"
+       TITLE="[X2Go-User] x2goserver and recent GNOME Desktops">skalkoto at grnet.gr
+       </A><BR>
+    <I>Thu Dec  5 14:13:10 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001843.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+        <LI>Next message: <A HREF="001842.html">[X2Go-User] x2gocleansessions fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1835">[ date ]</a>
+              <a href="thread.html#1835">[ thread ]</a>
+              <a href="subject.html#1835">[ subject ]</a>
+              <a href="author.html#1835">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Has anybody succeeded  on connecting on a system that has a recent
+version of gnome (3.8 or 3.10)?
+
+I tried it in Ubuntu 13.10 and in Fedora 19 and Fedora 20 prerealese.
+For Ubuntu 13.10 I've used the x2go* packages found in launchpad and for
+Fedora 19 and 20 the official packages.
+
+In Ubuntu there is a gnome-fallback.session file that is link to
+gnome-flashback.session and there is a gnome-fallback-compiz.session
+that is link to gnome-flashback-compiz.session
+
+The first one uses metacity and should work with x2go and the latter
+uses compiz, so it probably needs 3d support. If I try to do:
+
+gnome-session --session gnome-fallback
+or
+gnome-session --session gnome-flashback
+
+I get a black screen and in the ~/.xsession-x2go-errors I see lines like
+this:
+
+Script for cjkv started at run_im.
+Script for default started at run_im.
+Script for cjkv started at run_im.
+Script for default started at run_im.
+gnome-session-is-accelerated: No composite extension.
+gnome-session-check-accelerated: Helper exited with code 256
+gnome-session-is-accelerated: No composite extension.
+gnome-session-check-accelerated: Helper exited with code 256
+
+There are complains that the fallback desktop in 13.10 requires 3d
+acceleration:
+<A HREF="http://askubuntu.com/questions/361617/does-gnome-fallback-desktop-require-accelerated-graphics-in-13-10">http://askubuntu.com/questions/361617/does-gnome-fallback-desktop-require-accelerated-graphics-in-13-10</A>
+
+The required componets for &quot;GNOME Flashback (No effects)&quot; are these:
+
+RequiredComponents=gnome-panel;gnome-settings-daemon;gnome-screensaver;metacity;
+
+If I create a script in /usr/local/bin:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at ubuntu-desktop</A>:/usr/local/bin$ cat startmyubuntu
+#!/bin/bash
+
+gnome-panel&amp;
+gnome-settings-daemon&amp;
+gnome-screensaver&amp;
+metacity
+
+And try to run it in the x2go command I manage to pop-up a crippled
+desktop but I don't think this is the way to go.
+
+In Fedora things are even worse. The available gnome sessions are gnome
+and gnome-classic and both seem to depend on mutter. This command ends
+up in black screen:
+
+gnome-session --session gnome-classic
+
+The required components for gnome classic are:
+
+RequiredComponents=gnome-shell-classic;gnome-settings-daemon;nautilus-classic;
+
+I have manually installed metacity and tried to execute a script that
+loaded the required components
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at localhost</A> bin]# cat startmyubuntu
+#!/bin/bash
+
+/usr/bin/gnome-shell --mode=classic &amp;
+/usr/libexec/gnome-settings-daemon-localeexec &amp;
+nautilus --no-default-window --force-desktop &amp;
+metacity &amp;
+
+wait
+
+But the desktop is even more crippled.
+
+Is GNOME still supported by x2go or should we consider it abandoned like
+we did with Unity when Unity2d was dropped?
+
+Nikos
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001843.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+	<LI>Next message: <A HREF="001842.html">[X2Go-User] x2gocleansessions fix
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1835">[ date ]</a>
+              <a href="thread.html#1835">[ thread ]</a>
+              <a href="subject.html#1835">[ subject ]</a>
+              <a href="author.html#1835">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

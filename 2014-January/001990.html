@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2godesktopsharing not work when other user try to	connect
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2godesktopsharing%20not%20work%20when%20other%20user%20try%20to%0A%09connect&In-Reply-To=%3CCAL5pyKsTpCWbF03oqTNTdmCckkga2UECOHHECgk3snC9uSzmLg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001987.html">
+   <LINK REL="Next"  HREF="001992.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2godesktopsharing not work when other user try to	connect</H1>
+    <B>Alexey Murz Korepov</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2godesktopsharing%20not%20work%20when%20other%20user%20try%20to%0A%09connect&In-Reply-To=%3CCAL5pyKsTpCWbF03oqTNTdmCckkga2UECOHHECgk3snC9uSzmLg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2godesktopsharing not work when other user try to	connect">murznn at gmail.com
+       </A><BR>
+    <I>Fri Jan 24 20:52:31 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001987.html">[X2Go-User] sound is really bad
+</A></li>
+        <LI>Next message: <A HREF="001992.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1990">[ date ]</a>
+              <a href="thread.html#1990">[ thread ]</a>
+              <a href="subject.html#1990">[ subject ]</a>
+              <a href="author.html#1990">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I start x2godesktopsharing app from user 'foo' and try to connect via
+user 'bar'.
+When I try to connect, user 'foo'  on x2go-server got popup window
+&quot;Allow access bar?&quot;, I press &quot;Yes&quot;. After some seconds I got the
+message on x2go-client &quot;Access denied from user&quot;.
+
+And on x2goserver debug log I see the strings:
+
+Jan 24 23:49:09 x2gosrv-host x2gogetports: executing external command
+,,x2gopath'' with args: libexec
+Jan 24 23:49:09 x2gosrv-host x2gogetports: executing external command
+,,/usr/lib/x2go/libx2go-server-db-sqlite3-wrapper'' with args:
+getports,x2gosrv-host
+Jan 24 23:49:09 x2gosrv-host /usr/bin/x2gostartagent: command result is: DENY
+Jan 24 23:49:09 x2gosrv-host x2gogetports: db_getports called, server:
+shop-bk.office.caramba-shop.ru; return value: |30001| |30002| |30003|
+|<i>30004| |30005| |30006| |30007| |30008| |30009| |30010| |30011|
+</I>|<i>30012| |30013| |30014| |30015| |30016| |30017| |30018|
+</I>Jan 24 23:49:09 x2gosrv-host /usr/bin/x2gostartagent: ERROR: user foo
+denied desktop sharing session
+
+Both users foo and bar have default group __USERS__, and added to
+groups x2gouser x2godesktopsharing
+
+Please help me and tell where can be the problem and how I can solve it?
+
+Thanks!
+
+-- 
+Best regards,
+Alexey Murz Korepov.
+Email, Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">murznn at gmail.com</A>
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001987.html">[X2Go-User] sound is really bad
+</A></li>
+	<LI>Next message: <A HREF="001992.html">[X2Go-User] Limiting clipboard sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1990">[ date ]</a>
+              <a href="thread.html#1990">[ thread ]</a>
+              <a href="subject.html#1990">[ subject ]</a>
+              <a href="author.html#1990">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gothinclient performance
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20performance&In-Reply-To=%3C501F917D.7060003%40edv-serviceteam.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000953.html">
+   <LINK REL="Next"  HREF="000955.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gothinclient performance</H1>
+    <B>Michael Hierweck</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20performance&In-Reply-To=%3C501F917D.7060003%40edv-serviceteam.net%3E"
+       TITLE="[X2Go-User] x2gothinclient performance">team at edv-serviceteam.net
+       </A><BR>
+    <I>Mon Aug  6 11:42:21 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000953.html">[X2Go-User] x2gothinclient performance
+</A></li>
+        <LI>Next message: <A HREF="000955.html">[X2Go-User] x2gothinclient performance
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#954">[ date ]</a>
+              <a href="thread.html#954">[ thread ]</a>
+              <a href="subject.html#954">[ subject ]</a>
+              <a href="author.html#954">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Daniel,
+
+On 06.08.2012 10:40, Denis Cardon wrote:
+&gt;<i> Hi Michael,
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I'm trying out x2go in thin client mode on more recent hardware (ZOTAC
+</I>&gt;&gt;<i> ZBOX, AMD E-350, 2 GB RAM).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I experience both bad performance and high CPU load the client side,
+</I>&gt;&gt;<i> even worse than on my legacy Intel P III 1 GHz systems some time ago.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Notable the x2goclient process consumes about 30% CPU time (one of tow
+</I>&gt;&gt;<i> cores) whenever a session is active - even a simple terminal (single
+</I>&gt;&gt;<i> application -&gt;  terminal) waiting for input.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Which options are recommended for local (1 GBit LAN) usage?
+</I>&gt;<i> 
+</I>&gt;<i> you should check if your terminal is using the nvidia xorg driver or the
+</I>&gt;<i> xorg Nouveau driver or the basic vga emulation on cpu. I guess your
+</I>&gt;<i> terminal is using the cpu based vga rendering.
+</I>
+my ZBOX isn't Atom/ION-based but AMD based. Therefore the radeon driver
+seems to be used. The drivers is loaded and X11 refuses to start when
+the radeon firmware for the framebuffer driver is missing.
+
+How can I check whether &quot;cpu based vga&quot; isn't active?
+
+Please note: the CPU time is consumed by the x2goclient process not by
+the Xorg process.
+
+Michael
+
+-- 
+EDV-Serviceteam Annika &amp; Michael Hierweck GbR
+Egerstra&#223;e 53, 44225 Dortmund (Germany)
+<A HREF="http://www.edv-serviceteam.net">http://www.edv-serviceteam.net</A>
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000953.html">[X2Go-User] x2gothinclient performance
+</A></li>
+	<LI>Next message: <A HREF="000955.html">[X2Go-User] x2gothinclient performance
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#954">[ date ]</a>
+              <a href="thread.html#954">[ thread ]</a>
+              <a href="subject.html#954">[ subject ]</a>
+              <a href="author.html#954">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Manual Install of x2go on SLES11 running on system Z
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Manual%20Install%20of%20x2go%20on%20SLES11%20running%20on%20system%20Z&In-Reply-To=%3C17C160C4223B1A41ABC9F9AF6213B53002086223%40hqolymmail05.WSDOT.LOC%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000070.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Manual Install of x2go on SLES11 running on system Z</H1>
+    <B>Harris, Donald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Manual%20Install%20of%20x2go%20on%20SLES11%20running%20on%20system%20Z&In-Reply-To=%3C17C160C4223B1A41ABC9F9AF6213B53002086223%40hqolymmail05.WSDOT.LOC%3E"
+       TITLE="[X2go-user] Manual Install of x2go on SLES11 running on system Z">HarrisDon at wsdot.wa.gov
+       </A><BR>
+    <I>Wed Mar  2 12:36:56 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000070.html">[X2go-user] X2Go client printing issues if application queries printer parameters
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Howdy all,
+
+ 
+
+So I would love to be able to use x2go on my sles11 boxes that are
+running on my mainframe, but I have found NO good info about how to
+install it, let alone configure it and get it to run.  I have downloaded
+what appears to be some &quot;source code&quot;, but within the .tar ball there is
+no install instructions, just a bunch of scripts.  Then when I got and
+look online using google looking for help, again there is NO
+documentation describing how to install x2go manually, only from using a
+.deb.  
+
+ 
+
+Well, I don't have nor will I ever use .deb for my enterprise
+environment, so how in the world do you install x2go using the &quot;source&quot;
+code that I downloaded from your website?  Is there any documentation
+that say what these commands do?  How does x2go connect and talk with
+the DB, the client?  Is there a service I must run on the server in
+order to connect to it?  What about the gnomebindings?  Are those
+available to only .deb users?  Can I install those without using .deb?
+Do I need them?  Is there any documentation that does not include using
+.debs?  What about man pages?  Do they exist?  All I want is some
+install instructions to follow, or at least some pointers in the correct
+direction...  Linux is not new to me in any way, I just have no idea how
+x2go works and functions as a whole and I can't find anything that is
+useful to help answer these questions.
+
+ 
+
+I really wish there was some sort of documentation that describes how to
+do this simple procedure.  I don't understand why a small file wasn't
+included in the &quot;source&quot; that tells me how to do this as there is with
+EVERY OTHER &quot;source&quot; that I have ever downloaded, or if it's not
+included with the source you can use the normal, ./configure, make, make
+install, and get it up and running.  This is the first time I have ever
+had trouble installing something from supposed &quot;source&quot;, so I am a
+little bit frustrated at the total lack of documentation and info that
+is available on actually installing the product if you can't, nor want
+to run a distro that supports/uses .debs.  Ubuntu and Debian are not
+support under system z (which is what I am running), so therefore I
+can't use them even if I wanted to.  RHEL6 and SLES11 are my only
+options if I want support, which my organization requires me to have if
+I am going to be running anything in a production environment, which is
+the plan.
+
+ 
+
+What I have done in the meantime is follow some &quot;install&quot; instructions
+that were included in the older version of x2goserver (3.0.1), but that
+doesn't seem right.  I have even installed and configured postgresql
+(there were absolutely no instructions on using the x2goserver-one
+source, so I had to go with just x2goserver and install postgresql which
+is completely unnecessary but I had no other choice considering the lack
+of info available), but when I try to connect to my server using the
+x2goclient, I get &quot;authentication denied continue using keyboard
+interactive&quot; or something like that, and then x2goclient crashes and I
+am not logged into my server, and there are no message logs on the
+server, nor any error logs, and there is nothing on the windows computer
+to help me out either.  So I have no idea what is or is not working
+correctly.
+
+ 
+
+I know ssh works, and x11 forwarding works because I have some scripts I
+created to connect and forward the x sessions, and they work just fine.
+I really want to be able to use x2go instead of my own scripts because
+of the sessions resume and cool things like that.  But I do know that x
+and ssh work, I just can't connect using x2go.
+
+ 
+
+So at this point I am really disappointed in x2go as I have spent a good
+4 hours now trying to just install this product, and I haven't even
+started to try to configure it.  Honestly I will give it a little bit
+more time, after that I must move on to something else that actually has
+some documentation so I can figure this stuff out on my own since I
+don't have time to be wasting on just trying to install a product.  I
+don't want to come across as an ass here, I am just frustrated with
+spinning my wheels on something that should be really straight forward.
+X2go looks like would be perfect for what I need, I just hope I can get
+it installed. Any help would be greatly appreciated!
+
+ 
+
+Thanks for your time,
+
+ 
+
+Donald Harris
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110302/e43e6ede/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110302/e43e6ede/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000070.html">[X2go-user] X2Go client printing issues if application queries printer parameters
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#69">[ date ]</a>
+              <a href="thread.html#69">[ thread ]</a>
+              <a href="subject.html#69">[ subject ]</a>
+              <a href="author.html#69">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver on vserver guest
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20on%20vserver%20guest&In-Reply-To=%3C1333007543.29052.96.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000757.html">
+   <LINK REL="Next"  HREF="000766.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver on vserver guest</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20on%20vserver%20guest&In-Reply-To=%3C1333007543.29052.96.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] x2goserver on vserver guest">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Thu Mar 29 09:52:23 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000757.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+        <LI>Next message: <A HREF="000766.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#758">[ date ]</a>
+              <a href="thread.html#758">[ thread ]</a>
+              <a href="subject.html#758">[ subject ]</a>
+              <a href="author.html#758">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2012-03-29 at 03:50 -0400, John A. Sullivan III wrote:
+&gt;<i> On Thu, 2012-03-29 at 07:29 +0300, Ad&#232;lphe Rafanambinana wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; I'm using x2go on Ubuntu, and it works well.
+</I>&gt;<i> &gt; Starting this week, I'd like to install it on Alpine Linux
+</I>&gt;<i> &gt; (www.alpinelinux.org) which is installed inside a vserver.
+</I>&gt;<i> &gt; (There is an x2goserver package for Alpine Linux in edge repository).
+</I>&gt;<i> &gt; x2goserver and its dependencies are installed correctly.
+</I>&gt;<i> &gt; But when I try to run x2goclient which is installed on my windows
+</I>&gt;<i> &gt; desktop, I got the attached error.
+</I>&gt;<i> &gt; Do you have an idea for it?
+</I>&gt;<i> &gt; I was wondering if it could be related to fuse module, since it
+</I>&gt;<i> &gt; coulodn't loaded in vserver guest.
+</I>&gt;<i> &gt; Any comments are welcome!,
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> 
+</I>&gt;<i> You will need the SECURE_MOUNT, SECURE_REMOUNT, and BINARY_MOUNT
+</I>&gt;<i> ccapabilities.  Even that will not allow fusermount to work so local
+</I>&gt;<i> shares are a problem.  To work around that, we removed that
+</I>&gt;<i> functionality from the X2Go scripts running on the guest and moved them
+</I>&gt;<i> and a modified x2gocleansessions script to the host.
+</I>&gt;<i> 
+</I>&gt;<i> We also made several other modifications to take advantage of the shared
+</I>&gt;<i> file system to reduce the overhead or running a large number of X2Go
+</I>&gt;<i> server guests on the same vserver host.  Good luck - John
+</I>&gt;<i> 
+</I>&lt;snip&gt;
+Oh, I should also mention that the ccapabilities for fusermount may be
+available in newer kernels.  Ours are somewhat old and in need of
+refreshing - John
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000757.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+	<LI>Next message: <A HREF="000766.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#758">[ date ]</a>
+              <a href="thread.html#758">[ thread ]</a>
+              <a href="subject.html#758">[ subject ]</a>
+              <a href="author.html#758">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] question regarding x2goclient armel builds
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C004a01cc673e%248fb4b600%24af1e2200%24%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000351.html">
+   <LINK REL="Next"  HREF="000354.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] question regarding x2goclient armel builds</H1>
+    <B>Jimmy Knowles</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C004a01cc673e%248fb4b600%24af1e2200%24%40gmail.com%3E"
+       TITLE="[X2go-User] question regarding x2goclient armel builds">lespedeza at gmail.com
+       </A><BR>
+    <I>Tue Aug 30 19:59:27 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000351.html">[X2go-User] x2go - Ubuntu 11.04 - Keyring problems
+</A></li>
+        <LI>Next message: <A HREF="000354.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks for your work on the x2go packages.  I was hoping someone could help
+me to be able to connect using the armel builds. I have a hp touchpad with x
+server running and a chrooted version of debian squeeze.  I've installed the
+packages without any problems and I'm having some problems getting a session
+to start successfully.  When I initiate a session from the touchpad, it will
+connect and the desktop displays, but any window manager items seem to
+crash.  The panels don't display, any pop-up windows just flash and flicker.
+Only the desktop icons display correctly.  And dmesg gives the following
+errors repeatedly:
+
+ 
+
+[65102.522642] metacity[5959]: segfault at 0 ip 00007f5d5e4e1ea1 sp
+00007ffffb4ba480 error 4 in libXrender.so.1.3.0[7f5d5e4dd000+9000]
+
+[65102.523278] gnome-panel[5960]: segfault at 0 ip 00007fca77ca7ea1 sp
+00007fff08238000 error 4 in libXrender.so.1.3.0[7fca77ca3000+9000]
+
+[65102.720377] trashapplet[5968]: segfault at 0 ip 00007fdb87f6fea1 sp
+00007ffff313ec10 error 4 in libXrender.so.1.3.0[7fdb87f6b000+9000]
+
+[65103.621171] gnome-panel[5981]: segfault at 0 ip 00007f0211630ea1 sp
+00007fffe7b2b790 error 4 in libXrender.so.1.3.0[7f021162c000+9000]
+
+[65103.622815] wnck-applet[5966]: segfault at 0 ip 00007fe8dac6eea1 sp
+00007fffca25a130 error 4 in libXrender.so.1.3.0[7fe8dac6a000+9000]
+
+[65103.891078] metacity[5980]: segfault at 0 ip 00007f43eec66ea1 sp
+00007fffff4193c0 error 4 in libXrender.so.1.3.0[7f43eec62000+9000]
+
+.
+
+[65146.848679] x2goagent[32682]: segfault at 186a690 ip 000000000186a690 sp
+00007fffa244d758 error 15
+
+ 
+
+What does work is if I'm resuming a session that was initiated via a windows
+(or amd64) x2goclient.  One difference that I notice is that the
+windows-initiated session name ends with dp32 (I'm assuming that's the color
+depth?) and the touchpad/armel-initiated session ends with dp24.  Any ideas
+on how to get it to work correctly when initiating the session on the armel
+device?
+
+ 
+
+The server is running ubuntu natty, with version 3.0.99.5-0~49~natty1 of
+x2goserver.
+
+ 
+
+Thanks,
+
+ 
+
+Jimmy
+
+ 
+
+ 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110830/091fc9bc/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110830/091fc9bc/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000351.html">[X2go-User] x2go - Ubuntu 11.04 - Keyring problems
+</A></li>
+	<LI>Next message: <A HREF="000354.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#353">[ date ]</a>
+              <a href="thread.html#353">[ thread ]</a>
+              <a href="subject.html#353">[ subject ]</a>
+              <a href="author.html#353">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

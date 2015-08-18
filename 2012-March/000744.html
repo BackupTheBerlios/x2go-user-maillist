@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Setting Number of Allowed Connections Per User Account
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Setting%20Number%20of%20Allowed%20Connections%20Per%20User%20Account&In-Reply-To=%3C8CED980BC87A6CE-1944-16C74%40webmail-d039.sysops.aol.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000743.html">
+   <LINK REL="Next"  HREF="000745.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Setting Number of Allowed Connections Per User Account</H1>
+    <B>senrabdet at aol.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Setting%20Number%20of%20Allowed%20Connections%20Per%20User%20Account&In-Reply-To=%3C8CED980BC87A6CE-1944-16C74%40webmail-d039.sysops.aol.com%3E"
+       TITLE="[X2Go-User] Setting Number of Allowed Connections Per User Account">senrabdet at aol.com
+       </A><BR>
+    <I>Mon Mar 26 18:00:45 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000743.html">[X2Go-User] Fwd: Flash Problems
+</A></li>
+        <LI>Next message: <A HREF="000745.html">[X2Go-User] A couple odds and ends questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#744">[ date ]</a>
+              <a href="thread.html#744">[ thread ]</a>
+              <a href="subject.html#744">[ subject ]</a>
+              <a href="author.html#744">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All:
+
+
+We're hoping to set and enable the number of allowed connections/sessions by user and user group in x2go.  E.g., we want to limit a user to one session/connection/display at a time:  that means from client machine A, if the user A is connected, a connection to his/her account could not be established from client machine B or a second connection couldn't be established from client Machine A.  User A, if s/he had second account on the server, however, could start one and only one connection to that second account while running one and only one session to the first account.
+
+
+We think we've seen some posts to this effect involving editing /etc/x2go/x2goserver.conf and /usr/bin/x2gosessionlimit (see <A HREF="http://comments.gmane.org/gmane.linux.terminal-server.x2go.devel/954">http://comments.gmane.org/gmane.linux.terminal-server.x2go.devel/954</A>).  We've tried making some of the following types of edits:
+
+
+A)  If we edit x2goserver.conf alone, and set either &quot;UserA=1 and/or &quot;UserGroupA=1&quot;, we can make multiple connections.  When we start another instance of x2go, it shows there is a current session, and when we select &quot;New&quot; in the GUI, a second concurrent session begins.
+
+
+B)  If we edit  /usr/bin/x2gosessionlimit, and make the following changes and then do a &quot;service x2goserver restart&quot; (not sure if this restart is appropriate or necessary)...
+
+
+Add these lines:
+
+ if($strlimit &lt;= $scount)
+     {
+         print &quot;LIMIT\n&quot;;
+         exit 0;
+     }
+Comment out these lines:
+ if($maxlimit &lt;= $scount)
+     {
+         print &quot;$maxlimit\n&quot;;
+         exit 0;
+     }
+print &quot;$maxlimit\n&quot;;
+
+....and change settings in x2goserver.conf, we got some inconstant results we haven't been able to duplicate, but were along the lines 
+either of a &quot;session limit being exceeded&quot; message even if we had group and/or user limits set to 1 (i.e., we were unable to connect at all), 
+or back to any number of sessions we wanted to start.
+
+
+
+Can someone suggest a procedure/example of how to do this successfully?  Ideally, we'd like the flexibility to limit # of connections/sessions both
+by user group and individual user.
+
+
+Thanks,
+
+
+Ted
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120326/d30c5d30/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120326/d30c5d30/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000743.html">[X2Go-User] Fwd: Flash Problems
+</A></li>
+	<LI>Next message: <A HREF="000745.html">[X2Go-User] A couple odds and ends questions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#744">[ date ]</a>
+              <a href="thread.html#744">[ thread ]</a>
+              <a href="subject.html#744">[ subject ]</a>
+              <a href="author.html#744">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

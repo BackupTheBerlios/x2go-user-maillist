@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Autolaunching
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Autolaunching&In-Reply-To=%3C201107230711.39674.CACook%40quantum-sci.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000272.html">
+   <LINK REL="Next"  HREF="000274.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Autolaunching</H1>
+    <B>CACook at quantum-sci.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Autolaunching&In-Reply-To=%3C201107230711.39674.CACook%40quantum-sci.com%3E"
+       TITLE="[X2go-User] Autolaunching">CACook at quantum-sci.com
+       </A><BR>
+    <I>Sat Jul 23 16:11:39 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000272.html">[X2go-User] Autolaunching
+</A></li>
+        <LI>Next message: <A HREF="000274.html">[X2go-User] Autolaunching
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#273">[ date ]</a>
+              <a href="thread.html#273">[ thread ]</a>
+              <a href="subject.html#273">[ subject ]</a>
+              <a href="author.html#273">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 23 July, 2011 06:19:53 Mike Gabriel wrote:
+&gt;<i> deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+</I>&gt;<i> 
+</I>&gt;<i> is code that could be considered as more reliable...
+</I>
+Hm, main messes up my package management system.  (Debian Testing)
+
+ 
+&gt;<i> Send me the session profile as found in  
+</I>&gt;<i> /home/bill/.x2goclient/sessions... Make sure you do not reveal secrets  
+</I>&gt;<i> when posting it to the list (IP addresses, ports, etc.).
+</I>
+Attached.  (Names changed to protect the innocent)
+
+
+&gt;<i> You have to specify the SSH explicitly in the session profile...
+</I>
+Ya, have that.
+---------------------------------------------------------
+x2goclient --hide --session=Droog
+ONMainWindow constructor 
+
+Can't load translator (:/x2goclient_en_us) !
+
+Can't load translator  :/qt_en_US 
+ONMainWindows constructor finished, home Directory is: &quot;/home/bill&quot; 
+
+read  2  sessions from config file 
+Have key, starting session 
+
+start new ssh connection 
+
+setting SSH DIR to  &quot;/home/bill/ssh&quot; 
+&quot;Authentication failed&quot;  -  &quot;Access denied. Authentication that can continue: publickey,password&quot; 
+QThread: Destroyed while thread is still running
+Segmentation fault
+---------------------------------------------------------
+
+So it seems to find the key, but then sets the SSH directory to a visible one which doesn't exist.
+
+
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: sessions.tar.gz
+Type: application/x-compressed-tar
+Size: 528 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110723/b6a0eb9b/attachment.bin">https://lists.berlios.de/pipermail/x2go-user/attachments/20110723/b6a0eb9b/attachment.bin</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000272.html">[X2go-User] Autolaunching
+</A></li>
+	<LI>Next message: <A HREF="000274.html">[X2go-User] Autolaunching
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#273">[ date ]</a>
+              <a href="thread.html#273">[ thread ]</a>
+              <a href="subject.html#273">[ subject ]</a>
+              <a href="author.html#273">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go + chroot
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C1331816734.6657.48.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000700.html">
+   <LINK REL="Next"  HREF="000712.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go + chroot</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C1331816734.6657.48.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] x2go + chroot">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Thu Mar 15 14:05:34 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000700.html">[X2Go-User] x2go + chroot
+</A></li>
+        <LI>Next message: <A HREF="000712.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#702">[ date ]</a>
+              <a href="thread.html#702">[ thread ]</a>
+              <a href="subject.html#702">[ subject ]</a>
+              <a href="author.html#702">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2012-03-15 at 12:58 +0100, BUGHUNTER wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> I need instructions for how to setup a chroot environment on the
+</I>&gt;<i> server - I found this old discussion:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://www.mail-archive.com/x2go-dev@lists.berlios.de/msg01268.html">http://www.mail-archive.com/x2go-dev@lists.berlios.de/msg01268.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> but there is no solution, unfortunately.
+</I>&gt;<i> 
+</I>&gt;<i> Also, I found
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://www.x2go.org/doku.php/wiki:components:tce">http://www.x2go.org/doku.php/wiki:components:tce</A>
+</I>&gt;<i> 
+</I>&gt;<i> but this seems to be a tool for setting up chroot on the CLIENT side?
+</I>&gt;<i> Seems to be a different use case.
+</I>&gt;<i> 
+</I>&gt;<i> What I want:
+</I>&gt;<i> 
+</I>&gt;<i> I would like to chroot users that logged into the server via x2go
+</I>&gt;<i> client to see only files in their home directory (or inside their
+</I>&gt;<i> &quot;jail&quot;) - what is the recommended + most efficient way of doing this
+</I>&gt;<i> with the least administrative overhead? - mind the updates! - so
+</I>&gt;<i> recompiling jail binaries after every update of relevant software
+</I>&gt;<i> should happen automatically, most preferable solution would be:
+</I>&gt;<i> 
+</I>&gt;<i> apt-get install x2go-server-chroot
+</I>&gt;<i> x2go-create-chroot /home/user
+</I>&gt;<i> 
+</I>&gt;<i> without any needed (or minimal) additional interaction after future
+</I>&gt;<i> updates so that your jail is always uptodate after an apt-get update.
+</I>&gt;<i> 
+</I>&gt;<i> does this exist?
+</I>&gt;<i> 
+</I>&gt;<i> if not, how to create it?
+</I>&gt;<i> 
+</I>&gt;<i> THANK you very much for your attention,
+</I>&gt;<i> Bughunter
+</I>&gt;<i> 
+</I>&gt;<i> BTW search for x2go +chroot with Google to see how small the internet
+</I>&gt;<i> can be ;)
+</I>&lt;snip&gt;
+
+I don't know if it is of any help but we run X2Go Server in a VServer
+which is, more or less, a chroot on steroids.  We did find we needed to
+do some intense surgery on the X2Go Server side scripts and we had to
+add certain capabilities to the vservers - particularly mount
+capabilities.  We were never able to enable local share unmounting
+(fusermount requires capabilities which are not available in our kernel
+- I believe they may be in newer kernels) which is one reason why we
+moved session clean up to the VServer host (besides the fact that I can
+run one cleanup daemon for hundreds of x2goserver instances instead of
+one process each (and it fires every five seconds).
+
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000700.html">[X2Go-User] x2go + chroot
+</A></li>
+	<LI>Next message: <A HREF="000712.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#702">[ date ]</a>
+              <a href="thread.html#702">[ thread ]</a>
+              <a href="subject.html#702">[ subject ]</a>
+              <a href="author.html#702">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

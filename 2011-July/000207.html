@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Keyboardmapping &lt;Alt Gr&gt;-Key
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Keyboardmapping%20%3CAlt%20Gr%3E-Key&In-Reply-To=%3C4E173C6C.40906%40online.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000217.html">
+   <LINK REL="Next"  HREF="000208.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Keyboardmapping &lt;Alt Gr&gt;-Key</H1>
+    <B>Stefan LAmbert</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Keyboardmapping%20%3CAlt%20Gr%3E-Key&In-Reply-To=%3C4E173C6C.40906%40online.de%3E"
+       TITLE="[X2go-User] Keyboardmapping &lt;Alt Gr&gt;-Key">swlambert-hg at online.de
+       </A><BR>
+    <I>Fri Jul  8 19:20:44 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000217.html">[X2go-User] Download Wiki content
+</A></li>
+        <LI>Next message: <A HREF="000208.html">[X2go-User] Keyboardmapping &lt;Alt Gr&gt;-Key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#207">[ date ]</a>
+              <a href="thread.html#207">[ thread ]</a>
+              <a href="subject.html#207">[ subject ]</a>
+              <a href="author.html#207">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo,
+
+leider reichen meine Englischkenntnisse nicht aus um den nachfolgend
+beschriebenen Fehler in Englisch zu beschreiben. Da jedoch, wie ich
+wei&#223;, ein Gro&#223;teil der Entwickler von X2GO aus Deutschland kommt, hoffe
+ich, dass mir trotzdem geholfen werden kann.
+
+Daf&#252;r m&#246;chte ich mich bereits im Voraus bedanken.
+
+Jetzt zum Grund meine Anfrage.
+Wir nutzen schon seit einiger Zeit X2GO und sind damit sehr zufrieden.
+Alles hat bisher sehr gut und problemlos funktioniert. Das hat sich
+jedoch leider ge&#228;ndert.
+
+Fehlerbeschreibung:
+Heute habe ich damit begonnen unsere Testserver von der &quot;alten&quot;
+x2go-Server Version (3.0.1-5) auf die neue Version
+(3.0.99.5-0~49~lucid1) umzustellen. Hierzu habe zun&#228;chst die alte
+Version gel&#246;scht (purge) und dann die neue Version, wie im Wiki
+beschrieben, installiert.
+
+Beim Test des Servers habe ich dann folgenden Fehler festgestellt:
+Wird sich auf dem x2go-Server mittels x2go-Client angemeldet, eine
+Applikation wie z. B. Libreoffice gestartet und dort dann ein Zeichen
+unter Verwendung der &lt;Alt Gr&gt;-Taste wie z. b. | oder @ eingegeben, so
+ist ab diesem Zeitpunkt keine &quot;normale&quot; Texteingabe mehr m&#246;glich. Auf
+dem Bildschirm sind jetzt bei jedem Tastendruck nur noch &quot;Hieroglyphen&quot;
+zu sehen (Screenshots kann ich bei Bedarf gerne &#252;bersenden). Einzige
+Abhilfe schafft eine Ab-/Neuanmeldung am x2go-Server.
+
+Das beschriebene Procedere habe ich an mehreren x2go-Clients (Ubuntu
+10.04 und 11.04) und mehreren Servern (Ubuntu 10.04 und 11.04) getestet.
+Der Fehler ist unabh&#228;ngig von der x2go-Client Version (getestet mit
+Vers.3.01-5, 3.0.1.18-0~56~lucid, 3.0.1.18-0~56~natty), tritt aber nur
+bei der Serverversion 3.0.99.5-0~49 (lucid u. natty) auf. Die Tests habe
+ich an neu aufgesetzten Maschinen und an &quot;upgedateten&quot; Rechnern
+durchgef&#252;hrt. Das Ergebnis ist immer das gleiche.
+
+Hier die installierten (x2go)-Pakete eines &quot;Problem&quot;-Servers:
+(dpkg -l | grep x2go)
+ii  cups-x2go           3.0.0.2-0~33~lucid1
+ii  x2goagent                   3.4.0.5-0~40~lucid1
+ii  x2gognomebindings           2.0.1.1-0~16~lucid1
+ii  x2goserver                  3.0.99.5-0~49~lucid1
+
+Hier die installierten (x2go)-Pakete eines funktionierenden Servers:
+(dpkg -l | grep x2go)
+ii  cups-x2go                   3.0.0
+ii  nxcompshad                  3.4.0-1
+ii  pinentry-x2go               0.7.5-2
+ii  x2goagent                   3.4.0-3-1
+ii  x2goclient                  3.01-5
+ii  x2gognomebindings           2.0.1-1
+ii  x2goprint                   3.0.0-1
+ii  x2goserver                  3.0.1-5
+ii  x2goserver-home             3.0.1-1
+ii  x2goserver-one              3.0.1-1
+
+Was mache ich falsch, bzw. was habe ich vergessen?
+
+Nochmals vielen Dank f&#252;r die Unterst&#252;tzung
+
+Viele Gr&#252;&#223;e
+Stefan Lambert
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000217.html">[X2go-User] Download Wiki content
+</A></li>
+	<LI>Next message: <A HREF="000208.html">[X2go-User] Keyboardmapping &lt;Alt Gr&gt;-Key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#207">[ date ]</a>
+              <a href="thread.html#207">[ thread ]</a>
+              <a href="subject.html#207">[ subject ]</a>
+              <a href="author.html#207">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Sharing the display between two different users in x2go remove session (xhost + / DISPLAY variable)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sharing%20the%20display%20between%20two%20different%20users%20in%20x2go%0A%20remove%20session%20%28xhost%20%2B%20/%20DISPLAY%20variable%29&In-Reply-To=%3CCAOk18jwBj_Smi_S8Cq9_2d5yTbE90bmrwXnSh19q-B31Qm4a%2Bw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001505.html">
+   <LINK REL="Next"  HREF="001516.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Sharing the display between two different users in x2go remove session (xhost + / DISPLAY variable)</H1>
+    <B>Nigra Truo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sharing%20the%20display%20between%20two%20different%20users%20in%20x2go%0A%20remove%20session%20%28xhost%20%2B%20/%20DISPLAY%20variable%29&In-Reply-To=%3CCAOk18jwBj_Smi_S8Cq9_2d5yTbE90bmrwXnSh19q-B31Qm4a%2Bw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Sharing the display between two different users in x2go remove session (xhost + / DISPLAY variable)">nigratruo at gmail.com
+       </A><BR>
+    <I>Tue Jul  9 11:46:58 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001505.html">[X2Go-User] Black screen for existing session
+</A></li>
+        <LI>Next message: <A HREF="001516.html">[X2Go-User] Sharing the display between two different users in x2go remove session (xhost + / DISPLAY variable)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1507">[ date ]</a>
+              <a href="thread.html#1507">[ thread ]</a>
+              <a href="subject.html#1507">[ subject ]</a>
+              <a href="author.html#1507">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am logged in as user Tom via x2go on my server. And in this session, I su
+to user Peter and want Peter to be able to use the same X session, i.e.
+display GUIs.
+
+When I try this, it fails. I use xeyes as a test.
+
+Error: Can't open display: unix:1077.0
+
+
+I used already xhost (as Tom), to give everybody the right to use Tom's X
+display.
+xhost +
+access control disabled, clients can connect from any host
+
+
+when I do a
+echo $DISPLAY
+as user Tom, I get:
+
+:<i>75
+</I>
+If I do the same as user Peter, I get:
+
+unix:1077.0
+
+
+how can I get user Peter to be able to share the GUI / X remote session via
+x2go from Tom?
+
+How is x2go handling the DISPLAY variable? I think there lies the problem,
+not in the permissions.
+
+What circumstance makes me need to get this working: I cannot open a
+separate x2go session for user Peter, which would definitely be easier.
+
+I have tried this locally, on the server directly, and when I use xhost +
+and set the display variable of Peter to the same as Tom, he can use Tom's
+display and display xeyes.
+
+Any pointers would be appreciated!
+
+thanks
+
+Markus
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130709/9966fef6/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130709/9966fef6/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001505.html">[X2Go-User] Black screen for existing session
+</A></li>
+	<LI>Next message: <A HREF="001516.html">[X2Go-User] Sharing the display between two different users in x2go remove session (xhost + / DISPLAY variable)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1507">[ date ]</a>
+              <a href="thread.html#1507">[ thread ]</a>
+              <a href="subject.html#1507">[ subject ]</a>
+              <a href="author.html#1507">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

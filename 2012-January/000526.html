@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go%20Client%20on%20Mac%20OS%20X%20Lion%20%2810.7%29%20%5BWorkaround%5D&In-Reply-To=%3CCA%2BDk-d3fud7w1KDssH3nq3Fa206%3DOS3R4t24Gz7%3D9H4H-aBBfg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000527.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]</H1>
+    <B>Neil Hunt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go%20Client%20on%20Mac%20OS%20X%20Lion%20%2810.7%29%20%5BWorkaround%5D&In-Reply-To=%3CCA%2BDk-d3fud7w1KDssH3nq3Fa206%3DOS3R4t24Gz7%3D9H4H-aBBfg%40mail.gmail.com%3E"
+       TITLE="[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]">nwhunt at gmail.com
+       </A><BR>
+    <I>Wed Jan  4 14:33:27 CET 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000527.html">[X2go-User] Terminate and resume in 1 click ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#526">[ date ]</a>
+              <a href="thread.html#526">[ thread ]</a>
+              <a href="subject.html#526">[ subject ]</a>
+              <a href="author.html#526">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stefan,
+Are you still having this issue? It doesn't sound like it's related to
+Lion. Are you able to connect from another client (Windows, Mac pre-Lion,
+Linux) with the same settings? Did you execute &quot;xhost +localhost&quot;?
+
+&gt;<i>
+</I>&gt;<i>   1.  x2go Client on Mac OS X Lion (10.7) [Workaround] (Stefan Fritze)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Sat, 31 Dec 2011 14:20:08 +0100
+</I>&gt;<i> From: Stefan Fritze &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">stefan73er at e-postkasten.de</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: [X2go-User]  x2go Client on Mac OS X Lion (10.7) [Workaround]
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">C5C07BE5-4FE1-4736-93F3-226E5018853F at e-postkasten.de</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;iso-8859-1&quot;
+</I>&gt;<i>
+</I>&gt;<i> Dear all,
+</I>&gt;<i>
+</I>&gt;<i> i've updated to MacOS X Lion and get the known Problem that &quot;Rosetta&quot; is
+</I>&gt;<i> needed.
+</I>&gt;<i>
+</I>&gt;<i> I tried the Workaround
+</I>&gt;<i>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hello x2go mac os lion users, here is a workaround for using x2go client
+</I>&gt;<i> on os x lion:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; 1. Download and install OpenNX Client for Mac. (
+</I>&gt;<i> <A HREF="http://sourceforge.net/projects/opennx/">http://sourceforge.net/projects/opennx/</A>)
+</I>&gt;<i> &gt; 2. Inside the opennx...dmg right click the OpenNX.pkg and click &quot;show
+</I>&gt;<i> package content&quot;
+</I>&gt;<i> &gt; 3. Doubleclick Contents/Archive.pax.gz
+</I>&gt;<i> &gt; 4. Go inside Archive/Library/OpenNX
+</I>&gt;<i> &gt; 5. Copy &quot;bin&quot; + &quot;lib&quot; + &quot;share&quot; to your clipboard (cmd-c)
+</I>&gt;<i> &gt; 6. Go to your x2goclient.app
+</I>&gt;<i> &gt; 7. Right click the x2goclient.app and click &quot;show package content&quot;
+</I>&gt;<i> &gt; 8. Go to &quot;Contents&quot; folder
+</I>&gt;<i> &gt; 9. Paste your clipboard inside this folder
+</I>&gt;<i> &gt; 10. Copy the content inside the &quot;bin&quot; folder to the &quot;exe&quot; folder
+</I>&gt;<i> (nxproxy will be overwritten)
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Now you can start x2goclient and connect to your server. If you get this
+</I>&gt;<i> error: &quot;Invalid MIT-MAGIC-COOKIE-1 key&quot; click on X11, start a terminal an
+</I>&gt;<i> type &gt;&quot;xhost +localhost&quot;.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Regards
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Stephan Diehl
+</I>&gt;<i> &gt; Gesch?ftsf?hrer
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Open Solutions GmbH &amp; Co. KG
+</I>&gt;<i> &gt; Luisenweg 109
+</I>&gt;<i> &gt; 20537 Hamburg
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> and the error message went away. But i still can't connect to my x2go
+</I>&gt;<i> server. Aber i type in my username and password it shown &quot;connecting&quot; and
+</I>&gt;<i> the x2go client freezes and after some time   (more or less a minute)  the
+</I>&gt;<i> x2go window is closed and a mac system message says the application was
+</I>&gt;<i> closed and i can show the detail information of the problem or send a
+</I>&gt;<i> report to apple.
+</I>&gt;<i>
+</I>&gt;<i> Does anyone else have this problem? and is there a solution?
+</I>&gt;<i>
+</I>&gt;<i> Best Regards
+</I>&gt;<i>
+</I>&gt;<i> Stefan
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120104/e22c19f9/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120104/e22c19f9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000527.html">[X2go-User] Terminate and resume in 1 click ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#526">[ date ]</a>
+              <a href="thread.html#526">[ thread ]</a>
+              <a href="subject.html#526">[ subject ]</a>
+              <a href="author.html#526">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

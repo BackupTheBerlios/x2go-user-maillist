@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Advice needed on a somewhat working x2go configuration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Advice%20needed%20on%20a%20somewhat%20working%20x2go%20configuration&In-Reply-To=%3C5210FAD5.4000107%40scimetis.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001541.html">
+   <LINK REL="Next"  HREF="001545.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Advice needed on a somewhat working x2go configuration</H1>
+    <B>Yohan Bataille</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Advice%20needed%20on%20a%20somewhat%20working%20x2go%20configuration&In-Reply-To=%3C5210FAD5.4000107%40scimetis.net%3E"
+       TITLE="[X2Go-User] Advice needed on a somewhat working x2go configuration">public at scimetis.net
+       </A><BR>
+    <I>Sun Aug 18 18:48:21 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001541.html">[X2Go-User] X2goclient: Bringing up NX3 proxy failed.
+</A></li>
+        <LI>Next message: <A HREF="001545.html">[X2Go-User] Advice needed on a somewhat working x2go configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1542">[ date ]</a>
+              <a href="thread.html#1542">[ thread ]</a>
+              <a href="subject.html#1542">[ subject ]</a>
+              <a href="author.html#1542">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+I need a GUI application (RetroShare) to start on boot on my headless 
+server (Debian Wheezy up to date with x2go repos)
+and be available remotely. I got it working with the scripts below but 
+it's cumbersome. Is it how it is supposed to be done ?
+
+I only encounter two issues apart from the complexity :
+-- x2goclient (v4.0.1.0 on my PC) resolution is ignored and Xvfb startup 
+resolution (900x550) is used even after it has been killed.
+-- Caps Lock cannot be used, because once it has been, it stays on.
+
+Regards,
+Yohan
+
+scripts :
+
+$ cat /etc/rc.local
+
+su -l -c /home/yohan/launch_x2go.sh yohan
+
+$ cat /home/yohan/launch_x2go.sh
+
+#!/bin/bash
+export DISPLAY=:1
+
+# Xvfb is a framebuffer Xserver.
+Xvfb :1 -screen 0 900x550x16 &amp;
+sleep 15
+pyhoca-cli --server localhost -N -c LXDE --user yohan 
+--add-to-known-hosts --password mypasswd --kbd-layout fr --kbd-type 
+pc105/fr &amp;
+export DISPLAY=:51
+sleep 20
+lxterminal &amp;
+lxterminal &amp;
+/home/yohan/reboot_RS.sh &amp;
+sleep 240
+pyhoca-cli --server localhost -S ALL --user yohan --password mypasswd &amp;
+sleep 10
+killall Xvfb
+
+Before killing Xvfb :
+$ ps auxf
+
+yohan    10994  0.0  0.0  11264  1400 pts/0    S+   16:39   0:00 | 
+     |           \_ /bin/bash ./launch_x2go.sh
+yohan    10996  0.1  0.0 117604 15912 pts/0    Sl+  16:39   0:00 | 
+     |               \_ Xvfb :1 -screen 0 900x550x16
+yohan    11066  0.6  0.1  81892 17824 pts/0    S+   16:39   0:01 | 
+     |               \_ pyhoca-cli --server localhost -N -c LXDE --user 
+yohan --add-to-known-hosts --password XXXXXXXX --kbd-layout fr 
+--kbd-type pc105/fr
+yohan    11348  0.5  0.0  29900 10044 pts/0    S+   16:39   0:00 | 
+     |               |   \_ /usr/lib/nx/bin/nxproxy -S 
+nx/nx,retry=5,composite=1,connect=127.0.0.1,clipboard=1,cookie=4bf3236294b3550c44
+yohan    11624  0.0  0.0   6080   584 pts/0    S+   16:39   0:00 | 
+     |               \_ sleep 240
+root      2697  0.0  0.0  32256  4420 ?        S    ao&#251;t17   0:44 
+/usr/bin/perl /usr/sbin/x2gocleansessions
+yohan    11303  0.8  0.2 119620 36568 ?        S    16:39   0:01 
+/usr/lib/nx/../x2go/bin/x2goagent -extension XFIXES -extension GLX 
+-nolisten tcp -D -auth /home/yohan/.Xauthority -geometry 800x600 -name 
+X2GO-yohan
+yohan    11360  0.0  0.0  11280  1512 ?        Ss   16:39   0:00 
+/bin/bash /usr/bin/x2goruncommand 51 11303 
+yohan-51-1376836770_stDLXDE_dp16 30005 startlxde pulse D
+yohan    11469  0.0  0.0  33576  1732 ?        Sl   16:39   0:00 \_ 
+/usr/bin/lxsession -s LXDE -e LXDE
+yohan    11480  0.3  0.0 109524  7728 ?        S    16:39 0:00      \_ 
+openbox --config-file /home/yohan/.config/openbox/lxde-rc.xml
+yohan    11482  0.0  0.0 153444 10420 ?        S    16:39 0:00      \_ 
+lxpanel --profile LXDE
+yohan    11483  0.1  0.0 241880 11236 ?        S    16:39 0:00      \_ 
+pcmanfm --desktop --profile LXDE
+yohan    11733 74.5  1.1 593584 180308 pts/0   Sl+  16:39   1:42 
+/home/yohan/retroshare/retroshare-gui/src/RetroShare
+
+
+With session running on my PC :
+$ ps auxf
+
+root      2697  0.0  0.0  32256  4420 ?        S    ao&#251;t17   0:44 
+/usr/bin/perl /usr/sbin/x2gocleansessions
+yohan    11303  0.3  0.2 120252 40332 ?        S    16:39   0:04 
+/usr/lib/nx/../x2go/bin/x2goagent -extension XFIXES -extension GLX 
+-nolisten tcp -D -auth /home/yohan/.Xauthority -geometry 800x600 -name 
+X2GO-yohan-51-1376836770_stDLXDE_dp16 :51
+yohan    11360  0.0  0.0  11280  1512 ?        Ss   16:39   0:00 
+/bin/bash /usr/bin/x2goruncommand 51 11303 
+yohan-51-1376836770_stDLXDE_dp16 30005 startlxde pulse D
+yohan    11469  0.0  0.0  33576  1732 ?        Sl   16:39   0:00 \_ 
+/usr/bin/lxsession -s LXDE -e LXDE
+yohan    11480  0.0  0.0 109524  7728 ?        S    16:39 0:00      \_ 
+openbox --config-file /home/yohan/.config/openbox/lxde-rc.xml
+yohan    11482  0.0  0.0 153560 10852 ?        S    16:39 0:00      \_ 
+lxpanel --profile LXDE
+yohan    11483  0.0  0.0 241880 11236 ?        S    16:39 0:00      \_ 
+pcmanfm --desktop --profile LXDE
+yohan    11733 16.7  1.2 590244 198428 pts/0   Sl   16:39   3:13 
+/home/yohan/retroshare/retroshare-gui/src/RetroShare
+yohan    19453  1.5  0.2 119328 36896 ?        S    16:57   0:01 
+/usr/lib/nx/../x2go/bin/x2goagent -extension XFIXES -extension GLX 
+-nolisten tcp -S -auth /home/yohan/.Xauthority -shadow :51 -shadowmode 1 
+-geometry 900x550+0+0 -name 
+X2GO-yohan-52-1376837840_stS1XSHADyohanXSHADPP51_dp24 :52
+
+With x2goclient exited on my PC :
+$ ps auxf
+
+root      2697  0.0  0.0  32256  4420 ?        S    ao&#251;t17   0:44 
+/usr/bin/perl /usr/sbin/x2gocleansessions
+yohan    11303  0.5  0.2 118708 38988 ?        S    16:39   0:03 
+/usr/lib/nx/../x2go/bin/x2goagent -extension XFIXES -extension GLX 
+-nolisten tcp -D -auth /home/yohan/.Xauthority -geometry 800x600 -name 
+X2GO-yohan-51-1376836770_stDLXDE_dp16 :51
+yohan    11360  0.0  0.0  11280  1512 ?        Ss   16:39   0:00 
+/bin/bash /usr/bin/x2goruncommand 51 11303 
+yohan-51-1376836770_stDLXDE_dp16 30005 startlxde pulse D
+yohan    11469  0.0  0.0  33576  1732 ?        Sl   16:39   0:00 \_ 
+/usr/bin/lxsession -s LXDE -e LXDE
+yohan    11480  0.0  0.0 109524  7728 ?        S    16:39 0:00      \_ 
+openbox --config-file /home/yohan/.config/openbox/lxde-rc.xml
+yohan    11482  0.0  0.0 153444 10480 ?        S    16:39 0:00      \_ 
+lxpanel --profile LXDE
+yohan    11483  0.0  0.0 241880 11236 ?        S    16:39 0:00      \_ 
+pcmanfm --desktop --profile LXDE
+yohan    11733 27.3  1.2 593608 197600 pts/0   Sl   16:39   2:48 
+/home/yohan/retroshare/retroshare-gui/src/RetroShare
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001541.html">[X2Go-User] X2goclient: Bringing up NX3 proxy failed.
+</A></li>
+	<LI>Next message: <A HREF="001545.html">[X2Go-User] Advice needed on a somewhat working x2go configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1542">[ date ]</a>
+              <a href="thread.html#1542">[ thread ]</a>
+              <a href="subject.html#1542">[ subject ]</a>
+              <a href="author.html#1542">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

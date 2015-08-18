@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Current Mac x2goclients crash
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Current%20Mac%20x2goclients%20crash&In-Reply-To=%3C20130403230235.GB12955%40towel.neverpanic.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001359.html">
+   <LINK REL="Next"  HREF="001365.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Current Mac x2goclients crash</H1>
+    <B>Clemens Lang</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Current%20Mac%20x2goclients%20crash&In-Reply-To=%3C20130403230235.GB12955%40towel.neverpanic.de%3E"
+       TITLE="[X2Go-User] Current Mac x2goclients crash">neverpanic at gmail.com
+       </A><BR>
+    <I>Thu Apr  4 01:02:35 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001359.html">[X2Go-User] Current Mac x2goclients crash
+</A></li>
+        <LI>Next message: <A HREF="001365.html">[X2Go-User] Current Mac x2goclients crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1364">[ date ]</a>
+              <a href="thread.html#1364">[ thread ]</a>
+              <a href="subject.html#1364">[ subject ]</a>
+              <a href="author.html#1364">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am not subscribed to the list, so please Cc me on all repsonses.
+
+&gt;<i> I have attempted to run the 4.0.0.4 and 4.0.1.0 builds of x2goclient
+</I>&gt;<i> on my MacBook Pro (OS version 10.7.3).  Both of them crash immediately
+</I>&gt;<i> on launch.  When attempting to run from the command line I get illegal
+</I>&gt;<i> instruction 4.  Unfortunately, I have not used a Mac long enough to
+</I>&gt;<i> know how to troubleshoot this (though I do have an extensive
+</I>&gt;<i> UNIX/BSD/Linux background) beyond the basics outlined below.
+</I>
+Can you paste the complete command you're running and its output? I have
+not tested my build on a 10.7 system, because I only have a Mountain
+Lion box &#8211; packages are built against the 10.7 SDK though, so they
+should in theory run (however, since I'm using libraries from MacPorts
+and those haven't been built for 10.7 there's a chance that this causes
+problems).
+
+Illegal instruction sounds like a 32bit vs. 64bit issue, but afaik the
+only 32bit-only CPUs Apple shipped with any recent OS X version were
+some rather old Mac Minis, so that probably doesn't apply in your case.
+
+The easiest and quickest fix for you, if you already have MacPorts
+installed, would be to install the x2goclient port.
+
+&gt;<i> For the 4.0.1.0 build, I have verified the md5 sum matches.  I have the 
+</I>&gt;<i> .dmg files for the 4.0.1.0 and 3.99.2.1 builds mounted.  One thing I 
+</I>&gt;<i> notice is that 4.0.x is significantly smaller than 3.99:
+</I>&gt;<i> 
+</I>&gt;<i> /dev/disk1s2                         50272      50272          0   100% 
+</I>&gt;<i>     /Volumes/x2goclient
+</I>&gt;<i> /dev/disk3s2                        223104     188328      34776    85% 
+</I>&gt;<i>     /Volumes/x2goclient 3.99.2.1
+</I>&gt;<i> 
+</I>&gt;<i> Are the newer builds expected to be this much smaller?  Unpacked, the 
+</I>&gt;<i> entire dmg for 4.0.x is about 70MB smaller than the actual space used by 
+</I>&gt;<i> 3.99.x, even with the dmg for 3.99 being somewhat bigger than the amount 
+</I>&gt;<i> of space required.
+</I>
+I do not know how the 3.x series DMGs were built, but I assume since
+those were afaik were universal binaries, that at least the binaries had
+double the size. You should not compare the DMG sizes, though, because
+the 4.x series uses compression and the 3.x ones might not.
+
+-- 
+Clemens
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001359.html">[X2Go-User] Current Mac x2goclients crash
+</A></li>
+	<LI>Next message: <A HREF="001365.html">[X2Go-User] Current Mac x2goclients crash
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1364">[ date ]</a>
+              <a href="thread.html#1364">[ thread ]</a>
+              <a href="subject.html#1364">[ subject ]</a>
+              <a href="author.html#1364">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

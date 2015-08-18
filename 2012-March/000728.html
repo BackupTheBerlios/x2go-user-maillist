@@ -1,0 +1,212 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] thinclient image and automounting usb-devices
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3C201203201527.36038.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000683.html">
+   <LINK REL="Next"  HREF="000684.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] thinclient image and automounting usb-devices</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3C201203201527.36038.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2Go-User] thinclient image and automounting usb-devices">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Tue Mar 20 15:27:35 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000683.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+        <LI>Next message: <A HREF="000684.html">[X2Go-User] X2Go release day: x2goserver, nx-libs, x2goclient,	x2gothinclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#728">[ date ]</a>
+              <a href="thread.html#728">[ thread ]</a>
+              <a href="subject.html#728">[ subject ]</a>
+              <a href="author.html#728">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Christoffer,
+
+thanks for answer.
+
+Am Wednesday 07 March 2012 schrieb christoffer krakou:
+&gt;<i> Hello Stefan
+</I>&gt;<i> 
+</I>&gt;<i> The main hurdle in that kind of setup would be connecting to the
+</I>&gt;<i> wireless network before you mount the nfs share. I don't know if thats
+</I>&gt;<i> even possible
+</I>
+no, that is not what I want to do. I don't want mount the thinclient-root over 
+nfs - like the tce over pxe does. 
+
+I just wanted a &quot;local installation&quot; of an thinclient-environment, which 
+beheave like the tce.
+
+That's quite easy - how I founded out now. What I've done:
+
+  * Installed  x2gothinclientenvironment to a local debian installation
+  * setting up tce in a chroot like described in the wiki 
+<A HREF="http://www.x2go.org/doku.php/wiki:components:tce">http://www.x2go.org/doku.php/wiki:components:tce</A>
+  * chroot in the thinclient-chroot:
+
+chroot /opt/x2gothinclient/chroot
+
+changing the Boot-method in the initramfs (local instead of nfs)
+
+ vi /etc/initramfs-tools/initramfs.conf
+
+    # (...)
+    BOOT=local
+    # (...)
+
+update-initramfs -u
+
+(I had to install a newer kernel from backports becaus of brandnew hardware, 
+simply adjusting /etc/apt/sources.list and upgrade the kernel)
+
+Now installing stuff for wlan
+
+apt-get install wpasupplicant wireless-tools firmware-b43-installer linux-
+wlan-ng-firmware atmel-firmware firmware-atheros firmware-brcm80211 firmware-
+iwlwifi firmware-linux-nonfree firmware-linux-free firmware-ralink firmware-
+realtek libertas-firmware
+
+Configure network:
+
+  vi /etc/network/interfaces
+  ~~~~~~~~~~
+    # Used by ifup(8) and ifdown(8). See the interfaces(5) manpage or
+    # /usr/share/doc/ifupdown/examples for more information.
+    auto lo
+    iface lo inet loopback
+     
+    auto wlan0
+    iface wlan0 inet dhcp
+       wpa-conf /etc/wpa_supplicant/wpa_supplicant.conf
+  ~~~~~~~~~~~
+
+And adding the wireless config:
+
+  vi /etc/wpa_supplicant/wpa_supplicant.conf
+  ~~~~~~~~~~~
+    ap_scan=1
+    ctrl_interface=/var/run/wpa_supplicant
+    network={
+           ssid=&quot;YOUR-SSID&quot;
+           scan_ssid=0
+           proto=WPA RSN
+           key_mgmt=WPA-PSK
+           pairwise=CCMP TKIP
+           group=CCMP TKIP
+           psk=THEPRESHAREDKEY-SECRET-SECRET
+  ~~~~~~~~~~~
+
+For facilitate debugging setting up a password:
+
+  passwd
+
+leaving the chroot.
+
+  exit
+
+Now copiing the whole chroot to a harddisk or a usb-stick and install grub on 
+the medium. For usb-stick it's easy:
+
+mounting the partition (sdxX) with the chroot (/mnt):
+
+/sbin/grub-install --root-directory=/mnt/ /dev/sdX
+
+Finding out the UUID:
+
+  blkid
+
+Now editing /mnt/boot/grub/grub.cfg (using the skelet of the existing 
+installation) and adding:
+
+menuentry 'x2go thinclient' {
+linux /boot/vmlinuz-3.2.0-0.bpo.1-686-pae root=UUID=UUID-OF-PARTITION ro
+initrd /boot/initrd.img-3.2.0-0.bpo.1-686-pae
+}
+
+Now you have to edit your sessions:
+
+vi /mnt/sdxX/etc/x2go/x2gothinclient_start
+
+Ready.
+
+Of course this is not yet perfect. E.g. it would be great to make the root-fs 
+readonly, e.g. with squashfs. But it works so far.
+
+One Problem is the lack of interactivity - if something goes wrong (maybe wifi 
+is not running will disconnect during the session) than there is no 
+meaningfull error message.
+
+For laptops two additional things would be disirable: interactive wifi-manager 
+(like network-manager or wicd) and a display for the battery charge.
+
+So I tried to set up a minimal system with the same funcionality - but with an 
+window-manager. This leaded to the problems I described in another mail:
+Error: Aborting session with 'Unable to open display
+
+Greetings
+Stefan
+
+&gt;<i> On 03/07/2012 11:29 AM, Stefan wrote:
+</I>&gt;<i> &gt; Hi all,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; we plan to set up an x2go-server in a school, where people should have
+</I>&gt;<i> &gt; access to with laptops throught wlan.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; The laptops will have dual-boot systems an one of them should be a
+</I>&gt;<i> &gt; minimal setup with x2goclient (thinclient-image) and wlan access. It
+</I>&gt;<i> &gt; would be nice doing usb-automounting in the image - like the
+</I>&gt;<i> &gt; ltsp-thinclient environment does.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; They should behave thin-client like - only that they can't boot through
+</I>&gt;<i> &gt; pxe because of wlan. (For the desktops we still use ltsp - because of
+</I>&gt;<i> &gt; features like local apps and automounging ...) So users should not have
+</I>&gt;<i> &gt; to open a desktop-environment, starting x2goclient and mount local
+</I>&gt;<i> &gt; devices manualy.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Are there any common approaches?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Is automounting working in the tce of x2go?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Thanks for your ideas.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; stefan
+</I></PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000683.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+	<LI>Next message: <A HREF="000684.html">[X2Go-User] X2Go release day: x2goserver, nx-libs, x2goclient,	x2gothinclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#728">[ date ]</a>
+              <a href="thread.html#728">[ thread ]</a>
+              <a href="subject.html#728">[ subject ]</a>
+              <a href="author.html#728">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

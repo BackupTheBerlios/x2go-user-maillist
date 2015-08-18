@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20dependency%20perl-suid%20can%20not%20be%20solved%20not%20able%20to%0A%20install%20x2goserver%20in%2011.10%20%28oneiric%29&In-Reply-To=%3CCADZYHDA8Sy8C1NPTLx6qJAaVgb3WTtDse0AQNMnL9LncaY0frQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000439.html">
+   <LINK REL="Next"  HREF="000441.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)</H1>
+    <B>Benjamin Shadwick</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20dependency%20perl-suid%20can%20not%20be%20solved%20not%20able%20to%0A%20install%20x2goserver%20in%2011.10%20%28oneiric%29&In-Reply-To=%3CCADZYHDA8Sy8C1NPTLx6qJAaVgb3WTtDse0AQNMnL9LncaY0frQ%40mail.gmail.com%3E"
+       TITLE="[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)">benshadwick at gmail.com
+       </A><BR>
+    <I>Sun Oct  9 21:18:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000439.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+        <LI>Next message: <A HREF="000441.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Not sure. Here are some related links that I was able to dig up in case it
+helps somehow:
+
+Looks like it was removed in this revision:
+<A HREF="http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/oneiric/perl/oneiric/revision/50">http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/oneiric/perl/oneiric/revision/50</A>
+Someone has a patch for a wrapper script here:
+<A HREF="https://code.launchpad.net/~allison/ubuntu/oneiric/backuppc/no-perl-suid/+merge/62814">https://code.launchpad.net/~allison/ubuntu/oneiric/backuppc/no-perl-suid/+merge/62814</A>
+
+On Sun, Oct 9, 2011 at 9:26 AM, MyCloud Service &amp; Computers &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">MSC at go2mycloud.net</A>&gt; wrote:
+
+&gt;<i> my current repository:
+</I>&gt;<i> <A HREF="http://ppa.launchpad.net/x2go/stable/ubuntu">http://ppa.launchpad.net/x2go/stable/ubuntu</A> oneiric main
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> apt-get install x2goserver
+</I>&gt;<i> Reading package lists... Done
+</I>&gt;<i> Building dependency tree
+</I>&gt;<i> Reading state information... Done
+</I>&gt;<i> Some packages could not be installed. This may mean that you have
+</I>&gt;<i> requested an impossible situation or if you are using the unstable
+</I>&gt;<i> distribution that some required packages have not yet been created
+</I>&gt;<i> or been moved out of Incoming.
+</I>&gt;<i> The following information may help to resolve the situation:
+</I>&gt;<i>
+</I>&gt;<i> The following packages have unmet dependencies:
+</I>&gt;<i>  x2goserver : Depends: perl-suid but it is not installable
+</I>&gt;<i>               Recommends: sshfs but it is not going to be installed
+</I>&gt;<i>               Recommends: x2goserver-extensions (= 3.0.99.5-0~76~oneiric1)
+</I>&gt;<i> but it is not going to be installed
+</I>&gt;<i> E: Unable to correct problems, you have held broken packages.
+</I>&gt;<i>
+</I>&gt;<i> apt-get install -m x2goserver x2goserver-extensions sshfs  Reading package
+</I>&gt;<i> lists... Done
+</I>&gt;<i> Building dependency tree
+</I>&gt;<i> Reading state information... Done
+</I>&gt;<i> Some packages could not be installed. This may mean that you have
+</I>&gt;<i> requested an impossible situation or if you are using the unstable
+</I>&gt;<i> distribution that some required packages have not yet been created
+</I>&gt;<i> or been moved out of Incoming.
+</I>&gt;<i> The following information may help to resolve the situation:
+</I>&gt;<i>
+</I>&gt;<i> The following packages have unmet dependencies:
+</I>&gt;<i>  x2goserver : Depends: perl-suid but it is not installable
+</I>&gt;<i> E: Unable to correct problems, you have held broken packages.
+</I>&gt;<i>
+</I>&gt;<i> Is this the correct place to report issue?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Menno de Jong.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+- Ben S.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111009/0807c79f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20111009/0807c79f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000439.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+	<LI>Next message: <A HREF="000441.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#440">[ date ]</a>
+              <a href="thread.html#440">[ thread ]</a>
+              <a href="subject.html#440">[ subject ]</a>
+              <a href="author.html#440">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

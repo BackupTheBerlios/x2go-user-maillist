@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] trouble building nxlibs 3.5.0.21
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20trouble%20building%20nxlibs%203.5.0.21&In-Reply-To=%3C526047A0.5090803%40cora.nwra.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001680.html">
+   <LINK REL="Next"  HREF="001682.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] trouble building nxlibs 3.5.0.21</H1>
+    <B>Orion Poplawski</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20trouble%20building%20nxlibs%203.5.0.21&In-Reply-To=%3C526047A0.5090803%40cora.nwra.com%3E"
+       TITLE="[X2Go-User] trouble building nxlibs 3.5.0.21">orion at cora.nwra.com
+       </A><BR>
+    <I>Thu Oct 17 22:25:04 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001680.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+        <LI>Next message: <A HREF="001682.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1681">[ date ]</a>
+              <a href="thread.html#1681">[ thread ]</a>
+              <a href="subject.html#1681">[ subject ]</a>
+              <a href="author.html#1681">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 10/17/2013 02:16 PM, Short, Kermit wrote:
+&gt;<i> Greetings,
+</I>&gt;<i>     I'm trying to build nx-libs from a source tarball for version
+</I>&gt;<i> 3.5.0.21.  When I run:
+</I>&gt;<i> make build-lite
+</I>&gt;<i>
+</I>&gt;<i> I get a compilation abort while building nxcomp.  The compiler is
+</I>&gt;<i> looking for jpeglib.h.  I've run a quick find and that file doesn't
+</I>&gt;<i> exist in the hierarchy created by the tarball.
+</I>&gt;<i>
+</I>&gt;<i> g++ -c -O3 -fno-rtti -fno-exceptions -I../nx-X11/exports/include
+</I>&gt;<i> -Wmissing-declarations -fPIC -DIN_ADDR_T=in_addr_t -DVERSION=\&quot;3.5.0\&quot;
+</I>&gt;<i> -DPACKAGE_NAME=\&quot;\&quot; -DPACKAGE_TARNAME=\&quot;\&quot; -DPACKAGE_VERSION=\&quot;\&quot;
+</I>&gt;<i> -DPACKAGE_STRING=\&quot;\&quot; -DPACKAGE_BUGREPORT=\&quot;\&quot; -DPACKAGE_URL=\&quot;\&quot; -Wall
+</I>&gt;<i> -Wpointer-arith   Jpeg.cpp
+</I>&gt;<i> Jpeg.cpp:29:23: fatal error: jpeglib.h: No such file or directory
+</I>&gt;<i> compilation terminated.
+</I>&gt;<i> make[1]: *** [Jpeg.o] Error 1
+</I>&gt;<i> make[1]: Leaving directory `/var/tmp/nx-libs-3.5.0.21/nxcomp'
+</I>&gt;<i> make: *** [build-lite] Error 2
+</I>&gt;<i>
+</I>
+You need the libjpeg development library/headers.
+
+
+-- 
+Orion Poplawski
+Technical Manager                     303-415-9701 x222
+NWRA, Boulder/CoRA Office             FAX: 303-415-9702
+3380 Mitchell Lane                       <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">orion at nwra.com</A>
+Boulder, CO 80301                   <A HREF="http://www.nwra.com">http://www.nwra.com</A>
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001680.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+	<LI>Next message: <A HREF="001682.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1681">[ date ]</a>
+              <a href="thread.html#1681">[ thread ]</a>
+              <a href="subject.html#1681">[ subject ]</a>
+              <a href="author.html#1681">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

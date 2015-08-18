@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Gnome%20Bindings%20in%20Ubuntu%20ppa%20disappeared%3F&In-Reply-To=%3C20131120110225.Horde.6R1hmTuZC1vZ_0kNkr75PQ1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001784.html">
+   <LINK REL="Next"  HREF="001789.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Gnome%20Bindings%20in%20Ubuntu%20ppa%20disappeared%3F&In-Reply-To=%3C20131120110225.Horde.6R1hmTuZC1vZ_0kNkr75PQ1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Nov 20 12:02:25 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001784.html">[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?
+</A></li>
+        <LI>Next message: <A HREF="001789.html">[X2Go-User] x2go in LXC (linux containers) - how to enable sound
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1788">[ date ]</a>
+              <a href="thread.html#1788">[ thread ]</a>
+              <a href="subject.html#1788">[ subject ]</a>
+              <a href="author.html#1788">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kermit,
+
+On  Di 19 Nov 2013 21:36:26 CET, Short, Kermit wrote:
+
+&gt;<i> Greetings!  I am used to installing the x2gognomebindings package on a
+</I>&gt;<i> system when I install the x2goserver.
+</I>&gt;<i>
+</I>&gt;<i> Today I tried and aptitude returned with package not found.
+</I>&gt;<i>
+</I>&gt;<i> Sure enough, I aptitude search and the package is no longer present.
+</I>&gt;<i> What happened, and is there a work around?
+</I>
+The package is only available in the lucid ppa of X2Go. In later  
+versions (starting with natty) GNOMEv2 was removed and replaced by  
+GNOMEv3 and x2gognomebindings is for GNOMEv2 only.
+
+On git.x2go.org [1] we provide a package called x2gomatebindings.git  
+which is the continuation of x2gognomebindings, only adapted to MATE.
+
+The package is currently only built for our Debian archive, as it  
+requires some MATE packages as build-deps (which was not trivial with  
+Launchpad the last time I tried). Build it from source if needed.
+
+Once MATE has entered Debian (and with it: Ubuntu), I will provide  
+x2gomatebindings via our PPA on Launchpad as binary package.
+
+Mike
+
+[1] <A HREF="http://code.x2go.org/gitweb?p=x2gomatebindings.git;a=summary">http://code.x2go.org/gitweb?p=x2gomatebindings.git;a=summary</A>
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131120/9d618af3/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131120/9d618af3/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001784.html">[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?
+</A></li>
+	<LI>Next message: <A HREF="001789.html">[X2Go-User] x2go in LXC (linux containers) - how to enable sound
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1788">[ date ]</a>
+              <a href="thread.html#1788">[ thread ]</a>
+              <a href="subject.html#1788">[ subject ]</a>
+              <a href="author.html#1788">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

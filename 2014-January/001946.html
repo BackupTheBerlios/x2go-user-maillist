@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Thin Client Edition and USB/CD-ROM client-side	mounts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Thin%20Client%20Edition%20and%20USB/CD-ROM%20client-side%0A%09mounts&In-Reply-To=%3C52CFF64D.2070206%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001916.html">
+   <LINK REL="Next"  HREF="001901.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Thin Client Edition and USB/CD-ROM client-side	mounts</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Thin%20Client%20Edition%20and%20USB/CD-ROM%20client-side%0A%09mounts&In-Reply-To=%3C52CFF64D.2070206%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] Thin Client Edition and USB/CD-ROM client-side	mounts">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Fri Jan 10 14:31:57 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001916.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts
+</A></li>
+        <LI>Next message: <A HREF="001901.html">[X2Go-User] [SOLVED] Re:  No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1946">[ date ]</a>
+              <a href="thread.html#1946">[ thread ]</a>
+              <a href="subject.html#1946">[ subject ]</a>
+              <a href="author.html#1946">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 06.01.2014 15:41, schrieb Mike Gabriel:
+&gt;<i> You need to set the --read-exports-from &lt;dir&gt; cmdline options when
+</I>&gt;<i> launching X2Go Client as also down in the X2Go Client start script of
+</I>&gt;<i> the TCE [1].
+</I>&gt;<i>
+</I>&gt;<i> The &lt;dir&gt; is hard-coded in x2gousbmounts / x2gocdmanager and IIRC points
+</I>&gt;<i> to ~/export.
+</I>
+Could it be that there's something wrong here?
+The automounter on X2Go-TCE mounts devices to:
+/media/&lt;devicename&gt;/&lt;partitionname&gt; (e.g. &quot;/media/CDROM-sr0/&quot; or 
+&quot;/media/USB2.0_Mobile_Disk/sdb1/&quot;)
+
+They don't show up in ~/export.
+Should ~/export be symlinked to /media on ThinClients to make this work?
+Or should --read-exports-from in ThinClients' 
+/etc/x2go/x2gothinclient_start be set to /media instead?
+
+-Stefan
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001916.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts
+</A></li>
+	<LI>Next message: <A HREF="001901.html">[X2Go-User] [SOLVED] Re:  No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1946">[ date ]</a>
+              <a href="thread.html#1946">[ thread ]</a>
+              <a href="subject.html#1946">[ subject ]</a>
+              <a href="author.html#1946">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

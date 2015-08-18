@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Starting multiple sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3CAANLkTikL3AguWpe5UozeGg_MwUDBofAk4U0oZYy7uoPX%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000015.html">
+   <LINK REL="Next"  HREF="000017.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Starting multiple sessions</H1>
+    <B>John Williams</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3CAANLkTikL3AguWpe5UozeGg_MwUDBofAk4U0oZYy7uoPX%40mail.gmail.com%3E"
+       TITLE="[X2go-user] Starting multiple sessions">jwilliams4200 at gmail.com
+       </A><BR>
+    <I>Tue Oct 19 16:23:35 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000015.html">[X2go-user] Starting multiple sessions
+</A></li>
+        <LI>Next message: <A HREF="000017.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, Oct 19, 2010 at 6:29 AM, Paul van der Vlis &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">paul at vandervlis.nl</A>&gt; wrote:
+
+&gt;<i> I would say: Close the session before you close X2goclient. Don't
+</I>&gt;<i> terminate a X2go client with status &quot;running&quot;.
+</I>
+I may not have been clear in my previous message. Let me define some
+terms so that we can be sure we understand each other:
+
+x2go-client (X2C): this is the program and window that first gives you
+a choice of starting an x2go session, and once a session is started,
+it gives the options of &quot;share folder...&quot;, &quot;suspend&quot;, or &quot;terminate&quot;.
+
+x2go-session (X2S) window: this is the window that displays the remote
+session running on the x2go server. The only options are the standard
+window options, like &quot;X&quot;, &quot;_&quot;, and full-screen.
+
+So, if I close the X2S window by clicking &quot;X&quot;, then the session gets
+suspended. But the only way I see to then terminate the session is to
+click &quot;cancel&quot; in the X2C window, and then click to start a new
+session, and then X2C gives me a list of running and suspended
+sessions, but it only tells me the display number, the status, and the
+command of each session. That is even less information than when the
+session is running! So I do not want to terminate it from that list,
+since I may make a mistake!
+
+&gt;<i> You can see the server and the username when there is a connection.
+</I>&gt;<i> And a SessionID. And a CreationTime.
+</I>
+Yes, the X2C window displays Session ID, Server, Username, Display,
+Creation Time, and Status.
+
+But it does not display the session name! That is the name that you
+create yourself. You type it in at the top when you create a session
+profile. I think it is useful to have when keeping track of multiple
+sessions, since I try to define several different session names to
+help me keep track.
+
+This is a habit I developed when using the NX client, since it does
+display the session names in the list of suspended sessions. In fact,
+with NX client if your server only has 1 suspended session with the
+session name that you try to start from the client, then the client
+will automatically resume that session on the server without the user
+even having to choose from a list of suspended sessions. That is a
+useful feature.
+
+&gt;<i> X2go just closes the session.
+</I>
+There are two ways to close the session: suspending it, in which case
+the session keeps running, but without displaying a window on the
+client (and you can later resume it on any other client machine), or
+terminating it, in which case the session is no longer running, and
+cannot be resumed.
+
+If you just click on &quot;X&quot; in the X2S window, then x2go suspends the
+session. I determined that just by trying it to see. If you want to
+terminate a session, you have to specifically click on the &quot;terminate&quot;
+button in the X2C window.
+
+&gt;<i> I also don't know a nice way to suspend a session other then using the
+</I>&gt;<i> client-window. Normally I don't suspend sessions. Maybe somebody else
+</I>&gt;<i> knows a way.
+</I>
+As I mentioned, suspending a session is easy -- just click on the &quot;X&quot;
+on the X2S window. It is terminating a session that is more difficult.
+
+I generally have a lot of sessions, both running and suspended, on the
+server, so the kind of issues I am mentioning come up a lot for me.
+
+&gt;<i> I am talking about the Linux client. No idea if there is much
+</I>&gt;<i> difference, because I have never used the Windows client.
+</I>
+I guess there is not much difference, but I thought I would mention it
+just in case.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000015.html">[X2go-user] Starting multiple sessions
+</A></li>
+	<LI>Next message: <A HREF="000017.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#16">[ date ]</a>
+              <a href="thread.html#16">[ thread ]</a>
+              <a href="subject.html#16">[ subject ]</a>
+              <a href="author.html#16">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

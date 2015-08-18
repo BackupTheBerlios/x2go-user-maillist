@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Progress,	Re: Building x2goclient on windows from source?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Progress%2C%0A%09Re%3A%20Building%20x2goclient%20on%20windows%20from%20source%3F&In-Reply-To=%3Cjordns%24ln4%241%40dough.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000838.html">
+   <LINK REL="Next"  HREF="000842.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Progress,	Re: Building x2goclient on windows from source?</H1>
+    <B>Maarten Boekhold</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Progress%2C%0A%09Re%3A%20Building%20x2goclient%20on%20windows%20from%20source%3F&In-Reply-To=%3Cjordns%24ln4%241%40dough.gmane.org%3E"
+       TITLE="[X2Go-User] Progress,	Re: Building x2goclient on windows from source?">boekhold at gmail.com
+       </A><BR>
+    <I>Mon May 14 19:00:40 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000838.html">[X2Go-User] Building x2goclient on windows from source?
+</A></li>
+        <LI>Next message: <A HREF="000842.html">[X2Go-User] Progress,	Re: Building x2goclient on windows from source?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 05/13/2012 07:06 PM, Maarten Boekhold wrote:
+&gt;<i> I'm trying to figure out how to build the x2goclient from source on
+</I>&gt;<i> Windows from source.
+</I>
+Hi all,
+
+I've made some progress on my own. I can compile the x2goclient, and it 
+runs from *inside* the msys-bash shell. With a little bit of trickery 
+(symlink to the X-Server directory inside the release dir) I can now run 
+my resulting x2goclient.exe binary.
+
+However, I can't get it to link statically to all libraries, the way 
+that the official binary distribution seems to do.
+
+See below for the steps I used to get this far. Anybody would could 
+provide the final step of getting the linking right?
+
+Maarten
+
+Download MingW installer from:
+<A HREF="https://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/">https://sourceforge.net/projects/mingw/files/Installer/mingw-get-inst/</A>
+get the latest mingw-get-inst-*.exe file
+Run the installer, install in C:\sw\MinGW
+after installation, run C:\sw\MinGW\msys\1.0\msys.bat (or open the shortcuts
+in your start menu/desktop if you installed any)
+
+     cd /c/sw/MinGW/msys/1.0/postinstall
+     sh ./pi.sh
+
+Create c:\home
+On My Computer-&gt;Properties-&gt;Advanced-&gt;Environment Variables, set
+     HOME=c:\home
+
+Create C:\home\.profile
+
+     PATH=$PATH:/c/sw/Qt/4.8.1/bin
+     export PATH
+
+Download QT from:
+<A HREF="http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.1-mingw.exe">http://releases.qt-project.org/qt4/source/qt-win-opensource-4.8.1-mingw.exe</A>
+install in c:\sw\Qt
+Make sure to point to the MinGW installation used above.
+
+Download libssh from:
+<A HREF="http://winkde.org/pub/kde/ports/win32/repository-4.8/win32libs/libssh-x86-mingw4-0.5.2-1-bin.tar.bz2">http://winkde.org/pub/kde/ports/win32/repository-4.8/win32libs/libssh-x86-mingw4-0.5.2-1-bin.tar.bz2</A>
+<A HREF="http://winkde.org/pub/kde/ports/win32/repository-4.8/win32libs/libssh-x86-mingw4-0.5.2-1-lib.tar.bz2">http://winkde.org/pub/kde/ports/win32/repository-4.8/win32libs/libssh-x86-mingw4-0.5.2-1-lib.tar.bz2</A>
+
+(libssh seems to be very hard to compile on mingw. Its build-system is based
+on CMake, which I don't think is available on mingw. The KDE people have 
+done
+the hard work however, so we use their results)
+
+cd /usr/local
+tar zxf .../path/to/libssh-x86-mingw4-0.5.2-1-bin.tar.bz2
+tar zxf .../path/to/libssh-x86-mingw4-0.5.2-1-lib.tar.bz2
+
+Build a custom version of openssl (&quot;mingw-get install msys-openssl&quot; doesn't
+seem to install a compatible version, as static linking doesn't work 
+with that
+one).
+
+Download OpenSSL from:
+<A HREF="http://www.openssl.org/source/openssl-1.0.1c.tar.gz">http://www.openssl.org/source/openssl-1.0.1c.tar.gz</A>
+
+cd ~
+tar zxf /path/to/openssl-1.0.1c.tar.gz
+cd openssl-1.0.1c
+./configure mingw --prefix=/usr/local
+make
+make install
+(make install takes a long time, it installs like 10K man pages, 
+somebody could
+probably find out how to install this without man pages in order to 
+speed this
+up)
+
+Download x2goclient source code from:
+<A HREF="http://code.x2go.org/releases/source/x2goclient/x2goclient_3.99.2.0.tar.gz">http://code.x2go.org/releases/source/x2goclient/x2goclient_3.99.2.0.tar.gz</A>
+
+cd ~
+tar zxf /path/to/x2goclient_3.99.2.0.tar.gz
+cd x2goclient_3.99.2.0
+Edit x2goclient.pro file
+Replace the part that says:
+
+     win32-* {
+        message(building $$TARGET for windows without ldap and cups)
+        LIBS += -lwinspool -lws2_32
+        CONFIG += static release
+     }
+
+with:
+
+     win32-* {
+         message(building $$TARGET for windows without ldap and cups)
+         INCLUDEPATH += /usr/local/include
+         LIBPATH += /usr/local/lib
+         LIBS += -lssl -lcrypto -lwinspool -lws2_32
+         CONFIG += static release
+     }
+
+make build_client
+
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000838.html">[X2Go-User] Building x2goclient on windows from source?
+</A></li>
+	<LI>Next message: <A HREF="000842.html">[X2Go-User] Progress,	Re: Building x2goclient on windows from source?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#840">[ date ]</a>
+              <a href="thread.html#840">[ thread ]</a>
+              <a href="subject.html#840">[ subject ]</a>
+              <a href="author.html#840">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

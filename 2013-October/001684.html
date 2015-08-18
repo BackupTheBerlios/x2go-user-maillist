@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%204.0.0%20can%27t%20resume%20certain%20sessions&In-Reply-To=%3C52614339.50207%40gip.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001694.html">
+   <LINK REL="Next"  HREF="001688.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go client 4.0.0 can't resume certain sessions</H1>
+    <B>Sebastian Flothow</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%204.0.0%20can%27t%20resume%20certain%20sessions&In-Reply-To=%3C52614339.50207%40gip.com%3E"
+       TITLE="[X2Go-User] X2Go client 4.0.0 can't resume certain sessions">sebastian.flothow at gip.com
+       </A><BR>
+    <I>Fri Oct 18 16:18:33 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001694.html">[X2Go-User] x2goclient SSL
+</A></li>
+        <LI>Next message: <A HREF="001688.html">[X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1684">[ date ]</a>
+              <a href="thread.html#1684">[ thread ]</a>
+              <a href="subject.html#1684">[ subject ]</a>
+              <a href="author.html#1684">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+we've encountered an issue where (at least) X2Go client 4.0.0.3 on 
+Windows can't resume certain sessions. If this has been discussed before 
+please point me to the relevant threads/bugs; I didn't find anything.
+
+The behavior is as follows: The affected version of the client is able 
+to start new sessions, and also resume suspended sessions; however, 
+resuming sessions after some delay (a few hours) causes the client to 
+hang. Other versions of the client are then still able to resume this 
+session, but even when resuming and suspending the session with a 
+working client version, attempting to resume the session immediately 
+afterwards in an affected client causes it to freeze.
+
+I've tried the following versions so far:
+
+3.99.2.1 on Linux: works
+3.99.2.2 on Windows: works (n.b. filename is x2goclient-3.99.2.1-setup.exe)
+4.0.0.3 on Windows: affected
+4.0.1.1 on Linux: works
+
+Server side versions are:
+x2goagent: 3.5.0.21
+x2goserver: 4.0.1.6
+x2goserver-xsession: 4.0.1.6
+
+
+Can anybody confirm that this is something which has been fixed in 
+client 4.0.1? If so, when is there going to be a 4.0.1 client for 
+Windows? (In the meantime, we're downgrading our Windows users to 3.99.)
+
+
+- Sebastian
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001694.html">[X2Go-User] x2goclient SSL
+</A></li>
+	<LI>Next message: <A HREF="001688.html">[X2Go-User] X2Go client 4.0.0 can't resume certain sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1684">[ date ]</a>
+              <a href="thread.html#1684">[ thread ]</a>
+              <a href="subject.html#1684">[ subject ]</a>
+              <a href="author.html#1684">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,736 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli,	python-x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20releases%3A%20x2goclient%2C%20pyhoca-gui%2C%20pyhoca-cli%2C%0A%09python-x2go&In-Reply-To=%3C20120611011606.18585wdsrbt0t9rq%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000866.html">
+   <LINK REL="Next"  HREF="000868.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli,	python-x2go</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20releases%3A%20x2goclient%2C%20pyhoca-gui%2C%20pyhoca-cli%2C%0A%09python-x2go&In-Reply-To=%3C20120611011606.18585wdsrbt0t9rq%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli,	python-x2go">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Jun 11 01:16:06 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000866.html">[X2Go-User] MacOS X 10.6.8 client, Ubuntu 12.04 server,	scrambled keyboard
+</A></li>
+        <LI>Next message: <A HREF="000868.html">[X2Go-User] sshd not running error on Mac client although ssh	enabled
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#867">[ date ]</a>
+              <a href="thread.html#867">[ thread ]</a>
+              <a href="subject.html#867">[ subject ]</a>
+              <a href="author.html#867">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go component releases:
+
+   - x2goclient (3.99.2.1)
+   - pyhoca-gui (0.2.0.0)
+   - pyhoca-cli (0.2.0.1)
+   - python-x2go (0.2.0.3)
+
+All new packages will be available in our stable repositories (Debian,  
+   Ubuntu) within the next 24h.
+
+The Mac OS version of x2goclient will be available within the next  
+couple of days, the Windows client takes a little more time due to  
+heavy workload on the developers' side.
+
+Sources and binary releases will be downloadable under this URL as   
+soon as they are provided by the packagers.
+<A HREF="http://code.x2go.org/releases/">http://code.x2go.org/releases/</A>
+
+I personally am very proud to be able to present a long-waited-for  
+major release of Python X2Go and PyHoca-GUI. Thanks to Dick Kniep  
+(<A HREF="http://www.lindix.nl">http://www.lindix.nl</A>) for sponsoring this piece of software.
+
+The latest API documentation of Python X2Go can be read here:
+<A HREF="http://code.x2go.org/doc/python-x2go">http://code.x2go.org/doc/python-x2go</A>
+
+Note: for Python X2Go, PyHoca-GUI and PyHoca-CLI, there has been a  
+license change with this release. The three projects since 0.2.0.0 are  
+versioned under the GNU Affero General Public License 3 (or higher) /  
+AGPL-3+.
+
+
+light+love,
+Mike
+
+
+X2Go Client changes
+===================
+
+x2goclient (3.99.2.1-0~x2go1) RELEASE; urgency=low
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.2.1):
+     - Not starting smart card daemon before users are loaded in LDAP mode.
+     - Merging onmainwindow_part*.cpp into onmainwindow.cpp
+     - Support recent pulseuadio on windows
+     - removing %USERPROFILE%\.x2go\pulse\.pulse\%COMPUTERNAME%-runtime\pid
+       if exists under windows
+     - --user=&lt;username&gt; set username in session mode if this field is blank
+       in session settings.
+     - --autostart=&lt;app&gt; launch &quot;app&quot; by session start in &quot;published
+       applications&quot; mode
+
+   [ Daniel Lindgren ]
+   * New upstream version (3.99.2.1):
+     - Swedish i18n update for published applications.
+
+   [ Terje Andersen ]
+   * New upstream version (3.99.2.1):
+     - Norwegian (Bokmal) i18n update for published applications.
+
+   [ Stefan Baur ]
+   * New upstream version (3.99.2.1):
+     - German i18n update for published applications.
+
+   [ Mike Gabriel ]
+   * New upstream version (3.99.2.1):
+     - Add Ubuntu-2d (Unity) support to X2Go Client.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 08 Jun 2012 12:52:07 +0200
+
+Python X2Go changes
+===================
+
+python-x2go (0.2.0.3-0~x2go1) BUGFIX-RELEASE; urgency=low
+
+   * Bugfix release (0.2.0.3):
+     - Only notify HOOK_auto_connect, if the session really is configured
+       to auto-connect (while at the same time no SSH key is present).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Sun, 10 Jun 2012 21:22:47 +0200
+
+python-x2go (0.2.0.2-0~x2go1) BUGFIX-RELEASE; urgency=low
+
+   * Bugfix release (0.2.0.2):
+     - Be tolerant if we can not terminate a session after failure of the
+       forwarding tunnel.
+     - Improve session management, handle exceptions more gracefully.
+     - Ignoring timeouts for x2golistmounts and x2golistdesktops.
+     - Add support to X2goSession class to launch sessions from the Python
+       interactive shell in five steps.
+     - Mark sessions as dead whenever an X2goControlSessionException occurs.
+     - Catch control session deaths when querying X2goSession.is_alive().
+     - Do not create a high CPU load after a network failure, do not try to
+       execute a remote command if the session has already died away.
+     - The master_sessions dict may never have None values.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 08 Jun 2012 09:19:49 +0200
+
+python-x2go (0.2.0.1-0~x2go1) BUGFIX-RELEASE; urgency=low
+
+   * Bugfix release (0.2.0.1)
+     - Re-add lost line in control session's connect method that let
+       SSH host key checks fail.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 30 May 2012 00:25:59 +0200
+
+python-x2go (0.2.0.0-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.2.0.0)
+     - License change upstream: GPLv3+ -&gt; AGPLv3+
+     - Add support for session window title renaming.
+     - Add support for bringing session windows on top (MS Windows only,
+       for now)
+     - Terminal sessions now remember the X window of a terminal session as
+       an internal property.
+     - Fix many undefined symbols reported by Debian developer
+       Jakub Wilk. (THANKS!)
+     - Add default value for new session profile parameter xinerama (ignored by
+       Python X2Go for now).
+     - Replace any non-code string ,,X2go'' by ,,X2Go''.
+     - Add support for session port re-allocation on session resume (feature of
+       x2goserver &gt;= 3.1.0.0).
+     - Provide client-side cache of shared local folders, detect server-side
+       unsharing of client-side folders.
+     - Introduce concept of master sessions per profile to X2goClient  
+class. Only
+       the master session can mount/unmount client-side shared folders.
+     - Fix IndexError if x2gomountdirs did not deliver any of the expected
+       results to stdout.
+     - Handle session titles that just contain blanks (e.g. &quot; &quot;) gracefully.
+     - Fix X2Go desktop sharing support.
+     - New feature: allow sessions on localhost system.
+     - Tolerate user names containing &quot;-&quot; characters.
+     - Provide hook methods for SSHFS failures (local folder sharing, printing,
+       MIME box).
+     - Code cleanup: remove all unnecessary imports. Stop defining  
+variables that
+       get never used.
+     - Rename control session method is_folder_sharing_available to
+       is_sshfs_available.
+     - Draw all Xlib code into utils.py
+     - Fix faking of WindowsError exception object in printactions.py and
+       mimeboxactions.py.
+     - Amend list of default session options.
+     - Update list of unsupported session options.
+     - Retrieve feature list from X2Go server per session.
+     - Add published applications support.
+     - Handle empty control session in the session list cache.
+     - Render and cache dictionary based published applications menu tree in
+       Python X2Go. Cache the tree once rendered.
+     - Fix availability check of client-side folder sharing.
+     - Add support for published applications with no category submenus. Fix
+       default language in published applications menu tree.
+     - Fix X2Go printing, do not spawn a gevent process for printing.
+     - Make published_applications_no_submenus an &lt;int&gt; session option that
+       controls how many menu items will be shown without rendering category
+       based submenus.
+     - Better support auto-resuming and auto-starting of session with Python
+       X2Go.
+     - Include development location of nxproxy in possible file locations (only
+       takes effect on Windows).
+     - Add X2goClient method is_profile_connected.
+     - Fix auto_start_or_resume method when using SSH proxy with interactive
+       authentication.
+     - Provide default value for PUBAPP_MAX_NO_SUBMENUS in
+       defaults.py.
+     - On MS Windows: make shipped VcXsrv-Server known to Python X2Go.
+       The shipped VcXsrv has to rest in $CLIENTAPPDIR/VcXsrv/vcxsrv.exe.
+     - On MS Windows: make VcXsrv-Server at the development location
+       known to Python X2Go.
+     - Normalize paths to configuration files.
+     - Make new ini config defaults available in configurations, update list
+       of known X-Servers if new ones are provided in defautlts.py.
+     - Provide function merge_ordered_lists in utils.py, merge list of
+       default known_xservers with configured known_xservers.
+     - Make sure xconfig configuration changes provided by defaults.py get
+       written to the X configuration file.
+     - Add X2goClient method is_session_profile(), return registered session
+       for a specific session name if it has already been registered instead
+       of registering a new session.
+     - Provide X2goClient method get_session_info(), do not auto start/resume
+       sessions in published applications mode, provide hook method for
+       auto-connecting interactively.
+     - Provide X2goSession method get_session_profile_option().
+     - Fix unexpected keyword error during connect() in X2goSession instance.
+     - Fix metatype detection of session profiles.
+     - Implement X2Go-Top category in .desktop files that get used in the
+       context of published applications.
+     - If the SSH proxy connection tries to bind to a used port, detect an
+       unused local port and write this port change to the session profile.
+     - Use double-quotes for pulseaudio options.
+     - Export X2GO_SESSION and PULSE_CLIENTCONFIG to published applications.
+     - When starting pulseaudio on Windows use --exit-idle-time=-1.
+     - Fix X2goSession.get_shared_folders() method on Windows.
+     - No list_sessions() calls on server when querying the status of an
+       X2goSession instance.
+     - Fix automatic mounting of Windows-stylish shared local folders.
+     - Transform blanks in mount points into underscores.
+     - Provide X2goClient.get_published_applications() method.
+     - Fill session profile configurations with missing default values and then
+       detect the profile meta type.
+     - Support published applications that have to be run in a terminal window.
+     - Make sure that pulseaudio.exe has its PID directory. Otherwise it will
+       fail to start the first time if the user is new to X2Go.
+     - Silence warnings that occur during session info queries in case  
+a session
+       startup has not yet been completed fully.
+     - On MS Windows: Use nxproxy-3.5.0.12 when testing Python X2Go  
+applications.
+     - On MS Windows: Use VcXsrv-1.12.0.1 when testing Python X2Go  
+applications.
+     - On MS Windows: If the configured X-server display port is  
+already in use,
+       try to detect the next available display number.
+     - Make transitions of master sessions more robust. Only allow local folder
+       sharing for running sessions.
+     - On MS Windows: Re-use a left behind stray X-server that might have not
+       get killed by a previous instance of Python X2Go Client. This trick is
+       nasty, but works around faulty abortion of client implementations.
+     - On MS Windows: Handle detection of free TCP/IP X display port far more
+       intelligently.
+     - On unused port detection bind to 127.0.0.1 by default.
+     - Provide X2goSession.get_session_type() method.
+     - Do not call HOOK method if self.allow_share_local_folders is False.
+     - Try to derive language information from X2goClient instance.
+     - Make timeout on command execution customizable.
+     - Make sure path names in X2goPrintActions and X2goMIMEboxActions get
+       normalized to OS-specific path names.
+     - Protect session cache from deletion while being processed.
+     - Adapt python-x2go to launching Unity-2d on Ubuntu precise.
+     - Ignore X windows with empty title while finding session window..
+     - Catch exceptions while calling SSH transport's getpeername() method.
+     - Fix control session failure notifications. Show them immediately after
+       the connection has broken.
+     - Allow custom commands to be desktop sessions.
+     - X2goSession instances cannot raise X2goClientExceptions.
+     - Be more tolerant against suspension failures while taking over  
+a session.
+     - Use Paramiko/SSH transport compression if available.
+     - Prohibit simultaneous calls to terminal_session.share_local_folders().
+     - Cache SSH transport's getpeername() and get_username().
+     - Catch session startup failures due to faulty port forwarding tunnels
+       and make them notifiable via hooks.
+     - Properly set setkbd value for x2gostartagent and x2goresume-session.
+     - Add support for re-registering sessions after session profile changes.
+     - Add new session profile parameter: ,,variant''. Add support to set the
+       keyboard layout _and_ the keyboard variant from the client-side.
+     - Give functionality to the ,,setdpi'' and the ,,dpi'' session profile
+       parameter (setting the DPI allows font scaling).
+     - Use proper locking of session actions that are critical to  
+being executed
+       in parallel.
+   * Depend on python-xlib.
+   * The Python setuptools module does not have to be installed as dependency
+     with python-x2go.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 29 May 2012 16:51:25 +0200
+
+
+PyHoca-GUI changes
+==================
+
+pyhoca-gui (0.2.0.0-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (0.2.0.0):
+     - Add XFCE4 support.
+     - Add support for renaming session window titles from the client-side.
+     - Add switch that enables/disables custom/server-side session window
+       titles.
+     - Add switch that enables/disables default/custom session window title.
+     - Fix profile manager window size (shrinking for usage on netbooks).
+     - Existing profiles can be used as templates for new session profiles.
+     - Session profile menu: allow multi-depth submenu structures, use '/'
+       as submenu separator item in session profile name.
+     - Port session profile submenus functionality to profile manager.
+     - Rename single application OFFICE from Openoffice.org to Office (more
+       generic name).
+     - Add extra menu: launch single application, once a session profile is
+       connected.
+     - Add extra session menu item: Rename Session Window.
+     - Show desktop session name in menu for ,,start session'' item.
+     - Show session window title in session menu.
+     - Add support for bringing a session window on top of all other
+       windows (i.e. to foreground). Currently only works on MS Windows.
+     - Add icons folder ,,icons_symlinked'' for people who will package
+       PyHoca-GUI on Debian or other Distros that also ship the
+       gnome-colors-common icon theme.
+     - Replace non-code string ,,X2go'' by ,,X2Go''.
+     - Rearrange profile manager. Add one more tab to the profile manager
+       window.
+     - Use x2golistmounts to detect server-side unsharing of client-side
+       folders.
+     - Remove pointed brackets from new/derived session profile names.
+     - Introduce master session concept. Only master sessions can mount
+       client-side folders into a session. Mark master sessions with a
+       marker ,,(*)''.
+     - Catch AttributeError during taskbar menu generation that occured
+       during querying the session command from a non-existent session.
+     - Enforce startup of rootless session if launching a single application.
+     - Fix profile manager GUI layout, make default keyboard layout i18n
+       capable.
+     - Handle the situation that no printer is installed with CUPS/WinSpool
+       gracefully.
+     - Hook methods that notify about non-availabilities around printing,
+       MIME box, local folder sharing.
+     - Only allow session window manipulations for sessions that are associated
+       to the running PyHoca-GUI client.
+     - Fix icon and button sizes in profile manager.
+     - Use different textfield sizes for wxMSWin and wxGTK.
+     - Beautify MIME box configuration block in profile manager.
+     - Add published applications support.
+     - Send a libnotify warning if server does not support published
+       applications.
+     - Add icon support for the published applications menu (any icon
+       type except SVGs work).
+     - On exit only suspend running sessions we are associated with.
+     - Provide icons for category submenus.
+     - Provide 'en' as default language if --lang has not been given on the
+       command line (MS Windows issue).
+     - Published Applications on MS Windows: icon size is 16x16.
+     - Catch X2GoSessionRegistryException if used session UUID is not valid
+       anymore.
+     - Implement single session profile support (--single-session-profile
+       boolean command line option).
+     - Rendering of published applications menu tree has partially been moved
+       into Python X2Go.
+     - Fix disabling of published applications tick box in profile manager.
+     - Show the detected GUI language in GUI output.
+     - Add support for published applications with no category submenus.
+       Introduce cmd line option --published-applications-no-submenus &lt;int&gt;.
+     - The maximum number of menu items in published applications mode can now
+       be specified as a session option for X2goSession instances.
+     - Fix for CUPS printer recognition if no default printer was defined.
+     - Add widget to configure autologin and autostart session profile
+       parameters.
+     - Auto-resuming and auto-starting of sessions, as well as auto-connecting
+       to session profiles has been moved into Python X2Go.
+     - Do not let wx.EndBusyCursor crash the application on Windows.
+     - Add connect and exit menu items if in single-session-profile mode.
+     - Properly catch CTRL-C and SIGTERM signals (not working on MS Windows,
+       yet).
+     - Make sure application really exits gracefully.
+     - Provide a separate SetExitHandler function to catch signals from outside
+       (currently unused, though).
+     - Windows binary: include pulseaudio 1.1 and vcxsrv 1.12.0.1.
+     - Provide code for Windows packaging (py2exe, NSIS) in PyHoca-GUI's
+       setup.py.
+     - Stdout/stderr diversion when frozen with py2exe: stdout will overwrite
+       the last log file, stderr will append to the very same file.
+     - Allow TCP ports higher than 64000 for SSH and sound server connections.
+     - Be more precise on error causes during SSH authentication.
+     - Fix cmdline option --restricted-trayicon.
+     - Add cmdline option --disable-notifications.
+     - Drop unused cmdline option --username. Introduce new cmdline option
+       --remember-username.
+     - Implement X2Go-Top category in .desktop files that get used in the
+       context of published applications.
+     - Allow one PyHoca-GUI instance per user, not per system.
+     - Fix folder path extraction from session profile config if client-side
+       folders contain a Windows drive letter.
+     - Update license information and source download location in About-Window.
+     - Add timeout as **kwarg for prepare method in the Windows notification
+       API.
+     - Add menu item ,,Refresh menu tree'' for sessions with published
+       applications mode.
+     - Fix/improve --non-interactive command line option.
+     - When packaging Windows binary with py2exe, use nxproxy-3.5.0.12.
+     - Fix missing declaration of notificationmessage_NotifierPopup.timeout.
+     - Make sure the log file on Windows does not grow limitlessly.
+     - Catch AttributeError in case a published applications session  
+has not yet
+       fully started.
+     - Catch and notify command startup failures for published applications
+       sessions.
+     - Do not suspend session if profile is disconnected.
+     - Non-interactive application runs only disconnect/exit for associated
+       sessions.
+     - Only auto-resume if session profile is not configured for published
+       applications.
+     - Windows packaging: remove dist directory before calling py2exe.
+     - For empty menu maps create a dummy menu.
+     - Python gevent will drop gevent.dns in v1.0. Not using it anymore.
+     - Add options --tray-icon and --tray-icon-connecting to customize the
+       system tray icon (e.g. for branding).
+     - Add option --splash-image that allows to name a custom splash image
+       that gets shown during application startup.
+     - Only show splash if the splash image file does exist.
+     - Fallback to default splash image if the custom splash does not exist.
+     - Do not crash if a provided system tray icon cannot be found. Use a
+       fallback icon instead.
+     - os.path.is&lt;type&gt; require string options, not Unicode.
+     - Add option --about-image. Allow changing the application's name by
+       renaming (or symlinking) the ,,pyhoca-gui'' script.
+     - Allow custom commands to be desktop sessions.
+     - Make new session option keyboard ,,variant'' configurable in profile
+       manager.
+     - Re-register available/registered sessions after session profile changes.
+     - Update man page.
+     - Let logon and session title window appear at top of screen for  
+pyhoca-gui
+       running within a Ubuntu Unity session.
+     - Provide README.Unity that explains how to re-allow the  
+PyHoca-GUI icon in
+       the systray of the panel.
+     - Make auto-detected keyboard setup (i.e. usage of x2gosetkeyboard)
+       configurable in the profile manager.
+   * Depend on Python X2Go 0.2.0.2.
+   * Install GNOME icons via dh_links.
+   * Install X2Go icons with explicit install paths.
+   * Add /debian/source/options file with entry single-debian-patch.  
+Fix control
+     file.
+   * Depend on icons in gnome-colors-common package.
+   * Include dialog-*.png icons for 64x64 pixel size as they are missing in
+     gnome-colors-common package.
+   * Install published applications icons in Debian package.
+
+   [ Terje Andersen ]
+   * New upstream version (0.2.0.0):
+     - Add Bokmal (Norway) translation file (not complete, yet).
+
+   [ Daniel Lindgren ]
+   * New upstream version (0.2.0.0):
+     - Add Swedish translation file.
+
+   [ Dick Kniep ]
+   * New upstream version (0.2.0.0):
+     - Update Dutch translation file.
+
+   [ Ricardo D&#237;az Mart&#237;n ]
+   * New upstream version (0.2.0.0):
+     - Update Spanish translation file.
+
+   -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+      Sun, 10 Jun 2012 21:19:13 +0200
+
+
+PyHoca-CLI changes
+==================
+
+pyhoca-cli (0.2.0.1-0~x2go1) unstable; urgency=low
+
+   * New upstream version (0.2.0.1):
+     - Fix minus sign / hyphen mismatch in man page.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 08 Jun 2012 23:44:39 +0200
+
+pyhoca-cli (0.2.0.0-0~x2go1) unstable; urgency=low
+
+   * New upstream version (0.2.0.0):
+     - Replace non-code strings ,,X2go'' by ,,X2Go''.
+     - Add code to redirect stdout and stderr when frozen with py2exe.
+   * Add python-suport (&gt;= 0.90) as dependency. Fix project name in control
+     file.
+   * Add proper license to copyright file.
+   * Add __doc__ strings to __init__.py and frontend.py.
+   * Depend on Python X2Go (&gt;= 0.2.0.2).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 08 Jun 2012 23:14:20 +0200
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go component releases:
+
+   - x2goserver (3.1.0.1)
+   - nx-libs incl. x2goagent (3.5.0.12)
+   - x2goclient (3.99.1.1)
+   - x2gothinclient (1.0.1.6)
+
+All new packages will be available in our stable repositories (Debian,  
+  Ubuntu) within the next 24h.
+
+The windows and Mac OS versions of x2goclient will probably be  
+available tomorrow, as well. (PING: @Mihai, @Oleksandr).
+
+Sources and binary releases will be downloadable under this URL as  
+soon as they are provided by the packagers.
+<A HREF="http://code.x2go.org/releases/">http://code.x2go.org/releases/</A>
+
+The new X2Go Server version adds ~/.x2go_logout script support to the  
+server-side of X2Go and fixes the x2goserver-fmbindings Makefile.
+
+The NX (redistributed) code tree has received a fix for the main  
+Makefile. Also a patch for building on Mac OS X 10.5 has been  
+included, plus an X2Go related patch by Oleksandr. On top of that, we  
+have fixed installation of libnx-x11 (Debian package) on 64-bit  
+systems with multi-arch support (i.e. Debian wheezy+sid).
+
+X2GoClient and X2Go TCE have received some improvements, too. The  
+shutdown button is now fully implemented witin X2GoClient, the  
+x2gothinshutdown package has been dropped. The TCE also received a new  
+and more colourful boot splash.
+
+At this point I would like to explicitly thank Mihai Moldovan for  
+investing his time into X2Go Client development on Mac OS X. Mihai has  
+contributed some great patches to the X2Go Client code and has also  
+taken over the building of the Mac OS X binary of X2Go Client  
+(including nx-libs-lite i.e. nxproxy+libxcomp3). The X2Go  
+project--with Mihai on board--is now able to offer the X2Go Client for  
+current Mac OS X versions again. Thanks for that, Mihai!!!
+
+light+love,
+Mike
+
+
+
+x2goserver (3.1.0.1-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (3.1.0.1):
+     - Provide infrastructure for on-logout script calls.
+     - Do only run session cleanup scripts from within
+       x2goruncommand. Dropping them from x2goterminate-session.
+     - Be tolerant against x2go_logout script failures.
+     - Fix Makefile of x2goserver-fmbindings (thanks to Oliver Burger),
+       improve uninstall code in Makefiles.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Mar 2012 21:05:28 +0100
+
+
+nx-libs (2:3.5.0.12-0) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * Update patch: 001_add-main-makefile.full+lite.patch, adapt patch from
+     packaging. Test for Makefiles in subfolders before calling them.
+     Fixes build failure during ,,make distclean'' calls.
+   * Provide temporary workaround for installation on Debian 64bit with
+     multiarch support (via libnx-x11.postinst and .prerm).
+   * Re-introduce proper Xinerama support on non-multiarch systems.
+
+   [ Mihai Moldovan ]
+   * Add patch: 051_nxcomp_macos105-fdisset.full+lite.patch, work around
+     issue in Mac OS X 10.5 SDK. Pass address of fd_set structs on the stack
+     to the FD_ISSET macro/function, instead of the struct itself.
+   * Update patch: 005_nxcomp_gcc43.full+lite.patch, fix faulty path to
+     nxcomp/Split.cpp.
+
+   [ Oleksandr Shneyder ]
+   * Add patch: 203_nxagent_disable-rootless-exit.full.patch, add command line
+     argument &quot;-norootlessexit&quot;. Usually, nxagent exits after 30 seconds if
+     running in rootless mode and no X-Clients are present. Starting nxagent
+     with option &quot;-norootlessexit&quot; will change this behaviour.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Mar 2012 20:50:14 +0100
+
+
+x2goclient (3.99.1.1-0~x2go1) RELEASE; urgency=low
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.1.1):
+     - not including &lt;netinet/in.h&gt; on Q_OS_WIN platform.
+     - not updating Xinerama configuration in &quot;fullscreen&quot; mode.
+     - command line argument &quot;--xinerama&quot;: use Xinerama by default.
+     - improved support for use in TCE
+       command line argument --thinclient - running without window manager
+       command line argument --haltbt - button to shutdown the thin client
+     - Fix comments in copyright headers.
+
+   [ Mike Gabriel ]
+   * New upstream version (3.99.1.1):
+     - Update copyright year in about window. Including all translations.
+     - Power button icon: make inner part transparent. Needed for people
+       with a dark GUI theme.
+     - Prettify x2goclient.pro.
+
+   [ Mihai Moldovan ]
+   * New upstream version (3.99.1.1):
+     - Use the Mac OS X 10.5 SDK instead 10.6 to remain compatible with
+       Leopard.
+     - Add .gitignore file.
+     - The default of a 10 seconds SSH connection timeout is pretty low,
+       especially when using tcp_wrappers with the identd option turned on.
+       Wait for a 60 seconds timeout.
+     - On Mac OS X connect to Xserver via Unix file socket.
+     - Properly set DISPLAY environment variable on Mac OS X.
+
+   [ Daniel Lindgren ]
+   * New upstream version (3.99.1.1):
+     - Update/improve Swedish translation after testing x2goclient on Windows.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Mar 2012 20:42:36 +0100
+
+
+x2gothinclient (1.0.1.6-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (1.0.1.6):
+     - Add background image support.
+     - Add new boot splash background image.
+     - New look'n'feel for boot splash menu.
+   * Let x2gothinclient break and replace x2gothinshutdown.
+   * Depend on x2goclient (&gt;= 3.99.1.1).
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (1.0.1.6):
+    - x2gothinshutdown is removed.
+    - Options --thinclient and --haltbt added to x2gothinclient_sessions.
+    - x2gothinclientd is modified to use x2goclient shutdown button
+      instead of x2gothinshutdown.
+    - gnupg-agent, pinentry-x2go and gpgsm added to &quot;Recommends&quot; section
+      for package x2gothinclient.
+    - Changes in x2gothinclientd, pulseaudio parameter  
+&quot;--exit-idle-time=65535&quot;,
+      breaking pulseaudio start command into in to several lines.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Mar 2012 20:47:20 +0100
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment-0001.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment-0001.pgp</A>&gt;
+-------------- next part --------------
+_______________________________________________
+X2Go-Announcement mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-Announcement at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">https://lists.berlios.de/mailman/listinfo/x2go-announcement</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment-0002.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120611/f159c993/attachment-0002.pgp</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000866.html">[X2Go-User] MacOS X 10.6.8 client, Ubuntu 12.04 server,	scrambled keyboard
+</A></li>
+	<LI>Next message: <A HREF="000868.html">[X2Go-User] sshd not running error on Mac client although ssh	enabled
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#867">[ date ]</a>
+              <a href="thread.html#867">[ thread ]</a>
+              <a href="subject.html#867">[ subject ]</a>
+              <a href="author.html#867">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

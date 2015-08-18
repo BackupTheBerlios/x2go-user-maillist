@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go client change password on logon
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%20change%20password%20on%20logon&In-Reply-To=%3C1339124970.23971.143.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000861.html">
+   <LINK REL="Next"  HREF="000862.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go client change password on logon</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20client%20change%20password%20on%20logon&In-Reply-To=%3C1339124970.23971.143.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] X2Go client change password on logon">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Fri Jun  8 05:09:30 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000861.html">[X2Go-User] X2Go client change password on logon
+</A></li>
+        <LI>Next message: <A HREF="000862.html">[X2Go-User] x2goclient, QThread destroyed,	glibc corrupted double-linked list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#863">[ date ]</a>
+              <a href="thread.html#863">[ thread ]</a>
+              <a href="subject.html#863">[ subject ]</a>
+              <a href="author.html#863">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2012-06-07 at 12:43 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">k.whitaker at woffleys.co.uk</A> wrote:
+&gt;<i> Hi,
+</I>&gt;<i> 
+</I>&gt;<i> X2GO is working perfectly on debian squeeze, however does anyone know  
+</I>&gt;<i> how to change a user's password via the x2go client on login?  
+</I>&gt;<i> unfortunately our set-up requires passwords to be changed every 60  
+</I>&gt;<i> days and when its expired I get the message:
+</I>&gt;<i> 
+</I>&gt;<i> Connection failed WARNING: Your password has expired. Password change  
+</I>&gt;<i> required but no TTY available.
+</I>&gt;<i> 
+</I>&gt;<i> apart from using putty or plink or ssh to trigger a password change,  
+</I>&gt;<i> Im hoping there's a way to do this within the client.
+</I>&gt;<i> 
+</I>&lt;snip&gt;
+Working on this is something we've had on our company's to do list for a
+long time.  Alex and I had a discussion about this a couple of years ago
+and there are serious difficulties in handling it.  Nonetheless, we need
+to find a way.  What is worse is that the x2goclient keeps trying the
+same password for each of its connections so if you have account lockout
+enabled, one trips it very quickly as a single incorrect login using
+x2goclient multiplies to between three and four incorrect attempts -
+John
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000861.html">[X2Go-User] X2Go client change password on logon
+</A></li>
+	<LI>Next message: <A HREF="000862.html">[X2Go-User] x2goclient, QThread destroyed,	glibc corrupted double-linked list
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#863">[ date ]</a>
+              <a href="thread.html#863">[ thread ]</a>
+              <a href="subject.html#863">[ subject ]</a>
+              <a href="author.html#863">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Client for PowerPC Macs ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C32869167-50D5-4125-8905-148B5F6FD2CB%40mac.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000783.html">
+   <LINK REL="Next"  HREF="000785.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Client for PowerPC Macs ?</H1>
+    <B>Mirco Schmidt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C32869167-50D5-4125-8905-148B5F6FD2CB%40mac.com%3E"
+       TITLE="[X2Go-User] Client for PowerPC Macs ?">mirco.schmidt at mac.com
+       </A><BR>
+    <I>Mon Apr 16 12:21:40 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000783.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+        <LI>Next message: <A HREF="000785.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#784">[ date ]</a>
+              <a href="thread.html#784">[ thread ]</a>
+              <a href="subject.html#784">[ subject ]</a>
+              <a href="author.html#784">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I know you're talking about a MacOS version, but just for the record:
+
+During the weekend I build pyhoca on my Dual-G5 running Wheezy. This is what I did and got:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+1$ sudo aptitude source pyhoca-gui
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+2$ sudo aptitude install man2html-base python-setuptools python-distutils-extra python-paramiko wx-common python-wxtools python-argparse python-setproctitle python-epydoc python-gevent nxproxy
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+3$ cd pyhoca-gui-0.1.0.10/
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+4$ dpkg-buildpackage -rfakeroot -uc -b
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+5$ sudo dpkg -i python-x2go_0.1.1.9-0-x2go1+wheezy~main~629~build1_all.deb
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+6$ pyhoca-gui 
+/usr/bin/pyhoca-gui:24: UserWarning: libevent version mismatch: system version is '2.0.18-stable' but this gevent is compiled against '2.0.16-stable'
+ import gevent
+
+** (process:10391): WARNING **: Trying to register gtype 'GMountMountFlags' as flags when in fact it is of type 'GEnum'
+
+** (process:10391): WARNING **: Trying to register gtype 'GDriveStartFlags' as flags when in fact it is of type 'GEnum'
+
+** (process:10391): WARNING **: Trying to register gtype 'GSocketMsgFlags' as flags when in fact it is of type 'GEnum'
+Speicherzugriffsfehler
+
+hope one off you has an idea which make's it usable&#8230;
+
+
+Greetz
+Mirco
+
+
+Am 16.04.2012 um 09:49 schrieb Mike Gabriel:
+
+&gt;<i> Hi Mark,
+</I>&gt;<i> 
+</I>&gt;<i> On Di 10 Apr 2012 12:10:39 CEST Mark Dammer wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Is there a client that runs on PowerPC Macs with 10.4 &quot;Tiger&quot; installed ?
+</I>&gt;&gt;<i> I tried to install the latest 3.99 Mac client on an older G4 with &quot;Tiger&quot; installed, but the system complains that the software can not run on this computer (X11 is installed). Tried to download the older &quot;Pre-GIT&quot; image, but the image that was zipped seems to be corrupt: MacOS unzips the file, but fails to mount the resulting .dmg.
+</I>&gt;&gt;<i> thanks for any help, Mark
+</I>&gt;<i> 
+</I>&gt;<i> just for the record, as I am not sure, if you read the x2go-dev mailing list...
+</I>&gt;<i> 
+</I>&gt;<i> Mihai Moldovan has lately provided a new .DMG file for X2Go Client that has PowerPC binaries included:
+</I>&gt;<i> <A HREF="http://code.x2go.org/releases/binary-macosx/x2goclient/x2goclient-3.99.2.0.dmg">http://code.x2go.org/releases/binary-macosx/x2goclient/x2goclient-3.99.2.0.dmg</A>
+</I>&gt;<i> 
+</I>&gt;<i> Please try that.
+</I>&gt;<i> 
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> 
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i> 
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000783.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+	<LI>Next message: <A HREF="000785.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#784">[ date ]</a>
+              <a href="thread.html#784">[ thread ]</a>
+              <a href="subject.html#784">[ subject ]</a>
+              <a href="author.html#784">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] python/gtk issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20python/gtk%20issues&In-Reply-To=%3C20121127014537.135633kxr1c72be9%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001157.html">
+   <LINK REL="Next"  HREF="001163.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] python/gtk issues</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20python/gtk%20issues&In-Reply-To=%3C20121127014537.135633kxr1c72be9%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] python/gtk issues">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Nov 27 01:45:37 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001157.html">[X2Go-User] python/gtk issues
+</A></li>
+        <LI>Next message: <A HREF="001163.html">[X2Go-User] Connection failed xhost: unable to open display &quot;&quot; on	Windows 7 with x2goclient-3.99.3.0-pre3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1160">[ date ]</a>
+              <a href="thread.html#1160">[ thread ]</a>
+              <a href="subject.html#1160">[ subject ]</a>
+              <a href="author.html#1160">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Tim,
+
+On Mo 26 Nov 2012 18:29:56 CET Tim Kruse wrote:
+
+&gt;<i> So, it's me again :)
+</I>&gt;<i>
+</I>&gt;<i> I experienced something really strange for me.
+</I>&gt;<i>
+</I>&gt;<i> x2goclient:~% ssh -X x2goserver
+</I>&gt;<i> x2goserver:~% python
+</I>&gt;<i> Python 2.7.3rc2 (default, Apr 22 2012, 22:30:17)
+</I>&gt;<i> [GCC 4.6.3] on linux2
+</I>&gt;<i> Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</I>&gt;&gt;&gt;&gt;<i> import gtk
+</I>&gt;&gt;&gt;&gt;<i> import gnome.ui
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Everything's fine. Now let's do the same within an open x2go session
+</I>&gt;<i> with the same server
+</I>&gt;<i>
+</I>&gt;<i> x2goserver:~% python
+</I>&gt;<i> Python 2.7.3rc2 (default, Apr 22 2012, 22:30:17)
+</I>&gt;<i> [GCC 4.6.3] on linux2
+</I>&gt;<i> Type &quot;help&quot;, &quot;copyright&quot;, &quot;credits&quot; or &quot;license&quot; for more information.
+</I>&gt;&gt;&gt;&gt;<i> import gtk
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+</I>&gt;<i>   File &quot;/usr/lib/python2.7/dist-packages/gtk-2.0/gtk/__init__.py&quot;,  
+</I>&gt;<i> line 40, in &lt;module&gt;
+</I>&gt;<i>     from gtk import _gtk
+</I>&gt;<i> ImportError: /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0:  
+</I>&gt;<i> undefined symbol: XRRFreeScreenResources
+</I>&gt;&gt;&gt;&gt;<i> import gnome.ui
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+</I>&gt;<i> ImportError: /usr/lib/x86_64-linux-gnu/libgdk-x11-2.0.so.0:  
+</I>&gt;<i> undefined symbol: XRRFreeScreenResources
+</I>&gt;&gt;&gt;&gt;<i>
+</I>
+The difference between the two tests is:
+
+   Test 1: display is provided by local X-Server
+   Test 2: display is provided by x2goagent
+
+The XRRFreeScreenResources symbol pops up again and again in bugs I  
+have with latest desktop shells (KDE 4.9 in Ubuntu for example).
+
+XRR... is part of libxrandr1.2 and it seems we are facing a problem here...
+
+x2goagent has two parts of code: the X-Server and a set of (old) X  
+libraries that applications could be linked again (libnx-x11). The  
+NoMachine people have quite recently updated the xrandr extension in  
+nxagent/x2goagent to version 1.2, but they have not updated the client  
+libxrandr library. This should not be necessary, normally...
+
+Normally, the X applications should use the distro's libx11 &amp; co.  
+libraries. However, there seems to be a problem with libxrandr as  
+shipped with latest distros when talking to an nxagent/x2goagent.
+
+To allow KDE on Ubuntu run in fullscreen mode without kwin crashes I  
+have patched x2goserver/x2goagent, so that KDE applications (also  
+kwin) use the libxrandr shipped in libnx-x11.
+
+There is one bug on launchpad that documents most of the issues I have seen:
+<A HREF="https://bugs.launchpad.net/ubuntu/+source/libx11/+bug/985202">https://bugs.launchpad.net/ubuntu/+source/libx11/+bug/985202</A>
+
+It probably needs some man power to dive into the xrandr extension of  
+nxagent/x2goagent, so that this issue could be addressed.
+
+If the reported issue is a serious problem for your business and there  
+is financial power, I recommend contacting Alex (Oleksandr Shneyder),  
+he surely is able to narrow that issue down and come up with a fix for  
+x2goagent/nxagent (nx-libs.git).
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121127/68e0b86d/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121127/68e0b86d/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001157.html">[X2Go-User] python/gtk issues
+</A></li>
+	<LI>Next message: <A HREF="001163.html">[X2Go-User] Connection failed xhost: unable to open display &quot;&quot; on	Windows 7 with x2goclient-3.99.3.0-pre3
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1160">[ date ]</a>
+              <a href="thread.html#1160">[ thread ]</a>
+              <a href="subject.html#1160">[ subject ]</a>
+              <a href="author.html#1160">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

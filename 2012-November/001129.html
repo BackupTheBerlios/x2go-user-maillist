@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Mac OSX and keyboard
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Mac%20OSX%20and%20keyboard&In-Reply-To=%3C50A4EBD4.1020107%40nailor.devzero.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001123.html">
+   <LINK REL="Next"  HREF="001109.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Mac OSX and keyboard</H1>
+    <B>Michael Nagel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Mac%20OSX%20and%20keyboard&In-Reply-To=%3C50A4EBD4.1020107%40nailor.devzero.de%3E"
+       TITLE="[X2Go-User] Mac OSX and keyboard">ubuntu at nailor.devzero.de
+       </A><BR>
+    <I>Thu Nov 15 14:19:16 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001123.html">[X2Go-User] Mac OSX and keyboard
+</A></li>
+        <LI>Next message: <A HREF="001109.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1129">[ date ]</a>
+              <a href="thread.html#1129">[ thread ]</a>
+              <a href="subject.html#1129">[ subject ]</a>
+              <a href="author.html#1129">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everyone,
+
+I debugged this some further:
+
+In xev on the Mac running x2goclient when pressing &quot;1&quot;, &quot;2&quot;, &quot;3&quot; I get (see below).
+In Linux via x2go I get (see even further down).
+
+MAC:   state 0x0, keycode 26 (keysym 0x31, 1), same_screen YES,
+LINUX: state 0x10, keycode 26 (keysym 0x65, e), same_screen YES,
+
+So the keycode is the same (I think this is good),
+but state is different (I don't know what this tells)
+and keysym is different/incorrect (I think this is bad and near the root of the problem).
+
+Hopefully someone with more knowledge about X input internals can make something with this information.
+I am glad to help with further tests/information.
+
+Best Regards
+Michael
+
+MAC:
+**************************
+KeyPress event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288816511, (97,-12), root:(97,10),
+    state 0x0, keycode 26 (keysym 0x31, 1), same_screen YES,
+    XLookupString gives 1 bytes: (31) &quot;1&quot;
+    XmbLookupString gives 1 bytes: (31) &quot;1&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288816599, (97,-12), root:(97,10),
+    state 0x0, keycode 26 (keysym 0x31, 1), same_screen YES,
+    XLookupString gives 1 bytes: (31) &quot;1&quot;
+    XFilterEvent returns: False
+
+KeyPress event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288816975, (97,-12), root:(97,10),
+    state 0x0, keycode 27 (keysym 0x32, 2), same_screen YES,
+    XLookupString gives 1 bytes: (32) &quot;2&quot;
+    XmbLookupString gives 1 bytes: (32) &quot;2&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288817087, (97,-12), root:(97,10),
+    state 0x0, keycode 27 (keysym 0x32, 2), same_screen YES,
+    XLookupString gives 1 bytes: (32) &quot;2&quot;
+    XFilterEvent returns: False
+
+KeyPress event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288817447, (97,-12), root:(97,10),
+    state 0x0, keycode 28 (keysym 0x33, 3), same_screen YES,
+    XLookupString gives 1 bytes: (33) &quot;3&quot;
+    XmbLookupString gives 1 bytes: (33) &quot;3&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 29, synthetic NO, window 0xa00001,
+    root 0x37d, subw 0x0, time 4288817551, (97,-12), root:(97,10),
+    state 0x0, keycode 28 (keysym 0x33, 3), same_screen YES,
+    XLookupString gives 1 bytes: (33) &quot;3&quot;
+    XFilterEvent returns: False
+**************************
+
+LINUX:
+**************************
+KeyPress event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288865563, (93,-19), root:(1146,43),
+    state 0x10, keycode 26 (keysym 0x65, e), same_screen YES,
+    XLookupString gives 1 bytes: (65) &quot;e&quot;
+    XmbLookupString gives 1 bytes: (65) &quot;e&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288865691, (93,-19), root:(1146,43),
+    state 0x10, keycode 26 (keysym 0x65, e), same_screen YES,
+    XLookupString gives 1 bytes: (65) &quot;e&quot;
+    XFilterEvent returns: False
+
+KeyPress event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288866467, (93,-19), root:(1146,43),
+    state 0x10, keycode 27 (keysym 0x72, r), same_screen YES,
+    XLookupString gives 1 bytes: (72) &quot;r&quot;
+    XmbLookupString gives 1 bytes: (72) &quot;r&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288866619, (93,-19), root:(1146,43),
+    state 0x10, keycode 27 (keysym 0x72, r), same_screen YES,
+    XLookupString gives 1 bytes: (72) &quot;r&quot;
+    XFilterEvent returns: False
+
+KeyPress event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288867212, (93,-19), root:(1146,43),
+    state 0x10, keycode 28 (keysym 0x74, t), same_screen YES,
+    XLookupString gives 1 bytes: (74) &quot;t&quot;
+    XmbLookupString gives 1 bytes: (74) &quot;t&quot;
+    XFilterEvent returns: False
+
+KeyRelease event, serial 33, synthetic NO, window 0x3c00001,
+    root 0x1f3, subw 0x0, time 4288867330, (93,-19), root:(1146,43),
+    state 0x10, keycode 28 (keysym 0x74, t), same_screen YES,
+    XLookupString gives 1 bytes: (74) &quot;t&quot;
+    XFilterEvent returns: False
+**************************
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001123.html">[X2Go-User] Mac OSX and keyboard
+</A></li>
+	<LI>Next message: <A HREF="001109.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1129">[ date ]</a>
+              <a href="thread.html#1129">[ thread ]</a>
+              <a href="subject.html#1129">[ subject ]</a>
+              <a href="author.html#1129">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

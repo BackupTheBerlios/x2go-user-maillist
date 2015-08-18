@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Custom login script user/pass variables and pyhoca-cli
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Custom%20login%20script%20user/pass%20variables%20and%20pyhoca-cli&In-Reply-To=%3CCAJxwJyhO8GO%3DcHP-zhbYuWg6ZKpVP3yzY6NTVAUcdqpNgHr9sw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001391.html">
+   <LINK REL="Next"  HREF="001392.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Custom login script user/pass variables and pyhoca-cli</H1>
+    <B>Jonathan Brown</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Custom%20login%20script%20user/pass%20variables%20and%20pyhoca-cli&In-Reply-To=%3CCAJxwJyhO8GO%3DcHP-zhbYuWg6ZKpVP3yzY6NTVAUcdqpNgHr9sw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Custom login script user/pass variables and pyhoca-cli">jbssfl at gmail.com
+       </A><BR>
+    <I>Sat Apr 13 00:18:30 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001391.html">[X2Go-User] Debugging tips?
+</A></li>
+        <LI>Next message: <A HREF="001392.html">[X2Go-User] Anyone installed/used the new x2goplugin on Windows yet?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1390">[ date ]</a>
+              <a href="thread.html#1390">[ thread ]</a>
+              <a href="subject.html#1390">[ subject ]</a>
+              <a href="author.html#1390">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello I have two versions of a script that log a thin client into an x2go
+server using a YAD graphical prompt which passes variables to pyhoca-cli.
+
+The following works fine and logs you right in after entering AD username
+and pass:
+
+-----------------------------
+#!/bin/bash
+while true; do
+frmdata=$(yad --center --undecorated
+--image=/usr/share/wallpaper/sago-header-mod.jpg --image-on-top
+--button=&quot;gtk-ok:0&quot; --title &quot;Login to Sago Linux Terminal Server&quot; --form
+--field=&quot;AD username&quot; --field=&quot;Password:H&quot;)
+frmusername=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $1 }')
+frmpassword=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $2 }')
+pyhoca-cli --server 10.0.201.242 -u $frmusername --password $frmpassword -c
+startkde --sound none --kbd-layout us --kbd-type pc105/us -g fullscreen
+--add-to-known-hosts
+done
+----------------------------------
+
+However, this one, which adds a dropdown to choose a session, does not just
+log in, it asked for interactive login at the console.. I don't understand
+why this would be happening.  Any ideas?
+
+-----------------------------------
+#!/bin/bash
+
+while true; do
+
+data=$(yad --center --undecorated
+--image=/usr/share/wallpaper/sago-header-mod.jpg --image-on-top
+--button=&quot;gtk-ok:0&quot; --title &quot;Login to Sago Linux Terminal Server&quot; --form
+--field=&quot;AD username&quot; --field=&quot;Password:H&quot; --field=&quot;Session:CB&quot; &quot;&quot; &quot;&quot;
+&quot;kde!gnome!cinnamon!xfce!lxde!fluxbox&quot;)
+
+eval $(echo $data | awk 'BEGIN {FS=&quot;|&quot; } { printf
+&quot;user=%s\npass=%s\nsession=%s&quot;, $1, $2, $3 }')
+
+case $session in
+  kde) cmd=&quot;startkde&quot; ;;
+  gnome) cmd=&quot;gnome-session&quot; ;;
+  cinnamon) cmd=&quot;gnome-session-cinnamon2d&quot; ;;
+  xfce) cmd=&quot;startxfce4&quot; ;;
+  lxde) cmd=&quot;startlxde&quot; ;;
+  fluxbox) cmd=&quot;startfluxbox&quot; ;;
+esac
+
+pyhoca-cli --server 10.0.201.242 -u $user --password $pass -c $cmd --sound
+none --kbd-layout us --kbd-type pc105/us -g fullscreen --add-to-known-hosts
+
+done
+-----------------------------------
+
+The following shows the messages on the 2nd script when testing:
+
+Xlib.protocol.request.QueryExtension
+pyhoca-cli[2083] NOTICE: preparing requested X2Go session
+pyhoca-cli[2083] (PyHocaCLI) NOTICE: preparing requested X2Go session
+pyhoca-cli[2083] (x2gosessregistry-pylib) NOTICE: registering X2Go session
+Pyhoca-Client_Session...
+pyhoca-cli[2083] (x2goclient-pylib) NOTICE: initializing X2Go session...
+pyhoca-cli[2083] (x2gocontrolsession-pylib) NOTICE: connecting to
+[10.0.201.242]:22
+pyhoca-cli[2083] (x2gosession-pylib) NOTICE: SSH host key verification for
+host [10.0.201.242]:22 with SSH-RSA fingerprint
+,,7a:91:b6:50:99:3b:f3:61:86:7a:84:24:89:e1:6e:a6'' initiated. We are
+seeing this X2Go server for the first time.
+pyhoca-cli[2083] (x2goclient-pylib) WARN: HOOK_check_host_dialog: host
+check requested for session profile Pyhoca-Client_Session: Automatically
+adding host [10.0.201.242]:22 with fingerprint:
+,,7a:91:b6:50:99:3b:f3:61:86:7a:84:24:89:e1:6e:a6'' as a known host.
+pyhoca-cli[2083] (x2gosession-pylib) NOTICE: SSH host key verification for
+host [10.0.201.242]:22 with SSH-RSA fingerprint
+,,7a:91:b6:50:99:3b:f3:61:86:7a:84:24:89:e1:6e:a6'' initiated. We are
+seeing this X2Go server for the first time.
+pyhoca-cli[2083] (x2goclient-pylib) WARN: HOOK_check_host_dialog: host
+check requested for session profile Pyhoca-Client_Session: Automatically
+adding host [10.0.201.242]:22 with fingerprint:
+,,7a:91:b6:50:99:3b:f3:61:86:7a:84:24:89:e1:6e:a6'' as a known host.
+pyhoca-cli[2083] (PyHocaCLI) NOTICE: interactive login for user ,,jgb3025''
+Password:
+--------------------------------------------------------
+
+Thanks for any possible help on this!
+
+-- 
+*&quot;It is only when each individual has achieved inner peace that we will see
+lasting outer peace in the world&quot;
+*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130412/f7f40aae/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130412/f7f40aae/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001391.html">[X2Go-User] Debugging tips?
+</A></li>
+	<LI>Next message: <A HREF="001392.html">[X2Go-User] Anyone installed/used the new x2goplugin on Windows yet?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1390">[ date ]</a>
+              <a href="thread.html#1390">[ thread ]</a>
+              <a href="subject.html#1390">[ subject ]</a>
+              <a href="author.html#1390">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

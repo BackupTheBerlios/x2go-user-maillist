@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Beware of new nightly builds... (was Re: [X2go-Dev] Upgrading our git branches to NX 3.5)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Beware%20of%20new%20nightly%20builds...%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20Upgrading%20our%20git%20branches%20to%20NX%203.5%29&In-Reply-To=%3C20110630172716.17254wlfq17ulqz8%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000191.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Beware of new nightly builds... (was Re: [X2go-Dev] Upgrading our git branches to NX 3.5)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Beware%20of%20new%20nightly%20builds...%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20Upgrading%20our%20git%20branches%20to%20NX%203.5%29&In-Reply-To=%3C20110630172716.17254wlfq17ulqz8%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Beware of new nightly builds... (was Re: [X2go-Dev] Upgrading our git branches to NX 3.5)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Jun 30 17:27:16 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000191.html">[X2go-User] Mac client printing
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+Cc:-ing to x2go-user for information, discussion thread takes place on  
+x2go-dev, please.
+
+On Do 30 Jun 2011 17:01:35 CEST Reinhard Tartler wrote:
+
+&gt;&gt;<i> try now... After your pushes can I revert to non-merge commits only or
+</I>&gt;&gt;<i> do we have to keep the merge option enabled?
+</I>&gt;<i>
+</I>&gt;<i> I'd say let's allow merges for these four repos only. You seen to want
+</I>&gt;<i> to get rid of them anyway.
+</I>
+Reinhard has uploaded 3.5.x version of nxproxy, nxcomp, nxcompext,  
+nxcompshad to X2go Git.
+
+To pertain the former 3.4.0.x versions on packages.x2go.org (main) and  
+on Launchpad (ppa:x2go/stable) I have moved packages appropriately.
+
+The 3.5.x versions of NX libs + proxy + x2goagent (later today or  
+tomorrow, at the latest on Saturday) will be in the nightly builds  
+only for quite a while, only. This code will be for our upcoming  
+Baikal release and it is still in heavy testing state (esp. x2goagent).
+
+If you, by some reason, install your systems from the nightly builds,  
+it is NOW time to change-over:::
+
+Debian:
+deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+
+Ubuntu:
+add-apt-repository ppa:x2go/stable
+
+Thanks and greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110630/c84b6bec/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110630/c84b6bec/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000191.html">[X2go-User] Mac client printing
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#193">[ date ]</a>
+              <a href="thread.html#193">[ thread ]</a>
+              <a href="subject.html#193">[ subject ]</a>
+              <a href="author.html#193">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Few questions with Windows client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Few%20questions%20with%20Windows%20client&In-Reply-To=%3CCAJBj3vdgXZgQ2Kaa%2BsxTp37pVDkNj0dr1JHGpD_ptyRG-BGgEA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000746.html">
+   <LINK REL="Next"  HREF="000748.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Few questions with Windows client</H1>
+    <B>John Williams</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Few%20questions%20with%20Windows%20client&In-Reply-To=%3CCAJBj3vdgXZgQ2Kaa%2BsxTp37pVDkNj0dr1JHGpD_ptyRG-BGgEA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Few questions with Windows client">jwilliams4200 at gmail.com
+       </A><BR>
+    <I>Tue Mar 27 05:44:04 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000746.html">[X2Go-User] Few questions with Windows client
+</A></li>
+        <LI>Next message: <A HREF="000748.html">[X2Go-User] Few questions with Windows client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#747">[ date ]</a>
+              <a href="thread.html#747">[ thread ]</a>
+              <a href="subject.html#747">[ subject ]</a>
+              <a href="author.html#747">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Mar 26, 2012 at 1:58 PM, Scott Balmos &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sbalmos at fastmail.fm</A>&gt; wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> I'm currently running the Windows build 3.99.1.0 client on my work laptop to
+</I>&gt;<i> access a KUbuntu 11.10 VM at home running server version 3.1.0.1. I have two
+</I>&gt;<i> questions that have me scratching my head...
+</I>&gt;<i>
+</I>&gt;<i> 1) With the Windows client, when my KDE session starts up, the default
+</I>&gt;<i> launcher at the bottom of the session's window is not displayed, as if the
+</I>&gt;<i> Windows client is reporting a taller session pixel height than it should be.
+</I>&gt;<i> As soon as I perform a session window resize (even dragging any window
+</I>&gt;<i> dimension out and back by one pixel) redraws the session into the proper
+</I>&gt;<i> window size. This behavior does not seem to happen on the Linux x2go client.
+</I>&gt;<i>
+</I>&gt;<i> 2) More interestingly, I have Pulseaudio set to SSH tunnel, for the random
+</I>&gt;<i> time where I want audio playing over from my VM. Depending on the phase of
+</I>&gt;<i> the moon, I will hear the first tenth of a second of the KDE startup music,
+</I>&gt;<i> then nothing. Same with a song played in Amarok. Looking into the audio
+</I>&gt;<i> settings, the remote Pulseaudio server seems to drop off the valid devices
+</I>&gt;<i> list. I imagine Pulseaudio has lost the connection with the remote server on
+</I>&gt;<i> the Windows client. I don't know if it's a tunneling issue or not. Obviously
+</I>&gt;<i> everything works perfectly fine if there are no firewalls involved (e.g. I
+</I>&gt;<i> have my laptop at home, accessing the home VM locally).
+</I>&gt;<i>
+</I>&gt;<i> Any ideas, or pointers on what to debug where to provide more info? Thanks!
+</I>
+Those are two long existing bugs in the Windows client. I use the
+following workarounds, but they are ugly:
+
+1) I set a custom display resolution, and I knock about 10 pixels off
+from the width of my screen (1910) and about 60 pixels from the height
+of my screen (1140). Then, once the x2go desktop window is open, I hit
+the [fullscreen] icon to resize the window to fit my screen.
+
+I think this works because x2go is not properly accounting for the
+window borders and titlebar. It is forgetting to subtract the height
+of the titlebar and bottom window border from the vertical pixel
+dimension, and the width of the window borders from the horizontal
+pixel dimension.
+
+2) I disable the &quot;Use ssh port forwarding to tunnel sound...&quot; option.
+Of course, this will not work if your connection is going through a
+firewall.
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000746.html">[X2Go-User] Few questions with Windows client
+</A></li>
+	<LI>Next message: <A HREF="000748.html">[X2Go-User] Few questions with Windows client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#747">[ date ]</a>
+              <a href="thread.html#747">[ thread ]</a>
+              <a href="subject.html#747">[ subject ]</a>
+              <a href="author.html#747">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

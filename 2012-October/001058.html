@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] PyHoca-GUI tweaks (was: (no subject))
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%20tweaks%20%28was%3A%20%28no%20subject%29%29&In-Reply-To=%3C20121011111426.54661wzr5uulq60i%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001057.html">
+   <LINK REL="Next"  HREF="001060.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] PyHoca-GUI tweaks (was: (no subject))</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%20tweaks%20%28was%3A%20%28no%20subject%29%29&In-Reply-To=%3C20121011111426.54661wzr5uulq60i%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] PyHoca-GUI tweaks (was: (no subject))">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Oct 11 11:14:26 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001057.html">[X2Go-User] (no subject)
+</A></li>
+        <LI>Next message: <A HREF="001060.html">[X2Go-User] PyHoca-GUI tweaks (was: (no subject))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1058">[ date ]</a>
+              <a href="thread.html#1058">[ thread ]</a>
+              <a href="subject.html#1058">[ subject ]</a>
+              <a href="author.html#1058">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Mi 10 Okt 2012 23:21:32 CEST  wrote:
+
+&gt;<i> Well, no. I have the session set up in PyHoca, but for some reason it's
+</I>&gt;<i> not invoking my SSH key so I have to manually log in. Maybe I have to
+</I>&gt;<i> specify the key in session settings.
+</I>
+Yes, you have to explicitly specify a private key in the session  
+settings. During the last days I have implemented ,,auto-discovery''  
+of SSH private keys and SSH agent authentication (X2GoClient already  
+has this feature and also a session switch for that).
+
+I have also added forwarding of SSH agent authentication requests  
+(same feature as provided by ,,ssh -A''.
+
+&gt;<i> But when I click on that logged-in
+</I>&gt;<i> session, and hit Start New Desktop Session.... nothing. Zip. I can do
+</I>&gt;<i> that a hundred times, and it ignores me. So I set in session settings
+</I>&gt;<i> for it to automatically launch a session on login, and it's not
+</I>&gt;<i> starting there either. PyHoca is just not working.
+</I>
+The session auto-starting (and also profile auto-conecting) has to be  
+enabled by some command line switches:
+
+pyhoca-gui --auto-connect --start-on-connect --resume-on-connect
+
+If you use those options on the cmdline, the autoconnect and autostart  
+features in the session profile will become functional.
+
+(hmmm... maybe I should enable those by default???)
+
+BTW: Simply stating that PyHoca-GUI (or some other X2Go component)  
+does not work is not really nice (as it actually works quite well  
+here)... There maybe issues in the X2Go code and we are willing to  
+solve them for everyone, but also please consider a lack of knowledge  
+on your side for being the possible reason of your experienced issues.  
+AND: You do not have to use X2Go. If you use it, and it does not work  
+as expected, please help improving it with qualified and detailed  
+issue reports rather than sending some not-quite-understandable and  
+frustrated comment to this list (like the one this thread started with  
+:<i>-( ). Such comments are not really motivating (and I tend to ignore  
+</I>them, so thanks for Terje who picked up this thread in the first place).
+
+Greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121011/3238e56a/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121011/3238e56a/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001057.html">[X2Go-User] (no subject)
+</A></li>
+	<LI>Next message: <A HREF="001060.html">[X2Go-User] PyHoca-GUI tweaks (was: (no subject))
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1058">[ date ]</a>
+              <a href="thread.html#1058">[ thread ]</a>
+              <a href="subject.html#1058">[ subject ]</a>
+              <a href="author.html#1058">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

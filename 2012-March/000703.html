@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go + chroot
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C20120315201647.16333cx4sedxxf6n%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000726.html">
+   <LINK REL="Next"  HREF="000701.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go + chroot</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C20120315201647.16333cx4sedxxf6n%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] x2go + chroot">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Mar 15 20:16:47 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000726.html">[X2Go-User] x2go + chroot
+</A></li>
+        <LI>Next message: <A HREF="000701.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#703">[ date ]</a>
+              <a href="thread.html#703">[ thread ]</a>
+              <a href="subject.html#703">[ subject ]</a>
+              <a href="author.html#703">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi BUGHUNTER,
+
+On Do 15 M&#228;r 2012 12:58:41 CET BUGHUNTER wrote:
+
+&gt;<i> I need instructions for how to setup a chroot environment on the
+</I>&gt;<i> server - I found this old discussion:
+</I>
+&gt;<i> <A HREF="http://www.x2go.org/doku.php/wiki:components:tce">http://www.x2go.org/doku.php/wiki:components:tce</A>
+</I>
+The TCE is a thin client system (lying in a chroot) that can be booted  
+via PXE/NFS. The chroot is the rootfs of the netbootet thin client.
+
+&gt;<i> but this seems to be a tool for setting up chroot on the CLIENT side?
+</I>&gt;<i> Seems to be a different use case.
+</I>
+Yes.
+
+&gt;<i> What I want:
+</I>&gt;<i>
+</I>&gt;<i> I would like to chroot users that logged into the server via x2go
+</I>&gt;<i> client to see only files in their home directory (or inside their
+</I>&gt;<i> &quot;jail&quot;) - what is the recommended + most efficient way of doing this
+</I>&gt;<i> with the least administrative overhead? - mind the updates! - so
+</I>&gt;<i> recompiling jail binaries after every update of relevant software
+</I>&gt;<i> should happen automatically, most preferable solution would be:
+</I>
+Have you taken a look at the generic schroot (package name) tool? For  
+X2Go you will have to run install one X2Go server per chroot and run  
+one SSHd per chroot, I guess. So that is: many SSH ports, one for each  
+chroot.
+
+&gt;<i> apt-get install x2go-server-chroot
+</I>&gt;<i> x2go-create-chroot /home/user
+</I>
+Nothing like this exists, yet. If you aim at working on such a thing,  
+then please contribute it to the project.
+
+I know, that John Sullivan offers a software service designed like you  
+suggest, based on VServer.
+
+&gt;<i> without any needed (or minimal) additional interaction after future
+</I>&gt;<i> updates so that your jail is always uptodate after an apt-get update.
+</I>
+Big goal...
+
+&gt;<i> does this exist?
+</I>
+No, not yet. But soon???
+
+&gt;<i> if not, how to create it?
+</I>&gt;<i>
+</I>&gt;<i> THANK you very much for your attention,
+</I>&gt;<i> Bughunter
+</I>
+Will be happy to help you with your issues. If you start working on  
+actual code, let's move the discussion to the x2go-dev ML.
+
+&gt;<i> BTW search for x2go +chroot with Google to see how small the internet
+</I>&gt;<i> can be ;)
+</I>
+Right...
+
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120315/1ec9db3d/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120315/1ec9db3d/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000726.html">[X2Go-User] x2go + chroot
+</A></li>
+	<LI>Next message: <A HREF="000701.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#703">[ date ]</a>
+              <a href="thread.html#703">[ thread ]</a>
+              <a href="subject.html#703">[ subject ]</a>
+              <a href="author.html#703">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

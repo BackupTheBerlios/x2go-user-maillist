@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20dependency%20perl-suid%20can%20not%20be%20solved%20not%20able%20to%0A%20install%20x2goserver%20in%2011.10%20%28oneiric%29&In-Reply-To=%3C20111010184325.175851ljcamc88fh%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000440.html">
+   <LINK REL="Next"  HREF="000442.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20dependency%20perl-suid%20can%20not%20be%20solved%20not%20able%20to%0A%20install%20x2goserver%20in%2011.10%20%28oneiric%29&In-Reply-To=%3C20111010184325.175851ljcamc88fh%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Oct 10 18:43:25 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000440.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+        <LI>Next message: <A HREF="000442.html">[X2go-User] New X2go releases (as of 2011-10-12)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#441">[ date ]</a>
+              <a href="thread.html#441">[ thread ]</a>
+              <a href="subject.html#441">[ subject ]</a>
+              <a href="author.html#441">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On So 09 Okt 2011 21:18:43 CEST Benjamin Shadwick wrote:
+
+&gt;<i> Not sure. Here are some related links that I was able to dig up in case it
+</I>&gt;<i> helps somehow:
+</I>&gt;<i>
+</I>&gt;<i> Looks like it was removed in this revision:
+</I>&gt;<i> <A HREF="http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/oneiric/perl/oneiric/revision/50">http://bazaar.launchpad.net/~ubuntu-branches/ubuntu/oneiric/perl/oneiric/revision/50</A>
+</I>&gt;<i> Someone has a patch for a wrapper script here:
+</I>&gt;<i> <A HREF="https://code.launchpad.net/~allison/ubuntu/oneiric/backuppc/no-perl-suid/+merge/62814">https://code.launchpad.net/~allison/ubuntu/oneiric/backuppc/no-perl-suid/+merge/62814</A>
+</I>&gt;<i>
+</I>&gt;<i> On Sun, Oct 9, 2011 at 9:26 AM, MyCloud Service &amp; Computers &lt;
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">MSC at go2mycloud.net</A>&gt; wrote:
+</I>
+&gt;&gt;<i> The following packages have unmet dependencies:
+</I>&gt;&gt;<i>  x2goserver : Depends: perl-suid but it is not installable
+</I>&gt;&gt;<i>               Recommends: sshfs but it is not going to be installed
+</I>&gt;&gt;<i>               Recommends: x2goserver-extensions (= 3.0.99.5-0~76~oneiric1)
+</I>&gt;&gt;<i> but it is not going to be installed
+</I>&gt;&gt;<i> E: Unable to correct problems, you have held broken packages.
+</I>
+The perl-suid dependency has been removed in the nightly builds. On  
+Wednesday, there will be a nano-release day, amongst others x2goserver  
+3.0.99.6, this version will use a C setuid wrapper instead of perl-suid.
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111010/75c51022/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111010/75c51022/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000440.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+	<LI>Next message: <A HREF="000442.html">[X2go-User] New X2go releases (as of 2011-10-12)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#441">[ date ]</a>
+              <a href="thread.html#441">[ thread ]</a>
+              <a href="subject.html#441">[ subject ]</a>
+              <a href="author.html#441">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

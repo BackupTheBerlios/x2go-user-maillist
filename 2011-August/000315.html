@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Indirect connection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C201108131629.48762.arnold%40arnoldarts.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000314.html">
+   <LINK REL="Next"  HREF="000327.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Indirect connection</H1>
+    <B>Arnold Krille</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C201108131629.48762.arnold%40arnoldarts.de%3E"
+       TITLE="[X2go-User] Indirect connection">arnold at arnoldarts.de
+       </A><BR>
+    <I>Sat Aug 13 16:29:44 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000314.html">[X2go-User] Indirect connection
+</A></li>
+        <LI>Next message: <A HREF="000327.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Saturday 13 August 2011 14:06:26 Paul van der Vlis wrote:
+&gt;<i> Op 13-08-11 00:46, John A. Sullivan III schreef:
+</I>&gt;<i> &gt; On Fri, 2011-08-12 at 10:08 +0200, Paul van der Vlis wrote:
+</I>&gt;<i> &gt;&gt; Hello,
+</I>&gt;<i> &gt;&gt; 
+</I>&gt;<i> &gt;&gt; I have customers with x2go installations in a local network behind NAT
+</I>&gt;<i> &gt;&gt; (fat clients), and I am looking for a way how to connect easy to them.
+</I>&gt;<i> &gt;&gt; 
+</I>&gt;<i> &gt;&gt; Of cause I can make a port forwarding, or an SSH tunnel from the fat
+</I>&gt;<i> &gt;&gt; client to my computer, but maybe you have a better and more flexible
+</I>&gt;<i> &gt;&gt; idea?
+</I>&gt;<i> &gt;&gt; 
+</I>&gt;<i> &gt;&gt; In earlyer times I used TightVNC. There was the great &quot;-via&quot; command,
+</I>&gt;<i> &gt;&gt; something like:  vncviewer -via <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">henk at server.henk.nl</A> 192.168.0.33
+</I>&gt;<i> &gt;&gt; 
+</I>&gt;<i> &gt;&gt; Any ideas how to be flexible behind NAT with X2go?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Hi, Paul.  Let me make sure I understand.  The server is on an internal
+</I>&gt;<i> &gt; network behind NAT and users on the outside need to come in to it?
+</I>&gt;<i> 
+</I>&gt;<i> No, it are very normal fat-clients behind NAT, and only I (the sysadmin)
+</I>&gt;<i> need connect to them, to help the people when there are problems. I am
+</I>&gt;<i> looking for an easy and flexible way to connect.
+</I>&gt;<i> 
+</I>&gt;<i> ( Hmmm, IPv6 is an option here. But I have many other customers where
+</I>&gt;<i> the ISP does not offer IPv6. )
+</I>
+What about an openvpn with correct routing? In this case your clients router 
+is the server, your machine the client and the server pushes the routes for 
+the connected network. Works very well here both for us employees checking 
+into our business network on weekends/evenings and also to our clients. And it 
+works with x2go, rdp, vnc, ssh, heck, we even have connected cups-printers 
+over this...
+
+Have fun,
+
+Arnold
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110813/92e8cfd9/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110813/92e8cfd9/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000314.html">[X2go-User] Indirect connection
+</A></li>
+	<LI>Next message: <A HREF="000327.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#315">[ date ]</a>
+              <a href="thread.html#315">[ thread ]</a>
+              <a href="subject.html#315">[ subject ]</a>
+              <a href="author.html#315">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Suspend%20and%20Resume%20in%201%20click%20%28was%3A%20Terminate%20and%0A%20resume%20in%201%20click%20%3F%29&In-Reply-To=%3CCAJ9yE0TbSoO%2BSt9EPZV2BKciVeVOY09RuQG4NEs-vytRC4j9GA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000530.html">
+   <LINK REL="Next"  HREF="000534.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)</H1>
+    <B>Jean Gottschalk</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Suspend%20and%20Resume%20in%201%20click%20%28was%3A%20Terminate%20and%0A%20resume%20in%201%20click%20%3F%29&In-Reply-To=%3CCAJ9yE0TbSoO%2BSt9EPZV2BKciVeVOY09RuQG4NEs-vytRC4j9GA%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)">jean at gottschalk.us
+       </A><BR>
+    <I>Thu Jan  5 01:27:59 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000530.html">[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)
+</A></li>
+        <LI>Next message: <A HREF="000534.html">[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#532">[ date ]</a>
+              <a href="thread.html#532">[ thread ]</a>
+              <a href="subject.html#532">[ subject ]</a>
+              <a href="author.html#532">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike,
+
+thank you for your reply and sorry for using the wrong wording, as I didn't
+have the client open in front of me.
+I imagine it would be quite easy to code, since the underlying functions
+are essentially already there. They just need to stop greying out the
+resume button when a session is still attached, and instead, trigger a
+suspend in that case, followed by a resume (with maybe a short pause in
+between if needed).
+
+Jean
+
+On Wed, Jan 4, 2012 at 2:09 PM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Jean,
+</I>&gt;<i>
+</I>&gt;<i> On Mi 04 Jan 2012 16:02:39 CET Jean Gottschalk wrote:
+</I>&gt;<i>
+</I>&gt;<i>  I have been using X2go for a few weeks now, and it works really well. In
+</I>&gt;&gt;<i> my
+</I>&gt;&gt;<i> application, users keep a session open indefinitely, and carry it from one
+</I>&gt;&gt;<i> terminal to another. When doing this, the session is usually still open on
+</I>&gt;&gt;<i> a previous terminal, so when taking the session to a new terminal, the
+</I>&gt;&gt;<i> user
+</I>&gt;&gt;<i> has to first click the terminate button, then the resume button.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Here you mean (in our terminologyy): suspend and then resume... (not
+</I>&gt;<i> terminate).
+</I>&gt;<i>
+</I>&gt;<i>  Wouldn't it be more straightforward to include a terminate operation in
+</I>&gt;&gt;<i> the
+</I>&gt;&gt;<i> resume button, so that one can resume a session in one click, without
+</I>&gt;&gt;<i> clicking the terminate button first, and the client will terminate the
+</I>&gt;&gt;<i> session if necessary before resuming it? This is how NXclient works (which
+</I>&gt;&gt;<i> I used before).
+</I>&gt;&gt;<i> Is there perhaps already a way to do this by modifying a command line
+</I>&gt;&gt;<i> argument or a script somewhere?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> This feature is available in the systray applet PyHoca-GUI, but not (yet?)
+</I>&gt;<i> in x2goclient.
+</I>&gt;<i>
+</I>&gt;<i> I'll cross-post to x2go-dev to make sure x2goclient developers notice your
+</I>&gt;<i> request.
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120104/041ad6df/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120104/041ad6df/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000530.html">[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)
+</A></li>
+	<LI>Next message: <A HREF="000534.html">[X2go-User] Suspend and Resume in 1 click (was: Terminate and resume in 1 click ?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#532">[ date ]</a>
+              <a href="thread.html#532">[ thread ]</a>
+              <a href="subject.html#532">[ subject ]</a>
+              <a href="author.html#532">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

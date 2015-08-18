@@ -1,0 +1,319 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20doesn%27t%20configure%20properly%20on%20RHEL%205%0A%09%28problem%20with%20perl%27s%20file%20module%3F%29&In-Reply-To=%3C201308231720.13444.Holger.Krause%40med.uni-duesseldorf.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001572.html">
+   <LINK REL="Next"  HREF="001555.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)</H1>
+    <B>Holger Krause</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20doesn%27t%20configure%20properly%20on%20RHEL%205%0A%09%28problem%20with%20perl%27s%20file%20module%3F%29&In-Reply-To=%3C201308231720.13444.Holger.Krause%40med.uni-duesseldorf.de%3E"
+       TITLE="[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)">Holger.Krause at med.uni-duesseldorf.de
+       </A><BR>
+    <I>Fri Aug 23 17:20:11 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001572.html">[X2Go-User] can't get pulseaudio working on 64bits windows7
+</A></li>
+        <LI>Next message: <A HREF="001555.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1554">[ date ]</a>
+              <a href="thread.html#1554">[ thread ]</a>
+              <a href="subject.html#1554">[ subject ]</a>
+              <a href="author.html#1554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+Inspired by Kermit Short's posting a week ago, I tried to install x2goserver 
+on RHEL 5 (x86_64) today. Missing dependencies I installed manually. The 
+dependency on the perl-file module reported by yum
+----
+Error: Missing Dependency: perl(File::BaseDir) is needed by package x2goserver
+----
+I tried to fullfill with
+----
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> ~]# rpm -i perl-File-BaseDir-0.03-1.el5.noarch.rpm
+-----
+
+
+Here's the transcript of the final installation by yum:
+-----
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> ~]# yum install -e 3 x2goserver
+Setting up Install Process
+Setting up repositories
+Reading repository metadata in from local files
+Parsing package install arguments
+Resolving Dependencies
+--&gt; Populating transaction set with selected packages. Please wait.
+---&gt; Package x2goserver.i386 0:4.0.1.6-1.1 set to be updated
+---&gt; Package x2goserver.x86_64 0:4.0.1.6-1.1 set to be updated
+--&gt; Running transaction check
+--&gt; Processing Dependency: x2goagent for package: x2goserver
+--&gt; Processing Dependency: perl(DBD::SQLite) for package: x2goserver
+--&gt; Processing Dependency: perl(DBI) for package: x2goserver
+--&gt; Processing Dependency: perl(Config::Simple) for package: x2goserver
+--&gt; Processing Dependency: perl(DBD::SQLite) &gt;= 1.27 for package: x2goserver
+--&gt; Processing Dependency: perl(DBI) &gt;= 1.617 for package: x2goserver
+--&gt; Processing Dependency: perl(DBD::Pg) for package: x2goserver
+--&gt; Processing Dependency: makepasswd for package: x2goserver
+--&gt; Restarting Dependency Resolution with new changes.
+--&gt; Populating transaction set with selected packages. Please wait.
+---&gt; Package x2goagent.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package makepasswd.x86_64 0:0.5.0-2.2 set to be updated
+---&gt; Package perl-DBD-SQLite.x86_64 0:1.37-26.1 set to be updated
+---&gt; Package perl-Config-Simple.x86_64 0:4.59-14.1 set to be updated
+---&gt; Package perl-DBI.x86_64 0:1.617-8.1 set to be updated
+---&gt; Package perl-DBD-Pg.x86_64 0:1.49-1.fc6 set to be updated
+--&gt; Running transaction check
+--&gt; Processing Dependency: nxagent for package: x2goagent
+--&gt; Restarting Dependency Resolution with new changes.
+--&gt; Populating transaction set with selected packages. Please wait.
+---&gt; Package nxagent.x86_64 0:3.5.0.20-4.1 set to be updated
+--&gt; Running transaction check
+--&gt; Processing Dependency: libNX_Xrender.so.1()(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcompshad.so.3()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_freetype.so.6()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xext.so.6()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xrandr.so.2()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xtst.so.6()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xfixes.so.3()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xdmcp.so.6()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xcomposite.so.1()(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcompshad.so.3(X2GO)(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcomp.so.3(X2GO)(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcomp.so.3()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_X11.so.6()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xpm.so.4()(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcompext.so.3(X2GO)(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xinerama.so.1()(64bit) for package: nxagent
+--&gt; Processing Dependency: libNX_Xdamage.so.1()(64bit) for package: nxagent
+--&gt; Processing Dependency: libXcompext.so.3()(64bit) for package: nxagent
+--&gt; Restarting Dependency Resolution with new changes.
+--&gt; Populating transaction set with selected packages. Please wait.
+---&gt; Package libNX_Xext6.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libXcompext3.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_X11-6.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xpm4.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xinerama1.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xcomposite1.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xdmcp6.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xfixes3.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libXcompshad3.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xrandr2.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xrender1.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xtst6.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libXcomp3.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_freetype6.x86_64 0:3.5.0.20-4.1 set to be updated
+---&gt; Package libNX_Xdamage1.x86_64 0:3.5.0.20-4.1 set to be updated
+--&gt; Running transaction check
+
+Dependencies Resolved
+
+=============================================================================
+ Package                 Arch       Version          Repository        Size 
+=============================================================================
+Installing:
+ x2goserver              i386       4.0.1.6-1.1      X11_RemoteDesktop_x2go   
+78 k
+ x2goserver              x86_64     4.0.1.6-1.1      X11_RemoteDesktop_x2go   
+78 k
+Installing for dependencies:
+ libNX_X11-6             x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+513 k
+ libNX_Xcomposite1       x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+7.7 k
+ libNX_Xdamage1          x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+7.6 k
+ libNX_Xdmcp6            x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+13 k
+ libNX_Xext6             x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+33 k
+ libNX_Xfixes3           x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+11 k
+ libNX_Xinerama1         x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+8.4 k
+ libNX_Xpm4              x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+37 k
+ libNX_Xrandr2           x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+10 k
+ libNX_Xrender1          x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+20 k
+ libNX_Xtst6             x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+15 k
+ libNX_freetype6         x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+261 k
+ libXcomp3               x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+340 k
+ libXcompext3            x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+29 k
+ libXcompshad3           x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+24 k
+ makepasswd              x86_64     0.5.0-2.2        X11_RemoteDesktop_x2go   
+10 k
+ nxagent                 x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go  
+1.9 M
+ perl-Config-Simple      x86_64     4.59-14.1        X11_RemoteDesktop_x2go   
+38 k
+ perl-DBD-Pg             x86_64     1.49-1.fc6       localrepo         114 k
+ perl-DBD-SQLite         x86_64     1.37-26.1        X11_RemoteDesktop_x2go  
+464 k
+ perl-DBI                x86_64     1.617-8.1        X11_RemoteDesktop_x2go  
+891 k
+ x2goagent               x86_64     3.5.0.20-4.1     X11_RemoteDesktop_x2go   
+12 k
+
+Transaction Summary
+=============================================================================
+Install     24 Package(s)         
+Update       0 Package(s)         
+Remove       0 Package(s)         
+
+Total download size: 4.9 M
+Is this ok [y/N]: y
+Downloading Packages:
+Running Transaction Test
+warning: libNX_Xext6-3.5.0.20-4.1: Header V3 DSA signature: NOKEY, key ID 
+0f2672c8
+Finished Transaction Test
+Transaction Test Succeeded
+Running Transaction
+  Installing: libXcomp3                    ####################### [ 1/24] 
+  Installing: libNX_X11-6                  ####################### [ 2/24] 
+  Installing: libNX_Xext6                  ####################### [ 3/24] 
+  Installing: libNX_Xrender1               ####################### [ 4/24] 
+  Installing: libNX_Xrandr2                ####################### [ 5/24] 
+  Installing: libNX_Xtst6                  ####################### [ 6/24] 
+  Installing: libNX_Xdamage1               ####################### [ 7/24] 
+  Installing: makepasswd                   ####################### [ 8/24] 
+  Installing: libXcompshad3                ####################### [ 9/24] 
+  Installing: libNX_Xpm4                   ####################### [10/24] 
+  Installing: libNX_Xinerama1              ####################### [11/24] 
+  Installing: libXcompext3                 ####################### [12/24] 
+  Installing: libNX_freetype6              ####################### [13/24] 
+  Installing: libNX_Xfixes3                ####################### [14/24] 
+  Installing: libNX_Xdmcp6                 ####################### [15/24] 
+  Installing: libNX_Xcomposite1            ####################### [16/24] 
+  Installing: perl-DBI                     ####################### [17/24] 
+  Installing: perl-DBD-Pg                  ####################### [18/24] 
+  Installing: perl-DBD-SQLite              ####################### [19/24] 
+  Installing: perl-Config-Simple           ####################### [20/24] 
+  Installing: nxagent                      ####################### [21/24] 
+  Installing: x2goserver                   ####################### [22/24] 
+&quot;make_path&quot; is not exported by the File::Path module
+Can't continue after import errors at /usr/sbin/x2godbadmin line 25
+BEGIN failed--compilation aborted at /usr/sbin/x2godbadmin line 25.
+chgrp: cannot access `/var/lib/x2go/x2go_sessions': No such file or directory
+chmod: cannot access `/var/lib/x2go/x2go_sessions': No such file or directory
+  Installing: x2goagent                    ####################### [23/24] 
+  Installing: x2goserver                   ####################### [24/24] 
+&quot;make_path&quot; is not exported by the File::Path module
+Can't continue after import errors at /usr/sbin/x2godbadmin line 25
+BEGIN failed--compilation aborted at /usr/sbin/x2godbadmin line 25.
+chgrp: cannot access `/var/lib/x2go/x2go_sessions': No such file or directory
+chmod: cannot access `/var/lib/x2go/x2go_sessions': No such file or directory
+
+Installed: x2goserver.i386 0:4.0.1.6-1.1 x2goserver.x86_64 0:4.0.1.6-1.1
+Dependency Installed: libNX_X11-6.x86_64 0:3.5.0.20-4.1 
+libNX_Xcomposite1.x86_64 0:3.5.0.20-4.1 libNX_Xdamage1.x86_64 0:3.5.0.20-4.1 
+libNX_Xdmcp6.x86_64 0:3.5.0.20-4.1 libNX_Xext6.x86_64 0:3.5.0.20-4.1 
+libNX_Xfixes3.x86_64 0:3.5.0.20-4.1 libNX_Xinerama1.x86_64 0:3.5.0.20-4.1 
+libNX_Xpm4.x86_64 0:3.5.0.20-4.1 libNX_Xrandr2.x86_64 0:3.5.0.20-4.1 
+libNX_Xrender1.x86_64 0:3.5.0.20-4.1 libNX_Xtst6.x86_64 0:3.5.0.20-4.1 
+libNX_freetype6.x86_64 0:3.5.0.20-4.1 libXcomp3.x86_64 0:3.5.0.20-4.1 
+libXcompext3.x86_64 0:3.5.0.20-4.1 libXcompshad3.x86_64 0:3.5.0.20-4.1 
+makepasswd.x86_64 0:0.5.0-2.2 nxagent.x86_64 0:3.5.0.20-4.1 perl-Config-
+Simple.x86_64 0:4.59-14.1 perl-DBD-Pg.x86_64 0:1.49-1.fc6 perl-DBD-
+SQLite.x86_64 0:1.37-26.1 perl-DBI.x86_64 0:1.617-8.1 x2goagent.x86_64 
+0:3.5.0.20-4.1
+Complete!
+----
+
+
+When I try to connect with the server, the x2goclient get's the following 
+error message:
+----
+Verbindung fehlgeschlagen DBD::SQLite::db prepare failed: no such table: 
+sessions at /usr/libexec/x2go/x2gosqlitewrapper.pl line 423. Can't call method 
+&quot;execute&quot; on an undefined value at /usr/libexec/x2go/x2gosqlitewrapper.pl line 
+431.
+----
+
+
+Listing of x2go_sessions afterwards showed the file to be owned by the user 
+trying to log in ('krause'):
+----
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> log]# ls -l /var/lib/x2go/x2go_sessions
+-rw-r--r-- 1 krause x2gouser 0 Aug 23 13:41 /var/lib/x2go/x2go_sessions
+-----
+
+
+Applying permissions as found on a working debian server, didn't improve the 
+situation.
+----
+chown root /var/lib/x2go/x2go_sessions
+chmod g+w /var/lib/x2go/x2go_sessions
+----
+
+
+Now, calling x2godbadmin yields the same error message as during installation 
+by yum:
+----
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> log]# /usr/sbin/x2godbadmin
+&quot;make_path&quot; is not exported by the File::Path module
+Can't continue after import errors at /usr/sbin/x2godbadmin line 25
+BEGIN failed--compilation aborted at /usr/sbin/x2godbadmin line 25.
+----
+
+
+Line 25 of x2godbadmin reads:
+----
+use File::Path qw( make_path ); 
+----
+
+
+Do I need a specific version of perl(File::BaseDir)? Any ideas how to fix the 
+x2goserver configuration?
+
+Thanks in advance,
+
+Holger
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001572.html">[X2Go-User] can't get pulseaudio working on 64bits windows7
+</A></li>
+	<LI>Next message: <A HREF="001555.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1554">[ date ]</a>
+              <a href="thread.html#1554">[ thread ]</a>
+              <a href="subject.html#1554">[ subject ]</a>
+              <a href="author.html#1554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

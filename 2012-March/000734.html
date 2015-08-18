@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] (TCE) Problem open display
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%28TCE%29%20Problem%20open%20display&In-Reply-To=%3C201203220920.41900.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000733.html">
+   <LINK REL="Next"  HREF="000727.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] (TCE) Problem open display</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%28TCE%29%20Problem%20open%20display&In-Reply-To=%3C201203220920.41900.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2Go-User] (TCE) Problem open display">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Thu Mar 22 09:20:41 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000733.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+        <LI>Next message: <A HREF="000727.html">[X2Go-User] blurred image
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Torsten,
+
+Am Wednesday 21 March 2012 schrieb Torsten Bade:
+&gt;<i> Update:
+</I>&gt;<i> 
+</I>&gt;<i> I tried to copy only the running /opt/x2gothinclient
+</I>&gt;<i> and the /srv/tftp/ from an old running installation (install from
+</I>&gt;<i> 2012/01/17)
+</I>&gt;<i> And it's running perfect.
+</I>&gt;<i>
+</I>
+Ok, this lead me to inspect if there's a difference in the package versions I 
+use in the different environments. I have one tce-installation which works and 
+one Installation on a local media with an window-manager (fluxbox) which 
+produces the same error like your setup.
+
+But both of my installations use the same packages:
+
+x2gocdmanager	1.0.1.6-0~x2go2+squeeze~main~306~build1
+x2goclient	3.99.1.1-0~x2go1+squeeze~main~194~build1	
+x2gousbmount	1.0.1.6-0~x2go2+squeeze~main~306~build1
+
+So for me it looks like it depends on something else.
+
+&gt;<i> I found out, that there are some changes in the structure (or something
+</I>&gt;<i> missing)
+</I>&gt;<i> under the old running structure I have a folder
+</I>&gt;<i> /opt/x2gothinclient/chroot/usr/lib/nx/X11
+</I>&gt;<i> under the new I didn't.
+</I>&gt;<i> 
+</I>&gt;<i> --- okay next I did  a chroot in each environment an checked the installed
+</I>&gt;<i> packages ---
+</I>&gt;<i> working:
+</I>&gt;<i> x2go-keyring
+</I>&gt;<i> 2011.12.07+squeeze~main~12~build1
+</I>&gt;<i> x2gocdmanager                    1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+</I>&gt;<i> x2goclient
+</I>&gt;<i> 3.99.0.3-0~x2go4+squeeze~main~129~build1
+</I>&gt;<i> x2gosmartcardrules              1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+</I>&gt;<i> x2gothinclient
+</I>&gt;<i> 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+</I>&gt;<i> x2gothinshutdown                1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+</I>&gt;<i> x2gousbmount                      1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+</I>&gt;<i> libnx-x11                               2:3.5.0.2-0+squeeze~main~199~build1
+</I>&gt;<i> nxproxy                                2:3.5.0.2-0+squeeze~main~199~build1
+</I>&gt;<i> 
+</I>&gt;<i> not working:
+</I>&gt;<i> pinentry-x2go
+</I>&gt;<i> 0.7.5.0-0~x2go1+squeeze~main~12~build1
+</I>&gt;<i> x2go-keyring                         2011.12.07+squeeze~main~12~build1
+</I>&gt;<i> x2gocdmanager
+</I>&gt;<i> 1.0.1.6-0~x2go2+squeeze~main~306~build1
+</I>&gt;<i> x2goclient
+</I>&gt;<i> 3.99.1.1-0~x2go1+squeeze~main~194~build1
+</I>&gt;<i> x2gosmartcardrules                  
+</I>&gt;<i> 1.0.1.6-0~x2go2+squeeze~main~306~build1 x2gothinclient
+</I>&gt;<i> 1.0.1.6-0~x2go2+squeeze~main~306~build1
+</I>&gt;<i> x2gousbmount
+</I>&gt;<i> 1.0.1.6-0~x2go2+squeeze~main~306~build1
+</I>&gt;<i> nxproxy                              2:3.5.0.12-0+squeeze~main~298~build1
+</I>&gt;<i> 
+</I>&gt;<i> So far I get to the point, where I just use the old working setup, but I'll
+</I>&gt;<i> test so that updating/upgrading work in future.
+</I>&gt;<i> But I still run around that point, that it has something todo with xauth,
+</I>&gt;<i> but deleting the .Xauthority has no effect.
+</I>&gt;<i> xauth list brings 2 entrys ...
+</I>&gt;<i> 
+</I>&gt;<i> But actually I'm not so deep inside xauth/X11 forward so I still have to go
+</I>&gt;<i> deeper inside.
+</I>&gt;<i> Maybe now a hint from anybody ?
+</I>&gt;<i> 
+</I>
+unfortunately not.
+Anybody else?
+
+cheers 
+stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000733.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+	<LI>Next message: <A HREF="000727.html">[X2Go-User] blurred image
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#734">[ date ]</a>
+              <a href="thread.html#734">[ thread ]</a>
+              <a href="subject.html#734">[ subject ]</a>
+              <a href="author.html#734">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

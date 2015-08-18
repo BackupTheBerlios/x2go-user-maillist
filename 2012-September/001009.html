@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go printing how-to
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20printing%20how-to&In-Reply-To=%3CCAPWth0KSLaX%3DeQaQAf7%3Dqw-%2B2g_RMN7jHXnFJkCkQmv_RvT8zw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001008.html">
+   <LINK REL="Next"  HREF="001010.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go printing how-to</H1>
+    <B>Ricardo D&#237;az Mart&#237;n</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20printing%20how-to&In-Reply-To=%3CCAPWth0KSLaX%3DeQaQAf7%3Dqw-%2B2g_RMN7jHXnFJkCkQmv_RvT8zw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2go printing how-to">oceanosoftlapalma at gmail.com
+       </A><BR>
+    <I>Wed Sep 19 07:30:50 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001008.html">[X2Go-User] x2go printing how-to
+</A></li>
+        <LI>Next message: <A HREF="001010.html">[X2Go-User] x2go printing how-to
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1009">[ date ]</a>
+              <a href="thread.html#1009">[ thread ]</a>
+              <a href="subject.html#1009">[ subject ]</a>
+              <a href="author.html#1009">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks for the information!
+
+So I think I must to use VPN connection if you want to remote printing when
+you're not in the same server lan cause you can't nat 22 port to your
+computer when you are in a public net.
+
+I was working with FreeNX for a long time and I made my own ftp server-side
+printing system to remote printing. This system put the file you want to
+print in user's ftp folder. In client side I put a java client checking the
+ftp folder and when there is new file to print there get it and open with
+the default program in client side. So you don't to extra configuration in
+client side (only install the java agent).
+
+Anyway you system works really fine with vpn and because of this is safety.
+
+Regards,
+
+2012/9/18 Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+
+&gt;<i> Hi Ricardo,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Di 18 Sep 2012 19:30:54 CEST Ricardo D&#237;az Mart&#237;n wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I wonder if there is step-by-step guide to set up a simple x2go one server
+</I>&gt;&gt;<i> ubuntu to print from the wan (without using vpn conection).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you use this guide
+</I>&gt;&gt;<i> <A HREF="http://www.x2go.org/doku.php/**wiki:components:printing&lt;http://www.x2go.org/doku.php/wiki:components:printing">http://www.x2go.org/doku.php/**wiki:components:printing&lt;http://www.x2go.org/doku.php/wiki:components:printing</A>&gt;the server works
+</I>&gt;&gt;<i> right if you are printing from the same net or connected
+</I>&gt;&gt;<i> by vpn connection.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> What's port have you open in the firewall? Is there some extra
+</I>&gt;&gt;<i> configuration to do it? I tried opening ports in /usr/bin/x2gostartagent
+</I>&gt;&gt;<i> (the specified and the next 100 more) but client side doesn't receive the
+</I>&gt;&gt;<i> file after you print.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> X2Go client-side printing as described on the wiki page you named should
+</I>&gt;<i> work out-of-the-box.
+</I>&gt;<i>
+</I>&gt;<i> The printing works like this:
+</I>&gt;<i>
+</I>&gt;<i> 1. x2goclient creates a rev port forwarding tunnel (SSH) between
+</I>&gt;<i> server+client
+</I>&gt;<i>
+</I>&gt;<i> 2. x2gomountdirs (server script) mounts an SSHfs share through this
+</I>&gt;<i> tunnel. It mounts a client-side folder into the home directory of the user
+</I>&gt;<i> logged on to the X2Go server
+</I>&gt;<i>
+</I>&gt;<i> 3. you print... via a printer using the cups-x2go virtual driver
+</I>&gt;<i>
+</I>&gt;<i> 4. cups-x2go creates a ps file and a job ticket in ~x2goprint of the X2Go
+</I>&gt;<i> server.
+</I>&gt;<i>
+</I>&gt;<i> 5. the server-side command x2goprint copies the job and ps file to the
+</I>&gt;<i> SSHfs mounted share (so now, it is on the client side)
+</I>&gt;<i>
+</I>&gt;<i> 6. a watch thread in x2goclient wakes up and notices the incoming files
+</I>&gt;<i> (job + ps -&gt; actually a compressed PDF)
+</I>&gt;<i>
+</I>&gt;<i> 7. x2goclient opens the printer dialog
+</I>&gt;<i>
+</I>&gt;<i> Note that you have to enable X2Go printing in the session profile with
+</I>&gt;<i> x2goclient.
+</I>&gt;<i>
+</I>&gt;<i> Hope that helps (with debugging).
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120919/9cab0607/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120919/9cab0607/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001008.html">[X2Go-User] x2go printing how-to
+</A></li>
+	<LI>Next message: <A HREF="001010.html">[X2Go-User] x2go printing how-to
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1009">[ date ]</a>
+              <a href="thread.html#1009">[ thread ]</a>
+              <a href="subject.html#1009">[ subject ]</a>
+              <a href="author.html#1009">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

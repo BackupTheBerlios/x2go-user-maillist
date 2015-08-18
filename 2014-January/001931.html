@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go &amp; firefox, overload + lockups
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%26%20firefox%2C%20overload%20%2B%20lockups&In-Reply-To=%3C52CB1705.2040807%40robotnetwork.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001928.html">
+   <LINK REL="Next"  HREF="001933.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go &amp; firefox, overload + lockups</H1>
+    <B>Carl</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%26%20firefox%2C%20overload%20%2B%20lockups&In-Reply-To=%3C52CB1705.2040807%40robotnetwork.org%3E"
+       TITLE="[X2Go-User] x2go &amp; firefox, overload + lockups">x2golist at robotnetwork.org
+       </A><BR>
+    <I>Mon Jan  6 21:50:13 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001928.html">[X2Go-User] x2go &amp; firefox, overload + lockups
+</A></li>
+        <LI>Next message: <A HREF="001933.html">[X2Go-User] @Mike#1 Re:  x2go &amp; firefox, overload + lockups
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1931">[ date ]</a>
+              <a href="thread.html#1931">[ thread ]</a>
+              <a href="subject.html#1931">[ subject ]</a>
+              <a href="author.html#1931">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+&gt;<i> Uh, using x2goclient with &quot;lan/no image compression&quot; isn't the same as
+</I>&gt;<i> running ssh -X and forwarding the display. While your results surely
+</I>
+I see what you mean now..
+
+However, I have now spotted that the issue goes away completely if I set
+my x2go session to use only 256k jpeg compression.
+
+That also seems to make remote video like youtube usable.
+
+I think, based on that, that running my X session entirely over SSH
+becomes redundant - it must have something to do with the x2go compression.
+
+Of course, the main cause of the problem is still Firefox, but for the
+purposes of dealing with misbehaving applications like this, jpeg seems
+better.
+
+It's possible there's something wrong with the Debian packages though,
+because many compression methods like Tight, RDP etc simply crash the
+session immediately before it's shown.
+
+Thanks,
+Carl
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001928.html">[X2Go-User] x2go &amp; firefox, overload + lockups
+</A></li>
+	<LI>Next message: <A HREF="001933.html">[X2Go-User] @Mike#1 Re:  x2go &amp; firefox, overload + lockups
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1931">[ date ]</a>
+              <a href="thread.html#1931">[ thread ]</a>
+              <a href="subject.html#1931">[ subject ]</a>
+              <a href="author.html#1931">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

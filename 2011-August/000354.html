@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] question regarding x2goclient armel builds
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C20110830211547.10349gpw2g4okg6b%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000353.html">
+   <LINK REL="Next"  HREF="000355.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] question regarding x2goclient armel builds</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20question%20regarding%20x2goclient%20armel%20builds&In-Reply-To=%3C20110830211547.10349gpw2g4okg6b%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] question regarding x2goclient armel builds">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Aug 30 21:15:47 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000353.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+        <LI>Next message: <A HREF="000355.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#354">[ date ]</a>
+              <a href="thread.html#354">[ thread ]</a>
+              <a href="subject.html#354">[ subject ]</a>
+              <a href="author.html#354">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jimmy,
+
+On Di 30 Aug 2011 19:59:27 CEST Jimmy Knowles wrote:
+
+&gt;<i> Thanks for your work on the x2go packages.  I was hoping someone could help
+</I>&gt;<i> me to be able to connect using the armel builds. I have a hp touchpad with x
+</I>&gt;<i> server running and a chrooted version of debian squeeze.  I've installed the
+</I>&gt;<i> packages without any problems and I'm having some problems getting a session
+</I>&gt;<i> to start successfully.  When I initiate a session from the touchpad, it will
+</I>&gt;<i> connect and the desktop displays, but any window manager items seem to
+</I>
+What Xserver are you using on the touchpad? The Xorg that is in Debian?
+
+&gt;<i> crash.  The panels don't display, any pop-up windows just flash and flicker.
+</I>&gt;<i> Only the desktop icons display correctly.  And dmesg gives the following
+</I>&gt;<i> errors repeatedly:
+</I>&gt;<i>
+</I>&gt;<i> [...]
+</I>&gt;<i>
+</I>&gt;<i> What does work is if I'm resuming a session that was initiated via a windows
+</I>&gt;<i> (or amd64) x2goclient.  One difference that I notice is that the
+</I>&gt;<i> windows-initiated session name ends with dp32 (I'm assuming that's the color
+</I>&gt;<i> depth?) and the touchpad/armel-initiated session ends with dp24.  Any ideas
+</I>&gt;<i> on how to get it to work correctly when initiating the session on the armel
+</I>&gt;<i> device?
+</I>
+Windows color depth 32 equals Linux color depth 24. The upper 8bit are  
+not really used for color resolution but for something else (I have  
+forgotten what...). So 32bit on Win and 24bit on Linux are equivalent.
+
+So, basically what happens is that x2goagent crashes on metacity  
+session startup on the server-side. That is: something happens on the  
+GNOME desktop during startup the lets metacity segfault.
+
+Please try to narrow down the error:
+
+   o use a simple xterm session first
+   o then use LXDE  (simple desktop) as session
+   o then try to disable all special effects on your GNOME desktop
+   o by any chance try to connect to some other server (Ubuntu lucid, Debian
+     squeeze preferrably)
+   o ... and report what happens
+
+Is the X2go server in your LAN (I am asking for connection speed)?  
+Install Xnest on the Ubuntu natty machine and launch an Xnest session  
+via ,,ssh -X''. Does that Xnest session (running on the Ubuntu  
+machine, X-forwarded through SSH and displayed on your touchpad)  
+survive? Or does it also crash???
+
+If, by any chance, you can install a wheezy chroot on your pad... you  
+could use the x2goclient from squeeze/armel and try if an upgrade of  
+the local XServer does help.
+
+Greets,
+Mike
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110830/921bd856/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110830/921bd856/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000353.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+	<LI>Next message: <A HREF="000355.html">[X2go-User] question regarding x2goclient armel builds
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#354">[ date ]</a>
+              <a href="thread.html#354">[ thread ]</a>
+              <a href="subject.html#354">[ subject ]</a>
+              <a href="author.html#354">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

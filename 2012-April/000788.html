@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Client for PowerPC Macs ?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C73588411-AA5E-4516-B71E-DB9B75F4F288%40mac.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000785.html">
+   <LINK REL="Next"  HREF="000789.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Client for PowerPC Macs ?</H1>
+    <B>Mirco Schmidt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Client%20for%20PowerPC%20Macs%20%3F&In-Reply-To=%3C73588411-AA5E-4516-B71E-DB9B75F4F288%40mac.com%3E"
+       TITLE="[X2Go-User] Client for PowerPC Macs ?">mirco.schmidt at mac.com
+       </A><BR>
+    <I>Tue Apr 17 12:40:17 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000785.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+        <LI>Next message: <A HREF="000789.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey Mike,
+
+I have just purged the self-build package and tried to install from repo:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+ 8$ sudo aptitude install pyhoca-gui                                                                    
+Couldn't find any package whose name or description matched &quot;pyhoca-gui&quot;
+
+To enshure the repo is really there:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~]
+ 9$ cat /etc/apt/sources.list.d/x2go.list 
+# X2Go Repository
+# no PowerPC deb's available
+#deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> wheezy main
+# X2Go Repository (sources)
+deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> wheezy main
+
+while doing I remembered this is what I tried before building the package last night around that time...
+
+So I uncommented the deb line and ran an update to get:
+
+W: Failed to fetch <A HREF="http://packages.x2go.org/debian/dists/wheezy/Release">http://packages.x2go.org/debian/dists/wheezy/Release</A>  Unable to find expected entry 'main/binary-powerpc/Packages' in Release file (Wrong sources.list entry or malformed file)
+
+So let's try to fix the source package...
+
+Greetz
+Mirco
+
+Am 16.04.2012 14:31, schrieb Mike Gabriel:
+&gt;<i> 
+</I>&gt;<i> Hi Mirco, 
+</I>&gt;<i> 
+</I>&gt;<i> On Mo 16 Apr 2012 12:21:40 CEST Mirco Schmidt wrote: 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> During the weekend I build pyhoca on my Dual-G5 running Wheezy. This is what I did and got: 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~] 
+</I>&gt;&gt;<i> 1$ sudo aptitude source pyhoca-gui 
+</I>&gt;<i> 
+</I>&gt;<i> As PyHoca-GUI is Python only, you should be able to install it from our repositories... 
+</I>&gt;<i> 
+</I>&gt;<i> # please try the nightly builds as pyhoca-gui is currently being pushed towards 
+</I>&gt;<i> # release... any feedback is welcome... 
+</I>&gt;<i> deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze heuler 
+</I>&gt;<i> 
+</I>&gt;<i> aptitude install pyhoca-gui 
+</I>&gt;<i> 
+</I>&gt;&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mirco at dual-g5</A> ~] 
+</I>&gt;&gt;<i> 6$ pyhoca-gui 
+</I>&gt;&gt;<i> /usr/bin/pyhoca-gui:24: UserWarning: libevent version mismatch: system version is '2.0.18-stable' but this gevent is compiled against '2.0.16-stable' 
+</I>&gt;&gt;<i>  import gevent 
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> ** (process:10391): WARNING **: Trying to register gtype 'GMountMountFlags' as flags when in fact it is of type 'GEnum' 
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> ** (process:10391): WARNING **: Trying to register gtype 'GDriveStartFlags' as flags when in fact it is of type 'GEnum' 
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> ** (process:10391): WARNING **: Trying to register gtype 'GSocketMsgFlags' as flags when in fact it is of type 'GEnum' 
+</I>&gt;&gt;<i> Speicherzugriffsfehler 
+</I>&gt;<i> 
+</I>&gt;<i> This seems to be a bug in the Debian package python-gevent. Please report against Debian BTS, package python-gevent. 
+</I>&gt;<i> 
+</I>&gt;<i> Greets, 
+</I>&gt;<i> Mike 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120417/c1b99b52/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120417/c1b99b52/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000785.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+	<LI>Next message: <A HREF="000789.html">[X2Go-User] Client for PowerPC Macs ?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#788">[ date ]</a>
+              <a href="thread.html#788">[ thread ]</a>
+              <a href="subject.html#788">[ subject ]</a>
+              <a href="author.html#788">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

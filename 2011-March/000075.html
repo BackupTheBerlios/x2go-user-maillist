@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] LDAP-Problem: Zertifikateproblem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20LDAP-Problem%3A%20Zertifikateproblem&In-Reply-To=%3C1446852057.20482.1300883233020.JavaMail.ngmail%40webmail07.arcor-online.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000074.html">
+   <LINK REL="Next"  HREF="000076.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] LDAP-Problem: Zertifikateproblem</H1>
+    <B>minkmonk at arcor.de</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20LDAP-Problem%3A%20Zertifikateproblem&In-Reply-To=%3C1446852057.20482.1300883233020.JavaMail.ngmail%40webmail07.arcor-online.net%3E"
+       TITLE="[X2go-user] LDAP-Problem: Zertifikateproblem">minkmonk at arcor.de
+       </A><BR>
+    <I>Wed Mar 23 13:27:13 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000074.html">[X2go-user]  X2go client on debian ARM?
+</A></li>
+        <LI>Next message: <A HREF="000076.html">[X2go-user] LDAP-Problem: Zertifikateproblem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#75">[ date ]</a>
+              <a href="thread.html#75">[ thread ]</a>
+              <a href="subject.html#75">[ subject ]</a>
+              <a href="author.html#75">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hallo Liste,
+
+ich versuche gerade einen x2go-Server aufzusetzen und gehe dabei nach der Anleitung im Wiki vor. Die Basis ist noch Debian Lenny, ich habe aber auch Squeeze ausprobiert mit dem jeweils gleichen &quot;Erfolg&quot;, den ich inzwischen auf zahlreichen Maschinen zuverl&#228;ssig reproduziert habe.
+
+&lt;quote&gt;
+# ./initsystem
+ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+Stopping Samba daemons: nmbd smbd.
+Setting stored password for &quot;cn=ldapadmin,o=local,c=de&quot; in secrets.tdb
+Starting Samba daemons: nmbd smbd.
+Populating LDAP directory for domain smbgroup (S-1-5-21-1669023597-4072744321-2269495665)
+(using builtin directory structure)
+
+Use of uninitialized value $organisation in string ne at /usr/sbin/smbldap-populate line 168.
+Use of uninitialized value $org in concatenation (.) or string at /usr/sbin/smbldap-populate line 173.
+Use of uninitialized value $smbldap_tools::config{&quot;clientcert&quot;} in string at /usr/share/perl5/smbldap_tools.pm line 334.
+Use of uninitialized value $smbldap_tools::config{&quot;clientkey&quot;} in string at /usr/share/perl5/smbldap_tools.pm line 334.
+Could not start_tls: unsupported extended operation at /usr/share/perl5/smbldap_tools.pm line 341.
+ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+&lt;/quote&gt;
+
+
+und - wie nicht anders zu erwarten - schl&#228;gt serveradd dann auch fehl:
+
+
+&lt;quote&gt;
+# ldap.addserver x2goserver 10.0.2.15
+[: 13: x2goserver: unexpected operator
+[: 13: 10.0.2.15: unexpected operator
+[: 17: unexpected operator
+ldap_sasl_bind(SIMPLE): Can't contact LDAP server (-1)
+&lt;/quote&gt;
+
+Ich bin noch Neuling was LDAP angeht, aber dabei, mir Informationen zu suchen.
+&#220;ber Foren habe ich einen Bugreport gefunden, da&#223; selbstsignierte Zertifikate Probleme machen w&#252;rden. Allerdings habe ich noch keinen Workaround gefunden, das betraf ofenbar auch nur eine &#228;ltere Ubuntu-Version. 
+Mein n&#228;chster Schritt ist, einen LDAP-Install mit Hand zu probieren, erstmal ohne Zertifikate.
+
+Hat jemand von Euch sowas? Ich brauche die LDAP-Funktionalit&#228;t und bin gerade ein bi&#223;chen ins Kalte Wasser geworfen.
+
+Vielen Dank,
+
+Mike Thomas
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000074.html">[X2go-user]  X2go client on debian ARM?
+</A></li>
+	<LI>Next message: <A HREF="000076.html">[X2go-user] LDAP-Problem: Zertifikateproblem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#75">[ date ]</a>
+              <a href="thread.html#75">[ thread ]</a>
+              <a href="subject.html#75">[ subject ]</a>
+              <a href="author.html#75">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

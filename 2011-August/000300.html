@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problems setting print system in x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go&In-Reply-To=%3C4E39AB55.2010004%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000297.html">
+   <LINK REL="Next"  HREF="000302.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problems setting print system in x2go</H1>
+    <B>Mario OROZ</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go&In-Reply-To=%3C4E39AB55.2010004%40gmail.com%3E"
+       TITLE="[X2go-User] Problems setting print system in x2go">mario.oroz at gmail.com
+       </A><BR>
+    <I>Wed Aug  3 22:11:01 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000297.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+        <LI>Next message: <A HREF="000302.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>El 02/08/2011 11:47 p.m., John A. Sullivan III escribi&#243;:
+&gt;<i> On Tue, 2011-08-02 at 17:10 -0300, Mario OROZ wrote: 
+</I>&gt;&gt;<i> El 02/08/2011 03:20 p.m., John A. Sullivan III escribi&#243;:
+</I>&gt;&gt;&gt;<i> On Tue, 2011-08-02 at 15:12 -0300, Mario OROZ wrote:
+</I>&gt;&gt;&gt;&gt;<i> El 02/08/2011 02:37 p.m., John A. Sullivan III escribi:
+</I>&gt;&gt;&gt;&gt;&gt;<i> On Mon, 2011-08-01 at 16:49 -0300, Mario OROZ wrote:
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Hello, I'm new to the list.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I use a server x2go on a Debian 6.0 with Windows XP clients.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I do not understand how to set the printing to print on printers on the client side.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I installed cups-x2go, and created a printer with cups cups-driver that provides
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> x2go.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> I installed cups-x2go, and created a printer using the driver that provides
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> cups-x2go.
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> On the client windows, menu Option / Settings / Printing tab is checked the
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> &quot;Show this dialog Before start printing&quot;
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Can anyone tell me of some howto or explain how to configure the local client
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> printing from the server windows x2go
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;&gt;&gt;<i> Already, thanks
+</I>&gt;&gt;&gt;&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;&gt;&gt;&gt;<i> Hi, Mario.  Could you be a bit more detailed about where you are finding
+</I>&gt;&gt;&gt;&gt;&gt;<i> the problem.  When you print from your X2Go desktop to the X2Go printer,
+</I>&gt;&gt;&gt;&gt;&gt;<i> what happens? Thanks - John
+</I>&gt;&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> When I try to print from the client x2go desktop to the x2go printer nothings
+</I>&gt;&gt;&gt;&gt;<i> happens!
+</I>&gt;&gt;&gt;&gt;<i> The print job is queued in the spool of the x2go printer (cups
+</I>&gt;&gt;&gt;&gt;<i> server), nothings happens from the client side!
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> What I need is to understand how to configure the printing system, on both the
+</I>&gt;&gt;&gt;&gt;<i> client
+</I>&gt;&gt;&gt;&gt;<i> and the server side, to achieve redirect the print jobs on the server side to
+</I>&gt;&gt;&gt;&gt;<i> client's local printer.
+</I>&gt;&gt;&gt;&gt;<i> I saw no documentation on this configuration.
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> This is achievable with the current version of x2goserver/x2goprint/cups-x2go?
+</I>&gt;&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> Since then, thanks for your answer
+</I>&gt;&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;&gt;<i> Is the cups server running on the X2Go server? 
+</I>&gt;&gt;<i> Yes! x2go server and tne cups server are in the same PC.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> If not, I believe it
+</I>&gt;&gt;&gt;<i> needs the ability to SSH to it to transfer the file.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> The printing is also dependent upon sshfs working properly.  This should
+</I>&gt;&gt;&gt;<i> be relatively automagic assuming it is not being blocked by Windows.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> On the X2Go server side, if you issue a mount command, do you see a
+</I>&gt;&gt;&gt;<i> print spool directory, e.g., 
+</I>&gt;&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sshuser at 127.0.0.1</A>:/cygdrive/C/DOCUME~1/MYID~1/X2GO~1/S-9270~1/spool
+</I>&gt;&gt;&gt;<i> on /tmp/spool_myid/myid-63-1312305869_stDKDE_dp32 type fuse.sshfs
+</I>&gt;&gt;&gt;<i> (rw,nosuid,nodev,max_read=65536,user=myid)
+</I>&gt;&gt;<i> I can see this type of mount!
+</I>&gt;&gt;<i> being logged in with my username, from the server in a console;  can change dir
+</I>&gt;&gt;<i> to /tmp/spool_mario/mario-60-1312310981_stDGNOME_dp32
+</I>&gt;&gt;<i> and I created 2 files in that directory:
+</I>&gt;&gt;<i> $ Echo &quot;some text&quot;&gt; x.txt
+</I>&gt;&gt;<i> $ Echo &quot;x.txt&quot;&gt; x.txt.ready
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On the client PC, the window for print for x2go emerged.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Pressing the print button gave an error:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Window Title: Printing error
+</I>&gt;&gt;<i> Failed to execute command:
+</I>&gt;&gt;<i> C:\Archivos de programa\GhostGum\gsview\gsprint.exe -query -color C:/Documents
+</I>&gt;&gt;<i> and Settings/mario/.x2go/S-mario-60-1312310981_stDGNOME_dp32/spool/x.txt
+</I>&gt;&gt;<i> [OK button]
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> But that is not important; for now!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The important thing is that apparently the print jobs are not placed / created
+</I>&gt;&gt;<i> in the directory
+</I>&gt;&gt;<i> /tmp/spool_mario/mario-60-1312310981_stDGNOME_dp32
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> why?
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> I really don't know.  It has been quite a while since I setup X2Go
+</I>&gt;<i> printing and our environment is very specialized.  If I recall
+</I>&gt;<i> correctly, the X2Go print driver is a script or somewhere there is a
+</I>&gt;<i> script involved which places the files in the appropriate tmp directory.
+</I>&gt;<i> Is there any chance that script is not executable?
+</I>
+1 - I do not know perl!
+
+The script / usr/lib/cups/backend/cups-x2go making the task of printing has
+permissions 0700 and owned by root and group is root
+
+Reading the script I can see references to a user x2goprint, that is not created
+on my system.
+Instead it is added to the file / etc / sudoers
+
+What we still do not recognize is how backen detects user's (not x2goprint user
+$spooldir) spool directory:
+
+
+&gt;<i> You may wish to find that script and edit it by adding some debug
+</I>&gt;<i> information.  I usually add a logger command to send output or simply
+</I>&gt;<i> statements about where I am in the script to the syslog.  This way, you
+</I>&gt;<i> can find out where the script is breaking.  Hope that helps - John
+</I>
+How can i debug. What are those statement to make the script log to syslog?
+
+Thanks
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000297.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+	<LI>Next message: <A HREF="000302.html">[X2go-User] Problems setting print system in x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#300">[ date ]</a>
+              <a href="thread.html#300">[ thread ]</a>
+              <a href="subject.html#300">[ subject ]</a>
+              <a href="author.html#300">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

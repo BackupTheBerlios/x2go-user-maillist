@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] SOLVED X Connection Refused problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20SOLVED%20X%20Connection%20Refused%20problem&In-Reply-To=%3C1315377121.26377.133.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000364.html">
+   <LINK REL="Next"  HREF="000366.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] SOLVED X Connection Refused problem</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20SOLVED%20X%20Connection%20Refused%20problem&In-Reply-To=%3C1315377121.26377.133.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] SOLVED X Connection Refused problem">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Wed Sep  7 08:32:01 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000364.html">[X2go-User] x2goserver on SLES11
+</A></li>
+        <LI>Next message: <A HREF="000366.html">[X2go-User] pyhoca-gui, x2goclient compatibility bugfix released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, all.  We've seen a couple of postings in the past where users
+just could not connect and would get session errors about the X
+connection failing with a 111 Connection Refused and a message about
+channels with certain file descriptors and IDs not being closed.  We've
+hit this in the past and have never gotten around it reliably.  Any
+success seemed to be purely random luck.
+
+Today, we cracked one definitively.  The problem was a
+mangled /tmp/.X11-unix directory.  It is very specific to our
+environment but it may jog someone else's mind to find what the ultimate
+underlying issue is.
+
+We have been working on creating portable, encrypted boot sticks to boot
+a lightweight Linux desktop to connect to our X2Go systems as a way of
+getting around the poor performance of the Windows X2Go client as well
+as provide extra security, lower end user support requirements, further
+separation between the data center based &quot;Content Network&quot; and the
+unmanaged end devices, and portability between physical computers.
+
+All the testing and builds were done with the same very old laptop with
+Debian Squeeze.  The only differences was one boot stick was built by
+installing Debian from the netinstall CD and used LXDE and the other was
+built with debootstrap and used Xfce.  In both cases, we had a script
+named settmp to move the /tmp directory into RAM if there was sufficient
+RAM in the machine.  It did this by copying anything already in /tmp to
+a scratch directory, deleting everything in /tmp, remounting /tmp as a
+tmpfs, copying everything back in, and then erasing the contents of the
+scratch directory.  File transfers were done with rsync to ensure easier
+and safer handling of hidden files (no rm -Rf /tmp/.* - which
+deletes /tmp/.. ! - thankfully did not learn that the hard way).
+
+The LXDE system ran x2goclient perfectly well but the Xfce system almost
+never connected.  Suspecting it was an SSH problem because of the
+channel error messages, I tried doing an ssh -X to the x2goserver and
+running xterm.  It complained about a connection refused and pointed
+to .X11-unix which I remembered was in /tmp.  I wondered if the moving
+and then moving back was mangling it.  I then restarted X on the same
+system now that /tmp was already moved and x2goclient worked perfectly.
+
+I then rewrote the script as a real init script and used insserv to
+place it before x11-common.  After several reboots, it has worked
+flawlessly.  x2goclient connects all the time.  In retrospect, I had
+comment out the settmp script on the LXDE station while troubleshooting
+something else and had forgotten about it!
+
+So, we successfully solved the dreaded X connection refused problem in
+our environment.  Hopefully that will help the others who have been
+burned by it - John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000364.html">[X2go-User] x2goserver on SLES11
+</A></li>
+	<LI>Next message: <A HREF="000366.html">[X2go-User] pyhoca-gui, x2goclient compatibility bugfix released
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#365">[ date ]</a>
+              <a href="thread.html#365">[ thread ]</a>
+              <a href="subject.html#365">[ subject ]</a>
+              <a href="author.html#365">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

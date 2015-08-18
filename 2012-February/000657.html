@@ -1,0 +1,242 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gothinclient w/o pxe
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20w/o%20pxe&In-Reply-To=%3CCAJxwJyjoSe_jo6pkF32Z-SZC-ZTdG_74rynktNywrCrFcDVVtA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000655.html">
+   <LINK REL="Next"  HREF="000649.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gothinclient w/o pxe</H1>
+    <B>Jonathan Brown</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20w/o%20pxe&In-Reply-To=%3CCAJxwJyjoSe_jo6pkF32Z-SZC-ZTdG_74rynktNywrCrFcDVVtA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2gothinclient w/o pxe">jbssfl at gmail.com
+       </A><BR>
+    <I>Fri Feb 24 22:57:36 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000655.html">[X2Go-User] x2gothinclient w/o pxe
+</A></li>
+        <LI>Next message: <A HREF="000649.html">[X2Go-User] Call logout script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#657">[ date ]</a>
+              <a href="thread.html#657">[ thread ]</a>
+              <a href="subject.html#657">[ subject ]</a>
+              <a href="author.html#657">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike, cool that sounds good.
+
+On Fri, Feb 24, 2012 at 3:15 PM, Mike Gabriel
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+&gt;<i> Hi Jonathan,
+</I>&gt;<i>
+</I>&gt;<i> without having tested any of the steps described below, I feel that your
+</I>&gt;<i> approach has some great potential.
+</I>&gt;<i>
+</I>&gt;<i> Actually, it is something I planned to stuff into pyhoca-ltsp and use LDM as
+</I>&gt;<i> login manager.
+</I>&gt;<i>
+</I>&gt;<i> I won't have time during the next week, but I keep this mail highlighted and
+</I>&gt;<i> will return back to you later (2-3 weeks), ok?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Fr 24 Feb 2012 01:05:52 CET Jonathan Brown wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> A cursory reading of the online lit I found relating to x2gothinclient
+</I>&gt;&gt;<i> seems to require that the stations all pxeboot...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I don't want thinclients that pxeboot.. what I need is a minimal OS that
+</I>&gt;&gt;<i> is
+</I>&gt;&gt;<i> setup to autologin to X and then pyhoca-cli to the x2go-server... can the
+</I>&gt;&gt;<i> x2gothinclient packages do this say on a minimal debian install for the
+</I>&gt;&gt;<i> thinclient.. ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Since I did not see this capability, I already built from scratch a
+</I>&gt;&gt;<i> minimal
+</I>&gt;&gt;<i> Debian 6 that does an autologin into X using gdm/matchbox wm, and then
+</I>&gt;&gt;<i> created a script that force loops a username/pw graphical dialog using yad
+</I>&gt;&gt;<i> (zenity fork)... suffice it to say this works well... but I'm thinking if
+</I>&gt;&gt;<i> x2gothinclient already had the capability to do this then I did it all for
+</I>&gt;&gt;<i> nought.. except it was definitely a good exercise...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The steps and scripts that I did do make this pxe-less x2g0
+</I>&gt;&gt;<i> thin-client/kiosk follow ... I'm sure this can be quite improved...
+</I>&gt;&gt;<i> actually the main thing I'd like to improve is to have the matchbox wm/X
+</I>&gt;&gt;<i> on
+</I>&gt;&gt;<i> the local thin client be aware when there is no activity in the x2go
+</I>&gt;&gt;<i> session, and if no activity, then kill or suspend the pyhoca-cli session,
+</I>&gt;&gt;<i> thus going back to the yad login prompt, but I haven't found a way to do
+</I>&gt;&gt;<i> this (normal logout of the x2go session of course works fine and brings
+</I>&gt;&gt;<i> you
+</I>&gt;&gt;<i> back to the yad login prompt)... I think the problem is that matchbox wm/X
+</I>&gt;&gt;<i> always thinks there is activity when the x2go session is logged in/active,
+</I>&gt;&gt;<i> even when there is no activity in the x2go session itself...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any thoughts on any of the above would be appreciated!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Steps/scripts etc for x2g0 thin-client/kiosk:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> OK so I pretty much used the guide from:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="http://www.alandmoore.com/blog/2011/11/05/creating-a-kiosk-with-linux-and-x11-2011-edition/">http://www.alandmoore.com/blog/2011/11/05/creating-a-kiosk-with-linux-and-x11-2011-edition/</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> and went from there...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After initial Debian squeeze install with only ssh server:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Add x2go sources and install pyhoca-cli
+</I>&gt;&gt;<i> apt-get install xorg
+</I>&gt;&gt;<i> apt-get install gdm --no-install-recommends
+</I>&gt;&gt;<i> apt-get install xautolock feh
+</I>&gt;&gt;<i> wget
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="http://archive.ualinux.com/ubuntu/main/lucid/yad_0.15.0-1~webupd8~lucid_i386.deb">http://archive.ualinux.com/ubuntu/main/lucid/yad_0.15.0-1~webupd8~lucid_i386.deb</A>
+</I>&gt;&gt;<i> dpkg -i yad_0.15.0-1~webupd8~lucid_i386.deb
+</I>&gt;&gt;<i> (the above is an ubuntu lucid yad deb package but it worked so I didn't
+</I>&gt;&gt;<i> ask
+</I>&gt;&gt;<i> any further questions :) &#160;... there might be a better yad package for
+</I>&gt;&gt;<i> squeeze but I could not find one)
+</I>&gt;&gt;<i> adduser kiosk (or whatever)
+</I>&gt;&gt;<i> cp -r /home/kiosk /opt/;
+</I>&gt;&gt;<i> cd /opt/kiosk/;
+</I>&gt;&gt;<i> chmod -R a+r .;
+</I>&gt;&gt;<i> touch .xprofile
+</I>&gt;&gt;<i> chmod a+x .xprofile
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> my .xprofile:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/.xprofile
+</I>&gt;&gt;<i> xset s off
+</I>&gt;&gt;<i> xset -dpms
+</I>&gt;&gt;<i> matchbox-window-manager &amp;
+</I>&gt;&gt;<i> eval `cat /home/sagotech/.fehbg` &amp;
+</I>&gt;&gt;<i> xautolock -secure -time 10 -locker /usr/local/bin/suspend_pyhoca-cli.sh &amp;
+</I>&gt;&gt;<i> while true; do
+</I>&gt;&gt;<i> &#160; &#160;rsync -qr --delete --exclude='.Xauthority' /opt/sagotech/ $HOME/
+</I>&gt;&gt;<i> &#160; &#160;exec /home/sagotech/start_pyhoca.sh
+</I>&gt;&gt;<i> done
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> suffice it to say xautolock does not detect non-activity in an x2go
+</I>&gt;&gt;<i> session
+</I>&gt;&gt;<i> so the suspend_pyhoca-cli.sh never ran:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat
+</I>&gt;&gt;<i> /usr/local/bin/suspend_pyhoca-cli.sh
+</I>&gt;&gt;<i> #!/bin/bash
+</I>&gt;&gt;<i> pyhoca-cli -S
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> (for background behind the yad login prompt):
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/.fehbg
+</I>&gt;&gt;<i> feh --bg-scale '/usr/share/wallpaper/custom-bk-2.jpg'
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The script that brings up the yad login prompt loop called from .xprofile
+</I>&gt;&gt;<i> follows... so we have this loop inside the loop of the .xprofile script...
+</I>&gt;&gt;<i> not sure if this necessary or a good thing etc.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/start_pyhoca.sh
+</I>&gt;&gt;<i> #!/bin/bash
+</I>&gt;&gt;<i> while true; do
+</I>&gt;&gt;<i> frmdata=$(yad --center --undecorated
+</I>&gt;&gt;<i> --image=/usr/share/wallpaper/sago-header-mod.jpg --image-on-top
+</I>&gt;&gt;<i> --button=&quot;gtk-ok:0&quot; --title &quot;Login to Sago Linux Terminal Server&quot; --form
+</I>&gt;&gt;<i> --field=&quot;AD username&quot; --field=&quot;Password:H&quot;)
+</I>&gt;&gt;<i> frmusername=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $1 }')
+</I>&gt;&gt;<i> frmpassword=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $2 }')
+</I>&gt;&gt;<i> pyhoca-cli --server X.X.X.X -u $frmusername --password $frmpassword -c
+</I>&gt;&gt;<i> startkde --sound none --kbd-layout us --kbd-type pc105/us -g fullscreen
+</I>&gt;&gt;<i> --add-to-known-hosts
+</I>&gt;&gt;<i> done
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The above basically gives you a login prompt and forces you to enter a
+</I>&gt;&gt;<i> login AND password and the password is hidden when you type it it puts a
+</I>&gt;&gt;<i> nice header image at the top of the prompt.. it only gives an OK button
+</I>&gt;&gt;<i> (no
+</I>&gt;&gt;<i> cancel)... &#160;then passes off the username/pw to pyhoca-cli
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> So yeah I would like to improve this so that inactive x2go sessions get
+</I>&gt;&gt;<i> suspended and go back to the yad login prompt... perhaps there is a
+</I>&gt;&gt;<i> pyhoca-cli switch that does this that I'm not aware of... But even without
+</I>&gt;&gt;<i> that feature this works real nice as a non-pxe x2go thin-client station.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Anyway this is all probably very messy and amateurish, but I am not
+</I>&gt;&gt;<i> exactly
+</I>&gt;&gt;<i> a programmer or very proficient bash scripter so.. :) &#160;Also I might be
+</I>&gt;&gt;<i> missing a few steps and if any of the above does not make sense please
+</I>&gt;&gt;<i> advise and I'll try to see if I missed something in the steps given
+</I>&gt;&gt;<i> above...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any thoughts on any of the above would be appreciated!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> *&quot;It is only when each individual has achieved inner peace that we will
+</I>&gt;&gt;<i> see
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> lasting outer peace in the world&quot;
+</I>&gt;&gt;<i> *
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+&quot;It is only when each individual has achieved inner peace that we will
+see lasting outer peace in the world&quot;
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000655.html">[X2Go-User] x2gothinclient w/o pxe
+</A></li>
+	<LI>Next message: <A HREF="000649.html">[X2Go-User] Call logout script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#657">[ date ]</a>
+              <a href="thread.html#657">[ thread ]</a>
+              <a href="subject.html#657">[ subject ]</a>
+              <a href="author.html#657">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

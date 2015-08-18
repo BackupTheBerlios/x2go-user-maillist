@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E819521.7060000%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000399.html">
+   <LINK REL="Next"  HREF="000404.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E819521.7060000%40vandervlis.nl%3E"
+       TITLE="[X2go-User] Crashing sessions">paul at vandervlis.nl
+       </A><BR>
+    <I>Tue Sep 27 11:19:29 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000399.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000404.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 26-09-11 22:31, Paul van der Vlis schreef:
+&gt;<i> Op 20-09-11 18:19, Paul van der Vlis schreef:
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've seen the last time session problems. Sometimes, most of the time
+</I>&gt;&gt;<i> when closing a full-screen window, the whole session is gone. I've seen
+</I>&gt;&gt;<i> this with both x2goclient and Pyhoca-GUI, but I cannot reproduce it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I know this problem from FreeNX, it's one of the reasons I switched to
+</I>&gt;&gt;<i> X2go. I think it's something in the NX libraries.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Maybe it has something to do with new NX libraries?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Are here more people with this issue?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Is here somebody who knows more about this issue?
+</I>&gt;<i> 
+</I>&gt;<i> I've tested with my client (Pyhoca 1.0.8) on Mike's test environment
+</I>&gt;<i> (Heuler), and I did not see any crash.
+</I>
+I've tested now on the server of a customer with Heuler packages, but I
+still see crashes there. I've checked the packages, the machine is using
+the same packages as Mike's machine. But it's an older 32-bit machine,
+Mike's machine is a 64 bit machine.
+
+I don't see something in the logs, the session crashed at 11:08:32:
+------------
+Sep 27 11:08:24 jet2 /usr/bin/x2golistsessions[9162]: x2golistsessions
+has been called with no option
+Sep 27 11:08:28 jet2 /usr/lib/x2go/x2gochangestatus[9216]:
+db_changestatus called, session ID: paul-68-1317114397_stDGNOME_dp24,
+new status: F
+Sep 27 11:08:28 jet2 /usr/bin/x2goumount-session[9235]:
+x2goumount-session has been called with options:
+paul-68-1317114397_stDGNOME_dp24
+Sep 27 11:08:28 jet2 /usr/bin/x2goumount-session[9235]: db_getdisplay
+called, session ID: paul-68-1317114397_stDGNOME_dp24; return value: 68
+Sep 27 11:08:28 jet2 /usr/bin/x2goumount-session[9235]: db_getmounts
+called, session ID: paul-68-1317114397_stDGNOME_dp24; return value:
+Sep 27 11:08:29 jet2 /usr/bin/x2golistsessions[9253]: x2golistsessions
+has been called with no option
+Sep 27 11:08:37 jet2 /usr/bin/x2golistsessions[9290]: x2golistsessions
+has been called with no option
+Sep 27 11:08:43 jet2 /usr/bin/x2golistsessions[9314]: x2golistsessions
+has been called with no option
+-----------
+
+Not sure what it is...
+
+With regards,
+Paul.
+
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000399.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000404.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#401">[ date ]</a>
+              <a href="thread.html#401">[ thread ]</a>
+              <a href="subject.html#401">[ subject ]</a>
+              <a href="author.html#401">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

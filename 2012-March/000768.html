@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver on vserver guest
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20on%20vserver%20guest&In-Reply-To=%3CCAF-%2BOzCg2CbfSrQvvh0HopSKwc0CqHGtTwsO%2BkT9Lji23hyvsg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000767.html">
+   <LINK REL="Next"  HREF="000756.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver on vserver guest</H1>
+    <B>Ad&#232;lphe Rafanambinana</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20on%20vserver%20guest&In-Reply-To=%3CCAF-%2BOzCg2CbfSrQvvh0HopSKwc0CqHGtTwsO%2BkT9Lji23hyvsg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2goserver on vserver guest">radelphe at gmail.com
+       </A><BR>
+    <I>Sat Mar 31 09:24:12 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000767.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+        <LI>Next message: <A HREF="000756.html">[X2Go-User] x2go server &amp; client on Ubuntu 12.04 beta fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#768">[ date ]</a>
+              <a href="thread.html#768">[ thread ]</a>
+              <a href="subject.html#768">[ subject ]</a>
+              <a href="author.html#768">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>x2goruncommand does the trick.
+Sorry, I should try to find out my problem before asking here.
+Thank you,
+
+On Sat, Mar 31, 2012 at 07:16, Ad&#232;lphe Rafanambinana &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">radelphe at gmail.com</A>&gt;wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> It's not a problem with fuse module, it was a permission problem in
+</I>&gt;<i> /home/&lt;username&gt;/.x2go/ folder.
+</I>&gt;<i> Looks like x2go couldn't create cmdoutput file in that folder. I adjusted
+</I>&gt;<i> permission and it the error was gone.
+</I>&gt;<i>
+</I>&gt;<i> However, how can I link &quot;Internet browser&quot; to firefox program?
+</I>&gt;<i> In my ubuntu, it goes automatically to Firefox, but it doesn't in Alpine
+</I>&gt;<i> Linux.
+</I>&gt;<i> Keep in mind that I didn't (and don't want) install any desktop on my
+</I>&gt;<i> Alpine Linux. I've installed firefox there.
+</I>&gt;<i>
+</I>&gt;<i> What I did, I wrote a sh script (on Alpine Linux) to export DISPLAY
+</I>&gt;<i> variable to my windows desktop and start firefox:
+</I>&gt;<i>
+</I>&gt;<i> #!/bin/sh
+</I>&gt;<i> export DISPLAY=&lt;IP_OF_WINDOWS_DESKTOP&gt;:0
+</I>&gt;<i> /usr/bin/firefox &amp;
+</I>&gt;<i>
+</I>&gt;<i> And in x2goclient I specify the path of that script.
+</I>&gt;<i> That works, but it's not what I want to have.
+</I>&gt;<i>
+</I>&gt;<i> I want to link &quot;Internet browser&quot; session to /usr/bin/firefox.
+</I>&gt;<i> Does my question/explanation makes sense? Is that possible?
+</I>&gt;<i>
+</I>&gt;<i> Thank you,
+</I>&gt;<i>
+</I>&gt;<i> On Sat, Mar 31, 2012 at 06:06, Ad&#232;lphe Rafanambinana &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">radelphe at gmail.com</A>&gt;wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi John,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thank you for your e-mail, and I'm sorry for the delayed response.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I forgot to mention on my previous message, that I&#472;e tried to load fuse
+</I>&gt;&gt;<i> inside my vserver.
+</I>&gt;&gt;<i> I used this link (<A HREF="http://linux-vserver.org/Fuse_GlusterFS">http://linux-vserver.org/Fuse_GlusterFS</A>) to get idea
+</I>&gt;&gt;<i> on how to do that.
+</I>&gt;&gt;<i> Unfortunately, it didn't help.
+</I>&gt;&gt;<i> So I'm wondering:
+</I>&gt;&gt;<i> 1. According to the error message, is the problem really due to the
+</I>&gt;&gt;<i> missing of fuse module, or is it something else?
+</I>&gt;&gt;<i> 2. If it's a problem with fuse module, how can I test/check if that it's
+</I>&gt;&gt;<i> loaded in vserver guest? (maybe I should ask that question to vserver
+</I>&gt;&gt;<i> mailing-list)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You said in your previous message:
+</I>&gt;&gt;<i> &gt;Even that will not allow fusermount to work so local
+</I>&gt;&gt;<i> &gt; shares are a problem.  To work around that, we removed that
+</I>&gt;&gt;<i> &gt; functionality from the X2Go scripts running on the guest and moved them
+</I>&gt;&gt;<i> &gt; and a modified x2gocleansessions script to the host.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> How can I do something like that on my set up?
+</I>&gt;&gt;<i> Thank you,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Thu, Mar 29, 2012 at 07:52, John A. Sullivan III &lt;
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jsullivan at opensourcedevel.com</A>&gt; wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> On Thu, 2012-03-29 at 03:50 -0400, John A. Sullivan III wrote:
+</I>&gt;&gt;&gt;<i> &gt; On Thu, 2012-03-29 at 07:29 +0300, Ad&#232;lphe Rafanambinana wrote:
+</I>&gt;&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;&gt;<i> &gt; &gt; Hi all,
+</I>&gt;&gt;&gt;<i> &gt; &gt;
+</I>&gt;&gt;&gt;<i> &gt; &gt; I'm using x2go on Ubuntu, and it works well.
+</I>&gt;&gt;&gt;<i> &gt; &gt; Starting this week, I'd like to install it on Alpine Linux
+</I>&gt;&gt;&gt;<i> &gt; &gt; (www.alpinelinux.org) which is installed inside a vserver.
+</I>&gt;&gt;&gt;<i> &gt; &gt; (There is an x2goserver package for Alpine Linux in edge repository).
+</I>&gt;&gt;&gt;<i> &gt; &gt; x2goserver and its dependencies are installed correctly.
+</I>&gt;&gt;&gt;<i> &gt; &gt; But when I try to run x2goclient which is installed on my windows
+</I>&gt;&gt;&gt;<i> &gt; &gt; desktop, I got the attached error.
+</I>&gt;&gt;&gt;<i> &gt; &gt; Do you have an idea for it?
+</I>&gt;&gt;&gt;<i> &gt; &gt; I was wondering if it could be related to fuse module, since it
+</I>&gt;&gt;&gt;<i> &gt; &gt; coulodn't loaded in vserver guest.
+</I>&gt;&gt;&gt;<i> &gt; &gt; Any comments are welcome!,
+</I>&gt;&gt;&gt;<i> &gt; &lt;snip&gt;
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; You will need the SECURE_MOUNT, SECURE_REMOUNT, and BINARY_MOUNT
+</I>&gt;&gt;&gt;<i> &gt; ccapabilities.  Even that will not allow fusermount to work so local
+</I>&gt;&gt;&gt;<i> &gt; shares are a problem.  To work around that, we removed that
+</I>&gt;&gt;&gt;<i> &gt; functionality from the X2Go scripts running on the guest and moved them
+</I>&gt;&gt;&gt;<i> &gt; and a modified x2gocleansessions script to the host.
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &gt; We also made several other modifications to take advantage of the
+</I>&gt;&gt;&gt;<i> shared
+</I>&gt;&gt;&gt;<i> &gt; file system to reduce the overhead or running a large number of X2Go
+</I>&gt;&gt;&gt;<i> &gt; server guests on the same vserver host.  Good luck - John
+</I>&gt;&gt;&gt;<i> &gt;
+</I>&gt;&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;&gt;&gt;<i> Oh, I should also mention that the ccapabilities for fusermount may be
+</I>&gt;&gt;&gt;<i> available in newer kernels.  Ours are somewhat old and in need of
+</I>&gt;&gt;&gt;<i> refreshing - John
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> Ad&#232;lphe Rafanambinana
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Ad&#232;lphe Rafanambinana
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+Ad&#232;lphe Rafanambinana
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120331/05140b5d/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120331/05140b5d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000767.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+	<LI>Next message: <A HREF="000756.html">[X2Go-User] x2go server &amp; client on Ubuntu 12.04 beta fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#768">[ date ]</a>
+              <a href="thread.html#768">[ thread ]</a>
+              <a href="subject.html#768">[ subject ]</a>
+              <a href="author.html#768">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

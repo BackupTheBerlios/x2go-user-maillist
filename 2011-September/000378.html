@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E79A7C0.9000004%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000375.html">
+   <LINK REL="Next"  HREF="000380.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E79A7C0.9000004%40vandervlis.nl%3E"
+       TITLE="[X2go-User] Crashing sessions">paul at vandervlis.nl
+       </A><BR>
+    <I>Wed Sep 21 11:00:48 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000375.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000380.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#378">[ date ]</a>
+              <a href="thread.html#378">[ thread ]</a>
+              <a href="subject.html#378">[ subject ]</a>
+              <a href="author.html#378">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 20-09-11 20:20, Mike Gabriel schreef:
+&gt;<i> Hi Paul,
+</I>&gt;<i> 
+</I>&gt;<i> On Di 20 Sep 2011 18:19:27 CEST Paul van der Vlis wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've seen the last time session problems. Sometimes, most of the time
+</I>&gt;&gt;<i> when closing a full-screen window, the whole session is gone. I've seen
+</I>&gt;&gt;<i> this with both x2goclient and Pyhoca-GUI, but I cannot reproduce it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I know this problem from FreeNX, it's one of the reasons I switched to
+</I>&gt;&gt;<i> X2go. I think it's something in the NX libraries.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Maybe it has something to do with new NX libraries?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Are here more people with this issue?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Is here somebody who knows more about this issue?
+</I>&gt;<i> 
+</I>&gt;<i> For a couple of days there were some bugs in x2goserver from nightly
+</I>&gt;<i> builds. You are not using those, maybe?
+</I>&gt;<i>
+</I>&gt;<i> Otherwise: if reporting such issues, please name x2goserver package
+</I>&gt;<i> version, client package version, distro on server, OS/distro on client,
+</I>&gt;<i> etc.pp. Please try to give all these infos when reporting, otherwise
+</I>&gt;<i> everybody here is in the dark...
+</I>
+I use up-to-date Debian Squeeze with Gnome and this X2go repository:
+deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+
+I did some tests with Pyhoca-GUI this morning and I saw some crashes of
+a session.
+
+1. I opened Epiphany and another Window was opened asking me for a
+password for Gnome keyring. I entered the password and clicked OK. Then
+there was a session-crash.
+
+2. I opened OpenOffice Writer without document (3.2.1) a few times full
+screen and closed it. After 4 tries the session crashed.
+
+3. I did OpenOffice test again. And after 5 tries it crashed.
+
+4. I did the OpenOffice test again, but after 20 tries no crash. Then I
+opened a terminal windows and did the OpenOffice test again. Then a
+crash. During the other test I had also an terminal window open (no
+other programs).
+
+5. I tried again with an open terminal window (Gnome terminal 2.30.2
+from Debian stable) and did the OpenOffice test. After 5 tries the
+session crashed.
+
+6. I tried again with an open terminal window. After 9 tries the session
+crashed.
+
+Interesting to tell is maybe, that after restoring the session there was
+no terminal in the session anymore. So I think it's a crash on the
+server-side. The connection was not lost, only the session.
+
+The server is an older normal Intel PC (32-bits, 1 core). The client is
+a newer AMD-based PC (64-bits, 4 cores).
+
+I also tried the same with the same client to a Lenny server what uses
+this repository:
+deb <A HREF="http://x2go.obviously-nice.de/deb/">http://x2go.obviously-nice.de/deb/</A> lenny main
+I did the openoffice test (OOo 2.4 from Lenny) with a terminal but it
+did not crash in 20 tries.
+
+I also tried it with the same client to another server with Squeeze. I
+saw there a crash too while closing OpenOffice (after 8 times). This is
+a stronger server (Xeon 2 cores, Intel server mainboard). Here I saw an
+excisting session in Pyhoca-GUI, but it was not possible to resume it.
+
+With regards,
+Paul
+
+
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000375.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000380.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#378">[ date ]</a>
+              <a href="thread.html#378">[ thread ]</a>
+              <a href="subject.html#378">[ subject ]</a>
+              <a href="author.html#378">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

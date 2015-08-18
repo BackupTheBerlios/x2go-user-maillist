@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Shared folders only work when connecting locally
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Shared%20folders%20only%20work%20when%20connecting%20locally&In-Reply-To=%3C1974302125.94439.1344121839713.JavaMail.apache%40nm23.abv.bg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000967.html">
+   <LINK REL="Next"  HREF="000956.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Shared folders only work when connecting locally</H1>
+    <B>Angel Tsankov</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Shared%20folders%20only%20work%20when%20connecting%20locally&In-Reply-To=%3C1974302125.94439.1344121839713.JavaMail.apache%40nm23.abv.bg%3E"
+       TITLE="[X2Go-User] Shared folders only work when connecting locally">angel.tsankov at abv.bg
+       </A><BR>
+    <I>Sun Aug  5 01:10:39 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000967.html">[X2Go-User] x2gothinclient performance
+</A></li>
+        <LI>Next message: <A HREF="000956.html">[X2Go-User] GVFS does not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#952">[ date ]</a>
+              <a href="thread.html#952">[ thread ]</a>
+              <a href="subject.html#952">[ subject ]</a>
+              <a href="author.html#952">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i>-------- &#1054;&#1088;&#1080;&#1075;&#1080;&#1085;&#1072;&#1083;&#1085;&#1086; &#1087;&#1080;&#1089;&#1084;&#1086; --------
+</I>
+ &gt;&#1054;&#1090;: Mike Gabriel <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>
+
+ &gt;&#1054;&#1090;&#1085;&#1086;&#1089;&#1085;&#1086;: Re: [X2Go-User] Shared folders only work when connecting locally
+
+ &gt;&#1044;&#1086;: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+
+ &gt;&#1048;&#1079;&#1087;&#1088;&#1072;&#1090;&#1077;&#1085;&#1086; &#1085;&#1072;: &#1053;&#1077;&#1076;&#1077;&#1083;&#1103;, 2012, &#1070;&#1083;&#1080; 22 12:44:25 EEST
+
+
+
+ 
+&gt;<i> Hi Angel
+</I> 
+&gt;<i> 
+</I> 
+&gt;<i> On Do 19 Jul 2012 16:39:37 CEST Angel Tsankov wrote:
+</I> 
+&gt;<i> 
+</I> 
+&gt;<i> &gt; Hello.
+</I> 
+&gt;<i> &gt;
+</I> 
+&gt;<i> &gt; It seems that shared folders only work when server host is the same  
+</I> 
+&gt;<i> &gt; as client host. If I start a new session on a remote host I do not  
+</I> 
+&gt;<i> &gt; get the ~/media symlink there.
+</I> 
+&gt;<i> &gt;
+</I> 
+&gt;<i> &gt; Any ideas why this happens or which log files I should look at?
+</I> 
+&gt;<i> 
+</I> 
+&gt;<i> Is the server-side user member of the fuse group?
+</I> 
+
+Yes, it is.
+
+&gt;<i> If yes, set debug loglevel in /etc/x2go/x2goserver.conf and watch  
+</I> 
+&gt;<i> /var/log/syslog.
+</I> 
+
+Looking at /var/log/syslog reveals that the shared folder (/home/angel/desktop) is mounted like this:
+
+successfully mounted <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">angel at 127.0.0.1</A>:30006/home/angel/desktop to /tmp/.x2go-angel/media/disk/_home_angel_desktop
+
+&gt;<i> If that does not help: what X2Go version do you have on the server  
+</I> 
+&gt;<i> (run x2goversion command).
+</I>
+x2goserver: 3.1.1.3
+x2goserver-extensions: 3.1.1.3
+x2goserver-xsession: 3.1.1.3
+
+&gt;<i> On what distro are you, what version of  
+</I> 
+&gt;<i> that distro do you use (all server-side).
+</I> 
+
+Debian Squeeze
+
+Regards,
+Angel Tsankov
+
+&gt;<i> Greets,
+</I> 
+&gt;<i> Mike&#160;
+</I></PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000967.html">[X2Go-User] x2gothinclient performance
+</A></li>
+	<LI>Next message: <A HREF="000956.html">[X2Go-User] GVFS does not work
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#952">[ date ]</a>
+              <a href="thread.html#952">[ thread ]</a>
+              <a href="subject.html#952">[ subject ]</a>
+              <a href="author.html#952">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Chaining of x2go via 2 sessions, proxy? What is best solution?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Chaining%20of%20x2go%20via%202%20sessions%2C%0A%20proxy%3F%20What%20is%20best%20solution%3F&In-Reply-To=%3C52D311B7.2030401%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001951.html">
+   <LINK REL="Next"  HREF="001944.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Chaining of x2go via 2 sessions, proxy? What is best solution?</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Chaining%20of%20x2go%20via%202%20sessions%2C%0A%20proxy%3F%20What%20is%20best%20solution%3F&In-Reply-To=%3C52D311B7.2030401%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] Chaining of x2go via 2 sessions, proxy? What is best solution?">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Sun Jan 12 23:05:43 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001951.html">[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?
+</A></li>
+        <LI>Next message: <A HREF="001944.html">[X2Go-User] imac keyboard
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1952">[ date ]</a>
+              <a href="thread.html#1952">[ thread ]</a>
+              <a href="subject.html#1952">[ subject ]</a>
+              <a href="author.html#1952">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 12.01.2014 18:57, schrieb Buddy Butterfly:
+
+[multi-hop SSH/X2Go]
+ &gt;&gt;     Is probably an ssh forward enough?
+
+SSH forwarding does the trick.
+
+So, instead of
+
+ssh -p externalsshport <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">externaluser at externalip.or.domain.name</A>
+
+simply do
+
+ssh -L2222:internal.ip.or.name.of.x2gohost:22 -p externalsshport \
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">externaluser at externalip.or.domain.name</A>
+
+Then connect your X2goclient to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">internaluser at localhost</A>:2222.
+
+If you already use 2222 for something else, change it to anything 
+available in both the ssh and the x2go call.
+
+If you're using any other port than 22 for your internal connection to 
+your x2gohost, change the 22 in the ssh call.
+
+Of course, you could also consider something more elaborate like 
+routing, firewalling and portforwarding, or a VPN connection.
+
+-Stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001951.html">[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?
+</A></li>
+	<LI>Next message: <A HREF="001944.html">[X2Go-User] imac keyboard
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1952">[ date ]</a>
+              <a href="thread.html#1952">[ thread ]</a>
+              <a href="subject.html#1952">[ subject ]</a>
+              <a href="author.html#1952">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

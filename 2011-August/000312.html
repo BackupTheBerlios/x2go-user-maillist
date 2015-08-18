@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Indirect connection
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C1313189170.2696.8.camel%40jasiiieee.pacifera.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000309.html">
+   <LINK REL="Next"  HREF="000314.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Indirect connection</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Indirect%20connection&In-Reply-To=%3C1313189170.2696.8.camel%40jasiiieee.pacifera.com%3E"
+       TITLE="[X2go-User] Indirect connection">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Sat Aug 13 00:46:10 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000309.html">[X2go-User] Indirect connection
+</A></li>
+        <LI>Next message: <A HREF="000314.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2011-08-12 at 10:08 +0200, Paul van der Vlis wrote: 
+&gt;<i> Hello,
+</I>&gt;<i> 
+</I>&gt;<i> I have customers with x2go installations in a local network behind NAT
+</I>&gt;<i> (fat clients), and I am looking for a way how to connect easy to them.
+</I>&gt;<i> 
+</I>&gt;<i> Of cause I can make a port forwarding, or an SSH tunnel from the fat
+</I>&gt;<i> client to my computer, but maybe you have a better and more flexible idea?
+</I>&gt;<i> 
+</I>&gt;<i> In earlyer times I used TightVNC. There was the great &quot;-via&quot; command,
+</I>&gt;<i> something like:  vncviewer -via <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">henk at server.henk.nl</A> 192.168.0.33
+</I>&gt;<i> 
+</I>&gt;<i> Any ideas how to be flexible behind NAT with X2go?
+</I>Hi, Paul.  Let me make sure I understand.  The server is on an internal
+network behind NAT and users on the outside need to come in to it?
+
+If so, I would suggest changing the SSH port to a non-standard port and
+then allowing that port through your firewall.  For extra security, you
+could move the X2Go server to a separate network separated from the main
+network by a firewall and only allow explicit access to needed resources
+from the X2Go server.  That's what we do with the ISCS project for
+micro-perimeter security (iscs.sourceforge.net)
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000309.html">[X2go-User] Indirect connection
+</A></li>
+	<LI>Next message: <A HREF="000314.html">[X2go-User] Indirect connection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#312">[ date ]</a>
+              <a href="thread.html#312">[ thread ]</a>
+              <a href="subject.html#312">[ subject ]</a>
+              <a href="author.html#312">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

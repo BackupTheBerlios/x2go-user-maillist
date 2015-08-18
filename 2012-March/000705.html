@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go + chroot
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C1707144755.20120315223846%40riseup.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000704.html">
+   <LINK REL="Next"  HREF="000706.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go + chroot</H1>
+    <B>BUGHUNTER</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C1707144755.20120315223846%40riseup.net%3E"
+       TITLE="[X2Go-User] x2go + chroot">bughunter at riseup.net
+       </A><BR>
+    <I>Thu Mar 15 22:38:46 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000704.html">[X2Go-User] x2go + chroot
+</A></li>
+        <LI>Next message: <A HREF="000706.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#705">[ date ]</a>
+              <a href="thread.html#705">[ thread ]</a>
+              <a href="subject.html#705">[ subject ]</a>
+              <a href="author.html#705">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Mike,
+
+&gt;<i> I try to hear what you aim at... My guess: one central installation of
+</I>&gt;<i> X2Go and a desktop shell (GNOME, KDE, ...) or single applications.  
+</I>
+yes, that is right!
+
+&gt;<i> Whereas the software rests in one single installations each user is  
+</I>&gt;<i> presented with his/her own chroot.
+</I>
+Having to setup applications for each user would be pita I think...
+
+&gt;<i> How about installing X2Go + applications on the server and then  
+</I>&gt;<i> setting up a chroot with --bind mounts and tmpfs directories. Each  
+</I>&gt;<i> chroot jail will have _one_ homedir and ,,linked-in''-FHS-compliant  
+</I>&gt;<i> directories.
+</I>
+well, how exactly the chroot should be setup so that everything works?
+
+&gt;<i> Tricky approach this will be...
+</I>
+if there is no best-practice in doing this already: how are people
+preventing users from walking up the directory tree?
+
+One might argue that a chroot is not really needed (if you have no
+problem with users reading your /etc - why not) or e.g. SELinux might
+be the better way to setup tighter server-side security precautions -
+I am open to any solution, but I will prefer the one that is already
+in use somewhere and is best supported by x2go developers. I would not
+like to live on an island with this - should be easily reproducable
+and no super-specialized ultra-individual setup... ;)
+
+Looks for me like best solution would be if x2go-server had a chroot
+feature, like e.g. ftp daemons - all other solutions look like
+maintenance hell. Any chance in getting this on the development road
+map? If it is tricky (certainly it is!) - this is one more argument
+for doing it the right way once and forever... one config variable
+
+chroot-users=yes
+
+and everybody will go crazy :)))
+
+Thanks for your attention,
+Bughunter
+
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000704.html">[X2Go-User] x2go + chroot
+</A></li>
+	<LI>Next message: <A HREF="000706.html">[X2Go-User] x2go + chroot
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#705">[ date ]</a>
+              <a href="thread.html#705">[ thread ]</a>
+              <a href="subject.html#705">[ subject ]</a>
+              <a href="author.html#705">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Instructions%20for%20manual%20install%20from%20source%20tarballs%20on%0A%09a%20less%20well-known%20distribution&In-Reply-To=%3C1799045.C5SGBz3Vzt%40tervel%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000361.html">
+   <LINK REL="Next"  HREF="000325.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution</H1>
+    <B>Ivan Kabaivanov</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Instructions%20for%20manual%20install%20from%20source%20tarballs%20on%0A%09a%20less%20well-known%20distribution&In-Reply-To=%3C1799045.C5SGBz3Vzt%40tervel%3E"
+       TITLE="[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution">chepati at yahoo.com
+       </A><BR>
+    <I>Wed Aug  3 14:16:01 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000361.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+        <LI>Next message: <A HREF="000325.html">[X2go-User] Instructions for manual install from source tarballs on a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I would like to switch from freenx to x2go, but I don't use a well known 
+distribution.  I have LFS, Linux From Scratch -- a source based distribution.
+
+I'm following the instructions from 
+<A HREF="http://wiki.x2go.org/installing_x2goserver_tarball">http://wiki.x2go.org/installing_x2goserver_tarball</A> and INSTALL from the 
+x2goserver tarball.  but I fail to get it to work.
+
+Firstly, the server dependencies are listed as:
+
+perl-suid
+lsof
+openssh-client
+openssh-server
+libconfig-simple-perl
+makepasswd
+libdbd-pg-perl
+libdbd-sqlite3-perl
+xauth
+
+I've installed everything except for perl-suid as this is no longer part of 
+recent perl versions.  Not sure how critical this is.
+
+Then, I follow the installation details from x2goserver's INSTALL:
+
+========== BEGIN QUOTE ============
+TARBALL INSTALLATION OF x2goserver
+==================================
+
+1.) USER + GROUP for X2go
+-------------------------
+Set up x2gouser account and its group if they do not exist
+already:
+
+ $ addgroup --system x2gouser
+ $ adduser --system --no-create-home \
+           --disabled-password --disabled-login \
+           --shell /bin/false --group --home /var/lib/x2go x2gouser
+
+2.) INSTALL x2goserver FILES
+-----------------------------
+Extract tarball and run
+
+ $ make install
+
+in base folder of the extracted tarball.
+
+
+3.) SUID GROUP
+--------------
+Configure ownership, permissions and setuid user bit of x2gosqlitewrapper:
+
+  NOTE: The described action have already been performed by the Makefile
+  run, leaving this here for documentation only.
+
+ $ chown root:x2gouser /usr/lib/x2go/x2gosqlitewrapper
+ $ chmod 2755 /usr/bin/x2gosqlitewrapper
+
+4.) DATABASE SETUP (SQLite only)
+--------------------------------
+
+ $ x2godbadmin --createdb
+
+
+5.) INIT SCRIPT
+---------------
+Create a simple init script that starts $PREFIX/sbin/x2gocleansessions on 
+system start
+(runlevel 2-3-4-5).
+
+Alternatively, you can add a single line to /etc/rc.local:
+
+/usr/local/sbin/x2gocleansessions &amp;
+============= END QUOTE ================
+
+Here, there's some debianism, these two commands, addgroup and adduser, must 
+be some debian specific wrappers for groupadd and useradd.  Can you please 
+give me the regular groupadd and useradd command equivalents?
+
+Also, in some documentation files, I've see mention of a group x2gousers, 
+while here the group name is x2gouser.  Which one is it?
+
+Then there's the confusion of which packages I really need.  So far I'm 
+compiling the below packages in the following order:
+
+nxcomp
+nxproxy
+nxcompshad
+nxcompext
+x2goserver
+x2goclient
+
+I use git for pulling the source by the way.
+
+Then I do
+ $ chown root:x2gouser /usr/lib/x2go/x2gosqlitewrapper
+ $ chmod 2755 /usr/bin/x2gosqlitewrapper
+
+Then I run as roon x2godbadmin --createdb (I use sqlite) and finally
+
+x2gocleansessions 
+
+
+Then from another computer I fire up the x2goclient, create a connection and 
+try to initiate it.  This is what I get in the console:
+
+
+$ x2goclient 
+ONMainWindow constructor 
+
+Can't load translator (:/x2goclient_en_us) !
+
+Can't load translator  :/qt_en_US 
+ONMainWindows constructor finished, home Directory is: &quot;/home/ivan&quot; 
+
+read  2  sessions from config file 
+start new ssh connection 
+
+setting SSH DIR to  &quot;/home/ivan/ssh&quot; 
+ssh connection ok 
+
+continue normal x2go session 
+
+&quot;x2gostartagent 1024x768 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 0 D 
+KDE&quot; 
+
+Agent output: &quot;50
+4e95e90f6adaf1f7288f53a489a4e605
+2449
+ivan-50-1312372325_stDKDE_dp24
+30004
+30005
+30006
+&quot; 
+starting nxproxy with:  &quot;nxproxy -S nx/nx,options=/home/ivan/.x2go/S-
+ivan-50-1312372325_stDKDE_dp24/options:50&quot; 
+
+&quot;
+NXPROXY - Version 3.4.0
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '3940'.
+Session: Starting session at 'Wed Aug  3 14:52:17 2011'.
+Info: Connecting to remote host 'localhost:30007'.
+Info: Connection to remote proxy 'localhost:30007' established.                 
+&quot;                                                                               
+                                                                                
+setting SSH DIR to  &quot;/home/ivan/ssh&quot;                                            
+&quot;channel_open_forward failed&quot; :  &quot;Channel opening failure: channel 47 error 
+(2) Connection refused&quot;                                                             
+                                                                                
+&quot;channel_write failed&quot;  -  &quot;Remote channel is closed&quot;                           
+                                                                                
+&quot;Error: The remote NX proxy closed the connection.                              
+&quot;                                                                               
+                                                                                
+&quot;Error: Failure negotiating the session in stage '7'.                           
+Error: Wrong version or invalid session authentication cookie.                  
+Session: Terminating session at 'Wed Aug  3 14:52:18 2011'.                     
+Session: Session terminated at 'Wed Aug  3 14:52:18 2011'.                      
+&quot;                                                                               
+                                                                                
+deleting proxy                                                                  
+                                                                                
+nxproxy not running                                                             
+                                                                                
+proxy deleted                                                                   
+                                                                                
+check command message                                                           
+                                                                                
+&quot;channel_open_session failed&quot; :  &quot;Received SSH_MSG_DISCONNECT: Received ieof 
+for nonexistent channel 0.&quot;
+
+
+If I try to login again, I get a window listing one running session, which I 
+can't resume and an error message:
+
+Connection failed channel_open_session failed - Received SSH_MSG_DISCONNECT: 
+Received ieof for nonexistent channel 0.
+
+
+In the debian installtion, I see you use sudo but in the INSTALL file this 
+step is missing.
+
+I've install sshfs anf fuse and I believe all the other dependencies.
+
+My questions are:
+
+1) Any way to enable debugging on the server side
+2) Any way to enable debugging on the client side
+3) Do I need to install and use x2goagent
+
+Any help/hints/useful links you offer will be greatly appreciated.  When I get 
+everything working, I will contribute a nice write-up for use on the wiki.  
+Modesty aside, I believe I write pretty clear and good documentation.  As I'm 
+working on my own LFS-based distribution, I will be following the new releases 
+of x2go and will be updating the instructions too.
+
+Thanks,
+IvanK.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000361.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+	<LI>Next message: <A HREF="000325.html">[X2go-User] Instructions for manual install from source tarballs on a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#299">[ date ]</a>
+              <a href="thread.html#299">[ thread ]</a>
+              <a href="subject.html#299">[ subject ]</a>
+              <a href="author.html#299">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

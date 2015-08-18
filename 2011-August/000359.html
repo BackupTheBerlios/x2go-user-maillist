@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2goclient armel builds
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20armel%20builds&In-Reply-To=%3CCAFX-c4t3wdqfqHF%2BaS18sfDD_yGWX1Z5mSXoN0%2BC73s-9%2BXYEg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000358.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2goclient armel builds</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20armel%20builds&In-Reply-To=%3CCAFX-c4t3wdqfqHF%2BaS18sfDD_yGWX1Z5mSXoN0%2BC73s-9%2BXYEg%40mail.gmail.com%3E"
+       TITLE="[X2go-User] x2goclient armel builds">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Wed Aug 31 12:34:29 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000358.html">[X2go-User] X2Go problem
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#359">[ date ]</a>
+              <a href="thread.html#359">[ thread ]</a>
+              <a href="subject.html#359">[ subject ]</a>
+              <a href="author.html#359">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike
+
+Not sure if you remember but when I was trying to get PyHoca working on a
+chrooted Ubuntu environment on the
+nook color tablet I was also getting the RandR error in the logs.
+
+Initial authentication would work but before I'd see any remote display it
+would crash.
+
+My environment was an Android tablet, chrooted Ubuntu running LXDE so it was
+running Ubuntu's x-server at the time.
+
+Brian
+
+
+---------- Forwarded message ----------
+From: &quot;Jimmy Knowles&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lespedeza at gmail.com</A>&gt;
+To: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+Date: Tue, 30 Aug 2011 13:59:27 -0400
+Subject: [X2go-User] question regarding x2goclient armel builds
+
+Thanks for your work on the x2go packages.  I was hoping someone could help
+me to be able to connect using the armel builds. I have a hp touchpad with x
+server running and a chrooted version of debian squeeze.  I&#8217;ve installed the
+packages without any problems and I&#8217;m having some problems getting a session
+to start successfully.  When I initiate a session from the touchpad, it will
+connect and the desktop displays, but any window manager items seem to
+crash.  The panels don&#8217;t display, any pop-up windows just flash and
+flicker.  Only the desktop icons display correctly.  And dmesg gives the
+following errors repeatedly:****
+
+** **
+
+[65102.522642] metacity[5959]: segfault at 0 ip 00007f5d5e4e1ea1 sp
+00007ffffb4ba480 error 4 in libXrender.so.1.3.0[7f5d5e4dd000+9000]****
+
+[65102.523278] gnome-panel[5960]: segfault at 0 ip 00007fca77ca7ea1 sp
+00007fff08238000 error 4 in libXrender.so.1.3.0[7fca77ca3000+9000]****
+
+[65102.720377] trashapplet[5968]: segfault at 0 ip 00007fdb87f6fea1 sp
+00007ffff313ec10 error 4 in libXrender.so.1.3.0[7fdb87f6b000+9000]****
+
+[65103.621171] gnome-panel[5981]: segfault at 0 ip 00007f0211630ea1 sp
+00007fffe7b2b790 error 4 in libXrender.so.1.3.0[7f021162c000+9000]****
+
+[65103.622815] wnck-applet[5966]: segfault at 0 ip 00007fe8dac6eea1 sp
+00007fffca25a130 error 4 in libXrender.so.1.3.0[7fe8dac6a000+9000]****
+
+[65103.891078] metacity[5980]: segfault at 0 ip 00007f43eec66ea1 sp
+00007fffff4193c0 error 4 in libXrender.so.1.3.0[7f43eec62000+9000]****
+
+&#8230;****
+
+[65146.848679] x2goagent[32682]: segfault at 186a690 ip 000000000186a690 sp
+00007fffa244d758 error 15****
+
+** **
+
+What does work is if I&#8217;m resuming a session that was initiated via a windows
+(or amd64) x2goclient.  One difference that I notice is that the
+windows-initiated session name ends with dp32 (I&#8217;m assuming that&#8217;s the color
+depth?) and the touchpad/armel-initiated session ends with dp24.  Any ideas
+on how to get it to work correctly when initiating the session on the armel
+device?****
+
+** **
+
+The server is running ubuntu natty, with version 3.0.99.5-0~49~natty1 of
+x2goserver.****
+
+** **
+
+Thanks,****
+
+** **
+
+Jimmy****
+
+** **
+
+** **
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment-0001.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment-0001.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 197 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment-0002.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110831/27b6fd4c/attachment-0002.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000358.html">[X2go-User] X2Go problem
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#359">[ date ]</a>
+              <a href="thread.html#359">[ thread ]</a>
+              <a href="subject.html#359">[ subject ]</a>
+              <a href="author.html#359">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

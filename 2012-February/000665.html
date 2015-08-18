@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3C4F4DEE4A.8040701%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000664.html">
+   <LINK REL="Next"  HREF="000663.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting</H1>
+    <B>christoffer krakou</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3C4F4DEE4A.8040701%40fleten.net%3E"
+       TITLE="[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting">christoffer at fleten.net
+       </A><BR>
+    <I>Wed Feb 29 10:22:18 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000664.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+        <LI>Next message: <A HREF="000663.html">[X2Go-User] Changing X2Go SSH configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#665">[ date ]</a>
+              <a href="thread.html#665">[ thread ]</a>
+              <a href="subject.html#665">[ subject ]</a>
+              <a href="author.html#665">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everyone
+
+I have managed to come up with a somewhat simple fix for this issue, 
+that works for every desktop. I edited the $HOME/.bashrc file on the 
+server to change the following:
+
+1. comment out the line that says
+	# If not running interactively, don't do anything
+	[ -z &quot;$PS1&quot; ] &amp;&amp; return
+to make the bashrc run during ssh also
+2. append &quot;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nx/X11&quot; to 
+the end of the file.
+
+This works on a per-user basis. putting the line in /etc/profile dosnt 
+make it work globally.
+
+On 02/29/2012 09:06 AM, christoffer krakou wrote:
+&gt;<i> I'm using Unity as a desktop environment. It seems that the command to
+</I>&gt;<i> start it is gnome-session --session=ubuntu or something. i'll play
+</I>&gt;<i> around and see what i can get out of it. Thanks!
+</I>&gt;<i>
+</I>&gt;<i> On 02/28/2012 04:46 PM, Benjamin Shadwick wrote:
+</I>&gt;&gt;<i> Christoffer,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Which desktop environment are you using? (XFCE, KDE, Gnome, etc.)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Since I'm using Xubuntu, I made a script in my home directory named
+</I>&gt;&gt;<i> xubuntu.sh that I think looks something like this (doing it from memory,
+</I>&gt;&gt;<i> since I'm not at home):
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> #!/bin/bash
+</I>&gt;&gt;<i> export XDG_CONFIG_DIRS='/etc/xdg/xdg-xubuntu:/etc/xdg'
+</I>&gt;&gt;<i> export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nx/X11
+</I>&gt;&gt;<i> exec /usr/bin/startxfce4
+</I>
+
+
+-- 
+Venlig Hilsen / Best Regards
+Christoffer Krakou
+Fleten.net APS
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000664.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+	<LI>Next message: <A HREF="000663.html">[X2Go-User] Changing X2Go SSH configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#665">[ date ]</a>
+              <a href="thread.html#665">[ thread ]</a>
+              <a href="subject.html#665">[ subject ]</a>
+              <a href="author.html#665">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

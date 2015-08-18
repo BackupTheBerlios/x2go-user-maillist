@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2go-server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C4E7F87F8.1040206%40arcor.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000387.html">
+   <LINK REL="Next"  HREF="000396.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2go-server</H1>
+    <B>Thomas Ritter</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go-server&In-Reply-To=%3C4E7F87F8.1040206%40arcor.de%3E"
+       TITLE="[X2go-User] x2go-server">th-ritter at arcor.de
+       </A><BR>
+    <I>Sun Sep 25 21:58:48 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000387.html">[X2go-User] [X2go-Dev] Debian packages + Git temporarily	unavailable
+</A></li>
+        <LI>Next message: <A HREF="000396.html">[X2go-User] x2go-server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#395">[ date ]</a>
+              <a href="thread.html#395">[ thread ]</a>
+              <a href="subject.html#395">[ subject ]</a>
+              <a href="author.html#395">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+we are using x2go as Terminal-server-Solution instead of an LTSP-server
+in the skolelinux edu-debian-environment.
+The TS-server works an the Clients are working well, but:
+
+1) The RAM fills with old x2go-sessions. They are not killed by any
+service anytime. The used RAM grows up and the server-performance decrease.
+   I &quot;solved&quot; the problem by killing all x2goagents-prozesses with cron
+twice a day.
+
+2) The home-directories of my users fill with log-files like these :
+/home/pcag01/.x2go/S-es01-119-1313081349_stDKDE_dp24and they are not
+deleted.
+
+3) My logfiles in /var/log like message or syslog grow up to a few
+hundred MB for example with entries like these:
+Sep 22 06:30:24 ltspserver01 ltspserver01 console-kit-daemon[24530]:
+WARNING: Record was not written to disk (File too large)
+Sep 22 06:30:55 ltspserver01 last message repeated 606 times
+
+Is there anyone who understands what my server makes?
+
+Greetings
+Thomas Ritter
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110925/ef8c6674/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110925/ef8c6674/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000387.html">[X2go-User] [X2go-Dev] Debian packages + Git temporarily	unavailable
+</A></li>
+	<LI>Next message: <A HREF="000396.html">[X2go-User] x2go-server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#395">[ date ]</a>
+              <a href="thread.html#395">[ thread ]</a>
+              <a href="subject.html#395">[ subject ]</a>
+              <a href="author.html#395">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

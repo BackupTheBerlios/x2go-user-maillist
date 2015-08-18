@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] KMail composer window doesn't appear with NX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20KMail%20composer%20window%20doesn%27t%20appear%20with%20NX&In-Reply-To=%3C1362761169.29142.1151.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001315.html">
+   <LINK REL="Next"  HREF="001310.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] KMail composer window doesn't appear with NX</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20KMail%20composer%20window%20doesn%27t%20appear%20with%20NX&In-Reply-To=%3C1362761169.29142.1151.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] KMail composer window doesn't appear with NX">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Fri Mar  8 17:46:09 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001315.html">[X2Go-User] exotic multi-display / multi-monitor configuration
+</A></li>
+        <LI>Next message: <A HREF="001310.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1309">[ date ]</a>
+              <a href="thread.html#1309">[ thread ]</a>
+              <a href="subject.html#1309">[ subject ]</a>
+              <a href="author.html#1309">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2013-03-08 at 12:00 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+wrote:
+&gt;<i> Date: Thu, 7 Mar 2013 11:53:38 +0100
+</I>&gt;<i> From: Tristan Miller &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">psychonaut at nothingisreal.com</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: [X2Go-User] KMail composer window doesn't appear with NX
+</I>&gt;<i> Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">201303071153.43213.psychonaut at nothingisreal.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;us-ascii&quot;
+</I>&gt;<i> 
+</I>&gt;<i> Dear all,
+</I>&gt;<i> 
+</I>&gt;<i> This message concerns a longtanding bug bothering KDE users.  Most
+</I>&gt;<i> likely 
+</I>&gt;<i> the bug is with KDE and not NX, but perhaps someone here can help us
+</I>&gt;<i> find 
+</I>&gt;<i> out exactly what's causing the problem.
+</I>&gt;<i> 
+</I>&gt;<i> First, a description of how things normally work with KDE's e-mail
+</I>&gt;<i> client, 
+</I>&gt;<i> KMail:  If one invokes the &quot;New Message&quot;, &quot;Forward&quot;, or &quot;Reply&quot;
+</I>&gt;<i> command on 
+</I>&gt;<i> a message, a composer window opens.  You can then type your message
+</I>&gt;<i> and 
+</I>&gt;<i> send it, at which point the composer window closes.  If you close
+</I>&gt;<i> KMail 
+</I>&gt;<i> while one or more composer windows are still open, then the next time
+</I>&gt;<i> you 
+</I>&gt;<i> launch KMail, those composer windows are restored so you can resume
+</I>&gt;<i> writing 
+</I>&gt;<i> the messages where you left off.
+</I>&gt;<i> 
+</I>&gt;<i> The problem is that if you launch KMail from an NX session, the
+</I>&gt;<i> composer 
+</I>&gt;<i> window usually doesn't appear when you invoke the &quot;Forward&quot; or
+</I>&gt;<i> &quot;Reply&quot; 
+</I>&gt;<i> commands.  I think the composer windows must be created, but for some 
+</I>&gt;<i> reason they are not immediately visible, because if you quit and
+</I>&gt;<i> relaunch 
+</I>&gt;<i> KMail (still over NX), the composer windows you created last time
+</I>&gt;<i> suddenly 
+</I>&gt;<i> appear.
+</I>&gt;<i> 
+</I>&gt;<i> The problem happens usually but not always.  (That is, sometimes when
+</I>&gt;<i> you 
+</I>&gt;<i> launch KMail, the Forward and Reply commands will work for a time, but
+</I>&gt;<i> then 
+</I>&gt;<i> they'll stop working, and will never work again for that session.)
+</I>&gt;<i> The 
+</I>&gt;<i> problem also never happens with the &quot;New message&quot; command, even though
+</I>&gt;<i> to 
+</I>&gt;<i> all outward appearances the same sort of composer window is being
+</I>&gt;<i> launched.
+</I>&gt;<i> 
+</I>&gt;<i> So far I've reproduced the problem with both NoMachine NX and x2go.
+</I>&gt;<i> 
+</I>&gt;<i> Anyone have any idea where the problem might lie?  Is there some sort
+</I>&gt;<i> of 
+</I>&gt;<i> fine-grained debug logging I can enable in x2go which prints a
+</I>&gt;<i> message 
+</I>&gt;<i> every time it tries to display a new window?
+</I>&gt;<i> 
+</I>&gt;<i> Regards,
+</I>&gt;<i> Tristan 
+</I>
+Silly question on my part but is there any chance the composer window is
+appearing under another window, perhaps the mail KMail window? - John
+
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001315.html">[X2Go-User] exotic multi-display / multi-monitor configuration
+</A></li>
+	<LI>Next message: <A HREF="001310.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1309">[ date ]</a>
+              <a href="thread.html#1309">[ thread ]</a>
+              <a href="subject.html#1309">[ subject ]</a>
+              <a href="author.html#1309">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

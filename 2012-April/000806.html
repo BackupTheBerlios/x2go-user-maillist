@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%20that%0A%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3CCAFX-c4ssCEKALDZ5gMq01xSG6hJyeqDHaqvYcYyWMjxvXjeZ5w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000813.html">
+   <LINK REL="Next"  HREF="000807.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%20that%0A%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3CCAFX-c4ssCEKALDZ5gMq01xSG6hJyeqDHaqvYcYyWMjxvXjeZ5w%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Wed Apr 25 16:47:53 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000813.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+        <LI>Next message: <A HREF="000807.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#806">[ date ]</a>
+              <a href="thread.html#806">[ thread ]</a>
+              <a href="subject.html#806">[ subject ]</a>
+              <a href="author.html#806">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>In the past I and others have had no problem with x2go client logins to
+Ubuntu/Debian x2goservers.
+
+However, sometime n the past year or two of Ubuntu &amp; Debian OS updates
+something changed which caused the normal x2goclient session profile that
+requires the UserID -and- Password to be entered would fail giving an error
+message on the client that says:
+
+*Access denied. Authentication that can continue:
+publickey,keyboard-interactive*
+
+I finally found out the reason for this change in behavior and here's how
+to fix it.
+
+Get a terminal session with your x2goserver and edit */etc/ssh/sshd_config*
+
+*sudo nano /etc/ssh/sshd_config*
+
+in /etc/ssh/sshd_config (example was copied from Ubuntu 12.04) you will see
+the following entries:
+
+*# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthenticatio**n yes
+
+# Change to no to disable tunnelled clear text passwords
+PasswordAuthentication no*
+
+To fix this CHANGE   *PasswordAuthentication* to &quot;*yes*&quot; and save the file
+and restart ssh
+
+*sudo /etc/init.d/ssh restart*
+
+*REASON for the failure &amp; change of behavior from previous/older versions
+of Ubuntu.*
+I installed several older versions of Ubuntu going back to Ubuntu 9.10 and
+found that the installations of the Ubuntu Server changed the content of
+the /etc/ssh/sshd_config file!
+
+In older systems the entry for PasswordAuthentication either said:
+
+*# Change to no to disable tunnelled clear text passwords
+# PasswordAuthentication no*
+
+where the PasswordAuthentication line *was commented out* ... which then
+defaulted it to &quot;YES&quot;
+*-or-*
+the Password Authentication line was actually uncommented BUT set to &quot;YES&quot;
+
+*# Change to no to disable tunnelled clear text passwords
+PasswordAuthentication yes*
+
+So those older OS versions and x2go *would work* using login ID's and
+Passwords.
+
+Sometime during one of the Ubuntu 11.x releases the PasswordAuthentication
+entry was actually changed to &quot;no&quot; as is the case in Ubuntu 12.04 servers
+and the line was left not commented out so it was active...
+
+*# Change to no to disable tunnelled clear text passwords
+PasswordAuthentication no
+*
+
+That is what caused the failure of x2go logins using passwords and would
+present the user with that error message:
+
+*Access denied. Authentication that can continue:
+publickey,keyboard-interactive*
+
+I've made this change now and no longer see the problem on my servers so I
+wanted to share this info.
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120425/aa88ad6f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120425/aa88ad6f/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000813.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+	<LI>Next message: <A HREF="000807.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#806">[ date ]</a>
+              <a href="thread.html#806">[ thread ]</a>
+              <a href="subject.html#806">[ subject ]</a>
+              <a href="author.html#806">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

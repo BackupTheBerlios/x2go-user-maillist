@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go client using 100% cpu!
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20client%20using%20100%25%20cpu%21&In-Reply-To=%3Clb6ql3%24mqq%242%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001965.html">
+   <LINK REL="Next"  HREF="001966.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go client using 100% cpu!</H1>
+    <B>Neal Becker</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20client%20using%20100%25%20cpu%21&In-Reply-To=%3Clb6ql3%24mqq%242%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] x2go client using 100% cpu!">ndbecker2 at gmail.com
+       </A><BR>
+    <I>Wed Jan 15 21:22:07 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001965.html">[X2Go-User] x2go client using 100% cpu!
+</A></li>
+        <LI>Next message: <A HREF="001966.html">[X2Go-User] x2go client using 100% cpu!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1964">[ date ]</a>
+              <a href="thread.html#1964">[ thread ]</a>
+              <a href="subject.html#1964">[ subject ]</a>
+              <a href="author.html#1964">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Neal Becker wrote:
+
+&gt;<i> Neal Becker wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I was a happy x2go user up until just now.  I ran a yum update, perhaps
+</I>&gt;&gt;<i> related.
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Now ever time I connect, x2go client uses 100% cpu (actually, 100% of 2 cpus)
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Perhaps related, I always get an error message, a picture is attached.
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> I tried
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> rm -rf ~/.x2go
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> on the server, to make sure I'm getting a clean start
+</I>&gt;<i> 
+</I>&gt;<i> Perhaps related, updates on the client include:
+</I>&gt;<i> 
+</I>&gt;<i> Jan 15 14:40:25 Updated: kde-runtime-flags-4.11.5-2.fc20.noarch
+</I>&gt;<i> Jan 15 14:40:26 Updated: kde-runtime-libs-4.11.5-2.fc20.x86_64
+</I>&gt;<i> Jan 15 14:40:29 Updated: kde-runtime-4.11.5-2.fc20.x86_64
+</I>&gt;<i> Jan 15 14:40:29 Updated: kde-runtime-drkonqi-4.11.5-2.fc20.x86_64
+</I>
+Here's what strace says:
+
+strace -p 3477
+Process 3477 attached
+restart_syscall(&lt;... resuming interrupted call ...&gt;) = 0
+recvfrom(6, 0x2909ac4, 4096, 0, 0, 0)   = -1 EAGAIN (Resource temporarily 
+unavailable)
+recvfrom(6, 0x2909ac4, 4096, 0, 0, 0)   = -1 EAGAIN (Resource temporarily 
+unavailable)
+poll([{fd=3, events=POLLIN}, {fd=7, events=POLLIN}, {fd=8, events=POLLIN}, 
+{fd=6, events=POLLIN}, {fd=16, events=POLLIN}, {fd=18, events=POLLIN}, {fd=22, 
+events=POLLIN}], 7, 0) = 0 (Timeout)
+recvfrom(6, 0x2909ac4, 4096, 0, 0, 0)   = -1 EAGAIN (Resource temporarily 
+unavailable)
+recvfrom(6, 0x2909ac4, 4096, 0, 0, 0)   = -1 EAGAIN (Resource temporarily 
+unavailable)
+poll([{fd=3, events=POLLIN}, {fd=7, events=POLLIN}, {fd=8, events=POLLIN}, 
+{fd=6, events=POLLIN}, {fd=16, events=POLLIN}, {fd=18, events=POLLIN}, {fd=22, 
+events=POLLIN}], 7, 0) = 0 (Timeout)
+...
+
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001965.html">[X2Go-User] x2go client using 100% cpu!
+</A></li>
+	<LI>Next message: <A HREF="001966.html">[X2Go-User] x2go client using 100% cpu!
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1964">[ date ]</a>
+              <a href="thread.html#1964">[ thread ]</a>
+              <a href="subject.html#1964">[ subject ]</a>
+              <a href="author.html#1964">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

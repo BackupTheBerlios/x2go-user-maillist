@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver and centOS 5 x32
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20and%20centOS%205%20x32&In-Reply-To=%3CBAY002-W185B8A98B9C2232ECD18E65A3830%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001032.html">
+   <LINK REL="Next"  HREF="001037.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver and centOS 5 x32</H1>
+    <B>sebastien seba</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20and%20centOS%205%20x32&In-Reply-To=%3CBAY002-W185B8A98B9C2232ECD18E65A3830%40phx.gbl%3E"
+       TITLE="[X2Go-User] x2goserver and centOS 5 x32">seb45 at live.fr
+       </A><BR>
+    <I>Thu Sep 27 13:46:48 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001032.html">[X2Go-User] x2goserver and centOS 5 x32
+</A></li>
+        <LI>Next message: <A HREF="001037.html">[X2Go-User] x2goserver and centOS 5 x32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1036">[ date ]</a>
+              <a href="thread.html#1036">[ thread ]</a>
+              <a href="subject.html#1036">[ subject ]</a>
+              <a href="author.html#1036">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>thank you for your reply
+I think you forget to use a --prefix when compiling tarballs ?? Sebastien
+ # ls /usr/local/bin
+nxproxy             x2golistsessions           x2gostartagent
+x2gobasepath        x2gomountdirs              x2gosuspend
+x2gocmdexitmessage  x2goprint                  x2gosuspend-agent
+x2gofeature         x2goresume-session         x2gosuspend-session
+x2gofeaturelist     x2goruncommand             x2goterminate
+x2gogetapps         x2goserver-run-extensions  x2goterminate-session
+x2gogetservers      x2gosessionlimit           x2goumount_session
+x2golistdesktops    x2gosetkeyboard            x2goumount-session
+x2golistmounts      x2goshowblocks             x2goversion
+# find / |grep -i x2goagent
+/root/nx-libs-3.5.0.15/bin/x2goagent
+/root/nx-libs-3.5.0.15/nx-X11/programs/Xserver/hw/nxagent/man/x2goagent.1
+/root/nx-libs-3.5.0.15/doc/applied-patches/209_x2goagent-add-man-page.full.patch
+...and other files
+# cp /root/nx-libs-3.5.0.15/bin/x2goagent /usr/local/bin/x2goagent
+# chmod 755 /usr/local/bin/x2goagent
+# ln -s /usr/local/bin/x2goagent /usr/local/bin/nxagent # grep ^id /etc/inittab
+id:5:initdefault: # /usr/local/bin/nxagent
+/usr/local/bin/nxagent: line 30: /usr/lib/nx/../x2go/x2goagent: No such file or directory
+/usr/local/bin/nxagent: line 30: exec: /usr/lib/nx/../x2go/x2goagent: cannot execute: No such file or directory # ls /usr/lib/nx/../x2go/
+extensions                            x2gogetdisplays       x2gologlevel
+libx2go-server-db-sqlite3-wrapper     x2gogetports          x2goresume
+libx2go-server-db-sqlite3-wrapper.pl  x2gogetstatus         x2gormport
+x2gochangestatus                      x2goinsertport        x2gosuspend-agent
+x2gocreatesession                     x2goinsertsession     x2gosyslog
+x2gogetagent                          x2golistsessions_sql # find / |grep x2goagent
+/usr/local/bin/x2goagent
+/root/nx-libs-3.5.0.15/bin/x2goagent
+... and other files # cat /etc/redhat-release
+CentOS release 5.8 (Final) Date: Tue, 25 Sep 2012 20:49:22 +0200
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Subject: Re: [X2Go-User] x2goserver and centOS 5 x32
+
+ 
+ 
+On Di 25 Sep 2012 11:40:01 CEST sebastien seba wrote:
+ 
+&gt;<i> cd nx-libs-3.5.0.15
+</I>&gt;<i> make
+</I>&gt;<i> make install
+</I> 
+Can you check if you have a symlink from /usr/local/bin/x2goagent  
+(symlink) to /usr/local/bin/nxagent?
+ 
+Can you launch x2goagent :1 on your machine when logged in via X  
+locally? (An empty X session should appear in a window, like Xnest).
+ 
+Please check that.
+ 
+Greets,
+Mike
+ 
+ 
+-- 
+ 
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+ 
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+ 
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+_______________________________________________
+X2Go-User mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A> 		 	   		  
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120927/4b45a081/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120927/4b45a081/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001032.html">[X2Go-User] x2goserver and centOS 5 x32
+</A></li>
+	<LI>Next message: <A HREF="001037.html">[X2Go-User] x2goserver and centOS 5 x32
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1036">[ date ]</a>
+              <a href="thread.html#1036">[ thread ]</a>
+              <a href="subject.html#1036">[ subject ]</a>
+              <a href="author.html#1036">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

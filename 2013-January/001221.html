@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] desktop sharing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20desktop%20sharing&In-Reply-To=%3C50EE6D18.4040409%40elexis-austria.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001220.html">
+   <LINK REL="Next"  HREF="001222.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] desktop sharing</H1>
+    <B>Bernhard J. Mayr</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20desktop%20sharing&In-Reply-To=%3C50EE6D18.4040409%40elexis-austria.net%3E"
+       TITLE="[X2Go-User] desktop sharing">bernhard.mayr at elexis-austria.net
+       </A><BR>
+    <I>Thu Jan 10 08:26:16 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001220.html">[X2Go-User] [X2Go-Dev] [X2Go-Announcement] New X2Go releases: x2goserver, x2goclient, nx-libs, x2godesktopsharing, x2golxdebindings, x2goplasmabindings, pinentry-x2go
+</A></li>
+        <LI>Next message: <A HREF="001222.html">[X2Go-User] desktop sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1221">[ date ]</a>
+              <a href="thread.html#1221">[ thread ]</a>
+              <a href="subject.html#1221">[ subject ]</a>
+              <a href="author.html#1221">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+Hi!
+
+I am constantly running into the same problem, while trying to share a
+x2go-desktop. I connect to the x2go with user A. Afterwards I try to
+connect using the phy-client with user B trying to connect to the
+desktop of user A.
+On the desktop of user A a window pops up, which asks me to confirm
+sharing my desktop with user B. After I have accepted, the phy-client on
+user B says: &quot;...sharing has been denied by the remote user&quot;
+
+How can I update to x2godesktopsharing version 1.6 ? Apt-get upgrade
+doesn't find any updates although it seems as if I am using version 1.5 ?
+
+*****@srv-lin-2:~$ dpkg -p x2godesktopsharing
+Package: x2godesktopsharing
+Priority: optional
+Section: x11
+Installed-Size: 378
+Maintainer: X2Go Developers &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;
+Architecture: amd64
+Version: 3.0.1.5-0~74~precise1
+Depends: libc6 (&gt;= 2.14), libgcc1 (&gt;= 1:4.1.1), libqt4-network (&gt;=
+4:4.5.3), libqtcore4 (&gt;= 4:4.7.0~beta1), libqtgui4 (&gt;= 4:4.5.3),
+libstdc++6 (&gt;= 4.4.0), x2goserver (&gt;= 3.0.99.9-0~), libqt4-gui
+Size: 158680
+Description: share X2go desktops with other users (via shadow sessions)
+ X2go is a server based computing environment with
+    - session resuming
+    - low bandwidth support
+    - LDAP support
+    - client side mass storage mounting support
+    - audio support
+    - authentication by smartcard and USB stick
+ .
+ x2godesktopsharing is an X2go add-on tool that allows a user to
+ grant other X2go users access to the current session (shadow session
+ support).
+Homepage: <A HREF="http://code.x2go.org/releases/source/x2godesktopsharing">http://code.x2go.org/releases/source/x2godesktopsharing</A>
+
+Kind Regards, Bernhard
+
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.14 (MingW32)
+ 
+iQEcBAEBAgAGBQJQ7m0XAAoJEIC/l90o8tPVeokH/1BkxcZzWYDJQ/3uHPpvMEqI
+6rBca3/niiRUBX5+elThaqoyUjPS5sBxnGVETEGeN1zoCaouheDok7T5ZD9oHwhJ
+2JtIY5Dg5w9d3BPPsRpXoagSRKFQCvfe/cHeHDAGvUONOOwSRCvJgKOIQ4PtsaGr
+US/bIZPaUuxUp5kzdkR9429oknAWIqPdAmgo4ke+zSsnIkcNzELFZgK62dk5B59/
+xxx2ZJqE7Cd4OF+8cRyVAEhMlkdqGQeCxTpScgUfwCqf+Ehn0TJ79xwQzMz6DWJu
+d/+gh+NtFL1/R5BdKaxnCse0HPd3JqhKQLxydqYjljhsIk95rwYXBTARN9f4Xdg=
+=MFWw
+-----END PGP SIGNATURE-----
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0x28F2D3D5.asc
+Type: application/pgp-keys
+Size: 2696 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130110/1eb6dab8/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20130110/1eb6dab8/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0x28F2D3D5.asc.sig
+Type: application/octet-stream
+Size: 287 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130110/1eb6dab8/attachment.obj">https://lists.berlios.de/pipermail/x2go-user/attachments/20130110/1eb6dab8/attachment.obj</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001220.html">[X2Go-User] [X2Go-Dev] [X2Go-Announcement] New X2Go releases: x2goserver, x2goclient, nx-libs, x2godesktopsharing, x2golxdebindings, x2goplasmabindings, pinentry-x2go
+</A></li>
+	<LI>Next message: <A HREF="001222.html">[X2Go-User] desktop sharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1221">[ date ]</a>
+              <a href="thread.html#1221">[ thread ]</a>
+              <a href="subject.html#1221">[ subject ]</a>
+              <a href="author.html#1221">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

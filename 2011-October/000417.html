@@ -1,0 +1,82 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1psM%2BFEC35TgkK0%3DFEbjtqZei2j%3D-vQ6JXKbswZzk7bmQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000416.html">
+   <LINK REL="Next"  HREF="000424.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1psM%2BFEC35TgkK0%3DFEbjtqZei2j%3D-vQ6JXKbswZzk7bmQ%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Crashing sessions">bd.dali at gmail.com
+       </A><BR>
+    <I>Sun Oct  2 19:16:16 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000416.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000424.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;<i> Please switch to loglevel=debug in /etc/x2go/x2goserver.conf and see what
+</I>&gt;<i> syslog brings then.
+</I>&gt;<i>
+</I>&gt;<i> If you have not updated x2goserver.conf yet then place this stanza into the
+</I>&gt;<i> file
+</I>&gt;<i>
+</I>&gt;<i> [log]
+</I>&gt;<i> # possible levels are: emerg, alert, crit, err, warning, notice, info, debug
+</I>&gt;<i> loglevel=debug
+</I>
+Thanks for the tip, unfortunately /var/log/debug didn't give me any
+additional clues to what the problem was.
+
+After several hours of troubleshooting I finally gave up, removed and
+reinstalled Gnome. So far it's looking good, I can start sessions and
+reconnect to them. I'm using nightly builds, i e the new libxcomp3,
+and it works. I guess the problem was in Gnome/dbus alone or some
+combination of them and x2go.
+
+Cheers,
+Daniel
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000416.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000424.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#417">[ date ]</a>
+              <a href="thread.html#417">[ thread ]</a>
+              <a href="subject.html#417">[ subject ]</a>
+              <a href="author.html#417">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

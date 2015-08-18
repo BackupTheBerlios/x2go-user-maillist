@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2goagent listening on public interface - how to make it listen on 127.0.0.1 only?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goagent%20listening%20on%20public%20interface%20-%20how%20to%0A%20make%20it%20listen%20on%20127.0.0.1%20only%3F&In-Reply-To=%3C20120215210651.11344dzrhbrc8wuz%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000596.html">
+   <LINK REL="Next"  HREF="000615.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2goagent listening on public interface - how to make it listen on 127.0.0.1 only?</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goagent%20listening%20on%20public%20interface%20-%20how%20to%0A%20make%20it%20listen%20on%20127.0.0.1%20only%3F&In-Reply-To=%3C20120215210651.11344dzrhbrc8wuz%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] x2goagent listening on public interface - how to make it listen on 127.0.0.1 only?">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Feb 15 21:06:51 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000596.html">[X2go-User] x2goagent listening on public interface - how to make	it listen on 127.0.0.1 only?
+</A></li>
+        <LI>Next message: <A HREF="000615.html">[X2go-User] x2goagent listening on public interface - how to	make it listen on 127.0.0.1 only?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#601">[ date ]</a>
+              <a href="thread.html#601">[ thread ]</a>
+              <a href="subject.html#601">[ subject ]</a>
+              <a href="author.html#601">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Bughunter,
+
+On Mi 08 Feb 2012 22:35:55 CET BUGHUNTER wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I am testing x2go - looks like a very good alterative to other
+</I>&gt;<i> solutions!
+</I>&gt;<i>
+</I>&gt;<i> However, I see that (only) when I am logged in via x2goclient I have
+</I>&gt;<i> an x2goagent process listening on all network interfaces on port 6050
+</I>&gt;<i> - I would feel better if this software did only listen on 127.0.0.1,
+</I>&gt;<i> if this is technically possible.
+</I>&gt;<i>
+</I>&gt;<i> I did not found any hint on a &quot;listen 127.0.0.1&quot; configuration item
+</I>&gt;<i> and where to put it, if existing - how can I make x2goagent NOT listen
+</I>&gt;<i> on a public network interface?
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your attention,
+</I>&gt;<i> Bughunter
+</I>
+Thanks for bringing this up!
+
+I had a discussion with another of the developers (Alex) and we do not  
+know either, if there is a NX-builtin solution for just listening on  
+the localhost IP socket.
+
+Our current recommendation is to use iptables, which you have to use  
+anyway, if your system runs in the public space somewhere.
+
+Greets,
+Mike
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120215/ca414170/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120215/ca414170/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000596.html">[X2go-User] x2goagent listening on public interface - how to make	it listen on 127.0.0.1 only?
+</A></li>
+	<LI>Next message: <A HREF="000615.html">[X2go-User] x2goagent listening on public interface - how to	make it listen on 127.0.0.1 only?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#601">[ date ]</a>
+              <a href="thread.html#601">[ thread ]</a>
+              <a href="subject.html#601">[ subject ]</a>
+              <a href="author.html#601">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

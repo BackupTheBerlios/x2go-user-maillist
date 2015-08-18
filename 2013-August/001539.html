@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2golxdebindings for squeeze relies on	'update-icon-caches' being available in it's postinst script
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2golxdebindings%20for%20squeeze%20relies%20on%0A%09%27update-icon-caches%27%20being%20available%20in%20it%27s%20postinst%20script&In-Reply-To=%3C201308151736.37518.Holger.Krause%40med.uni-duesseldorf.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001537.html">
+   <LINK REL="Next"  HREF="001540.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2golxdebindings for squeeze relies on	'update-icon-caches' being available in it's postinst script</H1>
+    <B>Holger Krause</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2golxdebindings%20for%20squeeze%20relies%20on%0A%09%27update-icon-caches%27%20being%20available%20in%20it%27s%20postinst%20script&In-Reply-To=%3C201308151736.37518.Holger.Krause%40med.uni-duesseldorf.de%3E"
+       TITLE="[X2Go-User] x2golxdebindings for squeeze relies on	'update-icon-caches' being available in it's postinst script">Holger.Krause at med.uni-duesseldorf.de
+       </A><BR>
+    <I>Thu Aug 15 17:36:35 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001537.html">[X2Go-User] Xwin start failure: unsafe environment error
+</A></li>
+        <LI>Next message: <A HREF="001540.html">[X2Go-User] x2golxdebindings for squeeze relies on 'update-icon-caches' being available in it's postinst script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1539">[ date ]</a>
+              <a href="thread.html#1539">[ thread ]</a>
+              <a href="subject.html#1539">[ subject ]</a>
+              <a href="author.html#1539">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+I just wanted to update x2golxdebindings from version 
+1.0.1.3-0~x2go1+squeeze~main~30~build1 to 
+1.0.2.1-0~x2go1+squeeze~main~41~build1 on a squeeze system. Unfortunately, 
+this results in an error:
+
+----
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at perrin</A>:~# aptitude install x2golxdebindings
+No packages will be installed, upgraded, or removed.
+0 packages upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/5652 B of archives. After unpacking 0 B will be used.
+Selecting previously deselected package x2golxdebindings.
+(Reading database ... 76698 files and directories currently installed.)
+Preparing to replace x2golxdebindings 1.0.2.1-0~x2go1+squeeze~main~41~build1 
+(using .../x2golxdebindings_1.0.2.1-0~x2go1+squeeze~main~41~build1_all.deb) 
+...
+Unpacking replacement x2golxdebindings ...
+/var/lib/dpkg/info/x2golxdebindings.postrm: 35: update-icon-caches: not found
+dpkg: warning: subprocess old post-removal script returned error exit status 
+127
+dpkg - trying script from the new package instead ...
+/var/lib/dpkg/tmp.ci/postrm: 35: update-icon-caches: not found
+dpkg: error processing 
+/var/cache/apt/archives/x2golxdebindings_1.0.2.1-0~x2go1+squeeze~main~41~build1_all.deb 
+(--unpack):
+ subprocess new post-removal script returned error exit status 127
+configured to not write apport reports
+                                      /var/lib/dpkg/tmp.ci/postrm: 35: update-
+icon-caches: not found
+dpkg: error while cleaning up:
+ subprocess new post-removal script returned error exit status 127
+Processing triggers for desktop-file-utils ...
+Processing triggers for shared-mime-info ...
+Errors were encountered while processing:
+ /var/cache/apt/archives/x2golxdebindings_1.0.2.1-0~x2go1+squeeze~main~41~build1_all.deb
+E: Sub-process /usr/bin/dpkg returned an error code (1)
+A package failed to install.  Trying to recover:
+----
+
+I noticed the postinst script doesn't check for availability/executability of 
+'update-icon-caches'. The previous version (1.0.1.3) had been installed 
+without any complains. Should I report this to the x2go bug tracker? As a 
+workaround I installed 'libgtk2.0-bin', which contains '/usr/sbin/update-icon-
+caches'. (Perhaps x2golxdebindings should depend on this package?)
+
+Thanks for providing x2go!
+
+Holger
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001537.html">[X2Go-User] Xwin start failure: unsafe environment error
+</A></li>
+	<LI>Next message: <A HREF="001540.html">[X2Go-User] x2golxdebindings for squeeze relies on 'update-icon-caches' being available in it's postinst script
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1539">[ date ]</a>
+              <a href="thread.html#1539">[ thread ]</a>
+              <a href="subject.html#1539">[ subject ]</a>
+              <a href="author.html#1539">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

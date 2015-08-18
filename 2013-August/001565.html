@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Error running x2go client on Mac
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Error%20running%20x2go%20client%20on%20Mac&In-Reply-To=%3C521E2B45.9090109%40lanl.gov%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001564.html">
+   <LINK REL="Next"  HREF="001566.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Error running x2go client on Mac</H1>
+    <B>Kermit Short</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Error%20running%20x2go%20client%20on%20Mac&In-Reply-To=%3C521E2B45.9090109%40lanl.gov%3E"
+       TITLE="[X2Go-User] Error running x2go client on Mac">k_short at lanl.gov
+       </A><BR>
+    <I>Wed Aug 28 18:54:29 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001564.html">[X2Go-User] Downtime code.x2go.org
+</A></li>
+        <LI>Next message: <A HREF="001566.html">[X2Go-User] Login via ~/.ssh/authorized_keys fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1565">[ date ]</a>
+              <a href="thread.html#1565">[ thread ]</a>
+              <a href="subject.html#1565">[ subject ]</a>
+              <a href="author.html#1565">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I downloaded and installed the x2go client on a Mac just now, and got an 
+error when the application tries to run.  I'm a total newbie at Mac's so 
+please accept my apologies in advance if it's something your average 
+dumb ape should understand.
+
+Process:         launchd [33598]
+Path:  /Applications/x2goclient.app/Contents/MacOS/x2goclient
+Identifier:      launchd
+Version:         ??? (???)
+Code Type:       X86-64 (Native)
+Parent Process:  launchd [2304]
+
+Date/Time:       2013-08-28 10:33:46.518 -0600
+OS Version:      Mac OS X 10.7.5 (11G63)
+Report Version:  9
+
+Interval Since Last Report:          7714164 sec
+Crashes Since Last Report:           10
+Per-App Crashes Since Last Report:   5
+Anonymous UUID:  5F2C4C08-51E3-4934-99BF-CD20F49A231E
+
+Crashed Thread:  Unknown
+
+Exception Type:  EXC_BAD_ACCESS (SIGSEGV)
+Exception Codes: KERN_INVALID_ADDRESS at 0x00007fff5fc01028
+
+Backtrace not available
+
+Unknown thread crashed with X86 Thread State (64-bit):
+   rax: 0x0000000000000055  rbx: 0x0000000000000000  rcx: 
+0x0000000000000000  rdx: 0x0000000000000000
+   rdi: 0x0000000000000000  rsi: 0x0000000000000000  rbp: 
+0x0000000000000000  rsp: 0x0000000000000000
+    r8: 0x0000000000000000   r9: 0x0000000000000000  r10: 
+0x0000000000000000  r11: 0x0000000000000000
+   r12: 0x0000000000000000  r13: 0x0000000000000000  r14: 
+0x0000000000000000  r15: 0x0000000000000000
+   rip: 0x00007fff5fc01028  rfl: 0x0000000000010203  cr2: 0x00007fff5fc01028
+Logical CPU: 2
+
+Binary images description not available
+
+
+External Modification Summary:
+   Calls made by other processes targeting this process:
+     task_for_pid: 1
+     thread_create: 0
+     thread_set_state: 0
+   Calls made by this process:
+     task_for_pid: 0
+     thread_create: 0
+     thread_set_state: 0
+   Calls made by all processes on this machine:
+     task_for_pid: 92945
+     thread_create: 0
+     thread_set_state: 0
+
+Model: MacPro2,1, BootROM MP21.007F.B06, 8 processors, Quad-Core Intel 
+Xeon, 3 GHz, 8 GB, SMC 1.15f3
+Graphics: ATI Radeon X1900 XT, ATY,RadeonX1900, PCIe, 512 MB
+Memory Module: DIMM Riser A/DIMM 1, 2 GB, DDR2 FB-DIMM, 667 MHz, 0x802C, 
+0x3138484632353637324A4436363745314434
+Memory Module: DIMM Riser A/DIMM 2, 2 GB, DDR2 FB-DIMM, 667 MHz, 0x802C, 
+0x3138484632353637324A4436363745314434
+Memory Module: DIMM Riser B/DIMM 1, 2 GB, DDR2 FB-DIMM, 667 MHz, 0x802C, 
+0x3138484632353637324A4436363745314434
+Memory Module: DIMM Riser B/DIMM 2, 2 GB, DDR2 FB-DIMM, 667 MHz, 0x802C, 
+0x3138484632353637324A4436363745314434
+AirPort: spairport_wireless_card_type_airport_extreme (0x14E4, 0x87), 
+Broadcom BCM43xx 1.0 (5.10.131.36.15)
+Network Service: Built-in Ethernet 1, Ethernet, en0
+Network Service: Built-in Ethernet 2, Ethernet, en1
+PCI Card: ATY,RadeonX1900, sppci_displaycontroller, Slot-1
+Serial ATA Device: WDC WD5000AAKS-41TMA0, 500.11 GB
+Parallel ATA Device: OPTIARC DVD RW AD-7170A
+USB Device: hub_device, apple_vendor_id, 0x9122, 0xfd500000 / 2
+USB Device: Keyboard Hub, apple_vendor_id, 0x1006, 0xfd510000 / 4
+USB Device: composite_device, 0x413c  (Dell Inc.), 0x3010, 0xfd513000 / 6
+USB Device: Apple Keyboard, apple_vendor_id, 0x0220, 0xfd512000 / 5
+USB Device: Apple Cinema HD Display, apple_vendor_id, 0x921e, 0xfd520000 / 3
+FireWire Device: built-in_hub, 800mbit_speed
+
+-Kermit Short
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001564.html">[X2Go-User] Downtime code.x2go.org
+</A></li>
+	<LI>Next message: <A HREF="001566.html">[X2Go-User] Login via ~/.ssh/authorized_keys fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1565">[ date ]</a>
+              <a href="thread.html#1565">[ thread ]</a>
+              <a href="subject.html#1565">[ subject ]</a>
+              <a href="author.html#1565">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

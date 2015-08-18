@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X-Server cannot be started
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X-Server%20cannot%20be%20started&In-Reply-To=%3C20120825063632.247480%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000977.html">
+   <LINK REL="Next"  HREF="000981.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X-Server cannot be started</H1>
+    <B>glpk xypron</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X-Server%20cannot%20be%20started&In-Reply-To=%3C20120825063632.247480%40gmx.net%3E"
+       TITLE="[X2Go-User] X-Server cannot be started">xypron.glpk at gmx.de
+       </A><BR>
+    <I>Sat Aug 25 08:36:32 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000977.html">[X2Go-User] X-Server cannot be started
+</A></li>
+        <LI>Next message: <A HREF="000981.html">[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC	containers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#980">[ date ]</a>
+              <a href="thread.html#980">[ thread ]</a>
+              <a href="subject.html#980">[ subject ]</a>
+              <a href="author.html#980">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The cause of my problem was a configuration setting pointing to a
+&quot;user defined X-server&quot; which did not exist.
+
+After changing to &quot;integrated X-server&quot; everything worked smoothly.
+
+&gt;<i> X-Server l&#228;sst sich nicht starten. Bitte &#252;berpr&#252;fen Sie Ihre
+</I>&gt;<i> Installation.
+</I>&gt;<i> (X-server cannot be started, please, check your installation.)
+</I>
+It would be helpful to change the popup to something like
+&quot;X-server cannot be started, please, check your X-server configuration in the X2Go client.&quot;
+
+Best regards
+
+Heinrich
+
+-------- Original-Nachricht --------
+&gt;<i> Datum: Fri, 24 Aug 2012 18:20:01 -0400
+</I>&gt;<i> Von: &quot;John A. Sullivan III&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jsullivan at opensourcedevel.com</A>&gt;
+</I>&gt;<i> An: glpk xypron &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">xypron.glpk at gmx.de</A>&gt;
+</I>&gt;<i> CC: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: [X2Go-User] X-Server cannot be started
+</I>
+&gt;<i> On Fri, 2012-08-24 at 23:03 +0200, glpk xypron wrote:
+</I>&gt;<i> &gt; Dear maintainer,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; when I try to start x2goclient on Windows I get an error message:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; X-Server l&#228;sst sich nicht starten. Bitte &#252;berpr&#252;fen Sie Ihre
+</I>&gt;<i> Installation.
+</I>&gt;<i> &gt; (X-server cannot be started, please, check your installation.)
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Reinstalling x2goclient did not solve the problem.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Starting as administrator does not help either.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Please, advice how find the root cause.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> If you manually start X (perhaps xinit) as root on the X2Go SERVER (it
+</I>&gt;<i> does not matter if it succeeds or fails), and then try to connect using
+</I>&gt;<i> X2Go client, does it work? - John
+</I>&gt;<i> 
+</I></PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000977.html">[X2Go-User] X-Server cannot be started
+</A></li>
+	<LI>Next message: <A HREF="000981.html">[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC	containers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#980">[ date ]</a>
+              <a href="thread.html#980">[ thread ]</a>
+              <a href="subject.html#980">[ subject ]</a>
+              <a href="author.html#980">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

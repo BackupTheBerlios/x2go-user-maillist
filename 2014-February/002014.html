@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Unity Greeter with X2Go Remote Login Support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Unity%20Greeter%20with%20X2Go%20Remote%20Login%20Support&In-Reply-To=%3C52F22CC9.2000302%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002017.html">
+   <LINK REL="Next"  HREF="002011.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Unity Greeter with X2Go Remote Login Support</H1>
+    <B>Kjetil Fleten</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Unity%20Greeter%20with%20X2Go%20Remote%20Login%20Support&In-Reply-To=%3C52F22CC9.2000302%40fleten.net%3E"
+       TITLE="[X2Go-User] Unity Greeter with X2Go Remote Login Support">kjetil at fleten.net
+       </A><BR>
+    <I>Wed Feb  5 13:21:29 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002017.html">[X2Go-User] Unity Greeter with X2Go Remote Login Support
+</A></li>
+        <LI>Next message: <A HREF="002011.html">[X2Go-User] sshfs through broker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2014">[ date ]</a>
+              <a href="thread.html#2014">[ thread ]</a>
+              <a href="subject.html#2014">[ subject ]</a>
+              <a href="author.html#2014">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+It's really nice to see others that want to use this feature as well.
+Mike have done an excellent job on this, which we really appreciate. My
+company Fleten.net still have a strong focus on deliver remote Ubuntu
+desktops with the Unity-Greeter integration of X2Go. Right now we are
+seeking to get further development founded, and we will certainly join
+forces with anyone that have the same goals. Feel free to contact me in
+a private message.
+
+best regards
+
+Kjetil Fleten
+
+Fleten.net AS&lt;<A HREF="http://www.fleten.net">http://www.fleten.net</A>&gt;
+
+Den 05-02-2014 13:09, Mike Gabriel skrev:
+&gt;<i> Hi Stefan,
+</I>&gt;<i>
+</I>&gt;<i> On  Di 04 Feb 2014 18:59:27 CET, Stefan Heitm&#252;ller wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hello everyone...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After testing and beta-deploying X2Go services for some test users
+</I>&gt;&gt;<i> (developers/qa/it - who really liked it), i was trying to implement the
+</I>&gt;&gt;<i> x2go-broker into lightdm.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I followed the steps in <A HREF="http://blog.x2go.org/index.php/2013/04/28/289/.">http://blog.x2go.org/index.php/2013/04/28/289/.</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> First of all, &quot;get-build-deps debian/control&quot; seems to be replaced by
+</I>&gt;&gt;<i> &quot;mk-build-deps debian/control&quot; ...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After compiling, installing and configuring i see the additional login
+</I>&gt;&gt;<i> in lightdm.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Our Active Directory enabled (using likewise-open -&gt; pam) broker
+</I>&gt;&gt;<i> delivers <A HREF="https://x2go-broker.our.domain.com/uccs/inifile/api/4">https://x2go-broker.our.domain.com/uccs/inifile/api/4</A> , asks
+</I>&gt;&gt;<i> for user/password and prints the json-object containing all configured
+</I>&gt;&gt;<i> servers.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When lightdm starts, i can see some traffic between the machine and the
+</I>&gt;&gt;<i> broker.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Logging in seems not to work, i've tested &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">test.account at intern</A>&quot;,
+</I>&gt;&gt;<i> &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">test.account at our.domain.com</A>&quot; and even a local test user (on the broker,
+</I>&gt;&gt;<i> right?)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> There is no communication between the broker and lightdm/unity-greeter
+</I>&gt;&gt;<i> when trying to login.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> How can i help you further? (debugging,..)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> As this is a relly nice and seemless solution for our clients, i think
+</I>&gt;&gt;<i> we cann afford some sponsoring there too.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> regards
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks for testing the Unity-Greeter integration of X2Go.
+</I>&gt;<i>
+</I>&gt;<i> The project is not actively developed without sponsoring. The initial
+</I>&gt;<i> code was sponsored by Fleten.net (a company from Denmark deploying
+</I>&gt;<i> X2Go in municipalities).
+</I>&gt;<i>
+</I>&gt;<i> Together with the Fleten.net technicians I discovered several issues
+</I>&gt;<i> in the blog text, that I got addressed as comments on my personal blog
+</I>&gt;<i> [1]. Please check all comments, they may help with your observed issues.
+</I>&gt;<i>
+</I>&gt;<i> Canonical Ltd. is generally interested in adding this feature to Unity
+</I>&gt;<i> Greeter upstream but they are also putting some technical demands on
+</I>&gt;<i> the development that I do not want to fullfill in my spare time (I
+</I>&gt;<i> don't really use Ubuntu myself, so I neither have a business nor
+</I>&gt;<i> private use case for the Unity Greeter integration). So, if you are
+</I>&gt;<i> interested in sponsoring the further development of this feature, I
+</I>&gt;<i> will be happy to continue working on it.
+</I>&gt;<i>
+</I>&gt;<i> Thanks+Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i> [1] <A HREF="http://sunweavers.net/blog/unity-greeter-with-x2go-re">http://sunweavers.net/blog/unity-greeter-with-x2go-re</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140205/927f87a4/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20140205/927f87a4/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002017.html">[X2Go-User] Unity Greeter with X2Go Remote Login Support
+</A></li>
+	<LI>Next message: <A HREF="002011.html">[X2Go-User] sshfs through broker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2014">[ date ]</a>
+              <a href="thread.html#2014">[ thread ]</a>
+              <a href="subject.html#2014">[ subject ]</a>
+              <a href="author.html#2014">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

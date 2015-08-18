@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Question about the source
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3CAANLkTimH%2ByHvymBoRzZkTm9GrycyBgHq0J%2Bidj2XvXQv%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000070.html">
+   <LINK REL="Next"  HREF="000072.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Question about the source</H1>
+    <B>Tyler Jameson Little</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3CAANLkTimH%2ByHvymBoRzZkTm9GrycyBgHq0J%2Bidj2XvXQv%40mail.gmail.com%3E"
+       TITLE="[X2go-user] Question about the source">beatgammit at gmail.com
+       </A><BR>
+    <I>Sat Mar 19 03:24:51 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000070.html">[X2go-user] X2Go client printing issues if application queries printer parameters
+</A></li>
+        <LI>Next message: <A HREF="000072.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#71">[ date ]</a>
+              <a href="thread.html#71">[ thread ]</a>
+              <a href="subject.html#71">[ subject ]</a>
+              <a href="author.html#71">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I downloaded a copy of the source by using this command: git clone <A HREF="git://">git://</A>
+code.x2go.org/x2goserver.git
+
+I want to try to make a module on NodeJS, and I had assumed that I would get
+a bunch of source files written in C or C++, but what I got was a bunch of
+Perl scripts.
+
+Is that all the server is?  Am I missing something?  My goal is to make an
+NX server that can run over a simple TCP or HTTP server and I was going to
+write a client for display in the browser.  From my research, X2Go is
+supposed to be the most fully featured, open source NX implementation out
+there.  I downloaded the source from NoMachine.com for part of their server
+and it was as I expected, a bunch of C and C++ sources.
+
+With NodeJS, I have a couple of options:
+
+   - Include a C++ module by exporting certain functions
+   - Write the source in server-side JavaScript
+   - Use the exec command to execute scripts on the command-line
+
+
+If the server really is that simple, then my project will be a lot less
+painful and will take me a lot less time than expected to make work with
+NodeJS.  If the server really is this simple, how does it compare
+performance-wise with the open source version from NoMachine?  I want to
+possibly have several NX servers piped through a single webserver where each
+NX server is running in it's own VM, so efficiency is what I'm after.  I am
+primarily looking at just running this on Ubuntu, so this package looked
+like it was the right one (debian).
+
+Any help that any of you could offer would be much appreciated.  I'm excited
+to start playing with this software!!  Don't worry, anything I produce will
+be Open Source, regardless of whether I do a complete rewrite.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110318/2785fb0d/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110318/2785fb0d/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000070.html">[X2go-user] X2Go client printing issues if application queries printer parameters
+</A></li>
+	<LI>Next message: <A HREF="000072.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#71">[ date ]</a>
+              <a href="thread.html#71">[ thread ]</a>
+              <a href="subject.html#71">[ subject ]</a>
+              <a href="author.html#71">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] New user unable to connect from x2goclient on thin	client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20user%20unable%20to%20connect%20from%20x2goclient%20on%20thin%0A%09client&In-Reply-To=%3CCAJ9yE0QVRBAynZmeH4qY8v_rRQ1jLq84DBY0ck2BHifS94L99A%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000515.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] New user unable to connect from x2goclient on thin	client</H1>
+    <B>Jean Gottschalk</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20user%20unable%20to%20connect%20from%20x2goclient%20on%20thin%0A%09client&In-Reply-To=%3CCAJ9yE0QVRBAynZmeH4qY8v_rRQ1jLq84DBY0ck2BHifS94L99A%40mail.gmail.com%3E"
+       TITLE="[X2go-User] New user unable to connect from x2goclient on thin	client">jean at gottschalk.us
+       </A><BR>
+    <I>Sat Dec 17 07:23:15 CET 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000515.html">[X2go-User] New user unable to connect from x2goclient on thin client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I have been using freenx for a few years, and have been looking for
+something better since freenx is no longer maintained and sound support is
+shaky. I was very glad to find the x2go project, specially since it works
+exactly like I imagine with diskless thin clients (I have to use USB sticks
+to boot my current clients for freenx).
+
+Anyway, after being somewhat confused by the outdated info and repositories
+listed on x2go.org, I found the wiki and was able to install x2goserver
+(onto Ubuntu  ) and configure a PXE thin client environment. To my
+surprise, the thin clients booted on the first attempt and x2goclient came
+up, which was very unexpected!
+
+Now I have the following problem:
+- I can login without problem from a windows x2goclient onto my ubuntu
+x2goserver
+- however any attempt to login from the pxe booted thin clients fails.
+
+The client displays (after starting nxproxy 3.5)
+Connecting to remote host 'localhost:33001'
+And then
+Connection timeout aborting
+
+On the server I find these logs:
+
+/usr/bin/x2goagent: line 1: -e: command not found
+
+NXAGENT - Version 3.4.0
+
+Copyright (C) 2001, 2007 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Agent running with pid '24505'.
+Session: Starting session at 'Fri Dec 16 22:11:43 2011'.
+Info: Proxy running in server mode with pid '24505'.
+Info: Waiting for connection from 'localhost' on port '30001'.
+Info: Aborting the procedure due to signal '1'.
+Error: Aborting session with 'X2goagent: Unable to open display
+'nx/nx,options=/home/jean/.x2go/C-jean-50-1324102301_stDGNOME_dp24/options:50''.
+Session: Aborting session at 'Fri Dec 16 22:12:15 2011'.
+Session: Session aborted at 'Fri Dec 16 22:12:15 2011'.
+
+I understand that there is some kind of callback procedure whereby the
+client connects to the server, and then the server connects back to the
+client, and this seems to be failing. I do not know how else to proceed.
+
+In addition to version 3.99.0.2 of x2goclient and x2goplugin (which was the
+one installed by default in the chroot environment), I also tried version
+3.99.0.3 from the unstable repository, and an older 3.01-21, all with no
+luck.
+
+Any pointers would be appreciated.
+
+Jean
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111216/32ba00f9/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20111216/32ba00f9/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000515.html">[X2go-User] New user unable to connect from x2goclient on thin client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#514">[ date ]</a>
+              <a href="thread.html#514">[ thread ]</a>
+              <a href="subject.html#514">[ subject ]</a>
+              <a href="author.html#514">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

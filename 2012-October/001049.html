@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] PyHoca, X2Go Server (Ubuntu 12.04) sound problems
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca%2C%20X2Go%20Server%20%28Ubuntu%2012.04%29%20sound%20problems&In-Reply-To=%3C20121005230157.132017o7pjkexio5%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001048.html">
+   <LINK REL="Next"  HREF="001050.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] PyHoca, X2Go Server (Ubuntu 12.04) sound problems</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca%2C%20X2Go%20Server%20%28Ubuntu%2012.04%29%20sound%20problems&In-Reply-To=%3C20121005230157.132017o7pjkexio5%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] PyHoca, X2Go Server (Ubuntu 12.04) sound problems">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Oct  5 23:01:57 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001048.html">[X2Go-User] PyHoca, X2Go Server (Ubuntu 12.04) sound problems
+</A></li>
+        <LI>Next message: <A HREF="001050.html">[X2Go-User] Questions on possible setups and use cases
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1049">[ date ]</a>
+              <a href="thread.html#1049">[ thread ]</a>
+              <a href="subject.html#1049">[ subject ]</a>
+              <a href="author.html#1049">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Lukas,
+
+On Fr 05 Okt 2012 15:47:09 CEST Lukas Laukamp wrote:
+
+&gt;<i> Hey all,
+</I>&gt;<i>
+</I>&gt;<i> I have a Ubuntu 12.04 Desktop running in an KVM environment with  
+</I>&gt;<i> X2Go. Everything is working great but the sound redirection doesn't  
+</I>&gt;<i> work. I have assigned a soundcard to the KVM machine which is  
+</I>&gt;<i> detected correctly by Ubuntu. First I tried to use PulseAudio as  
+</I>&gt;<i> transport in PyHoca but this doesn't worked. I googled a few minutes  
+</I>&gt;<i> and found that there are often problems with PulseAudio, so I  
+</I>&gt;<i> installed esd to test with esd. This also didn't worked. So for now  
+</I>&gt;<i> I don't know what could be wrong. The X2Go server scripts for PyHoca  
+</I>&gt;<i> and python-x2go scripts are installed on the server, I can control  
+</I>&gt;<i> the sound options on Ubuntu (also in the X2Go session not only from  
+</I>&gt;<i> the VNC console) but no sound is there. The client system is Windows  
+</I>&gt;<i> 7 at the moment with the newest PyHoca version.
+</I>&gt;<i>
+</I>&gt;<i> Does someone has an idea what could be wrong and what I have to do  
+</I>&gt;<i> to get sound input and output to work?
+</I>&gt;<i>
+</I>&gt;<i> Hope that someone could help me.
+</I>
+I have just tested sound between Linux (PyHoca-GUI) and Linux (Ubuntu 12.04).
+
+What I do is:
+
+   o launch pulseaudio -D on the client-side
+   o launch PyHoca-GUI with Pulseaudio enabled on the client-side
+   o start an X2Go session (e.g. a Terminal Session)
+   o run the command paplay /usr/share/sound/pop.wav
+
+I do not have a native Windows client here-around, so I cannot say  
+anything about Windows.
+
+Can you check if sound works for clients with Linux? Testing from  
+Windows and Linux can narrow down: is it a server or client issue.  
+Also: please test with X2Go Client. Do you have sound, then?
+
+Also: you do not have to enable a virtual sound card in KVM to have  
+sound with X2Go. I use KVM, as well, and always unconfigure the audio  
+devices (which get into the VM setup by default when configured with  
+virt-manager).
+
+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121005/d10d8932/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121005/d10d8932/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001048.html">[X2Go-User] PyHoca, X2Go Server (Ubuntu 12.04) sound problems
+</A></li>
+	<LI>Next message: <A HREF="001050.html">[X2Go-User] Questions on possible setups and use cases
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1049">[ date ]</a>
+              <a href="thread.html#1049">[ thread ]</a>
+              <a href="subject.html#1049">[ subject ]</a>
+              <a href="author.html#1049">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

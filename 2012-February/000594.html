@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problem Using Cloned Accounts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20Using%20Cloned%20Accounts&In-Reply-To=%3C20120208081328.68201p8u2uouj8ns%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000593.html">
+   <LINK REL="Next"  HREF="000595.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problem Using Cloned Accounts</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20Using%20Cloned%20Accounts&In-Reply-To=%3C20120208081328.68201p8u2uouj8ns%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Problem Using Cloned Accounts">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Feb  8 08:13:28 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000593.html">[X2go-User] Problem Using Cloned Accounts
+</A></li>
+        <LI>Next message: <A HREF="000595.html">[X2go-User] Problem Using Cloned Accounts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#594">[ date ]</a>
+              <a href="thread.html#594">[ thread ]</a>
+              <a href="subject.html#594">[ subject ]</a>
+              <a href="author.html#594">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ted,
+
+On Di 07 Feb 2012 23:49:46 CET  wrote:
+
+&gt;<i> We're trying to see if we can get x2go to work on cloned accounts or  
+</I>&gt;<i> ones we create via bash on an Ubuntu server.  FYI - we can start  
+</I>&gt;<i> x2go sessions successfully if we create a new user &quot;the normal way&quot;  
+</I>&gt;<i> (i.e., by hand using the GUI), create the SSH keys and move them  
+</I>&gt;<i> between client (windows) and server.
+</I>
+Ok.
+
+&gt;<i> When we try, however, to create a new user account on the server  
+</I>&gt;<i> &quot;programmatically&quot; (either brand new or cloned), we consistently get  
+</I>&gt;<i> an error which happens regardless of the technique we use.  As best  
+</I>&gt;<i> we can tell, the cloned or programmatically created accounts  
+</I>&gt;<i> function fine and as we'd expect except when we try to connect via  
+</I>&gt;<i> x2go.
+</I>
+I have encountered such a thing! You have to compare these two account  
+types and find the difference. Is basic SSH login working for both  
+classes of users? Do you use pubkey auth with X2Go or password auth?
+
+&gt;<i> For example, as root we create an account with &quot;useradd - d  
+</I>&gt;<i> /home/&lt;newusername&gt; -m --skel /etc/skel &lt;newusername&gt; (we've also  
+</I>&gt;<i> tried to use the same command but clone an account that works with  
+</I>&gt;<i> x2go, and have tried a range of other bash &quot;create/clone&quot; code).
+</I>
+What is the shell you provide for new users create the above way?
+
+&gt;<i> The connection is made, we see the black screen with &quot;X2GO&quot; and then  
+</I>&gt;<i> the screen goes black and stays that way.  Is this the same problem  
+</I>&gt;<i> we've seen on some of the &quot;black screen&quot; posts?
+</I>
+Do you have x2goserver-xsession installed??? If yes, what happens if  
+you log in through GDM/KDM locally?
+
+&gt;<i> When we quit, we get an error message:
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Connection failed head:  cannot open  
+</I>&gt;<i> /home/&lt;username&gt;/.x2go/C-XXXXXXXXXXX_stDGNOME-dp32/cmdoutput' for  
+</I>&gt;<i> reading:  No such file or directory sed: -e expression #1, char 4:  
+</I>&gt;<i> unterminated 's' command cat:
+</I>
+Is the home directory really available on the server? Can the user  
+write to it?
+
+&gt;<i> From reading the error message, it looks like somehow a &quot;cmdoutput&quot;  
+</I>&gt;<i> file or folder is missing which we don't fine on the working  
+</I>&gt;<i> account, so maybe it's written out on the fly.
+</I>
+The cmdoutput is a temporary file placed into the session folder by  
+x2goclient. It vanishes once the session if finished (that is: after  
+it has failed in this case).
+
+&gt;<i> Is this a permissions issue?  We think we are doing everything
+</I>
+Maybe.
+
+&gt;<i> &quot;identically&quot; with the exception of how we are creating the account  
+</I>&gt;<i> (e.g., how we create the ssh keys, copy the id_dsa.pub in authorized  
+</I>&gt;<i> keys, add the new user to sshd_config, restart ssh).  We've tried
+</I>
+Note that SSH keys and the .ssh dir need specials permissions to work  
+(0600, 0700 resp.).
+
+&gt;<i> comparing the permissions in the two accounts, but are not sure if  
+</I>&gt;<i> that is even the issue.
+</I>
+Check the permissions more closely... gut feeling on my side.
+
+&gt;<i> We've checked in our user settings via the GUI and none of the users  
+</I>&gt;<i> we've added --either programmatically or through the GUI--are  
+</I>&gt;<i> checked in the x2go group though all are listed there and it doesn't  
+</I>&gt;<i> seem to matter if we check them.
+</I>
+NOTE: by default, users that are able to login with an X2Go server do  
+not need any group membership at all (with SQLite as DB backend).  
+Actually, putting real users into the group ,,x2gouser'' is a security  
+breech. Same for the ,,x2goprint'' group: do not place members into  
+this group either. If you want to have client-side folder sharing,  
+users have to be in the fuse group, but that's a different cup of tea.
+
+&gt;<i> When we create a new user/account &quot;programmatically&quot;, would this  
+</I>&gt;<i> cause problems with the x2go set up for that account?
+</I>
+In many setups here around we auto-create loads of accounts. Not an  
+issue here...
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120208/1053a8b3/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120208/1053a8b3/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000593.html">[X2go-User] Problem Using Cloned Accounts
+</A></li>
+	<LI>Next message: <A HREF="000595.html">[X2go-User] Problem Using Cloned Accounts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#594">[ date ]</a>
+              <a href="thread.html#594">[ thread ]</a>
+              <a href="subject.html#594">[ subject ]</a>
+              <a href="author.html#594">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

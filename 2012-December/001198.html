@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Problem with KDE, Network Manager and X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAJ0ccebiGStdOfBJr0FF4GAr6TCx6g9X%3D9-kg%3DphY28CVjmVVQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001197.html">
+   <LINK REL="Next"  HREF="001200.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Problem with KDE, Network Manager and X2Go</H1>
+    <B>Reinhard Tartler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAJ0ccebiGStdOfBJr0FF4GAr6TCx6g9X%3D9-kg%3DphY28CVjmVVQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Problem with KDE, Network Manager and X2Go">siretart at gmail.com
+       </A><BR>
+    <I>Mon Dec 24 15:32:45 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001197.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+        <LI>Next message: <A HREF="001200.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1198">[ date ]</a>
+              <a href="thread.html#1198">[ thread ]</a>
+              <a href="subject.html#1198">[ subject ]</a>
+              <a href="author.html#1198">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear Daniel,
+
+Network manager defines a default security policy that allows altering
+networking-related settings only when the user sits in front of the
+computer. This policy in general does make sense, otherwise users
+would be able to break their active session.
+
+It seems unfortunate that this policy seems to affect VPN settings as
+well. This issue should definitely be discussed with the Network
+Manager maintainers. However before doing that, I think should learn
+more about the current situation. For instance, I'm not sure if x2go
+registers a proper console-kit session besides the one that is created
+as part of the ssh connection. I could imagine having a configuration
+switch to consider 'x2go' remote sessions as &quot;local&quot; at least for
+testing purposes. I fear we in x2go should really revisit and properly
+document the design of session management - it is not trivial at all!
+
+Unfortunately, none of the current developers seem to have the
+resources to do this properly. For instance, as you have noticed
+yourself, x2goserver-xsession is not installed by default, but TBH, I
+think this is a bug that is related to the overly strict recommend
+relationship declaration on the x2goserver package (another wtf from
+my side). The only documentation for this package is here:
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=x2goserver-xsession/doc/README.Xsession-x2go">http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=x2goserver-xsession/doc/README.Xsession-x2go</A>
+- Unfortunately, it leaves a lot of questions (such as &quot;what is a
+Xsession config file&quot;, etc.). I'm not sure how to proceed from here,
+hence, I copy the x2go-dev mailing list as I feel that this user issue
+indicates a larger, conceptional problem.
+
+What you propose is to introduce a completely new security policy:
+everyone in a certain group 'netdev' may change everything. This may
+be appropriate in your scenario, but may not be in others. For
+instance, have you considered what other packages &quot;use&quot; the netdev
+group? Are you fully aware about the consequences in terms of
+additional privileges users gain by being put in that group? Moreover,
+in a managed environment, where all users are in a network directory
+such as NIS or LDAP, it is not that simple to add a user to a
+computer-local group, as the group may have a different group ID on
+different machines. Such scenarios are not uncommon for larger x2go
+deployments at all!
+
+Merry Holidays!
+
+On Mon, Dec 24, 2012 at 9:39 AM, Daniel Lindgren &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bd.dali at gmail.com</A>&gt; wrote:
+&gt;<i> ... and these steps are also necessary to be able to fully use Network
+</I>&gt;<i> Manager:
+</I>&gt;<i>
+</I>&gt;<i> * Add user to the netdev group.
+</I>&gt;<i>
+</I>&gt;<i> * Create
+</I>&gt;<i> /etc/polkit-1/localauthority/50-local.d/org.freedesktop.NetworkManager.pkla
+</I>&gt;<i> with these settings:
+</I>&gt;<i>
+</I>&gt;<i> [nm-applet]
+</I>&gt;<i> Identity=unix-group:netdev
+</I>&gt;<i> Action=org.freedesktop.NetworkManager.*
+</I>&gt;<i> ResultAny=yes
+</I>&gt;<i> ResultInactive=no
+</I>&gt;<i> ResultActive=yes
+</I>&gt;<i>
+</I>&gt;<i> * Reboot.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+
+
+-- 
+regards,
+    Reinhard
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001197.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+	<LI>Next message: <A HREF="001200.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1198">[ date ]</a>
+              <a href="thread.html#1198">[ thread ]</a>
+              <a href="subject.html#1198">[ subject ]</a>
+              <a href="author.html#1198">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

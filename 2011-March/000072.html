@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Question about the source
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3C1300503420.20136.4.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000071.html">
+   <LINK REL="Next"  HREF="000073.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Question about the source</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3C1300503420.20136.4.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-user] Question about the source">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Sat Mar 19 03:57:00 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000071.html">[X2go-user] Question about the source
+</A></li>
+        <LI>Next message: <A HREF="000073.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2011-03-18 at 20:24 -0600, Tyler Jameson Little wrote:
+&gt;<i> I downloaded a copy of the source by using this command: git clone
+</I>&gt;<i> <A HREF="git://code.x2go.org/x2goserver.git">git://code.x2go.org/x2goserver.git</A>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> I want to try to make a module on NodeJS, and I had assumed that I
+</I>&gt;<i> would get a bunch of source files written in C or C++, but what I got
+</I>&gt;<i> was a bunch of Perl scripts.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Is that all the server is?  Am I missing something?  My goal is to
+</I>&gt;<i> make an NX server that can run over a simple TCP or HTTP server and I
+</I>&gt;<i> was going to write a client for display in the browser.  From my
+</I>&gt;<i> research, X2Go is supposed to be the most fully featured, open source
+</I>&gt;<i> NX implementation out there.  I downloaded the source from
+</I>&gt;<i> NoMachine.com for part of their server and it was as I expected, a
+</I>&gt;<i> bunch of C and C++ sources.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> With NodeJS, I have a couple of options:
+</I>&gt;<i>       * Include a C++ module by exporting certain functions
+</I>&gt;<i>       * Write the source in server-side JavaScript
+</I>&gt;<i>       * Use the exec command to execute scripts on the command-line
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> If the server really is that simple, then my project will be a lot
+</I>&gt;<i> less painful and will take me a lot less time than expected to make
+</I>&gt;<i> work with NodeJS.  If the server really is this simple, how does it
+</I>&gt;<i> compare performance-wise with the open source version from NoMachine?
+</I>&gt;<i>  I want to possibly have several NX servers piped through a single
+</I>&gt;<i> webserver where each NX server is running in it's own VM, so
+</I>&gt;<i> efficiency is what I'm after.  I am primarily looking at just running
+</I>&gt;<i> this on Ubuntu, so this package looked like it was the right one
+</I>&gt;<i> (debian).
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Any help that any of you could offer would be much appreciated.  I'm
+</I>&gt;<i> excited to start playing with this software!!  Don't worry, anything I
+</I>&gt;<i> produce will be Open Source, regardless of whether I do a complete
+</I>&gt;<i> rewrite.
+</I>&lt;snip&gt;
+Welcome, Tyler.  I'll take a stab at explaining this in case the devs
+don't have a chance to respond.  Of course, take anything they say as
+more authoritative than anything I say!
+
+There is a difference between X2Go and NX.  X2Go strives to be much more
+than just remote screens and keystrokes.  By leveraging many open source
+projects (e.g., sshfs, fuse, pulseaudio, libssh, vcxsrv, nx) it strives
+to create a complete desktop experience including printing, sound, local
+file shares.  Note that I mentioned it leverages the NX code which is
+why you will not find the actual NX source inside X2Go.
+
+The server side is largely a collection of scripts.  In fact, starting
+the x2goserver process really does not start the server.  It starts a
+cleanup script to handle maintenance of stopped/suspended sessions.  The
+client actually invokes the various scripts via ssh.  If you download
+the client, you will find a bunch of Qt/C++ code and it is this code
+which calls the various x2goserver scripts to do things like set up file
+shares, audio, and invoke NX with the proper arguments.  Hope that helps
+- John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000071.html">[X2go-user] Question about the source
+</A></li>
+	<LI>Next message: <A HREF="000073.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#72">[ date ]</a>
+              <a href="thread.html#72">[ thread ]</a>
+              <a href="subject.html#72">[ subject ]</a>
+              <a href="author.html#72">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

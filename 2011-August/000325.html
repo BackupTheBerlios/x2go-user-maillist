@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Instructions for manual install from source tarballs on a less well-known distribution
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Instructions%20for%20manual%20install%20from%20source%0A%20tarballs%20on%20a%20less%20well-known%20distribution&In-Reply-To=%3C20110814213813.205186uwolancug5%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000299.html">
+   <LINK REL="Next"  HREF="000340.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Instructions for manual install from source tarballs on a less well-known distribution</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Instructions%20for%20manual%20install%20from%20source%0A%20tarballs%20on%20a%20less%20well-known%20distribution&In-Reply-To=%3C20110814213813.205186uwolancug5%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Instructions for manual install from source tarballs on a less well-known distribution">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun Aug 14 21:38:13 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000299.html">[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution
+</A></li>
+        <LI>Next message: <A HREF="000340.html">[X2go-User] [SOLVED] Re: Instructions for manual install from	source tarballs on a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ivan,
+
+On Mi 03 Aug 2011 14:16:01 CEST Ivan Kabaivanov wrote:
+
+&gt;<i> I would like to switch from freenx to x2go, but I don't use a well known
+</I>&gt;<i> distribution.  I have LFS, Linux From Scratch -- a source based distribution.
+</I>&gt;<i>
+</I>&gt;<i> I'm following the instructions from
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/installing_x2goserver_tarball">http://wiki.x2go.org/installing_x2goserver_tarball</A> and INSTALL from the
+</I>&gt;<i> x2goserver tarball.  but I fail to get it to work.
+</I>&gt;<i>
+</I>&gt;<i> Firstly, the server dependencies are listed as:
+</I>&gt;<i>
+</I>&gt;<i> perl-suid
+</I>&gt;<i> lsof
+</I>&gt;<i> openssh-client
+</I>&gt;<i> openssh-server
+</I>&gt;<i> libconfig-simple-perl
+</I>&gt;<i> makepasswd
+</I>&gt;<i> libdbd-pg-perl
+</I>&gt;<i> libdbd-sqlite3-perl
+</I>&gt;<i> xauth
+</I>&gt;<i>
+</I>&gt;<i> I've installed everything except for perl-suid as this is no longer part of
+</I>&gt;<i> recent perl versions.  Not sure how critical this is.
+</I>
+This was critical and that's why we have very recently remove the  
+perl-suid dependency from upstream code.
+
+Please use a very recent X2go server version from our Git repos:
+
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=snapshot;sf=tgz">http://code.x2go.org/gitweb?p=x2goserver.git;a=snapshot;sf=tgz</A>
+
+&gt;<i> Then, I follow the installation details from x2goserver's INSTALL:
+</I>
+GREAT
+
+&gt;<i> ========== BEGIN QUOTE ============
+</I>&gt;<i> TARBALL INSTALLATION OF x2goserver
+</I>&gt;<i> ==================================
+</I>&gt;<i>
+</I>&gt;<i> [...]
+</I>&gt;<i>
+</I>&gt;<i> ============= END QUOTE ================
+</I>
+&gt;<i> Here, there's some debianism, these two commands, addgroup and adduser, must
+</I>&gt;<i> be some debian specific wrappers for groupadd and useradd.  Can you please
+</I>&gt;<i> give me the regular groupadd and useradd command equivalents?
+</I>
+Yes, thank you for bringing this up. I have fixed this in the latest  
+INSTALL howto:
+
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=4845ffbb364a0f1f04f4a5337c5b977c450f38c6">http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=4845ffbb364a0f1f04f4a5337c5b977c450f38c6</A>
+
+Furthermore, I have updated the lower section of the howto, as well.  
+Whatever additional stuff who find and consider helpful, please post  
+it to this list.
+
+&gt;<i> Also, in some documentation files, I've see mention of a group x2gousers,
+</I>&gt;<i> while here the group name is x2gouser.  Which one is it?
+</I>
+This has changed very recently (together with the perl-suid dependency  
+removal). It is now x2gouser. The x2gousers group was necessary in  
+earlier releases and is now optional when using the PostgreSQL db  
+backend (or can/should be dropped with SQLite db backend).
+
+&gt;<i> Then there's the confusion of which packages I really need.  So far I'm
+</I>&gt;<i> compiling the below packages in the following order:
+</I>&gt;<i>
+</I>&gt;<i> nxcomp -&gt; server+client
+</I>&gt;<i> nxproxy -&gt; client
+</I>&gt;<i> nxcompshad -&gt; server
+</I>&gt;<i> nxcompext -&gt; server
+</I>&gt;<i> x2goserver -&gt; server
+</I>&gt;<i> x2goclient -&gt; client
+</I>
+MISSING::: x2goagent -&gt;server
+
+&gt;<i> I use git for pulling the source by the way.
+</I>
+Ah, great!
+
+&gt;<i> Then I do
+</I>&gt;<i>  $ chown root:x2gouser /usr/lib/x2go/x2gosqlitewrapper
+</I>&gt;<i>  $ chmod 2755 /usr/bin/x2gosqlitewrapper
+</I>
+This must have been an error in the old INSTALL howto. Please check  
+the new version.
+
+&gt;<i> Then I run as roon x2godbadmin --createdb (I use sqlite) and finally
+</I>&gt;<i>
+</I>&gt;<i> x2gocleansessions
+</I>
+Ok...
+
+&gt;<i> Then from another computer I fire up the x2goclient, create a connection and
+</I>&gt;<i> try to initiate it.  This is what I get in the console:
+</I>&gt;<i>
+</I>&gt;<i> [...]
+</I>
+Again: your server seems to be missing the x2goagent binary (which is  
+the actual session's Xserver that application within the session can  
+connect to).
+
+&gt;<i> In the debian installtion, I see you use sudo but in the INSTALL file this
+</I>&gt;<i> step is missing.
+</I>
+Sounds like your Debian installation does not use the same packages as  
+in X2go Git.
+
+Use this DebURL:
+deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze heuler
+
+&gt;<i> I've install sshfs anf fuse and I believe all the other dependencies.
+</I>
+Fuse: you have to add users that shall be able to use X2go local  
+folder sharing to the fuse group of your system (manually). I have  
+also updated that in the INSTALL howto.
+
+&gt;<i> My questions are:
+</I>&gt;<i>
+</I>&gt;<i> 1) Any way to enable debugging on the server side
+</I>
+Yes, but only planned for x2goserver &gt; 4.x. As the server-side is a  
+bunch of scripts you can modify them yourself (e.g. with the logger  
+command).
+
+&gt;<i> 2) Any way to enable debugging on the client side
+</I>
+Not so with x2goclient, but the pyhoca-gui (alternative client for  
+X2go) can do a lot of debugging.
+
+   pyhoca-gui --debug --libdebug
+
+&gt;<i> 3) Do I need to install and use x2goagent
+</I>
+YES!
+
+&gt;<i> Any help/hints/useful links you offer will be greatly appreciated.   
+</I>&gt;<i> When I get
+</I>&gt;<i> everything working, I will contribute a nice write-up for use on the wiki.
+</I>
+VERY NICE!
+
+&gt;<i> Modesty aside, I believe I write pretty clear and good documentation.  As I'm
+</I>&gt;<i> working on my own LFS-based distribution, I will be following the  
+</I>&gt;<i> new releases
+</I>&gt;<i> of x2go and will be updating the instructions too.
+</I>
+WOW!!!
+
+&gt;<i> Thanks,
+</I>&gt;<i> IvanK.
+</I>
+Cheers,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/0f5af40b/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/0f5af40b/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000299.html">[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution
+</A></li>
+	<LI>Next message: <A HREF="000340.html">[X2go-User] [SOLVED] Re: Instructions for manual install from	source tarballs on a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#325">[ date ]</a>
+              <a href="thread.html#325">[ thread ]</a>
+              <a href="subject.html#325">[ subject ]</a>
+              <a href="author.html#325">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

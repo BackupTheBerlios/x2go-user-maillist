@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%0A%20that%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3C20120425211939.25124nle3ny12b7v%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000807.html">
+   <LINK REL="Next"  HREF="000809.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%0A%20that%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3C20120425211939.25124nle3ny12b7v%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Apr 25 21:19:39 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000807.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+        <LI>Next message: <A HREF="000809.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#808">[ date ]</a>
+              <a href="thread.html#808">[ thread ]</a>
+              <a href="subject.html#808">[ subject ]</a>
+              <a href="author.html#808">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Brian,
+
+thanks for digging this out. Most of us devs are not using Ubuntu as  
+server OS and if we do, it is still an Ubuntu lucid.
+
+So, please... could you put this into the X2Go wiki?
+
+Thanks,
+Mike
+
+On Mi 25 Apr 2012 16:47:53 CEST brian mullan wrote:
+
+&gt;<i> In the past I and others have had no problem with x2go client logins to
+</I>&gt;<i> Ubuntu/Debian x2goservers.
+</I>&gt;<i>
+</I>&gt;<i> However, sometime n the past year or two of Ubuntu &amp; Debian OS updates
+</I>&gt;<i> something changed which caused the normal x2goclient session profile that
+</I>&gt;<i> requires the UserID -and- Password to be entered would fail giving an error
+</I>&gt;<i> message on the client that says:
+</I>&gt;<i>
+</I>&gt;<i> *Access denied. Authentication that can continue:
+</I>&gt;<i> publickey,keyboard-interactive*
+</I>&gt;<i>
+</I>&gt;<i> I finally found out the reason for this change in behavior and here's how
+</I>&gt;<i> to fix it.
+</I>&gt;<i>
+</I>&gt;<i> Get a terminal session with your x2goserver and edit */etc/ssh/sshd_config*
+</I>&gt;<i>
+</I>&gt;<i> *sudo nano /etc/ssh/sshd_config*
+</I>&gt;<i>
+</I>&gt;<i> in /etc/ssh/sshd_config (example was copied from Ubuntu 12.04) you will see
+</I>&gt;<i> the following entries:
+</I>&gt;<i>
+</I>&gt;<i> *# Change to yes to enable challenge-response passwords (beware issues with
+</I>&gt;<i> # some PAM modules and threads)
+</I>&gt;<i> ChallengeResponseAuthenticatio**n yes
+</I>&gt;<i>
+</I>&gt;<i> # Change to no to disable tunnelled clear text passwords
+</I>&gt;<i> PasswordAuthentication no*
+</I>&gt;<i>
+</I>&gt;<i> To fix this CHANGE   *PasswordAuthentication* to &quot;*yes*&quot; and save the file
+</I>&gt;<i> and restart ssh
+</I>&gt;<i>
+</I>&gt;<i> *sudo /etc/init.d/ssh restart*
+</I>&gt;<i>
+</I>&gt;<i> *REASON for the failure &amp; change of behavior from previous/older versions
+</I>&gt;<i> of Ubuntu.*
+</I>&gt;<i> I installed several older versions of Ubuntu going back to Ubuntu 9.10 and
+</I>&gt;<i> found that the installations of the Ubuntu Server changed the content of
+</I>&gt;<i> the /etc/ssh/sshd_config file!
+</I>&gt;<i>
+</I>&gt;<i> In older systems the entry for PasswordAuthentication either said:
+</I>&gt;<i>
+</I>&gt;<i> *# Change to no to disable tunnelled clear text passwords
+</I>&gt;<i> # PasswordAuthentication no*
+</I>&gt;<i>
+</I>&gt;<i> where the PasswordAuthentication line *was commented out* ... which then
+</I>&gt;<i> defaulted it to &quot;YES&quot;
+</I>&gt;<i> *-or-*
+</I>&gt;<i> the Password Authentication line was actually uncommented BUT set to &quot;YES&quot;
+</I>&gt;<i>
+</I>&gt;<i> *# Change to no to disable tunnelled clear text passwords
+</I>&gt;<i> PasswordAuthentication yes*
+</I>&gt;<i>
+</I>&gt;<i> So those older OS versions and x2go *would work* using login ID's and
+</I>&gt;<i> Passwords.
+</I>&gt;<i>
+</I>&gt;<i> Sometime during one of the Ubuntu 11.x releases the PasswordAuthentication
+</I>&gt;<i> entry was actually changed to &quot;no&quot; as is the case in Ubuntu 12.04 servers
+</I>&gt;<i> and the line was left not commented out so it was active...
+</I>&gt;<i>
+</I>&gt;<i> *# Change to no to disable tunnelled clear text passwords
+</I>&gt;<i> PasswordAuthentication no
+</I>&gt;<i> *
+</I>&gt;<i>
+</I>&gt;<i> That is what caused the failure of x2go logins using passwords and would
+</I>&gt;<i> present the user with that error message:
+</I>&gt;<i>
+</I>&gt;<i> *Access denied. Authentication that can continue:
+</I>&gt;<i> publickey,keyboard-interactive*
+</I>&gt;<i>
+</I>&gt;<i> I've made this change now and no longer see the problem on my servers so I
+</I>&gt;<i> wanted to share this info.
+</I>&gt;<i>
+</I>&gt;<i> Brian
+</I>&gt;<i>
+</I>
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120425/3448aeb9/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120425/3448aeb9/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000807.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+	<LI>Next message: <A HREF="000809.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#808">[ date ]</a>
+              <a href="thread.html#808">[ thread ]</a>
+              <a href="subject.html#808">[ subject ]</a>
+              <a href="author.html#808">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

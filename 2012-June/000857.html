@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redhat, runlevels and visibility (x2goserver)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3C20120605121433.193300%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000858.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redhat, runlevels and visibility (x2goserver)</H1>
+    <B>Burnce at gmx.net</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3C20120605121433.193300%40gmx.net%3E"
+       TITLE="[X2Go-User] Redhat, runlevels and visibility (x2goserver)">Burnce at gmx.net
+       </A><BR>
+    <I>Tue Jun  5 14:14:33 CEST 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000858.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#857">[ date ]</a>
+              <a href="thread.html#857">[ thread ]</a>
+              <a href="subject.html#857">[ subject ]</a>
+              <a href="author.html#857">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello,
+
+I am using x2go as an alternative to the overpriced commercial product from NoMachine. So far the road has been bumpy. Here is an honest description of problems I encountered when trying to install x2go server on an rhel6 machine:
+
+1) Contrary to debian packeages, the repo to use for rhel 6 is not advertized on the main download page. This leads to attempts to install from source, when a binary package is in fact available.
+2) Instructions for installation from source are unclear and outdated. GIT paths no longer work, configuration info is not sufficient etc.
+3) Once the repo has been found, and installation does not work out of the box, because no package for fuse-sshfs.x86_64 available on RHEL6. Could you add that package to your repo?
+4) Once installation is is complete, several things do not work as expected...
+
+
+4.1) File permissions are incorrect: sudo: /etc/sudoers.d/x2go is mode 0644, should be 0440
+4.2) On a server with gnome installed, but no complete X installation, creating a connection fails (session terminates during session start procedure with no clear error message). It turns out that with X installed and running (runlevel 5) x2go works properly. At runlevel 3, even with all packages installed it does not work. This differs from the free trial version of the commercial NX-server. Is this the way it is supposed to work or is there a service that is required and missing at runlevel 3?
+4.3) In the install from source documentation, reference is made to int scripts needed which should run 'x2gocleansessions' in background/daemon mode. No such script is installed but connections still can function (at runlevel 5, see point 4.2 above).
+
+The X2Go project is a great initiative and fills a clear need in the community. With a little effort, you could increase your visibility, gain more traction and increase both your user and your developer bases.
+
+Regardless.. good work so far. I would appreciate an answer to the runlevel question (point 4.2). With the rest, take it as constructive criticism and act on it as you like.
+
+Best regards and keep up the good work,
+
+Burnce
+-- 
+Empfehlen Sie GMX DSL Ihren Freunden und Bekannten und wir
+belohnen Sie mit bis zu 50,- Euro! <A HREF="https://freundschaftswerbung.gmx.de">https://freundschaftswerbung.gmx.de</A>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000858.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#857">[ date ]</a>
+              <a href="thread.html#857">[ thread ]</a>
+              <a href="subject.html#857">[ subject ]</a>
+              <a href="author.html#857">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

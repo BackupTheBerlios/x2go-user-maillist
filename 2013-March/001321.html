@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%200.4.0.1%20created%20bad%20config%20file&In-Reply-To=%3Cloom.20130313T173603-871%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001324.html">
+   <LINK REL="Next"  HREF="001323.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file</H1>
+    <B>Dirk Eddelbuettel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20PyHoca-GUI%200.4.0.1%20created%20bad%20config%20file&In-Reply-To=%3Cloom.20130313T173603-871%40post.gmane.org%3E"
+       TITLE="[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file">edd at debian.org
+       </A><BR>
+    <I>Wed Mar 13 17:39:55 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001324.html">[X2Go-User] Debugging tips?
+</A></li>
+        <LI>Next message: <A HREF="001323.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1321">[ date ]</a>
+              <a href="thread.html#1321">[ thread ]</a>
+              <a href="subject.html#1321">[ subject ]</a>
+              <a href="author.html#1321">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+x2go is quite nice to connect from Windoze to a few Ubuntu machines at work,
+and I am very glad that you guys carry on from the various Nx projects
+
+In order to permit multiple machine entries, I fiddled with PyHoca (0.4.0.1), 
+but seem to have corrupted the file by adding multiple entries with the same 
+key. 
+
+Now I am getting:
+
+Traceback (most recent call last):
+  File &quot;pyhoca\wxgui\frontend.pyo&quot;, line 1064, in OnProfileEdit
+  File &quot;pyhoca\wxgui\profilemanager.pyo&quot;, line 137, in __init__
+  File &quot;x2go\backends\profiles\_file.pyo&quot;, line 329, in to_profile_id
+x2go.x2go_exceptions.X2GoProfileException: The sessions config file contains 
+multiple session profiles with name: foo123
+Traceback (most recent call last):
+  File &quot;pyhoca\wxgui\frontend.pyo&quot;, line 1147, in OnProfileExport
+
+Where (on a win7 machine) is that file, and how can I clean it manually?
+
+Many thanks,  Dirk
+
+
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001324.html">[X2Go-User] Debugging tips?
+</A></li>
+	<LI>Next message: <A HREF="001323.html">[X2Go-User] PyHoca-GUI 0.4.0.1 created bad config file
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1321">[ date ]</a>
+              <a href="thread.html#1321">[ thread ]</a>
+              <a href="subject.html#1321">[ subject ]</a>
+              <a href="author.html#1321">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

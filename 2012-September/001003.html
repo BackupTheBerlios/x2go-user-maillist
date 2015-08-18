@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [X2Go-Dev]  Printing, x2go, Vservers
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Dev%5D%20%20Printing%2C%20x2go%2C%20Vservers&In-Reply-To=%3C1347845018.21992.16.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001002.html">
+   <LINK REL="Next"  HREF="001004.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [X2Go-Dev]  Printing, x2go, Vservers</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Dev%5D%20%20Printing%2C%20x2go%2C%20Vservers&In-Reply-To=%3C1347845018.21992.16.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] [X2Go-Dev]  Printing, x2go, Vservers">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Mon Sep 17 03:23:38 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001002.html">[X2Go-User] [X2Go-Dev] Printing, x2go, Vservers
+</A></li>
+        <LI>Next message: <A HREF="001004.html">[X2Go-User] x2go connecting timout with TCE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1003">[ date ]</a>
+              <a href="thread.html#1003">[ thread ]</a>
+              <a href="subject.html#1003">[ subject ]</a>
+              <a href="author.html#1003">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 2012-09-16 at 13:59 -0400, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">senrabdet at aol.com</A> wrote:
+&gt;<i> Hi All:
+</I>&gt;<i> 
+</I>&lt;snip&gt;
+&gt;<i> 
+</I>&gt;<i> 3)  John's Response
+</I>&gt;<i> 
+</I>&gt;<i> &quot;Does the CUPS server have rights to write to the client's spool
+</I>&gt;<i> directory? Good luck - John&quot;
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Hi John - how are you?  Good question...spent some time trying to
+</I>&gt;<i> check by comparing server where we connect directly to the x2go server
+</I>&gt;<i> vs. x2go running on a Vserver guest including on both:
+</I>&gt;<i> /tmp/.x2go-user1/spool/C-user1-50-1347811312_stDGNOME_dp24 (see below)
+</I>&gt;<i> /var/spool/cups
+</I>&gt;<i> 
+</I>&gt;<i> Even if we (assuming no mistakes) make the permissions comparable on
+</I>&gt;<i> both the x2go to x2go server and the x2go to x2go server on Vserver
+</I>&gt;<i> guest on these folders, no joy.
+</I>&gt;<i> 
+</I>&gt;<i> This may be the right track, though....a couple of
+</I>&gt;<i> observations/questions:
+</I>&gt;<i> a)  On the box where we connect directly the x2go server (no vserver
+</I>&gt;<i> involved), in the .x2go folder for the user there is a healthy &quot;spool&quot;
+</I>&gt;<i> link - on the vserver example, this link exists but is broken (they
+</I>&gt;<i> both point at /tmp); Bertl at Vserver says this is OK.
+</I>&gt;<i> b)  When we try to print, on the working x2goclient to x2goserver
+</I>&gt;<i> (again, no vserver),
+</I>&gt;<i> the /tmp/.x2go-user1/spool/C-user1-50-1347811312_stDGNOME_dp24 folder
+</I>&gt;<i> gets created along with the pdf for the print job.  NOTE:  this does
+</I>&gt;<i> not happen on the x2go client to x2go server on Vserver guest.  I.e.,
+</I>&gt;<i> no comparable folder is created.  So this folder which we think gets
+</I>&gt;<i> generated on the fly, only gets generated on the x2go to x2go server
+</I>&gt;<i> (not the instance where we connect to the x2go server on the vserver
+</I>&gt;<i> guest).
+</I>&gt;<i> 
+</I>&lt;snip&gt;
+If I recall correctly, the x2go printer driver transfers the file to the
+X2Go Server via scp.  Can the CUPS server establish an scp session to
+drop off the file? - John
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001002.html">[X2Go-User] [X2Go-Dev] Printing, x2go, Vservers
+</A></li>
+	<LI>Next message: <A HREF="001004.html">[X2Go-User] x2go connecting timout with TCE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1003">[ date ]</a>
+              <a href="thread.html#1003">[ thread ]</a>
+              <a href="subject.html#1003">[ subject ]</a>
+              <a href="author.html#1003">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

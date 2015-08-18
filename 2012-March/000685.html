@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User]  thinclient image and automounting usb-devices
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3CCAFX-c4vhQEQORgkUBirCzBHaAenohSnOnU%2B1LqaB09rEzktLpw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000684.html">
+   <LINK REL="Next"  HREF="000689.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User]  thinclient image and automounting usb-devices</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3CCAFX-c4vhQEQORgkUBirCzBHaAenohSnOnU%2B1LqaB09rEzktLpw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User]  thinclient image and automounting usb-devices">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Thu Mar  8 15:09:49 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000684.html">[X2Go-User] X2Go release day: x2goserver, nx-libs, x2goclient,	x2gothinclient
+</A></li>
+        <LI>Next message: <A HREF="000689.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#685">[ date ]</a>
+              <a href="thread.html#685">[ thread ]</a>
+              <a href="subject.html#685">[ subject ]</a>
+              <a href="author.html#685">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Stefan
+
+If you can configure your thin-client to boot off of USB ...
+
+   1. create a 1 or 2 GB USB stick configured to auto-boot into linux and
+   some locked down user account
+   2. create the network configuration setup the thin-client will use
+   3. start x2goclient
+   4. create a new &quot;session&quot;
+   5. pre-configure the USB x2goclient with 1 Session, your various
+   'settings/preferences' like desktop-type, local printing, connection speed
+   etc
+   6. don't enter any user ID into the USB x2goclient
+   7. exit the x2go client
+   8. configure x2goclient to be auto-run at boot
+   9. pre-configure the USB Linux wireless/ethernet info
+
+Shutdown the USB linux and the USB should contain a template you can make
+copies of.
+
+Hand out USB's to students at Registration or leave in the
+Thin-Clients.
+
+I've talked to some USB manufacturers and if you buy in bulk they will even
+pre-copy/load your USBs for you and in most cases, imprint the USB with a
+school mascot/banner etc.
+
+They above becomes sort of like an x2go client kiosk setup.
+
+When the thin-clients boots and network is established  the x2go login
+screen should be presented and they will be able to log into your
+x2goserver and get a desktop.
+
+I've done this and its quite easy.   One other benefit is that if the
+x2goserver at the school is setup right to provide a public IP (with
+security) the students could take the USB Sticks home and if they have
+Internet at home and a PC/laptop/netbook etc that can boot from USB then...
+the student can boot off their USB stick, login to their school x2go server
+and continue with their desktop &amp; school work as if they'd never left the
+school.
+
+First question is &quot;what if the kid loses the USB&quot;...
+
+   - anyone finding it would still not have the user ID and password to
+   gain access to the school's x2goserver and the student's desktop.
+   - also, since 1-2 GB USBs are so cheap now they can just be a
+   &quot;throw-away&quot; expense.
+   - Security,  you can encrypt the USB, there's no user information or
+   documents etc. ever stored on the USB itself, etc.
+
+Just an idea.
+
+by the way for 1GB USB's they are now about $2.95 each with Free Logo, 100
+Piece Minimum.
+
+Brian
+
+On 03/07/2012 11:29 AM, Stefan wrote:
+
+Hi all,
+
+we plan to set up an x2go-server in a school, where people should have
+access
+to with laptops throught wlan.
+
+The laptops will have dual-boot systems an one of them should be a minimal
+setup with x2goclient (thinclient-image) and wlan access. It would be nice
+doing usb-automounting in the image - like the ltsp-thinclient environment
+does.
+
+They should behave thin-client like - only that they can't boot through pxe
+because of wlan. (For the desktops we still use ltsp - because of features
+like local apps and automounging ...) So users should not have to open a
+desktop-environment, starting x2goclient and mount local devices manualy.
+
+Are there any common approaches?
+
+Is automounting working in the tce of x2go?
+
+Thanks for your ideas.
+
+stefan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/aa5eec81/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/aa5eec81/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000684.html">[X2Go-User] X2Go release day: x2goserver, nx-libs, x2goclient,	x2gothinclient
+</A></li>
+	<LI>Next message: <A HREF="000689.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#685">[ date ]</a>
+              <a href="thread.html#685">[ thread ]</a>
+              <a href="subject.html#685">[ subject ]</a>
+              <a href="author.html#685">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

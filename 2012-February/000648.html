@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gothinclient w/o pxe
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20w/o%20pxe&In-Reply-To=%3CCAJxwJyhK2j5FjArf%3Dvq8YYJ9LeipiPjDhEp7gzV80mHtEBgdhw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000647.html">
+   <LINK REL="Next"  HREF="000651.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gothinclient w/o pxe</H1>
+    <B>Jonathan Brown</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gothinclient%20w/o%20pxe&In-Reply-To=%3CCAJxwJyhK2j5FjArf%3Dvq8YYJ9LeipiPjDhEp7gzV80mHtEBgdhw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2gothinclient w/o pxe">jbssfl at gmail.com
+       </A><BR>
+    <I>Fri Feb 24 01:05:52 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000647.html">[X2Go-User] X2Go TCE with new splash
+</A></li>
+        <LI>Next message: <A HREF="000651.html">[X2Go-User] x2gothinclient w/o pxe
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+A cursory reading of the online lit I found relating to x2gothinclient
+seems to require that the stations all pxeboot...
+
+I don't want thinclients that pxeboot.. what I need is a minimal OS that is
+setup to autologin to X and then pyhoca-cli to the x2go-server... can the
+x2gothinclient packages do this say on a minimal debian install for the
+thinclient.. ?
+
+Since I did not see this capability, I already built from scratch a minimal
+Debian 6 that does an autologin into X using gdm/matchbox wm, and then
+created a script that force loops a username/pw graphical dialog using yad
+(zenity fork)... suffice it to say this works well... but I'm thinking if
+x2gothinclient already had the capability to do this then I did it all for
+nought.. except it was definitely a good exercise...
+
+The steps and scripts that I did do make this pxe-less x2g0
+thin-client/kiosk follow ... I'm sure this can be quite improved...
+actually the main thing I'd like to improve is to have the matchbox wm/X on
+the local thin client be aware when there is no activity in the x2go
+session, and if no activity, then kill or suspend the pyhoca-cli session,
+thus going back to the yad login prompt, but I haven't found a way to do
+this (normal logout of the x2go session of course works fine and brings you
+back to the yad login prompt)... I think the problem is that matchbox wm/X
+always thinks there is activity when the x2go session is logged in/active,
+even when there is no activity in the x2go session itself...
+
+Any thoughts on any of the above would be appreciated!
+
+Steps/scripts etc for x2g0 thin-client/kiosk:
+
+OK so I pretty much used the guide from:
+<A HREF="http://www.alandmoore.com/blog/2011/11/05/creating-a-kiosk-with-linux-and-x11-2011-edition/">http://www.alandmoore.com/blog/2011/11/05/creating-a-kiosk-with-linux-and-x11-2011-edition/</A>
+
+and went from there...
+
+After initial Debian squeeze install with only ssh server:
+
+Add x2go sources and install pyhoca-cli
+apt-get install xorg
+apt-get install gdm --no-install-recommends
+apt-get install xautolock feh
+wget
+<A HREF="http://archive.ualinux.com/ubuntu/main/lucid/yad_0.15.0-1~webupd8~lucid_i386.deb">http://archive.ualinux.com/ubuntu/main/lucid/yad_0.15.0-1~webupd8~lucid_i386.deb</A>
+dpkg -i yad_0.15.0-1~webupd8~lucid_i386.deb
+(the above is an ubuntu lucid yad deb package but it worked so I didn't ask
+any further questions :)  ... there might be a better yad package for
+squeeze but I could not find one)
+adduser kiosk (or whatever)
+cp -r /home/kiosk /opt/;
+cd /opt/kiosk/;
+chmod -R a+r .;
+touch .xprofile
+chmod a+x .xprofile
+
+my .xprofile:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/.xprofile
+xset s off
+xset -dpms
+matchbox-window-manager &amp;
+eval `cat /home/sagotech/.fehbg` &amp;
+xautolock -secure -time 10 -locker /usr/local/bin/suspend_pyhoca-cli.sh &amp;
+while true; do
+    rsync -qr --delete --exclude='.Xauthority' /opt/sagotech/ $HOME/
+    exec /home/sagotech/start_pyhoca.sh
+done
+
+suffice it to say xautolock does not detect non-activity in an x2go session
+so the suspend_pyhoca-cli.sh never ran:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /usr/local/bin/suspend_pyhoca-cli.sh
+#!/bin/bash
+pyhoca-cli -S
+
+(for background behind the yad login prompt):
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/.fehbg
+feh --bg-scale '/usr/share/wallpaper/custom-bk-2.jpg'
+
+The script that brings up the yad login prompt loop called from .xprofile
+follows... so we have this loop inside the loop of the .xprofile script...
+not sure if this necessary or a good thing etc.
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at lxtrms-thinclient-colodesk</A>:~# cat /home/sagotech/start_pyhoca.sh
+#!/bin/bash
+while true; do
+frmdata=$(yad --center --undecorated
+--image=/usr/share/wallpaper/sago-header-mod.jpg --image-on-top
+--button=&quot;gtk-ok:0&quot; --title &quot;Login to Sago Linux Terminal Server&quot; --form
+--field=&quot;AD username&quot; --field=&quot;Password:H&quot;)
+frmusername=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $1 }')
+frmpassword=$(echo $frmdata | awk 'BEGIN {FS=&quot;|&quot; } { print $2 }')
+pyhoca-cli --server X.X.X.X -u $frmusername --password $frmpassword -c
+startkde --sound none --kbd-layout us --kbd-type pc105/us -g fullscreen
+--add-to-known-hosts
+done
+
+The above basically gives you a login prompt and forces you to enter a
+login AND password and the password is hidden when you type it it puts a
+nice header image at the top of the prompt.. it only gives an OK button (no
+cancel)...  then passes off the username/pw to pyhoca-cli
+
+So yeah I would like to improve this so that inactive x2go sessions get
+suspended and go back to the yad login prompt... perhaps there is a
+pyhoca-cli switch that does this that I'm not aware of... But even without
+that feature this works real nice as a non-pxe x2go thin-client station.
+
+Anyway this is all probably very messy and amateurish, but I am not exactly
+a programmer or very proficient bash scripter so.. :)  Also I might be
+missing a few steps and if any of the above does not make sense please
+advise and I'll try to see if I missed something in the steps given above...
+
+Any thoughts on any of the above would be appreciated!
+
+-- 
+*&quot;It is only when each individual has achieved inner peace that we will see
+lasting outer peace in the world&quot;
+*
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120223/45bec0a0/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120223/45bec0a0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000647.html">[X2Go-User] X2Go TCE with new splash
+</A></li>
+	<LI>Next message: <A HREF="000651.html">[X2Go-User] x2gothinclient w/o pxe
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#648">[ date ]</a>
+              <a href="thread.html#648">[ thread ]</a>
+              <a href="subject.html#648">[ subject ]</a>
+              <a href="author.html#648">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

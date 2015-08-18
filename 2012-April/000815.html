@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4sZpotyJUEuQ5UeLMRe8ZNxboxjt0SnbNS5gjDgyYwxMQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000814.html">
+   <LINK REL="Next"  HREF="000816.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4sZpotyJUEuQ5UeLMRe8ZNxboxjt0SnbNS5gjDgyYwxMQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sun Apr 29 17:12:27 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000814.html">[X2Go-User] X2Go-User Digest, Vol 20, Issue 20
+</A></li>
+        <LI>Next message: <A HREF="000816.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#815">[ date ]</a>
+              <a href="thread.html#815">[ thread ]</a>
+              <a href="subject.html#815">[ subject ]</a>
+              <a href="author.html#815">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I just installed pyhoca-gui on my local pc running ubuntu 12.04 using the
+ubuntu repositories and synaptic.
+
+pyhoca-gui fails to start and displays:
+*
+*
+*$ pyhoca-gui
+Xlib.protocol.request.QueryExtension
+pyhoca-gui[21497] (PyHoca-GUI) WARN: the current release of PyHoca-GUI does
+not support client configuration*
+
+So I'm not able to try it and I'm not sure what the problem is with &quot;client
+configuration&quot;?
+
+I'll delete the wiki entry if you are sure the sshd_config entry isn't a
+problem but I'm not so sure.   As I've said changing it to &quot;no&quot; and
+x2goclient fails, change to &quot;yes&quot; and it works?     I can always just use
+this as my personal &quot;fix&quot; until some other reason for the failures appears.
+
+Brian
+
+
+---------- Forwarded message ----------
+&gt;<i> From: Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Cc:
+</I>&gt;<i> Date: Sun, 29 Apr 2012 00:35:30 +0200
+</I>&gt;<i> Subject: Re: [X2Go-User] ubuntu 12.04 and x2go server installation - found
+</I>&gt;<i> reason for failed remote desktop session starts
+</I>&gt;<i> Hi Brian,
+</I>&gt;<i>
+</I>&gt;<i> On Mi 25 Apr 2012 00:01:16 CEST brian mullan wrote:
+</I>&gt;<i>
+</I>&gt;<i>  then edit /etc/ssh/sshd_config and enable ChallengeResponseAuthenticatio*
+</I>&gt;&gt;<i> *n
+</I>&gt;&gt;<i> to YES
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ***ChallengeResponseAuthenticatio**n yes*
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I cannot confirm that this setting change in sshd_config is necessary. I
+</I>&gt;<i> just tested Ubuntu precise with X2Go and server logins were successful with
+</I>&gt;<i> x2goclient and pyhoca-gui without the above change being applied.
+</I>&gt;<i>
+</I>&gt;<i> Please check your setup again and remove the part in the wiki that
+</I>&gt;<i> suggests the above named change. Or explain in more detail why you think
+</I>&gt;<i> this is necessary. Let's track this down fully, so we get a clearer sight
+</I>&gt;<i> on what is happening here.
+</I>&gt;<i>
+</I>&gt;<i>  On the server you now also must install x2goserver-xsession
+</I>&gt;&gt;<i> *
+</I>&gt;&gt;<i> sudo apt-get install x2goserver-xsession*
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks for reporting this. This indeed may have been a bug in
+</I>&gt;<i> x2goruncommand. My patch is currently being discussed on the x2go-dev ML:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=**x2goserver.git;a=commitdiff;h=**">http://code.x2go.org/gitweb?p=**x2goserver.git;a=commitdiff;h=**</A>
+</I>&gt;<i> c13ffe1cb2c39edfacab52bc62e278**469da19c9e&lt;<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=c13ffe1cb2c39edfacab52bc62e278469da19c9e">http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=c13ffe1cb2c39edfacab52bc62e278469da19c9e</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> With the given patch applied, the x2goserver-xsession package becomes
+</I>&gt;<i> optional again. Packages for testing will be available in the
+</I>&gt;<i> nightly-builds soon.
+</I>&gt;<i>
+</I>&gt;<i> So basically, I think, we should remove this part from the wiki again, as
+</I>&gt;<i> well. But before doing that, we have to wait for acceptance of my patch by
+</I>&gt;<i> the other developers.
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120429/371acbb5/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120429/371acbb5/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000814.html">[X2Go-User] X2Go-User Digest, Vol 20, Issue 20
+</A></li>
+	<LI>Next message: <A HREF="000816.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#815">[ date ]</a>
+              <a href="thread.html#815">[ thread ]</a>
+              <a href="subject.html#815">[ subject ]</a>
+              <a href="author.html#815">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

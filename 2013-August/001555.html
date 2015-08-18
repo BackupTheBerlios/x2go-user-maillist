@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20doesn%27t%20configure%20properly%20on%20RHEL%205%0A%09%28problem%20with%20perl%27s%20file%20module%3F%29&In-Reply-To=%3C201308231726.17075.Holger.Krause%40med.uni-duesseldorf.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001554.html">
+   <LINK REL="Next"  HREF="001556.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)</H1>
+    <B>Holger Krause</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver%20doesn%27t%20configure%20properly%20on%20RHEL%205%0A%09%28problem%20with%20perl%27s%20file%20module%3F%29&In-Reply-To=%3C201308231726.17075.Holger.Krause%40med.uni-duesseldorf.de%3E"
+       TITLE="[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)">Holger.Krause at med.uni-duesseldorf.de
+       </A><BR>
+    <I>Fri Aug 23 17:26:15 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001554.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+</A></li>
+        <LI>Next message: <A HREF="001556.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5 (problem with perl's file module?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1555">[ date ]</a>
+              <a href="thread.html#1555">[ thread ]</a>
+              <a href="subject.html#1555">[ subject ]</a>
+              <a href="author.html#1555">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am Freitag, 23. August 2013 schrieb Holger Krause:
+&gt;<i> Hi list,
+</I>&gt;<i> 
+</I>&gt;<i> Inspired by Kermit Short's posting a week ago, I tried to install
+</I>&gt;<i> x2goserver on RHEL 5 (x86_64) today. Missing dependencies I installed
+</I>&gt;<i> manually. The dependency on the perl-file module reported by yum
+</I>&gt;<i> ----
+</I>&gt;<i> Error: Missing Dependency: perl(File::BaseDir) is needed by package
+</I>&gt;<i> x2goserver ----
+</I>&gt;<i> I tried to fullfill with
+</I>&gt;<i> ----
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> ~]# rpm -i perl-File-BaseDir-0.03-1.el5.noarch.rpm
+</I>&gt;<i> -----
+</I>[...]
+&gt;<i>   Installing: x2goserver                   ####################### [22/24]
+</I>&gt;<i> &quot;make_path&quot; is not exported by the File::Path module
+</I>&gt;<i> Can't continue after import errors at /usr/sbin/x2godbadmin line 25
+</I>&gt;<i> BEGIN failed--compilation aborted at /usr/sbin/x2godbadmin line 25.
+</I>[...]
+&gt;<i> 
+</I>&gt;<i> Now, calling x2godbadmin yields the same error message as during
+</I>&gt;<i> installation by yum:
+</I>&gt;<i> ----
+</I>&gt;<i> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at hermes</A> log]# /usr/sbin/x2godbadmin
+</I>&gt;<i> &quot;make_path&quot; is not exported by the File::Path module
+</I>&gt;<i> Can't continue after import errors at /usr/sbin/x2godbadmin line 25
+</I>&gt;<i> BEGIN failed--compilation aborted at /usr/sbin/x2godbadmin line 25.
+</I>&gt;<i> ----
+</I>[...]
+&gt;<i> 
+</I>&gt;<i> Do I need a specific version of perl(File::BaseDir)? Any ideas how to fix
+</I>&gt;<i> the x2goserver configuration?
+</I>
+I just found <A HREF="http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=254.">http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=254.</A> Seemingly, 
+the problem with 'make_path' is already mentioned there, albeit not as the 
+main topic of the reported bug. Is there a known workaround?
+
+Best,
+
+Holger
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001554.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5	(problem with perl's file module?)
+</A></li>
+	<LI>Next message: <A HREF="001556.html">[X2Go-User] x2goserver doesn't configure properly on RHEL 5 (problem with perl's file module?)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1555">[ date ]</a>
+              <a href="thread.html#1555">[ thread ]</a>
+              <a href="subject.html#1555">[ subject ]</a>
+              <a href="author.html#1555">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] cups-x2go problem printing multiple copies from windows	terminal server. Fix inside ( i guess )
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20cups-x2go%20problem%20printing%20multiple%20copies%20from%20windows%0A%09terminal%20server.%20Fix%20inside%20%28%20i%20guess%20%29&In-Reply-To=%3C6067472.GmXAn2ezWb%40zen64-mobile%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000686.html">
+   <LINK REL="Next"  HREF="000688.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] cups-x2go problem printing multiple copies from windows	terminal server. Fix inside ( i guess )</H1>
+    <B>Helmer Teles</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20cups-x2go%20problem%20printing%20multiple%20copies%20from%20windows%0A%09terminal%20server.%20Fix%20inside%20%28%20i%20guess%20%29&In-Reply-To=%3C6067472.GmXAn2ezWb%40zen64-mobile%3E"
+       TITLE="[X2Go-User] cups-x2go problem printing multiple copies from windows	terminal server. Fix inside ( i guess )">helmer.teles at gmail.com
+       </A><BR>
+    <I>Thu Mar  8 16:26:31 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000686.html">[X2Go-User] X2Go-User Digest, Vol 19, Issue 5
+</A></li>
+        <LI>Next message: <A HREF="000688.html">[X2Go-User] cups-x2go problem printing multiple copies from windows terminal server. Fix inside ( i guess )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#687">[ date ]</a>
+              <a href="thread.html#687">[ thread ]</a>
+              <a href="subject.html#687">[ subject ]</a>
+              <a href="author.html#687">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, ML.
+
+
+I've found a bug when i try to print multiple copies from a Windows Terminal 
+Server to x2go-printer if the document has only one page, it only prints one 
+copy. Strangely this does not happen if the document has more than one page.
+
+How to reproduce
+
+Open a x2go-session, open Freerdp to a windows terminal server, write a new 
+Word Document with only one page. Now print the document with more than 1 
+copy.
+
+
+Steps to correct it:
+
+I've changed the line in /usr/lib/cups/backend/cups-x2go to:
+
+# PS2PDF command
+my $ps2pdf = &quot;/usr/bin/gs -q -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH -
+dSAFER -sDEVICE=pdfwrite -sOutputFile=\&quot;%s.pdf\&quot; -dAutoRotatePages=/PageByPage 
+-dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -
+dPDFSETTINGS=/printer -dDoNumCopies  -c .setpdfwrite -f \&quot;%s\&quot;&quot;;
+
+FROM:
+
+# PS2PDF command
+my $ps2pdf = &quot;/usr/bin/gs -q -dCompatibilityLevel=1.4 -dNOPAUSE -dBATCH -
+dSAFER -sDEVICE=pdfwrite -sOutputFile=\&quot;%s.pdf\&quot; -dAutoRotatePages=/PageByPage 
+-dAutoFilterColorImages=false -dColorImageFilter=/FlateEncode -
+dPDFSETTINGS=/prepress -c .setpdfwrite -f \&quot;%s\&quot;&quot;;
+
+
+
+
+-- 
+Helmer Teles
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">eM at il</A>   : helmer{DOT}teles[AT] google Email
+Web Page: <A HREF="http://hteles.wordpress.com">http://hteles.wordpress.com</A>
+
+
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/33c794e0/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120308/33c794e0/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000686.html">[X2Go-User] X2Go-User Digest, Vol 19, Issue 5
+</A></li>
+	<LI>Next message: <A HREF="000688.html">[X2Go-User] cups-x2go problem printing multiple copies from windows terminal server. Fix inside ( i guess )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#687">[ date ]</a>
+              <a href="thread.html#687">[ thread ]</a>
+              <a href="subject.html#687">[ subject ]</a>
+              <a href="author.html#687">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

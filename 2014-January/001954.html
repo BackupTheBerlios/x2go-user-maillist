@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Keyboard problem with Del key in XFCE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20problem%20with%20Del%20key%20in%20XFCE&In-Reply-To=%3C52D3D7AA.8010208%40cesga.es%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001945.html">
+   <LINK REL="Next"  HREF="001947.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Keyboard problem with Del key in XFCE</H1>
+    <B>Javier Cacheiro Lopez</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20problem%20with%20Del%20key%20in%20XFCE&In-Reply-To=%3C52D3D7AA.8010208%40cesga.es%3E"
+       TITLE="[X2Go-User] Keyboard problem with Del key in XFCE">jlopez at cesga.es
+       </A><BR>
+    <I>Mon Jan 13 13:10:18 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001945.html">[X2Go-User] Keyboard problem with Del key in XFCE
+</A></li>
+        <LI>Next message: <A HREF="001947.html">[X2Go-User] Num Keypad is not working with X2GO Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1954">[ date ]</a>
+              <a href="thread.html#1954">[ thread ]</a>
+              <a href="subject.html#1954">[ subject ]</a>
+              <a href="author.html#1954">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have been trying with different types of sessions and LXDE showed 
+similar issues to XFCE but in this case the keyboard problems are solved 
+running:
+
+     setxkbmap -model pc105 -layout es
+
+after the session is started.
+
+It seems the setxbmap is not executed automatically in the case of LXDE. 
+Looking at the source code I see no difference in x2gostartagent that 
+depends on the type of session so that in the case of LXDE the keyboard 
+is not configured but I must admit I do not understand quite well the 
+keyboard setup process.
+
+Any idea to debug the XFCE problem will be much appreciated.
+
+Thanks!
+
+On 09/01/14 17:39, Javier Cacheiro Lopez wrote:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> I am trying to debug a strange problem with the keyboard in a x2go 
+</I>&gt;<i> session to a server using XFCE and OpenSuse 13.1.
+</I>&gt;<i>
+</I>&gt;<i> The session works fine but the &quot;Del&quot; key does not work.
+</I>&gt;<i>
+</I>&gt;<i> These were the steps I followed:
+</I>&gt;<i>  - Initially the &quot;Del&quot; key behaved like the print screen key and there 
+</I>&gt;<i> were other keys behaving oddly like Insert key or cursor keys that did 
+</I>&gt;<i> not work
+</I>&gt;<i>  - Changing x2goclient session preferences from current preferences to 
+</I>&gt;<i> keyboard map &quot;es&quot; and model to &quot;pc105/es&quot; did not do produce any change
+</I>&gt;<i>  - Modifying XFCE keyboard configuration and specifying the keyboard 
+</I>&gt;<i> model as &quot;Generic 105 key (Intl) PC&quot; in the advanced options makes the 
+</I>&gt;<i> cursor keys work and &quot;Del&quot; stops behaving like print screen.
+</I>&gt;<i>
+</I>&gt;<i> I have checked session.log and the only error I see is:
+</I>&gt;<i>     nxagentXkbGetRules: WARNING! Failed to stat file 
+</I>&gt;<i> [/usr/local/lib/nx/X11/xkb/rules/xorg]: Unknown error -1.
+</I>&gt;<i>
+</I>&gt;<i> In fact this warning appears also in other server I have running 
+</I>&gt;<i> Scientific Linux 6.4 and Gnome where keyboard works correctly.
+</I>&gt;<i>
+</I>&gt;<i> Running xev I see &quot;Del&quot; key is not recognized as a KeyPress event but 
+</I>&gt;<i> as a series of FocusOut, FocusIn and KeymapNotify events:
+</I>&gt;<i>
+</I>&gt;<i> FocusOut event, serial 36, synthetic NO, window 0x2e00001,
+</I>&gt;<i>     mode NotifyGrab, detail NotifyAncestor
+</I>&gt;<i>
+</I>&gt;<i> FocusIn event, serial 36, synthetic NO, window 0x2e00001,
+</I>&gt;<i>     mode NotifyUngrab, detail NotifyAncestor
+</I>&gt;<i>
+</I>&gt;<i> KeymapNotify event, serial 36, synthetic NO, window 0x0,
+</I>&gt;<i>     keys:  0   0   0   0   0   0   0   0   0   0   0   0   0   0 0   0
+</I>&gt;<i>            0   0   0   0   0   0   0   0   0   0   0   0   0   0 0   0
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I would really appreciate any hint about how to continue debugging the 
+</I>&gt;<i> problem.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Javier
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001945.html">[X2Go-User] Keyboard problem with Del key in XFCE
+</A></li>
+	<LI>Next message: <A HREF="001947.html">[X2Go-User] Num Keypad is not working with X2GO Client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1954">[ date ]</a>
+              <a href="thread.html#1954">[ thread ]</a>
+              <a href="subject.html#1954">[ subject ]</a>
+              <a href="author.html#1954">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

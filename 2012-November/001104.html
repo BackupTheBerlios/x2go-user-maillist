@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go with git submodules
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20with%20git%20submodules&In-Reply-To=%3C509A3B1D.2040401%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001103.html">
+   <LINK REL="Next"  HREF="001105.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go with git submodules</H1>
+    <B>Ralf Hemmecke</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20with%20git%20submodules&In-Reply-To=%3C509A3B1D.2040401%40gmail.com%3E"
+       TITLE="[X2Go-User] x2go with git submodules">hemmecke at gmail.com
+       </A><BR>
+    <I>Wed Nov  7 11:42:37 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001103.html">[X2Go-User] Fwd: x2goserver without root access
+</A></li>
+        <LI>Next message: <A HREF="001105.html">[X2Go-User] x2go with git submodules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1104">[ date ]</a>
+              <a href="thread.html#1104">[ thread ]</a>
+              <a href="subject.html#1104">[ subject ]</a>
+              <a href="author.html#1104">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>&gt;&gt;<i> Maybe I should rather subscribe to the x2go-developer list. Looking at
+</I>&gt;&gt;<i> <A HREF="http://www.x2go.org/doku.php/wiki:development:git">http://www.x2go.org/doku.php/wiki:development:git</A>
+</I>&gt;&gt;<i> tells me about &quot;Checkout all repos:&quot;. A bash-script? That looks like
+</I>&gt;&gt;<i> x2go should rather use &quot;git submodules&quot; no?
+</I>
+Hi,
+
+maybe I shouldn't do this before knowing x2go better, but since I was
+somehow shocked by this bash script...
+
+I've actually executed it and found out that I should delete the
+deprecated line *and* the line
+
+x2goagent.git \
+
+since also that gives a 'permission denied error'.
+
+Furthermore, when I look at <A HREF="http://code.x2go.org/gitweb,">http://code.x2go.org/gitweb,</A> I somehow get
+the impression that the list on the webpage is completely outdated.
+
+So, here my suggestion. Use git submodules and tell developers to clone
+the sources like
+
+  git clone <A HREF="git://code.x2go.org/x2org.git">git://code.x2go.org/x2org.git</A>
+  cd x2org
+  git submodule init
+  git submodule update
+
+Someone from the core developers should (of course create the initial
+x2org.git.
+
+For demonstration purposes you can start with
+
+  git clone <A HREF="git://github.com/hemmecke/x2go.git">git://github.com/hemmecke/x2go.git</A>
+
+but some core developer should actually produce a x2go.git like
+
+  mkdir x2go
+  cd x2go
+  git init
+  for r in buildscripts.git ,,, ; do \
+    git submodule add <A HREF="git://code.x2go.org/$r;">git://code.x2go.org/$r;</A> \
+  done
+  git commit
+
+with the correct list of (sub-)projects or simply clone my x2go.git and
+add the missing projects via
+
+  git submodule add <A HREF="git://code.x2go.org/libjpeg-turbo.git">git://code.x2go.org/libjpeg-turbo.git</A>
+
+and then publish that x2go.git repo somewhere.
+
+
+This probably doesn't give you the exactly same setup as you had before,
+since (as you can see from the <A HREF="git://,">git://,</A> everyone would only get read
+access to the repository.
+
+But hey, we are dealing with git, nobody actually needs write access to
+anybody elses repository. The X2GO project has just to declare some of
+the many repositories as the OFFICIAL one and one or two people would be
+responsible to push into this OFFICIAL repository. For collaboration
+there is github and all the other free git-repository hosting providers.
+
+But of course, that is all up to the inner core of developers who
+decide. I've just made my suggestion. Feel free to adapt to your actual
+needs. (Since I am too new, I don't yet know them.)
+
+Ralf
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001103.html">[X2Go-User] Fwd: x2goserver without root access
+</A></li>
+	<LI>Next message: <A HREF="001105.html">[X2Go-User] x2go with git submodules
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1104">[ date ]</a>
+              <a href="thread.html#1104">[ thread ]</a>
+              <a href="subject.html#1104">[ subject ]</a>
+              <a href="author.html#1104">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,181 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go on Android
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20on%20Android&In-Reply-To=%3C20130924101447.228517w523h4mnsn%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001591.html">
+   <LINK REL="Next"  HREF="001603.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go on Android</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20on%20Android&In-Reply-To=%3C20130924101447.228517w523h4mnsn%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] X2Go on Android">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Sep 24 10:14:47 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001591.html">[X2Go-User] X2Go-User Digest, Vol 37, Issue 12
+</A></li>
+        <LI>Next message: <A HREF="001603.html">[X2Go-User] Installing x2go client on Fedora 18
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1592">[ date ]</a>
+              <a href="thread.html#1592">[ thread ]</a>
+              <a href="subject.html#1592">[ subject ]</a>
+              <a href="author.html#1592">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Markus, hi Lucian, et al.
+
+first.. @Markus: didn't you want to work on the wiki's &quot;Get started&quot;  
+page? It is dangling there as an empty page now and waiting for you to  
+write it.
+
+On Mo 23 Sep 2013 14:37:33 CEST Nigra Truo wrote:
+
+&gt;&gt;<i> I seriously doubt that it would work without any changes. X2go depends on a
+</I>&gt;&gt;<i> lot of X specific black magic, amongst others are nxproxy, which is a way
+</I>&gt;&gt;<i> to compress the X protocol. Android does not run X (as far as I know), so
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Android has had X for some time now:
+</I>&gt;<i> <A HREF="https://play.google.com/store/apps/details?id=au.com.darkside.XServer&amp;hl=en">https://play.google.com/store/apps/details?id=au.com.darkside.XServer&amp;hl=en</A>
+</I>&gt;<i>
+</I>&gt;<i> nxproxy is not yet there as far as I know.
+</I>
+Nope.
+
+&gt;<i> Yes, it might be a lot of work, but a worthy one: lots and lots of devices
+</I>&gt;<i> come with Android.
+</I>
+Once we have nxproxy working on Android, then the rest rather needs  
+diligence than magic. If an X-Server and nxproxy is in place then the  
+rest of the X2Go client app writing (from scratch I suggest) is easy.
+
+&gt;<i> Isn't there a functionality that lets you run an quasi app on a webserver
+</I>&gt;<i> that then allows you to use a browser to emulate an X2goclient?
+</I>&gt;<i> I have heard that you did such functionality and that it is finished. That
+</I>&gt;<i> would be the solution: just run a apache webserver and then on Android
+</I>&gt;<i> connect to the webserver with a browser and use X2goclient like this.
+</I>
+The x2goplugin you are referring to. It needs nxproxy (shipped with  
+the plugin) and a local X-Server (on Windows: also shipped with the  
+plugin's XPI). Before anyone asks: there is no recent x2goplugin  
+version for Windows at the moment.
+
+&gt;&gt;<i> you would run into problems there already. Next up would be code to control
+</I>&gt;&gt;<i> when to show an on-screen keyboard, and translating touches on the screen
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> A hardware keyboard would be a must (bluetooth), as otherwise you will lose
+</I>&gt;<i> all screen real estate to the keyboard. But talking about Android also
+</I>&gt;<i> means Tablets and on a 10 inch Tablet, X2go would be a totally wonderful
+</I>&gt;<i> thing to use.
+</I>
+A further option is: use a tablet ready desktop shell in the X2Go  
+session (like plasma active). They normally come with a screen  
+keyboard. So, you just have to make sure that the Android screen  
+keyboard does not interfere with whatever software keyboard you use in  
+the X2Go Session.
+
+&gt;<i> Considering how many devices exist that run Android, the &quot;market&quot; would be
+</I>&gt;<i> huge. You may even be able to charge for the app (like 1 or 2 dollars) as
+</I>&gt;<i> the X2goserver is already free and totally amazing to use. Often, Android
+</I>&gt;<i> users are convenience users, lazier than PC or Laptop users and will
+</I>&gt;<i> preferably shell out some cash before looking around for a free alternative
+</I>&gt;<i> that needs more work.
+</I>&gt;<i> And I would definitely buy it for 1 or 2 dollars, it would be well worth it.
+</I>
+Charging is fine, a non-free license will not be supported by me  
+(personal statement). I vote give my time to that project if the  
+license is other than GPL or AGPL.
+
+&gt;<i> (providing a free trial version that is limited to 5 minutes for a session
+</I>&gt;<i> so people can try it out would work great)
+</I>
+urgghhh... nononono...
+
+&gt;&gt;<i> to mouse input. To sum it up, I think it would require a lot of work to get
+</I>&gt;&gt;<i> x2go to an even remotely usable state on Android.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> You can also connect a mouse to an Android tablet/smartphone by the way. My
+</I>&gt;<i> Gingerbread (2.3) Ice cream Sandwich (4.0) and Jelly Bean (4.2) Android all
+</I>&gt;<i> supported plugging in a mouse and keyboard via USB connector, it just
+</I>&gt;<i> treats it as HID, and simulates it, so you can use the cursor keys to more
+</I>&gt;<i> from app icon to app icon or ESC to go back, as well as getting a mouse
+</I>&gt;<i> pointer to click on stuff. I was amazed how dynamic this works.
+</I>
+Yeah.
+
+&gt;<i> Anyway, for the short term, the webserver solution should work easier.
+</I>
+This does not exist for Android!!! It only works (in theory) for those  
+platforms that X2Go Client is available for.
+
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130924/2d93e58b/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130924/2d93e58b/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001591.html">[X2Go-User] X2Go-User Digest, Vol 37, Issue 12
+</A></li>
+	<LI>Next message: <A HREF="001603.html">[X2Go-User] Installing x2go client on Fedora 18
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1592">[ date ]</a>
+              <a href="thread.html#1592">[ thread ]</a>
+              <a href="subject.html#1592">[ subject ]</a>
+              <a href="author.html#1592">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

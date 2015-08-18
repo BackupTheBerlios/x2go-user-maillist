@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2gousers is missing?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2gousers%20is%20missing%3F&In-Reply-To=%3C4E3087F8.1080506%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000262.html">
+   <LINK REL="Next"  HREF="000279.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2gousers is missing?</H1>
+    <B>Patrick Willam</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2gousers%20is%20missing%3F&In-Reply-To=%3C4E3087F8.1080506%40gmx.de%3E"
+       TITLE="[X2go-User] x2gousers is missing?">p.willam at gmx.de
+       </A><BR>
+    <I>Wed Jul 27 23:49:44 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000262.html">[X2go-User] core dev-team testing x2goclient during next week
+</A></li>
+        <LI>Next message: <A HREF="000279.html">[X2go-User] x2gousers is missing?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#278">[ date ]</a>
+              <a href="thread.html#278">[ thread ]</a>
+              <a href="subject.html#278">[ subject ]</a>
+              <a href="author.html#278">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all! :-D
+
+&lt;blah&gt;
+Recently i'm taking my time to get my Personal Computers in a more useable
+and productive state. A very important part of this process/project is
+getting X2go to run on my systems.
+&lt;/blah&gt;
+
+After installing X2go on my main machine (details: see below) i wanted to
+use it, of course. But when trying to start a session via x2goclient i get
+no further than while connecting an error dialog appears with this messeage:
+&quot;Please install this program as SUID x2gouser!&quot;
+
+So i thought: maybe there is an issue with the installation process of the
+packets, and some rights have to be adjusted manually afterwards. But the
+problem seems to be that a file called &quot;x2gouser&quot; is missing at all!?
+
+$&gt; dpkg -L x2goagent x2goclient x2goserver x2goserver-extension \
+    | grep x2gouser
+...gives nothing.
+
+Any help/hints on this is very much appreciated.
+
+Best wishes, happy hacking and greetings to Treuchtlingen &amp; Kiel!
+Patrick
+
+ps:
+I `frankensteined&#180; the &quot;perl-suid&quot; package from &quot;squeeze&quot; using &quot;Depends:
+perl (&gt;= 5.10.1), libc6 (&gt;= 2.4), libperl5.10 | libperl5.12 | libperl5.14&quot;
+and installed this manually to get &quot;x2goserver&quot; installed on wheezy/sid.
+But this will go into another thread. ;-)
+
+And now some technical details about my system/intallation...
+
+  Distribution
+==============
+System is Debian testing(Wheezy)/unstable;
+mainly testing due to &quot;Apt::Default-Release testing&quot;.
+Other general/verbose info:
+  o  SSH-deamon is running (standard config)
+  o  respective users have been added to the group &quot;x2gousers&quot;
+  o  connection is made to 127.0.0.1:22
+  o  RSA fingerprint is correct and was accepted
+
+  sources.list
+==============
+/etc/sources.list.d/x2go_org-debian.list
+# ----------------------------------------------------------------------
+# What is x2go?
+# x2go is an open source terminal server project offering a comprehensive
+# &quot;server based computing&quot; solution. Combining the advantages of existing
+# systems it features ease of use, performance and scalability.
+# x2go provides you with access to your desktop as an individual as well
+# as a corporate user - from within your own network and via the internet.
+# x2go is not limited to any particular hardware, it supports a variety
+# of devices and architectures. x2go is open source and open minded.
+# The project also offers you a command line client for you to implement
+# your own client applications and ideas.
+# <A HREF="http://x2go.org">http://x2go.org</A> | <A HREF="http://blog.x2go.org">http://blog.x2go.org</A> | <A HREF="http://wiki.x2go.org">http://wiki.x2go.org</A>
+#
+# ( cf. <A HREF="http://wiki.x2go.org/adding_the_x2go_repository_debian">http://wiki.x2go.org/adding_the_x2go_repository_debian</A> )
+# ----- secure apt -----
+# 1. import key
+#    #&gt; gpg --keyserver keys.gnupg.net --recv-keys E1F958385BFE2B6E
+#    #&gt; gpg -a --export E1F958385BFE2B6E | apt-key add -
+#    (or, as single command:)
+#    #&gt; apt-key adv --recv-keys --keyserver keys.gnupg.net E1F958385BFE2B6E
+# 2. install keyring
+#    #&gt; aptitude install x2go-keyring
+# ----- binaries -----
+deb     <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   lenny     main
+deb     <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   squeeze   main
+deb     <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   wheezy    main
+deb     <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   sid       main
+# ----- sources ------
+deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   lenny     main
+deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   squeeze   main
+deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   wheezy    main
+deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>   sid       main
+# ----------------------------------------------------------------------
+
+  pinning
+=========
+/etc/apt/preferences
+Explanation: packages.x2go.org
+Explanation: zur Debian-Version passende Pakete nehmen
+Package: /x2go/
+Pin: release n=wheezy
+Pin-Priority: 990
+
+  packages installed
+=====================
+$&gt; dpkg -l | grep x2go
+ii  libxcompext3            1:3.5.0-1-0~x2go-bpo1+lenny~main~36~build1
+ii  libxcompshad3           3.5.0-2-0~x2go-bpo1+lenny~main~24~build1
+ii  nxproxy                 3.5.0-1-0~x2go1+wheezy~main~30~build1
+ii  plasma-widget-x2go      3.0.1.2-0~x2go1+wheezy~main~8~build1
+ii  x2go-keyring            2011.04.19+wheezy~main~10~build1
+ii  x2goagent               3.4.0.5-0~x2go1+wheezy~main~35~build1
+ii  x2goclient              3.99.0.0-0~x2go1+wheezy~main~94~build1
+ii  x2goserver              3.0.99.5-0~x2go3+wheezy~main~78~build1
+ii  x2goserver-extensions   3.0.99.5-0~x2go3+wheezy~main~78~build1
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000262.html">[X2go-User] core dev-team testing x2goclient during next week
+</A></li>
+	<LI>Next message: <A HREF="000279.html">[X2go-User] x2gousers is missing?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#278">[ date ]</a>
+              <a href="thread.html#278">[ thread ]</a>
+              <a href="subject.html#278">[ subject ]</a>
+              <a href="author.html#278">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

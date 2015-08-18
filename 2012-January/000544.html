@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20X2Go%20release%20day%3A%20x2goserver%2C%20x2goclient%2C%20x2gothinclient%2C%0A%20nx-libs%20%28incl.%20x2goagent%29&In-Reply-To=%3C20120118170325.38061av40w5guc7h%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000543.html">
+   <LINK REL="Next"  HREF="000554.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20X2Go%20release%20day%3A%20x2goserver%2C%20x2goclient%2C%20x2gothinclient%2C%0A%20nx-libs%20%28incl.%20x2goagent%29&In-Reply-To=%3C20120118170325.38061av40w5guc7h%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Jan 18 17:03:25 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000543.html">[X2go-User] Excessive bandwidth usage
+</A></li>
+        <LI>Next message: <A HREF="000554.html">[X2go-User] Why doesn't x2go support ecdsa certificates?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#544">[ date ]</a>
+              <a href="thread.html#544">[ thread ]</a>
+              <a href="subject.html#544">[ subject ]</a>
+              <a href="author.html#544">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project it proud to announce a couple of new X2Go component releases:
+
+   - x2goserver (3.0.99.9)
+   - x2goclient (3.99.0.4)
+   - x2gothinclient (1.0.1.4)
+   - nx-libs incl. x2goagent (3.5.0.7)
+
+All new packages will be available in our stable repositories (Debian,  
+Ubuntu) within the next 24h. The windows version of x2goclient will  
+probably be available by the end of the week (<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">ping at Alex</A>!!!).
+
+Below, you can see the corresponding changelog entries for the new releases.
+
+light+love,
+Mike
+
+
+X2GO SERVER
+===========
+x2goserver (3.0.99.9-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.0.99.9):
+     - Fix for install stanzas in several Makefiles.
+     - Give X2Go session windows a human readable title.
+     - Desktop sharing: fix username of user who requests desktop sharing.
+     - Fix x2gobasepath for Perl versions &lt; 5.10.x.
+     - Fix x2godbadmin for Perl versions &lt; 5.10.x.
+     - Remove x2gosetkeyboard from x2goserver-extensions package.
+     - Re-add x2gosetkeyboard via new subproject x2goserver-pyhoca.
+     - Call x2golistmounts with user privileges instead of using db_getmounts
+       in x2goprint script.
+     - Avoid potentially empty LD_LIBRARY_PATH path in x2goruncommand.
+     - Install x2gogetservers to $PREFIX/bin instead of $PREFIX/lib/x2go.
+   * Add psmisc package as dependency.
+   * Add new binary package to x2goserver source: x2goserver-pyhoca.
+   * x2goserver package suggests x2goserver-pyhoca.
+   * Fix directory permissions of $HOME directory of x2goprint system user.
+
+   [ Hayawardh Vijayakumar ]
+   * New upstream version (3.0.99.9):
+     - Fix potentially empty LD_LIBRARY_PATH in x2gostartagent.
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.0.99.9):
+     - Add Xinerama support.
+
+
+X2GO CLIENT
+===========
+x2goclient (3.99.0.4-0~x2go1) unstable; urgency=low
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.0.4):
+     - Enabled support for Xinerama
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 18 Jan 2012 14:53:20 +0100
+
+
+X2GO-TCE
+========
+x2gothinclient (1.0.1.4-0~x2go1) unstable; urgency=low
+
+   * New upstream version (1.0.1.4):
+     - Fix default value for shell in x2gothinclient_shell script.
+     - Install alsa-base in X2Go TCE chroot and tmpfs mount /var/lib/alsa.
+     - Pre-select example session after X2Go thin client has booted.
+     - Rename every X2go string (in docs, screen output, etc.) to X2Go.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 18 Jan 2012 15:15:09 +0100
+
+
+NX-LIBS
+=======
+For nx-libs, aka NX (redistributed), I will quote everything that  
+changed since 3.5.0.2, as that is the version currently in our main  
+repos.
+
+nx-libs (2:3.5.0.7-0) unstable; urgency=low
+
+   * Drop patch: 011_nxcomp_sa-restorer.patch.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Mon, 16 Jan 2012 11:28:14 +0100
+
+nx-libs (2:3.5.0.6-0) unstable; urgency=low
+
+   * Add patch: 202_nx-x11_enable-xinerama.patch.
+   * Fix lintian issue: missing-separator-between-items for x2goagent package.
+     Drop dependency on libnx-x11 as we already depend on nxagent and fix
+     description synopsis of x2goagent package.
+   * Add patch header/copyright to: 202_nx-x11_enable-xinerama.patch.
+   * Silence lintian on debian-revision-should-not-be-zero. As this is  
+no Debian
+     packaging repository, but ,,NX (redistributed)'', we will always release
+     with rev no. set to ,,0''.
+   * Install libXinerama into libnx-x11 package. Header files into
+     libnx-x11-dev.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 13 Jan 2012 13:21:41 +0100
+
+nx-libs (2:3.5.0.5-0) unstable; urgency=low
+
+   * Fix wrapper script patches for nxagent, x2goagent, nxauth, nxproxy.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Fri, 13 Jan 2012 00:37:21 +0100
+
+nx-libs (2:3.5.0.4-0) unstable; urgency=low
+
+   * Update/fix patch: 999_nxagent_unbrand-nxagent-brand-x2goagent.patch.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Thu, 12 Jan 2012 23:04:37 +0100
+
+nx-libs (2:3.5.0.3-0) unstable; urgency=low
+
+   * Rename nxagent-unbrand patch, so that is the last patch to be applied
+     (999_&lt;patchname&gt;).
+   * Drop NX agent unbrand patch from FreeNX.
+   * Add X2Go agent / NX agent flavouring via patch system:
+     - 200_nxagent_check-binary-x2go-flavour.patch
+     - 201_nxagent_set-x2go-icon-if-x2goagent-flavour.patch
+     - 300_nxagent_set-wm-class.patch
+     - 999_nxagent_unbrand-nxagent-brand-x2goagent.patch
+   * Add patch: 023_add-x2goagent-wrapper.patch.
+   * Add patch: 209_x2goagent-add-man-page.patch.
+   * Add binary package: x2goagent, includes man page
+     patch: 209_x2goagent-add-man-page.patch
+   * Modify patch: 101_nxagent_set-rgb-path.patch, add path to RGB file
+     if NX (redistributed) is installed via tarball under /usr/local.
+   * Provide patches that are tarball / distro aware. Either NX (redistributed)
+     has been installed to /usr/local/lib/nx via tarball or it has been
+     packaged for a distribution and is installed to /usr/lib/nx. Other
+     installation paths are currently not supported.
+   * Fix RGB color pallette (gray X2GO logo to be more accurate) for agent
+     splash screen.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Thu, 12 Jan 2012 13:04:03 +0100
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120118/bc4facd2/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120118/bc4facd2/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000543.html">[X2go-User] Excessive bandwidth usage
+</A></li>
+	<LI>Next message: <A HREF="000554.html">[X2go-User] Why doesn't x2go support ecdsa certificates?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#544">[ date ]</a>
+              <a href="thread.html#544">[ thread ]</a>
+              <a href="subject.html#544">[ subject ]</a>
+              <a href="author.html#544">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

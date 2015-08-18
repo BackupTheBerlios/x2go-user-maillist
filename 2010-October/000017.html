@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Starting multiple sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3C4CBDB342.4010102%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000016.html">
+   <LINK REL="Next"  HREF="000018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Starting multiple sessions</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3C4CBDB342.4010102%40vandervlis.nl%3E"
+       TITLE="[X2go-user] Starting multiple sessions">paul at vandervlis.nl
+       </A><BR>
+    <I>Tue Oct 19 17:03:30 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000016.html">[X2go-user] Starting multiple sessions
+</A></li>
+        <LI>Next message: <A HREF="000018.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>John Williams schreef:
+&gt;<i> On Tue, Oct 19, 2010 at 6:29 AM, Paul van der Vlis &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">paul at vandervlis.nl</A>&gt; wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I would say: Close the session before you close X2goclient. Don't
+</I>&gt;&gt;<i> terminate a X2go client with status &quot;running&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> I may not have been clear in my previous message. Let me define some
+</I>&gt;<i> terms so that we can be sure we understand each other:
+</I>&gt;<i> 
+</I>&gt;<i> x2go-client (X2C): this is the program and window that first gives you
+</I>&gt;<i> a choice of starting an x2go session, and once a session is started,
+</I>&gt;<i> it gives the options of &quot;share folder...&quot;, &quot;suspend&quot;, or &quot;terminate&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> x2go-session (X2S) window: this is the window that displays the remote
+</I>&gt;<i> session running on the x2go server. The only options are the standard
+</I>&gt;<i> window options, like &quot;X&quot;, &quot;_&quot;, and full-screen.
+</I>
+I don't think I understand you wrong.
+
+&gt;<i> So, if I close the X2S window by clicking &quot;X&quot;, then the session gets
+</I>&gt;<i> suspended. 
+</I>
+Hmm, you are right. Clicking the X does suspend the session.
+
+&gt;<i> But the only way I see to then terminate the session is to
+</I>&gt;<i> click &quot;cancel&quot; in the X2C window, and then click to start a new
+</I>&gt;<i> session, and then X2C gives me a list of running and suspended
+</I>&gt;<i> sessions, but it only tells me the display number, the status, and the
+</I>&gt;<i> command of each session. That is even less information than when the
+</I>&gt;<i> session is running! So I do not want to terminate it from that list,
+</I>&gt;<i> since I may make a mistake!
+</I>
+What I do normally, is to log-out the user in the session. Then the
+session terminates.
+
+&gt;&gt;<i> You can see the server and the username when there is a connection.
+</I>&gt;&gt;<i> And a SessionID. And a CreationTime.
+</I>&gt;<i> 
+</I>&gt;<i> Yes, the X2C window displays Session ID, Server, Username, Display,
+</I>&gt;<i> Creation Time, and Status.
+</I>&gt;<i> 
+</I>&gt;<i> But it does not display the session name! That is the name that you
+</I>&gt;<i> create yourself. You type it in at the top when you create a session
+</I>&gt;<i> profile. I think it is useful to have when keeping track of multiple
+</I>&gt;<i> sessions, since I try to define several different session names to
+</I>&gt;<i> help me keep track.
+</I>
+I give the session the same name as the server where I connect to.
+
+&gt;<i> This is a habit I developed when using the NX client, since it does
+</I>&gt;<i> display the session names in the list of suspended sessions. In fact,
+</I>&gt;<i> with NX client if your server only has 1 suspended session with the
+</I>&gt;<i> session name that you try to start from the client, then the client
+</I>&gt;<i> will automatically resume that session on the server without the user
+</I>&gt;<i> even having to choose from a list of suspended sessions. That is a
+</I>&gt;<i> useful feature.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> X2go just closes the session.
+</I>&gt;<i> 
+</I>&gt;<i> There are two ways to close the session: suspending it, in which case
+</I>&gt;<i> the session keeps running, but without displaying a window on the
+</I>&gt;<i> client (and you can later resume it on any other client machine), or
+</I>&gt;<i> terminating it, in which case the session is no longer running, and
+</I>&gt;<i> cannot be resumed.
+</I>&gt;<i> 
+</I>&gt;<i> If you just click on &quot;X&quot; in the X2S window, then x2go suspends the
+</I>&gt;<i> session. I determined that just by trying it to see. If you want to
+</I>&gt;<i> terminate a session, you have to specifically click on the &quot;terminate&quot;
+</I>&gt;<i> button in the X2C window.
+</I>
+No, you can also do it in the session by logging out the user.
+
+&gt;&gt;<i> I also don't know a nice way to suspend a session other then using the
+</I>&gt;&gt;<i> client-window. Normally I don't suspend sessions. Maybe somebody else
+</I>&gt;&gt;<i> knows a way.
+</I>&gt;<i> 
+</I>&gt;<i> As I mentioned, suspending a session is easy -- just click on the &quot;X&quot;
+</I>&gt;<i> on the X2S window. It is terminating a session that is more difficult.
+</I>
+Log out the user.
+
+&gt;<i> I generally have a lot of sessions, both running and suspended, on the
+</I>&gt;<i> server, so the kind of issues I am mentioning come up a lot for me.
+</I>
+Do you make many connections to the same server?  Why?
+
+&gt;&gt;<i> I am talking about the Linux client. No idea if there is much
+</I>&gt;&gt;<i> difference, because I have never used the Windows client.
+</I>&gt;<i> 
+</I>&gt;<i> I guess there is not much difference, but I thought I would mention it
+</I>&gt;<i> just in case.
+</I>
+I think that too.
+
+With regards,
+Paul van der Vlis.
+
+
+
+
+-- 
+<A HREF="http://www.vandervlis.nl/">http://www.vandervlis.nl/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000016.html">[X2go-user] Starting multiple sessions
+</A></li>
+	<LI>Next message: <A HREF="000018.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#17">[ date ]</a>
+              <a href="thread.html#17">[ thread ]</a>
+              <a href="subject.html#17">[ subject ]</a>
+              <a href="author.html#17">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

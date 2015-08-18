@@ -1,0 +1,573 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Error: Aborting session with 'Unable to open display
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Error%3A%20Aborting%20session%20with%20%27Unable%20to%20open%20display&In-Reply-To=%3C201203182341.49412.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000720.html">
+   <LINK REL="Next"  HREF="000722.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Error: Aborting session with 'Unable to open display</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Error%3A%20Aborting%20session%20with%20%27Unable%20to%20open%20display&In-Reply-To=%3C201203182341.49412.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2Go-User] Error: Aborting session with 'Unable to open display">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Sun Mar 18 23:41:49 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000720.html">[X2Go-User] Connection to local host
+</A></li>
+        <LI>Next message: <A HREF="000722.html">[X2Go-User] only thanks
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#721">[ date ]</a>
+              <a href="thread.html#721">[ thread ]</a>
+              <a href="subject.html#721">[ subject ]</a>
+              <a href="author.html#721">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi all,
+
+I try to connect to a x2goserver (to which from other computers with 
+x2goclient I can easily connect) from inside a Debian-Squeeze-Installation 
+with fluxbox and x2goclient.
+
+x2goclient: 3.99.1.1-0~x2go1+squeeze~main~194~build1
+x2goserver: 3.1.0.1-0~x2go1+squeeze~main~487~build1
+
+
+After starting a Session the following errors occur, and no connection can be 
+reached. The connection-window (details) in x2goclient stay open. It's not 
+possible to exit the connection trial. Only through quitting x2goclient.
+
+Below you find the outputs of:
+
+  * x2goclient
+  * session.log
+  * /var/log/syslog
+
+Any Idea?
+
+Thanks,
+Stefan
+
+
+::<i> On Client:
+</I>
+x2go-client ends up with a error-window: 
+
+&quot;Connection failed head: sed: -e Ausdruck #1, Zeichen 4: Nicht beendeter `s'-
+Befehl /home/user/.x2go/C-user-501332098396_stDGNOME_dp24/cmdoutput kann nicht 
+zum Lesen ge&#246;ffnet werden: Datei oder Verzeichnis nicht gefunden 
+
+~~~~~~~~ &lt; x2goclient on the command line gives &gt; ~~~~~~~~~
+
+ONMainWindow constructor 
+
+Can't load translator (:/x2goclient_c) !
+
+Can't load translator  :/qt_C 
+ONMainWindows constructor finished, home Directory is: &quot;/home/x2goclient&quot; 
+
+read  2  sessions from config file 
+start new ssh connection to server: &quot;fas-ltsp-squeeze&quot; : &quot;22&quot; krb:  false 
+
+ssh connection ok 
+
+continue normal x2go session 
+
+&quot;x2gostartagent fullscreen lan 16m-jpeg-9 unix-kde-depth_24 us pc105/de 1 D 
+GNOME&quot; 
+
+Agent output: &quot;50
+494bba0e543268780d5577723aa5bced
+8236
+user-50-1332099015_stDGNOME_dp24
+30064
+30065
+30066
+&quot; 
+starting nxproxy with:  &quot;nxproxy -S nx/nx,options=/home/x2goclient/.x2go/S-
+user-50-1332099015_stDGNOME_dp24/options:50&quot; 
+
+&quot;
+NXPROXY - Version 3.5.0
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '5979'.
+Session: Starting session at 'Sun Mar 18 20:27:39 2012'.
+Info: Connecting to remote host 'localhost:31064'.
+&quot; 
+
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot; 
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot; 
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot; 
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot; 
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot; 
+search proxy win:  &quot;X2GO-user-50-1332099015_stDGNOME_dp24&quot;
+
+....
+
+~~~~~~~~~ &lt;/&gt; ~~~~~~~~~~~~~
+
+
+::<i> On Server:
+</I>
+
+
+~~~~~~~~&lt; /home/user/.x2go/C-user-50-1332098396_stDGNOME_dp24/session.log : &gt; 
+~~~~~~~~ 
+
+running as X2Go Agent
+
+NXAGENT - Version 3.5.0
+
+Copyright (C) 2001, 2011 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Agent running with pid '2810'.
+Session: Starting session at 'Sun Mar 18 20:19:59 2012'.
+Info: Proxy running in server mode with pid '2810'.
+Info: Waiting for connection from 'localhost' on port '30019'.
+Info: Aborting the procedure due to signal '1'.
+Error: Aborting session with 'Unable to open display 
+'nx/nx,options=/home/user/.x2go/C-
+user-50-1332098396_stDGNOME_dp24/options:50''.
+Session: Aborting session at 'Sun Mar 18 20:20:35 2012'.
+Session: Session aborted at 'Sun Mar 18 20:20:35 2012'.
+
+~~~~~~~~ &lt;/&gt; ~~~~~~~~~~~~~~
+
+~~~~~~~~&lt; Debug-Messages from x2goserver in /var/log/syslog: &gt; ~~~~~~~~ 
+
+
+Mar 18 20:19:54 fas-ltsp /usr/bin/x2golistsessions[2643]: x2golistsessions has 
+been called with no option
+Mar 18 20:19:54 fas-ltsp /usr/bin/x2gostartagent: x2gostartagent called with 
+options: fullscreen lan 16m-jpeg-9 unix-kde-depth_24 us pc105/de 1 D GNOME
+Mar 18 20:19:55 fas-ltsp /usr/bin/x2gostartagent: client announced itself as 
+,,192.168.0.242''
+Mar 18 20:19:55 fas-ltsp /usr/bin/x2gosessionlimit[2665]: x2gosessionlimit has 
+been called
+Mar 18 20:19:55 fas-ltsp /usr/bin/x2golistsessions[2668]: x2golistsessions has 
+been called with options: --all-servers
+Mar 18 20:19:55 fas-ltsp /usr/lib/x2go/x2gogetdisplays[2682]: db_getdisplays 
+called, server: fas-ltsp; return value: 
+Mar 18 20:19:56 fas-ltsp /usr/lib/x2go/x2gogetports[2691]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018|
+</I>Mar 18 20:19:56 fas-ltsp /usr/lib/x2go/x2goinsertsession[2709]: 
+db_insertsession called, session ID: user-50-1332098396_stDGNOME_dp24, server: 
+fas-ltsp, session ID: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:19:57 fas-ltsp /usr/lib/x2go/x2goinsertport[2733]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30019
+Mar 18 20:19:57 fas-ltsp /usr/lib/x2go/x2goinsertport[2745]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30020
+Mar 18 20:19:57 fas-ltsp /usr/lib/x2go/x2goinsertport[2757]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30021
+Mar 18 20:19:58 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:19:58 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:19:58 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:19:58 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-start
+Mar 18 20:19:59 fas-ltsp /usr/bin/x2gostartagent: successfully started X2Go 
+agent session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:19:59 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:19:59 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:19:59 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:19:59 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 post-start
+Mar 18 20:20:00 fas-ltsp /usr/lib/x2go/x2gocreatesession[2854]: 
+db_createsession called, session ID: user-50-1332098396_stDGNOME_dp24, cookie: 
+a29130c75bc9df88c8c10a4b03c2bd26, client: 192.168.0.242, pid: 2810, graphics 
+port: 30019, sound port: 30020, file sharing port: 30021
+Mar 18 20:20:31 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:32 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:20:32 fas-ltsp /usr/lib/x2go/x2gogetagent[2970]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 2810
+Mar 18 20:20:32 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:20:32 fas-ltsp /usr/bin/x2golistsessions[2994]: x2golistsessions has 
+been called with no option
+Mar 18 20:20:33 fas-ltsp /usr/bin/x2goresume-session: old ports: 30019, 30020, 
+30021
+Mar 18 20:20:33 fas-ltsp /usr/bin/x2goresume-session: port 30019 is already in 
+use
+Mar 18 20:20:34 fas-ltsp /usr/lib/x2go/x2gormport[3028]: db_rmport called, 
+session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH port: 
+30019
+Mar 18 20:20:34 fas-ltsp /usr/lib/x2go/x2gogetports[3051]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018| |30020| |30021|
+</I>Mar 18 20:20:34 fas-ltsp /usr/lib/x2go/x2goinsertport[3065]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30022
+Mar 18 20:20:35 fas-ltsp /usr/lib/x2go/x2goresume[3107]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30022, sound_port: 30020, fs_port: 30021
+Mar 18 20:20:35 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:20:35 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:20:35 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:20:35 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:20:35 fas-ltsp /usr/bin/x2goresume-session: client 192.168.0.242 has 
+successfully resumed session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:36 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_DESKTOPSHARING
+Mar 18 20:20:36 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_DESKTOPSHARING
+Mar 18 20:20:36 fas-ltsp /usr/bin/x2goresume-desktopsharing: x2goresume-
+desktopsharing called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:36 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:20:36 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:20:37 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:20:37 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 post-resume
+Mar 18 20:20:39 fas-ltsp /usr/lib/x2go/x2gochangestatus[3244]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:20:40 fas-ltsp /usr/bin/x2goumount-session[3267]: x2goumount-session 
+has been called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:40 fas-ltsp /usr/bin/x2goumount-session[3267]: db_getdisplay 
+called, session ID: user-50-1332098396_stDGNOME_dp24; return value: 50
+Mar 18 20:20:40 fas-ltsp /usr/bin/x2goumount-session[3267]: db_getmounts 
+called, session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:20:45 fas-ltsp /usr/lib/x2go/x2golistsessions_sql[3284]: Purging 
+finished session from X2Go db, session ID: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:46 fas-ltsp /usr/bin/x2goumount-session[3302]: x2goumount-session 
+has been called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:20:46 fas-ltsp /usr/bin/x2goumount-session[3302]: db_getdisplay 
+called, session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:20:46 fas-ltsp /usr/bin/x2goumount-session[3302]: db_getmounts 
+called, session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:21:08 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:21:08 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:21:08 fas-ltsp /usr/lib/x2go/x2gogetagent[3369]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:21:08 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:21:08 fas-ltsp /usr/bin/x2golistsessions[3391]: x2golistsessions has 
+been called with no option
+Mar 18 20:21:08 fas-ltsp /usr/bin/x2goresume-session: old ports: , , 
+Mar 18 20:21:10 fas-ltsp /usr/lib/x2go/x2gogetports[3427]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018|
+</I>Mar 18 20:21:10 fas-ltsp /usr/lib/x2go/x2goinsertport[3449]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30019
+Mar 18 20:21:10 fas-ltsp /usr/lib/x2go/x2goinsertport[3464]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30020
+Mar 18 20:21:11 fas-ltsp /usr/lib/x2go/x2goinsertport[3478]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30021
+Mar 18 20:21:11 fas-ltsp /usr/lib/x2go/x2goresume[3520]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30019, sound_port: 30020, fs_port: 30021
+Mar 18 20:21:11 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:11 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:11 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:21:11 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:21:11 fas-ltsp /usr/bin/x2goresume-session: ERROR: failed to resume 
+session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:21:12 fas-ltsp /usr/lib/x2go/x2gochangestatus[3570]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:21:12 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:12 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:12 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:21:12 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 fail-resume
+Mar 18 20:21:43 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:21:43 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:21:43 fas-ltsp /usr/lib/x2go/x2gogetagent[3722]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:21:44 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:21:44 fas-ltsp /usr/bin/x2golistsessions[3746]: x2golistsessions has 
+been called with no option
+Mar 18 20:21:44 fas-ltsp /usr/bin/x2goresume-session: old ports: , , 
+Mar 18 20:21:44 fas-ltsp /usr/lib/x2go/x2gogetports[3778]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018| |30019| |30020| |30021|
+</I>Mar 18 20:21:44 fas-ltsp /usr/lib/x2go/x2goinsertport[3792]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30022
+Mar 18 20:21:45 fas-ltsp /usr/lib/x2go/x2goinsertport[3804]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30023
+Mar 18 20:21:45 fas-ltsp /usr/lib/x2go/x2goinsertport[3816]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30024
+Mar 18 20:21:45 fas-ltsp /usr/lib/x2go/x2goresume[3858]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30022, sound_port: 30023, fs_port: 30024
+Mar 18 20:21:45 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:45 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:45 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:21:46 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:21:46 fas-ltsp /usr/bin/x2goresume-session: ERROR: failed to resume 
+session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:21:46 fas-ltsp /usr/lib/x2go/x2gochangestatus[3908]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:21:46 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:46 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:21:46 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:21:46 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 fail-resume
+Mar 18 20:22:17 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:22:18 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:22:18 fas-ltsp /usr/lib/x2go/x2gogetagent[4025]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:22:18 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:22:18 fas-ltsp /usr/bin/x2golistsessions[4047]: x2golistsessions has 
+been called with no option
+Mar 18 20:22:18 fas-ltsp /usr/bin/x2goresume-session: old ports: , , 
+Mar 18 20:22:18 fas-ltsp /usr/lib/x2go/x2gogetports[4079]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018| |30019| |30020| |30021| |30022| |30023| |30024|
+</I>Mar 18 20:22:18 fas-ltsp /usr/lib/x2go/x2goinsertport[4093]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30025
+Mar 18 20:22:19 fas-ltsp /usr/lib/x2go/x2goinsertport[4105]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30026
+Mar 18 20:22:19 fas-ltsp /usr/lib/x2go/x2goinsertport[4117]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30027
+Mar 18 20:22:19 fas-ltsp /usr/lib/x2go/x2goresume[4159]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30025, sound_port: 30026, fs_port: 30027
+Mar 18 20:22:19 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:19 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:20 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:22:20 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:22:20 fas-ltsp /usr/bin/x2goresume-session: ERROR: failed to resume 
+session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:22:20 fas-ltsp /usr/lib/x2go/x2gochangestatus[4214]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:22:20 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:20 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:20 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:22:20 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 fail-resume
+Mar 18 20:22:52 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:22:52 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:22:52 fas-ltsp /usr/lib/x2go/x2gogetagent[4343]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:22:52 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:22:52 fas-ltsp /usr/bin/x2golistsessions[4365]: x2golistsessions has 
+been called with no option
+Mar 18 20:22:52 fas-ltsp /usr/bin/x2goresume-session: old ports: , , 
+Mar 18 20:22:52 fas-ltsp /usr/lib/x2go/x2gogetports[4397]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018| |30019| |30020| |30021| |30022| |30023| |30024| |
+</I>30025| |30026| |30027|
+Mar 18 20:22:53 fas-ltsp /usr/lib/x2go/x2goinsertport[4411]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30028
+Mar 18 20:22:53 fas-ltsp /usr/lib/x2go/x2goinsertport[4423]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30029
+Mar 18 20:22:53 fas-ltsp /usr/lib/x2go/x2goinsertport[4435]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30030
+Mar 18 20:22:53 fas-ltsp /usr/lib/x2go/x2goresume[4477]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30028, sound_port: 30029, fs_port: 30030
+Mar 18 20:22:54 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:54 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:54 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:22:54 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:22:54 fas-ltsp /usr/bin/x2goresume-session: ERROR: failed to resume 
+session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:22:54 fas-ltsp /usr/lib/x2go/x2gochangestatus[4527]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:22:54 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:54 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:22:55 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:22:55 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 fail-resume
+Mar 18 20:23:26 fas-ltsp /usr/bin/x2gocmdexitmessage: x2gocmdexitmessage 
+called with options: user-50-1332098396_stDGNOME_dp24
+Mar 18 20:23:26 fas-ltsp /usr/bin/x2gocmdexitmessage: command output starts 
+with: 
+Mar 18 20:23:26 fas-ltsp /usr/lib/x2go/x2gogetagent[4643]: db_getagent called, 
+session ID: user-50-1332098396_stDGNOME_dp24; return value: 
+Mar 18 20:23:26 fas-ltsp /usr/bin/x2goresume-session: x2goresume-session 
+called with options: user-50-1332098396_stDGNOME_dp24 fullscreen lan 16m-
+jpeg-9 us pc105/de 1
+Mar 18 20:23:26 fas-ltsp /usr/bin/x2golistsessions[4666]: x2golistsessions has 
+been called with no option
+Mar 18 20:23:26 fas-ltsp /usr/bin/x2goresume-session: old ports: , , 
+Mar 18 20:23:27 fas-ltsp /usr/lib/x2go/x2gogetports[4698]: db_getports called, 
+server: fas-ltsp; return value: |30001| |30002| |30003| |30004| |30005| |
+30006| |30007| |30008| |30009| |30010| |30011| |30012| |30013| |30014| |30015| 
+|<i>30016| |30017| |30018| |30019| |30020| |30021| |30022| |30023| |30024| |
+</I>30025| |30026| |30027| |30028| |30029| |30030|
+Mar 18 20:23:27 fas-ltsp /usr/lib/x2go/x2goinsertport[4712]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30031
+Mar 18 20:23:27 fas-ltsp /usr/lib/x2go/x2goinsertport[4724]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30032
+Mar 18 20:23:27 fas-ltsp /usr/lib/x2go/x2goinsertport[4736]: db_insertport 
+called, session ID: user-50-1332098396_stDGNOME_dp24, server: fas-ltsp, SSH 
+port: 30033
+Mar 18 20:23:28 fas-ltsp /usr/lib/x2go/x2goresume[4778]: db_resume called, 
+session ID: user-50-1332098396_stDGNOME_dp24, client: 192.168.0.242, gr_port: 
+30031, sound_port: 30032, fs_port: 30033
+Mar 18 20:23:28 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:23:28 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:23:28 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:23:28 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 pre-resume
+Mar 18 20:23:28 fas-ltsp /usr/bin/x2goresume-session: ERROR: failed to resume 
+session with ID user-50-1332098396_stDGNOME_dp24
+Mar 18 20:23:28 fas-ltsp /usr/lib/x2go/x2gochangestatus[4838]: db_changestatus 
+called, session ID: user-50-1332098396_stDGNOME_dp24, new status: F
+Mar 18 20:23:28 fas-ltsp /usr/bin/x2gofeature: x2gofeature called with 
+options: X2GO_RUN_EXTENSIONS
+Mar 18 20:23:29 fas-ltsp 
+/usr/share/x2go/x2gofeature.d/x2godesktopsharing.features: 
+x2godesktopsharing.features called with options: X2GO_RUN_EXTENSIONS
+Mar 18 20:23:29 fas-ltsp /usr/share/x2go/x2gofeature.d/x2goserver-
+extensions.features: x2goserver-extensions.features called with options: 
+X2GO_RUN_EXTENSIONS
+Mar 18 20:23:29 fas-ltsp /usr/bin/x2goserver-run-extensions: x2goserver-run-
+extensions called with options: user-50-1332098396_stDGNOME_dp24 fail-resume
+
+~~~~~~~~ &lt;/&gt; ~~~~~~~~~~~~~~
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000720.html">[X2Go-User] Connection to local host
+</A></li>
+	<LI>Next message: <A HREF="000722.html">[X2Go-User] only thanks
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#721">[ date ]</a>
+              <a href="thread.html#721">[ thread ]</a>
+              <a href="subject.html#721">[ subject ]</a>
+              <a href="author.html#721">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,411 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Session Resume through X2gobroker with SSH Proxy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20Resume%20through%20X2gobroker%20with%20SSH%20Proxy&In-Reply-To=%3C52A4B4E7.3010002%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001857.html">
+   <LINK REL="Next"  HREF="001853.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Session Resume through X2gobroker with SSH Proxy</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20Resume%20through%20X2gobroker%20with%20SSH%20Proxy&In-Reply-To=%3C52A4B4E7.3010002%40vxpertise.net%3E"
+       TITLE="[X2Go-User] Session Resume through X2gobroker with SSH Proxy">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Sun Dec  8 19:05:27 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001857.html">[X2Go-User] What is latest stable version of the Windows client?
+</A></li>
+        <LI>Next message: <A HREF="001853.html">[X2Go-User] Broker + SSH Proxy + Windows Terminal Server: &quot;An exceptional problem occurred&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1849">[ date ]</a>
+              <a href="thread.html#1849">[ thread ]</a>
+              <a href="subject.html#1849">[ subject ]</a>
+              <a href="author.html#1849">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi,
+
+I set up x2gobroker with SSH proxy with passwordless authentication
+(auth on broker and proxy, not auth at x2goserver). Now I want to get
+the session resuming fixed. Everytime I connect, I get one additional
+session while disconnecting results in a suspended session. After a
+couple of days, my x2goserver runs out of memory and therefore becomes
+very slow.
+
+####
+# x2gobroker.conf
+####
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at access</A>:/etc/x2go# cat x2gobroker.conf | grep -v -E &quot;^\s*#&quot; | grep
+- -v -E &quot;^\s*$&quot;
+[global]
+ignore-primary-group-memberships = false
+[zeroconf]
+[inifile]
+enable = true
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at access</A>:/etc/x2go#
+
+####
+# x2gobroker-sessionprofiles.conf
+####
+[DEFAULT]
+setsessiontitle=true
+krblogin=false
+pack=16m-jpeg
+quality=9
+speed=2
+usesshproxy=true
+sshproxytype=SSH
+sshproxyhost=access.vxlt.net
+sshproxyport=22
+sshproxyautologin=false
+sshproxysamepass=false
+sshproxysameuser=false
+width=800
+height=600
+dpi=96
+fullscreen=false
+maxdim=false
+multidisp=true
+xinerama=false
+usekbd=true
+sound=false
+soundtunnel=false
+defsndport=false
+soundsystem=pulse
+startsoundsystem=false
+useexports=false
+useiconv=false
+iconvform=UTF-8
+iconvto=UTF-8
+fstunnel=false
+print=false
+usemimebox=false
+mimeboxaction=OPEN
+autostart=true
+xdmcpserver=localhost
+command=XFCE4
+published=false
+command=XFCE
+acl-groups-deny=ALL
+acl-clients-allow=ALL
+acl-any-order=deny-allow
+sshproxysameuser=false
+sshproxyuser=x2gosshproxy
+user=
+[termsrv]
+host=10.173.20.2
+name=Terminal Server
+published=false
+acl-groups-allow=vxltadmins
+broker-session-autologin=true
+
+
+####
+# X2Go Server (termsrv)
+####
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at termsrv</A>:~$ sudo dpkg -l | grep x2go
+[sudo] password for mathias:
+ii  cups-x2go
+3.0.1.0-0x2go1~git20131208.74+squeeze.heuler.1     all
+Virtual X2Go printer for CUPS
+ii  libnx-x11
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        nx-X11
+ii  libx2go-log-perl
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 amd64        Perl
+X2Go::Log package
+ii  libx2go-server-db-perl
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 amd64        Perl
+X2Go::Server:DB package
+ii  libx2go-server-perl
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 amd64        Perl
+X2Go::Server package
+ii  libxcomp3
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        NX X
+compression library
+ii  libxcompext3
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        NX X11
+protocol compression extensions library
+ii  libxcompshad3
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        NX
+shadowing library
+ii  nxagent
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        NX agent
+ii  nxproxy
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 amd64        NX proxy
+ii  pinentry-x2go
+0.7.5.7-0x2go1~git20131129.49+squeeze.heuler.1     amd64
+Qt4-based PIN or pass-phrase entry dialog for x2goclient
+ii  python-x2go                           0.4.0.8-0~1078~raring1
+                       all          Python module providing X2Go
+client API
+ii  x2goagent
+2:3.5.0.22-0x2go1~git20131207.439+squeeze.heuler.1 all          X2Go agent
+ii  x2gobroker-agent
+0.0.3.0-0x2go1~git20131205.583+squeeze.heuler.1    amd64        X2Go
+http(s) based session broker (common files)
+ii  x2gocdmanager
+1.1.0.2-0x2go2~git20131129.482+squeeze.heuler.1    amd64
+clientside daemon enabling automatic CD-Rom mounting
+ii  x2goclient
+4.0.1.2-0x2go2~git20131208.470+squeeze.heuler.1    amd64        X2Go
+Client application (Qt4)
+ii  x2godesktopsharing
+3.1.1.1-0x2go1~git20131129.109+squeeze.heuler.1    amd64        share
+X2go desktops with other users (via shadow sessions)
+ii  x2goplugin
+4.0.1.2-0x2go2~git20131208.470+squeeze.heuler.1    amd64        X2Go
+Client (Qt4) as browser plugin
+ii  x2goserver
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 amd64        X2Go
+server daemon scripts
+ii  x2goserver-common
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 amd64        X2Go
+Server (common files)
+ii  x2goserver-extensions
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 all          X2Go
+server daemon scripts (extensions)
+ii  x2goserver-fmbindings
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 all
+Generic (freedesktop-based) file manager bindings for X2Go
+ii  x2goserver-printing
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 all          X2Go
+server daemon scripts (printing)
+ii  x2goserver-xsession
+4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1 all          X2Go
+server daemon scripts (Xsession runner)
+ii  x2gosmartcardrules
+1.1.0.2-0x2go2~git20131129.482+squeeze.heuler.1    all          UDEV
+rules for smartcard readers
+ii  x2gousbmount
+1.1.0.2-0x2go2~git20131129.482+squeeze.heuler.1    all
+clientside usb mass-storage device mounting
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at termsrv</A>:~$
+
+As you can see, x2gobroker-agent is installed.
+
+####
+# Logs on X2gobroker
+####
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at access</A>:/var/log/x2gobroker# tail -n 0 -f authservice.log broker.log
+==&gt; authservice.log &lt;==
+
+==&gt; broker.log &lt;==
+2013-12-08 13:50:57,167 - broker - INFO - X2Go Session Broker (0.0.3.0),
+2013-12-08 13:50:57,168 - broker - INFO -   written by Mike Gabriel
+(X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-12-08 13:50:57,168 - broker - INFO - Setting up the broker's
+environment...
+2013-12-08 13:50:57,169 - broker - INFO -   X2GOBROKER_DEBUG: True
+2013-12-08 13:50:57,169 - broker - INFO -   X2GOBROKER_CONFIG:
+/etc/x2go/x2gobroker.conf
+2013-12-08 13:50:57,169 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+/usr/lib/x2go/x2gobroker-agent
+2013-12-08 13:50:57,169 - broker - INFO -
+X2GOBROKER_AUTHSERVICE_SOCKET:
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-12-08 13:50:57,170 - broker - INFO -
+X2GOBROKER_DEFAULT_BACKEND: inifile
+2013-12-08 13:50:57,170 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+2013-12-08 13:50:57,170 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+2013-12-08 13:50:57,180 - broker - INFO - client address is 127.0.0.1
+2013-12-08 13:50:57,181 - broker - DEBUG - username: mathias,
+password: XXXXX, task: listsessions, profile_id: , cookie:
+2013-12-08 13:50:57,181 - broker - DEBUG -
+base_broker.X2GoBroker.get_authentication_mechanism(): found
+default-auth-mech in global config section: pam
+2013-12-08 13:50:57,182 - broker - DEBUG -
+base_broker.X2GoBroker._do_authenticate(): authenticating user=mathias
+with password=&lt;hidden&gt; against backend=inifile.
+2013-12-08 13:50:57,182 - broker - DEBUG - connecting to
+authentication service socket
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-12-08 13:50:57,183 - broker - DEBUG - sending username=mathias,
+password=&lt;hidden&gt;, service=x2gobroker to authentication service
+2013-12-08 13:50:57,198 - broker - INFO - authentication against PAM
+service &#187;x2gobroker&#171; succeeded for user &#187;mathias&#171;
+2013-12-08 13:50:57,198 - broker - DEBUG -
+base_broker.X2GoBroker.check_access(): result of authentication check
+is: True
+2013-12-08 13:50:57,205 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+broker-session-autologin in session profile with ID termsrv: true.
+This one has precendence over the default value.
+2013-12-08 13:50:57,282 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,288 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,359 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,366 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,435 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,442 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,513 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,520 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,591 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,597 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,664 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,671 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,739 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,746 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,813 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,820 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,887 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,895 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:50:57,962 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+2013-12-08 13:50:57,969 - broker - DEBUG -
+base_broker.X2GoBroker.get_session_autologin(): found
+default-session-autologin in global config section: False
+2013-12-08 13:51:15,935 - broker - INFO - X2Go Session Broker (0.0.3.0),
+2013-12-08 13:51:15,936 - broker - INFO -   written by Mike Gabriel
+(X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-12-08 13:51:15,937 - broker - INFO - Setting up the broker's
+environment...
+2013-12-08 13:51:15,937 - broker - INFO -   X2GOBROKER_DEBUG: True
+2013-12-08 13:51:15,937 - broker - INFO -   X2GOBROKER_CONFIG:
+/etc/x2go/x2gobroker.conf
+2013-12-08 13:51:15,937 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+/usr/lib/x2go/x2gobroker-agent
+2013-12-08 13:51:15,938 - broker - INFO -
+X2GOBROKER_AUTHSERVICE_SOCKET:
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-12-08 13:51:15,938 - broker - INFO -
+X2GOBROKER_DEFAULT_BACKEND: inifile
+2013-12-08 13:51:15,938 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+2013-12-08 13:51:15,939 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+2013-12-08 13:51:15,948 - broker - INFO - client address is 127.0.0.1
+2013-12-08 13:51:15,949 - broker - DEBUG - username: mathias,
+password: XXXXX, task: selectsession, profile_id: termsrv, cookie:
+2013-12-08 13:51:15,949 - broker - DEBUG -
+base_broker.X2GoBroker.get_authentication_mechanism(): found
+default-auth-mech in global config section: pam
+2013-12-08 13:51:15,949 - broker - DEBUG -
+base_broker.X2GoBroker._do_authenticate(): authenticating user=mathias
+with password=&lt;hidden&gt; against backend=inifile.
+2013-12-08 13:51:15,950 - broker - DEBUG - connecting to
+authentication service socket
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-12-08 13:51:15,950 - broker - DEBUG - sending username=mathias,
+password=&lt;hidden&gt;, service=x2gobroker to authentication service
+2013-12-08 13:51:15,965 - broker - INFO - authentication against PAM
+service &#187;x2gobroker&#171; succeeded for user &#187;mathias&#171;
+2013-12-08 13:51:15,965 - broker - DEBUG -
+base_broker.X2GoBroker.check_access(): result of authentication check
+is: True
+2013-12-08 13:51:15,973 - broker - DEBUG -
+base_broker.X2GoBroker.get_agent_query_mode(): found
+default-agent-query-mode in global config section: none
+
+Need anything else?
+
+
+regards
+Mathias
+
+
+- -- 
+Mathias Ewald - vXpertise
+WWW: www.vxpertise.net
+Landline: +49 911 495208940
+Mobile: +49 151 17317864
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias.ewald at vxpertise.net</A>
+Skype: mathias.ewald
+
+ATTENTION: My email address <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at mathias-ewald.de</A> is no longer in
+use. Please send to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias.ewald at vxpertise.net</A> only!
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - <A HREF="http://www.enigmail.net/">http://www.enigmail.net/</A>
+
+iQIcBAEBAgAGBQJSpLTnAAoJEA7RPiZyzgdIJrkP+QFMowIbI7zG1JOdnAxcas3m
+TqtNPdtmDR+v7qXxNWwKc1fOGepr585MZUf/iTmdLkxNZUyaK+4N/JS4UiqWft+r
+4ZGswc5vHEpbERSoWCFqLNq8kVCblh1dxBarFCw87ZMf3zaw8moGEj7LJN9+FO9L
+VM9kqwLzY/Do0LDzlU3xYoGvXoFcgcb1gIcg4EPPiPFbozre9BNV0Hz7LgwIws4J
+kgWm/eEciyOMWfYbkpPxTtNdLig0Ks9DMLTxVUWiG1mJtgRtV8MRA/jd92m4ZQ0V
+zzwA09FxTYdY3L8wnlPtw/nUzn8vKLSahaMvNKxJO+8r3oy35PS81ZjiWxbvBVUt
+M0jlliq/S7Ir75L2keaBye+ZDQh2DzUztzM9mSl7DdRMio6wXPtW3F84uUdIzfqr
+y5FxJigklT5kaavZYCJtgYfeNKpnUc8ljsmkJI9FG+JOEOOmv4JGOwquAWDpJN0s
+9TKB65ZNSnkk5zpANLTCCkIAAdwsB9r9VDm0nElttHwHZZM1m+0WYWKHjyDu5T8Q
+65YA0NPon3u5SFjTFoyJ9o8RxfjMR1RCid/wIeRdtpOfLIodx/lRiyh+nGkQWRa5
+idEBGy8b/DPSGXZLFNy7EZNKfum3Vvl2QzW/I+Ocaf81ZaW4hneYbgFk1fzL0OLM
+YPOgQC03zGvP7tismRc/
+=rQsU
+-----END PGP SIGNATURE-----
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001857.html">[X2Go-User] What is latest stable version of the Windows client?
+</A></li>
+	<LI>Next message: <A HREF="001853.html">[X2Go-User] Broker + SSH Proxy + Windows Terminal Server: &quot;An exceptional problem occurred&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1849">[ date ]</a>
+              <a href="thread.html#1849">[ thread ]</a>
+              <a href="subject.html#1849">[ subject ]</a>
+              <a href="author.html#1849">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

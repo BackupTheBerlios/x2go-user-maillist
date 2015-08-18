@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3CCAHeJaPJ2RO0PQaF_9mRXDqsgyvPCzmwZtWLBEBQM9S0fGcZ3Mw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001508.html">
+   <LINK REL="Next"  HREF="001503.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.</H1>
+    <B>Kjell Otto</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3CCAHeJaPJ2RO0PQaF_9mRXDqsgyvPCzmwZtWLBEBQM9S0fGcZ3Mw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.">otto.kjell at gmail.com
+       </A><BR>
+    <I>Thu Jul 11 09:22:34 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001508.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+        <LI>Next message: <A HREF="001503.html">[X2Go-User] Problems with meta characters on Mac client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1512">[ date ]</a>
+              <a href="thread.html#1512">[ thread ]</a>
+              <a href="subject.html#1512">[ subject ]</a>
+              <a href="author.html#1512">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Roland,
+
+have you seen what's mentioned here:
+<A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=18258&amp;group_id=2978">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=18258&amp;group_id=2978</A>
+
+Wether it helps or not, it would be great to see the server side of this,
+so please post the corresponding entries of your /var/log/syslog after
+configuring the x2goserver for debugging(set it in
+/etc/x2go/x2goserver.conf).
+
+Nevertheless, the only Cookies I can think used by x2go are the MIT magic
+cookies of X... maybe try to delete the .Xauthority of the user trying to
+log in and retry...
+
+Greetings,
+@Kjellski
+
+
+2013/7/10 Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+
+&gt;<i> I must have read every mailing list and other posts I could find on
+</I>&gt;<i> Google regarding this problem.  Nowhere was anyone able to identify
+</I>&gt;<i> the actual cause and fix for this problem.
+</I>&gt;<i>
+</I>&gt;<i> How can this be?  Does anyone know where the X2Go developer(s) hang out?
+</I>&gt;<i>
+</I>&gt;<i> thanks
+</I>&gt;<i>
+</I>&gt;<i> Roland Giesler
+</I>&gt;<i> +27 (0)72-450-2817
+</I>&gt;<i> <A HREF="http://www.giesler.za.net">http://www.giesler.za.net</A>
+</I>&gt;<i>
+</I>&gt;<i> Disclaimer: The sender invokes the rule of &quot;exemptus responsibilitus&quot;
+</I>&gt;<i> pertaining to caffeine soluted inductions and/or decantations thereof
+</I>&gt;<i> into tactile communication interfaces and alternative apparatuses with
+</I>&gt;<i> respect to personal computation devices or otherwise implementations
+</I>&gt;<i> of electronic and/or bionic devices. This impartation is intended for
+</I>&gt;<i> the addressed party, unless conditions contrary to the aforementioned
+</I>&gt;<i> exist, in which case it is pertinent.  Reduce without further ado to
+</I>&gt;<i> nothingness said impartation; alternatively &quot;refrain from traversing
+</I>&gt;<i> the point of origination, be not enriched by 200 Randus and proceed
+</I>&gt;<i> without delay to enjailment&quot;.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Thu, Jul 4, 2013 at 10:25 PM, Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;<i> &gt; bump.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; anyone with help?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; On Mon, Jul 1, 2013 at 11:36 PM, Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;<i> wrote:
+</I>&gt;<i> &gt;&gt; This error is most annoying to say the least, since no-where on the
+</I>&gt;<i> &gt;&gt; internet is an explaination of the cause nor the fix for it.  Some
+</I>&gt;<i> &gt;&gt; people seem to have managed to get past it by luck.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; This is an Ubuntu 12.04 64bit server that had nxserver install.  One
+</I>&gt;<i> &gt;&gt; day (probably after some update, but it was too long ago to undo of
+</I>&gt;<i> &gt;&gt; trace now) the nxclient just stopped working.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; I left it after many futile attempt to fix it.  I have completely
+</I>&gt;<i> &gt;&gt; removed (purged) openssh-server and nxserver, nxnode and nxclient.
+</I>&gt;<i> &gt;&gt; Numerous times, apart from creating keys manually and more.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; So I though, let me switch to X2Go.  And lo and behold, I get the same
+</I>&gt;<i> error.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Strangely enough though, I can connect perfect to the server via SSH
+</I>&gt;<i> every time.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; What causes this and how does one fix this please?
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; regards
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Roland
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130711/78f0eb77/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130711/78f0eb77/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001508.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+	<LI>Next message: <A HREF="001503.html">[X2Go-User] Problems with meta characters on Mac client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1512">[ date ]</a>
+              <a href="thread.html#1512">[ thread ]</a>
+              <a href="subject.html#1512">[ subject ]</a>
+              <a href="author.html#1512">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] x2go integration with windows domain
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20integration%20with%20windows%20domain&In-Reply-To=%3CAB0FA0F618204CBFABF3499AECD50132%40EBPVLPC%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000007.html">
+   <LINK REL="Next"  HREF="000008.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] x2go integration with windows domain</H1>
+    <B>InboxMailinglist</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20integration%20with%20windows%20domain&In-Reply-To=%3CAB0FA0F618204CBFABF3499AECD50132%40EBPVLPC%3E"
+       TITLE="[X2go-user] x2go integration with windows domain">inboxmailinglist at gmail.com
+       </A><BR>
+    <I>Fri Oct 15 11:58:47 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000007.html">[X2go-user] x2go integration with windows domain
+</A></li>
+        <LI>Next message: <A HREF="000008.html">[X2go-user] Connect to X2go behind NAT
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok, I give up on this one!
+
+Thank you Mike anyway for taking time answering my post
+
+Tried downloading the latest version of ubuntu (10.10) with likewise 6.0
+integrated, but that is even worse! Cannot get the remote desktop at all,
+after the x2go black screen, everything turns black.
+
+I can still logon with x2go using a local (ubuntu) user though. 
+
+Also, when setting the default domain to 'true' I can login to ubuntu just
+using my windows username.. that's ok. But when I logoff and logon as an
+ubuntu administrator, and try to type &quot;sudo su&quot; in the terminal, I get the
+error: unable to chache group domain\grouop, already exists
+
+Then I have to reinstall...
+
+So we may need to stay with windows terminal services for the moment.
+
+I anyone got this working (x2go form windows, using your windows credentials
+so we do not have to recreate users/passwords on the ubuntu machine) I would
+very much like to know!
+
+Benjamin
+
+-----Oprindelig meddelelse-----
+Fra: Mike Gabriel [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">m.gabriel at das-netzwerkteam.de</A>] 
+Sendt: 11. oktober 2010 13:25
+Til: InboxMailinglist
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Emne: Re: [X2go-user] x2go integration with windows domain
+
+Hi Benjamin,
+
+On Mo 11 Okt 2010 13:54:08 CEST InboxMailinglist wrote:
+
+&gt;<i> 1. No sound
+</I>
+&gt;<i> In the client version 3.01-2, there was an option in the sound section to
+</I>&gt;<i> deselect the default port, if we did that, we had sound through. But that
+</I>&gt;<i> option is not available in the 3.01-4 version.
+</I>
+&gt;<i> We have a firewall between the two networks, and have opened up tcp port
+</I>22
+&gt;<i> for ssh
+</I>
+Make sure you tunnel everything (sound/folder shares) through SSH.  
+Then you only need a single ACCEPT rule for your X2goClient subnet to  
+the X2goServer IP on your X2goServer's SSH port (22 by default). Make  
+sure your client boxes (Windows) individually allow incoming  
+connections on localhost (e.g. depending on the amount of users the  
+TPC/IP ports 30000-30099). Check your Windows firewall on each client  
+for this.
+
+
+&gt;<i> 2. Mount folder fails with the error:
+</I>&gt;<i>
+</I>&gt;<i>  .. Could not find &quot;/temp/DOMAINuser_media/folder&quot; Please check the
+</I>spelling
+&gt;<i>
+</I>&gt;<i> Please note the missing / between DOMAIN and user
+</I>
+As far as I know, likewise-open utilizes Samba/Winbind  
+(libnss-winbind) for Unix integration into an AD domain. If you just  
+have one AD domain, I recommend getting rid of the domain component in  
+libnss user names completely. Refer to the samba option
+
+winbind use default domain = YOURDOMAIN
+
+(see smb.conf for this).
+
+Especially Samba's default winbind separator (a '\' backslash  
+character between domain and username) is not really handy for  
+deriving path names in X2go. If you do not want to get rid of the  
+domain string completely, you might want to modify the winbind  
+separator (see smb.conf, as well).
+
+Just some ideas,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">m.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xf">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xf</A>
+b
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000007.html">[X2go-user] x2go integration with windows domain
+</A></li>
+	<LI>Next message: <A HREF="000008.html">[X2go-user] Connect to X2go behind NAT
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#11">[ date ]</a>
+              <a href="thread.html#11">[ thread ]</a>
+              <a href="subject.html#11">[ subject ]</a>
+              <a href="author.html#11">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

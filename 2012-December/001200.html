@@ -1,0 +1,86 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Problem with KDE, Network Manager and X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAAWyt1pzdoDchnsd5rB%3D-p1knw8wOqQRe4Ujrsk6ssueynsVpQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001198.html">
+   <LINK REL="Next"  HREF="001199.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Problem with KDE, Network Manager and X2Go</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAAWyt1pzdoDchnsd5rB%3D-p1knw8wOqQRe4Ujrsk6ssueynsVpQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Problem with KDE, Network Manager and X2Go">bd.dali at gmail.com
+       </A><BR>
+    <I>Mon Dec 24 20:01:46 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001198.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+        <LI>Next message: <A HREF="001199.html">[X2Go-User] PyHoca Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1200">[ date ]</a>
+              <a href="thread.html#1200">[ thread ]</a>
+              <a href="subject.html#1200">[ subject ]</a>
+              <a href="author.html#1200">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Reinhard,
+
+What you propose is to introduce a completely new security policy:
+&gt;<i> everyone in a certain group 'netdev' may change everything. This may
+</I>&gt;<i> be appropriate in your scenario, but may not be in others. For
+</I>&gt;<i> instance, have you considered what other packages &quot;use&quot; the netdev
+</I>&gt;<i> group? Are you fully aware about the consequences in terms of
+</I>&gt;<i> additional privileges users gain by being put in that group? Moreover,
+</I>&gt;<i> in a managed environment, where all users are in a network directory
+</I>&gt;<i> such as NIS or LDAP, it is not that simple to add a user to a
+</I>&gt;<i> computer-local group, as the group may have a different group ID on
+</I>&gt;<i> different machines. Such scenarios are not uncommon for larger x2go
+</I>&gt;<i> deployments at all!
+</I>&gt;<i>
+</I>
+The netdev group change is not a proposal for something I think should be
+included in X2Go, more like &quot;if someone has the same issue, I got it
+working by doing this&quot;. I agree that adding the netdev group is not ideal
+from a security perspective, someone who fully understands what's going on
+could probably come up with a much safer solution.
+
+Cheers,
+Daniel
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121224/1377f259/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20121224/1377f259/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001198.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+	<LI>Next message: <A HREF="001199.html">[X2Go-User] PyHoca Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1200">[ date ]</a>
+              <a href="thread.html#1200">[ thread ]</a>
+              <a href="subject.html#1200">[ subject ]</a>
+              <a href="author.html#1200">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

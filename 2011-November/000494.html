@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Usability with latency ~200ms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Usability%20with%20latency%20%7E200ms&In-Reply-To=%3C1321064917.8120.16.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000492.html">
+   <LINK REL="Next"  HREF="000495.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Usability with latency ~200ms</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Usability%20with%20latency%20%7E200ms&In-Reply-To=%3C1321064917.8120.16.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] Usability with latency ~200ms">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Sat Nov 12 03:28:37 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000492.html">[X2go-User] Usability with latency ~200ms
+</A></li>
+        <LI>Next message: <A HREF="000495.html">[X2go-User] Antw: Re:  Usability with latency ~200ms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Fri, 2011-11-11 at 14:21 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">Stefan.Klingner at brodos.de</A> wrote:
+&gt;<i> Hi,
+</I>&gt;<i>  
+</I>&gt;<i> we are trying to use X2Go to provide a devolpment environment for our
+</I>&gt;<i> employees in India. The problem is that the connection to India is
+</I>&gt;<i> really bad (latency ~200ms) and so working with X2Go is currently not
+</I>&gt;<i> possible.
+</I>&gt;<i>  
+</I>&gt;<i> Is there a way to improve the performance on the X2Go client/server
+</I>&gt;<i> configuration? Does anybody have experience with such a szenario?
+</I>&gt;<i>  
+</I>&gt;<i> Please help.
+</I>&lt;snip&gt;
+The first thought is the usual WAN improvements such as WAN accelerators
+and any tweaks one can make to the IP stack or the SSH protocol.  Also
+try to use hard wired connections on the client side rather than
+wireless.  We have seen a tangible difference on the same Internet
+connection between the two.
+
+However, I am beginning to wonder if something important has changed.
+Our experience with the older 3.0.1 series clients was that they were
+adequate with 200ms latency and packet loss up to 4-5%.  We are still
+running the older server but have started using the newer client.  I'm
+currently using the version in the heuler repository.  I've noticed
+different and troubling behavior which I am guessing is a result of the
+switch to libssh.
+
+My Internet connection has been a little less stable than usual lately
+and I've started to notice really problematic behavior.  I do not know
+why but, if we start experiencing moderate packet loss or latency, the
+behavior is almost as if nagle is enabled.  We'll type a series of key
+strokes and they will all type but the last one.  Two seconds later, the
+last key appears - makes editing documents a dangerous nightmare as the
+cursor is usually one character off from where one thinks it is.  We
+also see major screen painting delays - clicking on some action and we
+know the server has responded instantly but the old screen just sits
+there for two or three seconds and then suddenly changes.
+
+We've not had the time to track it down and I'm guessing it will be a
+bear to find but something has definitely changed in the newer client
+code and not for the better - John
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000492.html">[X2go-User] Usability with latency ~200ms
+</A></li>
+	<LI>Next message: <A HREF="000495.html">[X2go-User] Antw: Re:  Usability with latency ~200ms
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#494">[ date ]</a>
+              <a href="thread.html#494">[ thread ]</a>
+              <a href="subject.html#494">[ subject ]</a>
+              <a href="author.html#494">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E7A4662.2010905%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000394.html">
+   <LINK REL="Next"  HREF="000375.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C4E7A4662.2010905%40vandervlis.nl%3E"
+       TITLE="[X2go-User] Crashing sessions">paul at vandervlis.nl
+       </A><BR>
+    <I>Wed Sep 21 22:17:38 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000394.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000375.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 21-09-11 20:43, Mike Gabriel schreef:
+&gt;<i> Hi Paul, John,
+</I>&gt;<i> 
+</I>&gt;<i> On Mi 21 Sep 2011 19:29:13 CEST Paul van der Vlis wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> But more: I think it's something on the server what crashes. Because
+</I>&gt;&gt;<i> when only something on the client would crash, the session would not be
+</I>&gt;&gt;<i> lost. When I open a new session, there is no old session. So when I
+</I>&gt;&gt;<i> think well, it must be something on the server what crashes.
+</I>&gt;<i> 
+</I>&gt;<i> What crashes is x2goagent (shown on client-side screen through nxproxy).
+</I>&gt;<i> And x2goagent crashes because the application/GTK/Qt/otherlib sends some
+</I>&gt;<i> X protocol command to the x2goagent (which actually is an X server
+</I>&gt;<i> variant) that cannot be handled by x2goagent.
+</I>
+I could rename x2goagent to x2goagent2 and make an x2goagent script with
+something like this:
+
+strace x2goagent2 $1 $2 $3 $4 $5 &gt; /path/to/logfile 2&gt;&amp;1
+
+With regards,
+Paul.
+
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000394.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000375.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#393">[ date ]</a>
+              <a href="thread.html#393">[ thread ]</a>
+              <a href="subject.html#393">[ subject ]</a>
+              <a href="author.html#393">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

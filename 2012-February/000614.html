@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails - workaround
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails%20-%20workaround&In-Reply-To=%3CCAFX-c4vpJAUgOYjGaXwqjtXHT8GoGTob7dFPSb0jift0N9B%3DQA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000640.html">
+   <LINK REL="Next"  HREF="000617.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails - workaround</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails%20-%20workaround&In-Reply-To=%3CCAFX-c4vpJAUgOYjGaXwqjtXHT8GoGTob7dFPSb0jift0N9B%3DQA%40mail.gmail.com%3E"
+       TITLE="[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails - workaround">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sat Feb 18 14:47:21 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000640.html">[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+</A></li>
+        <LI>Next message: <A HREF="000617.html">[X2go-User] Problem with X2Go and VMWare Tools
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#614">[ date ]</a>
+              <a href="thread.html#614">[ thread ]</a>
+              <a href="subject.html#614">[ subject ]</a>
+              <a href="author.html#614">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I haven't been able to figure out why my updated x2go is failing to allow
+ssh login and start of my x2go session.
+
+But I have figured out a workaround but it makes the question of what the
+real problem is even stranger ?
+
+*The workaround was to setup SSH Login Without Password Using ssh-keygen &amp;
+ssh-copy-id*
+
+For those that haven't done it before an easy/simple explanation of what
+you have to do is found here:
+<A HREF="http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/">http://www.thegeekstuff.com/2008/11/3-steps-to-perform-ssh-login-without-password-using-ssh-keygen-ssh-copy-id/</A>
+
+for Ubuntu the instructions are here:
+<A HREF="https://help.ubuntu.com/community/SSH/OpenSSH/Keys">https://help.ubuntu.com/community/SSH/OpenSSH/Keys</A>
+
+After doing this from your &quot;client&quot; system start the x2goclient and:
+
+   1. create a new session
+   2. select &quot;*session preferences*&quot; from the drop-down menu on your &quot;new
+   session&quot; launcher icon
+   3. check mark &quot;*Try auto login (ssh-agent or default ssh key)*&quot; option
+   4. enter your Host address/dns name
+   5. enter your login name
+   6. click OK to save
+   7. Click on the session Launcher ICON and now it should just autoconnect
+   to your remote server with ssh and start your x2go session successfully
+
+
+Now as to why the new x2goclient was failing and giving that message before
+when the only difference is whether or not auto-login was used or x2go's
+ssh key exchange ... I don't know.
+
+The only thing I can think of is that there was some kind of &quot;key&quot; mismatch
+between the server and the client before *which when I setup auto-login
+would have been bypassed because the auto-login setup transfers a new RSA
+key to make sure they match between machines.
+*
+Anyway setting up auto-login now lets x2goclient start the session
+successfully !! &lt;g&gt;
+
+Brian
+
+
+
+---------- Forwarded message ----------
+From: Paul van der Vlis &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">paul at vandervlis.nl</A>&gt;
+To: brian mullan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at gmail.com</A>&gt;
+Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Date: Fri, 17 Feb 2012 14:37:26 +0100
+Subject: Re: [X2go-User] updated x2go on my ubuntu 11.10 system and it now
+fails
+Op 17-02-12 13:51, brian mullan schreef:
+&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i> PyHoca was also updated and now it won't load and gives me a message:
+</I>&gt;<i>
+</I>&gt;<i> /*pyhoca-gui[9111] (PyHoca-GUI) WARN: the current release of PyHoca-GUI
+</I>&gt;<i> does not support client configuration*
+</I>&gt;<i> /
+</I>&gt;<i> It did work before I updated this week.
+</I>&gt;<i>
+</I>&gt;<i> To update I used the Ubuntu repository info from the x2go-wiki:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/wiki:x2go-repository-ubuntu">http://wiki.x2go.org/wiki:x2go-repository-ubuntu</A>
+</I>&gt;<i>
+</I>&gt;<i> $ sudo add-apt-repository ppa:x2go/stable
+</I>&gt;<i> $ sudo apt-get update
+</I>&gt;<i>
+</I>&gt;<i> The x2goclient version is *3.99.0.6-0-144-oneiric*
+</I>&gt;<i>
+</I>&gt;<i> As I'd mentioned my laptop hasn't been updated and it still connects
+</I>&gt;<i> fine with both x2goclient &amp; pyhoca to the same server AND
+</I>&gt;<i> on my desktop which was updated I CAN successfully connect to the server
+</I>&gt;<i> using just SSH.
+</I>&gt;<i>
+</I>&gt;<i> I tried to find some troubleshooting guide on the wiki that would at
+</I>&gt;<i> least point to where log files might be but couldn't find anything.
+</I>&gt;<i> If there are some troubleshooting steps posted somewhere for x2go I'll
+</I>&gt;<i> use them to see if I can figure out what's going on.
+</I>&gt;<i>
+</I>&gt;<i> thanks.   I have seen doing google searches that there are several posts
+</I>&gt;<i> in the past of people using x2go that are posting the same error message.
+</I>&gt;<i> Never saw anyone post an answer to those inquiries suggesting how or if
+</I>&gt;<i> they fixed it.
+</I>&gt;<i>
+</I>&gt;<i> Here are some of the other people that have posted the same error
+</I>&gt;<i> message with their x2go (although not all are ubuntu based)   From the
+</I>&gt;<i> dates on these posts
+</I>&gt;<i> though I don't think they were using the same version of x2go ??
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://comments.gmane.org/gmane.linux.terminal-server.x2go.user/301">http://comments.gmane.org/gmane.linux.terminal-server.x2go.user/301</A>
+</I>&gt;<i>
+</I>&gt;<i> I have already tried the same steps Paul van der Vlis tried in the above
+</I>&gt;<i> post dated in November 2011.
+</I>&gt;<i>
+</I>&gt;<i>     * purging x2goclient from system &amp; reinstalling
+</I>&gt;<i>     * tried connecting to a different x2goserver and it did not succeed
+</I>&gt;<i>       (whereas Paul's did)
+</I>&gt;<i>
+</I>&gt;<i> I _can_ reach both of my x2go servers with ssh from this client and I
+</I>&gt;<i> can reach BOTH of them from my laptop with the older x2goclient and
+</I>pyhoca.
+&gt;<i>
+</I>&gt;<i> Here is another post of the same error.
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/x2go-user/2011-September/000364.html">https://lists.berlios.de/pipermail/x2go-user/2011-September/000364.html</A>
+</I>&gt;<i>
+</I>&gt;<i> thanks for any info or hints to troubleshoot this!    I'll cc Paul on
+</I>&gt;<i> this to see if he ever uncovered the cause as his post was a couple
+</I>&gt;<i> months ago.
+</I>
+I have this problem on 2 older machines, and not on other machines.
+I have tried much to get rit of this problem, but with no success.
+
+Interesting is that I can use pyhoca-gui without problems where
+X2goclient failes. But the last time I've tried this I had a problem
+with Pyhoca-gui: the keyboard did not work fine over the session. It did
+work, but often there where key-presses missing.  Over another direct
+SSH connection typing was no problem.
+
+With regards,
+Paul.
+
+--
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+
+_______________________________________________
+X2go-User mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120218/d68af249/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120218/d68af249/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000640.html">[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+</A></li>
+	<LI>Next message: <A HREF="000617.html">[X2go-User] Problem with X2Go and VMWare Tools
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#614">[ date ]</a>
+              <a href="thread.html#614">[ thread ]</a>
+              <a href="subject.html#614">[ subject ]</a>
+              <a href="author.html#614">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4gX3kX%2ByNKoOBggnyP-XsRx1X_tJXCuZbg2fYWpfeLX5A%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001800.html">
+   <LINK REL="Next"  HREF="001802.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Nirav Shah</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4gX3kX%2ByNKoOBggnyP-XsRx1X_tJXCuZbg2fYWpfeLX5A%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">shah.niravk at gmail.com
+       </A><BR>
+    <I>Sat Nov 23 23:48:05 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001800.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001802.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1801">[ date ]</a>
+              <a href="thread.html#1801">[ thread ]</a>
+              <a href="subject.html#1801">[ subject ]</a>
+              <a href="author.html#1801">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Mike for the quick and helpful answers..See my updates in bold.
+
+
+On Sat, Nov 23, 2013 at 5:35 PM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Nirav,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On  Sa 23 Nov 2013 22:47:23 CET, Nirav Shah wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Thanks Steve and Mike for the guidance you have provided. I really
+</I>&gt;&gt;<i> appreciate your help.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> My servers are available in California and the developers are working in
+</I>&gt;&gt;<i> Europe and in India. So the ping time varies from 150 ms to 400 ms. I have
+</I>&gt;&gt;<i> selected ADSL with 16m-jpeg connection. The developers are accessing Linux
+</I>&gt;&gt;<i> environment with GNome. They use some Java 2D graphics for the
+</I>&gt;&gt;<i> development.
+</I>&gt;&gt;<i> Their normal bandwidth (tested using Speedtest.net) is around 3-5 MBPS.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The replies from Mike and Steve, I understood that  for this kind of high
+</I>&gt;&gt;<i> latency I should use &quot;WAN&quot; connection speed with compression method - &quot;No
+</I>&gt;&gt;<i> Pack&quot;. Is this my understanding correct?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I am really not an expert on this, but you could try that (maybe not ,,No
+</I>&gt;<i> Pack''). On IRC there is a guy called &quot;TheUser&quot;. Ask him about that
+</I>&gt;<i> question once he appears again. He had another WAN based recommendation
+</I>&gt;<i> that I forgot again.
+</I>&gt;<i>
+</I>&gt;<i> Using speed = LAN is identical to normal X11 over SSH.
+</I>&gt;<i>
+</I>&gt;<i>    *  I will try to use LAN option and see if it is able to resolve the
+</I>&gt;<i> problem or not. I have also downloaded few tools like Charles and NLC tool
+</I>&gt;<i> for Mac to test the latency using my computer. I will try different option
+</I>&gt;<i> to solve this problem.*
+</I>&gt;<i>
+</I>
+
+&gt;<i>
+</I>&gt;<i>   I have already set Image quality to 1 and disabled audio/print/shared
+</I>&gt;&gt;<i> folder support.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have also used libjpeg-turbo library on the server side (Linux OS).
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> You should have libjpeg-turbo on the client, as well. But for this you
+</I>&gt;<i> need an nxproxy that uses the compat libs from libjpeg-turbo. If you build
+</I>&gt;<i> statically, then you need to build against libjpeg-turbo directly.
+</I>
+
+* I am not sure, how can I install this library on my client on windows and
+Mac. Is there any documentation available somewhere? as I am not aware of
+this library. *
+
+&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  Will this kind of setup work? If I upgrade hardware on my server/client,
+</I>&gt;&gt;<i> will it make any difference? Can X2go handle this kind of latency issues
+</I>&gt;&gt;<i> with some settings? Is there any minimum bandwidth required with this
+</I>&gt;&gt;<i> latency?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> All good questions that I do not have an experienced answer for. I only
+</I>&gt;<i> know that several other people have struggled with this.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, herweg 7, 24357 fleckeby
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-</A>
+</I>&gt;<i> netzwerkteam.de.xfb
+</I>&gt;<i>
+</I>
+
+
+-- 
+Thanks,
+
+Nirav Shah
+(C) (412) 296-9491
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/508bfd5a/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/508bfd5a/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001800.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001802.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1801">[ date ]</a>
+              <a href="thread.html#1801">[ thread ]</a>
+              <a href="subject.html#1801">[ subject ]</a>
+              <a href="author.html#1801">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

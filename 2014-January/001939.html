@@ -1,0 +1,90 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] wrong keyboard layout
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wrong%20keyboard%20layout&In-Reply-To=%3C20140108221746.78bdf2a3%40gmx.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001938.html">
+   <LINK REL="Next"  HREF="001941.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] wrong keyboard layout</H1>
+    <B>Giuseppe Barichello</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wrong%20keyboard%20layout&In-Reply-To=%3C20140108221746.78bdf2a3%40gmx.com%3E"
+       TITLE="[X2Go-User] wrong keyboard layout">beppuz at gmx.com
+       </A><BR>
+    <I>Wed Jan  8 22:17:46 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001938.html">[X2Go-User] x2go segfault
+</A></li>
+        <LI>Next message: <A HREF="001941.html">[X2Go-User] wrong keyboard layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1939">[ date ]</a>
+              <a href="thread.html#1939">[ thread ]</a>
+              <a href="subject.html#1939">[ subject ]</a>
+              <a href="author.html#1939">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+after last packages upgrades (debian testing) I began having problems
+with keyboard layout.
+The configuration falled back to &quot;us&quot;, while my client is configured as
+&quot;it&quot;.
+
+Looking into session logs I found a warning about being unable to stat
+file /usr/local/lib/nx/X11/xbd/rules/xorg.
+Indeed there is no &quot;nx&quot; directory under /usr/local/lib in my system.
+
+I fixed with:
+mkdir /usr/local/lib/nx
+ln -s /usr/share/X11 /usr/local/lib/nx/X11
+
+I don't know if this is correct.
+I suspect a bug in latest packages...
+
+Giuseppe
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 316 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140108/7da66eaf/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20140108/7da66eaf/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001938.html">[X2Go-User] x2go segfault
+</A></li>
+	<LI>Next message: <A HREF="001941.html">[X2Go-User] wrong keyboard layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1939">[ date ]</a>
+              <a href="thread.html#1939">[ thread ]</a>
+              <a href="subject.html#1939">[ subject ]</a>
+              <a href="author.html#1939">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

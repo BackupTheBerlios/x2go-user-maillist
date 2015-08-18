@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User]  Install not working on Ubuntu 12.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%20Install%20not%20working%20on%20Ubuntu%2012.10&In-Reply-To=%3CCAFX-c4tTb0Kz2SyV397b5_Y%2BfQKxK13wCQKbiROhV%2BOpLhJjFQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001149.html">
+   <LINK REL="Next"  HREF="001151.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User]  Install not working on Ubuntu 12.10</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%20Install%20not%20working%20on%20Ubuntu%2012.10&In-Reply-To=%3CCAFX-c4tTb0Kz2SyV397b5_Y%2BfQKxK13wCQKbiROhV%2BOpLhJjFQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User]  Install not working on Ubuntu 12.10">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sat Nov 24 16:25:03 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001149.html">[X2Go-User] x2goclient shutdown button
+</A></li>
+        <LI>Next message: <A HREF="001151.html">[X2Go-User] Message &quot;Verbindung fehlgeschlagen Kann Datei nicht &#246;ffnen&quot;  when I start x2go-Client Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1150">[ date ]</a>
+              <a href="thread.html#1150">[ thread ]</a>
+              <a href="subject.html#1150">[ subject ]</a>
+              <a href="author.html#1150">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Joe
+
+I saw your post:
+<A HREF="https://lists.berlios.de/pipermail/x2go-user/2012-November/001107.html">https://lists.berlios.de/pipermail/x2go-user/2012-November/001107.html</A>
+
+and wasn't sure if anyone responded to you yet.
+
+that error is caused by sshd_config file entry in Ubuntu which for some
+reason seems to change its default from release to release (at least for
+me).
+
+in /etc/ssh/ssd_config
+
+Ubuntu defaults to the following:
+
+# Change to yes to enable challenge-response passwords (beware issues with
+# some PAM modules and threads)
+ChallengeResponseAuthentication no
+
+# Change to no to disable tunnelled clear text passwords
+#PasswordAuthentication yes
+
+You will need to change:
+
+ChallengeResponseAuthentication no
+to
+ChallengeResponseAuthentication yes
+
+and uncomment the following by removing the Hash sign:
+#PasswordAuthentication yes
+
+then restart ssh
+
+             sudo /etc/init.d/ssh restart
+
+also NOTE that for some reason on some Ubuntu upgrades I have seen the
+&quot;PasswordAuthentication&quot; entry have any one of the 2 following defaults
+
+
+   1. #PasswordAuthentication yes
+   2. PasswordAuthentication no
+
+Both of which make &quot;PasswordAuthentication no&quot; the active default.
+
+But with x2go if you want to use login with User ID and Password entry by a
+user on the x2go client you have to allow it (set it to yes).
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121124/0e8910c1/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20121124/0e8910c1/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001149.html">[X2Go-User] x2goclient shutdown button
+</A></li>
+	<LI>Next message: <A HREF="001151.html">[X2Go-User] Message &quot;Verbindung fehlgeschlagen Kann Datei nicht &#246;ffnen&quot;  when I start x2go-Client Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1150">[ date ]</a>
+              <a href="thread.html#1150">[ thread ]</a>
+              <a href="subject.html#1150">[ subject ]</a>
+              <a href="author.html#1150">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can't cut/paste from XEmacs to Windows
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20cut/paste%20from%20XEmacs%20to%20Windows&In-Reply-To=%3CCAMKht8jgJXgtRVEuQYLBr6U%3DSSd%2BB-G%3DTY3pKeaTTgetv8VbRg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001855.html">
+   <LINK REL="Next"  HREF="001860.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can't cut/paste from XEmacs to Windows</H1>
+    <B>Michael DePaulo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20cut/paste%20from%20XEmacs%20to%20Windows&In-Reply-To=%3CCAMKht8jgJXgtRVEuQYLBr6U%3DSSd%2BB-G%3DTY3pKeaTTgetv8VbRg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Can't cut/paste from XEmacs to Windows">mikedep333 at gmail.com
+       </A><BR>
+    <I>Tue Dec 10 07:03:13 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001855.html">[X2Go-User] Can't cut/paste from XEmacs to Windows
+</A></li>
+        <LI>Next message: <A HREF="001860.html">[X2Go-User] Can't cut/paste from XEmacs to Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1858">[ date ]</a>
+              <a href="thread.html#1858">[ thread ]</a>
+              <a href="subject.html#1858">[ subject ]</a>
+              <a href="author.html#1858">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Dec 9, 2013 at 3:57 PM, Nick Ingegneri &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">n_ingegneri at yahoo.com</A>&gt; wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> Does anybody have a suggestion for this situation:
+</I>&gt;<i>
+</I>&gt;<i> User reported that he was able to cut/paste from Windows to XEmacs, but
+</I>&gt;<i> unable to cut/paste in the opposite direction from XEmacs to Windows.
+</I>&gt;<i>
+</I>&gt;<i> I verified the problem with the following notes:
+</I>&gt;<i>  - The XEmacs copy is a simple X highlight of the text in question.
+</I>&gt;<i>  - The copied text from XEmacs is making it to the X clipboard and can be
+</I>&gt;<i> pasted to other X windows
+</I>&gt;<i>  - The copied text from XEmacs is not making it to the Windows clipboard.
+</I>&gt;<i>
+</I>&gt;<i> The problem appears specific to copying from XEmacs. Text copied from other
+</I>&gt;<i> X windows behaves as expected.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Nick
+</I>
+Hi Nick,
+
+(Sorry about this duplicate email. I forgot to CC the list on the last one.)
+
+I was unable to reproduce your bug on this setup:
+- Fedora 19 64-bit with XEmacs 21.5.34, x2goserver 4.0.1.6 &amp; nx-libs 3.5.0.21
+- Windows 8.1 64-bit with x2goclient 4.0.1.2pre02 (see the X2go-Dev
+email discussion on 4.0.1.2pre01 for more info on this build)
+
+Can you please tell us what Linux distro you are running XEmacs (and
+the x2go server) on? See my reasoning below.
+
+However, I have this same problem with NEdit, which uses OpenMotif as
+its graphical toolkit. And I just reproduced this issue with NEdit
+from my windows client detailed above.  I've observed it on x2goclient
+4.0.0.3 on Windows 7 64-bit also. I've observed it on Fedora 19,
+(details listed above) CentOS 6, RHEL 6 and Ubuntu 12.04 LTS.
+XEmacs appears to support multiple toolkits according to this link.
+<A HREF="http://www.us.xemacs.org/Download/optLibs.html">http://www.us.xemacs.org/Download/optLibs.html</A>
+Perhaps this bug only occurs when XEmacs is using OpenMotif? I need to
+investigate this further, but I'm thinking that XEmacs uses OpenMotif
+on your distro, but it uses another toolkit on Fedora 19.
+
+-Mike
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001855.html">[X2Go-User] Can't cut/paste from XEmacs to Windows
+</A></li>
+	<LI>Next message: <A HREF="001860.html">[X2Go-User] Can't cut/paste from XEmacs to Windows
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1858">[ date ]</a>
+              <a href="thread.html#1858">[ thread ]</a>
+              <a href="subject.html#1858">[ subject ]</a>
+              <a href="author.html#1858">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

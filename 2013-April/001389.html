@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Debugging tips?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Debugging%20tips%3F&In-Reply-To=%3CCAAme0Ob3X%2Br50Pk%3Ddt5SE3ktj%3DOKmF%3DRH3dOE0%2Bqs8%2BC9e_NCA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001388.html">
+   <LINK REL="Next"  HREF="001391.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Debugging tips?</H1>
+    <B>Tom Harris</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Debugging%20tips%3F&In-Reply-To=%3CCAAme0Ob3X%2Br50Pk%3Ddt5SE3ktj%3DOKmF%3DRH3dOE0%2Bqs8%2BC9e_NCA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Debugging tips?">thom.j.harris at gmail.com
+       </A><BR>
+    <I>Fri Apr 12 03:02:05 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001388.html">[X2Go-User] x2go with OS X and Proxy Server
+</A></li>
+        <LI>Next message: <A HREF="001391.html">[X2Go-User] Debugging tips?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1389">[ date ]</a>
+              <a href="thread.html#1389">[ thread ]</a>
+              <a href="subject.html#1389">[ subject ]</a>
+              <a href="author.html#1389">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks, Mike.
+
+I got some time to look more closely at this recently.   I turned on the
+highest debugging level, and it logged more, but I didn't find any smoking
+guns.
+
+After some more digging, I found that the user account in question was
+using the shell &quot;/bin/sh&quot;.   If I changed that shell to &quot;/bin/bash&quot; the
+session works fine.     I saw an old bug report of a problem with using
+tcsh, but nothing for sh.   This is on an Ubuntu Linux 12.04 system.
+
+Thanks,
+Tom
+
+On Thu, Mar 14, 2013 at 12:34 AM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Tom,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Mi 13 M&#228;r 2013 17:11:06 CET Tom Harris wrote:
+</I>&gt;<i>
+</I>&gt;<i>  I'm just starting to use x2go, and it has mostly worked great.   But, I
+</I>&gt;&gt;<i> have run into problems where I connect to my server, get authenticated,
+</I>&gt;&gt;<i> but
+</I>&gt;&gt;<i> never get my application displayed.    I can see the x2goagent process
+</I>&gt;&gt;<i> running on the server, but the app never displays.   Creating a new user
+</I>&gt;&gt;<i> account and logging in with that has usually succeeded as a workaround.
+</I>&gt;&gt;<i> But, obviously that's not a solution.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I'm sure there is a simple fix for this, like cleaning up some lost
+</I>&gt;&gt;<i> session
+</I>&gt;&gt;<i> data.  But, my attempts thus far have failed.    Are there any session
+</I>&gt;&gt;<i> debugging tips available?  Or, pointers for where to look or how to enable
+</I>&gt;&gt;<i> more debugging output?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> In /etc/x2go/x2goserver.conf you can set the X2Go Server loglevel to
+</I>&gt;<i> debug. X2Go Server logs to syslog.
+</I>&gt;<i>
+</I>&gt;<i> If you use PyHoca-GUI as a client (which has a much more verbose debugging
+</I>&gt;<i> output) then you can enable --libdebug on the command line. PyHoca-GUI logs
+</I>&gt;<i> to stderr.
+</I>&gt;<i>
+</I>&gt;<i> There also might be some errors in ~/.xsession-x2go-errors if you have the
+</I>&gt;<i> package x2goserver-xsession installed.
+</I>&gt;<i>
+</I>&gt;<i> To give you more advice (once who have debugged yourself a little) we need
+</I>&gt;<i> a bit more information (what distro, what version, what desktop shell, etc.)
+</I>&gt;<i>
+</I>&gt;<i> Best,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130411/f28ee160/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130411/f28ee160/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001388.html">[X2Go-User] x2go with OS X and Proxy Server
+</A></li>
+	<LI>Next message: <A HREF="001391.html">[X2Go-User] Debugging tips?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1389">[ date ]</a>
+              <a href="thread.html#1389">[ thread ]</a>
+              <a href="subject.html#1389">[ subject ]</a>
+              <a href="author.html#1389">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

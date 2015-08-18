@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3C4F4DDC84.1090807%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000662.html">
+   <LINK REL="Next"  HREF="000665.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting</H1>
+    <B>christoffer krakou</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20lib%20path%20issue%20prevents%20Xubuntu%2011.10%20sessions%0A%20from%20starting&In-Reply-To=%3C4F4DDC84.1090807%40fleten.net%3E"
+       TITLE="[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting">christoffer at fleten.net
+       </A><BR>
+    <I>Wed Feb 29 09:06:28 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000662.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+        <LI>Next message: <A HREF="000665.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#664">[ date ]</a>
+              <a href="thread.html#664">[ thread ]</a>
+              <a href="subject.html#664">[ subject ]</a>
+              <a href="author.html#664">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I'm using Unity as a desktop environment. It seems that the command to 
+start it is gnome-session --session=ubuntu or something. i'll play 
+around and see what i can get out of it. Thanks!
+
+On 02/28/2012 04:46 PM, Benjamin Shadwick wrote:
+&gt;<i> Christoffer,
+</I>&gt;<i>
+</I>&gt;<i> Which desktop environment are you using? (XFCE, KDE, Gnome, etc.)
+</I>&gt;<i>
+</I>&gt;<i> Since I'm using Xubuntu, I made a script in my home directory named
+</I>&gt;<i> xubuntu.sh that I think looks something like this (doing it from memory,
+</I>&gt;<i> since I'm not at home):
+</I>&gt;<i>
+</I>&gt;<i> #!/bin/bash
+</I>&gt;<i> export XDG_CONFIG_DIRS='/etc/xdg/xdg-xubuntu:/etc/xdg'
+</I>&gt;<i> export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nx/X11
+</I>&gt;<i> exec /usr/bin/startxfce4
+</I>&gt;<i>
+</I>&gt;<i> I then made it executable by running 'chmod a+x xubuntu.sh'.
+</I>&gt;<i>
+</I>&gt;<i> Finally, I opened the x2go client on my Windows machine and set my
+</I>&gt;<i> session to run a Custom Desktop and the command to
+</I>&gt;<i> /home/&lt;myusername&gt;/xubuntu.sh
+</I>&gt;<i>
+</I>&gt;<i> If you're not using XFCE/Xubuntu, then you will probably want to remove
+</I>&gt;<i> or modify the first &quot;export&quot; line and replace the last line with the
+</I>&gt;<i> path to the command that starts your desktop environment of choice.
+</I>&gt;<i>
+</I>
+
+-- 
+Venlig Hilsen / Best Regards
+Christoffer Krakou
+Fleten.net APS
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000662.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+	<LI>Next message: <A HREF="000665.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from starting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#664">[ date ]</a>
+              <a href="thread.html#664">[ thread ]</a>
+              <a href="subject.html#664">[ subject ]</a>
+              <a href="author.html#664">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%09hostname%20in%20%24DISPLAY&In-Reply-To=%3C1386208385.22244.YahooMailNeo%40web122105.mail.ne1.yahoo.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001839.html">
+   <LINK REL="Next"  HREF="001834.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY</H1>
+    <B>Nick Ingegneri</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%09hostname%20in%20%24DISPLAY&In-Reply-To=%3C1386208385.22244.YahooMailNeo%40web122105.mail.ne1.yahoo.com%3E"
+       TITLE="[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY">n_ingegneri at yahoo.com
+       </A><BR>
+    <I>Thu Dec  5 02:53:05 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001839.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+        <LI>Next message: <A HREF="001834.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1833">[ date ]</a>
+              <a href="thread.html#1833">[ thread ]</a>
+              <a href="subject.html#1833">[ subject ]</a>
+              <a href="author.html#1833">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Can anybody assist me with debugging what I am doing wrong in this case?
+
+I am running the X2Go client in Window 7 and the X2Go server on a RedHat 6 machine. I would like to have a remote linux host export the display back to the X2Go server, which would then forward it to the Windows 7 client.
+
+Starting a new X2Go session, this works on the local host:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ echo $DISPLAY
+:<i>84
+</I>[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xhost +
+access control disabled, clients can connect from any host
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xclock
+# note - the xclock starts without problems
+
+But on a remote host, I found I could not connect to that display, even with &quot;xhost +&quot; already set:
+
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$ setenv DISPLAY localmachine:84
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$ xclock
+Error: Can't open display: localmachine:84
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at remotemachine</A> ~]$
+
+As an experiment, I tried setting the DISPLAY on localmachine to use the hostname, after which it could not connect to the display:
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ setenv DISPLAY localmachine:84
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xclock
+Error: Can't open display: localmachine:84
+[<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at localmachine</A> ~]$ xhost
+xhost:&#160; unable to open display &quot;localmachine:84&quot;
+
+I'm probably missing something obvious, but don't have any idea what is misconfigured.
+
+Thanks!
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131204/50114cfa/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131204/50114cfa/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001839.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+	<LI>Next message: <A HREF="001834.html">[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1833">[ date ]</a>
+              <a href="thread.html#1833">[ thread ]</a>
+              <a href="subject.html#1833">[ subject ]</a>
+              <a href="author.html#1833">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] load balanced broker autologin
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20load%20balanced%20broker%20autologin&In-Reply-To=%3C20131021104334.Horde.btkSB-CvnMNlv81aInBd-g1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001677.html">
+   <LINK REL="Next"  HREF="001680.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] load balanced broker autologin</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20load%20balanced%20broker%20autologin&In-Reply-To=%3C20131021104334.Horde.btkSB-CvnMNlv81aInBd-g1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] load balanced broker autologin">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Oct 21 12:43:34 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001677.html">[X2Go-User] load balanced broker autologin
+</A></li>
+        <LI>Next message: <A HREF="001680.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1698">[ date ]</a>
+              <a href="thread.html#1698">[ thread ]</a>
+              <a href="subject.html#1698">[ subject ]</a>
+              <a href="author.html#1698">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+On  Do 17 Okt 2013 15:09:20 CEST, Stefan Heitm&#252;ller wrote:
+
+&gt;<i> I can login on every single server without the broker, but when i'm
+</I>&gt;<i> using the broker, i just can login once. The second x2goclient ist
+</I>&gt;<i> listing the load-balanced session profile as in active (so
+</I>&gt;<i> &quot;/usr/lib/x2go/x2gobroker-agent stefan.heitmueller listsessions&quot; seems
+</I>&gt;<i> to work, at least it does on cli), login just throws an error.
+</I>&gt;<i>
+</I>&gt;<i> When watching the logs and personal authorized_key files, i see that the
+</I>&gt;<i> broker is placing the ssh key onto the target server while login to the
+</I>&gt;<i> first session. When logging into the second one, there is no attempt to
+</I>&gt;<i> do so...how is the automatic login done without ssh keys? using postgres
+</I>&gt;<i> database?
+</I>
+Currently, it is not possible to run multiple sessions for one user  
+with X2Go Session Broker. The logic inside the broker currently  
+presumes, that one user owns one session.
+
+If that use logs onto X2Go via the broker, it should actually retrieve  
+the previously used session. So, basically, you start a session on one  
+client. If you log on from another client, the previously started  
+sessions gets suspended and resumed in this other client.
+
+As multi-sessions-per-user has not been implemented in X2Go Client's  
+broker client so far, I used the same one-user-one-session assumption  
+for the session broker. However, I would love to see that generalized,  
+so that multi-sessions-per-user will be supported in the future and  
+that admins can then decide what session-logon model to use on their  
+site.
+
+However, autologin should always work. With the session startup as  
+well as with session resuming (or when taking over sessions, which  
+maps to suspend+resume-on-another-client).
+
+Could you please test you setup against the provided information (i.e.  
+lack of multi-session-support-per-user) and file a bug against our BTS  
+[1]?
+
+Thanks,
+Mike
+
+
+[1] <A HREF="http://wiki.x2go.org/doku.php/wiki:bugs">http://wiki.x2go.org/doku.php/wiki:bugs</A>
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-keys
+Size: 7251 bytes
+Desc: ?ffentlicher PGP-Schl?ssel
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131021/f102572d/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20131021/f102572d/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131021/f102572d/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131021/f102572d/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001677.html">[X2Go-User] load balanced broker autologin
+</A></li>
+	<LI>Next message: <A HREF="001680.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1698">[ date ]</a>
+              <a href="thread.html#1698">[ thread ]</a>
+              <a href="subject.html#1698">[ subject ]</a>
+              <a href="author.html#1698">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

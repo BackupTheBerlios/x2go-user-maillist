@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problems setting print system in x2go [Resolved]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C4E5E5C0F.6080005%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000352.html">
+   <LINK REL="Next"  HREF="000299.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problems setting print system in x2go [Resolved]</H1>
+    <B>Mario OROZ</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C4E5E5C0F.6080005%40gmail.com%3E"
+       TITLE="[X2go-User] Problems setting print system in x2go [Resolved]">mario.oroz at gmail.com
+       </A><BR>
+    <I>Wed Aug 31 18:06:39 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000352.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+        <LI>Next message: <A HREF="000299.html">[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Ok, let me explain.
+/usr/bin/margen-offset.ps
+It is a postscript that I created to fix a little problem that appears when I
+try to print the
+pdf on a laser printer hp, where the text in the pdf document starts from the
+left edge to
+right edge, regardless margins!.
+When the PDF page exits the printer the text is cut by a margin around the text,
+is the unprintable area of the printer, I think!
+So when you add the margin-offcet.ps file in the conversion command line, gs merge
+it with the ps print jobs and ensures a margin or bleed in the pdf doc.
+
+content of /usr/bin/margen-offset.ps is:
+&lt;&lt;/.HWMargins [18 18 18 13] /Margins [-75 0]&gt;&gt;  setpagedevice
+&lt;&lt;/PageOffset [18 -9]&gt;&gt; setpagedevice
+
+I think the first line does not help much.
+
+The information come from this page:
+<A HREF="http://www.bobdbob.com/~deneb/doc/ghostscript_margins.html">http://www.bobdbob.com/~deneb/doc/ghostscript_margins.html</A>
+<A HREF="http://www.humbug.in/stackoverflow/es/como-para-cambiar-pagina-de-pdf-que-utiliza-perl-cam-pdf-pdf-api2--2604920.html">http://www.humbug.in/stackoverflow/es/como-para-cambiar-pagina-de-pdf-que-utiliza-perl-cam-pdf-pdf-api2--2604920.html</A>
+(can be read in English)
+
+Saludos!
+Mario.
+
+
+El 30/08/2011 05:28 a.m., Mike Gabriel escribi&#243;:
+&gt;<i> Hi Mario,
+</I>&gt;<i>
+</I>&gt;<i> On Do 25 Aug 2011 18:53:48 CEST Mario OROZ wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> /usr/bin/margin-offset.ps is a postscript to add margins to the print job.
+</I>&gt;<i>
+</I>&gt;<i> Could you shortly explain where this file comes from, and what it looks like
+</I>&gt;<i> etc. I did an apt-file search on a Debian squeeze system and could not find
+</I>&gt;<i> this file.
+</I>&gt;<i>
+</I>&gt;<i> You say it adds margin... Why do we want that. What will happen to the print
+</I>&gt;<i> area (scaled shrinking?)...
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000352.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+	<LI>Next message: <A HREF="000299.html">[X2go-User] Instructions for manual install from source tarballs on	a less well-known distribution
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#361">[ date ]</a>
+              <a href="thread.html#361">[ thread ]</a>
+              <a href="subject.html#361">[ subject ]</a>
+              <a href="author.html#361">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

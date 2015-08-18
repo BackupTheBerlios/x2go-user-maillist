@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] 10x printing speed increase for x2go printing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%2010x%20printing%20speed%20increase%20for%20x2go%20printing&In-Reply-To=%3C1302269912.18179.59.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000090.html">
+   <LINK REL="Next"  HREF="000092.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] 10x printing speed increase for x2go printing</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%2010x%20printing%20speed%20increase%20for%20x2go%20printing&In-Reply-To=%3C1302269912.18179.59.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-user] 10x printing speed increase for x2go printing">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Fri Apr  8 15:38:32 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000090.html">[X2go-user] pulseaudio on X2go thin clients
+</A></li>
+        <LI>Next message: <A HREF="000092.html">[X2go-user] 10x printing speed increase for x2go printing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#91">[ date ]</a>
+              <a href="thread.html#91">[ thread ]</a>
+              <a href="subject.html#91">[ subject ]</a>
+              <a href="author.html#91">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, all.  We have been doing battle with major printing issues in
+X2Go.  The two most serious are regularly disappearing print jobs on all
+platforms and print speed and quality when printing from Windows
+rdesktop sessions.  I do not believe these issues are related to our
+hacking the x2go printing code to allow a single CUPS print server to
+service an unlimited number of x2go servers (which we posted around a
+year ago and need to repost to the wiki).
+
+Phil has patched the x2goprint script to fix the disappearing print job
+problem and will be posting those patches to the dev list shortly.
+
+As I believe many do, we use X2Go as a &quot;middleware&quot; for users using
+remote Windows desktop sessions because that is much faster than
+directly running RDP on low bandwidth links.  The X2Go printers are
+configured as printers within the Windows desktops.
+
+We found we needed to use RAW print queues to do this lest the double
+pass through the PPD file override some of the user requested formatting
+(e.g., landscape jobs printing in the default portrait mode).  The
+recommended Windows driver seemed to be the Generic -&gt; Windows
+Imagesetter driver.  However, we received complaints of very slow
+printing and enormous print jobs which took forever not only to print
+but just to transmit across the WAN link.  The print quality was also
+seriously degraded (fuzzy to use the users' description).  We were able
+to achieve roughly ten times better performance and dramatically improve
+quality by switching the Windows driver from Windows ImageSetter to
+PDFCreator.  More details are below.
+
+Here are some specifics from our trouble ticket system regarding the
+ImageSetter print job size:
+&quot;The user generated a report in Timberline, saved it to PDF, and emailed
+it.  It is 10 pages.  I saved it as MamOrig.pdf:
+
+19439 Mar 29 18:24 MamOrig.pdf
+
+She then printed one page and sent it to her WinLocalPrinters.  When it
+popped up on her physical desktop, I had her save the file and email it
+to me.  I saved it as MamX2GoOnce.pdf:
+
+402170 Mar 29 18:25 MamX2GoOnce.pdf
+
+Note that a single page is 20 times the size of the original 10 page
+document.&quot;
+
+
+We changed the driver to PDFCreator (www.pdfforge.org) and saw almost a
+tenfold reduction in print times.  Here are some hard measures from the
+trouble ticket:
+
+&quot;I did some benchmarks on the changes using the 10 page report the user
+sent:
+
+ImageSetter driver: 3 minutes to start printing, 11 minutes to print all
+10 pages
+
+PDFCreator driver: 30 seconds to start printing, 1 minute 40 seconds to
+print all 10 pages&quot;
+
+&gt;<i>From another entry:
+</I>&quot;I printed it using ImageSetter and it took me almost 9 minutes to
+print.  However, when I printed it with PDFCreator, it took just over 1
+minutes including the time to send to my local desktop, open in
+acroread, and print from acroread.&quot;
+
+So far, we have not encountered any problems from switching to
+PDFCreator.
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000090.html">[X2go-user] pulseaudio on X2go thin clients
+</A></li>
+	<LI>Next message: <A HREF="000092.html">[X2go-user] 10x printing speed increase for x2go printing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#91">[ date ]</a>
+              <a href="thread.html#91">[ thread ]</a>
+              <a href="subject.html#91">[ subject ]</a>
+              <a href="author.html#91">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

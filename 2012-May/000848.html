@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Kubuntu Precise &amp; DBUS problems with x2go. {	FORWARD from X2GO-DEV }
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Kubuntu%20Precise%20%26%20DBUS%20problems%20with%20x2go.%20%7B%0A%09FORWARD%20from%20X2GO-DEV%20%7D&In-Reply-To=%3C1760936.he7pBaZZua%40zen64-mobile%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000825.html">
+   <LINK REL="Next"  HREF="000831.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Kubuntu Precise &amp; DBUS problems with x2go. {	FORWARD from X2GO-DEV }</H1>
+    <B>Helmer Teles</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Kubuntu%20Precise%20%26%20DBUS%20problems%20with%20x2go.%20%7B%0A%09FORWARD%20from%20X2GO-DEV%20%7D&In-Reply-To=%3C1760936.he7pBaZZua%40zen64-mobile%3E"
+       TITLE="[X2Go-User] Kubuntu Precise &amp; DBUS problems with x2go. {	FORWARD from X2GO-DEV }">helmer.teles at gmail.com
+       </A><BR>
+    <I>Fri May 18 13:27:36 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000825.html">[X2Go-User] Kubuntu Precise &amp; DBUS problems with x2go. { FORWARD	from X2GO-DEV }
+</A></li>
+        <LI>Next message: <A HREF="000831.html">[X2Go-User] Problem after update of Debian Ttesting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#848">[ date ]</a>
+              <a href="thread.html#848">[ thread ]</a>
+              <a href="subject.html#848">[ subject ]</a>
+              <a href="author.html#848">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+&gt;<i> On Tuesday 08 May 2012 18:32:32 Helmer Teles wrote:
+</I>
+&gt;<i>Hello ML
+</I>
+&gt;<i>I've been strugling with Kubuntu 12.04 precise &amp; x2go.
+</I>
+&gt;<i>As reported before KDE crashes several times with DBUS errors.
+</I>&gt;<i>DBUS is denying access to x2go remote sessions. I've googled for the error, 
+</I>&gt;<i>but can't seem to find the way to solve the problem system wide.
+</I>
+&gt;<i>As a example, printer-applet crashes if i don't change two rules in 
+</I>&gt;<i>/etc/dbus-1/system.d/com.redhat.NewPrinterNotification.conf
+</I>
+&gt;<i>I've already tried to modify DBUS conf to listen on tcp connections instead 
+</I>of only socket.
+
+&gt;<i>Does anyone have any insight on this subject?
+</I>
+&gt;<i>regards,
+</I>
+-- 
+Helmer Teles
+
+eM at il   : helmer [DOT] teles [AT] Google mail
+Web Page: <A HREF="http://hteles.wordpress.com">http://hteles.wordpress.com</A>
+
+
+Hello ML.
+
+Just to update the subject.
+
+It seems that there are problems with KDE 4.8.X and although I&#8217;ve managed to 
+circumvent most of the problems with DBUS by changing some of the policies.
+
+X2GO with Kubuntu 11.10 and KDE 4.7.X doesn't have the Kwin problems.
+
+For those interested in implementing a full Open Source Desktop with latest 
+KDE will have to struggle with this problem.
+
+If by any means someone goes through the same problem I'm willing to help 
+resolve the issues although I'm back to 11.10 by this time.
+
+I'm implementing a full KDE 4 Open Source Desktop Environment to work as DaaS 
+with complete KIOSK mode. KDE 4 Kiosk mode is still not perfect but it's 
+almost there. Still struggling with panel resize, and all of the JavaScript 
+plasma Updates fail on X2GO because of the display when using functions like 
+these:
+
+
+p = panelById(panelIds[0]);
+if (typeof p === &quot;undefined&quot;) {
+print(&quot;E: Couldn't find first panel&quot;);
+exit();
+}
+
+//p.length = screenGeometry(0).width;
+p.length = screenGeometry(p.screen).width;
+
+
+Regards,
+
+Helmer Teles
+<A HREF="http://hteles.wordpress.com">http://hteles.wordpress.com</A>
+
+ 
+
+
+
+
+
+
+
+
+
+
+  
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120518/39375c60/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120518/39375c60/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000825.html">[X2Go-User] Kubuntu Precise &amp; DBUS problems with x2go. { FORWARD	from X2GO-DEV }
+</A></li>
+	<LI>Next message: <A HREF="000831.html">[X2Go-User] Problem after update of Debian Ttesting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#848">[ date ]</a>
+              <a href="thread.html#848">[ thread ]</a>
+              <a href="subject.html#848">[ subject ]</a>
+              <a href="author.html#848">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

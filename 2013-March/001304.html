@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] KMail composer window doesn't appear with NX
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20KMail%20composer%20window%20doesn%27t%20appear%20with%20NX&In-Reply-To=%3C201303071153.43213.psychonaut%40nothingisreal.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001303.html">
+   <LINK REL="Next"  HREF="001305.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] KMail composer window doesn't appear with NX</H1>
+    <B>Tristan Miller</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20KMail%20composer%20window%20doesn%27t%20appear%20with%20NX&In-Reply-To=%3C201303071153.43213.psychonaut%40nothingisreal.com%3E"
+       TITLE="[X2Go-User] KMail composer window doesn't appear with NX">psychonaut at nothingisreal.com
+       </A><BR>
+    <I>Thu Mar  7 11:53:38 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001303.html">[X2Go-User] encrypting home &amp; printing problem
+</A></li>
+        <LI>Next message: <A HREF="001305.html">[X2Go-User] Impossible to connect since update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1304">[ date ]</a>
+              <a href="thread.html#1304">[ thread ]</a>
+              <a href="subject.html#1304">[ subject ]</a>
+              <a href="author.html#1304">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+This message concerns a longtanding bug bothering KDE users.  Most likely 
+the bug is with KDE and not NX, but perhaps someone here can help us find 
+out exactly what's causing the problem.
+
+First, a description of how things normally work with KDE's e-mail client, 
+KMail:  If one invokes the &quot;New Message&quot;, &quot;Forward&quot;, or &quot;Reply&quot; command on 
+a message, a composer window opens.  You can then type your message and 
+send it, at which point the composer window closes.  If you close KMail 
+while one or more composer windows are still open, then the next time you 
+launch KMail, those composer windows are restored so you can resume writing 
+the messages where you left off.
+
+The problem is that if you launch KMail from an NX session, the composer 
+window usually doesn't appear when you invoke the &quot;Forward&quot; or &quot;Reply&quot; 
+commands.  I think the composer windows must be created, but for some 
+reason they are not immediately visible, because if you quit and relaunch 
+KMail (still over NX), the composer windows you created last time suddenly 
+appear.
+
+The problem happens usually but not always.  (That is, sometimes when you 
+launch KMail, the Forward and Reply commands will work for a time, but then 
+they'll stop working, and will never work again for that session.)  The 
+problem also never happens with the &quot;New message&quot; command, even though to 
+all outward appearances the same sort of composer window is being launched.
+
+So far I've reproduced the problem with both NoMachine NX and x2go.
+
+Anyone have any idea where the problem might lie?  Is there some sort of 
+fine-grained debug logging I can enable in x2go which prints a message 
+every time it tries to display a new window?
+
+Regards,
+Tristan
+
+-- 
+   _
+  _V.-o         Tristan Miller          &gt;&lt;  Space is limited
+ / |`-'  -=-=-=-=-=-=-=-=-=-=-=-=-=-=-  &lt;&gt;  In a haiku, so it's hard
+(7_\\    <A HREF="http://www.nothingisreal.com/">http://www.nothingisreal.com/</A>  &gt;&lt;  To finish what you
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 198 bytes
+Desc: This is a digitally signed message part.
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130307/37a392fb/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130307/37a392fb/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001303.html">[X2Go-User] encrypting home &amp; printing problem
+</A></li>
+	<LI>Next message: <A HREF="001305.html">[X2Go-User] Impossible to connect since update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1304">[ date ]</a>
+              <a href="thread.html#1304">[ thread ]</a>
+              <a href="subject.html#1304">[ subject ]</a>
+              <a href="author.html#1304">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

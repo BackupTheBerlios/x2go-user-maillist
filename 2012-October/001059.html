@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] multiple Connections with same name/ip
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20multiple%20Connections%20with%20same%20name/ip&In-Reply-To=%3C20121011112306.171153x30ttmvta2%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001053.html">
+   <LINK REL="Next"  HREF="001054.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] multiple Connections with same name/ip</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20multiple%20Connections%20with%20same%20name/ip&In-Reply-To=%3C20121011112306.171153x30ttmvta2%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] multiple Connections with same name/ip">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Oct 11 11:23:06 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001053.html">[X2Go-User] multiple Connections with same name/ip
+</A></li>
+        <LI>Next message: <A HREF="001054.html">[X2Go-User] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1059">[ date ]</a>
+              <a href="thread.html#1059">[ thread ]</a>
+              <a href="subject.html#1059">[ subject ]</a>
+              <a href="author.html#1059">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Mi 10 Okt 2012 14:09:26 CEST Georg Sch&#252;tz wrote:
+
+&gt;<i> first of all: thanks for x2go. We are using it in the kmux-project.
+</I>
+Nice!!! If you have any re-input back to the X2Go project feel free to  
+contact us on the x2go-dev mailing list. I'd like to know in what way  
+you integrate X2Go in your distro.
+
+&gt;<i> My Problem: i do connect to several servers via vpn but only one at a
+</I>&gt;<i> time. Inside the vpn the terminalservers name is allways kmux-svc and
+</I>&gt;<i> his ip is allways the same.
+</I>
+&gt;<i> If i try to connect to the second kmux-svc i'll get the message that
+</I>&gt;<i> the host key did change and i have to remove it from the key-file than
+</I>&gt;<i> the new one is entered.
+</I>&gt;<i>
+</I>&gt;<i> Could you please give me an idea how to obtain such a setup without
+</I>&gt;<i> manually editing the ssh stuff?
+</I>&gt;<i>
+</I>
+On the remote KMUX-svc you could use a tool like autossh to create a  
+tunnel from
+
+   kmux-svc:&lt;custom-port&gt; to kmux-svc:22
+
+With you X2Go Client (or PyHoca-GUI, have you tried that, as it will  
+fit your needs better, I guess) you then connect to  
+kmux-svc:&lt;custom-port&gt;. Note, for every such server you have to use a  
+different &lt;custom-port&gt;.
+
+BTW: you should experience the same issue with normal SSH(!?!?).
+
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121011/2b13c66e/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121011/2b13c66e/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001053.html">[X2Go-User] multiple Connections with same name/ip
+</A></li>
+	<LI>Next message: <A HREF="001054.html">[X2Go-User] (no subject)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1059">[ date ]</a>
+              <a href="thread.html#1059">[ thread ]</a>
+              <a href="subject.html#1059">[ subject ]</a>
+              <a href="author.html#1059">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] can't connect to the server - SOLVED
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20can%27t%20connect%20to%20the%20server%20-%20SOLVED&In-Reply-To=%3C15785B7E063D464C86DD482FCAE4EBA5018795DF36CC%40XCH11.scidom.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001438.html">
+   <LINK REL="Next"  HREF="001437.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] can't connect to the server - SOLVED</H1>
+    <B>Lentes, Bernd</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20can%27t%20connect%20to%20the%20server%20-%20SOLVED&In-Reply-To=%3C15785B7E063D464C86DD482FCAE4EBA5018795DF36CC%40XCH11.scidom.de%3E"
+       TITLE="[X2Go-User] can't connect to the server - SOLVED">bernd.lentes at helmholtz-muenchen.de
+       </A><BR>
+    <I>Fri May 31 21:24:56 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001438.html">[X2Go-User] can't connect to the server - SOLVED
+</A></li>
+        <LI>Next message: <A HREF="001437.html">[X2Go-User] can't connect to the server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1445">[ date ]</a>
+              <a href="thread.html#1445">[ thread ]</a>
+              <a href="subject.html#1445">[ subject ]</a>
+              <a href="author.html#1445">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike wrote:
+&gt;<i> HI Bernd, hi Jan,
+</I>&gt;<i>
+</I>&gt;<i> On Mi 29 Mai 2013 18:21:06 CEST &quot;Lentes, Bernd&quot; wrote:
+</I>&gt;<i>
+</I>&gt;<i> &gt; But afterwards the next error appeared: <A HREF="http://filecloud.io/qatipxu4">http://filecloud.io/qatipxu4</A>
+</I>&gt;<i> &gt; . Line 67 of the mentioned perl-skript:
+</I>&gt;<i> &gt; $dbh-&gt;sqlite_busy_timeout( 2000 ); I didn't find a DBI::db package,
+</I>&gt;<i> &gt; nor is in DBI the mentioned method implemented.
+</I>&gt;<i>
+</I>&gt;<i> @Jan: do we have a missing Perl dependency here? Or is the perl
+</I>&gt;<i> DBD-Sqlite package too old?
+</I>&gt;<i>
+</I>&gt;<i> @Bernd: please find out what package provides BDB-Sqlite and name us
+</I>&gt;<i> the version you use. Alternatively, tell us (i.e. Jan) the distro +
+</I>&gt;<i> version you use.
+</I>
+pc60181:~ # rpm -qa |grep -iE 'DBD|sqlite'
+libsqlite3-0-32bit-3.7.6.3-1.4.4.1
+sqlite3-3.7.6.3-1.4.4.1
+libsqlite3-0-3.7.6.3-1.4.4.1
+perl-DBD-Pg-2.19.2-1.5.388.g2d256b3
+perl-DBD-SQLite-1.37-26.2
+
+distro:
+SLES 11 SP2, 64bit
+&gt;<i>
+</I>&gt;<i> &gt; I put a hash in front of the line, now i can connect.
+</I>&gt;<i> &gt; Next question: although i installed the X2go client, after logging
+</I>&gt;<i> &gt; on to the server the desktop of it is shown in a nomachine client.
+</I>&gt;<i> &gt; Is this behaviour intended ?
+</I>&gt;<i>
+</I>&gt;<i> @Bernd: what exactly do you mean by ,,shown in a nomachine client''?
+</I>&gt;<i>
+</I>
+When connecting with the X2go-client, a further window opens, which has the &quot;m&quot; from the nomachine client in the upper left corner. I used NX before, but uninstalled the client.
+Does the X2go-client use the nomachine client ?
+
+Bernd
+
+
+Helmholtz Zentrum M&#252;nchen
+Deutsches Forschungszentrum f&#252;r Gesundheit und Umwelt (GmbH)
+Ingolst&#228;dter Landstr. 1
+85764 Neuherberg
+www.helmholtz-muenchen.de
+Aufsichtsratsvorsitzende: MinDir&#180;in B&#228;rbel Brumme-Bothe
+Gesch&#228;ftsf&#252;hrer: Prof. Dr. G&#252;nther Wess Dr. Nikolaus Blum Dr. Alfons Enhsen
+Registergericht: Amtsgericht M&#252;nchen HRB 6466
+USt-IdNr: DE 129521671
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001438.html">[X2Go-User] can't connect to the server - SOLVED
+</A></li>
+	<LI>Next message: <A HREF="001437.html">[X2Go-User] can't connect to the server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1445">[ date ]</a>
+              <a href="thread.html#1445">[ thread ]</a>
+              <a href="subject.html#1445">[ subject ]</a>
+              <a href="author.html#1445">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

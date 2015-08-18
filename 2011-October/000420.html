@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20X2go%20sessions%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20x2gobasepath%20and%20Debian%20Lenny%29&In-Reply-To=%3C20111004111459.837351oehq6ai8pf%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000423.html">
+   <LINK REL="Next"  HREF="000430.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20X2go%20sessions%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20x2gobasepath%20and%20Debian%20Lenny%29&In-Reply-To=%3C20111004111459.837351oehq6ai8pf%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Oct  4 11:14:59 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000423.html">[X2go-User] x2gothinclientmanagement
+</A></li>
+        <LI>Next message: <A HREF="000430.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+On Fr 30 Sep 2011 01:15:57 CEST Mike Gabriel wrote:
+
+&gt;<i> ... cross-posting this mail to x2go-user ML, seems we have a  
+</I>&gt;<i> solution  for the crashing situation of x2goagent... Mike
+</I>&gt;<i>
+</I>&gt;<i> Hi Peter,
+</I>&gt;<i>
+</I>&gt;<i> On Fr 30 Sep 2011 00:32:07 CEST Peter Henn wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> However I tried that &quot;self compiled&quot; and &quot;self packaged&quot; way, because
+</I>&gt;&gt;<i> I run crazy about reproducible session crashes of my xfce4 desktop of my
+</I>&gt;&gt;<i> 64bit server.
+</I>&gt;&gt;<i> X2goagent seems to die without any hint in the session logs, if I use
+</I>&gt;&gt;<i> that one from the Lenny repo: <A HREF="http://packages.x2go.org/debian/,">http://packages.x2go.org/debian/,</A> when I
+</I>&gt;&gt;<i> close a synaptic, gimp, eclipse, HP-toolbox .... and other tools.
+</I>&gt;&gt;<i> Unfortunately the number of tools seem to become an increasing number
+</I>&gt;&gt;<i> the last weeks. Interesting was that it depends on:
+</I>&gt;&gt;<i> a) when that critical tool was started (e.g. just after the session
+</I>&gt;&gt;<i> startup or later)
+</I>&gt;&gt;<i> b) if I used the start menu or a terminal (e.g. sudo synaptic worked
+</I>&gt;&gt;<i> fine, but starting from menu crashes the session often)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The self compiled stuff seems to be now more stable for these first
+</I>&gt;&gt;<i> hours (finger crossed). So either it depends on the compile machine and
+</I>&gt;&gt;<i> some library dependencies or it may be a heap memory problem of
+</I>&gt;&gt;<i> x2goagent. And yes, I know that you wrote the stability might have
+</I>&gt;&gt;<i> something to do with the old X-server compiled-in into the x2goagent ...
+</I>&gt;<i>
+</I>&gt;<i> What you describe here (and what we in depth have discussed on    
+</I>&gt;<i> x2go-user ML) might indeed relate to this issue report (marked as    
+</I>&gt;<i> ,,serious'' by NoMachine):
+</I>&gt;<i> <A HREF="http://www.nomachine.com/tr/view.php?id=TR0202420">http://www.nomachine.com/tr/view.php?id=TR0202420</A>
+</I>&gt;<i>
+</I>&gt;<i> And this obviously has been fixed in nxagent-3.5.0-2:
+</I>&gt;<i>
+</I>&gt;<i> &lt;quote&gt;
+</I>&gt;<i> ChangeLog:
+</I>&gt;<i>
+</I>&gt;<i> nx-X11-3.5.0-2
+</I>&gt;<i>
+</I>&gt;<i> - Fixed TR0202420. XKB utility functions wrote out of bounds.
+</I>&gt;<i>
+</I>&gt;<i> - Upgraded RandR server extension to version 1.2.
+</I>&gt;<i>
+</I>&gt;<i> nx-X11-3.5.0-1
+</I>&gt;<i>
+</I>&gt;<i> - Opened the 3.5.0 branch based on nx-X11-3.4.0-4.
+</I>&gt;<i>
+</I>&gt;<i> - Updated copyright to year 2011.
+</I>&gt;<i>
+</I>&gt;<i> [...]
+</I>&gt;<i>
+</I>&gt;<i> &lt;/quote&gt;
+</I>&gt;<i>
+</I>&gt;<i> @Alex: do you think you could pull the nxagent patches into  
+</I>&gt;<i> x2goagent?   That would be fabulous!!!
+</I>
+Alex has just provided a new x2goagent version (3.5.0.5) in X2go Git.  
+This new version is based on
+
+     nx-X11-3.5.0-2
+     nxagent-3.5.0-5
+     nxauth-3.5.0-1
+
+and we hope it fixes the problem of irregularly crashing sessions.
+
+Please everybody who sees these weird session crashes, please test the  
+new x2goagent version (currently building for Debian, building for  
+Ubuntu tonight) and give us feedback ASAP.
+
+Greets+Thanks,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111004/0e274d28/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111004/0e274d28/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000423.html">[X2go-User] x2gothinclientmanagement
+</A></li>
+	<LI>Next message: <A HREF="000430.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#420">[ date ]</a>
+              <a href="thread.html#420">[ thread ]</a>
+              <a href="subject.html#420">[ subject ]</a>
+              <a href="author.html#420">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,215 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Digest, Vol 38, Issue 19
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2038%2C%20Issue%2019&In-Reply-To=%3C52654410.303%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001726.html">
+   <LINK REL="Next"  HREF="001716.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Digest, Vol 38, Issue 19</H1>
+    <B>Ted Barnes</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2038%2C%20Issue%2019&In-Reply-To=%3C52654410.303%40gmail.com%3E"
+       TITLE="[X2Go-User] X2Go-User Digest, Vol 38, Issue 19">madogdevelopment at gmail.com
+       </A><BR>
+    <I>Mon Oct 21 17:11:12 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001726.html">[X2Go-User] Q:  regarding x2go plugin
+</A></li>
+        <LI>Next message: <A HREF="001716.html">[X2Go-User] Session Configuration Data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1708">[ date ]</a>
+              <a href="thread.html#1708">[ thread ]</a>
+              <a href="subject.html#1708">[ subject ]</a>
+              <a href="author.html#1708">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 10/21/13 10:00, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A> wrote:
+&gt;<i> Send X2Go-User mailing list submissions to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of X2Go-User digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>     1. Install problems session broker (Ted Barnes)
+</I>&gt;<i>     2. Re: X2Go client 4.0.0 can't resume certain sessions
+</I>&gt;<i>        (Sebastian Flothow)
+</I>&gt;<i>     3. Re: [X2Go-Dev] Install problems session broker (Mike Gabriel)
+</I>&gt;<i>     4. Re: X2Go client 4.0.0 can't resume certain sessions
+</I>&gt;<i>        (John Williams)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Sun, 20 Oct 2013 14:29:56 +0000
+</I>&gt;<i> From: Ted Barnes&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">madogdevelopment at gmail.com</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>
+</I>&gt;<i> Subject: [X2Go-User] Install problems session broker
+</I>&gt;<i> Message-ID:&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">5263E8E4.9060005 at gmail.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+</I>&gt;<i>
+</I>&gt;<i> Hi All:
+</I>&gt;<i>
+</I>&gt;<i> Am starting to experiment with x2go session broker and am running into
+</I>&gt;<i> install problems (have same trouble with  daemon and x2gobroker-wsgi).
+</I>&gt;<i> I'm using Squeeze.
+</I>&gt;<i>
+</I>&gt;<i> Initially was getting dependency issues with python-wsgi, so upgraded to
+</I>&gt;<i> python2.7.
+</I>&gt;<i>
+</I>&gt;<i> Now am getting:
+</I>&gt;<i>
+</I>&gt;<i> The following packages have unmet dependencies:
+</I>&gt;<i>    initscripts : Breaks: console-setup (&lt;  1.74) but 1.68+squeeze2 is to
+</I>&gt;<i> be installed
+</I>&gt;<i>    keyboard-configuration : Breaks: console-setup (&lt;  1.71) but
+</I>&gt;<i> 1.68+squeeze2 is to be installed
+</I>&gt;<i>    libcups2 : Breaks: cups (&lt;  1.5.0) but 1.4.4-7+squeeze3 is to be installed
+</I>&gt;<i> E: Broken packages
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at bc</A>:/home/soho# vserver First3 exec apt-get install x2gobroker-daemon
+</I>&gt;<i> Reading package lists... Done
+</I>&gt;<i> Building dependency tree
+</I>&gt;<i> Reading state information... Done
+</I>&gt;<i> Some packages could not be installed. This may mean that you have
+</I>&gt;<i> requested an impossible situation or if you are using the unstable
+</I>&gt;<i> distribution that some required packages have not yet been created
+</I>&gt;<i> or been moved out of Incoming.
+</I>&gt;<i> The following information may help to resolve the situation:
+</I>&gt;<i>
+</I>&gt;<i> The following packages have unmet dependencies:
+</I>&gt;<i>    initscripts : Breaks: console-setup (&lt;  1.74) but 1.68+squeeze2 is to
+</I>&gt;<i> be installed
+</I>&gt;<i>    keyboard-configuration : Breaks: console-setup (&lt;  1.71) but
+</I>&gt;<i> 1.68+squeeze2 is to be installed
+</I>&gt;<i>    libcups2 : Breaks: cups (&lt;  1.5.0) but 1.4.4-7+squeeze3 is to be installed
+</I>&gt;<i>
+</I>&gt;<i> Do I have to use Wheezy?
+</I>&gt;<i>
+</I>&gt;<i> Any suggestions?  Thanks!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 2
+</I>&gt;<i> Date: Mon, 21 Oct 2013 09:11:40 +0200
+</I>&gt;<i> From: Sebastian Flothow&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sebastian.flothow at gip.com</A>&gt;
+</I>&gt;<i> To: John Williams&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jwilliams4200 at gmail.com</A>&gt;
+</I>&gt;<i> Cc: &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+</I>&gt;<i> Subject: Re: [X2Go-User] X2Go client 4.0.0 can't resume certain
+</I>&gt;<i> 	sessions
+</I>&gt;<i> Message-ID:&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">5264D3AC.5090703 at gip.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=UTF-8; format=flowed
+</I>&gt;<i>
+</I>&gt;<i> Am 19.10.2013 05:45, schrieb John Williams:
+</I>&gt;<i>    
+</I>&gt;&gt;<i> One thing that usually works is to restart the server process
+</I>&gt;&gt;<i>      
+</I>&gt;<i> I just had a look at /etc/init.d/x2goserver on my box, the only thing
+</I>&gt;<i> being started there is x2gocleansessions. Is this what you're referring to?
+</I>&gt;<i>
+</I>&gt;<i> Is x2gocleansessions supposed to continue running in the background?
+</I>&gt;<i> There are no x2gocleansessions processes running on my machine right now.
+</I>&gt;<i>
+</I>&gt;<i> - Sebastian
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 3
+</I>&gt;<i> Date: Mon, 21 Oct 2013 08:03:30 +0000
+</I>&gt;<i> From: Mike Gabriel&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>
+</I>&gt;<i> Cc: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2Go-User] [X2Go-Dev] Install problems session broker
+</I>&gt;<i> Message-ID:
+</I>&gt;<i> 	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">20131021080330.Horde.vMTxiO31d_BZWFOiFs6NCw2 at mail.das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 	
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;utf-8&quot;; Format=&quot;flowed&quot;;
+</I>&gt;<i> 	DelSp=&quot;Yes&quot;
+</I>&gt;<i>
+</I>&gt;<i> Hi Ted,
+</I>&gt;<i>
+</I>&gt;<i> On  So 20 Okt 2013 16:29:56 CEST, Ted Barnes wrote:
+</I>&gt;<i>
+</I>&gt;<i> Thanks Mike(!).  That worked(!) for &quot;x2gobroker-daemon&quot;? Did you  mean don't use &quot;x2gobroker-wsgi&quot; on Squeeze?  Or just python-wsgilog?  As always, appreciate the help...Best,  Ted
+</I>&gt;<i>    
+</I>&gt;&gt;<i> Am starting to experiment with x2go session broker and am running
+</I>&gt;&gt;<i> into install problems (have same trouble with  daemon and
+</I>&gt;&gt;<i> x2gobroker-wsgi).  I'm using Squeeze.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Initially was getting dependency issues with python-wsgi, so
+</I>&gt;&gt;<i> upgraded to python2.7.
+</I>&gt;&gt;<i>      
+</I>&gt;<i> The session broker works with python2.6, as well. The problem was,
+</I>&gt;<i> that I forgot to provide python-wsgilog for Debian squeeze in our
+</I>&gt;<i> package archive.
+</I>&gt;<i>
+</I>&gt;<i> This has been fixed now. Please do not use python-wsgilog that has
+</I>&gt;<i> been built for wheezy. It probably causes the troubles you described
+</I>&gt;<i> below.
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> [...]
+</I>&gt;&gt;<i>      
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001726.html">[X2Go-User] Q:  regarding x2go plugin
+</A></li>
+	<LI>Next message: <A HREF="001716.html">[X2Go-User] Session Configuration Data
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1708">[ date ]</a>
+              <a href="thread.html#1708">[ thread ]</a>
+              <a href="subject.html#1708">[ subject ]</a>
+              <a href="author.html#1708">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

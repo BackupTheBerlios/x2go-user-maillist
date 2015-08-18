@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can Only Keep One Session at a Time
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3CCAOAgVpwOrSgC7R4H_uPhzytYWbJKbNQJ0Y5mFKC5WuZaxSL8cg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000923.html">
+   <LINK REL="Next"  HREF="000925.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can Only Keep One Session at a Time</H1>
+    <B>Les Mikesell</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3CCAOAgVpwOrSgC7R4H_uPhzytYWbJKbNQJ0Y5mFKC5WuZaxSL8cg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Can Only Keep One Session at a Time">lesmikesell at gmail.com
+       </A><BR>
+    <I>Mon Jul  9 16:57:59 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000923.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+        <LI>Next message: <A HREF="000925.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#924">[ date ]</a>
+              <a href="thread.html#924">[ thread ]</a>
+              <a href="subject.html#924">[ subject ]</a>
+              <a href="author.html#924">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Jul 9, 2012 at 12:09 AM,  &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">merc1984 at f-m.fm</A>&gt; wrote:
+&gt;<i>
+</I>&gt;<i> On Mon, Jul 9, 2012, at 06:32, Daniel Lindgren wrote:
+</I>&gt;&gt;<i> Could be a TCP port conflict. Try changing the value for SSH_PORT to
+</I>&gt;&gt;<i> 30200 in /usr/bin/x2gostartagent on one of the target machines so they
+</I>&gt;&gt;<i> are using different port ranges. End all X2Go sessions (not just
+</I>&gt;&gt;<i> disconnect, log out) before you try again.
+</I>&gt;<i>
+</I>&gt;<i> I don't see how it could be a port conflict, as one is addressed at
+</I>&gt;<i> 192.168.1.3:22 and the other at 192.168.1.4:22.
+</I>&gt;<i>
+</I>&gt;<i> Unless the problem is on the client end trying to access the two through
+</I>&gt;<i> some common channel.  But if this were the case, it wouldn't have worked
+</I>&gt;<i> before and it did.  I could have two sessions open on the laptop to two
+</I>&gt;<i> different destination machines.
+</I>&gt;<i>
+</I>&gt;<i> I don't think it's that SSH can only do one session as I can ssh to a
+</I>&gt;<i> target while the x2go client is running, and anyway the ssh servers are
+</I>&gt;<i> on different machines.
+</I>
+How does x2go handle the display numbers?   I know that with
+freenx/nx, I have to set the DISPLAY_BASE to different values on each
+host to be able to have concurrent sessions to multiple hosts from the
+same nx client at least when I am the 1st session on each.
+
+-- 
+  Les Mikesell
+     <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lesmikesell at gmail.com</A>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000923.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+	<LI>Next message: <A HREF="000925.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#924">[ date ]</a>
+              <a href="thread.html#924">[ thread ]</a>
+              <a href="subject.html#924">[ subject ]</a>
+              <a href="author.html#924">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

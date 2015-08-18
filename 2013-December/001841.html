@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%20hostname%20in%20%24DISPLAY&In-Reply-To=%3C52A1642D.2010006%40oracle.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001840.html">
+   <LINK REL="Next"  HREF="001843.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY</H1>
+    <B>Harvey Eneman</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%27t%20open%20display%20remotely%20or%20locally%20when%20using%0A%20hostname%20in%20%24DISPLAY&In-Reply-To=%3C52A1642D.2010006%40oracle.com%3E"
+       TITLE="[X2Go-User] Can't open display remotely or locally when using hostname in $DISPLAY">harvey.eneman at oracle.com
+       </A><BR>
+    <I>Fri Dec  6 06:44:13 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001840.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+        <LI>Next message: <A HREF="001843.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1841">[ date ]</a>
+              <a href="thread.html#1841">[ thread ]</a>
+              <a href="subject.html#1841">[ subject ]</a>
+              <a href="author.html#1841">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>To remove the &quot;-nolisten tcp&quot;, you can simply comment out the assignment
+in the nx2gostartagent script.
+
+On 12/5/13, 2:13 PM, Nick Ingegneri wrote:
+&gt;<i> All, 
+</I>&gt;<i> 
+</I>&gt;<i> I think I found the problem, but I'm not sure how to fix it.
+</I>&gt;<i> 
+</I>&gt;<i> Note the options that nxagent.bin is running with:
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> nxagent.bin -extension XFIXES
+</I>&gt;<i> -extension GLX -nolisten tcp -R
+</I>&gt;<i> -auth /home/testuser/.Xauthority -geometry 800x600 -name
+</I>&gt;<i> X2GO-testuser-97-1386279395_stRxterm_dp32 :97
+</I>&gt;<i> The &quot;-nolisten tcp&quot; option is preventing the Xserver from receiving any connections via TCP, so it doesn't appear to matter what I do with xhost or xauth.
+</I>&gt;<i> 
+</I>&gt;<i> Is there a configuration file I can change to remove this option?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Nick
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> On Thursday, December 5, 2013 8:59 AM, Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+</I>&gt;<i>  
+</I>&gt;<i> Hi Nick,
+</I>&gt;<i> 
+</I>&gt;<i> On  Do 05 Dez 2013 16:46:02 CET, Nick Ingegneri wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Thanks for suggesting the &quot;ssh -Y&quot;.  That works (as done &quot;ssh -X&quot;)  
+</I>&gt;&gt;<i> but unfortunately it doesn't solve my problem. We are trying to drop  
+</I>&gt;&gt;<i> X2Go into an existing environment as a replacement for a current  
+</I>&gt;&gt;<i> solution, and can't force a change in how users connect to the  
+</I>&gt;&gt;<i> remote machines. For X2Go we really need to figure out how to get  
+</I>&gt;&gt;<i> this working with a simple &quot;xhost +&quot; and &quot;setenv DISPLAY  
+</I>&gt;&gt;<i> host:display&quot;.
+</I>&gt;<i> 
+</I>&gt;<i> Running xhost + on a multi-user host is not a good idea, at all. If  
+</I>&gt;<i> that is your setup of convenience, change it, as it 100% lacks  
+</I>&gt;<i> security. People can access each others' clipboards and read+write  
+</I>&gt;<i> content to/from it. Easily, one can sniff passwords etc. that get  
+</I>&gt;<i> copied to the clipboard, etc.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Interestingly, it looks like freenx/opennx work fine in this mode,  
+</I>&gt;&gt;<i> but we would prefer not to use that solution as it appears to be a  
+</I>&gt;&gt;<i> dead end.  There must be something different about how freenx/opennx  
+</I>&gt;&gt;<i> set up security vs X2Go, but I can't find much documentation on  
+</I>&gt;&gt;<i> configuring security in X2Go.
+</I>&gt;<i> 
+</I>&gt;<i> You probably have to play with the xauth command for making your  
+</I>&gt;<i> desired setup work. (Though xhost + makes xauth unnecessary, so maybe  
+</I>&gt;<i> not).
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I'll spend some more time in the man pages, but any other  
+</I>&gt;&gt;<i> suggestions here would be greatly appreciated.
+</I>&gt;<i> 
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001840.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+	<LI>Next message: <A HREF="001843.html">[X2Go-User] Can't open display remotely or locally when using	hostname in $DISPLAY
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1841">[ date ]</a>
+              <a href="thread.html#1841">[ thread ]</a>
+              <a href="subject.html#1841">[ subject ]</a>
+              <a href="author.html#1841">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

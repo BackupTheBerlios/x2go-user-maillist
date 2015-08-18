@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] got a black window after login and then disconnected	automatically
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20got%20a%20black%20window%20after%20login%20and%20then%20disconnected%0A%09automatically&In-Reply-To=%3Cloom.20130407T051044-17%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001371.html">
+   <LINK REL="Next"  HREF="001376.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] got a black window after login and then disconnected	automatically</H1>
+    <B>zimy</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20got%20a%20black%20window%20after%20login%20and%20then%20disconnected%0A%09automatically&In-Reply-To=%3Cloom.20130407T051044-17%40post.gmane.org%3E"
+       TITLE="[X2Go-User] got a black window after login and then disconnected	automatically">zzjjzzgggg at gmail.com
+       </A><BR>
+    <I>Sun Apr  7 05:22:14 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001371.html">[X2Go-User] x2goclient sessions immediately exit
+</A></li>
+        <LI>Next message: <A HREF="001376.html">[X2Go-User] got a black window after login and then disconnected automatically
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1372">[ date ]</a>
+              <a href="thread.html#1372">[ thread ]</a>
+              <a href="subject.html#1372">[ subject ]</a>
+              <a href="author.html#1372">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello, 
+
+I use x2goclient to connect to a ubuntu 12.04 server machine with gnome
+installed. It worked well before I recently updated it. I remembered the
+updating related to ssh, and now I cannot connect it with x2goclient. 
+
+
+I got a black window, and later x2goclient disconnected automatically. 
+
+
+I tried x2goclient installed on a Win XP and Unbuntu 12.04. All failed. So
+the problem should be on the server side. 
+
+The x2goserver/x2goclient are all the latest version.
+
+The information printed from the client side is attached. I saw nothing
+abnormal. 
+
+Do you have any ideas? Thank you!
+
+============================================================================
+
+ONMainWindow constructor 
+
+Can't load translator (:/x2goclient_en_us) !
+
+Can't load translator  :/qt_en_US 
+ONMainWindows constructor finished, home Directory is: &quot;/home/jzzhao&quot; 
+
+read  2  sessions from config file 
+start new ssh connection to server: &quot;202.117.54.196&quot; : &quot;14238&quot; krb:  false 
+
+ssh connection ok 
+
+continue normal x2go session 
+
+&quot;x2gostartagent 800x600 wan 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 D GNOME&quot; 
+
+Agent output: &quot;50
+8d2c02eaed7c315ede61261d8616110e
+21833
+jzzhao-50-1365304666_stDGNOME_dp24
+30001
+30002
+30003
+&quot; 
+starting nxproxy with:  &quot;nxproxy -S
+nx/nx,options=/home/jzzhao/.x2go/S-jzzhao-50-1365304666_stDGNOME_dp24/options:50&quot;
+
+
+&quot;
+NXPROXY - Version 3.5.0
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '5238'.
+Session: Starting session at 'Sun Apr  7 11:17:58 2013'.
+Info: Connecting to remote host 'localhost:31001'.
+Info: Connection to remote proxy 'localhost:31001' established.
+&quot; 
+
+&quot;Info: Connection with remote proxy completed.
+&quot; 
+
+&quot;Warning: Unrecognized session type 'unix-kde-depth_24'. Assuming agent session.
+&quot; 
+
+&quot;Info: Using WAN link parameters 768/24/1/0.
+Info: Using cache parameters 4/4096KB/8192KB/8192KB.
+Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_24'.
+Info: Using ZLIB data compression 1/1/32.
+Info: Using ZLIB stream compression 1/1.
+Info: No suitable cache file found.
+Info: Forwarding X11 connections to display ':0.0'.
+Session: Session started at 'Sun Apr  7 11:17:58 2013'.
+&quot; 
+
+&quot;Info: Established X server connection.
+&quot; 
+
+Generating public/private rsa key pair.
+Your identification has been saved in /home/jzzhao/.x2go/ssh/gen/key.MT5229.
+Your public key has been saved in /home/jzzhao/.x2go/ssh/gen/key.MT5229.pub.
+The key fingerprint is:
+36:bd:af:bf:6a:ff:3f:7e:8d:b6:03:65:ab:83:4c:7b <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jzzhao at zhaopad</A>
+The key's randomart image is:
++--[ RSA 1024]----+
+|<i>                 |
+</I>|<i>                 |
+</I>|<i>                 |
+</I>|<i>         .    o  |
+</I>|<i>        S .  o . |
+</I>|<i>       . .... .  |
+</I>|<i>         o.o o ..|
+</I>|<i>          =.E +.o|
+</I>|<i>         .o*==+=+|
+</I>+-----------------+
+key created on:  &quot;/home/jzzhao/.x2go/ssh/gen/key.MT5229&quot; 
+starting fs tunnel for: &quot;jzzhao-50-1365304666_stDGNOME_dp24&quot; 
+fs port:  &quot;30003&quot; 
+exported key  &quot;/home/jzzhao/.x2go/ssh/gen/key.MT5229&quot; 
+key removed 
+&quot;Info: Using shared memory parameters 1/2048K.
+&quot; 
+
+proxy win found: 79691823 
+&quot;Session: Terminating session at 'Sun Apr  7 11:18:31 2013'.
+Session: Session terminated at 'Sun Apr  7 11:18:31 2013'.
+&quot; 
+
+deleting proxy 
+
+nxproxy not running 
+
+proxy deleted 
+
+checking exit status 
+check command message 
+
+close event 
+saving settings 
+done 
+
+
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001371.html">[X2Go-User] x2goclient sessions immediately exit
+</A></li>
+	<LI>Next message: <A HREF="001376.html">[X2Go-User] got a black window after login and then disconnected automatically
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1372">[ date ]</a>
+              <a href="thread.html#1372">[ thread ]</a>
+              <a href="subject.html#1372">[ subject ]</a>
+              <a href="author.html#1372">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

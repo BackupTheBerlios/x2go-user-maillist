@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2go-broker user/password twice
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20user/password%20twice&In-Reply-To=%3CCAFJm-UNZmHH9kaswB8tAq-Xr0WqGsSVSn8XDCt3v5avGjPCjOA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001450.html">
+   <LINK REL="Next"  HREF="001454.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2go-broker user/password twice</H1>
+    <B>Anders Bruun Olsen</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20user/password%20twice&In-Reply-To=%3CCAFJm-UNZmHH9kaswB8tAq-Xr0WqGsSVSn8XDCt3v5avGjPCjOA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] X2go-broker user/password twice">abo at dsl.dk
+       </A><BR>
+    <I>Mon Jun  3 14:47:50 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001450.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+        <LI>Next message: <A HREF="001454.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1451">[ date ]</a>
+              <a href="thread.html#1451">[ thread ]</a>
+              <a href="subject.html#1451">[ subject ]</a>
+              <a href="author.html#1451">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have read about problems with the AuthorizedKeysFile2 option. My servers
+just use AuthorizedKeysFile to set two paths:
+
+AuthorizedKeysFile %h/.ssh/authorized_keys %h/.x2go/authorized_keys
+
+Have you tried running x2gobroker-daemon in debug mode and looking in the
+logfile, to see if anything useful gets logged?
+Set X2GOBROKER_DEBUG=1 in /etc/default/x2gobroker-daemon
+
+Also, I assume that you have the requisite ssh-keys setup, so your broker
+can login to your terminalservers? You need to have run x2gobroker-keygen
+on the broker, and x2gobroker-pubkeyauthorizer -t
+<A HREF="http://BROKER:8080/pubkeyson">http://BROKER:8080/pubkeyson</A> your x2go servers. Followed by su'ing to
+the x2gobroker on your broker
+and then ssh'ing to your x2go servers and accepting the host keys.
+
+
+
+2013/6/3 Juan Carlos Corchado &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jcorchado at tsc.upc.edu</A>&gt;
+
+&gt;<i> **
+</I>&gt;<i>
+</I>&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thank you for the support. I have included the option
+</I>&gt;<i> &quot;broker-session-autologin=true&quot; on x2gobroker-sessionprofiles.conf but when
+</I>&gt;<i> I choose the KDE or GNOME appears &quot;connection refused (or timed out)&quot;. Some
+</I>&gt;<i> options that I set on /etc/x2go/x2gobroker.conf are:
+</I>&gt;<i>
+</I>&gt;<i> check-credentials = true
+</I>&gt;<i> default-session-autologin=true
+</I>&gt;<i>
+</I>&gt;<i> And I already include on /etc/ssh/sshd_config this line:
+</I>&gt;<i>
+</I>&gt;<i> AuthorizedKeysFile2    %h/.x2go/authorized_keys.
+</I>&gt;<i>
+</I>&gt;<i> I noticed that when ocurs this error I need to restart the process
+</I>&gt;<i> &quot;x2gobroker-daemon&quot; because is stopped.
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> A 2013-06-03 10:57, Anders Bruun Olsen escrigu&#233;:
+</I>&gt;<i>
+</I>&gt;<i> Hi Juan,
+</I>&gt;<i>
+</I>&gt;<i> That was one of my first questions as well :)
+</I>&gt;<i> You will need to configure auto-login, which means that your clients will
+</I>&gt;<i> only need to authenticate to the broker. The broker will then place a
+</I>&gt;<i> temporary public ssh-key on the chosen x2goserver and give the
+</I>&gt;<i> corresponding private key to the client, allowing the client to login to
+</I>&gt;<i> that server, without a password. If I remember correctly, you just need to
+</I>&gt;<i> enable it in /etc/x2go/broker/x2gobroker-sessionprofiles.conf, by
+</I>&gt;<i> setting broker-session-autologin=true for the profiles you wish to have
+</I>&gt;<i> autologin on.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2013/6/3 Juan Carlos Corchado &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jcorchado at tsc.upc.edu</A>&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i>  Hi all,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The x2go-broker configuration is working correctly but when I try the
+</I>&gt;&gt;<i> command x2goclient --broker-url=<A HREF="http://server:8080/plain/inifile/">http://server:8080/plain/inifile/</A> and
+</I>&gt;&gt;<i> set the name and password appears another window to select KDE or GNOME (my
+</I>&gt;&gt;<i> configuration). When I choose one of them I have to set again the user and
+</I>&gt;&gt;<i> password. It's possible to put it just once?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> X2Go-User mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i> Anders Bruun Olsen
+</I>&gt;<i> It-ansvarlig
+</I>&gt;<i> Det Danske Sprog- og Litteraturselskab
+</I>&gt;<i> (Society for Danish Language and Literature)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Anders Bruun Olsen
+It-ansvarlig
+Det Danske Sprog- og Litteraturselskab
+(Society for Danish Language and Literature)
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130603/8a7c2109/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130603/8a7c2109/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001450.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+	<LI>Next message: <A HREF="001454.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1451">[ date ]</a>
+              <a href="thread.html#1451">[ thread ]</a>
+              <a href="subject.html#1451">[ subject ]</a>
+              <a href="author.html#1451">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

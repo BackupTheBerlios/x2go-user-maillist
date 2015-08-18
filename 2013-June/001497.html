@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] multiple xorg.conf's in x2go TCE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20multiple%20xorg.conf%27s%20in%20x2go%20TCE&In-Reply-To=%3C20130626211712.116716g6vej6b1h4%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001496.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] multiple xorg.conf's in x2go TCE</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20multiple%20xorg.conf%27s%20in%20x2go%20TCE&In-Reply-To=%3C20130626211712.116716g6vej6b1h4%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] multiple xorg.conf's in x2go TCE">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Jun 26 21:17:12 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001496.html">[X2Go-User] multiple xorg.conf's in x2go TCE
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1497">[ date ]</a>
+              <a href="thread.html#1497">[ thread ]</a>
+              <a href="subject.html#1497">[ subject ]</a>
+              <a href="author.html#1497">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+On Mi 26 Jun 2013 18:02:20 CEST Stephan Wagner wrote:
+
+&gt;<i> We use the 'hostname' to distinguish the xorg.conf's for different thin
+</I>&gt;<i> clients. The attached init-script 'x2gohostname' replaces the default
+</I>&gt;<i> 'hostname' with the ethernet address of the network device eth0. Colons are
+</I>&gt;<i> replaced by dashes. Xorg will search the xorg.conf.&lt;hostname&gt; file in the
+</I>&gt;<i> directory /usr/etc/X11/, which correspond to
+</I>&gt;<i> /opt/x2gothinclient/chroot/usr/etc/X11/ in the PXE-boot environment.
+</I>&gt;<i> The init-script goes to /opt/x2gothinclient/chroot/etc/init.d/. Enter the
+</I>&gt;<i> chroot-environment executing 'x2gothinclient_shell'. 'update-rc.d  
+</I>&gt;<i> x2gohostname
+</I>&gt;<i> defaults' will generate the symlinks for the different run-levels.
+</I>&gt;<i> Hope this helps someone, Stephan
+</I>
+Can you please re-send this mail to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">submit at bugs.x2go.org</A> and put the  
+below lines as first lines of the mail body:?:
+
+&quot;&quot;&quot;
+Package: x2gothinclient
+Severity: wishlist
+&quot;&quot;&quot;
+
+My suggestion would be to improve this script a little further. From  
+Debian Edu I know that it is rather easy to retrieve the hostname from  
+DNS.
+
+Like this: MAC -&gt; DHCP -&gt; retrieve IP -&gt; DNS -&gt; set FQDN (revDNS) as hostname
+
+If this fails, MAC as hostname is a fallback that is good enough.
+
+Thanks+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130626/faaab70f/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130626/faaab70f/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001496.html">[X2Go-User] multiple xorg.conf's in x2go TCE
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1497">[ date ]</a>
+              <a href="thread.html#1497">[ thread ]</a>
+              <a href="subject.html#1497">[ subject ]</a>
+              <a href="author.html#1497">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

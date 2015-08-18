@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C529200F5.80307%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001807.html">
+   <LINK REL="Next"  HREF="001810.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>bmullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C529200F5.80307%40gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 14:36:53 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001807.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001810.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1808">[ date ]</a>
+              <a href="thread.html#1808">[ thread ]</a>
+              <a href="subject.html#1808">[ subject ]</a>
+              <a href="author.html#1808">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I should have added a little more info related to this.
+
+I use Amazon's EC2 cloud quite a bit with x2go.
+
+My AWS EC2 server runs ubuntu 13.10 x64 and I have the x2goserver 
+installed on it with the xubuntu-desktop (re xfce desktop).
+
+However, on that server I think installing xubuntu-desktop must have 
+auto-magically installed &quot;libjpeg-turbo-progs&quot; because I did not have to 
+install it manually.
+
+My home PC has an 18Mbps downlink from the internet and a 3 Mbps uplink 
+(I use ATT uVerse).
+
+Now regards the X2GO client CONNECTION SETTINGS.
+
+Setting the Client to WAN
+
+  * logging into the AWS x2goserver's XFCE and then running firefox I
+    goto youtube and play a music video.
+  * video is a bit choppy (I know that's subjective &lt;g&gt;).
+
+
+Setting the Client to LAN (no compression)
+
+  * logging into the AWS x2goserver's XFCE and then running firefox I
+    goto youtube and play a music video.
+  * video is almost perfect - re less choppiness than with Client set to
+    WAN.
+
+So at least in my experience whether you set the Client to WAN or LAN 
+&quot;may&quot; depend on your downlink speed from the remote x2goserver.
+If you have a fast enough WAN connection at your client you may find 
+doing no compression at all (re LAN) provides a better experience.
+
+Lastly, don't forget to consider what your &quot;local&quot; lan consists of.    
+If your Client PC is on a Wireless network and sharing that Wireless 
+network with
+multiple other Wireless network users you may find that your wireless 
+network is having a bigger impact on QoS of the video in the remote desktop
+than the remote server, local PC or the WAN.
+
+my .02
+Brian Mullan
+
+
+
+
+
+
+On 11/24/2013 07:51 AM, bmullan wrote:
+&gt;<i> Mike, Shah et al
+</I>&gt;<i>
+</I>&gt;<i> I've used libturbo-jpeg for a couple years with x2go after I first 
+</I>&gt;<i> learned about it.
+</I>&gt;<i>
+</I>&gt;<i> You might check your Distro...  but at least for Ubuntu I believe 
+</I>&gt;<i> libturbo-jpeg is the default installed by Ubuntu now.
+</I>&gt;<i>
+</I>&gt;<i> */NOTE:   in the following - I _did have to_ install 
+</I>&gt;<i> &quot;libjpeg-turbo-progs&quot; separately /*
+</I>&gt;<i>
+</I>&gt;<i> On my Ubuntu 13.10 x64 system if I run Synaptic and search for 
+</I>&gt;<i> &quot;libturbo&quot; I find:
+</I>&gt;<i>
+</I>&gt;<i>     */Independent JPEG Group's JPEG runtime library (dependency
+</I>&gt;<i>     package) /*
+</I>&gt;<i>     *//*
+</I>&gt;<i>     */libjpeg8 dependency package, depending on libjpeg-turbo8./*
+</I>&gt;<i>
+</I>&gt;<i> You might do the same on your Distro to find out what libjpeg is being 
+</I>&gt;<i> used today.
+</I>&gt;<i>
+</I>&gt;<i> Brian
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/9cf0e493/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/9cf0e493/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001807.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001810.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1808">[ date ]</a>
+              <a href="thread.html#1808">[ thread ]</a>
+              <a href="subject.html#1808">[ subject ]</a>
+              <a href="author.html#1808">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

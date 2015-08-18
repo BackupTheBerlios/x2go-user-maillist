@@ -1,0 +1,149 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Autolaunching
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Autolaunching&In-Reply-To=%3C20110723151953.179970vnncso9ent%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000271.html">
+   <LINK REL="Next"  HREF="000273.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Autolaunching</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Autolaunching&In-Reply-To=%3C20110723151953.179970vnncso9ent%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Autolaunching">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Jul 23 15:19:53 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000271.html">[X2go-User] Autolaunching
+</A></li>
+        <LI>Next message: <A HREF="000273.html">[X2go-User] Autolaunching
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Sa 23 Jul 2011 01:22:43 CEST  wrote:
+
+&gt;<i> On Friday 22 July, 2011 15:57:19 Mike Gabriel wrote:
+</I>&gt;&gt;<i> Use this one instead for x2goserver:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze heuler
+</I>&gt;<i>
+</I>&gt;<i> OK that worked.  Why?  What difference does that make?  Is that a dev's name?
+</I>
+deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main
+
+is code that could be considered as more reliable...
+
+deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze heuler
+
+Contains nightly built packages from git.x2go.org. ,,Heuler'' is the  
+German word of a puppy seal (the X2go mascot).
+
+&gt;<i> I do get a segfault saying,
+</I>
+There is no segfault below...
+
+&gt;<i> -----------------------------------------------------------
+</I>&gt;<i> ONMainWindow constructor
+</I>&gt;<i>
+</I>&gt;<i> Can't load translator (:/x2goclient_en_us) !
+</I>&gt;<i>
+</I>&gt;<i> Can't load translator  :/qt_en_US
+</I>&gt;<i> ONMainWindows constructor finished, home Directory is: &quot;/home/bill&quot;
+</I>&gt;<i>
+</I>&gt;<i> read  2  sessions from config file
+</I>&gt;<i> Have key, starting session
+</I>&gt;<i>
+</I>&gt;<i> start new ssh connection
+</I>&gt;<i>
+</I>&gt;<i> setting SSH DIR to  &quot;/home/bill/ssh&quot;
+</I>&gt;<i> &quot;Authentication failed&quot;  -  &quot;Access denied. Authentication that can  
+</I>&gt;<i> continue: publickey,password&quot;
+</I>
+Send me the session profile as found in  
+/home/bill/.x2goclient/sessions... Make sure you do not reveal secrets  
+when posting it to the list (IP addresses, ports, etc.).
+
+&gt;<i> -----------------------------------------------------------
+</I>&gt;<i> and it asks me to manually log in.  Well I can ssh to that machine  
+</I>&gt;<i> with no password fine, as I have the ssh public key in  
+</I>&gt;<i> authorized_users.
+</I>
+You have to specify the SSH explicitly in the session profile...
+
+&gt;&gt;<i> and please study
+</I>&gt;&gt;<i> <A HREF="http://wiki.x2go.org">http://wiki.x2go.org</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Most of it is explained there...
+</I>&gt;<i>
+</I>&gt;<i> I did, but nothing to do with my original question.  I want to build  
+</I>&gt;<i> a menu entry to click directly to that machine, without the nuisance  
+</I>&gt;<i> client.
+</I>
+Here is the man page...
+<A HREF="http://code.x2go.org/gitweb?p=x2goclient.git;a=blob_plain;f=.build_man2html/html/man1/x2goclient.1.html;hb=acdb1da43cb0d50655730f98e8bf1e6a4305b57d">http://code.x2go.org/gitweb?p=x2goclient.git;a=blob_plain;f=.build_man2html/html/man1/x2goclient.1.html;hb=acdb1da43cb0d50655730f98e8bf1e6a4305b57d</A>
+
+What you are looking for is probably the --hide option in combination  
+with --session and a profile that use an ssh key.
+
+Thanks,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110723/20a7e86e/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110723/20a7e86e/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000271.html">[X2go-User] Autolaunching
+</A></li>
+	<LI>Next message: <A HREF="000273.html">[X2go-User] Autolaunching
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#272">[ date ]</a>
+              <a href="thread.html#272">[ thread ]</a>
+              <a href="subject.html#272">[ subject ]</a>
+              <a href="author.html#272">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

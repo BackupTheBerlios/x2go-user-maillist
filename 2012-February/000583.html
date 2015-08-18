@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] how to completely remove/purge and reinstall
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20how%20to%20completely%20remove/purge%20and%20reinstall&In-Reply-To=%3C4F2AC99B.2090005%40charter.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000585.html">
+   <LINK REL="Next"  HREF="000584.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] how to completely remove/purge and reinstall</H1>
+    <B>Richard Strysniewicz</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20how%20to%20completely%20remove/purge%20and%20reinstall&In-Reply-To=%3C4F2AC99B.2090005%40charter.net%3E"
+       TITLE="[X2go-User] how to completely remove/purge and reinstall">richards at charter.net
+       </A><BR>
+    <I>Thu Feb  2 18:36:27 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000585.html">[X2go-User] [X2Go-Dev] [X2go-Announcement] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)
+</A></li>
+        <LI>Next message: <A HREF="000584.html">[X2go-User] Review: changes and features in X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#583">[ date ]</a>
+              <a href="thread.html#583">[ thread ]</a>
+              <a href="subject.html#583">[ subject ]</a>
+              <a href="author.html#583">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've been trying to isolate an still no luck.  I installed x2goserver on 
+another ubuntu 10.10 machine and get similar issues.
+
+To answer the how often question - I create and/or reconnect to to 
+sessions several times each day and have not had a success on the first 
+try for as long as I can remember, maybe some time mid to late last year.
+
+And to answer the hardware question, no, same NICs on all machines, same 
+cabling, same switch for past year or more.  And these are all on a LAN, 
+all on the same subnet.  All are using wired Gig Ethernet.
+
+Connecting to an existing session - from syslog:
+Feb  2 12:06:40 ubuntuservera /usr/bin/x2goresume-session: client 
+192.168.1.22 has successfully resumed session with ID 
+rich-50-1328202198_stDGNOME_dp24
+Feb  2 12:06:42 ubuntuservera /usr/bin/x2gomountdirs[21954]: WARNING: 
+insertion of /home/rich/.x2go/S-rich-50-1328202198_stDGNOME_dp24/spool 
+failed (already mounted?), not mounting
+get dialog box with X2Go - 50 message &quot;The connection with the remote 
+server was shut down.  Please check the state of your network connection.&quot;
+
+Try again - from syslog:
+Feb  2 12:09:14 ubuntuservera /usr/bin/x2goresume-session: client 
+192.168.1.22 has successfully resumed session with ID 
+rich-50-1328202198_stDGNOME_dp24
+get dialog box with X2Go - 50 message &quot;The connection with the remote 
+server was shut down.  Please check the state of your network connection.&quot;
+
+Try again 8 more times, same results as previous.
+Feb  2 12:10:42 ubuntuservera /usr/bin/x2goresume-session: last message 
+repeated 2 times
+Feb  2 12:11:34 ubuntuservera /usr/bin/x2goresume-session: last message 
+repeated 6 times
+
+On the 9th try connected fine and had another message written to syslog:
+Feb  2 12:11:34 ubuntuservera /usr/bin/x2gomountdirs[26660]: 
+successfully mounted 
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">rich at 127.0.0.1</A>:30003/home/rich/.x2go/S-rich-50-1328202198_stDGNOME_dp24/spool 
+to /tmp/spool_rich/rich-50-1328202198_stDGNOME_dp24
+
+This is just an example, does not always take 9 tries.
+
+When closed above sesion the following was written to syslog:
+Feb  2 12:13:29 ubuntuservera /usr/bin/x2gosuspend-session: session with 
+ID rich-50-1328202198_stDGNOME_dp24 has been suspended successfully
+Feb  2 12:13:29 ubuntuservera /usr/bin/x2goumount-session[27079]: ERROR: 
+failed to unmount /tmp/spool_rich/rich-50-1328202198_stDGNOME_dp24
+
+Tried to connect again, same error results as earlier.
+
+Waited 5 minutes, tried again, successful connection:
+Feb  2 12:20:54 ubuntuservera /usr/bin/x2goresume-session: client 
+192.168.1.22 has successfully resumed session with ID 
+rich-50-1328202198_stDGNOME_dp24
+Feb  2 12:20:56 ubuntuservera /usr/bin/x2gomountdirs[29308]: 
+successfully mounted 
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">rich at 127.0.0.1</A>:30003/home/rich/.x2go/S-rich-50-1328202198_stDGNOME_dp24/spool 
+to /tmp/spool_rich/rich-50-1328202198_stDGNOME_dp24
+
+Closed:
+Feb  2 12:21:48 ubuntuservera /usr/bin/x2gosuspend-session: session with 
+ID rich-50-1328202198_stDGNOME_dp24 has been suspended successfully
+Feb  2 12:21:49 ubuntuservera /usr/bin/x2goumount-session[29580]: ERROR: 
+failed to unmount /tmp/spool_rich/rich-50-1328202198_stDGNOME_dp24
+
+Waited 5 minutes, tried again, same error results as earlier:
+Feb  2 12:27:53 ubuntuservera /usr/bin/x2goresume-session: client 
+192.168.1.22 has successfully resumed session with ID 
+rich-50-1328202198_stDGNOME_dp24
+Feb  2 12:27:55 ubuntuservera /usr/bin/x2gomountdirs[30721]: WARNING: 
+insertion of /home/rich/.x2go/S-rich-50-1328202198_stDGNOME_dp24/spool 
+failed (already mounted?), not mounting
+get dialog box with X2Go - 50 message &quot;The connection with the remote 
+server was shut down.  Please check the state of your network connection.&quot;
+
+Tried again, failed 14 times, connected on 15th try.
+
+So is there possibly a mount/unmount issue?  That might explain the 
+variability in the number of times I have to try before getting a 
+successful connection.  Or perhaps an ssh issue that is not apparent 
+from the logs?  I looked in /var/log/messages, user.log, auth.log, 
+daemon.log but no other x2go messages.  No other files in /var/log were 
+written to during the above testing.
+
+
+
+On 01/17/2012 03:33 AM, Torsten Bade wrote:
+&gt;<i> Hi John,
+</I>&gt;<i>
+</I>&gt;<i> and hello to all others in the list,
+</I>&gt;<i> Here are some hints from my side.
+</I>&gt;<i> Did you change some Network Hardware? I had it in the past
+</I>&gt;<i> with ltsp (which I used before) that somehow a change of network hardware
+</I>&gt;<i> causes in this error. (change of network card, router/switch, 
+</I>&gt;<i> additional clients?)
+</I>&gt;<i>
+</I>&gt;<i> Maybe you can install iptraf (traffic monitor)
+</I>&gt;<i> apt-get install iptraf
+</I>&gt;<i>
+</I>&gt;<i> It seems to be that the network stream break down and the session 
+</I>&gt;<i> still exist, and after a timeout
+</I>&gt;<i> you can connect again. Now we have to find out why this happen ...
+</I>&gt;<i>
+</I>&gt;<i> How often does this happen? (After 10 minutes connection ... or once a 
+</I>&gt;<i> day?)
+</I>&gt;<i>
+</I>&gt;<i> Did you tail -f /var/log/syslog on the server when you try to connect 
+</I>&gt;<i> with this error message?
+</I>&gt;<i>
+</I>&gt;<i> Best regards
+</I>&gt;<i> T.
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000585.html">[X2go-User] [X2Go-Dev] [X2go-Announcement] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)
+</A></li>
+	<LI>Next message: <A HREF="000584.html">[X2go-User] Review: changes and features in X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#583">[ date ]</a>
+              <a href="thread.html#583">[ thread ]</a>
+              <a href="subject.html#583">[ subject ]</a>
+              <a href="author.html#583">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

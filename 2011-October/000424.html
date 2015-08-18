@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1rHFSxmpDVzYw6rxcxVeGLvpjDPFLSnn%2BtP6%2Bfy5VZygQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000417.html">
+   <LINK REL="Next"  HREF="000425.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1rHFSxmpDVzYw6rxcxVeGLvpjDPFLSnn%2BtP6%2Bfy5VZygQ%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Crashing sessions">bd.dali at gmail.com
+       </A><BR>
+    <I>Tue Oct  4 19:21:13 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000417.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000425.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#424">[ date ]</a>
+              <a href="thread.html#424">[ thread ]</a>
+              <a href="subject.html#424">[ subject ]</a>
+              <a href="author.html#424">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Still having problems, I can log in but sessions die on me several times a day.
+
+Server side auth.log, at the time of session crash:
+
+Oct  4 18:46:45 fileserv gnome-keyring-daemon[5990]: dbus failure
+unregistering from session: Connection is closed
+Oct  4 18:46:45 fileserv gnome-keyring-daemon[5990]: dbus failure
+unregistering from session: Connection is closed
+Oct  4 18:46:46 fileserv sshd[23183]: Received disconnect from
+192.168.0.103: 11: disconnected by user
+
+daemon.log:
+
+Oct  4 18:46:45 fileserv gnome-session[5975]: WARNING: Detected that
+screensaver has left the bus
+
+The ~/.x2go/&lt;session&gt;/session log on my client:
+
+NXPROXY - Version 3.5.0
+
+Copyright (C) 2001, 2011 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '17564'.
+Session: Starting session at 'Tue Oct  4 18:33:23 2011'.
+Info: Connecting to remote host 'localhost:30201'.
+Info: Connection to remote proxy 'localhost:30201' established.
+Loop: WARNING! Disabling NX delta compression.
+Loop: WARNING! Disabling use of NX persistent cache.
+Info: Connection with remote proxy completed.
+Loop: WARNING! Unrecognized session type 'unix-kde-depth_32'. Assuming
+agent session.
+Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming agent session.
+Info: Using LAN link parameters 1536/24/1/0.
+Info: Using pack method '16m-png-9' with session 'unix-kde-depth_32'.
+Info: Not using NX delta compression.
+Info: Not using ZLIB data compression.
+Info: Not using ZLIB stream compression.
+Info: Not using a persistent cache.
+Info: Forwarding X11 connections to display ':0.0'.
+Session: Session started at 'Tue Oct  4 18:33:23 2011'.
+Info: Established X server connection.
+Info: Using shared memory parameters 1/2048K.
+Proxy: PANIC! Failure reading from the peer proxy on FD#5.
+Error: Failure reading from the peer proxy.
+Loop: PANIC! No shutdown of proxy link performed by remote proxy.
+Error: Connection with remote peer broken.
+Error: Please check the state of your network and retry.
+Session: Terminating session at 'Tue Oct  4 18:46:48 2011'.
+Session: Session terminated at 'Tue Oct  4 18:46:48 2011'.
+NXTransDialog: WARNING! Couldn't start '/usr/NX/bin/nxclient'. Error
+is 2 'No such file or directory'.
+Warning: Couldn't start '/usr/NX/bin/nxclient'. Error is 2 'No such
+file or directory'.
+NXTransDialog: WARNING! Trying with path
+'/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+Warning: Trying with path
+'/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+NXTransDialog: WARNING! Couldn't start 'nxclient'. Error is 2 'No such
+file or directory'.
+Warning: Couldn't start 'nxclient'. Error is 2 'No such file or directory'.
+NXTransDialog: WARNING! Trying with path
+'/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+Warning: Trying with path
+'/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+
+The session is completely gone from the server, as if I'd logged out.
+
+I have the latest nightly packages installed (ie x2goagent 3.5.0.5) on
+both client and server.
+
+Cheers,
+Daniel
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000417.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000425.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#424">[ date ]</a>
+              <a href="thread.html#424">[ thread ]</a>
+              <a href="subject.html#424">[ subject ]</a>
+              <a href="author.html#424">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Fwd: Hooking Up To A Running X-Session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Fwd%3A%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C4DA36ED2.1040401%40yahoo.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000098.html">
+   <LINK REL="Next"  HREF="000100.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Fwd: Hooking Up To A Running X-Session</H1>
+    <B>Axel Klein</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Fwd%3A%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C4DA36ED2.1040401%40yahoo.de%3E"
+       TITLE="[X2go-user] Fwd: Hooking Up To A Running X-Session">nospamforaxel-1 at yahoo.de
+       </A><BR>
+    <I>Mon Apr 11 23:12:50 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000098.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+        <LI>Next message: <A HREF="000100.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thank you for the answers, but sorry, guys, I am still confused. You 
+tell me that's not possible, but now I found a menu item &quot;x2go Desktop 
+sharing&quot;. That's exactly what I want - I think. When I enabled it, how 
+can I connect to that from another machine and where is that documented?
+
+Axel
+
+Am 11.04.2011 20:37, schrieb John A. Sullivan III:
+&gt;<i> On Mon, 2011-04-11 at 13:35 +0200, Mike Gabriel wrote:
+</I>&gt;&gt;<i> &lt;snip&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i> What you can do is start an x2go session on your server, suspend this
+</I>&gt;&gt;<i> session and resume it again (from some other client).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you cannot find menu items for suspending sessions, you can open a
+</I>&gt;&gt;<i> shell and run the following commands:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     x2golistsessions -&gt;  will show your current sessions on that server
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The x2golistsessions command gives you the session id. It should look
+</I>&gt;&gt;<i> like ,,mike-59-1302521405_stDGNOME_dp24'', it is the second field in
+</I>&gt;&gt;<i> each line reported by x2golistsessions.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> With the session id you can suspend your session:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>     x2gosuspend-session mike-59-1302521405_stDGNOME_dp24
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you then login to the server again then you should be able to
+</I>&gt;&gt;<i> resume this session (Fortsetzen/fortfahren in German, not sure which
+</I>&gt;&gt;<i> one is used).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Of course, this scripting stuff is a little awkward. If you install
+</I>&gt;&gt;<i> the package x2gognomebindings (for GNOME) or x2goplasmoid (for KDE4)
+</I>&gt;&gt;<i> there should be a menu item that allows to suspend a session. With
+</I>&gt;&gt;<i> x2goplasmoid I have seen situations that this does not work reliably,
+</I>&gt;&gt;<i> but with GNOME there will definitely be a menu item in ,,System'' menu.
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> We elected to create an icon which called the x2gosuspend-session-gnome
+</I>&gt;<i> script.  We found when we installed x2gokdebindings that it stole the
+</I>&gt;<i> end session button for terminate (which was fine) and the lock desktop
+</I>&gt;<i> button for suspend which was definitely not fine because we wanted users
+</I>&gt;<i> to be able to lock and step away from their virtual desktops.  Thanks -
+</I>&gt;<i> John
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000098.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+	<LI>Next message: <A HREF="000100.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#99">[ date ]</a>
+              <a href="thread.html#99">[ thread ]</a>
+              <a href="subject.html#99">[ subject ]</a>
+              <a href="author.html#99">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

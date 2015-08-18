@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Mounting USB sticks and CD-ROMs on thin clients, sound
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Mounting%20USB%20sticks%20and%20CD-ROMs%20on%20thin%20clients%2C%0A%20sound&In-Reply-To=%3C20131009201819.Horde.dlk8emoKT8JF7ht-mBspSA1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001645.html">
+   <LINK REL="Next"  HREF="001635.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Mounting USB sticks and CD-ROMs on thin clients, sound</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Mounting%20USB%20sticks%20and%20CD-ROMs%20on%20thin%20clients%2C%0A%20sound&In-Reply-To=%3C20131009201819.Horde.dlk8emoKT8JF7ht-mBspSA1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Mounting USB sticks and CD-ROMs on thin clients, sound">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Oct  9 22:18:19 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001645.html">[X2Go-User] x2gobroker: no sessions found
+</A></li>
+        <LI>Next message: <A HREF="001635.html">[X2Go-User] connection problem on Ubuntu 12.04
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1650">[ date ]</a>
+              <a href="thread.html#1650">[ thread ]</a>
+              <a href="subject.html#1650">[ subject ]</a>
+              <a href="author.html#1650">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi again,
+
+On  Mi 09 Okt 2013 15:02:23 CEST, Mike Gabriel wrote:
+
+&gt;<i> Hi Peter,
+</I>&gt;<i>
+</I>&gt;<i> On  So 06 Okt 2013 03:40:41 CEST, registration wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> 1) mounting local drives on the thin clients
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The home dir of the thinclient /var/lib/x2gothinclient rests on a  
+</I>&gt;<i> RAM disk. With a local test setup I figured out that the home is not  
+</I>&gt;<i> owned by x2gothinclient:x2gothinclient but root:root (with umask  
+</I>&gt;<i> 022). So, x2goclient cannot write to that folder, alas no USB  
+</I>&gt;<i> flashdrive pluggin or CD rom mounting is possible...
+</I>&gt;<i>
+</I>&gt;&gt;<i> 2) Sound on the thin clients doesn't work
+</I>&gt;<i>
+</I>&gt;<i> Same applies here. Audio requires write access to ~x2gothinclient.
+</I>&gt;<i>
+</I>&gt;<i> I will check where this needs to be fixed in x2gothinclient.git and  
+</I>&gt;<i> release an update version ASAP.
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>
+Please check, if changing the thin clients fstab file as shown in [1]  
+fixes your issue (watch out there is a typo in that commit fixed in  
+[2]). I will only have time to confirm this fix tomorrow, but I guess  
+giving rw access to /var/lib/x2gothinclient for user x2gothinclient  
+will solve the reported problems.
+
+Mike
+
+[1]  
+<A HREF="http://code.x2go.org/gitweb?p=x2gothinclient.git;a=commitdiff;h=be8300b201a43337348f261a094774c828fd0adf">http://code.x2go.org/gitweb?p=x2gothinclient.git;a=commitdiff;h=be8300b201a43337348f261a094774c828fd0adf</A>
+[2]  
+<A HREF="http://code.x2go.org/gitweb?p=x2gothinclient.git;a=commitdiff;h=c60d59ebc3c9b5c55177d62ec6518a04a370c493">http://code.x2go.org/gitweb?p=x2gothinclient.git;a=commitdiff;h=c60d59ebc3c9b5c55177d62ec6518a04a370c493</A>
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-keys
+Size: 7251 bytes
+Desc: ?ffentlicher PGP-Schl?ssel
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131009/a7aa06b8/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20131009/a7aa06b8/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131009/a7aa06b8/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131009/a7aa06b8/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001645.html">[X2Go-User] x2gobroker: no sessions found
+</A></li>
+	<LI>Next message: <A HREF="001635.html">[X2Go-User] connection problem on Ubuntu 12.04
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1650">[ date ]</a>
+              <a href="thread.html#1650">[ thread ]</a>
+              <a href="subject.html#1650">[ subject ]</a>
+              <a href="author.html#1650">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

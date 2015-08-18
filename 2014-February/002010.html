@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Unity Greeter with X2Go Remote Login Support
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Unity%20Greeter%20with%20X2Go%20Remote%20Login%20Support&In-Reply-To=%3C52F12A7F.9050506%40adytonsystems.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002009.html">
+   <LINK REL="Next"  HREF="002012.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Unity Greeter with X2Go Remote Login Support</H1>
+    <B>Stefan Heitm&#252;ller</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Unity%20Greeter%20with%20X2Go%20Remote%20Login%20Support&In-Reply-To=%3C52F12A7F.9050506%40adytonsystems.com%3E"
+       TITLE="[X2Go-User] Unity Greeter with X2Go Remote Login Support">stefan.heitmueller at adytonsystems.com
+       </A><BR>
+    <I>Tue Feb  4 18:59:27 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002009.html">[X2Go-User] connecting to same session via different networks
+</A></li>
+        <LI>Next message: <A HREF="002012.html">[X2Go-User] Unity Greeter with X2Go Remote Login Support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2010">[ date ]</a>
+              <a href="thread.html#2010">[ thread ]</a>
+              <a href="subject.html#2010">[ subject ]</a>
+              <a href="author.html#2010">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello everyone...
+
+After testing and beta-deploying X2Go services for some test users
+(developers/qa/it - who really liked it), i was trying to implement the
+x2go-broker into lightdm.
+
+I followed the steps in <A HREF="http://blog.x2go.org/index.php/2013/04/28/289/.">http://blog.x2go.org/index.php/2013/04/28/289/.</A>
+
+First of all, &quot;get-build-deps debian/control&quot; seems to be replaced by
+&quot;mk-build-deps debian/control&quot; ...
+
+After compiling, installing and configuring i see the additional login
+in lightdm.
+
+Our Active Directory enabled (using likewise-open -&gt; pam) broker
+delivers <A HREF="https://x2go-broker.our.domain.com/uccs/inifile/api/4">https://x2go-broker.our.domain.com/uccs/inifile/api/4</A> , asks
+for user/password and prints the json-object containing all configured
+servers.
+
+When lightdm starts, i can see some traffic between the machine and the
+broker.
+
+Logging in seems not to work, i've tested &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">test.account at intern</A>&quot;,
+&quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">test.account at our.domain.com</A>&quot; and even a local test user (on the broker,
+right?)
+
+There is no communication between the broker and lightdm/unity-greeter
+when trying to login.
+
+How can i help you further? (debugging,..)
+
+As this is a relly nice and seemless solution for our clients, i think
+we cann afford some sponsoring there too.
+
+regards
+
+Stefan
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002009.html">[X2Go-User] connecting to same session via different networks
+</A></li>
+	<LI>Next message: <A HREF="002012.html">[X2Go-User] Unity Greeter with X2Go Remote Login Support
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2010">[ date ]</a>
+              <a href="thread.html#2010">[ thread ]</a>
+              <a href="subject.html#2010">[ subject ]</a>
+              <a href="author.html#2010">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

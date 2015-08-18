@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Chaining%20of%20x2go%20via%202%20sessions%2C%0A%09proxy%3F%20What%20is%20best%20solution%3F&In-Reply-To=%3CCAMKht8ijvi1Moa2vYLKq8-hbzi%3DGywrccjKW32fcObtRkOyA9w%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001956.html">
+   <LINK REL="Next"  HREF="001958.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?</H1>
+    <B>Michael DePaulo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Chaining%20of%20x2go%20via%202%20sessions%2C%0A%09proxy%3F%20What%20is%20best%20solution%3F&In-Reply-To=%3CCAMKht8ijvi1Moa2vYLKq8-hbzi%3DGywrccjKW32fcObtRkOyA9w%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?">mikedep333 at gmail.com
+       </A><BR>
+    <I>Tue Jan 14 03:22:10 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001956.html">[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?
+</A></li>
+        <LI>Next message: <A HREF="001958.html">[X2Go-User] Chaining of x2go via 2 sessions, proxy? What is best solution?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1957">[ date ]</a>
+              <a href="thread.html#1957">[ thread ]</a>
+              <a href="subject.html#1957">[ subject ]</a>
+              <a href="author.html#1957">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>HI Matt,
+
+I am glad to hear that much worked for you.
+
+I am not sure what you mean  by &quot;direct rdp connection.&quot; On the windows
+x2goclient 4.0.1.2, in the &quot;Session type&quot; list I see &quot;Connect to Windows
+terminal server.&quot; Also, I don't know how a &quot;direct&quot; rdp connection would
+work unless you launched one from an x2go session running on the vpn client.
+
+-Mike
+
+
+On Mon, Jan 13, 2014 at 3:26 PM, Buddy Butterfly &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">buddy.butterfly at web.de</A>&gt;wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> really great. The proxy feature seems to work without any special
+</I>&gt;<i> configuration on the x2go server. Though, what did not work
+</I>&gt;<i> is the tunneling of rdp (rdesktop) through SSH. When I choose
+</I>&gt;<i> &quot;direct rdp connection&quot; then the connection works. There should
+</I>&gt;<i> be a corresponding setting where we could also tunnel rdp through
+</I>&gt;<i> ssh when selecting ssh proxy like the standard connections I have
+</I>&gt;<i> tested now.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Matt
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Am 13.01.2014 19:30, schrieb Buddy Butterfly:
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; this is great news. Exactly what I wanted to know.
+</I>&gt;<i> &gt; Are there special settings when using the SSH proxy from x2go client
+</I>&gt;<i> &gt; on the x2go server or does the client run the SSH forwarding on demand?
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Cheers,
+</I>&gt;<i> &gt; Matt
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Am 13.01.2014 02:20, schrieb Michael DePaulo:
+</I>&gt;<i> &gt;&gt; I think the x2go proxy can do that. Mike Gabriel and others could give
+</I>&gt;<i> &gt;&gt; you a definite answer.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; Stefan Baur's instructions for using SSH forwarding via the command line
+</I>&gt;<i> &gt;&gt; will work. Just note that in the SSH server settings, you will need to
+</I>&gt;<i> &gt;&gt; enable TCP forwarding if it is not enabled by default. The settings are
+</I>&gt;<i> &gt;&gt; usually in /etc/ssh/sshd_config .
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; I think that you can also use x2go client's built in feature to use a
+</I>&gt;<i> &gt;&gt; &quot;proxy server&quot;. I think this feature is just SSH forwarding. Ultimately,
+</I>&gt;<i> &gt;&gt; which way of doing SSH forwarding is your preference. To use the x2go
+</I>&gt;<i> &gt;&gt; client's built in feature:
+</I>&gt;<i> &gt;&gt; 1. In x2go client, define a session for each x2go server host your
+</I>&gt;<i> &gt;&gt; ultimately want to connect to. The host should be the hostname or the IP
+</I>&gt;<i> &gt;&gt; address of the x2go server host
+</I>&gt;<i> &gt;&gt; 2. Under the preferences for each session, enable &quot;Use Proxy server for
+</I>&gt;<i> &gt;&gt; SSH connection&quot;.  Then enter the vpn client box's hostname or IP address
+</I>&gt;<i> &gt;&gt; as the &quot;host&quot; of the proxy server. The &quot;type&quot; of proxy server should set
+</I>&gt;<i> &gt;&gt; to &quot;SSH&quot;.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; And of course, you can use x2go to connect to this headless box. I
+</I>&gt;<i> &gt;&gt; recommend you install the full desktop environment you intend to use,
+</I>&gt;<i> &gt;&gt; but disable X from starting automatically. How to do this varies from
+</I>&gt;<i> &gt;&gt; distro to distro. For example, on Red Hat and Fedora, you would make the
+</I>&gt;<i> &gt;&gt; default runlevel 3 instead of 5. On Ubuntu, you would disable the
+</I>&gt;<i> &gt;&gt; service / upstart job &quot;lighdm&quot; (or &quot;gdm&quot; if using GNOME Ubuntu, or &quot;kdm&quot;
+</I>&gt;<i> &gt;&gt; if using kubuntu, and so on.)
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; -Mike
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt; On Sun, Jan 12, 2014 at 5:37 PM, Buddy Butterfly
+</I>&gt;<i> &gt;&gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">buddy.butterfly at web.de</A>
+</I>&gt;<i> &gt;&gt; &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">buddy.butterfly at web.de</A>&gt;&gt; wrote:
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     Hi,
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     it is a VPN client with multiple VPN clients.
+</I>&gt;<i> &gt;&gt;     Kind of a VPN concentrator. But this is not
+</I>&gt;<i> &gt;&gt;     important. It is a headles system.
+</I>&gt;<i> &gt;&gt;     I am looking for the best solution
+</I>&gt;<i> &gt;&gt;     to use other systems via this box with x2go
+</I>&gt;<i> &gt;&gt;     but also use the box itself with x2go.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     So I thought I could to from client computers:
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     1. Have one session with x2go to the box.
+</I>&gt;<i> &gt;&gt;     2. Create ssh forwardings on the box.
+</I>&gt;<i> &gt;&gt;     3. Connect with other x2go sessions via the box
+</I>&gt;<i> &gt;&gt;        (ssh forward) to the systems behind the box.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     What I do not know is, if x2go does have some
+</I>&gt;<i> &gt;&gt;     kind of proxy server. Meaning that I could connect
+</I>&gt;<i> &gt;&gt;     to the box and would have beeing presented a list
+</I>&gt;<i> &gt;&gt;     of hosts I could connect further via x2go.
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     Thanks a lot,
+</I>&gt;<i> &gt;&gt;     Matt
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;     Am 12.01.2014 21:21, schrieb Michael DePaulo:
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;     On Jan 12, 2014 12:57 PM, &quot;Buddy Butterfly&quot;
+</I>&gt;<i> &gt;&gt;&gt;     &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">buddy.butterfly at web.de</A>
+</I>&gt;<i> &gt;&gt;&gt;     &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">buddy.butterfly at web.de</A>&gt;&gt; wrote:
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; Hi,
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; sry for this dumb question but I am kind of confused.
+</I>&gt;<i> &gt;&gt;&gt;     &gt; Would be happy if someone would bring me back on track ;-)
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; Cheers,
+</I>&gt;<i> &gt;&gt;&gt;     &gt; Matt
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; Am 09.01.2014 16:22, schrieb Buddy Butterfly:
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; Hi,
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; I have a small box with linux on it as VPN box.
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; This box is headless. So it will be accessed from another
+</I>&gt;<i> &gt;&gt;&gt;     computer in
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; the lan. But this box will be used to access the company
+</I>&gt;<i> systems.
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; So the question is, what would be the best solution?
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;     I don't follow you here.
+</I>&gt;<i> &gt;&gt;&gt;     Is this box a VPN server or a VPN client?
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; 1. x2go to the box and x2go from there to the systems?
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; 2. Install a proxy or the like (do not know if this exists) on
+</I>&gt;<i> &gt;&gt;&gt;     the box
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;    and connect from 1 x2go client routed via the box?
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;    Is probably an ssh forward enough?
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; Thanks and cheers,
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt; Matt
+</I>&gt;<i> &gt;&gt;&gt;     &gt; &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; _______________________________________________
+</I>&gt;<i> &gt;&gt;&gt;     &gt; X2Go-User mailing list
+</I>&gt;<i> &gt;&gt;&gt;     &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> &gt;&gt;&gt;     &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>&gt;
+</I>&gt;<i> &gt;&gt;&gt;     &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> &gt;&gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;&gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140113/302d7238/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20140113/302d7238/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001956.html">[X2Go-User] Chaining of x2go via 2 sessions,	proxy? What is best solution?
+</A></li>
+	<LI>Next message: <A HREF="001958.html">[X2Go-User] Chaining of x2go via 2 sessions, proxy? What is best solution?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1957">[ date ]</a>
+              <a href="thread.html#1957">[ thread ]</a>
+              <a href="subject.html#1957">[ subject ]</a>
+              <a href="author.html#1957">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Big screen problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Big%20screen%20problem&In-Reply-To=%3C52492537.2080902%40cegetel.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001608.html">
+   <LINK REL="Next"  HREF="001612.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Big screen problem</H1>
+    <B>Christophe Lohr</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Big%20screen%20problem&In-Reply-To=%3C52492537.2080902%40cegetel.net%3E"
+       TITLE="[X2Go-User] Big screen problem">christophe.lohr at cegetel.net
+       </A><BR>
+    <I>Mon Sep 30 09:16:07 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001608.html">[X2Go-User] Big screen problem
+</A></li>
+        <LI>Next message: <A HREF="001612.html">[X2Go-User] Big screen problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1611">[ date ]</a>
+              <a href="thread.html#1611">[ thread ]</a>
+              <a href="subject.html#1611">[ subject ]</a>
+              <a href="author.html#1611">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 27/09/2013 20:56, Timo wrote:
+&gt;<i> Yes, I have read about that but this is a little different, I think. I 
+</I>&gt;<i> have noticed that resizing does not work as expected but I have got 
+</I>&gt;<i> along by changing resolution in System Settings -&gt; Displays. But now 
+</I>&gt;<i> there is not big enough geometry to go full screen.
+</I>
+1) Use 'cvt' or 'gtf' to compute en new Modeline for X11
+
+2) Feed 'xrandr' with it
+   xrandr --newmode &lt;MODE-NAME&gt; &lt;MODELINE&gt;
+   xrandr --addmode &quot;default&quot; &lt;MODE-NAME&gt;
+
+3)  Edit  ~/.config/monitors.xml
+Look at  &lt;output name=&quot;default&quot;&gt;  then change  &lt;width&gt; , &lt;height&gt;  and  
+&lt;rate&gt;  with values of your new Modeline
+
+4) Then ask gnome-settings-daemon to apply changes:
+dbus-send --session --print-reply --dest=org.gnome.SettingsDaemon 
+/org/gnome/SettingsDaemon/XRANDR 
+org.gnome.SettingsDaemon.XRANDR_2.ApplyConfiguration int64:0 int64:0
+
+5) Scrip it, or forget gnome ;-)
+
+Regards
+Christophe
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001608.html">[X2Go-User] Big screen problem
+</A></li>
+	<LI>Next message: <A HREF="001612.html">[X2Go-User] Big screen problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1611">[ date ]</a>
+              <a href="thread.html#1611">[ thread ]</a>
+              <a href="subject.html#1611">[ subject ]</a>
+              <a href="author.html#1611">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

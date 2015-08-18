@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Still problems with SSH key deployment and auto login
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Still%20problems%20with%20SSH%20key%20deployment%20and%20auto%20login&In-Reply-To=%3C5281C1DA.5040007%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001765.html">
+   <LINK REL="Next"  HREF="001767.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Still problems with SSH key deployment and auto login</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Still%20problems%20with%20SSH%20key%20deployment%20and%20auto%20login&In-Reply-To=%3C5281C1DA.5040007%40vxpertise.net%3E"
+       TITLE="[X2Go-User] Still problems with SSH key deployment and auto login">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Tue Nov 12 06:51:22 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001765.html">[X2Go-User] Debian Repos broken
+</A></li>
+        <LI>Next message: <A HREF="001767.html">[X2Go-User] Still problems with SSH key deployment and auto login
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1766">[ date ]</a>
+              <a href="thread.html#1766">[ thread ]</a>
+              <a href="subject.html#1766">[ subject ]</a>
+              <a href="author.html#1766">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+
+Hi,
+
+after a while I found time to spend on X2go again :) Working on the
+SSH proxy - key deployment - auto login thingy now.
+
+Client: x2goclient 4.0.1.1
+
+Broker:
+- - x2gobroker-daemon on 127.0.0.1:8080
+- - x2gobroker-authservice =&gt; PAM
+- - Apache2 + WSGI using non-vhost configuration
+- - plain / inifile
+=&gt; works to far
+- - here the user session configuration
+- - private/public key generated
+
+[test-session]
+user=
+host=192.168.3.100
+command=XFCE
+acl-groups-allow=xfceusers
+acl-clients-allow=ALL
+autologin=true
+usesshproxy=true
+sshproxytype=SSH
+sshproxyuser=root
+sshproxykeyfile=
+sshproxyhost=broker
+sshproxyport=22
+sshproxysamepass=false
+sshproxysameuser=false
+sshproxyautologin=false
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at broker</A>:~# dpkg -l | grep x2go
+ii  python-x2gobroker
+0.0.2.3-0~x2go1+wheezy~main~505~build1 all          X2Go http(s) based
+session broker (Python modules)
+ii  x2gobroker
+0.0.2.3-0~x2go1+wheezy~main~505~build1 all          X2Go http(s) based
+session broker (executable)
+ii  x2gobroker-authservice
+0.0.2.3-0~x2go1+wheezy~main~505~build1 all          X2Go http(s) based
+session broker (PAM authentication service)
+ii  x2gobroker-daemon
+0.0.2.3-0~x2go1+wheezy~main~505~build1 all          X2Go http(s) based
+session broker (daemon)
+ii  x2gobroker-wsgi
+0.0.2.3-0~x2go1+wheezy~main~505~build1 all          X2Go http(s) based
+session broker (CGI)
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at broker</A>:~#
+
+
+Server:
+- - all necessary packages installed
+- - public key imported (as suggested in wiki)
+- - sshd_config adjusted:
+
+AuthorizedKeysFile     %h/.ssh/authorized_keys %h/.x2go/authorized_keys
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">vxltsupport at server</A>:~$ dpkg -l | grep x2go
+ii  cups-x2go                            3.0.0.4-0~62~raring1
+          all          Virtual X2Go printer for CUPS
+ii  x2goagent
+2:3.5.0.21-0~358~ubuntu13.04.1         all          X2Go agent
+ii  x2gobroker-agent                     0.0.2.3-0~429~raring1
+          i386         X2Go http(s) based session broker (common files)
+ii  x2goserver                           4.0.1.6-0~712~raring1
+          i386         X2Go server daemon scripts
+ii  x2goserver-extensions                4.0.1.6-0~712~raring1
+          all          X2Go server daemon scripts (extensions)
+ii  x2goserver-printing                  4.0.1.6-0~712~raring1
+          all          X2Go server daemon scripts (printing)
+ii  x2goserver-xsession                  4.0.1.6-0~712~raring1
+          all          X2Go server daemon scripts (Xsession runner)
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">vxltsupport at server</A>:~$
+
+
+Now instead of working (:D) x2goclient asks me for a passphrase to a
+key I didnt create nor deploy.
+
+What am I missing? Passwordless authentication from broker to server
+works btw:
+
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at broker</A>:~$ ssh <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at server</A>
+Welcome to Ubuntu 13.04 (GNU/Linux 3.8.0-33-generic i686)
+
+ * Documentation:  <A HREF="https://help.ubuntu.com/">https://help.ubuntu.com/</A>
+
+Last login: Tue Nov 12 07:29:20 2013 from 192.168.3.10
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2gobroker at server</A>:~$
+
+
+cheers
+Mathias
+
+- -- 
+Mathias Ewald - vXpertise
+WWW: www.vxpertise.net
+Landline: +49 911 495208940
+Mobile: +49 151 17317864
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias.ewald at vxpertise.net</A>
+Skype: mathias.ewald
+
+ATTENTION: My email address <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at mathias-ewald.de</A> is no longer in
+use. Please send to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias.ewald at vxpertise.net</A> only!
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v1.4.14 (GNU/Linux)
+Comment: Using GnuPG with Thunderbird - <A HREF="http://www.enigmail.net/">http://www.enigmail.net/</A>
+
+iQIcBAEBAgAGBQJSgcHZAAoJEA7RPiZyzgdIo4cQAK4U0Pku1QVCjjmLFO1zMOyX
+sY4FfXpgR2KBcflD3w+e493XAMo/QIy/WsLjDHm0RsCqqsCdflOsuYCkCfbdyk/E
+ZoheghH854Twhdt75wiKzQEnX4Uf8b59fkrU4hbaX0OHSyLWr6pEPN6RDmMmD6Jn
+J1wlDefSkc8Tv6IeQUZWjSGiWzbcACgU1TLssGe4MWBAPTffti+ZsVtufjS0NyXs
+BGWwvyZlQ7HmKsd/FaCf17HD27DqyoPJbExlr3TMJAVVVAFdFmrzpjWR7ODYwm6P
+TCPWA9UEq2W06eq2BWHne1zgO9HOiFCVoaJt3WqKbqd7pxJXXDCIpKW5tHhr2opi
+z/r1aw0JRTCHBmobNY5MxUPl6gLOtaFb7iKueogJPEH3sR1hYL4xUf7cdtJWHBGI
+Al3XYLa5+w06ZhFPoqKS+WRZ9xNZH42y0/LB9XIADPSes1hXJ664QdFuOAHptlWj
+l4e68W8l3yjCvPYVyJRQ10BY+x37C0JYbQqwkSsNnNbmtaOd9TtgV9lUaQW+yD7v
+flFRiu/TA9LFYNLOuxHHUe2StE2X/cWP7BsxwlJxQgeGw7e8u3kQROLSFdRUwru/
+kmKnlfvl/7XDQSVuV3Y4DRsFBppMEn1vsW5dtzQ+Koi5FCr0sAsJ9ayjocr9kOqe
+IxKziObxwEPjIndMPmWc
+=9/+o
+-----END PGP SIGNATURE-----
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001765.html">[X2Go-User] Debian Repos broken
+</A></li>
+	<LI>Next message: <A HREF="001767.html">[X2Go-User] Still problems with SSH key deployment and auto login
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1766">[ date ]</a>
+              <a href="thread.html#1766">[ thread ]</a>
+              <a href="subject.html#1766">[ subject ]</a>
+              <a href="author.html#1766">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Raspberry Pi and acceleration of X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Raspberry%20Pi%20and%20acceleration%20of%20X2Go&In-Reply-To=%3C5062C8E2.6050102%40dhermilly.dk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001031.html">
+   <LINK REL="Next"  HREF="001030.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Raspberry Pi and acceleration of X2Go</H1>
+    <B>Pascal d'Hermilly</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Raspberry%20Pi%20and%20acceleration%20of%20X2Go&In-Reply-To=%3C5062C8E2.6050102%40dhermilly.dk%3E"
+       TITLE="[X2Go-User] Raspberry Pi and acceleration of X2Go">pascal at dhermilly.dk
+       </A><BR>
+    <I>Wed Sep 26 11:20:34 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001031.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+        <LI>Next message: <A HREF="001030.html">[X2Go-User] New X2Go releases: x2goserver, cups-x2go, x2goplasmabindings, python-x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1033">[ date ]</a>
+              <a href="thread.html#1033">[ thread ]</a>
+              <a href="subject.html#1033">[ subject ]</a>
+              <a href="author.html#1033">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 25-09-2012 20:45, Mike Gabriel wrote:
+&gt;<i> First thing: running x2goclient as root (as described in the above Raspi forum URL) is not a good idea.
+</I>Yes, good point.
+&gt;<i> Note that there is an x2gothinclient environment available. If requested we can make it available for ARMel architecture, as well. The x2gothinclient package launches an X2Go Client in thin client mode and it uses a generic user account for that which gets recreated on every thin client restart.
+</I>That sounds like a better way to do it. I think this makes a lot of sense to have on the ARMel architecture.
+&gt;&gt;<i> What can I do to make it perform better.
+</I>&gt;<i> You can reduce the NX protocols compression level if you connect via LAN (by using LAN as network speed, this will reduce any compression on the NX protocol). Maybe that helps and frees some CPU cycles for X rendering.
+</I>I've done it, but it doesn't help a lot. The X process simply takes all it can get. Does X accelleration help or doesn't it matter in the big picture?
+
+Having no technical insight at all in the solution, could one imagine a x2Go client that uses opengles directly?
+
+thanks
+- Pascal
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001031.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+	<LI>Next message: <A HREF="001030.html">[X2Go-User] New X2Go releases: x2goserver, cups-x2go, x2goplasmabindings, python-x2go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1033">[ date ]</a>
+              <a href="thread.html#1033">[ thread ]</a>
+              <a href="subject.html#1033">[ subject ]</a>
+              <a href="author.html#1033">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

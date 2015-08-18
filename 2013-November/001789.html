@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go in LXC (linux containers) - how to enable sound
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20in%20LXC%20%28linux%20containers%29%20-%20how%20to%20enable%20sound&In-Reply-To=%3CCAFX-c4sJRsRCZwgizvdq21COTmh1Wo5rkoGrcsVOzeEwBNmDzA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001788.html">
+   <LINK REL="Next"  HREF="001790.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go in LXC (linux containers) - how to enable sound</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20in%20LXC%20%28linux%20containers%29%20-%20how%20to%20enable%20sound&In-Reply-To=%3CCAFX-c4sJRsRCZwgizvdq21COTmh1Wo5rkoGrcsVOzeEwBNmDzA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2go in LXC (linux containers) - how to enable sound">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Wed Nov 20 13:33:10 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001788.html">[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?
+</A></li>
+        <LI>Next message: <A HREF="001790.html">[X2Go-User] x2go in LXC (linux containers) - how to enable sound
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1789">[ date ]</a>
+              <a href="thread.html#1789">[ thread ]</a>
+              <a href="subject.html#1789">[ subject ]</a>
+              <a href="author.html#1789">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've been doing a lot with LXC containers for the past couple years.
+
+One potentially very interesting use of LXC is to implement x2go so each
+user on a single Host PC can have their own LXC container, their own
+&quot;desktop&quot; (lxde, xfce, mate etc), install their own applications etc all
+without any changes to the Host OS or interfering with other user's and
+their container based Desktop environment.
+
+If you are not familiar with LXC ... some of you may have read about Docker
+lately.   Docker is based on LXC.
+
+There are many great benefits of LXC virtualization vs the hardware
+virtualization provided by vmware, kvm, virtualbox.   Just a few are:
+
+   - LXC is an order of magnitude faster from a performance perspective
+   since there is no hardware virtualization involved
+   - LXC containers can be created/cloned in seconds
+   - LXC container's share the HOST OS's kernel so Host PC resource
+   utilization is much less
+
+Anyway, LXC containers are extremely easy to create.
+
+But a default LXC container is usually used for &quot;server&quot; linux
+applications.   But its simple to add any &quot;desktop&quot; environment you want to
+that server then also add x2goserver, x2goserver-xsession after which that
+LXC container becomes a great x2go server environment for a user.   It is
+isolated from the Host OS, you can change whatever you want in it and the
+Host OS is unaffected.
+
+Anyway, the point of this note was to describe one area that took a while
+to figure out.
+
+LXC Containers as mentioned previous were primarily designed for &quot;server&quot;
+not &quot;desktop&quot; use-cases.
+
+As such &quot;sound&quot; was not enabled by default in new LXC containers.
+
+note:  In LXC any Host OS resource is or is not permitted through use of a
+CGROUP file for each created Container
+
+
+Even using the Docker &quot;desktop&quot; example:
+<A HREF="http://blog.docker.io/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/">http://blog.docker.io/2013/07/docker-desktop-your-desktop-over-ssh-running-inside-of-a-docker-container/</A>
+
+Sound does not work by default.
+
+After 3 weeks of researching, trying various ideas of how to enable sound I
+finally got it working after some careful reading of the pulseaudio.orgwebsite.
+
+I documented how to configure x2go and another post on configuring
+PulseAudio in the LXC Container to provide Sound on my WordPress blog so to
+not duplicate things you can find the information here:
+
+<A HREF="http://bmullan.wordpress.com/">http://bmullan.wordpress.com/</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131120/59def24d/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131120/59def24d/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001788.html">[X2Go-User] Gnome Bindings in Ubuntu ppa disappeared?
+</A></li>
+	<LI>Next message: <A HREF="001790.html">[X2Go-User] x2go in LXC (linux containers) - how to enable sound
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1789">[ date ]</a>
+              <a href="thread.html#1789">[ thread ]</a>
+              <a href="subject.html#1789">[ subject ]</a>
+              <a href="author.html#1789">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

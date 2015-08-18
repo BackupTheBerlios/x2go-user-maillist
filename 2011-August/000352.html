@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problems setting print system in x2go [Resolved]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C1314720941.26377.2.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000350.html">
+   <LINK REL="Next"  HREF="000361.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problems setting print system in x2go [Resolved]</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problems%20setting%20print%20system%20in%20x2go%20%5BResolved%5D&In-Reply-To=%3C1314720941.26377.2.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] Problems setting print system in x2go [Resolved]">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Tue Aug 30 18:15:41 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000350.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+        <LI>Next message: <A HREF="000361.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 2011-08-30 at 10:28 +0200, Mike Gabriel wrote:
+&gt;<i> Hi Mario,
+</I>&gt;<i> 
+</I>&gt;<i> On Do 25 Aug 2011 18:53:48 CEST Mario OROZ wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; /usr/bin/margin-offset.ps is a postscript to add margins to the print job.
+</I>&gt;<i> 
+</I>&gt;<i> Could you shortly explain where this file comes from, and what it  
+</I>&gt;<i> looks like etc. I did an apt-file search on a Debian squeeze system  
+</I>&gt;<i> and could not find this file.
+</I>&gt;<i> 
+</I>&gt;<i> You say it adds margin... Why do we want that. What will happen to the  
+</I>&gt;<i> print area (scaled shrinking?)...
+</I>&lt;snip&gt;
+That's interesting.  We have had a corner case where this is a problem.
+There are some applications (e.g., Timberline check printing) which seem
+to query to the printer directly for margins.  We could not print checks
+via the X2Go local printer because it returns margins of 0,0,0,0.  The
+client was forced to print to a different network-enabled printer
+accessible via VPN so that that it could be interrogated for its margins
+in order to print checks.
+
+I am guessing the X2Go printer returns 0,0,0,0 because it does not know
+what the margins of the printer are until a destination printer is
+selected - John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000350.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+	<LI>Next message: <A HREF="000361.html">[X2go-User] Problems setting print system in x2go [Resolved]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#352">[ date ]</a>
+              <a href="thread.html#352">[ thread ]</a>
+              <a href="subject.html#352">[ subject ]</a>
+              <a href="author.html#352">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] OS X and proxy server option - can't connect
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20OS%20X%20and%20proxy%20server%20option%20-%20can%27t%20connect&In-Reply-To=%3C31D7191D-2B3C-4FA4-B06F-14668C7D7D0D%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001636.html">
+   <LINK REL="Next"  HREF="001642.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] OS X and proxy server option - can't connect</H1>
+    <B>Madog</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20OS%20X%20and%20proxy%20server%20option%20-%20can%27t%20connect&In-Reply-To=%3C31D7191D-2B3C-4FA4-B06F-14668C7D7D0D%40gmail.com%3E"
+       TITLE="[X2Go-User] OS X and proxy server option - can't connect">madogdevelopment at gmail.com
+       </A><BR>
+    <I>Mon Oct  7 14:57:05 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001636.html">[X2Go-User] connection problem on Ubuntu 12.04
+</A></li>
+        <LI>Next message: <A HREF="001642.html">[X2Go-User] no menu with gnome fallback
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1637">[ date ]</a>
+              <a href="thread.html#1637">[ thread ]</a>
+              <a href="subject.html#1637">[ subject ]</a>
+              <a href="author.html#1637">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All:
+
+I am using the proxy server option on x2go, and have gotten it to work on Windows and Debian, but not OS X and hope to get some help.
+
+In my tests: 
+- I use the same server, same ssh keys etc. and connect from Windows and Linux (Squeeze)
+- from a command prompt on OS X, I can connect by issuing:  ssh -X -A -t <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">externaluser at externalIP</A> ssh -A -X <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">internaluser at internalIP</A>
+- bash is the default shell on my Mac
+- however, when we try to connect via the x2go GUI, it gets stuck saying &quot;Connecting&quot; and goes no further until I close the session (for what it's worth, it's not a &quot;forced quit&quot; so I don't think the session has crashed, just won't connect).
+
+FYI - on linux, on the &quot;client&quot;, I issue the following before trying to connect the first time on both keys and have tried this on OS X as well with &quot;no joy&quot;:
+NewUserVar=newuser
+PathVar=/home/newuser/.ssh/newuserfolder
+chmod go-w /home/$NewUserVar
+chmod 700 /home/$NewUserVar/.ssh
+chmod 600 $PathVar/id_rsa
+ssh-add $PathVar/id_rsa
+
+Any suggestions?  Has anyone else had this issue, figured it out?  Thanks!
+  
+
+</PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001636.html">[X2Go-User] connection problem on Ubuntu 12.04
+</A></li>
+	<LI>Next message: <A HREF="001642.html">[X2Go-User] no menu with gnome fallback
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1637">[ date ]</a>
+              <a href="thread.html#1637">[ thread ]</a>
+              <a href="subject.html#1637">[ subject ]</a>
+              <a href="author.html#1637">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

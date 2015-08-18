@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gobroker on wheezy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20wheezy&In-Reply-To=%3C524FE1C3.3000303%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001631.html">
+   <LINK REL="Next"  HREF="001633.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gobroker on wheezy</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20wheezy&In-Reply-To=%3C524FE1C3.3000303%40vxpertise.net%3E"
+       TITLE="[X2Go-User] x2gobroker on wheezy">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Sat Oct  5 11:54:11 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001631.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+        <LI>Next message: <A HREF="001633.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1632">[ date ]</a>
+              <a href="thread.html#1632">[ thread ]</a>
+              <a href="subject.html#1632">[ subject ]</a>
+              <a href="author.html#1632">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike,
+
+the installation works now, thanks! I left most of the configuration at 
+defaults but changed to iniconf and enabled debug mode. Following the 
+instructions to browse <A HREF="http://IP:80/x2gobroker/plain/iniconf">http://IP:80/x2gobroker/plain/iniconf</A> shows this 
+HTML:
+
+&lt;html&gt;&lt;title&gt;404: Not Found&lt;/title&gt;&lt;body&gt;404: Not Found&lt;/body&gt;&lt;/html&gt;
+
+In the meantime, apache shows this
+
+==&gt; error.log &lt;==
+[Sat Oct 05 06:25:12 2013] [error] [client 92.60.57.197] File does not 
+exist: /var/www/plain
+
+x2gobroker log files show this:
+
+==&gt; access.log &lt;==
+
+==&gt; authservice.log &lt;==
+
+==&gt; broker.log &lt;==
+
+==&gt; error.log &lt;==
+
+==&gt; wsgi.log &lt;==
+
+==&gt; broker.log &lt;==
+2013-10-05 06:26:25,108 - broker - INFO - X2Go Session Broker (0.0.2.3), 
+written by Mike Gabriel (X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-10-05 06:26:25,108 - broker - INFO - Setting up the broker's 
+environment...
+2013-10-05 06:26:25,109 - broker - INFO -   X2GOBROKER_DEBUG: False
+2013-10-05 06:26:25,109 - broker - INFO -   X2GOBROKER_CONFIG: 
+/etc/x2go/x2gobroker.conf
+2013-10-05 06:26:25,109 - broker - INFO -   X2GOBROKER_AGENT_CMD: 
+/usr/lib/x2go/x2gobroker-agent
+2013-10-05 06:26:25,109 - broker - INFO - X2GOBROKER_AUTHSERVICE_SOCKET: 
+/run/x2gobroker/x2gobroker-authservice.socket
+2013-10-05 06:26:25,109 - broker - INFO - X2GOBROKER_DEFAULT_BACKEND: 
+zeroconf
+2013-10-05 06:26:25,110 - broker - INFO - X2GOBROKER_SSL_CERTFILE:
+2013-10-05 06:26:25,110 - broker - INFO - X2GOBROKER_SSL_KEYFILE:
+2013-10-05 06:26:25,237 - broker - WARNING - GET http request detected, 
+if unwanted: disable X2GOBROKER_DEBUG
+
+It's a bit confusing to see &quot;X2GOBROKER_DEBUG: False&quot; and then &quot;if 
+unwanted: disable X2GOBROKER_DEBUG&quot;. First line makes me think debug is 
+not enabled, second says it is. But the real problem for now is that I 
+expected to see the contents 
+/etc/x2go/broker/x2gobroker-sessionprofiles.conf but saw 404 instead.
+
+Wrong expectations, or misconfiguration? :D
+
+cheers
+Mathias
+
+
+
+On 10/04/2013 07:57 PM, Mike Gabriel wrote:
+&gt;<i> Hi Mathias,
+</I>&gt;<i>
+</I>&gt;<i> ----- Original message -----
+</I>&gt;&gt;<i> Hi Mike,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> solved one thing, brought up another:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:~# apt-get install x2gobroker
+</I>&gt;&gt;<i> Reading package lists... Done
+</I>&gt;&gt;<i> Building dependency tree
+</I>&gt;&gt;<i> Reading state information... Done
+</I>&gt;&gt;<i> Some packages could not be installed. This may mean that you have
+</I>&gt;&gt;<i> requested an impossible situation or if you are using the unstable
+</I>&gt;&gt;<i> distribution that some required packages have not yet been created
+</I>&gt;&gt;<i> or been moved out of Incoming.
+</I>&gt;&gt;<i> The following information may help to resolve the situation:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The following packages have unmet dependencies:
+</I>&gt;&gt;<i>       x2gobroker : Depends: python-wsgilog but it is not installable
+</I>&gt;&gt;<i> E: Unable to correct problems, you have held broken packages.
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:~# apt-get install -f
+</I>&gt;&gt;<i> Reading package lists... Done
+</I>&gt;&gt;<i> Building dependency tree
+</I>&gt;&gt;<i> Reading state information... Done
+</I>&gt;&gt;<i> 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:~# apt-get install python-wsgilog
+</I>&gt;&gt;<i> Reading package lists... Done
+</I>&gt;&gt;<i> Building dependency tree
+</I>&gt;&gt;<i> Reading state information... Done
+</I>&gt;&gt;<i> Package python-wsgilog is not available, but is referred to by another
+</I>&gt;&gt;<i> package.
+</I>&gt;&gt;<i> This may mean that the package is missing, has been obsoleted, or
+</I>&gt;&gt;<i> is only available from another source
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> E: Package 'python-wsgilog' has no installation candidate
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:~#
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> cheers
+</I>&gt;&gt;<i> Mathias
+</I>&gt;&gt;<i>
+</I>&gt;<i> Ok, next round. python-wsgilog is now available through wheezy/main on packages.x2go.org.
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001631.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+	<LI>Next message: <A HREF="001633.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1632">[ date ]</a>
+              <a href="thread.html#1632">[ thread ]</a>
+              <a href="subject.html#1632">[ subject ]</a>
+              <a href="author.html#1632">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

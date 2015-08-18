@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] x2go integration with windows domain
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20integration%20with%20windows%20domain&In-Reply-To=%3C1E20C3912F0D47F8AB91303F934C6AB2%40EBPVLPC%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000025.html">
+   <LINK REL="Next"  HREF="000029.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] x2go integration with windows domain</H1>
+    <B>InboxMailinglist</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20integration%20with%20windows%20domain&In-Reply-To=%3C1E20C3912F0D47F8AB91303F934C6AB2%40EBPVLPC%3E"
+       TITLE="[X2go-user] x2go integration with windows domain">inboxmailinglist at gmail.com
+       </A><BR>
+    <I>Thu Oct 21 19:28:54 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000025.html">[X2go-user] Starting multiple sessions
+</A></li>
+        <LI>Next message: <A HREF="000029.html">[X2go-user] x2go integration with windows domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Thanks for your posts - and yes! I understand you :)
+
+This is not a priority project, but I'm working on it form time to time.
+
+Tried now without using likewise-open as you said, but instead krb5, samba,
+and winbind... and it works fine. Now sound is through, and authenthication
+is working fine with just username
+
+I still cannot mount folders yet, nor with local user login or with windows
+users. I get a popup screen saying: Could not display
+&quot;home/domain/user..etc(sshfs-disk)&quot;. The file is of an unknown type
+
+Maybe I need to add something in smb.conf or nsswitch.conf ??
+
+Greetings,
+Benjamin
+
+-----Oprindelig meddelelse-----
+Fra: Mike Gabriel [mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">m.gabriel at das-netzwerkteam.de</A>] 
+Sendt: 15. oktober 2010 10:10
+Til: InboxMailinglist
+Emne: Re: SV: [X2go-user] x2go integration with windows domain
+
+Hi Benjamin,
+
+On Fr 15 Okt 2010 11:58:47 CEST InboxMailinglist wrote:
+
+&gt;<i> Ok, I give up on this one!
+</I>&gt;<i>
+</I>&gt;<i> Thank you Mike anyway for taking time answering my post
+</I>&gt;<i>
+</I>&gt;<i> Tried downloading the latest version of ubuntu (10.10) with likewise 6.0
+</I>&gt;<i> integrated, but that is even worse! Cannot get the remote desktop at all,
+</I>&gt;<i> after the x2go black screen, everything turns black.
+</I>&gt;<i>
+</I>&gt;<i> I can still logon with x2go using a local (ubuntu) user though.
+</I>&gt;<i>
+</I>&gt;<i> Also, when setting the default domain to 'true' I can login to ubuntu just
+</I>&gt;<i> using my windows username.. that's ok. But when I logoff and logon as an
+</I>&gt;<i> ubuntu administrator, and try to type &quot;sudo su&quot; in the terminal, I get the
+</I>&gt;<i> error: unable to chache group domain\grouop, already exists
+</I>&gt;<i>
+</I>&gt;<i> Then I have to reinstall...
+</I>
+No, on Linux you mostly never have to reinstall. In your particular  
+case you probably have to delete the winbind cache files in  
+/var/cache/samba (99% guess).
+
+&gt;<i> So we may need to stay with windows terminal services for the moment.
+</I>&gt;<i>
+</I>&gt;<i> I anyone got this working (x2go form windows, using your windows
+</I>credentials
+&gt;<i> so we do not have to recreate users/passwords on the ubuntu machine) I
+</I>would
+&gt;<i> very much like to know!
+</I>&gt;<i>
+</I>&gt;<i> Benjamin
+</I>
+I have a similar setup working at a customer's place (without  
+likewise-open though, I am using ordinary Samba there) and it works  
+flawlessly...
+
+I am not sure about your budget, but it is possible to hire me for  
+consultancy on issues like this (unfortunately, I can not do this in  
+my spare time, I hope you understand).
+
+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">m.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xf">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xf</A>
+b
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000025.html">[X2go-user] Starting multiple sessions
+</A></li>
+	<LI>Next message: <A HREF="000029.html">[X2go-user] x2go integration with windows domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#26">[ date ]</a>
+              <a href="thread.html#26">[ thread ]</a>
+              <a href="subject.html#26">[ subject ]</a>
+              <a href="author.html#26">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,346 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2goclient: Bringing up NX3 proxy failed.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2goclient%3A%20Bringing%20up%20NX3%20proxy%20failed.&In-Reply-To=%3CCAOk18jw9WqT92OhRhDDa4c1XdZnF_GKKvYOwYwk1QszObCNYdQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001540.html">
+   <LINK REL="Next"  HREF="001542.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2goclient: Bringing up NX3 proxy failed.</H1>
+    <B>Nigra Truo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2goclient%3A%20Bringing%20up%20NX3%20proxy%20failed.&In-Reply-To=%3CCAOk18jw9WqT92OhRhDDa4c1XdZnF_GKKvYOwYwk1QszObCNYdQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] X2goclient: Bringing up NX3 proxy failed.">nigratruo at gmail.com
+       </A><BR>
+    <I>Fri Aug 16 02:20:07 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001540.html">[X2Go-User] x2golxdebindings for squeeze relies on 'update-icon-caches' being available in it's postinst script
+</A></li>
+        <LI>Next message: <A HREF="001542.html">[X2Go-User] Advice needed on a somewhat working x2go configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1541">[ date ]</a>
+              <a href="thread.html#1541">[ thread ]</a>
+              <a href="subject.html#1541">[ subject ]</a>
+              <a href="author.html#1541">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+my x2goclient stopped working a day ago and I cannot get it to connect to
+my x2goserver.
+
+X2goclient on Windows works, so it must be a Linux client problem.
+
+I removed and reinstalled the client, tried it as another user, purged
+config, all to no avail.
+When using x2goclient,
+
+X2Go client V. 4.0.1.0 (Qt - 4.8.2) on server:
+
+4.0.1.6-0~x2go1+wheezy~main~712~build1
+
+ I get this message:
+
+ Can't load translator (:/x2goclient_en_us) !
+
+
+Can't load translator :/qt_en_US
+
+Connection timeout, abortingInfo: Aborting the procedure due to signal '15'.
+
+Session: Session terminated at 'Thu Aug 15 17:13:47 2013'.
+
+
+and a question box if I want to terminate the session.
+
+
+when using pyhoca-gui --libdebug
+
+I get this output: (failed to start NX3 proxy, but no reason why)
+--------
+
+Xlib.protocol.request.QueryExtension
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: proposed config files are
+['/home/browny/.x2goclient/sessions']
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: config files found:
+['/home/browny/.x2goclient/sessions']
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: proposed config files are
+['/home/browny/.x2goclient/settings']
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: config files found:
+['/home/browny/.x2goclient/settings']
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: proposed config files are
+['/home/browny/.x2goclient/printing']
+pyhoca-gui[31820] (x2goinifiles-pylib) INFO: config files found:
+['/home/browny/.x2goclient/printing']
+pyhoca-gui[31820] (PyHoca-GUI) WARN: the current release of PyHoca-GUI does
+not support client configuration
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go control session
+parameters for profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     username: browny
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     key_filename:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     unique_hostkey_aliases:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     look_for_keys: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go terminal session
+parameters for profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     client_encoding: ISO8859-1
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     set_session_title: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     snd_system: pulse
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     session_type: desktop
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     server_encoding: UTF-8
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     snd_port: 4713
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     rdp_server:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kbtype: pc105/us
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     applications:
+['WWWBROWSER', 'MAILCLIENT', 'OFFICE', 'TERMINAL']
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     published_applications:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     link: adsl
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     session_title:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kbvariant: null
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     geometry: 800x600
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     rdp_options:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     cmd: KDE
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     convert_encoding: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kblayout: us
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     xdmcp_server: localhost
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     pack: 16m-jpeg-9
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go sshproxy parameters for
+profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_look_for_keys:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_host:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_key_filename:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_user:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_port: 22
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: initializing X2GoControlSession
+pyhoca-gui[31820] (x2gosessregistry-pylib) NOTICE: registering X2Go session
+x2goserver remote...
+pyhoca-gui[31820] (x2gosessregistry-pylib) DEBUG: registering X2Go session
+with UUID aec27950-0607-11e3-9a51-001f3b7501c5
+pyhoca-gui[31820] (x2goclient-pylib) NOTICE: initializing X2Go session...
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) NOTICE: connecting to
+[10.11.11.89]:22
+No handlers could be found for logger &quot;paramiko.hostkeys&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: trying
+keyboard-interactive SSH authentication with server
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;which x2gofeaturelist &gt;/dev/null
+&amp;&amp; x2gofeaturelist&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: server-side X2Go
+features are: ['X2GO_LIST_DESKTOPS', 'X2GO_MOUNTDIRS',
+'X2GO_MOUNT_UNCPATHS', 'X2GO_PUBLISHED_APPLICATIONS',
+'X2GO_RUN_EXTENSIONS', 'X2GO_SERVERSIDE_DESKTOPCOMMANDS',
+'X2GO_SET_KEYBOARD', 'X2GO_UMOUNTSESSION_ALL',
+'X2GO_UMOUNTSESSION_ONLYPATH']
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;echo $HOME&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: remote user' home
+directory: /home/browny
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;stat -tL &quot;/home/browny&quot;&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go control session
+parameters for profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     username: browny
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     key_filename:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     unique_hostkey_aliases:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     look_for_keys: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go terminal session
+parameters for profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     client_encoding: ISO8859-1
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     set_session_title: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     snd_system: pulse
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     session_type: desktop
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     server_encoding: UTF-8
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     snd_port: 4713
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     rdp_server:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kbtype: pc105/us
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     applications:
+['WWWBROWSER', 'MAILCLIENT', 'OFFICE', 'TERMINAL']
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     published_applications:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     link: adsl
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     session_title:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kbvariant: null
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     geometry: 800x600
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     rdp_options:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     cmd: KDE
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     convert_encoding: False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     kblayout: us
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     xdmcp_server: localhost
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     pack: 16m-jpeg-9
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG: X2Go sshproxy parameters for
+profile x2goserver remote:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_look_for_keys:
+False
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_host:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_key_filename:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_user:
+pyhoca-gui[31820] (x2gosession-pylib) DEBUG:     sshproxy_port: 22
+pyhoca-gui[31820] (x2gosessregistry-pylib) NOTICE: registering X2Go session
+x2goserver remote...
+pyhoca-gui[31820] (x2gosessregistry-pylib) DEBUG: registering X2Go session
+with UUID b7addf6e-0607-11e3-9a51-001f3b7501c5
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (PyHoca-GUI) NOTICE: [x2goserver remote - connect]
+Authentication has been successful.
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2goclient-pylib) INFO: Cannot find a terminal session
+for profile ,,x2goserver remote'' that can be used to query folder sharing
+capabilities
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;echo&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;echo&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;x2goresume-session
+browny-51-1376431640_stDKDE_dp32 800x600 adsl 16m-jpeg-9 us pc105/us 1&quot;
+pyhoca-gui[31820] (x2goproxy-pylib) INFO: starting local NX3 proxy...
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: NX3 Proxy mode is server,
+cookie=1c9fefc425d6a2642e82326ed2df3c50, host=127.0.0.1, port=30004.
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: NX3 proxy writes session log to
+/home/browny/.x2go/S-browny-51-1376431640_stDKDE_dp32/session.log.
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: forking threaded subprocess:
+/usr/bin/nxproxy -S
+nx/nx,retry=5,composite=1,connect=127.0.0.1,clipboard=1,cookie=1c9fefc425d6a2642e82326ed2df3c50,port=56212,errors=/home/browny/.x2go/S-browny-51-1376431640_stDKDE_dp32/session.log:51
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: waiting for proxy to come up:
+0.4s x 1
+pyhoca-gui[31820] (x2goproxy-pylib) ERROR: Bringing up NX3 proxy failed.
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: terminating proxy:
+&lt;x2go.gevent_subprocess.Popen object at 0x278e290&gt;
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gosession-pylib) NOTICE: Using session
+browny-51-1376431640_stDKDE_dp32 as master session for profile x2goserver
+remote.
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: Shutting down X2Go proxy
+subprocess
+pyhoca-gui[31820] (x2goproxy-pylib) DEBUG: Shutting down Paramiko/SSH
+forwarding tunnel
+pyhoca-gui[31820] (PyHoca-GUI) NOTICE: [x2goserver remote - resume]
+Resuming X2Go session... browny-51-1376431640_stDKDE_dp32
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp; x2golistmounts
+browny-51-1376431640_stDKDE_dp32&quot;
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp; x2golistmounts
+browny-51-1376431640_stDKDE_dp32&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;getent group fuse | cut -d&quot;:&quot; -f4&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) DEBUG: remote fuse group:
+['winuser', 'probrowny', 'browny', 'notes', 'setupy', 'graciela', 'mb']
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp;
+x2golistsessions&quot;
+pyhoca-gui[31820] (x2gocontrolsession-pylib) INFO: executing command on
+X2Go server ,,x2goserver remote'': sh -c &quot;export HOSTNAME &amp;&amp; x2golistmounts
+browny-51-1376431640_stDKDE_dp32&quot;
+^Cpyhoca-gui[31820] (PyHoca-GUI) NOTICE: Received Ctrl-C keyboard
+interrupt... Wait till PyHoca-GUI has exited cleanly.
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: Entering X2Go Guardian client
+management loop...
+pyhoca-gui[31820] (x2gosessregistry-pylib) DEBUG: Forgetting session UUID
+aec27950-0607-11e3-9a51-001f3b7501c5
+pyhoca-gui[31820] (x2gosessregistry-pylib) DEBUG: Forgetting session UUID
+b7addf6e-0607-11e3-9a51-001f3b7501c5
+pyhoca-gui[31820] (x2goguardian-pylib) DEBUG: X2Go session guardian thread
+waking up after 65 seconds
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+How can I debug this? is there a way to try starting the NX3 proxy by hand
+and see why it does not run?
+
+I love the pyhoca-gui tool by the way, seriously cool!
+
+I would appreciate any pointers how to solve this.
+
+Markus
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130815/07979bd0/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130815/07979bd0/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001540.html">[X2Go-User] x2golxdebindings for squeeze relies on 'update-icon-caches' being available in it's postinst script
+</A></li>
+	<LI>Next message: <A HREF="001542.html">[X2Go-User] Advice needed on a somewhat working x2go configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1541">[ date ]</a>
+              <a href="thread.html#1541">[ thread ]</a>
+              <a href="subject.html#1541">[ subject ]</a>
+              <a href="author.html#1541">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

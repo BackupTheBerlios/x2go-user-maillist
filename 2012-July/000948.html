@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [X2Go-Dev] X2go connection problem to a Vserver
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Dev%5D%20X2go%20connection%20problem%20to%20a%20Vserver&In-Reply-To=%3C1343649124.4671.2.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000944.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [X2Go-Dev] X2go connection problem to a Vserver</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Dev%5D%20X2go%20connection%20problem%20to%20a%20Vserver&In-Reply-To=%3C1343649124.4671.2.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] [X2Go-Dev] X2go connection problem to a Vserver">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Mon Jul 30 13:52:04 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000944.html">[X2Go-User] Unable to open a session when default shell is /bin/tcsh
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#948">[ date ]</a>
+              <a href="thread.html#948">[ thread ]</a>
+              <a href="subject.html#948">[ subject ]</a>
+              <a href="author.html#948">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 2012-07-29 at 13:15 -0400, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">senrabdet at aol.com</A> wrote:
+&gt;<i> To Whom It May Concern:
+</I>&gt;<i> 
+</I>&gt;<i> We are trying to get x2go to work with a Vserver instance but cannot
+</I>&gt;<i> connect.  We've done some looking at x2go posts into the error, but
+</I>&gt;<i> we're not sure the responses apply to using Vserver and are still
+</I>&gt;<i> looking for some help (apologies if we should have been able to find
+</I>&gt;<i> this on our own). 
+</I>&gt;<i> 
+</I>&gt;<i> The error is first:
+</I>&gt;<i> 
+</I>&gt;<i> &quot;X2go-51 The remote proxy closed the connection while negotiating the
+</I>&gt;<i> session.  This may be due to the wrong authentication credentials
+</I>&gt;<i> passed to the server.&quot;  The window includes an &quot;OK&quot; button.
+</I>&gt;<i> 
+</I>&gt;<i> If we press the OK button, we get to the x2go login screen where you
+</I>&gt;<i> can enter a password...if we enter the password, we get:
+</I>&gt;<i> 
+</I>&gt;<i> &quot;Error  Connection failed channel_open_session failed - Writing
+</I>&gt;<i> packet:  error on socket (or connection closed):  Broken pipe.&quot;
+</I>&gt;<i> 
+</I>&gt;<i> On the client, in the &quot;sessions&quot; file we see:
+</I>&gt;<i> 
+</I>&gt;<i> Loop:  PANIC!  The remote NX Proxy closed the connection.
+</I>&gt;<i> Loop:  PANIC!  Failure negotiating the session in stage '7'.
+</I>&gt;<i> Loop:  PANIC! Wrong version or invalid session authentication cookie.
+</I>&gt;<i> 
+</I>&gt;<i> In both the client &quot;options&quot; file, the cookie looks to be the same as
+</I>&gt;<i> the cookie in the server
+</I>&gt;<i> 
+</I>&gt;<i> FYI - we can ping the Vserver instance, and we can ssh into the
+</I>&gt;<i> Vserver successfully, ping 8.8.8.8 from there etc.  Also, initially
+</I>&gt;<i> when this wouldn't work, we though maybe we had issues with how we had
+</I>&gt;<i> set up desktops in the Vserver (which is still possible:  we're using
+</I>&gt;<i> gnome, gdm) but when we spun up another Vserver and set up VNC, it
+</I>&gt;<i> serves the desktop correctly so at first blush this seems to be a
+</I>&gt;<i> networking/ports/firewall/sshd/routing type of issue.
+</I>&gt;<i> 
+</I>&gt;<i> However, we're still having trouble getting a regular X session to run
+</I>&gt;<i> over SSH.....but are assuming at the moment (possibly incorrectly)
+</I>&gt;<i> that the X2go errors we're getting are an issue on their own, possibly
+</I>&gt;<i> in addition to running an X session on a Vserver.
+</I>&lt;snip&gt;
+If you are having problems running X over SSH, you probably won't be
+able to run X2Go - at least that's my guess.  Is
+your /etc/ssh/sshd_config set up to allow X? You may wish to try the
+following settings:
+
+X11Forwarding yes
+X11DisplayOffset 10
+X11UseLocalhost no
+
+Good luck - John
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000944.html">[X2Go-User] Unable to open a session when default shell is /bin/tcsh
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#948">[ date ]</a>
+              <a href="thread.html#948">[ thread ]</a>
+              <a href="subject.html#948">[ subject ]</a>
+              <a href="author.html#948">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

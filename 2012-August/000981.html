@@ -1,0 +1,306 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC	containers
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20HOWTO%20-%20install%20ubuntu%20%26%20x2goserver%20inside%20inside%20LXC%0A%09containers&In-Reply-To=%3CCAFX-c4t2%3Dh5CzgV-W9X2gzwkBKE5xCMFoeLgJN_XMMbDVyPLJg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000980.html">
+   <LINK REL="Next"  HREF="000982.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC	containers</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20HOWTO%20-%20install%20ubuntu%20%26%20x2goserver%20inside%20inside%20LXC%0A%09containers&In-Reply-To=%3CCAFX-c4t2%3Dh5CzgV-W9X2gzwkBKE5xCMFoeLgJN_XMMbDVyPLJg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC	containers">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Mon Aug 27 15:59:20 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000980.html">[X2Go-User] X-Server cannot be started
+</A></li>
+        <LI>Next message: <A HREF="000982.html">[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC containers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#981">[ date ]</a>
+              <a href="thread.html#981">[ thread ]</a>
+              <a href="subject.html#981">[ subject ]</a>
+              <a href="author.html#981">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>The following is a description of how to install Ubuntu &amp; x2go server
+inside Linux Containers (LXC).
+
+All of the following was done on an Ubuntu 12.04 server installed inside
+LXC containers. These examples are only for a single container but you can
+either Clone the first container you create and make necessary changes
+regarding IP addresses (they will be different for each LXC container) or
+start from scratch and create each manually.
+
+If you are not familiar with LXC containers it is a very lightweight &amp;
+therefore very fast (faster than vmware, kvm, xen etc) technology built
+into most modern Linux kernels and
+
+distributions from Ubuntu, Debian, Fedora etc.    Note that LXC does not
+support installing windows into an LXC container.
+
+
+LXC allows you to provide complete isolation of one container from another
+by default.
+
+However, you can as an admin provide more or less isolation between
+containers and also between containers and the HOST computer OS.
+
+I will NOT go into how LXC works here as there is a lot of information on
+the web which can help you understand more if you do a google search for
+&quot;lxc containers&quot; or read some of the &quot;references&quot; I've put at the end of
+this email.
+
+
+Ubuntu 12.04 has made LXC very easy to use.   Canonical has simplified many
+things to the extreme.   Other linux distributions
+may/will differ on how you create, access etc LXC containers.
+
+But lets begin creating our first LXC container and then we will install
+Bonitasoft inside that container.
+
+*STEP 1*
+
+Assuming you are using Ubuntu 12.04 Desktop we will install LXC first the
+create our first container which we will call x2goserver1-lxc.   In the
+
+following we are going to use an &#8220;ubuntu&#8221; lxc template.    There are other
+&#8220;lxc templates&#8221; for debian, fedora, centos etc that you could use if
+
+you wanted to install one of those OS inside an LXC Container even if the
+host is Ubuntu
+
+ NOTE:   you can install any Linux OS into an LXC container the only major
+rule is that the Linux must use the same Kernel as the Host linux.
+
+
+*     sudo apt-get install lxc*
+
+
+
+Next create the LXC container we are calling x2goserver1-lxc then start up
+that container:
+
+* *
+
+*     sudo lxc-create -t ubuntu -n x2goserver1-lxc*
+
+*     sudo lxc-start -n x2goserver1-lxc*
+
+The &#8220;create&#8221; command above will create a new container called
+&quot;x2goserver1-lxc&quot; and install ubuntu ... using the same version
+of Ubuntu as your host computer so it will install ubuntu 12.04 inside the
+LXC container named &quot;x2goserver1-lxc&quot;
+
+
+This will take some time as it downloads all the required files from the
+Ubuntu repositories and installs them to create a
+bootable Ubuntu 12.04 system.
+
+The &#8220;start&#8221; command above will actually start the LXC container called
+&quot;x2goserver1-lxc&quot; and its Ubuntu system and leave you
+at a terminal command prompt inside the LXC container.
+
+*Note:*  that the command prompt will be different from a terminal on your
+HOST computer as you will now be *inside* the
+container and because we haven't added any additional user accounts yet the
+login USERID will be the default which
+
+is &quot;ubuntu&quot;.
+
+The command prompt should look something like the following:
+
+     *<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">ubuntu at x2goserver1-lxc</A>:~$*
+
+Create a User Accounts for the users that will be using this container:
+
+     *sudo adduser user-name1*
+
+*     etc.*
+
+
+*STEP 2*
+
+While logged into the container and at the terminal prompt install whatever
+other tools you usually use.
+
+In my case, because I wanted to see if x2go would work so I installed the
+ubuntu desktop and the x2go server components.
+
+ Install the Ubuntu Desktop:
+
+      *sudo apt-get install ubuntu-desktop*
+
+when this completes reboot Ubuntu in the LXC container:
+
+      *sudo shutdown -r now*
+
+this will reboot ubuntu in the container so the desktop environment will be
+available.   Login again and continue.
+
+
+Next install the x2go &quot;server&quot; side applications so I can later access the
+container using the x2goclient on my HOST PC.
+
+Next add the x2go repository:
+
+*      sudo add-apt-repository ppa:x2go/stable*
+
+*      sudo apt-get update*
+
+Install the x2go &quot;server&quot; side components:
+
+*      sudo apt-get install x2goserver
+      sudo apt-get install x2goserver-session*
+
+ On your HOST computer install the x2go client:
+
+*      sudo add-apt-repository ppa:x2go/stable
+      sudo apt-get update
+      sudo apt-get install x2goclient*
+
+
+ *STEP 3*
+
+This step is important if you want to be able to access the LXC container
+from the host using SSH or whatever other tools you use.
+
+ The genesis of this step is from Stephane Graber who has taught me alot
+about LXC from his blog.
+
+This step is:
+
+
+   1. performed outside of your linux container and must be done for the
+   USER that will be accessing the x2goserver1-lxc.
+   2. will require that you know the container IP address.   Each LXC
+   container will have a different IP address even though they are all running
+   on the same PC
+   3. is necessary to allow someone on the HOST computer to access a
+   container using the container's name with something like SSH etc.  for
+   example in our case &quot;ssh <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">userID-on-x2goserver1 at x2goserver1-lxc</A>&quot;  will
+   log the user-of-bos1-name into the container and leave them at a terminal
+   prompt
+
+*Add the following to each users ~/.ssh/config file. Note you may have to
+create ~/.ssh/config if it doesn't yet exist and change the lxc-container
+IP address to the container that each user is assigned to work with.**
+*
+note:  each of the following should be a single line entry
+
+Host *.lxc StrictHostKeyChecking no UserKnownHostsFile /dev/null
+ProxyCommand nc $(host $(echo %h | sed &quot;s/\\\\.lxc//g&quot;) *
+my-lxc-container-ip-address* | tail -1 | awk '{print $NF}') %p
+
+Host *.libvirt StrictHostKeyChecking no UserKnownHostsFile /dev/null
+ProxyCommand nc $(host $(echo %h | sed &quot;s/\\\\.libvirt//g&quot;) *
+my-host-ip-address* | tail -1 | awk '{print $NF}') %p
+
+
+
+&gt;<i>From now on you can access the x2goserver1-lxc container using either SSH
+</I>or the x2go client
+
+
+
+*STEP 4*
+
+If you want to use x2go start the x2goclient, then on the HOST create a new
+x2go &quot;session&quot; and add info about what LXC container IP address you want to
+connect to, what desktop (unity, gnome etc) and what speed is the
+connection (change this by moving the slider to LAN since we want the
+fastest/no compression) and then save.
+
+ Start the x2goclient session and log into the LXC container.   From now on
+you can do everything as if you were on your HOST PC.
+
+ Just remember you will be inside the LXC container so you are separated
+from your host and changes made will only be  to the LXC container's Ubuntu.
+
+
+ *PARTING THOUGHTS*
+
+The reason for doing all of this?    Well there are several I can think of
+but I&#8217;ll just name a couple:
+
+   1. Linux is now available on ARM.    ARM cpu&#8217;s don&#8217;t support h/w
+   virtualization solutions like vmware, kvm, xen etc.  but since LXC does
+   NOT require h/w virtualization you can use LXC containers to provide
+   different and isolated compute environments even on ARM computers.
+   2.  LXC is much faster than vmware, kvm, xen because there is no h/w
+   virtualization and because its part of the linux kernel each container can
+   have as much or as little direct access to the HOST PC resources as you
+   want to configure (read up about LXC CGROUPS).
+   3.  Whereas Vmware, kvm, xen etc all require at least one dedicated cpu
+   &#8220;core&#8221; for each virtual machine you can only run so many VMs concurrently
+   on a system..  LXC does not have this restriction so with LXC there are
+   many people running as many as 50-80 LXC containers on a single server
+   although your mileage may vary depending on what each container has
+   installed, how much CPU, memory etc is available.
+   4. Maybe you&#8217;d like to have multiple customers each with an x2goserver
+   but isolated from each other without resorting to the expense of separate
+   servers for each customer?
+   5. Web Servers often don&#8217;t really need dedicated servers or even
+   dedicated Virtual Machines.    LXC Containers works great for that
+   purpose.
+
+ Remember I said that LXC containers can be as isolated from each other and
+from the HOST as you want.   They start totally isolated but we changed
+that a bit above so you could ssh or x2go into a container by adding the 2
+statements to a users ~/.ssh/config file
+
+However, you can allow LXC containers to share a HOST file
+system/directory, or even a something like an SQL server running on the
+HOST (again read about LXC CGROUPS).
+
+I may have forgotten a step or mistyped something here and if so send me a
+note and I'll double check and make any addition/correction.
+
+Have fun...
+
+
+*References:*
+<A HREF="http://lxc.teegra.net/">http://lxc.teegra.net/</A>
+<A HREF="http://www.ibm.com/developerworks/linux/library/l-lxc-containers/">http://www.ibm.com/developerworks/linux/library/l-lxc-containers/</A>
+<A HREF="http://www.stgraber.org/category/lxc/">http://www.stgraber.org/category/lxc/</A>
+
+Brian Mullan
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120827/b6b15c9b/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120827/b6b15c9b/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000980.html">[X2Go-User] X-Server cannot be started
+</A></li>
+	<LI>Next message: <A HREF="000982.html">[X2Go-User] HOWTO - install ubuntu &amp; x2goserver inside inside LXC containers
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#981">[ date ]</a>
+              <a href="thread.html#981">[ thread ]</a>
+              <a href="subject.html#981">[ subject ]</a>
+              <a href="author.html#981">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C20111002121102.112478vm4wbsdsc6%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000415.html">
+   <LINK REL="Next"  HREF="000417.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C20111002121102.112478vm4wbsdsc6%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Crashing sessions">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun Oct  2 12:11:02 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000415.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000417.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#416">[ date ]</a>
+              <a href="thread.html#416">[ thread ]</a>
+              <a href="subject.html#416">[ subject ]</a>
+              <a href="author.html#416">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Daniel,
+
+On So 02 Okt 2011 11:36:25 CEST Daniel Lindgren wrote:
+
+&gt;&gt;<i> Just as a counter feedback. I have tested nxcomp 3.5.0-2 on several systems
+</I>&gt;&gt;<i> (Debian squeeze, Ubuntu lucid) and the problem does not occur here.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> However, I have observed such failures before. Does the problem persist
+</I>&gt;&gt;<i> after server reboot (that is after restart of dbus &amp; co)?
+</I>&gt;<i>
+</I>&gt;<i> Yep, I've tried &quot;everything&quot;. I can start a Gnome or Xfce session
+</I>&gt;<i> locally (on the console), but x2go desktop sessions just don't work.
+</I>&gt;<i>
+</I>&gt;<i> Tried starting Xfce session in x2go, I can just see the desktop coming
+</I>&gt;<i> before the window disappears, this is in auth.log
+</I>&gt;<i>
+</I>&gt;<i> Oct  2 11:34:24 debian polkitd(authority=local): Registered
+</I>&gt;<i> Authentication Agent for session /org/freedesktop/ConsoleKit/Session16
+</I>&gt;<i> (system bus name :1.124
+</I>&gt;<i> [/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1],
+</I>&gt;<i> object path /org/gnome/PolicyKit1/AuthenticationAgent, locale
+</I>&gt;<i> sv_SE.UTF-8)
+</I>&gt;<i> Oct  2 11:34:26 debian polkitd(authority=local): Unregistered
+</I>&gt;<i> Authentication Agent for session /org/freedesktop/ConsoleKit/Session16
+</I>&gt;<i> (system bus name :1.124, object path
+</I>&gt;<i> /org/gnome/PolicyKit1/AuthenticationAgent, locale sv_SE.UTF-8)
+</I>&gt;<i> (disconnected from bus)
+</I>&gt;<i>
+</I>&gt;<i> No dbus errors.
+</I>&gt;<i>
+</I>&gt;<i> Starting a single application works, tried gedit and gnome-terminal.
+</I>&gt;<i> Nothing in auth.log from dbus or policykit.
+</I>
+Please switch to loglevel=debug in /etc/x2go/x2goserver.conf and see  
+what syslog brings then.
+
+If you have not updated x2goserver.conf yet then place this stanza  
+into the file
+
+[log]
+# possible levels are: emerg, alert, crit, err, warning, notice, info, debug
+loglevel=debug
+
+Thanks,
+mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111002/09d9475a/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111002/09d9475a/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000415.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000417.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#416">[ date ]</a>
+              <a href="thread.html#416">[ thread ]</a>
+              <a href="subject.html#416">[ subject ]</a>
+              <a href="author.html#416">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

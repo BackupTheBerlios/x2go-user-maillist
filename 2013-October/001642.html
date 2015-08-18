@@ -1,0 +1,168 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] no menu with gnome fallback
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20no%20menu%20with%20gnome%20fallback&In-Reply-To=%3CCAKfPJoTEVPAysdkcdcRwdcQdopUF4raNtBpCP8Yy6D-Ah0tGsA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001637.html">
+   <LINK REL="Next"  HREF="001647.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] no menu with gnome fallback</H1>
+    <B>Robert Lefebvre</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20no%20menu%20with%20gnome%20fallback&In-Reply-To=%3CCAKfPJoTEVPAysdkcdcRwdcQdopUF4raNtBpCP8Yy6D-Ah0tGsA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] no menu with gnome fallback">robert.r.lefebvre at gmail.com
+       </A><BR>
+    <I>Wed Oct  9 03:22:59 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001637.html">[X2Go-User] OS X and proxy server option - can't connect
+</A></li>
+        <LI>Next message: <A HREF="001647.html">[X2Go-User] x2gobroker: no sessions found
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1642">[ date ]</a>
+              <a href="thread.html#1642">[ thread ]</a>
+              <a href="subject.html#1642">[ subject ]</a>
+              <a href="author.html#1642">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+A new install of ubuntu 12.04, all updated.
+
+Installed latest all dependencies, x2goserver and x2goserver-xsession
+
+Have multiple users so I am trying to set gnome fallback as the default
+desktop globally by modifying etc/lightdm/lightdm.conf
+
+Have this in there now :
+
+[SeatDefaults]
+#greeter-session=unity-greeter
+#user-session=gnome-fallback
+gnome-session --session=gnome-fallback
+
+The &quot;greeter&quot; line is a mystery to me? I've run it and commented it out.
+Doesn't seem to make a difference that I have noticed.
+
+Basically the gnome classic desktop loads but no menu or task bar.
+
+In the client I'm using custom desktop option with &quot;gnome-session
+--session=gnome-fallback&quot; and also gnome-session
+--session=gnome-session-fallback&quot;
+
+I've got the screen size of the client set to 600X800. One odd behavior I
+noticed is that when the session is loading the window is, indeed, 600X800
+but by the time it has fully loaded it has gone completely full screen. I
+tried lowering the resolution, which keeps it going to full screen, but
+there are still no top or bottom toolbars.
+
+I'm running Windows 8 on a Toshiba 64 bit laptop.
+
+Any help with this would be greatly appreciated.
+
+Thanks
+
+Robert
+
+PS.
+
+Here is what is listed in the client's &quot;show details&quot; window
+
+NXPROXY - Version 3.5.0
+
+
+Copyright (C) 2001, 2010 NoMachine.
+
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+
+Info: Proxy running in client mode with pid '7136'.
+
+Session: Starting session at 'Tue Oct 8 20:48:25 2013'.
+
+Info: Connecting to remote host 'localhost:31001'.
+
+Info: Connection to remote proxy 'localhost:31001' established.
+
+Info: Connection with remote proxy completed.
+
+Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming agent
+session.
+
+Warning: Failed to read data from the X auth command.
+
+Warning: Generated a fake cookie for X authentication.
+
+Info: Using WAN link parameters 768/24/1/0.
+
+Info: Using cache parameters 4/4096KB/8192KB/8192KB.
+
+Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_32'.
+
+Info: Using ZLIB data compression 1/1/32.
+
+Info: Using ZLIB stream compression 1/1.
+
+Info: No suitable cache file found.
+
+Info: Forwarding X11 connections to display 'localhost:0'.
+
+Session: Session started at 'Tue Oct 8 20:48:26 2013'.
+
+Info: Established X server connection.
+
+Info: Using shared memory parameters 0/0K.
+
+
+
+
+
+
+BungeeBones.com - A B2B Link Exchange - Free Links in limited locations -
+human edited and reviewed - Networked online advertising business
+opportunities available through our free, distributed web directory script
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131008/0557302d/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131008/0557302d/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001637.html">[X2Go-User] OS X and proxy server option - can't connect
+</A></li>
+	<LI>Next message: <A HREF="001647.html">[X2Go-User] x2gobroker: no sessions found
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1642">[ date ]</a>
+              <a href="thread.html#1642">[ thread ]</a>
+              <a href="subject.html#1642">[ subject ]</a>
+              <a href="author.html#1642">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

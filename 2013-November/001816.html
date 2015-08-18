@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20No%20sound%20in%20X2Go%20TCE%20%28ATTN%3A%20%40Mike%29&In-Reply-To=%3C5293E39D.9090406%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001815.html">
+   <LINK REL="Next"  HREF="001817.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20No%20sound%20in%20X2Go%20TCE%20%28ATTN%3A%20%40Mike%29&In-Reply-To=%3C5293E39D.9090406%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Tue Nov 26 00:56:13 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001815.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+        <LI>Next message: <A HREF="001817.html">[X2Go-User] Is it possible to run the X2Go PXE Server (for X2Go TCE) in a Linux-VServer environment?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1816">[ date ]</a>
+              <a href="thread.html#1816">[ thread ]</a>
+              <a href="subject.html#1816">[ subject ]</a>
+              <a href="author.html#1816">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 25.11.2013 20:41, schrieb Mike Gabriel:
+
+&gt;<i> I have just released x2gothinclient last Friday (1.1.0.1). It contains
+</I>&gt;<i> several fixes and features add-ons. However, it depends on X2Go Client
+</I>&gt;<i> 4.0.1.2 which is still to be released.
+</I>
+Well, on the server, these packages are installed:
+dpkg -l x2go*
+Desired=Unknown/Install/Remove/Purge/Hold
+|<i> 
+</I>Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|<i>/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+</I>||<i>/ Name                      Version           Architecture 
+</I>Description
++++-=========================-=================-=================-=======================================================
+ii  x2go-keyring              2012.07.23+wheezy all               GnuPG 
+keys of all X2Go developers and the X2Go archive
+ii  x2goagent                 2:3.5.0.21-0+whee all               X2Go agent
+ii  x2goserver                4.0.1.6-0~x2go1+w i386              X2Go 
+server daemon scripts
+un  x2goserver-compat         &lt;none&gt;                              (no 
+description available)
+ii  x2goserver-extensions     4.0.1.6-0~x2go1+w all               X2Go 
+server daemon scripts (extensions)
+un  x2goserver-fmbindings     &lt;none&gt;                              (no 
+description available)
+un  x2goserver-home           &lt;none&gt;                              (no 
+description available)
+un  x2goserver-one            &lt;none&gt;                              (no 
+description available)
+un  x2goserver-printing       &lt;none&gt;                              (no 
+description available)
+un  x2goserver-pyhoca         &lt;none&gt;                              (no 
+description available)
+ii  x2goserver-xsession       4.0.1.6-0~x2go1+w all               X2Go 
+server daemon scripts (Xsession runner)
+ii  x2gothinclientmanagement  1.1.0.1-0~x2go1+w all 
+Management tools for X2Go Thin Client chroot server
+
+I'm not sure if you meant to say x2gothinclient or 
+x2gothinclientmanagement, but 1.1.0.1 is the version number you 
+mentioned above.
+
+
+On the client side, things look like this:
+
+dpkg -l 'x2go*'
+Desired=Unknown/Install/Remove/Purge/Hold
+|<i> 
+</I>Status=Not/Inst/Conf-files/Unpacked/halF-conf/Half-inst/trig-aWait/Trig-pend
+|<i>/ Err?=(none)/Reinst-required (Status,Err: uppercase=bad)
+</I>||<i>/ Name                                         Version 
+</I>      Architecture                Description
++++-============================================-===========================-===========================-=============================================================================================
+ii  x2go-keyring 
+2012.07.23+wheezy~main~17~b all                         GnuPG keys of 
+all X2Go developers and the X2Go archive
+ii  x2gocdmanager 
+1.1.0.2-0~x2go2+wheezy~heul i386                        clientside 
+daemon enabling automatic CD-Rom mounting
+ii  x2goclient 
+4.0.1.2-0~x2go2+wheezy~heul i386                        X2Go Client 
+application (Qt4)
+un  x2goclient-gtk                               &lt;none&gt; 
+                                  (no description available)
+ii  x2gosmartcardrules 
+1.1.0.2-0~x2go2+wheezy~heul all                         UDEV rules for 
+smartcard readers
+ii  x2gothinclient 
+1.1.0.2-0~x2go2+wheezy~heul all                         login daemon 
+starting x2goclient in displaymanager mode
+ii  x2gothinclient-chroot 
+1.1.0.2-0~x2go2+wheezy~heul all                         Install X2Go 
+Thin Client chroot (meta-package)
+un  x2gothinshutdown                             &lt;none&gt; 
+                                  (no description available)
+ii  x2gousbmount 
+1.1.0.2-0~x2go2+wheezy~heul all                         clientside usb 
+mass-storage device mounting
+
+Here, x2gothinclient even is at 1.1.0.2, and x2goclient is at 4.0.1.2, 
+which, again, is the version number you mentioned above and called it 
+&quot;unreleased&quot;. The entire TCE is pulled from the heuler repo, as it 
+seems. Is that intentional or a bug (either in a package or in the wiki)?
+
+&gt;<i> Just copying x2gothinclient_create is a bad idea, as I introduced a new
+</I>&gt;<i> package x2gothinclient-chroot that takes care of several chroot issues
+</I>&gt;<i> and is intended to make the X2Go TCE upgradable in the future.
+</I>
+Well, since it is a test environment, I thought it was worth giving it a 
+shot.
+
+-Stefan
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001815.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+	<LI>Next message: <A HREF="001817.html">[X2Go-User] Is it possible to run the X2Go PXE Server (for X2Go TCE) in a Linux-VServer environment?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1816">[ date ]</a>
+              <a href="thread.html#1816">[ thread ]</a>
+              <a href="subject.html#1816">[ subject ]</a>
+              <a href="author.html#1816">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

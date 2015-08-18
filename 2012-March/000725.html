@@ -1,0 +1,141 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] (TCE) Problem open display
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%28TCE%29%20Problem%20open%20display&In-Reply-To=%3C201203191736.35812.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000724.html">
+   <LINK REL="Next"  HREF="000730.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] (TCE) Problem open display</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%28TCE%29%20Problem%20open%20display&In-Reply-To=%3C201203191736.35812.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2Go-User] (TCE) Problem open display">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Mon Mar 19 17:36:35 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000724.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+        <LI>Next message: <A HREF="000730.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#725">[ date ]</a>
+              <a href="thread.html#725">[ thread ]</a>
+              <a href="subject.html#725">[ subject ]</a>
+              <a href="author.html#725">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Torsten,
+
+from your description and from the log-files it looks exactly like the problem 
+I described in the mail with subject: 
+
+Error: Aborting session with 'Unable to open
+
+from yesterday.
+Unfortunately I'm not any further ...
+
+Hope anybody has an hint.
+cheers
+Stefan
+
+Am Monday 19 March 2012 schrieb Torsten Bade:
+&gt;<i> Hi all,
+</I>&gt;<i> I have actually the problem to connect via TCE to the server (fresh
+</I>&gt;<i> install),
+</I>&gt;<i> when I use the normal Client under e.g. Ubuntu, there is no problem, I can
+</I>&gt;<i> connect, work etc.
+</I>&gt;<i> The problem itself is only with TCE and I'm running in circles.
+</I>&gt;<i> System Ubuntu 10.04 amd64, Gnome
+</I>&gt;<i> x2goserver/xsession: 3.1.0.1
+</I>&gt;<i> x2gognomebindings: 2.0.1.3
+</I>&gt;<i> 
+</I>&gt;<i> Client boot up via pxe, everything perfect ... but then, when I try to
+</I>&gt;<i> connect:
+</I>&gt;<i> I get the popup Message :
+</I>&gt;<i> Connection failed head:  cannot open
+</I>&gt;<i> /home/&lt;username&gt;/.x2go/C-XXXXXXXXXXX_stDGNOME-dp32/cmdoutput' for reading:
+</I>&gt;<i>  No such file or directory sed: -e expression #1, char 4: unterminated 's'
+</I>&gt;<i> command.
+</I>&gt;<i> 
+</I>&gt;<i> When I say 'Show details' I get:
+</I>&gt;<i> 
+</I>&gt;<i> ---&gt;&gt; SNIPP Show details &lt;&lt;---
+</I>&gt;<i> Proxy running in client mode with pid xxx
+</I>&gt;<i> Session: Starting session at xxx
+</I>&gt;<i> Info: Connecting to remote host 'localhost:31252'.
+</I>&gt;<i> (Here I was confused about localhost)
+</I>&gt;<i> Connection timeout, abortingInfo: Aborting the procedure due to signal
+</I>&gt;<i> '15'. ---&gt;&gt; SNAPP Show details &lt;&lt;---
+</I>&gt;<i> 
+</I>&gt;<i> ---&gt;&gt; SNIPP User Session.log &lt;&lt;---
+</I>&gt;<i> running as X2Go Agent
+</I>&gt;<i> 
+</I>&gt;<i> NXAGENT - Version 3.5.0
+</I>&gt;<i> 
+</I>&gt;<i> Copyright (C) 2001, 2011 NoMachine.
+</I>&gt;<i> See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Agent running with pid '8932'.
+</I>&gt;<i> Session: Starting session at 'Fri Mar 16 18:28:17 2012'.
+</I>&gt;<i> Info: Proxy running in server mode with pid '8932'.
+</I>&gt;<i> Info: Waiting for connection from 'localhost' on port '30126'.
+</I>&gt;<i> Info: Aborting the procedure due to signal '1'.
+</I>&gt;<i> Error: Aborting session with 'Unable to open display
+</I>&gt;<i> 'nx/nx,options=/ofs/logon/torba/.x2go/C-torba-50-1331918896_stDGNOME_dp24/o
+</I>&gt;<i> ptions:50''. Session: Aborting session at 'Fri Mar 16 18:28:50 2012'.
+</I>&gt;<i> Session: Session aborted at 'Fri Mar 16 18:28:50 2012'.
+</I>&gt;<i> 
+</I>&gt;<i> ---&gt;&gt; SNAPP &lt;&lt;---
+</I>&gt;<i> 
+</I>&gt;<i> I was so confused, that I added now the line:
+</I>&gt;<i> allowed_users=anybody
+</I>&gt;<i> into /etc/X11/Xwrapper.config ... but nothing
+</I>&gt;<i> 
+</I>&gt;<i> I can connect via ssh -X to the server and get for e.g. libreoffice
+</I>&gt;<i> displayed on my local machine.
+</I>&gt;<i> I tried different users ... nope ...same.
+</I>&gt;<i> 
+</I>&gt;<i> Hopefully somebody have a hint :)
+</I>&gt;<i> 
+</I>&gt;<i> Thanks in advance
+</I>&gt;<i> Torsten
+</I>
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000724.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+	<LI>Next message: <A HREF="000730.html">[X2Go-User] (TCE) Problem open display
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#725">[ date ]</a>
+              <a href="thread.html#725">[ thread ]</a>
+              <a href="subject.html#725">[ subject ]</a>
+              <a href="author.html#725">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

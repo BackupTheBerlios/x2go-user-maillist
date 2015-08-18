@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20%28redistributed%29%20--%20x2goagent%20fully%20integrated%20into%0A%20NX-libs%20%28call%20for%20testing%29&In-Reply-To=%3C20120113083228.16952f1cn0mzckjw%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000576.html">
+   <LINK REL="Next"  HREF="000536.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20%28redistributed%29%20--%20x2goagent%20fully%20integrated%20into%0A%20NX-libs%20%28call%20for%20testing%29&In-Reply-To=%3C20120113083228.16952f1cn0mzckjw%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Jan 13 08:32:28 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000576.html">[X2go-User] Problem sharing folder on Ubuntu 11.10
+</A></li>
+        <LI>Next message: <A HREF="000536.html">[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#535">[ date ]</a>
+              <a href="thread.html#535">[ thread ]</a>
+              <a href="subject.html#535">[ subject ]</a>
+              <a href="author.html#535">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+recently there has been some noise about X2Go re-working its NX code  
+base. Indeed some quite interesting things have been going on recently  
+around NX and X2Go.
+
+During the last weeks we have completely reworked the way we build NX  
+libraries. This has fixed a lot of instability problems people had  
+recently (summer/autumn 2011) already.
+
+During this last week we set up the X2Go subproject
+
+   ,,NX (redistributed)'' (aka nx-libs.git on <A HREF="http://git.x2go.org">http://git.x2go.org</A>)
+
+The X2Go project's developers (esp. Mike and Reinhard, supported by  
+Alex and Heinz) have decided to re-distribute NX sources as one big  
+tarball that builds with GNU make and contains patches not accepted by  
+NoMachine themselves. The building of the tarball with GNU make  
+already works fine, the ,,make install'' still needs more work. John  
+Williams has agreed to contribute on that (thanks for that!!!).
+
+@John: please note that I have uploaded a new tarball containing the  
+functionality described below ;-):
+<A HREF="http://code.x2go.org/releases/source/nx-libs/nx-libs_3.5.0.5-full.tar.gz">http://code.x2go.org/releases/source/nx-libs/nx-libs_3.5.0.5-full.tar.gz</A>
+
+During the last days now, we have achieved something that so far has  
+hardly been imaginable (at least to me).
+
+We have incorporated three patches into nx-libs.git that allows to  
+turn NX's nxagent into x2goagent during runtime:
+01:  
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/200_nxagent_check-binary-x2go-flavour.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/200_nxagent_check-binary-x2go-flavour.patch</A>
+02:  
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/201_nxagent_set-x2go-icon-if-x2goagent-flavour.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/201_nxagent_set-x2go-icon-if-x2goagent-flavour.patch</A>
+03:  
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/999_nxagent_unbrand-nxagent-brand-x2goagent.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/999_nxagent_unbrand-nxagent-brand-x2goagent.patch</A>
+
+X2Go's agent is now part of NX and is maintained in nx-libs.git on  
+<A HREF="http://git.x2go.org.">http://git.x2go.org.</A>
+
+The x2goagent package from now on depends on nxagent (as they are  
+one). The x2goagent package provides a symbolic link to nxagent, a  
+separate x2goagent man page and a wrapper script in /usr/bin, nothing  
+else. If nxagent is executed unter the name of x2goagent, the X2GO  
+branding gets activated within nxagent.
+
+Also: ,,NX (redistributed)'' is fully FreeNX compliant. Install ,,NX  
+(redistributed)'' from the X2Go package archives and add FreeNX  
+(Ubuntu Launchpad) on top of that. FreeNX and X2Go can now again be  
+installed parallely on the same system. Interesting for migrations or  
+client diversity.
+
+This step also allows us to finally abandon the following source  
+projects completely now:
+
+   nxcomp.git
+   nxcompext.git
+   nxcompshad.git
+   nxproxy.git
+   x2goagent.git
+
+See also at the bottom of this page:
+<A HREF="http://code.x2go.org/gitweb">http://code.x2go.org/gitweb</A>
+
+As this is esp. a call-out for testing the new packages(!!!!) here are  
+some short infos on upgrading your X2Go test servers. Packages are  
+available for Debian squeeze, wheezy, sid and Ubuntu lucid, ...,  
+precise.
+
+The .deb packages are already available in the X2Go nightly-built  
+repositories:
+<A HREF="http://wiki.x2go.org/wiki:development:nightly-builds?&amp;#nightly-builds_for_ubuntu_gnu_linux">http://wiki.x2go.org/wiki:development:nightly-builds?&amp;#nightly-builds_for_ubuntu_gnu_linux</A>
+
+Please note, that x2goagent will not install when running ,,apt-get  
+upgrade''. Either you have to run ,,apt-get dist-upgrade'' or  
+explicitly install x2goagent with ,,apt-get install x2goagent''.
+
+light+love
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120113/59e07684/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120113/59e07684/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000576.html">[X2go-User] Problem sharing folder on Ubuntu 11.10
+</A></li>
+	<LI>Next message: <A HREF="000536.html">[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#535">[ date ]</a>
+              <a href="thread.html#535">[ thread ]</a>
+              <a href="subject.html#535">[ subject ]</a>
+              <a href="author.html#535">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

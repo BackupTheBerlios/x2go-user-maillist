@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Fullscreen session stops working in unity
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Fullscreen%20session%20stops%20working%20in%20unity&In-Reply-To=%3Cloom.20131203T195858-248%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001829.html">
+   <LINK REL="Next"  HREF="001831.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Fullscreen session stops working in unity</H1>
+    <B>Harvey Eneman</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Fullscreen%20session%20stops%20working%20in%20unity&In-Reply-To=%3Cloom.20131203T195858-248%40post.gmane.org%3E"
+       TITLE="[X2Go-User] Fullscreen session stops working in unity">harvey.eneman at oracle.com
+       </A><BR>
+    <I>Tue Dec  3 20:34:03 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001829.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+        <LI>Next message: <A HREF="001831.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1830">[ date ]</a>
+              <a href="thread.html#1830">[ thread ]</a>
+              <a href="subject.html#1830">[ subject ]</a>
+              <a href="author.html#1830">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Markus Fritsche &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">fritsche.markus at ...</A>&gt; writes:
+
+&gt;<i> 
+</I>&gt;<i> Hello,&#160;
+</I>&gt;<i> I googled it, but didn't came up with a solution (probably due to wrong
+</I>searchterms). I am connecting to a x2go server just fine in fullscreen mode.
+When I minimize the session (using the top right hot corner) and go back, I
+can't open the window after the second time I did that (minimize &amp; reopen
+the window). The session still seems to be working &amp; valid, just I can't see
+the window.
+&gt;<i> 
+</I>&gt;<i> I am using x2go-stable from ubuntu ppa on Ubuntu-13.10 with standard unity
+</I>(no tweaks). Did someone have a similar problem and solved it?
+&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Best regards,&#160;
+</I>&gt;<i> 
+</I>&gt;<i> &#160; Markus
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> &lt;div&gt;&lt;div dir=&quot;ltr&quot;&gt;Hello,&#160;&lt;div&gt;&lt;br&gt;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;I googled it, but didn't came up with a solution (probably due to
+</I>wrong searchterms). I am connecting to a x2go server just fine in fullscreen
+mode. When I minimize the session (using the top right hot corner) and go
+back, I can't open the window after the second time I did that (minimize
+&amp; reopen the window). The session still seems to be working &amp; valid,
+just I can't see the window.&lt;/div&gt;
+&gt;<i> &lt;div&gt;&lt;br&gt;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;I am using x2go-stable from ubuntu ppa on Ubuntu-13.10 with standard
+</I>unity (no tweaks). Did someone have a similar problem and solved it?&lt;/div&gt;
+&gt;<i> &lt;div&gt;&lt;br&gt;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;&lt;br&gt;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;Best regards,&#160;&lt;/div&gt;
+</I>&gt;<i> &lt;div&gt;
+</I>&gt;<i> &#160; Markus&lt;/div&gt;
+</I>&gt;<i> &lt;/div&gt;&lt;/div&gt;
+</I>&gt;<i> 
+</I>
+I had a similar issue and debugged it successfully.  The issue occurs
+because the x2gostartagent script and the x2goresume-session script become
+out-of-sync with respect to options file when fullscreen is used, i.e., the
+x2goresume-session expects the geometry field to be in position 13.  The
+fact that the geometry field is missing causes x2goresume-session to misread
+the options file and subsequently corrupt it.  To resume a fullscreen
+session, you may edit the options file to correct the corruption.  To
+prevent the issue in new sessions, I edited the x2gostartagent script to
+coerce it to include an empty geometry field.  Unfortunately, the post
+service required splitting the diff lines but I think you should still be
+able follow it.
+
+258c258
+&lt; 	option_geometry=&quot;${X2GO_GEOMETRY}&quot;
+---
+&gt;<i> 	option_geometry=&quot;geometry=${X2GO_GEOMETRY},&quot;
+</I>262c262
+&lt;   X2GO_HOST=&quot;nx/nx,link=${X2GO_LINK},pack=${X2GO_PACK},limit=0,
+root=${SESSION_DIR},cache=8M,images=32M,type=${X2GO_TYPE},id=${SESSION_NAME},
+cookie=$X2GO_COOKIE,errors=${SESSION_LOG},kbtype=null/null,
+geometry=${option_geometry},resize=${X2GO_RESIZE},
+fullscreen=${X2GO_FULLSCREEN},accept=${REMOTE},listen=${GR_PORT},
+client=linux,menu=0&quot;
+---
+&gt;<i>   X2GO_HOST=&quot;nx/nx,link=${X2GO_LINK},pack=${X2GO_PACK},limit=0,
+</I>root=${SESSION_DIR},cache=8M,images=32M,type=${X2GO_TYPE},id=${SESSION_NAME},
+cookie=$X2GO_COOKIE,errors=${SESSION_LOG},kbtype=null/null,
+${option_geometry}resize=${X2GO_RESIZE},fullscreen=${X2GO_FULLSCREEN},
+accept=${REMOTE},listen=${GR_PORT},client=linux,menu=0&quot;
+264c264
+&lt;   X2GO_HOST=&quot;nx/nx,link=${X2GO_LINK},pack=${X2GO_PACK},limit=0,
+root=${SESSION_DIR},cache=8M,images=32M,type=${X2GO_TYPE},id=${SESSION_NAME},
+cookie=$X2GO_COOKIE,errors=${SESSION_LOG},kbtype=${X2GO_KBD_TYPE},
+geometry=${option_geometry},resize=${X2GO_RESIZE},
+fullscreen=${X2GO_FULLSCREEN},accept=${REMOTE},listen=${GR_PORT},
+client=linux,menu=0&quot;
+---
+&gt;<i>   X2GO_HOST=&quot;nx/nx,link=${X2GO_LINK},pack=${X2GO_PACK},limit=0,
+</I>root=${SESSION_DIR},cache=8M,images=32M,type=${X2GO_TYPE},id=${SESSION_NAME},
+cookie=$X2GO_COOKIE,errors=${SESSION_LOG},kbtype=${X2GO_KBD_TYPE},
+${option_geometry}resize=${X2GO_RESIZE},fullscreen=${X2GO_FULLSCREEN},
+accept=${REMOTE},listen=${GR_PORT},client=linux,menu=0&quot;
+
+
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001829.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+	<LI>Next message: <A HREF="001831.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1830">[ date ]</a>
+              <a href="thread.html#1830">[ thread ]</a>
+              <a href="subject.html#1830">[ subject ]</a>
+              <a href="author.html#1830">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] pyhoca-gui error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pyhoca-gui%20error&In-Reply-To=%3C52591B50.5000907%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001657.html">
+   <LINK REL="Next"  HREF="001659.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] pyhoca-gui error</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pyhoca-gui%20error&In-Reply-To=%3C52591B50.5000907%40vxpertise.net%3E"
+       TITLE="[X2Go-User] pyhoca-gui error">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Sat Oct 12 11:50:08 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001657.html">[X2Go-User] X2go browser plugin &amp; session broker
+</A></li>
+        <LI>Next message: <A HREF="001659.html">[X2Go-User] pyhoca-gui error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1658">[ date ]</a>
+              <a href="thread.html#1658">[ thread ]</a>
+              <a href="subject.html#1658">[ subject ]</a>
+              <a href="author.html#1658">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, connecting to my server I get this since the day before yesterday: 
+Dunno what changed ...
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at x220</A>:~$ pyhoca-gui --debug
+Xlib.protocol.request.QueryExtension
+pyhoca-gui[15814] (PyHoca-GUI) DEBUG: PyHoca-GUI's user interface 
+language is: en_US.
+pyhoca-gui[15814] (PyHoca-GUI) INFO: PyHoca GUI is starting up
+pyhoca-gui[15814] (PyHoca-GUI) INFO: start TaskBarIcon of type: 
+('__WXGTK__', 'wxGTK', 'unicode', 'gtk2', 'wx-assertions-off', 
+'SWIG-1.3.29')
+pyhoca-gui[15814] (PyHoca-GUI) WARN: the current release of PyHoca-GUI 
+does not support client configuration
+pyhoca-gui[15814] (x2gosessregistry-pylib) NOTICE: registering X2Go 
+session **********...
+pyhoca-gui[15814] (x2goclient-pylib) NOTICE: initializing X2Go session...
+pyhoca-gui[15814] (x2gocontrolsession-pylib) NOTICE: connecting to 
+[**********]:22
+pyhoca-gui[15814] (PyHoca-GUI) INFO: SSH key authentication to server 
+failed, trying next auth-mechanism
+pyhoca-gui[15814] (PyHoca-GUI) INFO: password dialog box started
+pyhoca-gui[15814] (x2gocontrolsession-pylib) NOTICE: connecting to 
+[**********]:22
+pyhoca-gui[15814] (PyHoca-GUI) NOTICE: [********** - connect] 
+Authentication has been successful.
+Traceback (most recent call last):
+   File &quot;/usr/lib/python2.7/dist-packages/pyhoca/wxgui/logon.py&quot;, line 
+438, in OnLogin
+     self._PyHocaGUI.notifier.send(self.current_profile_name, 
+context='AUTH_%s' % self.current_profile_name, timeout=4000)
+   File &quot;/usr/lib/python2.7/dist-packages/pyhoca/wxgui/notify.py&quot;, line 
+137, in send
+     if not n.show():
+glib.GError: GDBus.Error:org.freedesktop.DBus.Error.ServiceUnknown: The 
+name org.freedesktop.Notifications was not provided by any .service files
+pyhoca-gui[15814] (PyHoca-GUI) INFO: exit application
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mathias at x220</A>:~$
+
+For some reaseon pub key auth doesn't work anymore and even with 
+password auth it shows this error message.
+
+
+cheers
+Mathias
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001657.html">[X2Go-User] X2go browser plugin &amp; session broker
+</A></li>
+	<LI>Next message: <A HREF="001659.html">[X2Go-User] pyhoca-gui error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1658">[ date ]</a>
+              <a href="thread.html#1658">[ thread ]</a>
+              <a href="subject.html#1658">[ subject ]</a>
+              <a href="author.html#1658">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

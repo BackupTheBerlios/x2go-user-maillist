@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Hooking Up To A Running X-Session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C1302636743.3814.5.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000102.html">
+   <LINK REL="Next"  HREF="000104.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Hooking Up To A Running X-Session</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C1302636743.3814.5.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-user] Hooking Up To A Running X-Session">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Tue Apr 12 21:32:23 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000102.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+        <LI>Next message: <A HREF="000104.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#103">[ date ]</a>
+              <a href="thread.html#103">[ thread ]</a>
+              <a href="subject.html#103">[ subject ]</a>
+              <a href="author.html#103">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 2011-04-12 at 20:56 +0200, Mike Gabriel wrote:
+&gt;<i> Hi Axel,
+</I>&lt;snip&gt;
+&gt;<i> The second usecase is more tricky than the first. X2go shadow session  
+</I>&gt;<i> (that's what the guest user sessions are called) have only been  
+</I>&gt;<i> implemented quite recently. They are not available in the lenny  
+</I>&gt;<i> repositories. Use these two (both!) line in /etc/apt/sources.list (on  
+</I>&gt;<i> server and linux clients):
+</I>&gt;<i> 
+</I>&gt;<i> deb <A HREF="http://x2go.obviously-nice.de/deb">http://x2go.obviously-nice.de/deb</A> lenny main
+</I>&gt;<i> deb <A HREF="http://x2go.obviously-nice.de/deb">http://x2go.obviously-nice.de/deb</A> heuler main
+</I>&gt;<i> 
+</I>&gt;<i> On the server you currently have to install (this will change in the  
+</I>&gt;<i> near future):
+</I>&gt;<i> 
+</I>&gt;<i> Debian:
+</I>&gt;<i> apt-get install x2goserver-one x2godesktopsharing x2gognomebindings  
+</I>&gt;<i> x2goplasmoid
+</I>&gt;<i> 
+</I>&gt;<i> Ubuntu:
+</I>&gt;<i> apt-get install x2goserver-home x2godesktopsharing x2gognomebindings  
+</I>&gt;<i> x2goplasmoid
+</I>&gt;<i> 
+</I>&gt;<i> On the client you simply need the x2goclient package:
+</I>&gt;<i> 
+</I>&gt;<i> apt-get install x2goclient
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> YOU:
+</I>&gt;<i> ----
+</I>&gt;<i> On the server you have to start the x2godesktopsharing util that will  
+</I>&gt;<i> dock to your systray panel. Make sure you allow other to knock on your  
+</I>&gt;<i> door.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> YOUR GUEST:
+</I>&gt;<i> -----------
+</I>&gt;<i> The guest user first of all needs an SSH account on the X2go server.  
+</I>&gt;<i> Hope, this is not a hurdle. The guest user then has to start a  
+</I>&gt;<i> shared/shadow session from his local x2goclient app. The session name  
+</I>&gt;<i> for this in the session profile preference is:
+</I>&gt;<i> 
+</I>&gt;<i>    ,,Connect to local desktop''
+</I>&gt;<i>    ,,Zugriff auf lokalen Desktop'' in Deutsch
+</I>&gt;<i> 
+</I>&gt;<i> So, instead of using GNOME or KDE your guest user has to use either of  
+</I>&gt;<i> the above with the hostname, port, username etc. of your X2go server.
+</I>&gt;<i> 
+</I>&gt;<i> If the guest user then starts a session, he/she will knock on your  
+</I>&gt;<i> x2godesktopsharing icon virtual door and you can decide to let him/her  
+</I>&gt;<i> in or not.
+</I>&lt;snip&gt;
+We take a slightly different approach - and that is exactly what it is -
+different - not better or worse.  In our case, we want our users working
+in their virtual desktops all the time and the virtual desktops are all
+accessed across the Internet.  Thus, we did not want users to have to
+leave their virtual desktops to open another X2Go session in shadow
+mode.  Instead, we placed &quot;share desktop&quot; and &quot;View Another Desktop&quot;
+icons on their virtual desktops which use X11VNC to share the active
+desktop.  Thus, all activity is from within the virtual desktops.
+
+Since the VNC connection is inside the LAN (between virtual desktops),
+the performance is very good and we gain the Internet boost from NX for
+VNC just like we do for RDP when we push Terminal Server sessions
+through NX.  Just another way for those with environments similar to
+ours - John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000102.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+	<LI>Next message: <A HREF="000104.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#103">[ date ]</a>
+              <a href="thread.html#103">[ thread ]</a>
+              <a href="subject.html#103">[ subject ]</a>
+              <a href="author.html#103">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

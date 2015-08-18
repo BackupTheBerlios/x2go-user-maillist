@@ -1,0 +1,329 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3CCAFz1H_F55f-OndWfc4s2EC16VZmCTV7Ktj3Bs16CKy48rLC_cg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001510.html">
+   <LINK REL="Next"  HREF="001514.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.</H1>
+    <B>Roland Giesler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3CCAFz1H_F55f-OndWfc4s2EC16VZmCTV7Ktj3Bs16CKy48rLC_cg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.">roland at giesler.za.net
+       </A><BR>
+    <I>Mon Jul 15 12:32:32 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001510.html">[X2Go-User] Sharing the display between two different users in	x2go remove session
+</A></li>
+        <LI>Next message: <A HREF="001514.html">[X2Go-User] X2go keyboard layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1513">[ date ]</a>
+              <a href="thread.html#1513">[ thread ]</a>
+              <a href="subject.html#1513">[ subject ]</a>
+              <a href="author.html#1513">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jul 11, 2013 at 8:07 PM, Kjell Otto &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">otto.kjell at gmail.com</A>&gt; wrote:
+&gt;<i> Have you tried to delete the .Xauthority File in the users Homefolder?
+</I>
+I have now.
+
+On the client I log:
+
+Loop: PANIC! The remote NX proxy closed the connection.
+Loop: PANIC! Failure negotiating the session in stage '7'.
+Loop: PANIC! Wrong version or invalid session authentication cookie.
+
+On the server, the session log shows:
+
+running as X2Go Agent
+
+NXAGENT - Version 3.5.0
+
+Copyright (C) 2001, 2011 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Agent running with pid '2543'.
+Session: Starting session at 'Mon Jul 15 11:50:05 2013'.
+Info: Proxy running in server mode with pid '2543'.
+Info: Waiting for connection from 'localhost' on port '30001'.
+Warning: Refusing connection from '192.168.1.3'.
+Error: Connection with remote host 'localhost' could not be established.
+Error: Aborting session with 'Unable to open display
+'nx/nx,options=/home/roland/.x2go/C-roland-50-1373881804_stDUNITY_dp24/options:50''.
+Session: Aborting session at 'Mon Jul 15 11:50:55 2013'.
+Session: Session aborted at 'Mon Jul 15 11:50:55 2013'.
+
+This makes me think.  I port forward port 22 through the ADSL router
+(which has 192.168.1.1 as LAN ethernet address and the server has
+192.168.1.3).  Could this have something to do with the problem?  What
+is port 30001 used for and should I allow that through the firewall?
+Surely port 22 should be enough?
+
+I have also turned apparmor off, but it makes no difference.
+
+thanks again
+
+Roland
+
+&gt;<i>
+</I>&gt;<i> Please Try that first. Your log seems to be completely normal so far... Do
+</I>&gt;<i> you have a Desktop you can shadow to? I mean if there is no MasterSession
+</I>&gt;<i> opened, then you can't shadow it...
+</I>&gt;<i>
+</I>&gt;<i> Best regards,
+</I>&gt;<i> Kjellski
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2013/7/11 Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Thu, Jul 11, 2013 at 9:22 AM, Kjell Otto &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">otto.kjell at gmail.com</A>&gt; wrote:
+</I>&gt;&gt;<i> &gt; Hi Roland,
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; have you seen what's mentioned here:
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; <A HREF="http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=18258&amp;group_id=2978">http://developer.berlios.de/bugs/?func=detailbug&amp;bug_id=18258&amp;group_id=2978</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Here's what my server log has.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Jul 11 15:14:54 Ashton /usr/bin/x2golistdesktops[30895]:
+</I>&gt;&gt;<i> x2golistdesktops has been called without options
+</I>&gt;&gt;<i> Jul 11 15:14:54 Ashton /usr/bin/x2golistsessions[30899]:
+</I>&gt;&gt;<i> x2golistsessions has been called with options: x2goserver
+</I>&gt;&gt;<i> Jul 11 15:14:58 Ashton /usr/bin/x2gostartagent: x2gostartagent called
+</I>&gt;&gt;<i> with options: 1440x900 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1
+</I>&gt;&gt;<i> S 1XSHADrolandXSHAD:0
+</I>&gt;&gt;<i> Jul 11 15:14:58 Ashton /usr/bin/x2gosessionlimit[30961]:
+</I>&gt;&gt;<i> x2gosessionlimit has been called
+</I>&gt;&gt;<i> Jul 11 15:14:58 Ashton /usr/bin/x2golistsessions[30964]:
+</I>&gt;&gt;<i> x2golistsessions has been called with options: --all-servers
+</I>&gt;&gt;<i> Jul 11 15:14:59 Ashton /usr/bin/x2gofeature: x2gofeature called with
+</I>&gt;&gt;<i> options: X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:14:59 Ashton
+</I>&gt;&gt;<i> /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+</I>&gt;&gt;<i> x2goserver-extensions.features called with options:
+</I>&gt;&gt;<i> X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton /usr/bin/x2goserver-run-extensions:
+</I>&gt;&gt;<i> x2goserver-run-extensions called with options:
+</I>&gt;&gt;<i> roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24 pre-start
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton /usr/bin/x2gostartagent: successfully started
+</I>&gt;&gt;<i> X2Go agent session with ID
+</I>&gt;&gt;<i> roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton /usr/bin/x2gofeature: x2gofeature called with
+</I>&gt;&gt;<i> options: X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton
+</I>&gt;&gt;<i> /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+</I>&gt;&gt;<i> x2goserver-extensions.features called with options:
+</I>&gt;&gt;<i> X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton /usr/bin/x2goserver-run-extensions:
+</I>&gt;&gt;<i> x2goserver-run-extensions called with options:
+</I>&gt;&gt;<i> roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24 post-start
+</I>&gt;&gt;<i> Jul 11 15:15:00 Ashton /usr/bin/x2gostartagent: blocking creation of
+</I>&gt;&gt;<i> agent's keyboard file
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> /home/roland/.x2go/C-roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24/keyboard
+</I>&gt;&gt;<i> as requested by session startup command
+</I>&gt;&gt;<i> Jul 11 15:15:52 Ashton /usr/bin/x2goumount-session[31487]:
+</I>&gt;&gt;<i> x2goumount-session has been called with options:
+</I>&gt;&gt;<i> roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24
+</I>&gt;&gt;<i> Jul 11 15:15:54 Ashton /usr/bin/x2goumount-session[31524]:
+</I>&gt;&gt;<i> x2goumount-session has been called with options:
+</I>&gt;&gt;<i> roland-50-1373548499_stS1XSHADrolandXSHADPP0_dp24
+</I>&gt;&gt;<i> Jul 11 15:17:01 Ashton CRON[31876]: (root) CMD (   cd / &amp;&amp; run-parts
+</I>&gt;&gt;<i> --report /etc/cron.hourly)
+</I>&gt;&gt;<i> Jul 11 15:19:46 Ashton /usr/bin/x2golistdesktops[428]:
+</I>&gt;&gt;<i> x2golistdesktops has been called without options
+</I>&gt;&gt;<i> Jul 11 15:19:46 Ashton /usr/bin/x2golistsessions[432]:
+</I>&gt;&gt;<i> x2golistsessions has been called with options: x2goserver
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/bin/x2gostartagent: x2gostartagent called
+</I>&gt;&gt;<i> with options: 1440x900 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1
+</I>&gt;&gt;<i> S 1XSHADrolandXSHAD:0
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/bin/x2gostartagent: client announced
+</I>&gt;&gt;<i> itself as ,,105.237.13.183''
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/bin/x2gostartagent: shadow session
+</I>&gt;&gt;<i> requested: mode 1, user: roland, desktop: :0
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/bin/x2gosessionlimit[496]:
+</I>&gt;&gt;<i> x2gosessionlimit has been called
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/bin/x2golistsessions[499]:
+</I>&gt;&gt;<i> x2golistsessions has been called with options: --all-servers
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/lib/x2go/x2gogetdisplays[513]:
+</I>&gt;&gt;<i> db_getdisplays called, server: Ashton; return value:
+</I>&gt;&gt;<i> Jul 11 15:19:52 Ashton /usr/lib/x2go/x2gogetports[523]: db_getports
+</I>&gt;&gt;<i> called, server: Ashton; return value:
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/lib/x2go/x2goinsertsession[550]:
+</I>&gt;&gt;<i> db_insertsession called, session ID:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24, server: Ashton,
+</I>&gt;&gt;<i> session ID: roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/lib/x2go/x2goinsertport[562]:
+</I>&gt;&gt;<i> db_insertport called, session ID:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24, server: Ashton, SSH
+</I>&gt;&gt;<i> port: 30001
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/lib/x2go/x2goinsertport[574]:
+</I>&gt;&gt;<i> db_insertport called, session ID:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24, server: Ashton, SSH
+</I>&gt;&gt;<i> port: 30002
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/lib/x2go/x2goinsertport[587]:
+</I>&gt;&gt;<i> db_insertport called, session ID:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24, server: Ashton, SSH
+</I>&gt;&gt;<i> port: 30003
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/bin/x2gofeature: x2gofeature called with
+</I>&gt;&gt;<i> options: X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton
+</I>&gt;&gt;<i> /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+</I>&gt;&gt;<i> x2goserver-extensions.features called with options:
+</I>&gt;&gt;<i> X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/bin/x2goserver-run-extensions:
+</I>&gt;&gt;<i> x2goserver-run-extensions called with options:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24 pre-start
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/bin/x2gostartagent: successfully started
+</I>&gt;&gt;<i> X2Go agent session with ID
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24
+</I>&gt;&gt;<i> Jul 11 15:19:53 Ashton /usr/bin/x2gofeature: x2gofeature called with
+</I>&gt;&gt;<i> options: X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:19:54 Ashton
+</I>&gt;&gt;<i> /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+</I>&gt;&gt;<i> x2goserver-extensions.features called with options:
+</I>&gt;&gt;<i> X2GO_RUN_EXTENSIONS
+</I>&gt;&gt;<i> Jul 11 15:19:54 Ashton /usr/bin/x2goserver-run-extensions:
+</I>&gt;&gt;<i> x2goserver-run-extensions called with options:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24 post-start
+</I>&gt;&gt;<i> Jul 11 15:19:54 Ashton /usr/lib/x2go/x2gocreatesession[680]:
+</I>&gt;&gt;<i> db_createsession called, session ID:
+</I>&gt;&gt;<i> roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24, cookie:
+</I>&gt;&gt;<i> 99946d36e5e8848f5f91951d5c1c6f67, client: xxx.yyy.13.183, pid: 645,
+</I>&gt;&gt;<i> graphics port: 30001, sound port: 30002, file sharing port: 30003
+</I>&gt;&gt;<i> Jul 11 15:19:54 Ashton /usr/bin/x2gostartagent: blocking creation of
+</I>&gt;&gt;<i> agent's keyboard file
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> /home/roland/.x2go/C-roland-50-1373548792_stS1XSHADrolandXSHADPP0_dp24/keyboard
+</I>&gt;&gt;<i> as requested by session startup command
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> That last line: Is that because of the error, or is it causing the error?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> thanks
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Roland
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Wether it helps or not, it would be great to see the server side of
+</I>&gt;&gt;<i> &gt; this, so
+</I>&gt;&gt;<i> &gt; please post the corresponding entries of your /var/log/syslog after
+</I>&gt;&gt;<i> &gt; configuring the x2goserver for debugging(set it in
+</I>&gt;&gt;<i> &gt; /etc/x2go/x2goserver.conf).
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Nevertheless, the only Cookies I can think used by x2go are the MIT
+</I>&gt;&gt;<i> &gt; magic
+</I>&gt;&gt;<i> &gt; cookies of X... maybe try to delete the .Xauthority of the user trying
+</I>&gt;&gt;<i> &gt; to
+</I>&gt;&gt;<i> &gt; log in and retry...
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; Greetings,
+</I>&gt;&gt;<i> &gt; @Kjellski
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt; 2013/7/10 Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; I must have read every mailing list and other posts I could find on
+</I>&gt;&gt;<i> &gt;&gt; Google regarding this problem.  Nowhere was anyone able to identify
+</I>&gt;&gt;<i> &gt;&gt; the actual cause and fix for this problem.
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; How can this be?  Does anyone know where the X2Go developer(s) hang
+</I>&gt;&gt;<i> &gt;&gt; out?
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; thanks
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; Roland Giesler
+</I>&gt;&gt;<i> &gt;&gt; +27 (0)72-450-2817
+</I>&gt;&gt;<i> &gt;&gt; <A HREF="http://www.giesler.za.net">http://www.giesler.za.net</A>
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; Disclaimer: The sender invokes the rule of &quot;exemptus responsibilitus&quot;
+</I>&gt;&gt;<i> &gt;&gt; pertaining to caffeine soluted inductions and/or decantations thereof
+</I>&gt;&gt;<i> &gt;&gt; into tactile communication interfaces and alternative apparatuses with
+</I>&gt;&gt;<i> &gt;&gt; respect to personal computation devices or otherwise implementations
+</I>&gt;&gt;<i> &gt;&gt; of electronic and/or bionic devices. This impartation is intended for
+</I>&gt;&gt;<i> &gt;&gt; the addressed party, unless conditions contrary to the aforementioned
+</I>&gt;&gt;<i> &gt;&gt; exist, in which case it is pertinent.  Reduce without further ado to
+</I>&gt;&gt;<i> &gt;&gt; nothingness said impartation; alternatively &quot;refrain from traversing
+</I>&gt;&gt;<i> &gt;&gt; the point of origination, be not enriched by 200 Randus and proceed
+</I>&gt;&gt;<i> &gt;&gt; without delay to enjailment&quot;.
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; On Thu, Jul 4, 2013 at 10:25 PM, Roland Giesler &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;&gt;<i> &gt;&gt; wrote:
+</I>&gt;&gt;<i> &gt;&gt; &gt; bump.
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; anyone with help?
+</I>&gt;&gt;<i> &gt;&gt; &gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; On Mon, Jul 1, 2013 at 11:36 PM, Roland Giesler
+</I>&gt;&gt;<i> &gt;&gt; &gt; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">roland at giesler.za.net</A>&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt; wrote:
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; This error is most annoying to say the least, since no-where on the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; internet is an explaination of the cause nor the fix for it.  Some
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; people seem to have managed to get past it by luck.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; This is an Ubuntu 12.04 64bit server that had nxserver install.  One
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; day (probably after some update, but it was too long ago to undo of
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; trace now) the nxclient just stopped working.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; I left it after many futile attempt to fix it.  I have completely
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; removed (purged) openssh-server and nxserver, nxnode and nxclient.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Numerous times, apart from creating keys manually and more.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; So I though, let me switch to X2Go.  And lo and behold, I get the
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; same
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; error.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Strangely enough though, I can connect perfect to the server via SSH
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; every time.
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; What causes this and how does one fix this please?
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; regards
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt;
+</I>&gt;&gt;<i> &gt;&gt; &gt;&gt; Roland
+</I>&gt;&gt;<i> &gt;&gt; _______________________________________________
+</I>&gt;&gt;<i> &gt;&gt; X2Go-User mailing list
+</I>&gt;&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i> &gt;&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;&gt;<i> &gt;
+</I>&gt;&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i>
+</I></PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001510.html">[X2Go-User] Sharing the display between two different users in	x2go remove session
+</A></li>
+	<LI>Next message: <A HREF="001514.html">[X2Go-User] X2go keyboard layout
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1513">[ date ]</a>
+              <a href="thread.html#1513">[ thread ]</a>
+              <a href="subject.html#1513">[ subject ]</a>
+              <a href="author.html#1513">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

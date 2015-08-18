@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Can Only Keep One Session at a Time
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3C1341852360.3094.23.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000924.html">
+   <LINK REL="Next"  HREF="000927.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Can Only Keep One Session at a Time</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Can%20Only%20Keep%20One%20Session%20at%20a%20Time&In-Reply-To=%3C1341852360.3094.23.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] Can Only Keep One Session at a Time">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Mon Jul  9 18:46:00 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000924.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+        <LI>Next message: <A HREF="000927.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#925">[ date ]</a>
+              <a href="thread.html#925">[ thread ]</a>
+              <a href="subject.html#925">[ subject ]</a>
+              <a href="author.html#925">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sun, 2012-07-08 at 22:09 -0700, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">merc1984 at f-m.fm</A> wrote:
+&gt;<i> On Mon, Jul 9, 2012, at 06:32, Daniel Lindgren wrote:
+</I>&gt;<i> &gt; Could be a TCP port conflict. Try changing the value for SSH_PORT to
+</I>&gt;<i> &gt; 30200 in /usr/bin/x2gostartagent on one of the target machines so they
+</I>&gt;<i> &gt; are using different port ranges. End all X2Go sessions (not just
+</I>&gt;<i> &gt; disconnect, log out) before you try again.
+</I>&gt;<i> 
+</I>&gt;<i> I don't see how it could be a port conflict, as one is addressed at
+</I>&gt;<i> 192.168.1.3:22 and the other at 192.168.1.4:22.
+</I>&gt;<i> 
+</I>&gt;<i> Unless the problem is on the client end trying to access the two through
+</I>&gt;<i> some common channel.  But if this were the case, it wouldn't have worked
+</I>&gt;<i> before and it did.  I could have two sessions open on the laptop to two
+</I>&gt;<i> different destination machines.
+</I>&gt;<i> 
+</I>&gt;<i> I don't think it's that SSH can only do one session as I can ssh to a
+</I>&gt;<i> target while the x2go client is running, and anyway the ssh servers are
+</I>&gt;<i> on different machines.
+</I>&gt;<i> 
+</I>It's a problem on the client side.  That's why changing the port to be
+different on one host from another host fixes the problem.
+
+However, it was not always this way.  The older clients (e.g., 3.0.1-4)
+accidentally supported multiple connections without having to fiddle
+with the server settings.
+
+We would very much like to see a reversion to the old behavior.  We have
+been pushing the concept of Content Networks, i.e., rather than have a
+single computer in which one tries to shoe horn all one's activities,
+have multiple virtual desktops for major, e.g., engineering firms
+providing outsourced services to multiple firms, PR and advertising firm
+with account managers handling multiple accounts - wherever intensive
+collaboration needs to happen across corporate boundaries.
+
+Not being able to run multiple X2Go clients with default server settings
+is a real pain for us.  Thanks for pointing it out - John
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000924.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+	<LI>Next message: <A HREF="000927.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#925">[ date ]</a>
+              <a href="thread.html#925">[ thread ]</a>
+              <a href="subject.html#925">[ subject ]</a>
+              <a href="author.html#925">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

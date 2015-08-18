@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goclient and HTTP proxy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goclient%20and%20HTTP%20proxy&In-Reply-To=%3Cjom373%24s3%241%40dough.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000835.html">
+   <LINK REL="Next"  HREF="000850.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goclient and HTTP proxy</H1>
+    <B>Maarten Boekhold</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goclient%20and%20HTTP%20proxy&In-Reply-To=%3Cjom373%24s3%241%40dough.gmane.org%3E"
+       TITLE="[X2Go-User] x2goclient and HTTP proxy">boekhold at gmail.com
+       </A><BR>
+    <I>Sat May 12 18:30:27 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000835.html">[X2Go-User] windows client event log spam?
+</A></li>
+        <LI>Next message: <A HREF="000850.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#836">[ date ]</a>
+              <a href="thread.html#836">[ thread ]</a>
+              <a href="subject.html#836">[ subject ]</a>
+              <a href="author.html#836">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+After a hiatus of a couple of years, I decided to try x2go again, since NX 
+Client from Nomachine doesn't seem to handle an XFCE desktop very well. I 
+was pleasantly surprised, x2go seems to have improved massively and works 
+just beautifully. One thing I am missing however is the ability to 
+establish a session through an HTTP proxy server (using HTTP CONNECT). NX 
+Client 3.x does do this (but it seems it's not possible in the NX Client 
+4 beta client).
+
+I've done a little bit of research, and it looks like LIBSSH does have 
+some facilities to support a &quot;proxy command&quot;:
+
+    ssh_options_set(my_ssh_session, SSH_OPTION_PROXYCOMMAND, &quot;command&quot;);
+
+&quot;command&quot; in this case would be something like 'corkscrew' or 
+'proxytunnel'.
+
+    <A HREF="http://www.agroman.net/corkscrew/">http://www.agroman.net/corkscrew/</A>
+    <A HREF="http://proxytunnel.sourceforge.net/">http://proxytunnel.sourceforge.net/</A>
+
+What are the chances that this SSH_OPTION_PROXYCOMMAND could be integrated
+into the x2go client? It looks like x2goclient is built using cygwin, and
+I believe that both corkscrew as well as proxytunnel can be built on 
+cygwin as well. So I wonder if the following additions to x2goclient are 
+possible:
+
+- Add the following GUI options to x2go sessions:
+    - HTTP proxy host: takes hostname/ip of your HTTP proxy
+    - HTTP proxy port: takes port of HTTP proxy
+    - HTTP proxy username : for optional authentication
+    - HTTP proxy password : for optional authentication
+    - I'm not sure if corkscrew supports proxy authentication...
+- On start of a session, if HTTP proxy host+port is specified, use
+  ssh_options_set() with command
+
+      corkscrew &lt;proxy host&gt; &lt;proxy port&gt; &lt;remote host&gt; &lt;remote_ip&gt;
+
+  (I *think* you can harcode %h and %p for the remote host and remote
+   ip...)
+- Add corkscrew to the x2goclient distribution
+
+I believe the licenses of x2goclient and corkscrew are compatible (both 
+GPL2).
+
+Interested in your thoughts about this.
+
+Rgds, Maarten
+
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000835.html">[X2Go-User] windows client event log spam?
+</A></li>
+	<LI>Next message: <A HREF="000850.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#836">[ date ]</a>
+              <a href="thread.html#836">[ thread ]</a>
+              <a href="subject.html#836">[ subject ]</a>
+              <a href="author.html#836">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

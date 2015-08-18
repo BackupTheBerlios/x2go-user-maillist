@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] 25 user logon problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%2025%20user%20logon%20problem&In-Reply-To=%3C20130323165458.194233hdfku7mkia%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001353.html">
+   <LINK REL="Next"  HREF="001362.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] 25 user logon problem</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%2025%20user%20logon%20problem&In-Reply-To=%3C20130323165458.194233hdfku7mkia%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] 25 user logon problem">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Mar 23 16:54:58 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001353.html">[X2Go-User] 25 user logon problem
+</A></li>
+        <LI>Next message: <A HREF="001362.html">[X2Go-User] x2go timeout error after 4.0 upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1354">[ date ]</a>
+              <a href="thread.html#1354">[ thread ]</a>
+              <a href="subject.html#1354">[ subject ]</a>
+              <a href="author.html#1354">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Thomas,
+
+On Sa 23 M&#228;r 2013 16:28:28 CET Thomas Hanschke wrote:
+
+&gt;<i> Hello everyone;
+</I>&gt;<i>
+</I>&gt;<i> I have set up a x2go terminal-server on ubuntu 12.04 in our school.
+</I>&gt;<i> There are 25 thinclients (wyse with windows7 embedded) in a classroom.
+</I>&gt;<i> The thinclients start with an openbox-session. So far it works fine, but
+</I>&gt;<i> there is a little problem:
+</I>&gt;<i>
+</I>&gt;<i> If more than 2 or 3 clients log on at exactly the same time, some of
+</I>&gt;<i> them stop at the black screen before the gray X2Go Logo appears.
+</I>&gt;<i> There is no error message. With a little timeshift of 2 or 3 seconds
+</I>&gt;<i> between the logons, there are no problems.
+</I>&gt;<i>
+</I>&gt;<i> Can anyone get a little help to solve this?
+</I>
+You experience a race condition where the server tries to allocate a  
+display port per session and if two users log in very simulataneously,  
+the second user won't get a valid display.
+
+I am not sure if this can be avoided really reliably. However, instead  
+of incrementing the X2GO_PORT by 1 in x2gostartagent (in case the  
+probed port is not usable anymore) we could increment the X2GO_PORT by  
+some random value (between 1 and 30). Then it could still be that two  
+clients try to get the same DISPLAY port (in case two random calls  
+deliver the same value), but the failing logins should reduce by far.
+
+I Cc: our -dev list for further comment.
+
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130323/ff65f05e/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130323/ff65f05e/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001353.html">[X2Go-User] 25 user logon problem
+</A></li>
+	<LI>Next message: <A HREF="001362.html">[X2Go-User] x2go timeout error after 4.0 upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1354">[ date ]</a>
+              <a href="thread.html#1354">[ thread ]</a>
+              <a href="subject.html#1354">[ subject ]</a>
+              <a href="author.html#1354">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

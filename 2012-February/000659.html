@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2goserver on Ubuntu 10.04.4 server...can't login.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2goserver%20on%20Ubuntu%2010.04.4%20server...can%27t%20login.&In-Reply-To=%3C4F4B7193.9050706%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000658.html">
+   <LINK REL="Next"  HREF="000660.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2goserver on Ubuntu 10.04.4 server...can't login.</H1>
+    <B>christoffer krakou</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2goserver%20on%20Ubuntu%2010.04.4%20server...can%27t%20login.&In-Reply-To=%3C4F4B7193.9050706%40fleten.net%3E"
+       TITLE="[X2Go-User] X2goserver on Ubuntu 10.04.4 server...can't login.">christoffer at fleten.net
+       </A><BR>
+    <I>Mon Feb 27 13:05:39 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000658.html">[X2Go-User] Antw: [assp-spam] Re: X2goserver on Ubuntu 10.04.4 server...can't login.
+</A></li>
+        <LI>Next message: <A HREF="000660.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from	starting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#659">[ date ]</a>
+              <a href="thread.html#659">[ thread ]</a>
+              <a href="subject.html#659">[ subject ]</a>
+              <a href="author.html#659">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+I'm experiencing this error as well. i'll attach a log file from one of
+my login attempts. The attempt was without sound enabled, though. When
+sound is enabled, it seems that Pulseaudio gets stuck in a loop of some
+sort, repeating:
+
+Feb 27 08:02:07 fleten-01 pulseaudio[29396]: [pulseaudio] main.c:
+User-configured server at localhost:30002, refusing to start/autospawn.
+
+about once every three seconds. I havent tried to replicate this fully,
+though.
+
+EDIT: I accidently cross-sent to the dev list. My sincerest apologies :(
+
+On 02/24/2012 09:07 PM, Mike Gabriel wrote:
+&gt;&gt;<i>
+</I>&gt;&gt;<i> &#8220;Loop:
+</I>&gt;&gt;<i> PANIC! The remote NX proxy closed the connection.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Loop:
+</I>&gt;&gt;<i> PANIC! Failure negotiating the session in stage '7'.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Loop:
+</I>&gt;&gt;<i> PANIC! Wrong version or invalid session authentication cookie.&#8221;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I try to
+</I>&gt;&gt;<i> uninstall and reinstalling several time, but no success.
+</I>&gt;<i>
+</I>&gt;&gt;<i> I installed
+</I>&gt;&gt;<i> from:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> deb
+</I>&gt;&gt;<i> <A HREF="http://ppa.launchpad.net/x2go/ppa/ubuntu">http://ppa.launchpad.net/x2go/ppa/ubuntu</A> lucid main
+</I>&gt;<i>
+</I>&gt;<i> I can only report that I have no problems with Ubuntu 10.04.4. Could you
+</I>&gt;<i> try with pyhoca-gui as X2Go client instead? Both server and pyhoca-gui
+</I>&gt;<i> as client have debug capabilities. Switch them on and return to the list
+</I>&gt;<i> with more debug output.
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/wiki:development:debugging">http://wiki.x2go.org/wiki:development:debugging</A>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>
+-- 
+Venlig Hilsen / Best Regards
+Christoffer Krakou
+Fleten.net APS
+
+-------------- next part --------------
+An embedded and charset-unspecified text was scrubbed...
+Name: 27-2-2012.txt
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120227/0ed99103/attachment.txt">https://lists.berlios.de/pipermail/x2go-user/attachments/20120227/0ed99103/attachment.txt</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000658.html">[X2Go-User] Antw: [assp-spam] Re: X2goserver on Ubuntu 10.04.4 server...can't login.
+</A></li>
+	<LI>Next message: <A HREF="000660.html">[X2Go-User] NX lib path issue prevents Xubuntu 11.10 sessions from	starting
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#659">[ date ]</a>
+              <a href="thread.html#659">[ thread ]</a>
+              <a href="subject.html#659">[ subject ]</a>
+              <a href="author.html#659">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

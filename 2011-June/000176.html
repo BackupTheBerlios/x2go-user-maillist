@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Ist X2Go eine ernsthafte L?sung oder Bananensoftware? (Tim-Ole Alexander Golz)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ist%20X2Go%20eine%20ernsthafte%20L%3Fsung%20oder%0A%20Bananensoftware%3F%20%28Tim-Ole%20Alexander%20Golz%29&In-Reply-To=%3CBANLkTikL51s4E0O7SbXiNdRHb8PCVtgCkw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000177.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Ist X2Go eine ernsthafte L?sung oder Bananensoftware? (Tim-Ole Alexander Golz)</H1>
+    <B>nigra truo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ist%20X2Go%20eine%20ernsthafte%20L%3Fsung%20oder%0A%20Bananensoftware%3F%20%28Tim-Ole%20Alexander%20Golz%29&In-Reply-To=%3CBANLkTikL51s4E0O7SbXiNdRHb8PCVtgCkw%40mail.gmail.com%3E"
+       TITLE="[X2go-user] Ist X2Go eine ernsthafte L?sung oder Bananensoftware? (Tim-Ole Alexander Golz)">nigratruo at gmail.com
+       </A><BR>
+    <I>Fri Jun  3 03:21:19 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000177.html">[X2go-user] Ist X2Go eine ernsthafte L?sung oder Bananensoftware? (Tim-Ole Alexander Golz)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#176">[ date ]</a>
+              <a href="thread.html#176">[ thread ]</a>
+              <a href="subject.html#176">[ subject ]</a>
+              <a href="author.html#176">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi
+
+What I can contribute is that I have been using X2go for more than 6 months
+now and very successfully. I run the server on Debian Squeeze (and Lenny
+before) and connect to it from Windows 7 and Ubuntu 10.04 and Debian Squeeze
+(Laptops).
+So far I have had some issues, but it is very stable. So stable in fact that
+I am often working remotely on my server at home (connect over the internet
+via SSH). Resuming works almost always and I have to say, I am surprised how
+well it works. I would like to extend my congratulations and thanks for this
+nice piece of software to you developers! I have used Nxserver and NXfree
+(or freenx, I always confuse them) and that used to work much worse, with
+suspending and resuming spotty at best.
+
+(I have to admit that this does not comment the commercial version of
+NXserver, which must be much better I am sure)
+
+It is unfortunate that you have having so much trouble getting it to work, I
+can relate to this, as your question indicates, like &quot;is this working
+ANYWHERE?&quot; and yes it does, very well. So I am sure there must be some way
+that you can get it to work.
+But when it comes to open source, yes, the documentation can be lacking and
+sometimes it takes a long time and strains the patience. What I can say is
+that it is worth the work, since the software works very nice and I am glad
+that finally I can use my server at home as the unlimited (no more 2 or 3
+user limit) terminal server that I have always wanted. Even audio forwarding
+works (on Windows, so I can hear the pulseaudio on my server session, EVEN
+THOUGH I have Jackd audio deamon running on it. How this can work is beyond
+me, a positive surprise to be sure. And filesharing works also.
+
+I also understand and write German, but I understand that this mailing list
+should be kept in English, so I hope you can understand me. I know that my
+configuration is kinda simplified, as I am not using LDAP or any kind of
+complex user authentication mechanism. It might be easier to get it working
+simple, before trying to tacke these. The repository that I am using
+currently are these, just in case this helps:
+
+deb <A HREF="http://x2go.obviously-nice.de/deb/">http://x2go.obviously-nice.de/deb/</A> lenny main
+
+(I actually went to my open terminal session window and copy pasted it (even
+this works))
+
+As you see, I am still using the lenny repository (in case there is a newer
+one) and use the server
+
+and here are the packages that I have currently installed:
+
+pinentry-x2go                                   install
+pinentry-x2go-gtk                               install
+x2goagent                                       install
+x2gocdmanager                                   install
+x2goclient                                      install
+x2goclient-cli                                  install
+x2goclient-gtk                                  install
+x2gokdebindings                                 install
+x2goserver                                      install
+x2goserver-home                                 install
+x2goserver-one                                  install
+x2gospyglass                                    install
+x2gousbmount                                    install
+
+Just in case this helps...
+
+as you can see I am using the x2goserver-home or one version which is
+simplified without all the bells of whistles of authentication, if I
+understand it correctly.
+
+I remember one issue that I had was about Xming not running in Windows
+(which is the component that acts as Xserver). In my case it was not started
+automatically.
+
+Another thing is my /etc/sudoers   config
+
+
+### X2GO section
+%x2gousers ALL=(ALL) NOPASSWD: /usr/bin/x2gopgwrapper
+
+
+#### X2GOPRINT section
+x2goprint ALL=(ALL) NOPASSWD: /usr/bin/x2goprint
+
+
+And I remember having an issue with that.
+
+These settings might be too insecure for your taste, but it is easiest to
+first open things up and circle the problem wide, to see where it is located
+at.
+
+Hope this helps..
+
+Markus
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110602/746b9ed6/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110602/746b9ed6/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000177.html">[X2go-user] Ist X2Go eine ernsthafte L?sung oder Bananensoftware? (Tim-Ole Alexander Golz)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#176">[ date ]</a>
+              <a href="thread.html#176">[ thread ]</a>
+              <a href="subject.html#176">[ subject ]</a>
+              <a href="author.html#176">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

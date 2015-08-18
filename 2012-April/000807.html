@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%0A%20that%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3C4F9814B8.7090803%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000806.html">
+   <LINK REL="Next"  HREF="000808.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu/debian%20-%20found%20reason%20for%20login%20failures%0A%20that%20display%20error%20msg%3A%20%22Access%20denied.%20Authentication%20that%20can%20continue%3A%0A%20publickey%2C%20keyboard-interactive%22&In-Reply-To=%3C4F9814B8.7090803%40vandervlis.nl%3E"
+       TITLE="[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;">paul at vandervlis.nl
+       </A><BR>
+    <I>Wed Apr 25 17:14:00 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000806.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+        <LI>Next message: <A HREF="000808.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#807">[ date ]</a>
+              <a href="thread.html#807">[ thread ]</a>
+              <a href="subject.html#807">[ subject ]</a>
+              <a href="author.html#807">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 25-04-12 16:47, brian mullan schreef:
+
+&gt;<i> *Access denied. Authentication that can continue:
+</I>&gt;<i> publickey,keyboard-interactive*
+</I>
+&gt;<i> To fix this CHANGE   */PasswordAuthentication/* to &quot;*/yes/*&quot; and save
+</I>&gt;<i> the file and restart ssh
+</I>
+Really great, this works for me!
+
+With &quot;PasswordAuthentication = no&quot; I can use password authentication
+without any problems, but X2goclient does not work. When I turn it on it
+works fine. I've just test it on several machines.
+
+&gt;<i> _*REASON for the failure &amp; change of behavior from previous/older
+</I>&gt;<i> versions of Ubuntu.*_
+</I>
+I don't use Ubuntu server, on Debian Squeeze the default is &quot;yes&quot;.
+
+Thank you Brian for sharing this information!
+
+With reagards,
+Paul.
+
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000806.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+	<LI>Next message: <A HREF="000808.html">[X2Go-User] ubuntu/debian - found reason for login failures that display error msg: &quot;Access denied. Authentication that can continue: publickey, keyboard-interactive&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#807">[ date ]</a>
+              <a href="thread.html#807">[ thread ]</a>
+              <a href="subject.html#807">[ subject ]</a>
+              <a href="author.html#807">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

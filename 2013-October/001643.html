@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2ogbroker: RDP
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2ogbroker%3A%20RDP&In-Reply-To=%3C5255214E.9000700%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001641.html">
+   <LINK REL="Next"  HREF="001646.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2ogbroker: RDP</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2ogbroker%3A%20RDP&In-Reply-To=%3C5255214E.9000700%40vxpertise.net%3E"
+       TITLE="[X2Go-User] x2ogbroker: RDP">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Wed Oct  9 11:26:38 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001641.html">[X2Go-User] x2gobroker session configuration
+</A></li>
+        <LI>Next message: <A HREF="001646.html">[X2Go-User] x2ogbroker: RDP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1643">[ date ]</a>
+              <a href="thread.html#1643">[ thread ]</a>
+              <a href="subject.html#1643">[ subject ]</a>
+              <a href="author.html#1643">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi everyone,
+
+looking at <A HREF="http://wiki.x2go.org/doku.php/wiki:development:sessions-file">http://wiki.x2go.org/doku.php/wiki:development:sessions-file</A> 
+I figure x2go can tunnel RDP connections via SSH proxy, too. Is that 
+true? Because trying this configuration
+
+[20131009111725764]
+speed=2
+pack=16m-jpeg
+quality=9
+fstunnel=true
+export=
+iconvto=UTF-8
+iconvfrom=ISO8859-1
+useiconv=false
+fullscreen=false
+multidisp=false
+display=1
+maxdim=false
+rdpclient=rdesktop
+directrdpsettings=
+width=800
+height=600
+dpi=86
+setdpi=true
+xinerama=false
+usekbd=true
+layout=us
+type=pc105/us
+sound=true
+soundsystem=pulse
+startsoundsystem=true
+soundtunnel=true
+defsndport=true
+sndport=4713
+print=true
+name=windows rdp test
+icon=:icons/128x128/x2gosession.png
+host=****************
+user=*********
+key=
+rdpport=3389
+sshport=22
+autologin=false
+krblogin=false
+directrdp=false
+rootless=false
+published=false
+applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL
+command=RDP
+rdpoptions=
+rdpserver=10.173.20.13
+xdmcpserver=localhost
+usesshproxy=true
+sshproxytype=SSH
+sshproxyuser=mathias
+sshproxykeyfile=
+sshproxyhost=****************
+sshproxyport=22
+sshproxysamepass=false
+sshproxysameuser=false
+sshproxyautologin=false
+
+
+x2goclient says &quot;cannot connect to 10.173.20.13:22&quot; and &quot;Timeout 
+connecting to 127.0.0.1&quot;. So it looks like it is trying to use the 
+tunnel (127.0.0.1) but tries to SSH to 10.173.20.13 instead of RDP.
+
+Any Ideas?
+
+cheers
+Mathias
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001641.html">[X2Go-User] x2gobroker session configuration
+</A></li>
+	<LI>Next message: <A HREF="001646.html">[X2Go-User] x2ogbroker: RDP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1643">[ date ]</a>
+              <a href="thread.html#1643">[ thread ]</a>
+              <a href="subject.html#1643">[ subject ]</a>
+              <a href="author.html#1643">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

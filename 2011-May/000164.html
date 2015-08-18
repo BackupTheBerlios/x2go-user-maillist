@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] x2go thinclient - custom xorg.conf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3C201105232251.41865.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000163.html">
+   <LINK REL="Next"  HREF="000165.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] x2go thinclient - custom xorg.conf</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3C201105232251.41865.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2go-user] x2go thinclient - custom xorg.conf">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Mon May 23 22:51:41 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000163.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+        <LI>Next message: <A HREF="000165.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+Hi all,
+
+I installed recently x2go-one and the thinclient-netboot-environment. So far 
+all works fine. (Sound and printing not yet tested).
+
+At the same network we have also a ltsp installation but I think to replace 
+ist step by step with x2go mainly because of spee issues.
+
+One of the main questions I have ist if it's possible to offer custom 
+xorg.conf to the clients which boot via pxe.
+
+Some of our monitors are not correctly recognized by the x-server an need a 
+special xorg.conf.
+
+In the ltsp changeroot there is the possibility to offer something like  
+xorg.conf.00:00:00:00:00 with mac-address as a suffix.
+
+Is there any similar possibility on the x2go thinclient system?
+
+If not yet: It should be possible to make some adjustments in the startscript. 
+I would try to make a hack in the /usr/sbin/x2gothinclientd to ask for 
+mac-address to choose a custom Xorg.conf.
+
+But maybe there is already a solution? I think it would make sense to change 
+the x2gothinclientd script in this way.
+
+Best regards
+Stefan
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000163.html">[X2go-user] Ubuntu 10.04 only black screen
+</A></li>
+	<LI>Next message: <A HREF="000165.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#164">[ date ]</a>
+              <a href="thread.html#164">[ thread ]</a>
+              <a href="subject.html#164">[ subject ]</a>
+              <a href="author.html#164">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

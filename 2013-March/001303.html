@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] encrypting home &amp; printing problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20encrypting%20home%20%26%20printing%20problem&In-Reply-To=%3C8CFE896A187462A-BF8-1A7E%40webmail-d058.sysops.aol.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001302.html">
+   <LINK REL="Next"  HREF="001304.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] encrypting home &amp; printing problem</H1>
+    <B>senrabdet at aol.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20encrypting%20home%20%26%20printing%20problem&In-Reply-To=%3C8CFE896A187462A-BF8-1A7E%40webmail-d058.sysops.aol.com%3E"
+       TITLE="[X2Go-User] encrypting home &amp; printing problem">senrabdet at aol.com
+       </A><BR>
+    <I>Wed Mar  6 16:30:13 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001302.html">[X2Go-User] Xauthority relocation
+</A></li>
+        <LI>Next message: <A HREF="001304.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1303">[ date ]</a>
+              <a href="thread.html#1303">[ thread ]</a>
+              <a href="subject.html#1303">[ subject ]</a>
+              <a href="author.html#1303">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All:
+
+We're experimenting with using X2go and  encrypting /home with Encfs and so far everything works well except printing.  We think this is because x2go printing relies on creating a link from the spool inside of the .x2go sub folder &quot;C-User-50-xxxxxxxx.stDGNOME_dp32 to the /tmp area, and the Encfs encryption moves things and breaks the link.
+
+Our testing indicates that if we don't encrypt a user's /home we can print, but can't print if we encrypt another user's /home all on the same server.
+
+FYI:  We're not using a central x2go printing server solution (we had concerns about security, so are taking the performance hit instead).
+
+We're using ssh to connect, and have gotten this to work by moving the ssh key outside of the encrypted area and creating a symlink to .ssh inside the area.  
+
+Q:  Would some sort of symlink work for printing?   The issue here is that (and we may be wrong) the name of the &quot;C-User50....&quot; folder seems to change periodically.  Would we need some sort of login script to figures out what the newest &quot;C-user&quot; folder is and creates a symlink on the fly to the spool device?
+
+As usual, any help appreciated!
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130306/c6e10e80/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130306/c6e10e80/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001302.html">[X2Go-User] Xauthority relocation
+</A></li>
+	<LI>Next message: <A HREF="001304.html">[X2Go-User] KMail composer window doesn't appear with NX
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1303">[ date ]</a>
+              <a href="thread.html#1303">[ thread ]</a>
+              <a href="subject.html#1303">[ subject ]</a>
+              <a href="author.html#1303">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

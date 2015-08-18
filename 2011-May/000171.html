@@ -1,0 +1,142 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Performance issues using RDP
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Performance%20issues%20using%20RDP&In-Reply-To=%3C1306525790.7342.24.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000170.html">
+   <LINK REL="Next"  HREF="000172.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Performance issues using RDP</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Performance%20issues%20using%20RDP&In-Reply-To=%3C1306525790.7342.24.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-user] Performance issues using RDP">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Fri May 27 21:49:50 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000170.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+        <LI>Next message: <A HREF="000172.html">[X2go-user] Performance issues using RDP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, all.  We were very eager to experiment with TSPlus
+(<A HREF="http://www.tsplus.net">http://www.tsplus.net</A>) as an alternative to Microsoft RDS.  We have
+been assuming all along that performance of any RDP solution is better
+in a low bandwidth WAN environment if we put X2Go in the middle of it
+and run rdesktop from the X2Go Server to a local Windows server.  Our
+results were very disappointing with both TSPlus and RDS and with both
+rdesktop and xfreerdp.
+
+Has anyone else experienced the same poor performance or, more
+importantly, has anyone worked around it?
+
+We noticed that screens seemed to be painting line by line - not sure if
+if it is the entire screen or just the active window.  It also made
+mouse movements very erratic in TSPlus + rdesktop.  TSPlus + xfreerdp
+seems better.
+
+To demonstrate this, I opened notepad in a large window in a full screen
+session, typed an entire line, copied it to the clipboard and then held
+down &lt;CTL&gt;V to paste it.  The first few lines flew but then it became
+very slow and we could see the flicker of each line painting.
+
+I also opened Internet Explorer and went to www.spiritualoutreach.org -
+a very poorly designed site I put up years ago with long pages and far
+too large graphics.  I sat and watched the screen paint a band at a
+time.  I opened one of the large template documents and vertical
+scrolling was nearly impossible.
+
+I'll paste in some of our internal notes below.  Thanks - John
+
+
+
+BEGIN NOTES
+Good afternoon, Phil.  I've dropped an unexpected several hours into
+this this morning with some good, some bad news, and some inconclusive
+news.  There is an alternative to rdesktop named freerdp which aims to
+implement the newer protocols as rdesktop is barely being developed.
+Last I used it, it was very lacking but I installed the current Squeeze
+version on my netbook and connected to windesk01 across the VPN
+(xfreerdp -d mydomain -u myid -a 32 -x lan -f --plugin cliprdr
+tsplusserver ).  The results were stunning.
+
+Performance was quite usable directly through the VPN, i.e, not using
+X2Go as an intermediary.  The silly test I was using to see the line by
+line painting (opening a large notepad, typing a full line, copying it
+to the clipboard, and then holding down &lt;CTL&gt;V to continually paste it)
+worked quite well.  I did the same thing to RDSServer where I had some
+large architectural drawing stashed and they scrolled largely
+seamlessly.
+
+I then returned to my VD, installed freerdp-x11, and tried the same.
+The results were most disappointing - the same problems of slow, line by
+line painting.  I also noticed that the full screen toggle
+(&lt;ALT&gt;&lt;CTL&gt;&lt;ENTER&gt;) mangled whereas directly on the VPN, it did not.  I
+wonder of there is some sort of conflict between the way NX and RDP
+paint the screen?
+
+I then tried the same thing using simply rdesktop.  The performance over
+the VPN was better than I remembered.  I also contrasted RDSServer and
+tsplusserver.  I'm not sure but it is possible that TSPlus is actually
+getting heat for something they are doing well.  The line by line screen
+painting in my notepad test was much more noticeable in TSPlus but the
+overall performance was about the same.  I wonder if TSPlus is painting
+the screen faster and so we see the repaints whereas RDS is hiding them
+by not updating the screen as quickly. I don't know - just a thought.
+
+I'm continuing to play around with this quite a bit.  In fact the above
+paragraph was typed from a direct full screen Windows desktop via X2Go.
+This paragraph is being typed across the VPN directly on tsplusserver
+using xfreerdp.  The keyboard response seems about the same.
+
+For kicks, I opened KWrite on my Trinity desktop and tried the same
+pasting test to see if the screen painting was line by line.  It was
+not; it flew.  So it is something in the interaction between RDP and NX.
+
+To create the X2Go direct Windows session, create new sessions (one for
+tsplusserver and the other for RDSServer).  The type should be Custom
+Desktop (NOT single application) with the command line as described
+above).  Remember to set the compression type to 16m-png-jpeg and the
+display DPI.  I'll be very curious to see what you see.
+END NOTES
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000170.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+	<LI>Next message: <A HREF="000172.html">[X2go-user] Performance issues using RDP
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#171">[ date ]</a>
+              <a href="thread.html#171">[ thread ]</a>
+              <a href="subject.html#171">[ subject ]</a>
+              <a href="author.html#171">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

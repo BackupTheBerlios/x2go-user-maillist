@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Session Configuration Data
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20Configuration%20Data&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD23632%40ECS-EXG-P-MB05.win.lanl.gov%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001719.html">
+   <LINK REL="Next"  HREF="001720.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Session Configuration Data</H1>
+    <B>Short, Kermit</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20Configuration%20Data&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD23632%40ECS-EXG-P-MB05.win.lanl.gov%3E"
+       TITLE="[X2Go-User] Session Configuration Data">k_short at lanl.gov
+       </A><BR>
+    <I>Wed Oct 23 17:26:02 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001719.html">[X2Go-User] Session Configuration Data
+</A></li>
+        <LI>Next message: <A HREF="001720.html">[X2Go-User] Ubuntu System Upgrade: The following packages have	unmet dependencies
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1725">[ date ]</a>
+              <a href="thread.html#1725">[ thread ]</a>
+              <a href="subject.html#1725">[ subject ]</a>
+              <a href="author.html#1725">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>It's a bit hackish in my humble opinion, but I don't know enough about
+the nx* or how x2go runs to polish it up.  Essentially, I' taking
+advantage of the IGEL firmware's option of creating and populating a
+&quot;custom&quot; folder with user specified files.  I copy over the nxlibs
+structure, modify the nproxy wrapper script to prepend the custom folder
+path, copy over a bunch of required libraries, and create symbolic links
+where necessary.  I would like to run with it for a while before sharing
+it to see what improvements I can make, and catch any problems when I do
+end user testing.  Once I'm happy with it, though, I'll be happy to
+share my documentation, scripts, and tarballs.
+
+As to creating a binary, as far as I know, IGEL doesn't really have
+anything like that.  They provide everything they support embedded in
+the firmware, and you can either turn it on or off.  If they want to
+take the stuff I've done and integrate it into their firmware, that
+would certainly be a better solution, but that would be up to them.
+They currently deploy with No Machine 3.5 (ugh) so they may or may not
+be open for the suggestion.
+
+-Kermit
+-- 
+Kermit Short
+DCS-5 
+
+On Tue, 2013-10-22 at 22:47 +0000, Mike Gabriel wrote:
+&gt;<i> Hi Kermit,
+</I>&gt;<i> 
+</I>&gt;<i> On  Di 22 Okt 2013 23:44:41 CEST, Short, Kermit wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Will the broker allow me to choose specific servers?  Our customers run
+</I>&gt;<i> &gt; large compute jobs on discreet servers, so they won't want to be bounced
+</I>&gt;<i> &gt; to 'X' when they are trying to get to 'Y'.  Thanks!
+</I>&gt;<i> 
+</I>&gt;<i> Yes, the broker can handle that. And: you can configure all your  
+</I>&gt;<i> customers/users in a central instance of the session broker.
+</I>&gt;<i> 
+</I>&gt;<i> Would it be possible that you share your efforts, getting X2Go Client  
+</I>&gt;<i> to fly on IGEL thinclient hardware??? I'd be happy to have such a page  
+</I>&gt;<i> on our wiki. Furthermore, is it possible to provide a binary bundle  
+</I>&gt;<i> for IGEL? Could what you did be automatized???
+</I>&gt;<i> 
+</I>&gt;<i> Mike (the upstream dev of the broker and the provider of the .deb  
+</I>&gt;<i> packages of X2Go)
+</I></PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001719.html">[X2Go-User] Session Configuration Data
+</A></li>
+	<LI>Next message: <A HREF="001720.html">[X2Go-User] Ubuntu System Upgrade: The following packages have	unmet dependencies
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1725">[ date ]</a>
+              <a href="thread.html#1725">[ thread ]</a>
+              <a href="subject.html#1725">[ subject ]</a>
+              <a href="author.html#1725">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

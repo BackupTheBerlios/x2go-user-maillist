@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20X2go%20sessions%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20x2gobasepath%20and%20Debian%20Lenny%29&In-Reply-To=%3C20111006223919.20736xm4c2pccauv%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000430.html">
+   <LINK REL="Next"  HREF="000437.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20X2go%20sessions%20%28was%20Re%3A%20%5BX2go-Dev%5D%0A%20x2gobasepath%20and%20Debian%20Lenny%29&In-Reply-To=%3C20111006223919.20736xm4c2pccauv%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Oct  6 22:39:19 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000430.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+        <LI>Next message: <A HREF="000437.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#432">[ date ]</a>
+              <a href="thread.html#432">[ thread ]</a>
+              <a href="subject.html#432">[ subject ]</a>
+              <a href="author.html#432">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Milan,
+
+On Do 06 Okt 2011 22:11:14 CEST Milan Kn&#237;&#382;ek wrote:
+
+&gt;<i> V Tue, 04 Oct 2011 11:14:59 +0200
+</I>&gt;<i> Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; naps&#225;no:
+</I>&gt;<i>
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> Hi Mike,
+</I>&gt;<i>
+</I>&gt;&gt;<i> Alex has just provided a new x2goagent version (3.5.0.5) in X2go
+</I>&gt;&gt;<i> Git. This new version is based on
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      nx-X11-3.5.0-2
+</I>&gt;&gt;<i>      nxagent-3.5.0-5
+</I>&gt;&gt;<i>      nxauth-3.5.0-1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> and we hope it fixes the problem of irregularly crashing sessions.
+</I>&gt;<i>
+</I>&gt;<i> For us, non-debian-based users, can you please point to the location
+</I>&gt;<i> where the releases are placed nowadays? (I know I could use git, though
+</I>&gt;<i> at the moment I prefer tarballs.)
+</I>
+the location for tarballs is / shall be:
+
+<A HREF="http://code.x2go.org/releases/source">http://code.x2go.org/releases/source</A>
+
+&gt;<i> and yes, I am a bit confused ;-). The last link seems to show quite
+</I>&gt;<i> new releases, though not x2goagent 3.5.0.5.
+</I>
+x2goagent 3.5.0.5 ist not yet released. We (Reinhard, Alex, Mike) are  
+currently working under high pressure on a build problem in x2goagent.  
+x2goagent and all nx libs have to be built against nx-X11, not Xorg of  
+the distribution NX is build against.
+
+So, currently, we have to ask for your patience regarding a  
+non-crashing x2goagent. We already have a test x2goagent at hand that  
+does not crash, but we have to adapt our package build structure for  
+that. This is work in progress with highest prio.
+
+Thanks,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111006/0f4b07e8/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111006/0f4b07e8/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000430.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+	<LI>Next message: <A HREF="000437.html">[X2go-User] Crashing X2go sessions (was Re: [X2go-Dev] x2gobasepath and Debian Lenny)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#432">[ date ]</a>
+              <a href="thread.html#432">[ thread ]</a>
+              <a href="subject.html#432">[ subject ]</a>
+              <a href="author.html#432">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

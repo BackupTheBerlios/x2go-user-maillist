@@ -1,0 +1,219 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go server &amp; client on Ubuntu 12.04 beta fails
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20server%20%26%20client%20on%20Ubuntu%2012.04%20beta%20fails&In-Reply-To=%3CCAFX-c4s%2BLJAPa7v2K%2B6UMrXumdHA-7KH8tcRirHNbJAG2umuTg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000768.html">
+   <LINK REL="Next"  HREF="000759.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go server &amp; client on Ubuntu 12.04 beta fails</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20server%20%26%20client%20on%20Ubuntu%2012.04%20beta%20fails&In-Reply-To=%3CCAFX-c4s%2BLJAPa7v2K%2B6UMrXumdHA-7KH8tcRirHNbJAG2umuTg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2go server &amp; client on Ubuntu 12.04 beta fails">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Thu Mar 29 09:27:20 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000768.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+        <LI>Next message: <A HREF="000759.html">[X2Go-User] X2Go on wheezy Xen DomU
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#756">[ date ]</a>
+              <a href="thread.html#756">[ thread ]</a>
+              <a href="subject.html#756">[ subject ]</a>
+              <a href="author.html#756">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I have not been able to get x2go server/client to work on Ubuntu 12.04
+client/server machines.
+
+I installed the x2go ppa for ubuntu
+
+    sudo add-apt-repository ppa:x2go/stable
+
+I installed on the server the x2goserver:
+
+    sudo apt-get install x2goserver
+
+on the client I installed the x2goclient:
+
+    sudo apt-get install x2goclient
+
+On ubuntu 12.04 I have installed the 'fallback' gnome desktop support but
+in previous versions both Unity or gnome worked.
+
+Now when attempting to start an x2go client session (see below):
+
+ssh connection gets established
+public/private keypair are generated
+search for proxy starts
+session aborts/terminates
+
+Anyone got any ideas what the problem might be or how I can troubleshoot
+further?
+
+Brian
+
+
+==============================================================
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan at myPC</A>:~$ x2goclient
+ONMainWindow constructor
+
+Can't load translator (:/x2goclient_en_us) !
+
+Can't load translator  :/qt_en_US
+ONMainWindows constructor finished, home Directory is: &quot;/home/bmullan&quot;
+
+read  2  sessions from config file
+start new ssh connection to server: &quot;
+ec2-107-20-19-100.compute-1.amazonaws.com&quot; : &quot;22&quot; krb:  false
+
+ssh connection ok
+
+continue normal x2go session
+
+&quot;x2gostartagent 800x600 wan 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 D
+GNOME&quot;
+
+Agent output: &quot;54
+3339c5586e14c274ad523e1eb356d10b
+16688
+bmullan-54-1333005451_stDGNOME_dp24
+30001
+30002
+30003
+&quot;
+starting nxproxy with:  &quot;nxproxy -S
+nx/nx,options=/home/bmullan/.x2go/S-bmullan-54-1333005451_stDGNOME_dp24/options:54&quot;
+
+
+&quot;
+NXPROXY - Version 3.5.0
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '18508'.
+Session: Starting session at 'Thu Mar 29 03:17:35 2012'.
+Info: Connecting to remote host 'localhost:31001'.
+Info: Connection to remote proxy 'localhost:31001' established.
+&quot;
+
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+&quot;Info: Connection with remote proxy completed.
+Warning: Unrecognized session type 'unix-kde-depth_24'. Assuming agent
+session.
+&quot;
+
+&quot;Info: Using WAN link parameters 768/24/1/0.
+Info: Using cache parameters 4/4096KB/8192KB/8192KB.
+Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_24'.
+Info: Using ZLIB data compression 1/1/32.
+Info: Using ZLIB stream compression 1/1.
+Info: No suitable cache file found.
+Info: Forwarding X11 connections to display ':0'.
+&quot;
+
+&quot;Session: Session started at 'Thu Mar 29 03:17:36 2012'.
+&quot;
+
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+&quot;Info: Established X server connection.
+&quot;
+
+Generating public/private rsa key pair.
+Your identification has been saved in
+/home/bmullan/.x2go/ssh/gen/key.T18497.
+Your public key has been saved in
+/home/bmullan/.x2go/ssh/gen/key.T18497.pub.
+The key fingerprint is:
+cc:23:10:15:e3:bd:3e:86:ee:7f:02:be:6f:d2:ef:a4 <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan at DadsPC</A>
+The key's randomart image is:
++--[ RSA 1024]----+
+|<i>    ..+.         |
+</I>|<i>     o o         |
+</I>|<i>    . . .        |
+</I>|<i>     . o .       |
+</I>|<i>      . S        |
+</I>|<i>      .+ .       |
+</I>|<i>     ..o+ .      |
+</I>|<i>     .o.++.      |
+</I>|<i>     .+*E=o      |
+</I>+-----------------+
+key created on:  &quot;/home/bmullan/.x2go/ssh/gen/key.T18497&quot;
+starting fs tunnel for: &quot;bmullan-54-1333005451_stDGNOME_dp24&quot;
+fs port:  &quot;30003&quot;
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+exported key  &quot;/home/bmullan/.x2go/ssh/gen/key.T18497&quot;
+key removed
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+&quot;Info: Using shared memory parameters 1/2048K.
+&quot;
+
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+search proxy win:  &quot;X2GO-bmullan-54-1333005451_stDGNOME_dp24&quot;
+proxy win found: 73400416
+&quot;Session&quot;
+
+&quot;: Terminating session at 'Thu Mar 29 03:17:39 2012'.
+Session: Session terminated at 'Thu Mar 29 03:17:39 2012'.
+&quot;
+
+deleting proxy
+
+nxproxy not running
+
+proxy deleted
+
+check command message
+
+close event
+^C
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan at myPC</A>:~$
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120329/3b1313e5/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120329/3b1313e5/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000768.html">[X2Go-User] x2goserver on vserver guest
+</A></li>
+	<LI>Next message: <A HREF="000759.html">[X2Go-User] X2Go on wheezy Xen DomU
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#756">[ date ]</a>
+              <a href="thread.html#756">[ thread ]</a>
+              <a href="subject.html#756">[ subject ]</a>
+              <a href="author.html#756">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

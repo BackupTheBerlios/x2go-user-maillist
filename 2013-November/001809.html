@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4hG8OFBOqoW%2BtZbWhhk-fA5UBAFz%3D%3D9N560gBgQVjOwEQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001806.html">
+   <LINK REL="Next"  HREF="001797.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Nirav Shah</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4hG8OFBOqoW%2BtZbWhhk-fA5UBAFz%3D%3D9N560gBgQVjOwEQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">shah.niravk at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 15:11:39 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001806.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001797.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1809">[ date ]</a>
+              <a href="thread.html#1809">[ thread ]</a>
+              <a href="subject.html#1809">[ subject ]</a>
+              <a href="author.html#1809">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Daniel. I tried to see WANem but it is not available for Mac but I
+am able to use Network Link Conditioner on Mac and able to get the expected
+latency.
+
+Now, major issue is what are the best configuration for high latency setup.
+
+
+On Sun, Nov 24, 2013 at 1:08 AM, Daniel Lindgren &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bd.dali at gmail.com</A>&gt; wrote:
+
+&gt;<i> If anyone needs to set up a test environment for latency issues I can
+</I>&gt;<i> recommend WANem, &quot;The Wide Area Network emulator&quot;. I've used it to emulate
+</I>&gt;<i> real world high latency links in my job environment and the results are
+</I>&gt;<i> very close to reality. Just remember to set half the latency on ingoing and
+</I>&gt;<i> the other half on outgoing packets, e.g. 100 + 100 to emulate a 200ms
+</I>&gt;<i> latency.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Daniel
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2013/11/24 Nirav Shah &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">shah.niravk at gmail.com</A>&gt;
+</I>&gt;<i>
+</I>&gt;&gt;<i> Thanks Steve.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have tried VNCs before and I found X2Go better than any other. I tried
+</I>&gt;&gt;<i> to throttle using Charles with specifying 300-400 ms latency but from my
+</I>&gt;&gt;<i> location, it always shows the same result (70ms ping time).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am going to try some other tool to check this issue. It is possible to
+</I>&gt;&gt;<i> change few settings in java application like heap memory etc.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>  On Sat, Nov 23, 2013 at 7:51 PM, Steve Bergman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sbergman27 at gmail.com</A>&gt;wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> No. Although both use the same underlying NX libraries, you can't mix
+</I>&gt;&gt;&gt;<i> and match X2GO/FreeNX clients/servers. (Although you *can* run x2goserver
+</I>&gt;&gt;&gt;<i> and FreeNX server in parallel on the same server. In fact, I'm doing this
+</I>&gt;&gt;&gt;<i> right now in preparation for our transition to x2go.) I'm finding x2go to
+</I>&gt;&gt;&gt;<i> perform at least as well as NX. And FreeNX is more or less an abandoned
+</I>&gt;&gt;&gt;<i> project at this point, as is NeatX. It's probably not worth the trouble of
+</I>&gt;&gt;&gt;<i> trying to get FreeNX installed and working on CentOS. (CentOS 4 was the
+</I>&gt;&gt;&gt;<i> last release that I've installed FreeNX on.)  I've no reason to think
+</I>&gt;&gt;&gt;<i> FreeNX would do any better than x2go. But if there's a way to up the cache
+</I>&gt;&gt;&gt;<i> size in x2go, that might be worth a try. I've looked in the sessions and
+</I>&gt;&gt;&gt;<i> settings files in ~/.x2goclient/ and there don't seem to be any hidden
+</I>&gt;&gt;&gt;<i> options there that would apply. I'm guessing that we're probably getting
+</I>&gt;&gt;&gt;<i> the NX default values of 16MB RAM cache and 32MB disk cache, which ought to
+</I>&gt;&gt;&gt;<i> cover most situations reasonably well.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> One other option that would be easy enough to try would be one of the
+</I>&gt;&gt;&gt;<i> VNCs. In general, x2go way outperforms them. But you never know. For this
+</I>&gt;&gt;&gt;<i> particular workload, something like tightvnc, tigervnc, or vnc4 might work
+</I>&gt;&gt;&gt;<i> better. I doubt it. But vnc is easy to set up for a test.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Any possibility that changing settings in the java application might
+</I>&gt;&gt;&gt;<i> mitigate the problem?
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> BTW, thanks for the reference to 'charles':
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> <A HREF="http://www.charlesproxy.com/documentation/proxying/throttling/">http://www.charlesproxy.com/documentation/proxying/throttling/</A>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> I didn't know about this, and had been looking for something similar.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> -Steve
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> --
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Nirav Shah
+</I>&gt;&gt;<i> (C) (412) 296-9491
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> X2Go-User mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Thanks,
+
+Nirav Shah
+(C) (412) 296-9491
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/ce95c949/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131124/ce95c949/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001806.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001797.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1809">[ date ]</a>
+              <a href="thread.html#1809">[ thread ]</a>
+              <a href="subject.html#1809">[ subject ]</a>
+              <a href="author.html#1809">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

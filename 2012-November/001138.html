@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Impossible to connect since update
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Impossible%20to%20connect%20since%20update&In-Reply-To=%3CCAJbEPe68cd0BkprmQQPdWsXVaH8gx92Q%3D6AG6bHo8NfBQpujeA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001137.html">
+   <LINK REL="Next"  HREF="001139.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Impossible to connect since update</H1>
+    <B>Saint Germain</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Impossible%20to%20connect%20since%20update&In-Reply-To=%3CCAJbEPe68cd0BkprmQQPdWsXVaH8gx92Q%3D6AG6bHo8NfBQpujeA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Impossible to connect since update">saintger at gmail.com
+       </A><BR>
+    <I>Thu Nov 22 10:41:17 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001137.html">[X2Go-User] Impossible to connect since update
+</A></li>
+        <LI>Next message: <A HREF="001139.html">[X2Go-User] Impossible to connect since update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1138">[ date ]</a>
+              <a href="thread.html#1138">[ thread ]</a>
+              <a href="subject.html#1138">[ subject ]</a>
+              <a href="author.html#1138">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Daniel,
+
+No my setup is quite simple: I have only one server and one client
+(and of course the server is on a different machine than the client)
+The client only connect to the server and the server has only one client.
+And I also got only one session.
+
+Thanks !
+
+On 22 November 2012 10:31, Daniel Lindgren &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bd.dali at gmail.com</A>&gt; wrote:
+&gt;<i> It could be a port conflict issue.
+</I>&gt;<i>
+</I>&gt;<i> Are you using X2Go Client to simultaneously connect to several servers from
+</I>&gt;<i> the same client?
+</I>&gt;<i>
+</I>&gt;<i> Are you using X2Go Client on the server to connect to another server?
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Daniel
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 2012/11/22 Saint Germain &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">saintger at gmail.com</A>&gt;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I was happily using x2go between my Debian server and my Debian
+</I>&gt;&gt;<i> desktop since a few months when things stopped suddenly working after
+</I>&gt;&gt;<i> an update of both Debian yesterday (I haven't updated them since
+</I>&gt;&gt;<i> beginning of october).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Debian server is with Debian stable (x2goserver) and Debian desktop is
+</I>&gt;&gt;<i> on Debian testing (x2goclient).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Here are the version installed:
+</I>&gt;&gt;<i> x2goclient: 3.99.3.0-0~x2go1+squeeze~main~321~build1
+</I>&gt;&gt;<i> x2goserver: 3.1.1.6-0~x2go1+squeeze~main~610~build1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Here are the logs I am getting on Debian server:
+</I>&gt;&gt;<i> sshd[11491]: error: connect_to localhost port 30001: failed.
+</I>&gt;&gt;<i> sshd[11491]: error: connect_to localhost port 30001: failed.
+</I>&gt;&gt;<i> sshd[11491]: error: channel 0: protocol error: close rcvd twice
+</I>&gt;&gt;<i> sshd[12040]: Accepted publickey for user from 92.226.X.X port 55500 ssh2
+</I>&gt;&gt;<i> sshd[12040]: pam_unix(sshd:session): session opened for user user by
+</I>&gt;&gt;<i> (uid=0)
+</I>&gt;&gt;<i> sshd[12079]: error: bind: Address already in use
+</I>&gt;&gt;<i> sshd[12079]: error: channel_setup_fwd_listener: cannot listen to port:
+</I>&gt;&gt;<i> 30002
+</I>&gt;&gt;<i> sshd[12079]: Received disconnect from 92.226.X.X: 11: Bye Bye
+</I>&gt;&gt;<i> sshd[12040]: pam_unix(sshd:session): session closed for user user
+</I>&gt;&gt;<i> sshd[11491]: channel_by_id: 0: bad id: channel free
+</I>&gt;&gt;<i> sshd[11491]: Disconnecting: Received ieof for nonexistent channel 0.
+</I>&gt;&gt;<i> sshd[11483]: pam_unix(sshd:session): session closed for user user
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> And here are the logs I am getting on Debian desktop:
+</I>&gt;&gt;<i> Loop: PANIC! The remote NX proxy closed the connection.
+</I>&gt;&gt;<i> Loop: PANIC! Failure negotiating the session in stage '7'.
+</I>&gt;&gt;<i> Loop: PANIC! Wrong version or invalid session authentication cookie.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have checked that nothing is running on Debian server on port 30001
+</I>&gt;&gt;<i> and I have restarted the SSH server, the x2go server and deleted .x2go
+</I>&gt;&gt;<i> directory on both Debian but errors are still the same.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Can someone help me debug this ?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks
+</I>&gt;&gt;<i> _______________________________________________
+</I>&gt;&gt;<i> X2Go-User mailing list
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I></PRE>
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001137.html">[X2Go-User] Impossible to connect since update
+</A></li>
+	<LI>Next message: <A HREF="001139.html">[X2Go-User] Impossible to connect since update
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1138">[ date ]</a>
+              <a href="thread.html#1138">[ thread ]</a>
+              <a href="subject.html#1138">[ subject ]</a>
+              <a href="author.html#1138">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

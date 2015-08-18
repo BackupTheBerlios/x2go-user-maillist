@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redirect only specific sound devices?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3Ckuvgu6%245gn%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001544.html">
+   <LINK REL="Next"  HREF="001558.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redirect only specific sound devices?</H1>
+    <B>Buddy Butterfly</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3Ckuvgu6%245gn%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] Redirect only specific sound devices?">buddy.butterfly at web.de
+       </A><BR>
+    <I>Tue Aug 20 12:38:06 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001544.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+        <LI>Next message: <A HREF="001558.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1546">[ date ]</a>
+              <a href="thread.html#1546">[ thread ]</a>
+              <a href="subject.html#1546">[ subject ]</a>
+              <a href="author.html#1546">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Mike,
+
+thanks a lot for the hint.
+I think this is the right point to get grip at.
+Unfortunately it does not work. After unsetting,
+simply, there are no devices at all.
+
+And as I saw, the whole KDE sound is configured
+as a client of the sound server of the local
+machine (running x2goclient).
+
+Maybe we have to start a separate pulse instance
+on the system? Any clue on how to do this?
+
+Cheers,
+Matt
+
+Am 20.08.2013 08:19, schrieb Mike Gabriel:
+&gt;<i> Hi Buddy,
+</I>&gt;<i> 
+</I>&gt;<i> On Mo 19 Aug 2013 17:09:20 CEST Buddy Butterfly wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> for a headless system I am trying to run a headset
+</I>&gt;&gt;<i> locally on it. For operation I have used x2go which
+</I>&gt;&gt;<i> works perfect, even for sound. So this solved the
+</I>&gt;&gt;<i> headache with KVM ;-).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Now I would like to use a headset locally on the headless
+</I>&gt;&gt;<i> system which is connected via USB and its own usb sound
+</I>&gt;&gt;<i> card (Logitech, works always perfect!). I am unable to
+</I>&gt;&gt;<i> get the headset to work while being connected to via x2go.
+</I>&gt;&gt;<i> Headset should be primarily for voip.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> So, how I could use this headset? Is it possible to configure
+</I>&gt;&gt;<i> somehwere that not all sound devices should be redirected but
+</I>&gt;&gt;<i> only specific ones? With this I could try to leave out the
+</I>&gt;&gt;<i> headset sound card.
+</I>&gt;<i> 
+</I>&gt;<i> Easiest probably would be to unset the ENV variable PULSE_CLIENTCONFIG
+</I>&gt;<i> before starting your VoIP application...
+</I>&gt;<i> 
+</I>&gt;<i> &quot;&quot;&quot; (wrapper script untested)
+</I>&gt;<i> #!/bin/bash
+</I>&gt;<i> 
+</I>&gt;<i> unset PULSE_CLIENTCONFIG
+</I>&gt;<i> ekiga
+</I>&gt;<i> &quot;&quot;&quot;
+</I>&gt;<i> 
+</I>&gt;<i> Sort of like this...
+</I>&gt;<i> 
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001544.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+	<LI>Next message: <A HREF="001558.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1546">[ date ]</a>
+              <a href="thread.html#1546">[ thread ]</a>
+              <a href="subject.html#1546">[ subject ]</a>
+              <a href="author.html#1546">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

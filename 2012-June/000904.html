@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redhat, runlevels and visibility (x2goserver)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3Calpine.LNX.2.01.1206061208260.4253%40frira.zrqbmnf.qr%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000860.html">
+   <LINK REL="Next"  HREF="000906.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redhat, runlevels and visibility (x2goserver)</H1>
+    <B>Jan Engelhardt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3Calpine.LNX.2.01.1206061208260.4253%40frira.zrqbmnf.qr%3E"
+       TITLE="[X2Go-User] Redhat, runlevels and visibility (x2goserver)">jengelh at inai.de
+       </A><BR>
+    <I>Fri Jun 29 21:34:42 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000860.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+        <LI>Next message: <A HREF="000906.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#904">[ date ]</a>
+              <a href="thread.html#904">[ thread ]</a>
+              <a href="subject.html#904">[ subject ]</a>
+              <a href="author.html#904">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Wednesday 2012-06-06 08:07, Mike Gabriel wrote:
+&gt;<i>
+</I>&gt;&gt;<i> 4) Once installation is is complete, several things do not work as expected...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 4.1) File permissions are incorrect: sudo: /etc/sudoers.d/x2go is mode 0644,
+</I>&gt;&gt;<i> should be 0440
+</I>
+What is the rationale for requiring 0440?
+
+&gt;&gt;<i> 4.2) On a server with gnome installed, but no complete X installation,
+</I>&gt;&gt;<i> creating a connection fails (session terminates during session start procedure
+</I>&gt;&gt;<i> with no clear error message).
+</I>&gt;<i>
+</I>&gt;<i> About the runlevel issue, I am not sure. Is SSH started on runlevel 3? I guess
+</I>&gt;<i> so. Hmmm... Once you can login via SSH, X2Go login should normally work as
+</I>&gt;<i> well...
+</I>
+I also think that the x2go software needs to convey error messages 
+better. Like, when the session sqlite db is not writable, you will only 
+know if you actually perl -d the relevant scripts, because stderr is 
+never relayed to the user and his login GUI, for example.
+
+&gt;&gt;<i> 4.3) In the install from source documentation, reference is made to int
+</I>&gt;&gt;<i> scripts needed which should run 'x2gocleansessions' in background/daemon mode.
+</I>&gt;&gt;<i> No such script is installed but connections still can function (at runlevel 5,
+</I>&gt;&gt;<i> see point 4.2 above).
+</I>&gt;<i>
+</I>&gt;<i> An example script can be this:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/x2goserver.init">http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/x2goserver.init</A>
+</I>&gt;<i>
+</I>&gt;<i> If that is not in the RPM x2goserver package, then this needs fixing.
+</I>
+That init script requires love. Using killall looks like a Thor's hammer 
+to kill a fly. (Luckily users with systemd don't have that problem.)
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000860.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+	<LI>Next message: <A HREF="000906.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#904">[ date ]</a>
+              <a href="thread.html#904">[ thread ]</a>
+              <a href="subject.html#904">[ subject ]</a>
+              <a href="author.html#904">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,196 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go connecting timout with TCE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20connecting%20timout%20with%20TCE&In-Reply-To=%3C5033836E.6000106%40fleten.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000969.html">
+   <LINK REL="Next"  HREF="000973.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go connecting timout with TCE</H1>
+    <B>christoffer krakou</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20connecting%20timout%20with%20TCE&In-Reply-To=%3C5033836E.6000106%40fleten.net%3E"
+       TITLE="[X2Go-User] x2go connecting timout with TCE">christoffer at fleten.net
+       </A><BR>
+    <I>Tue Aug 21 14:47:42 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000969.html">[X2Go-User] x2go thinclient shutdown button crashed
+</A></li>
+        <LI>Next message: <A HREF="000973.html">[X2Go-User] x2go installation: not tftp running
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#972">[ date ]</a>
+              <a href="thread.html#972">[ thread ]</a>
+              <a href="subject.html#972">[ subject ]</a>
+              <a href="author.html#972">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+
+On 16-08-2012 13:03, Florian M&#252;ller wrote:
+&gt;<i> Hi Mike,
+</I>&gt;<i>
+</I>&gt;<i> i'm sorry. you're right i gave you the packages on our TCE server, not
+</I>&gt;<i> the pachages of chroot. Here are the right pachages:
+</I>&gt;<i>
+</I>&gt;<i> ii  pinentry-x2go
+</I>&gt;<i> 0.7.5.4-0~x2go1+squeeze~main~28~build1   Qt4-based PIN or pass-phrase
+</I>&gt;<i> entry dialog for x2goclient
+</I>&gt;<i> ii  x2go-keyring
+</I>&gt;<i> 2012.07.23+squeeze~main~17~build1        GnuPG keys of all X2Go
+</I>&gt;<i> developers and the X2Go archive
+</I>&gt;<i> ii  x2gocdmanager
+</I>&gt;<i> 1.0.1.8-0~x2go1+squeeze~main~321~build1  clientside daemon enabling
+</I>&gt;<i> automatic CD-Rom mounting
+</I>&gt;<i> ii  x2goclient
+</I>&gt;<i> 3.99.2.2-0~x2go1+squeeze~main~240~build1 X2Go Client application (Qt4)
+</I>&gt;<i> ii  x2gosmartcardrules
+</I>&gt;<i> 1.0.1.8-0~x2go1+squeeze~main~321~build1  UDEV rules for smartcard readers
+</I>&gt;<i> ii  x2gothinclient
+</I>&gt;<i> 1.0.1.8-0~x2go1+squeeze~main~321~build1  login daemon starting
+</I>&gt;<i> x2goclient in displaymanager mode
+</I>&gt;<i> ii  x2gousbmount
+</I>&gt;<i> 1.0.1.8-0~x2go1+squeeze~main~321~build1  clientside usb mass-storage
+</I>&gt;<i> device mounting
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Best Regards
+</I>&gt;<i> Flo
+</I>
+I am having the same problem with a recently installed TCE. The
+server-side packages are:
+
+ii  x2goagent        2:3.5.0.14-0~247 X2Go agent
+ii  x2goserver       3.1.1.3-0~571~pr X2Go server daemon scripts
+ii  x2goserver-exten 3.1.1.3-0~571~pr X2Go server daemon scripts
+(extensions)
+
+and the tce packages are:
+
+ii  pinentry-x2go
+0.7.5.4-0~x2go1+squeeze~main~28~build1   Qt4-based PIN or pass-phrase
+entry dialog for x2goclient
+ii  x2go-keyring
+2011.12.07+squeeze~main~12~build1        GnuPG keys of X2go developers
+ii  x2gocdmanager
+1.0.1.6-0~x2go2+squeeze~main~306~build1  clientside daemon enabling
+automatic CD-Rom mounting
+ii  x2goclient
+3.99.2.1-0~x2go1+squeeze~main~229~build1 X2Go Client application (Qt4)
+ii  x2gosmartcardrules
+1.0.1.6-0~x2go2+squeeze~main~306~build1  UDEV rules for smartcard readers
+ii  x2gothinclient
+1.0.1.6-0~x2go2+squeeze~main~306~build1  login daemon starting
+x2goclient in displaymanager mode
+ii  x2gousbmount
+1.0.1.6-0~x2go2+squeeze~main~306~build1  clientside usb mass-storage
+device mounting
+
+If anyone has a solution, me and my customers would be eternally
+grateful, as we are currently wrestling with the exact same errors. I
+have a logfile from the server, i will attach it for good measure.
+Perhaps it will show something. It seems to just stop at the keyboard part
+
+Aug 16 12:00:35 ubuntu /usr/bin/x2golistsessions[11868]:
+x2golistsessions has been called with no option
+Aug 16 12:00:35 ubuntu /usr/bin/x2gostartagent: x2gostartagent called
+with options: fullscreen lan 16m-jpeg-9 unix-kde-depth_24 da pc105/da 0
+D UNITY
+Aug 16 12:00:35 ubuntu /usr/bin/x2gostartagent: client announced itself
+as ,,78.156.108.245''
+Aug 16 12:00:35 ubuntu /usr/bin/x2gosessionlimit[11890]:
+x2gosessionlimit has been called
+Aug 16 12:00:35 ubuntu /usr/bin/x2golistsessions[11893]:
+x2golistsessions has been called with options: --all-servers
+Aug 16 12:00:36 ubuntu /usr/lib/x2go/x2gogetdisplays[11907]:
+db_getdisplays called, server: ubuntu; return value:
+Aug 16 12:00:36 ubuntu /usr/lib/x2go/x2gogetports[11917]: db_getports
+called, server: ubuntu; return value:
+Aug 16 12:00:36 ubuntu /usr/lib/x2go/x2goinsertsession[11935]:
+db_insertsession called, session ID:
+christoffer-50-1345111236_stDUNITY_dp24, server: ubuntu, session ID:
+christoffer-50-1345111236_stDUNITY_dp24
+Aug 16 12:00:37 ubuntu /usr/lib/x2go/x2goinsertport[11947]:
+db_insertport called, session ID:
+christoffer-50-1345111236_stDUNITY_dp24, server: ubuntu, SSH port: 30001
+Aug 16 12:00:37 ubuntu /usr/lib/x2go/x2goinsertport[11959]:
+db_insertport called, session ID:
+christoffer-50-1345111236_stDUNITY_dp24, server: ubuntu, SSH port: 30002
+Aug 16 12:00:37 ubuntu /usr/lib/x2go/x2goinsertport[11971]:
+db_insertport called, session ID:
+christoffer-50-1345111236_stDUNITY_dp24, server: ubuntu, SSH port: 30003
+Aug 16 12:00:38 ubuntu /usr/bin/x2gofeature: x2gofeature called with
+options: X2GO_RUN_EXTENSIONS
+Aug 16 12:00:38 ubuntu
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Aug 16 12:00:38 ubuntu /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+christoffer-50-1345111236_stDUNITY_dp24 pre-start
+Aug 16 12:00:38 ubuntu /usr/bin/x2gostartagent: successfully started
+X2Go agent session with ID christoffer-50-1345111236_stDUNITY_dp24
+Aug 16 12:00:38 ubuntu /usr/bin/x2gofeature: x2gofeature called with
+options: X2GO_RUN_EXTENSIONS
+Aug 16 12:00:38 ubuntu
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Aug 16 12:00:38 ubuntu /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+christoffer-50-1345111236_stDUNITY_dp24 post-start
+Aug 16 12:00:39 ubuntu /usr/lib/x2go/x2gocreatesession[12068]:
+db_createsession called, session ID:
+christoffer-50-1345111236_stDUNITY_dp24, cookie:
+941b3e6300f822e9bbdf6834e29af749, client: 78.156.108.245, pid: 12021,
+graphics port: 30001, sound port: 30002, file sharing port: 30003
+Aug 16 12:00:39 ubuntu /usr/bin/x2gostartagent: blocking creation of
+agent's keyboard file
+/home/christoffer/.x2go/C-christoffer-50-1345111236_stDUNITY_dp24/keyboard
+as requested by session startup command
+
+
+
+
+
+
+-- 
+Venlig Hilsen / Best Regards
+Christoffer Krakou
+Fleten.net APS
+
+
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000969.html">[X2Go-User] x2go thinclient shutdown button crashed
+</A></li>
+	<LI>Next message: <A HREF="000973.html">[X2Go-User] x2go installation: not tftp running
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#972">[ date ]</a>
+              <a href="thread.html#972">[ thread ]</a>
+              <a href="subject.html#972">[ subject ]</a>
+              <a href="author.html#972">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] [X2go-Dev] x2go printing follow up
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20x2go%20printing%20follow%20up&In-Reply-To=%3C4E4BB07A.1070608%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000316.html">
+   <LINK REL="Next"  HREF="000318.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] [X2go-Dev] x2go printing follow up</H1>
+    <B>Mario OROZ</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20x2go%20printing%20follow%20up&In-Reply-To=%3C4E4BB07A.1070608%40gmail.com%3E"
+       TITLE="[X2go-User] [X2go-Dev] x2go printing follow up">mario.oroz at gmail.com
+       </A><BR>
+    <I>Wed Aug 17 14:13:46 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000316.html">[X2go-User] [X2go-Dev] x2go printing follow up
+</A></li>
+        <LI>Next message: <A HREF="000318.html">[X2go-User] Local share appears as a text file in $HOME/Desktop - cluttering the desktop
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#339">[ date ]</a>
+              <a href="thread.html#339">[ thread ]</a>
+              <a href="subject.html#339">[ subject ]</a>
+              <a href="author.html#339">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>El 14/08/2011 02:13 p.m., Mike Gabriel escribi&#243;:
+&gt;<i> Hi Ted,
+</I>&gt;<i>
+</I>&gt;<i> On Mo 08 Aug 2011 18:04:18 CEST Ted Barnes wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> We are experimenting with X2go (very cool), but having a devil of a time
+</I>&gt;&gt;<i> getting printing to work.  This request for help is keying off of posts by
+</I>&gt;&gt;<i> John Sullivan and Mario Oroz (thanks so much for those, guys, e.g.,  see
+</I>&gt;&gt;<i> tread <A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00104.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00104.html</A>
+</I>&gt;&gt;<i> and <A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00115.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00115.html</A>). We
+</I>&gt;&gt;<i> are having pretty much the same problem as described there.  We are assuming
+</I>&gt;&gt;<i> that X2go printing in general can be made &quot;to work&quot; and that this is a matter
+</I>&gt;&gt;<i> of something we are doing wrong (maybe starting with the install?), some
+</I>&gt;&gt;<i> necessary &quot;tweaks&quot;, etc.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> To make sure you use latest software, please use these sources for
+</I>&gt;<i> installation of the server-side of X2go:
+</I>&gt;<i>
+</I>&gt;<i> Debian+Ubuntu:
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/nightly-built_packages_debian_ubuntu">http://wiki.x2go.org/nightly-built_packages_debian_ubuntu</A>
+</I>&gt;<i>
+</I>&gt;<i> Furtheron for initial debugging, please use x2goclient on Debian or Ubuntu to
+</I>&gt;<i> eradicate some not-so-generic Windows problems.
+</I>&gt;<i>
+</I>&gt;<i> Please install the x2goclient from our nightly builds as well.
+</I>&gt;<i>
+</I>&gt;<i> Nightly builds are for debugging+testing, not for production setups, though!
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;&gt;<i> Q:  In testing (where we simulate what we imagine the printing process to be
+</I>&gt;&gt;<i> by doing each step manually) when we issue the .ready command, why does that
+</I>&gt;&gt;<i> only seems to work sometimes as judged by the x2go print client popping on
+</I>&gt;&gt;<i> the XP side?  Does that tell us something?
+</I>&gt;<i>
+</I>&gt;<i> Good question. If the latest code does not solve your issues, please send the
+</I>&gt;<i> .ready file's content.
+</I>&gt;<i>
+</I>&gt;&gt;<i> Q:  Should printing be putting jobs in &quot;/&quot; (is that normal)?  Does
+</I>&gt;<i>
+</I>&gt;<i> NO! You use old server-side packages. Upgrade to the nighly builds.
+</I>&gt;<i>
+</I>&gt;&gt;<i> the x2goprint script know what to grab based on job#s?  We assume this all
+</I>&gt;&gt;<i> should work with multiple users and the x2goscript identifies which jobs to
+</I>&gt;&gt;<i> grab and put them individual user spool queues.
+</I>&gt;<i>
+</I>&gt;<i> Yes, this does work with latest code.
+</I>&gt;<i>
+</I>&gt;&gt;<i> Q:  To work, should x2goprinting pass the print file from the server through
+</I>&gt;&gt;<i> the ssh connection to the client?  Is this in part an &quot;ssh passing the file&quot;
+</I>&gt;&gt;<i> problem?  We can connect through putty from the client to the server, and
+</I>&gt;&gt;<i> assume we have the keys correct because we can connect from XP to the Ubuntu
+</I>&gt;&gt;<i> server via x2go in the first place.  Back to the lack of an id_dsa file? 
+</I>&gt;&gt;<i> Again, we're not sure that printing is invoking the right scripts to begin with.
+</I>&gt;<i>
+</I>&gt;<i> The print job files are stored on the client via SSHFS. The SSHFS file sharing
+</I>&gt;<i> uses a temporary pub/priv key pair, so for this mechanism it is not relevant
+</I>&gt;<i> if you can SSH to and from the server. The SSHFS mount is issued by the server
+</I>&gt;<i> and connects to the client (via a SSH tunnel).
+</I>&gt;<i>
+</I>&gt;&gt;<i> Q:  Assuming we get this working, we also assume that on the
+</I>&gt;&gt;<i> Ghostview/Ghostscript side we shouldn't be having to put the name of the file
+</I>&gt;&gt;<i> in the command line, nor actually having to use the command line.  I.e.,
+</I>&gt;&gt;<i> there is an option there to print that refers to whatever default printer we
+</I>&gt;&gt;<i> have set on the XP machine, but currently nothing happens if we use that
+</I>&gt;&gt;<i> particular option instead of the command line.
+</I>&gt;<i>
+</I>&gt;<i> Yes, this should be so. Please test this with a Linux x2goclient first. If
+</I>&gt;<i> this works then check with the Windows x2goclient and report experienced
+</I>&gt;<i> differences.
+</I>
+Hello Ted
+ You see/read that: 
+<A HREF="https://lists.berlios.de/pipermail/x2go-user/2011-August/000335.html">https://lists.berlios.de/pipermail/x2go-user/2011-August/000335.html</A>
+
+regards.
+Mario.
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000316.html">[X2go-User] [X2go-Dev] x2go printing follow up
+</A></li>
+	<LI>Next message: <A HREF="000318.html">[X2go-User] Local share appears as a text file in $HOME/Desktop - cluttering the desktop
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#339">[ date ]</a>
+              <a href="thread.html#339">[ thread ]</a>
+              <a href="subject.html#339">[ subject ]</a>
+              <a href="author.html#339">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

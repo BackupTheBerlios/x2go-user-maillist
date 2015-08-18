@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20%28redistributed%29%20--%20x2goagent%20fully%20integrated%0A%20into%20NX-libs%20%28call%20for%20testing%29&In-Reply-To=%3C4F109C0F.5020205%40jpserver.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000535.html">
+   <LINK REL="Next"  HREF="000537.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)</H1>
+    <B>John Hopper</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20%28redistributed%29%20--%20x2goagent%20fully%20integrated%0A%20into%20NX-libs%20%28call%20for%20testing%29&In-Reply-To=%3C4F109C0F.5020205%40jpserver.net%3E"
+       TITLE="[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)">zinic at jpserver.net
+       </A><BR>
+    <I>Fri Jan 13 22:03:11 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000535.html">[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+</A></li>
+        <LI>Next message: <A HREF="000537.html">[X2go-User] how to completely remove/purge and reinstall
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#536">[ date ]</a>
+              <a href="thread.html#536">[ thread ]</a>
+              <a href="subject.html#536">[ subject ]</a>
+              <a href="author.html#536">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Very nice and great work X2Go guys! Looking forward to testing the 
+squeeze packages.
+
+
+On 01/13/2012 01:32 AM, Mike Gabriel wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> recently there has been some noise about X2Go re-working its NX code
+</I>&gt;<i> base. Indeed some quite interesting things have been going on recently
+</I>&gt;<i> around NX and X2Go.
+</I>&gt;<i>
+</I>&gt;<i> During the last weeks we have completely reworked the way we build NX
+</I>&gt;<i> libraries. This has fixed a lot of instability problems people had
+</I>&gt;<i> recently (summer/autumn 2011) already.
+</I>&gt;<i>
+</I>&gt;<i> During this last week we set up the X2Go subproject
+</I>&gt;<i>
+</I>&gt;<i> ,,NX (redistributed)'' (aka nx-libs.git on <A HREF="http://git.x2go.org">http://git.x2go.org</A>)
+</I>&gt;<i>
+</I>&gt;<i> The X2Go project's developers (esp. Mike and Reinhard, supported by Alex
+</I>&gt;<i> and Heinz) have decided to re-distribute NX sources as one big tarball
+</I>&gt;<i> that builds with GNU make and contains patches not accepted by NoMachine
+</I>&gt;<i> themselves. The building of the tarball with GNU make already works
+</I>&gt;<i> fine, the ,,make install'' still needs more work. John Williams has
+</I>&gt;<i> agreed to contribute on that (thanks for that!!!).
+</I>&gt;<i>
+</I>&gt;<i> @John: please note that I have uploaded a new tarball containing the
+</I>&gt;<i> functionality described below ;-):
+</I>&gt;<i> <A HREF="http://code.x2go.org/releases/source/nx-libs/nx-libs_3.5.0.5-full.tar.gz">http://code.x2go.org/releases/source/nx-libs/nx-libs_3.5.0.5-full.tar.gz</A>
+</I>&gt;<i>
+</I>&gt;<i> During the last days now, we have achieved something that so far has
+</I>&gt;<i> hardly been imaginable (at least to me).
+</I>&gt;<i>
+</I>&gt;<i> We have incorporated three patches into nx-libs.git that allows to turn
+</I>&gt;<i> NX's nxagent into x2goagent during runtime:
+</I>&gt;<i> 01:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/200_nxagent_check-binary-x2go-flavour.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/200_nxagent_check-binary-x2go-flavour.patch</A>
+</I>&gt;<i>
+</I>&gt;<i> 02:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/201_nxagent_set-x2go-icon-if-x2goagent-flavour.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/201_nxagent_set-x2go-icon-if-x2goagent-flavour.patch</A>
+</I>&gt;<i>
+</I>&gt;<i> 03:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/999_nxagent_unbrand-nxagent-brand-x2goagent.patch">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/patches/999_nxagent_unbrand-nxagent-brand-x2goagent.patch</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> X2Go's agent is now part of NX and is maintained in nx-libs.git on
+</I>&gt;<i> <A HREF="http://git.x2go.org.">http://git.x2go.org.</A>
+</I>&gt;<i>
+</I>&gt;<i> The x2goagent package from now on depends on nxagent (as they are one).
+</I>&gt;<i> The x2goagent package provides a symbolic link to nxagent, a separate
+</I>&gt;<i> x2goagent man page and a wrapper script in /usr/bin, nothing else. If
+</I>&gt;<i> nxagent is executed unter the name of x2goagent, the X2GO branding gets
+</I>&gt;<i> activated within nxagent.
+</I>&gt;<i>
+</I>&gt;<i> Also: ,,NX (redistributed)'' is fully FreeNX compliant. Install ,,NX
+</I>&gt;<i> (redistributed)'' from the X2Go package archives and add FreeNX (Ubuntu
+</I>&gt;<i> Launchpad) on top of that. FreeNX and X2Go can now again be installed
+</I>&gt;<i> parallely on the same system. Interesting for migrations or client
+</I>&gt;<i> diversity.
+</I>&gt;<i>
+</I>&gt;<i> This step also allows us to finally abandon the following source
+</I>&gt;<i> projects completely now:
+</I>&gt;<i>
+</I>&gt;<i> nxcomp.git
+</I>&gt;<i> nxcompext.git
+</I>&gt;<i> nxcompshad.git
+</I>&gt;<i> nxproxy.git
+</I>&gt;<i> x2goagent.git
+</I>&gt;<i>
+</I>&gt;<i> See also at the bottom of this page:
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb">http://code.x2go.org/gitweb</A>
+</I>&gt;<i>
+</I>&gt;<i> As this is esp. a call-out for testing the new packages(!!!!) here are
+</I>&gt;<i> some short infos on upgrading your X2Go test servers. Packages are
+</I>&gt;<i> available for Debian squeeze, wheezy, sid and Ubuntu lucid, ..., precise.
+</I>&gt;<i>
+</I>&gt;<i> The .deb packages are already available in the X2Go nightly-built
+</I>&gt;<i> repositories:
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/wiki:development:nightly-builds?&amp;#nightly-builds_for_ubuntu_gnu_linux">http://wiki.x2go.org/wiki:development:nightly-builds?&amp;#nightly-builds_for_ubuntu_gnu_linux</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Please note, that x2goagent will not install when running ,,apt-get
+</I>&gt;<i> upgrade''. Either you have to run ,,apt-get dist-upgrade'' or explicitly
+</I>&gt;<i> install x2goagent with ,,apt-get install x2goagent''.
+</I>&gt;<i>
+</I>&gt;<i> light+love
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000535.html">[X2go-User] NX (redistributed) -- x2goagent fully integrated into NX-libs (call for testing)
+</A></li>
+	<LI>Next message: <A HREF="000537.html">[X2go-User] how to completely remove/purge and reinstall
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#536">[ date ]</a>
+              <a href="thread.html#536">[ thread ]</a>
+              <a href="subject.html#536">[ subject ]</a>
+              <a href="author.html#536">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

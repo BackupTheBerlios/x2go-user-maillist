@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Ubuntu Natty X2go client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%20Natty%20X2go%20client&In-Reply-To=%3CBANLkTimxP9ZrXNTaAxgsO7HgOq9qx4qs8g%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000179.html">
+   <LINK REL="Next"  HREF="000182.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Ubuntu Natty X2go client</H1>
+    <B>Neil Hunt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%20Natty%20X2go%20client&In-Reply-To=%3CBANLkTimxP9ZrXNTaAxgsO7HgOq9qx4qs8g%40mail.gmail.com%3E"
+       TITLE="[X2go-user] Ubuntu Natty X2go client">nwhunt at gmail.com
+       </A><BR>
+    <I>Tue Jun  7 19:26:18 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000179.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+        <LI>Next message: <A HREF="000182.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike,
+
+I am using Unity. I switched to GNOME classic and the icon appeared on the
+taskbar. Of course, the X2go session, once connected still didn't show up in
+a window, just as I had mentioned in 10.10, but it did say connection
+successful.
+
+When I switched over to Unity, however, since Unity doesn't include the
+system tray, there is no icon. I tried the extension &quot;Confity&quot; to enable the
+system tray, however it still did not show anything for the Py Hoca icon. I
+believe there's a different way to manage notifications in Unity than the
+applets/sys tray icons in GNOME so we may have to look at that if we want to
+use Py Hoca going forward on Ubuntu. I was able to get the GTK client to run
+in Unity though, so that's what I'm using now.
+
+Neil
+
+On Mon, Jun 6, 2011 at 1:57 PM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Neil,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Mo 06 Jun 2011 14:36:10 CEST Neil Hunt wrote:
+</I>&gt;<i>
+</I>&gt;<i>  I know Mike got X2go server running on Ubuntu 11.04 Natty. I haven't been
+</I>&gt;&gt;<i> able to do that yet but that's not my particular concern at the moment. I
+</I>&gt;&gt;<i> was wondering if anybody has used X2go client (either standard GTK client
+</I>&gt;&gt;<i> or
+</I>&gt;&gt;<i> Py Hoca) on an Ubuntu Natty desktop machine. I am trying to use Py Hoca
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> What desktop shell are you using? Unity? Or GNOME classic? Please try with
+</I>&gt;<i> GNOME classic, first. Make sure you have the Info Tray enabled (the applet
+</I>&gt;<i> area that network manager, padevchooser, gnome-power-manager etc. dock to).
+</I>&gt;<i> PyHoca-GUI should appear there as another icon.
+</I>&gt;<i>
+</I>&gt;<i> With Unity then, you should make sure to have this same applet/info tray
+</I>&gt;<i> available...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  pyhoca-gui[5662] (PyHoca-GUI) WARN: the current release of PyHoca-GUI does
+</I>&gt;&gt;<i> not support client configuration
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> This line is normal!!!! It just warns you, that there is still a programme
+</I>&gt;<i> component missing in PyHoca-GUI... Nothing to worry about. If you do a
+</I>&gt;<i>
+</I>&gt;<i>  $ cd /usr/bin
+</I>&gt;<i>  $ ./pyhoca-gui
+</I>&gt;<i>
+</I>&gt;<i> in a shell, then the option menu item ,,Client Settings'' is not greyed out
+</I>&gt;<i> anymore, you are warned that pyhoca-gui runs in development mode etc. This
+</I>&gt;<i> way of running pyhoca-gui is not recommended (as it will raise some more
+</I>&gt;<i> python exceptions that are normally silent -&gt; needed by myself for
+</I>&gt;<i> debugging...).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>  The logo pops up in the middle of the screen, but then nothing shows up
+</I>&gt;&gt;<i> anywhere. I see the process running, but I can't find any icon indicating
+</I>&gt;&gt;<i> it's running. Has anyone tried this successfully?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Look for the info tray! Once you have a solution, sign up for the X2go wiki
+</I>&gt;<i> and place it at an appropriate place, e.g.:
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/pyhoca-gui">http://wiki.x2go.org/pyhoca-gui</A>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110607/2dcdecbc/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110607/2dcdecbc/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000179.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+	<LI>Next message: <A HREF="000182.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#181">[ date ]</a>
+              <a href="thread.html#181">[ thread ]</a>
+              <a href="subject.html#181">[ subject ]</a>
+              <a href="author.html#181">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

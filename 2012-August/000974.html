@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go connecting timout with TCE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20connecting%20timout%20with%20TCE&In-Reply-To=%3C1546955494.544571.1345632437106.JavaMail.root%40thomas-krenn.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000975.html">
+   <LINK REL="Next"  HREF="000976.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go connecting timout with TCE</H1>
+    <B>Florian M&#252;ller</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20connecting%20timout%20with%20TCE&In-Reply-To=%3C1546955494.544571.1345632437106.JavaMail.root%40thomas-krenn.com%3E"
+       TITLE="[X2Go-User] x2go connecting timout with TCE">fmueller at thomas-krenn.com
+       </A><BR>
+    <I>Wed Aug 22 12:47:17 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000975.html">[X2Go-User] x2go installation: not tftp running
+</A></li>
+        <LI>Next message: <A HREF="000976.html">[X2Go-User] X-Server cannot be started
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#974">[ date ]</a>
+              <a href="thread.html#974">[ thread ]</a>
+              <a href="subject.html#974">[ subject ]</a>
+              <a href="author.html#974">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike, 
+
+this is the configuration of the desktop client: 
+
+GNU nano 2.2.6 Datei: .x2goclient/sessions 
+
+[20120813130507857] 
+speed=2 
+pack=16m-jpeg 
+quality=9 
+fstunnel=true 
+export= 
+iconvto=UTF-8 
+iconvfrom=ISO8859-1 
+useiconv=false 
+fullscreen=false 
+width=800 
+multidisp=false 
+display=1 
+height=600 
+dpi=96 
+setdpi=false 
+xinerama=false 
+usekbd=true 
+layout=de 
+type=pc105/de 
+sound=true 
+soundsystem=pulse 
+startsoundsystem=true 
+soundtunnel=true 
+defsndport=true 
+sndport=4713 
+print=true 
+name=Login 
+icon=:icons/128x128/x2gosession.png 
+host=x2go-server 
+user= 
+key= 
+sshport=22 
+autologin=false 
+krblogin=false 
+rootless=false 
+applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL, &quot;gnome-session --session=gnome-fallback&quot; 
+command=&quot;gnome-session --session=gnome-fallback&quot; 
+rdpoptions= 
+rdpserver= 
+xdmcpserver=localhost 
+
+and this is the configuration of the TCE-Environment(quite the same, because i copied the one of the client like descripted in the x2go-wiki): 
+
+[20120813130507857] 
+speed=2 
+pack=16m-jpeg 
+quality=9 
+fstunnel=true 
+export= 
+iconvto=UTF-8 
+iconvfrom=ISO8859-1 
+useiconv=false 
+fullscreen=true 
+width=800 
+multidisp=false 
+display=1 
+height=600 
+dpi=96 
+setdpi=false 
+xinerama=false 
+usekbd=true 
+layout=de 
+type=pc105/de 
+sound=true 
+soundsystem=pulse 
+startsoundsystem=true 
+soundtunnel=true 
+defsndport=true 
+sndport=4713 
+print=true 
+name=Login 
+icon=:icons/128x128/x2gosession.png 
+host=x2go-server 
+user= 
+key= 
+sshport=22 
+autologin=false 
+krblogin=false 
+rootless=true 
+applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL 
+command=&quot;gnome-session --session=gnome-fallback&quot; 
+rdpoptions= 
+rdpserver= 
+xdmcpserver=localhost 
+
+
+Best Regards 
+Flo 
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120822/7c6c01a3/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120822/7c6c01a3/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000975.html">[X2Go-User] x2go installation: not tftp running
+</A></li>
+	<LI>Next message: <A HREF="000976.html">[X2Go-User] X-Server cannot be started
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#974">[ date ]</a>
+              <a href="thread.html#974">[ thread ]</a>
+              <a href="subject.html#974">[ subject ]</a>
+              <a href="author.html#974">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Mac client 'Can't connect to X-Server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Mac%20client%20%27Can%27t%20connect%20to%20X-Server&In-Reply-To=%3CCA%2BDk-d3zcnw2s2oYywhNWcCY8LH0ifcRQ%2BRmj3N9MaO7481CRg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000205.html">
+   <LINK REL="Next"  HREF="000211.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Mac client 'Can't connect to X-Server</H1>
+    <B>Neil Hunt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Mac%20client%20%27Can%27t%20connect%20to%20X-Server&In-Reply-To=%3CCA%2BDk-d3zcnw2s2oYywhNWcCY8LH0ifcRQ%2BRmj3N9MaO7481CRg%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Mac client 'Can't connect to X-Server">nwhunt at gmail.com
+       </A><BR>
+    <I>Thu Jul  7 14:24:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000205.html">[X2go-User] Kde4.6 x2goplasmoid
+</A></li>
+        <LI>Next message: <A HREF="000211.html">[X2go-User] Download Wiki content
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Paul,
+
+Unfortunately as a regular user of the Mac X2go client, this is something
+I've seen many times. Unfortunately, I haven't found any fix for it. The
+good news is that it rarely happens if you keep the X11 application open.
+Always open X11 before starting your X2go session. From there, you can
+stop/start X2go sessions, even the X2go client itself, however I almost
+always keep my X11 app running even when it's not being uses and then I
+don't get the problem you are describing. If I quit X11, especially if it's
+accidental during an active X2go session, then I end up with the problem you
+are describing and the only option is to restart the whole computer. But if
+I keep it open, I go for days or weeks without rebooting.
+
+Ultimately, I think we should look to move to the PyHoca gui, but we haven't
+been able to find any serious python developers to port it to OS X.
+
+Neil
+
+--------------------------------------------------------------------------------------------
+Date: Wed, 6 Jul 2011 12:14:51 -0700
+From: Paul Northug &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">pnorthug at gmail.com</A>&gt;
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Subject: [X2go-User] Mac client 'Can't connect to X-Server'
+Message-ID:
+       &lt;CAJAeRZy=<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">KmQsVyoELQ4MrTDHZ8g03x8tXJm_hTL5NK50jQ9QEw at mail.gmail.com</A>&gt;
+Content-Type: text/plain; charset=ISO-8859-1
+
+Thank you to the developers for make this excellent software.
+
+Many people at my work use x2go's Mac client. We have never been able
+to figure out how to resolve the 'Can't connect to X-Server' error
+without random acts (eg. rebooting). We are not sure why it comes up.
+
+This is what I do:
+1. Start X11.app
+2. ssh -X remotehost
+3. xterm &amp;
+
+So far this works, I get an xterm so there is nothing wrong with X11
+
+4. Start X2Go client
+5. Start a session (port 22, dsa authentication, Gnome...)
+
+6. Client gives the error and hangs (Abort and Terminate don't do
+anything) and I have to close the application.
+
+The closest we got to figuring it out is that the X11.app possibly
+changes it's DISPLAY on restarts and perhaps the x2go client is
+expecting display 0. Is there any more debugging information that I
+could get from the client to see what exactly it is doing prior to
+giving the error message?
+
+We have tried some of the suggestions in the forums, such as changing
+permissions in X11.app (this is necessary), starting it manually
+before starting the client. We have also done things like messed with
+firewall settings, made sure hostname doesn't change on our laptops
+between work and home, deleted preference files, delete XAuthority
+files, etc. What seems to work is rebooting.
+
+Thanks,
+P?l
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110707/6249b46c/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110707/6249b46c/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000205.html">[X2go-User] Kde4.6 x2goplasmoid
+</A></li>
+	<LI>Next message: <A HREF="000211.html">[X2go-User] Download Wiki content
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#206">[ date ]</a>
+              <a href="thread.html#206">[ thread ]</a>
+              <a href="subject.html#206">[ subject ]</a>
+              <a href="author.html#206">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

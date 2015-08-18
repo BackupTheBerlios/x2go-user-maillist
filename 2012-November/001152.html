@@ -1,0 +1,127 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go &amp; debian wheezy ... strange browser freezes (and other little problems)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%26%20debian%20wheezy%20...%20strange%20browser%20freezes%20%28and%0A%20other%20little%20problems%29&In-Reply-To=%3Ck8vbcn%24tts%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001162.html">
+   <LINK REL="Next"  HREF="001153.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go &amp; debian wheezy ... strange browser freezes (and other little problems)</H1>
+    <B>Tim Kruse</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%26%20debian%20wheezy%20...%20strange%20browser%20freezes%20%28and%0A%20other%20little%20problems%29&In-Reply-To=%3Ck8vbcn%24tts%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] x2go &amp; debian wheezy ... strange browser freezes (and other little problems)">tim.kruse at kikxxl.de
+       </A><BR>
+    <I>Mon Nov 26 10:05:29 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001162.html">[X2Go-User] Message &quot;Verbindung fehlgeschlagen Kann Datei nicht &#246;ffnen&quot; when I start x2go-Client Windows
+</A></li>
+        <LI>Next message: <A HREF="001153.html">[X2Go-User] x2go &amp; debian wheezy ... strange browser freezes (and other little problems)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1152">[ date ]</a>
+              <a href="thread.html#1152">[ thread ]</a>
+              <a href="subject.html#1152">[ subject ]</a>
+              <a href="author.html#1152">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+I was in contact with Mike Gabriel and he suggested, that I post some 
+issues to the list, so here I am ...
+
+We are going to migrate our Terminalserver-farm from freeNX to x2go and 
+are heaviliy testing the new infrastructure. First I have to say, that 
+x2go is running very good 'out of the box'.
+
+Our Test-Setup is as follows:
+
+2 debian wheezy amd64 server (1 AMD Opteron 6128 6-core and 1 Core2 Quad 
+Q6600 with 8Gb RAM each) connected through 1Gb Ethernet running 
+x2goserver 3.1.1.4 (I know, 3.1.1.9 is the actual Version ...) and KDE 4.8.4
+
+Both x2goserver are configured with Postgres Backend and we have an 
+Loadbalancer with IPVS in front of them.
+
+x2goclient version is 3.99.3.0 and 3.99.2.1
+
+In our productive environment we will have round about 700 users 
+connected running an KDE4 DE in Kiosk mode using own coded Software 
+(mostly Gambas2 &amp; 3 and Python programs), libreoffice, okular and 
+iceweasel/firefox.
+
+We experienced browser freezes with iceweasel 10.0.10 and firefox 13.0.1 
+after some time of browser-inactivity (&gt;= 15 min). I didn't found any 
+logentries (neither syslog or .xsession-x2go-erros on server nor on 
+client) and the system load is normal ...
+
+The client, from which these freezes are observed is a Dualhead PC with 
+nvidia graphic card running the x2go-session in fullscreen mode with 
+xinerama extension and it seems, that the freezes do not occur on 
+clients with only one Display attached.
+
+We have flashplugin-nonfree installed, no browser addons, but those 
+freezes are not limited to any flashsites. They occur on several 
+websites including 'normal' howto sites (eg. gambas helpsite) and 
+phpmyadmin.
+
+The next thing I want to point out is up to sound (pulseaudio) and 
+suspended sessions. If sound is activated an a user suspends his 
+session, there is strange pulseaudio related logfileflooding. Every 
+second I get:
+
+[pulseaudio] main.c: User-configured server at localhost:30014, refusing 
+to start/autospawn.
+
+After saying that, I have to admit, that suspend is something we don't 
+want in our setup. I linked x2gosuspend-session to x2goterminate-session 
+to always terminate the session even if the client gives suspend as 
+signal (thanks to Mike for the hint).
+
+I think thats it for now :)
+
+So long,
+
+Tim Kruse
+
+-- 
+
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001162.html">[X2Go-User] Message &quot;Verbindung fehlgeschlagen Kann Datei nicht &#246;ffnen&quot; when I start x2go-Client Windows
+</A></li>
+	<LI>Next message: <A HREF="001153.html">[X2Go-User] x2go &amp; debian wheezy ... strange browser freezes (and other little problems)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1152">[ date ]</a>
+              <a href="thread.html#1152">[ thread ]</a>
+              <a href="subject.html#1152">[ subject ]</a>
+              <a href="author.html#1152">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

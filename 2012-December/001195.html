@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Problem with KDE, Network Manager and X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAAWyt1oe3EE_vmZ%3DBVb7AN4bjTQ7%3D53gBzG7EYEf_CVwe5xwiA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001194.html">
+   <LINK REL="Next"  HREF="001196.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Problem with KDE, Network Manager and X2Go</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Problem%20with%20KDE%2C%20Network%20Manager%20and%20X2Go&In-Reply-To=%3CCAAWyt1oe3EE_vmZ%3DBVb7AN4bjTQ7%3D53gBzG7EYEf_CVwe5xwiA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Problem with KDE, Network Manager and X2Go">bd.dali at gmail.com
+       </A><BR>
+    <I>Sun Dec 23 19:18:15 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001194.html">[X2Go-User] X2Go and systemd: printing fails silently
+</A></li>
+        <LI>Next message: <A HREF="001196.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1195">[ date ]</a>
+              <a href="thread.html#1195">[ thread ]</a>
+              <a href="subject.html#1195">[ subject ]</a>
+              <a href="author.html#1195">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+I've installed a Debian Wheezy virtual machine (KVM) with KDE.
+
+If I log on using the console, I can use Network Manager to succesfully add
+a VPN connection.
+
+If I log on to the same machine via X2Go, I can't add a new VPN connection
+(and the one added from the console session isn't there). When I try to
+save it I get &quot;No session found for uid 1000&quot;.
+
+I've spent hours googling and there seems to be a problem with dbus and/or
+ConsoleKit. If I use the console to logon, KDM does something that makes
+Network Manager/dbus/ConsoleKit happy, if I use X2Go that &quot;something&quot; is
+missing.
+
+KWallet may also be a factor, when I'm logged on to the console it pops up
+at the same step that I get the error message in X2Go.
+
+Is there any X2Go user out there that has a solution to this problem?
+
+Cheers,
+Daniel
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121223/bb42c19e/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20121223/bb42c19e/attachment.html</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001194.html">[X2Go-User] X2Go and systemd: printing fails silently
+</A></li>
+	<LI>Next message: <A HREF="001196.html">[X2Go-User] Problem with KDE, Network Manager and X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1195">[ date ]</a>
+              <a href="thread.html#1195">[ thread ]</a>
+              <a href="subject.html#1195">[ subject ]</a>
+              <a href="author.html#1195">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Raspberry Pi and acceleration of X2Go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Raspberry%20Pi%20and%20acceleration%20of%20X2Go&In-Reply-To=%3C20120925204525.19763yjrlm2yg91h%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001029.html">
+   <LINK REL="Next"  HREF="001033.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Raspberry Pi and acceleration of X2Go</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Raspberry%20Pi%20and%20acceleration%20of%20X2Go&In-Reply-To=%3C20120925204525.19763yjrlm2yg91h%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Raspberry Pi and acceleration of X2Go">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Sep 25 20:45:25 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001029.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+        <LI>Next message: <A HREF="001033.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1031">[ date ]</a>
+              <a href="thread.html#1031">[ thread ]</a>
+              <a href="subject.html#1031">[ subject ]</a>
+              <a href="author.html#1031">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+On Di 25 Sep 2012 11:28:24 CEST Pascal d'Hermilly wrote:
+
+&gt;<i> I recently bought a Raspberry pi and have been using it as a thin  
+</I>&gt;<i> client with X2go with the config script found here:  
+</I>&gt;<i> <A HREF="http://www.raspberrypi.org/phpBB3/viewtopic.php?f=36&amp;t=13130">http://www.raspberrypi.org/phpBB3/viewtopic.php?f=36&amp;t=13130</A>
+</I>&gt;<i>
+</I>&gt;<i> While working ok. X seems to max the cpu as soon as you start  
+</I>&gt;<i> pulling windows around and it the experience is quite laggy.
+</I>&gt;<i> I'm looking for solutions for this. The raspberry does not have  
+</I>&gt;<i> hardware accelerated X yet. Is this what is causing it?
+</I>&gt;<i> Is there a way I can use the hardware OpenGLES 2 directly?
+</I>&gt;<i>
+</I>&gt;<i> At my workplace we are considering x2go for thin clients and were  
+</I>&gt;<i> looking into using the Raspberry pi as a client :-)
+</I>
+First thing: running x2goclient as root (as described in the above  
+Raspi forum URL) is not a good idea.
+
+Note that there is an x2gothinclient environment available. If  
+requested we can make it available for ARMel architecture, as well.  
+The x2gothinclient package launches an X2Go Client in thin client mode  
+and it uses a generic user account for that which gets recreated on  
+every thin client restart.
+
+&gt;<i> What can I do to make it perform better.
+</I>
+You can reduce the NX protocols compression level if you connect via  
+LAN (by using LAN as network speed, this will reduce any compression  
+on the NX protocol). Maybe that helps and frees some CPU cycles for X  
+rendering.
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120925/deebfae1/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120925/deebfae1/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001029.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+	<LI>Next message: <A HREF="001033.html">[X2Go-User] Raspberry Pi and acceleration of X2Go
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1031">[ date ]</a>
+              <a href="thread.html#1031">[ thread ]</a>
+              <a href="subject.html#1031">[ subject ]</a>
+              <a href="author.html#1031">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

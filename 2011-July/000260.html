@@ -1,0 +1,97 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] RDP packing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20RDP%20packing&In-Reply-To=%3C1311286176.8194.139.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000259.html">
+   <LINK REL="Next"  HREF="000261.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] RDP packing</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20RDP%20packing&In-Reply-To=%3C1311286176.8194.139.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] RDP packing">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Fri Jul 22 00:09:36 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000259.html">[X2go-User] RDP packing
+</A></li>
+        <LI>Next message: <A HREF="000261.html">[X2go-User] core dev-team testing x2goclient during next week
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#260">[ date ]</a>
+              <a href="thread.html#260">[ thread ]</a>
+              <a href="subject.html#260">[ subject ]</a>
+              <a href="author.html#260">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, 2011-07-21 at 23:55 +0200, Mike Gabriel wrote:
+&gt;<i> On Do 21 Jul 2011 22:00:34 CEST &quot;John A. Sullivan III&quot; wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hello, all.  We are still trying to address the very poor performance of
+</I>&gt;<i> &gt; rdesktop sessions transmitted over NX - much slower than native RDP
+</I>&gt;<i> &gt; although we were expecting it to be much faster.  In reading the NX
+</I>&gt;<i> &gt; documentation, we saw that they have a packing algorithm especially for
+</I>&gt;<i> &gt; RDP.  However, whenever we enable this packing algorithm, the session
+</I>&gt;<i> &gt; aborts.  Has anyone successfully used it? How do we troubleshoot this
+</I>&gt;<i> &gt; issue? Thanks - John
+</I>&gt;<i> 
+</I>&gt;<i> The actual pack methods support by libxcomp3 seem to be in this file:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://code.x2go.org/gitweb?p=nxcomp.git;a=blob;f=Loop.cpp;h=76622d820f58e56453e51a8bd1d0127f7f4e5d32;hb=68b507b01d1a7aeab734a2955ddb2d513dbe8ace">http://code.x2go.org/gitweb?p=nxcomp.git;a=blob;f=Loop.cpp;h=76622d820f58e56453e51a8bd1d0127f7f4e5d32;hb=68b507b01d1a7aeab734a2955ddb2d513dbe8ace</A>
+</I>&gt;<i> 
+</I>&gt;<i> Obviously, x2goclient (and pyhoca-gui) offer more pack methods than  
+</I>&gt;<i> currently supported.
+</I>&gt;<i> 
+</I>&gt;<i> @Alex: any clue on this??? We should remove the non-NX methods?
+</I>&gt;<i> 
+</I>&gt;<i> @John: I currently am logged in on from my Debsqueeze notebook to an  
+</I>&gt;<i> x2goserver in my office (LAN) that draws in 3 rdesktop session from  
+</I>&gt;<i> three machines via DSL (WAN, 3500bit/s). All three work very smoothly  
+</I>&gt;<i> while at the same time another host here draws backups from some  
+</I>&gt;<i> servers on the internet... I use 16m-png-jpeg-9 for that.
+</I>&lt;snip&gt;
+Strange.  We have some pretty beefy servers on the back end with Gig
+links between the Windows and Linux desktops.  Our performance is
+adequate for some things but major screen repaints are brutal, e.g.,
+viewing large and dense architectural drawings in PDF files or scrolling
+through large graphics on poorly designed web sites. One of our favorite
+tests is to open notepad up full screen, type a full line, copy it, and
+hold down CTL-V.  The first few pastes are fine but it becomes dismal as
+we get to the bottom of the screen.  Performance is dramatically better
+in direct RDP or SPICE - John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000259.html">[X2go-User] RDP packing
+</A></li>
+	<LI>Next message: <A HREF="000261.html">[X2go-User] core dev-team testing x2goclient during next week
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#260">[ date ]</a>
+              <a href="thread.html#260">[ thread ]</a>
+              <a href="subject.html#260">[ subject ]</a>
+              <a href="author.html#260">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

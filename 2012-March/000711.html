@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] New X2Go user (missing privileges)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20user%20%28missing%20privileges%29&In-Reply-To=%3CCADZYHDDwO1rtBNYDEqu1HfwuKkOnMo5NebpeoLWFLeD%2BQXMCjw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000708.html">
+   <LINK REL="Next"  HREF="000714.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] New X2Go user (missing privileges)</H1>
+    <B>Benjamin Shadwick</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20New%20X2Go%20user%20%28missing%20privileges%29&In-Reply-To=%3CCADZYHDDwO1rtBNYDEqu1HfwuKkOnMo5NebpeoLWFLeD%2BQXMCjw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] New X2Go user (missing privileges)">benshadwick at gmail.com
+       </A><BR>
+    <I>Fri Mar 16 19:28:08 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000708.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+        <LI>Next message: <A HREF="000714.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#711">[ date ]</a>
+              <a href="thread.html#711">[ thread ]</a>
+              <a href="subject.html#711">[ subject ]</a>
+              <a href="author.html#711">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Timo,
+
+The problem is that the default .policy files for many Ubuntu applications
+that use PolicyKit are configured badly, as they don't take into account
+the needs of remotely-connected users who launch desktop sessions.
+
+An Ubuntu bug report with a detailed discussion can be found here:
+<A HREF="https://bugs.launchpad.net/ubuntu/+source/policykit/+bug/221363">https://bugs.launchpad.net/ubuntu/+source/policykit/+bug/221363</A>
+
+This has been an ongoing issue for me, since I have a headless Xubuntu
+workstation that I only access remotely (via X2go and ssh/sftp).
+
+If you don't want to muck around with .policy files, another workaround is
+to launch the affected application(s) from the command line with
+sudo/gksudo.
+
+- Ben S.
+
+On Fri, Mar 16, 2012 at 7:44 AM, Timo &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">tike64 at gmail.com</A>&gt; wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> FreeNX seems not to be anymore supported for newer systems (e.g. Oneiric)
+</I>&gt;<i> so I was very glad that I found this X2Go. Thanks for good work!
+</I>&gt;<i>
+</I>&gt;<i> I got it running after I learned what to put into the session type and
+</I>&gt;<i> edited Wiki with my observation (<A HREF="http://www.x2go.org/doku.php/**">http://www.x2go.org/doku.php/**</A>
+</I>&gt;<i> wiki:components:x2goclient&lt;<A HREF="http://www.x2go.org/doku.php/wiki:components:x2goclient">http://www.x2go.org/doku.php/wiki:components:x2goclient</A>&gt;
+</I>&gt;<i> ).
+</I>&gt;<i>
+</I>&gt;<i> There is a couple of small hitches though: The first is a small one;
+</I>&gt;<i> update, audio volume and network applets render a little badly (Mint 12
+</I>&gt;<i> gnome classic fallback session).
+</I>&gt;<i>
+</I>&gt;<i> The second is a little more critical; I don't have administration
+</I>&gt;<i> privileges in remote session. For example in Applications-&gt;Systems
+</I>&gt;<i> Tools-&gt;System Settings-&gt;User Accounts there is an Unlock button but it is
+</I>&gt;<i> disabled. So I can't use that tool to manage user accounts remotely. I
+</I>&gt;<i> don't know where to start to look at this problem.
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> Timo
+</I>&gt;<i> ______________________________**_________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/**mailman/listinfo/x2go-user&lt;https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/**mailman/listinfo/x2go-user&lt;https://lists.berlios.de/mailman/listinfo/x2go-user</A>&gt;
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120316/e4172bef/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120316/e4172bef/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000708.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+	<LI>Next message: <A HREF="000714.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#711">[ date ]</a>
+              <a href="thread.html#711">[ thread ]</a>
+              <a href="subject.html#711">[ subject ]</a>
+              <a href="author.html#711">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

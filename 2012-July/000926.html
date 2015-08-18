@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Keyboard layout settings in client not taken into account
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20layout%20settings%20in%20client%20not%20taken%20into%0A%20account&In-Reply-To=%3C20120710064301.254900%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000927.html">
+   <LINK REL="Next"  HREF="000929.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Keyboard layout settings in client not taken into account</H1>
+    <B>Burnce at gmx.net</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20layout%20settings%20in%20client%20not%20taken%20into%0A%20account&In-Reply-To=%3C20120710064301.254900%40gmx.net%3E"
+       TITLE="[X2Go-User] Keyboard layout settings in client not taken into account">Burnce at gmx.net
+       </A><BR>
+    <I>Tue Jul 10 08:43:01 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000927.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+        <LI>Next message: <A HREF="000929.html">[X2Go-User] Sound support (PulseAudio) only works at times
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#926">[ date ]</a>
+              <a href="thread.html#926">[ thread ]</a>
+              <a href="subject.html#926">[ subject ]</a>
+              <a href="author.html#926">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike,
+
+Thank you for your info. I have upgraded to x2goserver 3.1.1.1 and now the mapping of the client-side keyboard is attempted. But I am still facing problems:
+
+1) The options set in the client are not taken into account (i.e. whatever I set, x2go tries to map to the client side keyboard mapping)
+2) On the Swiss keyboard, many special characters require the use of the right alt key (Alt Gr). However, this key seems to be ignored by x2go's mapping functionality. This makes my system completely unusable. The only workaround appears to be to create a session from a machine with a US keyboard, disconnect and resume from the machine with the Swiss keyboard. This gives me the US layout.
+
+Where can I find documentation on the use of x2gosetkeyboard? I cannot seem to get it to work.
+
+Best,
+
+Burnce
+
+-------- Original-Nachricht --------
+&gt;<i> Datum: Thu, 21 Jun 2012 16:26:55 +0200
+</I>&gt;<i> Von: Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> An: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Betreff: Re: [X2Go-User] Keyboard layout settings in client not taken into account
+</I>
+&gt;<i> Hi Burnce,
+</I>&gt;<i> 
+</I>&gt;<i> On Do 21 Jun 2012 11:38:27 CEST  wrote:
+</I>&gt;<i> 
+</I>&gt;<i> &gt; Hello,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Does X2Go currently map keyboard layouts correctly? The client has a  
+</I>&gt;<i> &gt; field to set keyboard layout. But changing it to the client  
+</I>&gt;<i> &gt; machine's layout does not work. The US layout is still active.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Best,
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Burnce
+</I>&gt;<i> 
+</I>&gt;<i> With latest x2goserver version (3.1.1.1 released today) this should be  
+</I>&gt;<i> fixed. Put auto as keyboard model/type or manually run x2gosetkeyboard  
+</I>&gt;<i> in a server-side shell from within the X2Go session.
+</I>&gt;<i> 
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i> 
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i> 
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i> 
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</I></PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000927.html">[X2Go-User] Can Only Keep One Session at a Time
+</A></li>
+	<LI>Next message: <A HREF="000929.html">[X2Go-User] Sound support (PulseAudio) only works at times
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#926">[ date ]</a>
+              <a href="thread.html#926">[ thread ]</a>
+              <a href="subject.html#926">[ subject ]</a>
+              <a href="author.html#926">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2gousers is missing? (SOLVED)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2gousers%20is%20missing%3F%20%28SOLVED%29&In-Reply-To=%3C4E3334F8.6050401%40gmx.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000279.html">
+   <LINK REL="Next"  HREF="000286.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2gousers is missing? (SOLVED)</H1>
+    <B>Patrick Willam</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2gousers%20is%20missing%3F%20%28SOLVED%29&In-Reply-To=%3C4E3334F8.6050401%40gmx.de%3E"
+       TITLE="[X2go-User] x2gousers is missing? (SOLVED)">p.willam at gmx.de
+       </A><BR>
+    <I>Sat Jul 30 00:32:24 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000279.html">[X2go-User] x2gousers is missing?
+</A></li>
+        <LI>Next message: <A HREF="000286.html">[X2go-User] x2gousers is missing? (SOLVED)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike Gabriel wrote:
+ &gt;
+&gt;<i> On Mi 27 Jul 2011 23:49:44 CEST Patrick Willam wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After installing X2go on my main machine (details: see below) i wanted to
+</I>&gt;&gt;<i> use it, of course. But when trying to start a session via x2goclient i
+</I>&gt;&gt;<i> get no further than while connecting an error dialog appears with this
+</I>&gt;&gt;<i> messeage:
+</I>&gt;&gt;<i> &quot;Please install this program as SUID x2gouser!&quot;
+</I>
+Now i see...
+I read this as &quot;Please install this program as SUID: x2gouser!&quot;, but it is
+to be read as &quot;Please make sure that the file of *this* executable
+(x2goclient) has the SUID-bit set and the user set to 'x2gouser'!&quot;
+
+Is it of any value to rephrase that error-message in the &quot;main&quot; version?
+...Or will Heuler replace &quot;main&quot; very soonish anyway?
+
+&gt;<i> If you install on wheezy, please make sure to use the current nightly
+</I>&gt;<i> builds, as they have a fix for this perl-suid dependency problem:
+</I>&gt;<i>
+</I>&gt;<i> deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> wheezy heuler
+</I>&gt;<i>
+</I>&gt;<i> Then do
+</I>&gt;<i>
+</I>&gt;<i> apt-get update
+</I>&gt;<i> apt-get install x2go-keyring
+</I>&gt;<i> apt-get update
+</I>&gt;<i> apt-get x2goserver
+</I>
+I did &quot;aptitude purge (...x2go-related-packages...)&quot; and after changing
+&quot;main&quot; to &quot;heuler&quot; installed the packages again.
+
+All went very well. Now i have a working X2go. Thanks a lot! :-D
+
+&gt;<i> The group x2gousers is obsolete with the new x2goserver version. So
+</I>&gt;<i> currently, every user who can SSH to an X2go server can obtain an X2go
+</I>&gt;<i> session.
+</I>
+All &quot;x2go....&quot;-groups were automatically deleted at purging. Convenient. :-)
+
+Best wishes,
+Patrick
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000279.html">[X2go-User] x2gousers is missing?
+</A></li>
+	<LI>Next message: <A HREF="000286.html">[X2go-User] x2gousers is missing? (SOLVED)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#284">[ date ]</a>
+              <a href="thread.html#284">[ thread ]</a>
+              <a href="subject.html#284">[ subject ]</a>
+              <a href="author.html#284">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

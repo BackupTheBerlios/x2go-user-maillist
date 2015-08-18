@@ -1,0 +1,223 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] New user unable to connect from x2goclient on thin	client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20user%20unable%20to%20connect%20from%20x2goclient%20on%20thin%0A%09client&In-Reply-To=%3CCAJ9yE0RAt5_tNmW3GUu_9_DvmGT2TiYEM3n7DKPP4rb%2BPAf%2BRQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000515.html">
+   <LINK REL="Next"  HREF="000517.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] New user unable to connect from x2goclient on thin	client</H1>
+    <B>Jean Gottschalk</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20user%20unable%20to%20connect%20from%20x2goclient%20on%20thin%0A%09client&In-Reply-To=%3CCAJ9yE0RAt5_tNmW3GUu_9_DvmGT2TiYEM3n7DKPP4rb%2BPAf%2BRQ%40mail.gmail.com%3E"
+       TITLE="[X2go-User] New user unable to connect from x2goclient on thin	client">jean at gottschalk.us
+       </A><BR>
+    <I>Sun Dec 18 23:01:57 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000515.html">[X2go-User] New user unable to connect from x2goclient on thin client
+</A></li>
+        <LI>Next message: <A HREF="000517.html">[X2go-User] New user unable to connect from x2goclient on thin	client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike,
+
+
+thanks for the quick reply. I did that, and upgraded all the x2go packages
+including x2goagent. Now I have these packages on the server:
+
+
+||<i>/ Name                          Version                       Description
+</I>+++-=============================-=============================-==========================================================================
+ii  x2goagent                     3.5.0.5-0~x2go1+squeeze~heule Special
+X2go-ized X agent, forked from NX-X11 (NoMachine)
+un  x2goclient                    &lt;none&gt;                        (no
+description available)
+ii  x2gognomebindings             2.0.1.4-0~x2go1+squeeze~heule
+Description: x2gognomebindings (GNOME mimetypes for X2go)
+ii  x2goserver                    3.0.99.9-0~x2go1+squeeze~heul X2go server
+daemon scripts
+un  x2goserver-compat             &lt;none&gt;                        (no
+description available)
+ii  x2goserver-extensions         3.0.99.9-0~x2go1+squeeze~heul X2go server
+daemon scripts (extensions)
+un  x2goserver-home               &lt;none&gt;                        (no
+description available)
+un  x2goserver-one                &lt;none&gt;                        (no
+description available)
+un  x2goserver-printing           &lt;none&gt;                        (no
+description available)
+un  x2goserver-pyhoca             &lt;none&gt;                        (no
+description available)
+un  x2goserver-xsession           &lt;none&gt;                        (no
+description available)
+ii  x2gothinclientmanagement      1.0.1.4-0~x2go1+squeeze~heule Management
+tools for X2go thin client chroot server
+
+
+Unfortunately the problem is still the same, error log on the client still
+the same, and server's error log is now:
+
+
+NXAGENT - Version 3.5.0
+Copyright (C) 2001, 2011 NoMachine.
+
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+Info: Agent running with pid '26451'.
+Session: Starting session at 'Sat Dec 17 14:36:02 2011'.
+Info: Proxy running in server mode with pid '26451'.
+
+Info: Waiting for connection from 'localhost' on port '30001'.
+Info: Aborting the procedure due to signal '1'.
+Error: Aborting session with 'X2goagent: Unable to open display
+'nx/nx,options=/home/jean/.x2go/C-jean-50-1324161360_stDGNOME_dp24/options:50''.
+Session: Aborting session at 'Sat Dec 17 14:36:34 2011'.
+Session: Session aborted at 'Sat Dec 17 14:36:34 2011'.
+
+
+Note the new nxagent version reflected in the server log.
+
+Any other ideas are welcome. I can do some tcpdumps if it helps, but not
+sure if we can see much due to the SSH...
+
+Jean
+
+On Sat, Dec 17, 2011 at 1:20 PM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Jean,
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On Sa 17 Dez 2011 07:23:15 CET Jean Gottschalk wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have been using freenx for a few years, and have been looking for
+</I>&gt;&gt;<i> something better since freenx is no longer maintained and sound support is
+</I>&gt;&gt;<i> shaky. I was very glad to find the x2go project, specially since it works
+</I>&gt;&gt;<i> exactly like I imagine with diskless thin clients (I have to use USB
+</I>&gt;&gt;<i> sticks
+</I>&gt;&gt;<i> to boot my current clients for freenx).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Anyway, after being somewhat confused by the outdated info and
+</I>&gt;&gt;<i> repositories
+</I>&gt;&gt;<i> listed on x2go.org, I found the wiki and was able to install x2goserver
+</I>&gt;&gt;<i> (onto Ubuntu  ) and configure a PXE thin client environment. To my
+</I>&gt;&gt;<i> surprise, the thin clients booted on the first attempt and x2goclient came
+</I>&gt;&gt;<i> up, which was very unexpected!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Now I have the following problem:
+</I>&gt;&gt;<i> - I can login without problem from a windows x2goclient onto my ubuntu
+</I>&gt;&gt;<i> x2goserver
+</I>&gt;&gt;<i> - however any attempt to login from the pxe booted thin clients fails.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> The client displays (after starting nxproxy 3.5)
+</I>&gt;&gt;<i> Connecting to remote host 'localhost:33001'
+</I>&gt;&gt;<i> And then
+</I>&gt;&gt;<i> Connection timeout aborting
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On the server I find these logs:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> /usr/bin/x2goagent: line 1: -e: command not found
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> NXAGENT - Version 3.4.0
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Copyright (C) 2001, 2007 NoMachine.
+</I>&gt;&gt;<i> See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Info: Agent running with pid '24505'.
+</I>&gt;&gt;<i> Session: Starting session at 'Fri Dec 16 22:11:43 2011'.
+</I>&gt;&gt;<i> Info: Proxy running in server mode with pid '24505'.
+</I>&gt;&gt;<i> Info: Waiting for connection from 'localhost' on port '30001'.
+</I>&gt;&gt;<i> Info: Aborting the procedure due to signal '1'.
+</I>&gt;&gt;<i> Error: Aborting session with 'X2goagent: Unable to open display
+</I>&gt;&gt;<i> 'nx/nx,options=/home/jean/.**x2go/C-jean-50-1324102301_**
+</I>&gt;&gt;<i> stDGNOME_dp24/options:50''.
+</I>&gt;&gt;<i> Session: Aborting session at 'Fri Dec 16 22:12:15 2011'.
+</I>&gt;&gt;<i> Session: Session aborted at 'Fri Dec 16 22:12:15 2011'.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I understand that there is some kind of callback procedure whereby the
+</I>&gt;&gt;<i> client connects to the server, and then the server connects back to the
+</I>&gt;&gt;<i> client, and this seems to be failing. I do not know how else to proceed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> In addition to version 3.99.0.2 of x2goclient and x2goplugin (which was
+</I>&gt;&gt;<i> the
+</I>&gt;&gt;<i> one installed by default in the chroot environment), I also tried version
+</I>&gt;&gt;<i> 3.99.0.3 from the unstable repository, and an older 3.01-21, all with no
+</I>&gt;&gt;<i> luck.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> I am wondering if your problem is on the server side. It seems like you
+</I>&gt;<i> are using a very outdate x2goagent version.
+</I>&gt;<i>
+</I>&gt;<i> If possible for you, please test our (still not final) new build of libnx.
+</I>&gt;<i> So, on the server, please install from
+</I>&gt;<i>
+</I>&gt;<i> deb <A HREF="http://packages.x2go.org/**debian">http://packages.x2go.org/**debian</A> &lt;<A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>&gt;squeeze heuler
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, dorfstr. 27, 24245 barmissen
+</I>&gt;<i> fon: +49 (4302) 281418, fax: +49 (4302) 281419
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0xB588399B
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111218/3cf5538f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20111218/3cf5538f/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000515.html">[X2go-User] New user unable to connect from x2goclient on thin client
+</A></li>
+	<LI>Next message: <A HREF="000517.html">[X2go-User] New user unable to connect from x2goclient on thin	client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#516">[ date ]</a>
+              <a href="thread.html#516">[ thread ]</a>
+              <a href="subject.html#516">[ subject ]</a>
+              <a href="author.html#516">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

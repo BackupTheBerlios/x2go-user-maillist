@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4gnphJ8x_YOeCg4uKRZkzWAbdf3%2BPem6_EDP-MNDz6d%2BQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001798.html">
+   <LINK REL="Next"  HREF="001800.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Nirav Shah</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4gnphJ8x_YOeCg4uKRZkzWAbdf3%2BPem6_EDP-MNDz6d%2BQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">shah.niravk at gmail.com
+       </A><BR>
+    <I>Sat Nov 23 22:47:23 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001798.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001800.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1799">[ date ]</a>
+              <a href="thread.html#1799">[ thread ]</a>
+              <a href="subject.html#1799">[ subject ]</a>
+              <a href="author.html#1799">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Steve and Mike for the guidance you have provided. I really
+appreciate your help.
+
+My servers are available in California and the developers are working in
+Europe and in India. So the ping time varies from 150 ms to 400 ms. I have
+selected ADSL with 16m-jpeg connection. The developers are accessing Linux
+environment with GNome. They use some Java 2D graphics for the development.
+Their normal bandwidth (tested using Speedtest.net) is around 3-5 MBPS.
+
+The replies from Mike and Steve, I understood that  for this kind of high
+latency I should use &quot;WAN&quot; connection speed with compression method - &quot;No
+Pack&quot;. Is this my understanding correct?
+
+ I have already set Image quality to 1 and disabled audio/print/shared
+folder support.
+
+I have also used libjpeg-turbo library on the server side (Linux OS).
+
+
+Will this kind of setup work? If I upgrade hardware on my server/client,
+will it make any difference? Can X2go handle this kind of latency issues
+with some settings? Is there any minimum bandwidth required with this
+latency?
+
+
+Thanks,
+Nirav
+
+
+On Sat, Nov 23, 2013 at 4:24 PM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> thanks Steve for your contribution. Very good.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On  Sa 23 Nov 2013 20:11:25 CET, Steve Bergman wrote:
+</I>&gt;<i>
+</I>&gt;<i>  I am using X2Go Client and we are facing Latency issues when
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;<i> developers use it from different country and they use graphics
+</I>&gt;&gt;<i> functionalities.
+</I>&gt;&gt;<i> ---
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I'm new to x2go, but have a good bit of experience administering FreeNX
+</I>&gt;&gt;<i> for business desktops served over WANs. In Session Preferences -&gt;
+</I>&gt;&gt;<i> Connection, experiment with the slider settings. In particular, MODEM,
+</I>&gt;&gt;<i> ISDN, and ADSL. I find that ADSL works best over my 3 - 10 mbit/s WANs. But
+</I>&gt;&gt;<i> if yours are slower, MODEM or ISDN might work better. On a fast WAN, MODEM
+</I>&gt;&gt;<i> and ISDN make the updates clunkier by limiting the update rate, and
+</I>&gt;&gt;<i> possibly other things. It's hard to predict all interactions. But you might
+</I>&gt;&gt;<i> even try 'WAN' for a relatively high bandwidth, high latency connection.
+</I>&gt;&gt;<i> The higher slider levels are good for latency. But note that 'LAN' provides
+</I>&gt;&gt;<i> no compression at all. It's likely to perform quite badly.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Also, on that same page, you can reduce the image quality, which defaults
+</I>&gt;&gt;<i> to 9 (highest quality) but supports a range from 0 to 9. I'm not familiar
+</I>&gt;&gt;<i> enough with the &quot;Method&quot; options to make a recommendation. I suspect the
+</I>&gt;&gt;<i> default is probably pretty good.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> To give you an idea what you should be able to expect, NX technology over
+</I>&gt;&gt;<i> a 3mbit full duplex link with a ~150 - 200ms latency between sites provides
+</I>&gt;&gt;<i> very usable business desktops (Mail, browsing, Libreoffice) for my ~100
+</I>&gt;&gt;<i> desktop users. About 50 of those are over the WAN, and the rest are on the
+</I>&gt;&gt;<i> local LAN. I know of nothing that even remotely compares to FreeNX/x2go for
+</I>&gt;&gt;<i> performance over a WAN.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Please experiment and report back. I'm interested in your results. And
+</I>&gt;&gt;<i> please tell us more about your problematic workload. The ping times to the
+</I>&gt;&gt;<i> clients, the nominal bandwidth, etc.
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> With connection speed X2Go (i.e. NX) is very good, even on very low speed
+</I>&gt;<i> lines.
+</I>&gt;<i>
+</I>&gt;<i> However, with latency issues things become different. As latency is
+</I>&gt;<i> defined as the amount of time the data needs to traverse from client to
+</I>&gt;<i> server / server to client, we should make sure that on high latency
+</I>&gt;<i> connections, data is as processed as fast as possible.
+</I>&gt;<i>
+</I>&gt;<i> So my basic idea about this is, that what you actually need to reduce is
+</I>&gt;<i> the time that is required for processing/caching/compressing images etc. On
+</I>&gt;<i> high latency lines it helps to have good bandwidth available, because you
+</I>&gt;<i> (in theory) can use the high bandwidth to compensate for high latency. E.g.
+</I>&gt;<i> by choosing a faster but less effective algorithm for compression (or not
+</I>&gt;<i> compressing images at all).
+</I>&gt;<i>
+</I>&gt;<i> My personal problem here: I cannot test this theory, because I do not have
+</I>&gt;<i> high latency connections here to test this with. I know that you can
+</I>&gt;<i> simulate high latency / low bandwidth in a lab setup, but I neither have
+</I>&gt;<i> time nor resources for doing that.
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, herweg 7, 24357 fleckeby
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-</A>
+</I>&gt;<i> netzwerkteam.de.xfb
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+Thanks,
+
+Nirav Shah
+(C) (412) 296-9491
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/1afb5530/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/1afb5530/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001798.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001800.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1799">[ date ]</a>
+              <a href="thread.html#1799">[ thread ]</a>
+              <a href="subject.html#1799">[ subject ]</a>
+              <a href="author.html#1799">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

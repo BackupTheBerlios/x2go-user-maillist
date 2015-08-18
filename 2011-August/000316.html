@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] [X2go-Dev] x2go printing follow up
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20x2go%20printing%20follow%20up&In-Reply-To=%3C20110814191318.91722cgtgyblkdgu%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000319.html">
+   <LINK REL="Next"  HREF="000339.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] [X2go-Dev] x2go printing follow up</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20x2go%20printing%20follow%20up&In-Reply-To=%3C20110814191318.91722cgtgyblkdgu%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] [X2go-Dev] x2go printing follow up">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sun Aug 14 19:13:18 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000319.html">[X2go-User] Slow internet connection and background personalization
+</A></li>
+        <LI>Next message: <A HREF="000339.html">[X2go-User] [X2go-Dev] x2go printing follow up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#316">[ date ]</a>
+              <a href="thread.html#316">[ thread ]</a>
+              <a href="subject.html#316">[ subject ]</a>
+              <a href="author.html#316">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ted,
+
+On Mo 08 Aug 2011 18:04:18 CEST Ted Barnes wrote:
+
+&gt;<i> We are experimenting with X2go (very cool), but having a devil of a  
+</I>&gt;<i> time getting printing to work.  This request for help is keying off  
+</I>&gt;<i> of posts by John Sullivan and Mario Oroz (thanks so much for those,  
+</I>&gt;<i> guys, e.g.,  see tread  
+</I>&gt;<i> <A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00104.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00104.html</A>  
+</I>&gt;<i> and  
+</I>&gt;<i> <A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00115.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00115.html</A>). We  
+</I>&gt;<i> are having pretty much the same problem as described there.  We are  
+</I>&gt;<i> assuming that X2go printing in general can be made &quot;to work&quot; and  
+</I>&gt;<i> that this is a matter of something we are doing wrong (maybe  
+</I>&gt;<i> starting with the install?), some necessary &quot;tweaks&quot;, etc.
+</I>&gt;<i>
+</I>
+To make sure you use latest software, please use these sources for  
+installation of the server-side of X2go:
+
+Debian+Ubuntu:
+<A HREF="http://wiki.x2go.org/nightly-built_packages_debian_ubuntu">http://wiki.x2go.org/nightly-built_packages_debian_ubuntu</A>
+
+Furtheron for initial debugging, please use x2goclient on Debian or  
+Ubuntu to eradicate some not-so-generic Windows problems.
+
+Please install the x2goclient from our nightly builds as well.
+
+Nightly builds are for debugging+testing, not for production setups, though!
+
+&gt;<i> We'd like to post this on the developer's list too to see if that's helpful.
+</I>&gt;<i>
+</I>&gt;<i> We're hoping to get a number of questions answered, and have  
+</I>&gt;<i> provided what may be &quot;too much&quot; description below:
+</I>&gt;<i>
+</I>&gt;<i> Questions:
+</I>&gt;<i>
+</I>&gt;<i> Q:  Did we miss something during the setup and installation process?
+</I>
+I will comment your description about setup and installation below, so  
+please read the answers to this question there.
+
+The latest general infos are found in our wiki:
+
+   <A HREF="http://wiki.x2go.org">http://wiki.x2go.org</A>
+
+&gt;<i> Q:  Our server does not have a /root/.x2go/ssh/.x2oprint/id_dsa&quot;  
+</I>&gt;<i> directory or id_dsa file - do these need to get created by hand?  In  
+</I>&gt;<i> fact, our server does not have an &quot;id_dsa&quot; file anywhere on the  
+</I>&gt;<i> machine.  If we need to add this, how does one do so (i.e., using  
+</I>&gt;<i> the normal ssh key creation process)?  We have some other dsa files,  
+</I>&gt;<i> but not one with the specific name id_dsa (i.e., can we use one of  
+</I>&gt;<i> the existing ones in /etc/ssh?).
+</I>
+These RSA/DSA files are part of SSH pub/priv authentication and can be  
+created with the ssh-keygen tool. Refer to its man page for further  
+info.
+
+&gt;<i> Q:  We assume X2goprint and cups-x2go perl scripts are part of this  
+</I>&gt;<i> picture.  We don't believe they are being called by the printing  
+</I>&gt;<i> process - how would we tell?  If they are necessary but not getting  
+</I>&gt;<i> called, thoughts as to why they are not getting invoked when we  
+</I>&gt;<i> print and how to fix this?
+</I>
+If you refer to x2goprint as separate X2go package then you are  
+definitely using (very) old code.
+
+Unfortunately, the www.x2go.org site and our wiki.x2go.org pages to  
+give ambiguous info, this should be fixed and brought in sync ASAP  
+(<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">ping at Heinz</A>!!!).
+
+The x2goprint script has become part of the x2goserver package and has  
+undergone some changes since then. Please make sure you use the  
+nightly build packages for testing+debugging for now (this is a  
+recommendation that is valid today, in the future we will bump  
+sub-releases in shorter intervals, the x2goserver esp. is very due for  
+such a nano release... Sorry for delays on this).
+
+&gt;<i> Q:  In testing (where we simulate what we imagine the printing  
+</I>&gt;<i> process to be by doing each step manually) when we issue the .ready  
+</I>&gt;<i> command, why does that only seems to work sometimes as judged by the  
+</I>&gt;<i> x2go print client popping on the XP side?  Does that tell us  
+</I>&gt;<i> something?
+</I>
+Good question. If the latest code does not solve your issues, please  
+send the .ready file's content.
+
+&gt;<i> Q:  Should printing be putting jobs in &quot;/&quot; (is that normal)?  Does
+</I>
+NO! You use old server-side packages. Upgrade to the nighly builds.
+
+&gt;<i> the x2goprint script know what to grab based on job#s?  We assume  
+</I>&gt;<i> this all should work with multiple users and the x2goscript  
+</I>&gt;<i> identifies which jobs to grab and put them individual user spool  
+</I>&gt;<i> queues.
+</I>
+Yes, this does work with latest code.
+
+&gt;<i> Q:  To work, should x2goprinting pass the print file from the server  
+</I>&gt;<i> through the ssh connection to the client?  Is this in part an &quot;ssh  
+</I>&gt;<i> passing the file&quot; problem?  We can connect through putty from the  
+</I>&gt;<i> client to the server, and assume we have the keys correct because we  
+</I>&gt;<i> can connect from XP to the Ubuntu server via x2go in the first  
+</I>&gt;<i> place.  Back to the lack of an id_dsa file?  Again, we're not sure  
+</I>&gt;<i> that printing is invoking the right scripts to begin with.
+</I>
+The print job files are stored on the client via SSHFS. The SSHFS file  
+sharing uses a temporary pub/priv key pair, so for this mechanism it  
+is not relevant if you can SSH to and from the server. The SSHFS mount  
+is issued by the server and connects to the client (via a SSH tunnel).
+
+&gt;<i> Q:  Assuming we get this working, we also assume that on the  
+</I>&gt;<i> Ghostview/Ghostscript side we shouldn't be having to put the name of  
+</I>&gt;<i> the file in the command line, nor actually having to use the command  
+</I>&gt;<i> line.  I.e., there is an option there to print that refers to  
+</I>&gt;<i> whatever default printer we have set on the XP machine, but  
+</I>&gt;<i> currently nothing happens if we use that particular option instead  
+</I>&gt;<i> of the command line.
+</I>
+Yes, this should be so. Please test this with a Linux x2goclient  
+first. If this works then check with the Windows x2goclient and report  
+experienced differences.
+
+&gt;<i> Q:  Should we be using Posgress instead of SQLite?  We are assuming  
+</I>&gt;<i> that SQLite is fine until we want to deal with load balancing.
+</I>
+If you want to use:
+
+  o many X2go servers (clustering)
+  o restrictive X2go server access based on posix accounts/groups
+  -&gt; PostgreSQL
+
+  o one X2go server
+  o access for any non-system posix User (everyone who can use SSH)
+  -&gt; SQLite
+
+&gt;<i> DESCRIPTION
+</I>&gt;<i>
+</I>&gt;<i> We are connecting from XP machines using x2goclient to Ubuntu Server  
+</I>&gt;<i> 9.10 (connecting is pretty consistent, a few issues now and then but
+</I>
+For testing, please use a Linux client. The latest X2go code is only  
+available for Ubuntu &gt;=10.04. For older Ubuntu versions you should be  
+able to either
+
+   o backport X2go from X2go Git
+   o use the server-side packages for Debian lenny (no nightly builds, though):
+     <A HREF="http://wiki.x2go.org/adding_the_x2go_repository_debian">http://wiki.x2go.org/adding_the_x2go_repository_debian</A>
+
+&gt;<i> all in all it works well) over Comcast or Fios connection (DSL too  
+</I>&gt;<i> slow).  We are using the X2go with SQLite, cups-x2togo and  
+</I>&gt;<i> x2goprint; we have not installed any of the optional &quot;bindings&quot;  
+</I>&gt;<i> packages.  We used visudo to add the line &quot;x2goprint All=(ALL)  
+</I>&gt;<i> NOPASSWD:  /usr/bin/x2goprint&quot;, and added an &quot;x2goprinter&quot; user by  
+</I>&gt;<i> hand (that action also created an &quot;x2goprinter&quot; group to which we  
+</I>&gt;<i> added our test user accounts).
+</I>
+user=groupname='x2goprint', not 'x2goprinter'!!!
+
+&gt;<i> We have tried uncommenting the settings to activate them in  
+</I>&gt;<i> &quot;/etc/cups/cups-x2go.conf&quot; (even though we understand these settings  
+</I>&gt;<i> to be used only for a separate cups server) with no change.  As  
+</I>&gt;<i> noted above, our server does not have an id_dsa file and while we  
+</I>&gt;<i> suspect that as being part of the problem we would have assumed that  
+</I>&gt;<i> file would be created as part of the install pocess.
+</I>
+With latest X2go code, printing works out of the box (to my experience).
+
+&gt;<i> On the server, we have a minimal &quot;Ubuntu Desktop&quot; installed so we  
+</I>&gt;<i> can use Firefox to browse from the server.
+</I>&gt;<i>
+</I>&gt;<i> We have GSview 4.9 and Ghostscript 9.02 installed on the XP clients.
+</I>
+Is this needed for x2goclient??? I do not think so... The Ghostscript  
+stuff is needed on the client side... However, a PDF viewer will be  
+helpful on the Windows client. For testing though: use a Linux machine  
+as a client.
+
+&gt;<i> We are trying to print to an older HP Laserjet 4000 shared out on  
+</I>&gt;<i> local XP machine (this 2nd machine is not one connecting to the  
+</I>&gt;<i> Ubuntu server, no X2go on it, no Ghostview or Ghostscript) and  
+</I>&gt;<i> another HP color laser that is a network device.  All printing  
+</I>&gt;<i> behavior is the same regardless of which printer we try.
+</I>
+Should work.
+
+&gt;<i> We are hoping outlining the following will help describe what we  
+</I>&gt;<i> think is going on, and possible not working:
+</I>&gt;<i>
+</I>&gt;<i> 1)  On the 9.10 Ubunu server, we installed X2go printing.  If we go  
+</I>&gt;<i> to System-&gt;Administration-&gt;Printing, we can see a  
+</I>&gt;<i> &quot;Generic-Cups-X2go-Printer&quot; and it is active.  Its properties  
+</I>&gt;<i> include a URI of &quot;cups-x2go:/&quot;.   On the same Printer Configuration  
+</I>&gt;<i> window, if we press Server-&gt;Connect the resulting Cups server is  
+</I>&gt;<i> &quot;/var/run/cups/cups.sock&quot;.  We are using a 64 bit machine, and can  
+</I>&gt;<i> find two instances of the &quot;cups-x2go&quot; and maybe this is part of the  
+</I>&gt;<i> problem (one is is /usr/lib64/cups/backend, the other in  
+</I>&gt;<i> usr/lib/cups/backend)?
+</I>
+AFAIK /usr/lib64 is a symlink to /usr/lib. So no worries necessary  
+about this. The only thing you should make sure is to have these  
+permissions set on the cups-x2go backend:
+
+   -rwx------ root root /usr/lib/cups/backend/cups-x2go
+
+This permission setting marks the backend in a way that CUPS knows it  
+has to start it with root privileges. Otherwise it is started with  
+user privileges and that will fail in this context.
+
+&gt;<i> 2)  If we print from the server, we briefly see a job get created  
+</I>&gt;<i> both on the top (right) panel and if we are watching in the Print  
+</I>&gt;<i> Configuration window.  Jobs are stored in &quot;/&quot; and stay there until  
+</I>&gt;<i> we delete or move them with names that follow the syntax  
+</I>&gt;<i> &quot;jobname-username-cupsjob#&quot;.  Their permissions are root as owner,  
+</I>&gt;<i> lp as group, and no access for users.
+</I>
+-&gt; An old version of x2goprint did this...
+
+&gt;<i> For each print file, there is another cups file of some sort stored  
+</I>&gt;<i> in &quot;var/spool/cups&quot; with names like &quot;c00052&quot;.  This describes what  
+</I>&gt;<i> occurs consistently.  The jobs get &quot;printed&quot; but nothing happens on  
+</I>&gt;<i> the windows client side or on the printer.
+</I>
+-&gt; Upgrade the server-side to x2goserver from nightly builds (on an  
+Ubuntu &gt;=10.04 machine).
+
+&gt;<i> 3)  [...]
+</I>
+Looking forward to your follow up after you have upgraded X2go (and  
+reported as the new versions you use for testing).
+
+Greets,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/582418c6/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110814/582418c6/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000319.html">[X2go-User] Slow internet connection and background personalization
+</A></li>
+	<LI>Next message: <A HREF="000339.html">[X2go-User] [X2go-Dev] x2go printing follow up
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#316">[ date ]</a>
+              <a href="thread.html#316">[ thread ]</a>
+              <a href="subject.html#316">[ subject ]</a>
+              <a href="author.html#316">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

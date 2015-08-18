@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C5290FDDD.2090509%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001795.html">
+   <LINK REL="Next"  HREF="001798.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Steve Bergman</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C5290FDDD.2090509%40gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">sbergman27 at gmail.com
+       </A><BR>
+    <I>Sat Nov 23 20:11:25 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001795.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001798.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1796">[ date ]</a>
+              <a href="thread.html#1796">[ thread ]</a>
+              <a href="subject.html#1796">[ subject ]</a>
+              <a href="author.html#1796">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> &gt; I am using X2Go Client and we are facing Latency issues when 
+developers use it from different country and they use graphics 
+functionalities.
+---
+
+I'm new to x2go, but have a good bit of experience administering FreeNX 
+for business desktops served over WANs. In Session Preferences -&gt; 
+Connection, experiment with the slider settings. In particular, MODEM, 
+ISDN, and ADSL. I find that ADSL works best over my 3 - 10 mbit/s WANs. 
+But if yours are slower, MODEM or ISDN might work better. On a fast WAN, 
+MODEM and ISDN make the updates clunkier by limiting the update rate, 
+and possibly other things. It's hard to predict all interactions. But 
+you might even try 'WAN' for a relatively high bandwidth, high latency 
+connection. The higher slider levels are good for latency. But note that 
+'LAN' provides no compression at all. It's likely to perform quite badly.
+
+Also, on that same page, you can reduce the image quality, which 
+defaults to 9 (highest quality) but supports a range from 0 to 9. I'm 
+not familiar enough with the &quot;Method&quot; options to make a recommendation. 
+I suspect the default is probably pretty good.
+
+To give you an idea what you should be able to expect, NX technology 
+over a 3mbit full duplex link with a ~150 - 200ms latency between sites 
+provides very usable business desktops (Mail, browsing, Libreoffice) for 
+my ~100 desktop users. About 50 of those are over the WAN, and the rest 
+are on the local LAN. I know of nothing that even remotely compares to 
+FreeNX/x2go for performance over a WAN.
+
+Please experiment and report back. I'm interested in your results. And 
+please tell us more about your problematic workload. The ping times to 
+the clients, the nominal bandwidth, etc.
+
+-Steve
+
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001795.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001798.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1796">[ date ]</a>
+              <a href="thread.html#1796">[ thread ]</a>
+              <a href="subject.html#1796">[ subject ]</a>
+              <a href="author.html#1796">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

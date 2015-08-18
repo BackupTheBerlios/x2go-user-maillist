@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] How to configure 'unattened-upgrades' on debian squeeze	to upgrade x2go packages?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20How%20to%20configure%20%27unattened-upgrades%27%20on%20debian%20squeeze%0A%09to%20upgrade%20x2go%20packages%3F&In-Reply-To=%3C201304041704.02700.Holger.Krause%40med.uni-duesseldorf.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001361.html">
+   <LINK REL="Next"  HREF="001369.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] How to configure 'unattened-upgrades' on debian squeeze	to upgrade x2go packages?</H1>
+    <B>Holger Krause</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20How%20to%20configure%20%27unattened-upgrades%27%20on%20debian%20squeeze%0A%09to%20upgrade%20x2go%20packages%3F&In-Reply-To=%3C201304041704.02700.Holger.Krause%40med.uni-duesseldorf.de%3E"
+       TITLE="[X2Go-User] How to configure 'unattened-upgrades' on debian squeeze	to upgrade x2go packages?">Holger.Krause at med.uni-duesseldorf.de
+       </A><BR>
+    <I>Thu Apr  4 17:04:00 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001361.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+        <LI>Next message: <A HREF="001369.html">[X2Go-User] x2golistsessions missing?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1367">[ date ]</a>
+              <a href="thread.html#1367">[ thread ]</a>
+              <a href="subject.html#1367">[ subject ]</a>
+              <a href="author.html#1367">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+I'd like to have all installed packages on my debian squeeze systems upgraded 
+automatically whenever newer versions are available. For this, I utilize apt's 
+'unattended-upgrade' functionality and the corresponding package 'unattended-
+upgrades' (<A HREF="http://packages.debian.org/squeeze/unattended-upgrades">http://packages.debian.org/squeeze/unattended-upgrades</A>). For most 
+included apt sources this works flawlessly. However, I didn't manage yet to 
+have 'unattended-upgrades' also pick up changes of X2Go packages. In the 
+configuration file for 'unattended-upgrades' 
+('/etc/apt/apt.conf.d/50unattended-upgrades') one has to identify 'Allowed-
+Origins' by an (origin, archive) duple (according to the comment):
+
+----- /etc/apt/apt.conf.d/50unattended-upgrades -----
+// Automatically upgrade packages from these (origin, archive) pairs
+Unattended-Upgrade::Allowed-Origins {
+        &quot;${distro_id} stable&quot;;
+        &quot;${distro_id} ${distro_codename}-security&quot;;
+        &quot;X2Go stable&quot;;
+};
+[...]
+----- /etc/apt/apt.conf.d/50unattended-upgrades -----
+
+For other sources I use field 'Origin:' from the Release file as 'origin', and 
+filed 'Suite:' as 'archive'. Unfortunately, the X2Go Release file 
+&lt;<A HREF="http://packages.x2go.org/debian/dists/squeeze/InRelease">http://packages.x2go.org/debian/dists/squeeze/InRelease</A>&gt; does not have a 
+'Suite:' field. I tried 'stable' (as shown above), 'squeeze' and 
+'${distro_codename}', but none matches.
+
+In &lt;<A HREF="http://wiki.debian.org/RepositoryFormat#A.22Release.22_files">http://wiki.debian.org/RepositoryFormat#A.22Release.22_files</A>&gt; I found this 
+remark: &quot;These fields are optional. They may be displayed to the user by 
+package management tool or used for pinning. It is suggested that any 
+repository published for other users to use fills meaningful information in 
+these fields so that the user can tell apart different repositories.
+
+    Description
+    Origin
+    Label
+    Version
+    Suite
+    Codename&quot;
+
+Would it be possible to add the 'Suite:' field to X2Go's Release files? Or 
+does anyone know how to make 'unattended-upgrades' taking X2Go into account?
+
+Thanks for any response in advance,
+
+Holger
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001361.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+	<LI>Next message: <A HREF="001369.html">[X2Go-User] x2golistsessions missing?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1367">[ date ]</a>
+              <a href="thread.html#1367">[ thread ]</a>
+              <a href="subject.html#1367">[ subject ]</a>
+              <a href="author.html#1367">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

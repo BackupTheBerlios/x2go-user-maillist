@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Start up constrained to local screen size (above task bar) possible?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Start%20up%20constrained%20to%20local%20screen%20size%20%28above%0A%20task%20bar%29%20possible%3F&In-Reply-To=%3CCAMKht8j3Hsuy6R9whvuN5mLQFFptZiGmT92gKy28SUXaw%3DegmQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="002003.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Start up constrained to local screen size (above task bar) possible?</H1>
+    <B>Michael DePaulo</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Start%20up%20constrained%20to%20local%20screen%20size%20%28above%0A%20task%20bar%29%20possible%3F&In-Reply-To=%3CCAMKht8j3Hsuy6R9whvuN5mLQFFptZiGmT92gKy28SUXaw%3DegmQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Start up constrained to local screen size (above task bar) possible?">mikedep333 at gmail.com
+       </A><BR>
+    <I>Sat Feb  1 01:02:24 CET 2014</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="002003.html">[X2Go-User] Start up constrained to local screen size (above task bar) possible?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2002">[ date ]</a>
+              <a href="thread.html#2002">[ thread ]</a>
+              <a href="subject.html#2002">[ subject ]</a>
+              <a href="author.html#2002">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi les,
+
+On MS Windows at least, I've observed multiple bugs with resizing,
+Enabling XInerama seemed to help on 4.0.0.3.
+
+But to accomplish your task, the following should work on X2Go Client
+4.0.1.3, and probably on older versions too:
+
+1. Set the session preferences:
+Settings -&gt; Display -&gt; Custom -&gt; 800x600 (or any other value smaller
+than your laptop screen)
+
+2. Connect to the existing session and wait upto 10 seconds.
+
+3. The X2Go session should resize to 800x600. This resizing includes
+the GNOME/XFCE/etc menu bars.
+
+4. Maximize the window.
+
+5. The X2Go session should resize to the window's new size, which is
+everything but the taskbar. This resizing includes the GNOME/XFCE/etc
+menu bars.
+
+Let me know if you are having issues resuming sessions altogether. I
+think I need to write a bug report about them.
+
+-Mike#2
+
+On Fri, Jan 31, 2014 at 3:01 PM, Les Mikesell &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lesmikesell at gmail.com</A>&gt; wrote:
+&gt;<i> Is there any way to make an x2go client (windows in particular) start
+</I>&gt;<i> at a size that fits on the local screen above the task bar even if
+</I>&gt;<i> connecting to a running session that was started at a larger size -
+</I>&gt;<i> and then resize the remote desktop to fit?
+</I>&gt;<i>
+</I>&gt;<i> I'd like to be able to start sessions from a desktop PC and be able to
+</I>&gt;<i> pick them up and continue easily on a smaller laptop.   Having the
+</I>&gt;<i> bottom left corner of the window always appear where I can see it (and
+</I>&gt;<i> reach with the mouse if subsequent resizing is needed) would save a
+</I>&gt;<i> lot of contortions.
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>   Les Mikesell
+</I>&gt;<i>     <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lesmikesell at gmail.com</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I></PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="002003.html">[X2Go-User] Start up constrained to local screen size (above task bar) possible?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2002">[ date ]</a>
+              <a href="thread.html#2002">[ thread ]</a>
+              <a href="subject.html#2002">[ subject ]</a>
+              <a href="author.html#2002">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

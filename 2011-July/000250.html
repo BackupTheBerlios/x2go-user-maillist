@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2goclient version bumping -&gt; 3.99.0.0
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20version%20bumping%20-%3E%203.99.0.0&In-Reply-To=%3CCAJBj3vddwQBDkpbhmx_C_ArmiyS38nBL2HVT-uPFuXUk5yx6_A%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000249.html">
+   <LINK REL="Next"  HREF="000255.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2goclient version bumping -&gt; 3.99.0.0</H1>
+    <B>John Williams</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20version%20bumping%20-%3E%203.99.0.0&In-Reply-To=%3CCAJBj3vddwQBDkpbhmx_C_ArmiyS38nBL2HVT-uPFuXUk5yx6_A%40mail.gmail.com%3E"
+       TITLE="[X2go-User] x2goclient version bumping -&gt; 3.99.0.0">jwilliams4200 at gmail.com
+       </A><BR>
+    <I>Thu Jul 21 17:23:20 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000249.html">[X2go-User] x2goclient version bumping -&gt; 3.99.0.0
+</A></li>
+        <LI>Next message: <A HREF="000255.html">[X2go-User] RDP packing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Thu, Jul 21, 2011 at 7:56 AM, Mike Gabriel
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+&gt;<i> Hi Daniel,
+</I>&gt;<i>
+</I>&gt;<i> On Do 21 Jul 2011 16:51:31 CEST Daniel Lindgren wrote:
+</I>
+&gt;&gt;<i> I can confirm that 3.0.99 on W7 x64 won't connect. I have server
+</I>&gt;&gt;<i> version 3.0.99.5 installed.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Only 3.01-13 works on W7 x64. If I interpreted the changelogs
+</I>&gt;&gt;<i> correctly, 13 is the last version that didn't use libssh, I'm guessing
+</I>&gt;&gt;<i> that the problem in later versions are related to libssh.
+</I>&gt;<i>
+</I>&gt;<i> Thanks for your feedback. I have cross-posted this issue on x2go-dev as it
+</I>&gt;<i> needs Alex to take a look at this issue...
+</I>
+Windows x2goclient 3.99.0.0 is working for me at the moment on 64-bit
+Windows 7. I just installed it a few minutes ago, and I did have a
+slight snag at first but it seems to have disappeared (not sure if it
+is the same issue Daniel saw).
+
+My server has (I think) x2goserver 3.0.1-5, from here:
+
+<A HREF="http://aur.archlinux.org/packages.php?ID=18028">http://aur.archlinux.org/packages.php?ID=18028</A>
+
+I am testing on two Windows client machines, both running 64-bit
+Windows 7. Call them CL1 and CL2.
+
+CL1 was initially running x2goclient 3.01-13, and had a session in
+progress. I installed 3.99 on CL2 (initially without vcxsrv), and
+started a new session (all my sessions are LXDE), which worked well
+for the minute I had it open. Then I logged out of the CL2 session,
+and suspended the CL1 session. Then I tried to resume the suspended
+session on CL2, but it froze during attempted connection, nothing at
+all happened for more than a minute, so I aborted and restarted the
+client on CL2. Then I resumed the suspended session on CL1 (CL1 was
+still client 3.01-13), and it worked. Then on CL2 I started a new
+session, and that worked. So I logged out of the session on CL2,
+suspended the session on CL1 once again, and tried to resume the
+session on CL2. Success! It came right up on CL2 with the 3.99 client.
+After a minute, I suspended the session again.
+
+Next I tested with vcxsrv 1.10.3.1. I used the installer to install
+vcxsrv on CL2 into 'Program Files (x86)', and then went into
+Settings... for x2goclient and specified to use vcxsrv. Note that the
+default looked for vcxsrv.exe in 'Program Files' instead of 'Program
+Files (x86)', but it was easy to change that.
+
+I resumed the session on CL2 and it worked. So I suspended the session
+and resumed the session on CL1 (3.01-13), and that worked. So I
+suspended the session again, and on CL1 I installed vcxsrv and
+x2goclient 3.99, and resumed the session on CL1 again, and it worked.
+I have been running it on CL1 for about 30 minutes now, and no
+problems yet. I'll keep running it (I use CL1 every day) so if you do
+not hear from me for a while, that means I haven't had any problems. I
+will, of course, post about any problems that I might have. So
+hopefully you don't hear from me for a while!
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000249.html">[X2go-User] x2goclient version bumping -&gt; 3.99.0.0
+</A></li>
+	<LI>Next message: <A HREF="000255.html">[X2go-User] RDP packing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#250">[ date ]</a>
+              <a href="thread.html#250">[ thread ]</a>
+              <a href="subject.html#250">[ subject ]</a>
+              <a href="author.html#250">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

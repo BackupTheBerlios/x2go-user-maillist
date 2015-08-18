@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] (Belated) Bug report on PyHOCA   (Re: Your BTS does not cooperate with Comcast_
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%3D%3Futf-8%3Fq%3F%3D28Belated%3D29_Bug_report_on_PyHOCA___%3D28Re%3F%3D%0A%09%3D%3Futf-8%3Fq%3F%3D3A_Your_BTS_does_not_cooperate_with_Comcast%3D5F%3F%3D&In-Reply-To=%3Cloom.20130318T195202-269%40post.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001344.html">
+   <LINK REL="Next"  HREF="001348.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] (Belated) Bug report on PyHOCA   (Re: Your BTS does not cooperate with Comcast_</H1>
+    <B>Dirk Eddelbuettel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%3D%3Futf-8%3Fq%3F%3D28Belated%3D29_Bug_report_on_PyHOCA___%3D28Re%3F%3D%0A%09%3D%3Futf-8%3Fq%3F%3D3A_Your_BTS_does_not_cooperate_with_Comcast%3D5F%3F%3D&In-Reply-To=%3Cloom.20130318T195202-269%40post.gmane.org%3E"
+       TITLE="[X2Go-User] (Belated) Bug report on PyHOCA   (Re: Your BTS does not cooperate with Comcast_">edd at debian.org
+       </A><BR>
+    <I>Mon Mar 18 19:56:46 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001344.html">[X2Go-User] Your BTS does not cooperate with Comcast
+</A></li>
+        <LI>Next message: <A HREF="001348.html">[X2Go-User] (Belated) Bug report on PyHOCA (Re: Your BTS does not cooperate with Comcast_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1345">[ date ]</a>
+              <a href="thread.html#1345">[ thread ]</a>
+              <a href="subject.html#1345">[ subject ]</a>
+              <a href="author.html#1345">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Mike, 
+
+If could -- please register this by hand in the BTS
+
+  To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">submit at bugs.x2go.org</A>
+  Subject: PyHoca-GUI accepts new entries to liberally
+  X-Mailer: VM 8.1.0 under 23.4.1 (x86_64-pc-linux-gnu)
+  From: Dirk Eddelbuettel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">edd at debian.org</A>&gt;
+  Status: RO
+  Content-Length: 640
+  Lines: 22
+
+
+  Package: PyHoca-GUI
+  Version: 0.4.0.1
+
+  As discussed in the recent thread 'PyHoca-GUI 0.4.0.1 created bad config
+  file' [1], I can create 'bad' files ~/.x2goclient/session essentially by 
+  just alternating between Add and Apply in the Profile Manager.
+
+  It seems like you are keying on name being unique. In which case you may 
+  need to test for it. I have not looked at your code (and I am not that 
+  fluent in Python) so this is just a guess.
+
+  x2go is a treat.  Thanks for your work on it.
+
+  Cheers, Dirk
+
+
+  [1] <A HREF="http://thread.gmane.org/gmane.linux.terminal-server.x2go.user/1146">http://thread.gmane.org/gmane.linux.terminal-server.x2go.user/1146</A>
+
+I tried to send this, and my machine passed it on to Comcast, but it got lost
+after that as Comcast does not do what your greylisting would expect them to.
+That is sadly beyond my control:
+
+2013-03-15 10:33:50 1UGWdi-0001oF-IV &lt;= <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">edd at debian.org</A> U=edd \
+    P=local S=1169id=<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">20803.16222.473705.511277 at max.nulle.part</A>
+2013-03-15 10:33:51 1UGWdi-0001oF-IV =&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">submit at bugs.x2go.org</A> \
+    R=smarthost T=remote_smtp_smarthost H=smtp.g.comcast.net ....
+2013-03-15 10:33:51 1UGWdi-0001oF-IV Completed
+
+Dirk
+
+
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001344.html">[X2Go-User] Your BTS does not cooperate with Comcast
+</A></li>
+	<LI>Next message: <A HREF="001348.html">[X2Go-User] (Belated) Bug report on PyHOCA (Re: Your BTS does not cooperate with Comcast_
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1345">[ date ]</a>
+              <a href="thread.html#1345">[ thread ]</a>
+              <a href="subject.html#1345">[ subject ]</a>
+              <a href="author.html#1345">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

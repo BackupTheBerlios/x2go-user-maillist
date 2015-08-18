@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goserver-xsession: package for SUSE?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver-xsession%3A%20package%20for%20SUSE%3F&In-Reply-To=%3C15785B7E063D464C86DD482FCAE4EBA501879480239D%40XCH11.scidom.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001425.html">
+   <LINK REL="Next"  HREF="001430.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goserver-xsession: package for SUSE?</H1>
+    <B>Lentes, Bernd</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goserver-xsession%3A%20package%20for%20SUSE%3F&In-Reply-To=%3C15785B7E063D464C86DD482FCAE4EBA501879480239D%40XCH11.scidom.de%3E"
+       TITLE="[X2Go-User] x2goserver-xsession: package for SUSE?">bernd.lentes at helmholtz-muenchen.de
+       </A><BR>
+    <I>Mon May 27 15:54:14 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001425.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+        <LI>Next message: <A HREF="001430.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1426">[ date ]</a>
+              <a href="thread.html#1426">[ thread ]</a>
+              <a href="subject.html#1426">[ subject ]</a>
+              <a href="author.html#1426">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hans wrote:
+&gt;<i> &gt;
+</I>&gt;<i>
+</I>&gt;<i> Hi Hans,
+</I>&gt;<i>
+</I>&gt;<i> i added the repository:
+</I>&gt;<i>
+</I>&gt;<i> pc60181:/etc/x2go # zypper ar
+</I>&gt;<i> <A HREF="http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt">http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt</A>
+</I>&gt;<i> op:/x2go/SLE_11/ x2go
+</I>&gt;<i> Adding repository 'x2go' [done]
+</I>&gt;<i> Repository 'x2go' successfully added
+</I>&gt;<i> Enabled: Yes
+</I>&gt;<i> Autorefresh: No
+</I>&gt;<i> GPG check: Yes
+</I>&gt;<i> URI:
+</I>&gt;<i> <A HREF="http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt">http://ftp5.gwdg.de/pub/opensuse/repositories/X11:/RemoteDeskt</A>
+</I>&gt;<i> op:/x2go/SLE_11/
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> but still no x2goserver-xsession package:
+</I>&gt;<i>
+</I>&gt;<i> pc60181:/etc/x2go # zypper se -s xsession
+</I>&gt;<i> Refreshing service 'nu_novell_com'.
+</I>&gt;<i> Loading repository data...
+</I>&gt;<i> Reading installed packages...
+</I>&gt;<i> No packages found.
+</I>&gt;<i>
+</I>&gt;<i> pc60181:/etc/x2go # zypper se -s x2goserver
+</I>&gt;<i> Refreshing service 'nu_novell_com'.
+</I>&gt;<i> Loading repository data...
+</I>&gt;<i> Reading installed packages...
+</I>&gt;<i>
+</I>&gt;<i> S | Name                 | Type       | Version     | Arch
+</I>&gt;<i> | Repository
+</I>&gt;<i> --+----------------------+------------+-------------+--------+
+</I>&gt;<i> -----------
+</I>&gt;<i> i | x2goserver           | package    | 4.0.0.1-4.1 | x86_64 | x2go
+</I>&gt;<i> v | x2goserver           | package    | 4.0.0.1-4.1 | i586   | x2go
+</I>&gt;<i>   | x2goserver           | srcpackage | 4.0.0.1-4.1 | noarch | x2go
+</I>&gt;<i>   | x2goserver-debuginfo | package    | 4.0.0.1-4.1 | x86_64 | x2go
+</I>&gt;<i>   | x2goserver-debuginfo | package    | 4.0.0.1-4.1 | i586   | x2go
+</I>&gt;<i>
+</I>&gt;<i> ==============================================================
+</I>&gt;<i> =========
+</I>&gt;<i>
+</I>&gt;<i> Hi Bernd,
+</I>&gt;<i>
+</I>&gt;<i> I suspect that the xsession you look for, is not a separate
+</I>&gt;<i> package, but a file included in x2goserver package
+</I>&gt;<i> Could be wrong though....
+</I>&gt;<i> Rpm -qpl x2goserver-4.0.0.1-4.1.x86_64.rpm gives:
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /etc/X11/Xsession.d
+</I>&gt;<i> /etc/X11/Xsession.options
+</I>&gt;<i> /etc/init.d/x2gocleansessions
+</I>&gt;<i> /etc/permissions.d/x2goserver
+</I>&gt;<i> /etc/sudoers.d
+</I>&gt;<i> /etc/sudoers.d/x2go
+</I>&gt;<i> /etc/x2go
+</I>&gt;<i> /etc/x2go/Xresources
+</I>&gt;<i> ==&gt; /etc/x2go/Xsession
+</I>&gt;<i> ==&gt; /etc/x2go/Xsession.d
+</I>&gt;<i> /etc/x2go/Xsession.options
+</I>
+Hi Hans,
+
+<A HREF="http://wiki.x2go.org/doku.php/wiki:advanced:x2goserver-in-detail">http://wiki.x2go.org/doku.php/wiki:advanced:x2goserver-in-detail</A> says:
+
+Also, if the remote server already has a desktop environment installed then one more X2Go package (besides x2goserver) must now be installed on the server before the X2Go Client can successfully initiate/start a remote desktop X2Go session.
+This additional X2Go package is called x2goserver-xsession. This must be installed for the X2Go Client to successfully start the remote desktop X2Go session unless the X2Go Server is intended for use with the new X2Go Published Apps capability (see NOTE below).
+
+
+Bernd
+
+Helmholtz Zentrum M&#252;nchen
+Deutsches Forschungszentrum f&#252;r Gesundheit und Umwelt (GmbH)
+Ingolst&#228;dter Landstr. 1
+85764 Neuherberg
+www.helmholtz-muenchen.de
+Aufsichtsratsvorsitzende: MinDir&#180;in B&#228;rbel Brumme-Bothe
+Gesch&#228;ftsf&#252;hrer: Prof. Dr. G&#252;nther Wess Dr. Nikolaus Blum Dr. Alfons Enhsen
+Registergericht: Amtsgericht M&#252;nchen HRB 6466
+USt-IdNr: DE 129521671
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001425.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+	<LI>Next message: <A HREF="001430.html">[X2Go-User] x2goserver-xsession: package for SUSE?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1426">[ date ]</a>
+              <a href="thread.html#1426">[ thread ]</a>
+              <a href="subject.html#1426">[ subject ]</a>
+              <a href="author.html#1426">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

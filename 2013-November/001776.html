@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] wmctrl problems
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3C20131116091711.Horde.wGOXQRxMXhhp0czMrn4eAA1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001773.html">
+   <LINK REL="Next"  HREF="001777.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] wmctrl problems</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3C20131116091711.Horde.wGOXQRxMXhhp0czMrn4eAA1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] wmctrl problems">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Nov 16 10:17:11 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001773.html">[X2Go-User] wmctrl problems
+</A></li>
+        <LI>Next message: <A HREF="001777.html">[X2Go-User] wmctrl problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1776">[ date ]</a>
+              <a href="thread.html#1776">[ thread ]</a>
+              <a href="subject.html#1776">[ subject ]</a>
+              <a href="author.html#1776">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jeff,
+
+On  Do 14 Nov 2013 19:58:14 CET, Jean-Francois Dagenais wrote:
+
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> Running x2go server on ubuntu (12.04), and my terminal is a mac  
+</I>&gt;<i> running XQuartz
+</I>&gt;<i> (with quartz-wm) and the Qt x2go client.
+</I>&gt;<i>
+</I>&gt;<i> I used the Published apps rootless and spawn a few windows from the server.
+</I>&gt;<i> Things run pretty smoothly and Im happy with the performance.
+</I>&gt;<i>
+</I>&gt;<i> The thing that hurts is related to window management. Heres a  
+</I>&gt;<i> relevant output:
+</I>&gt;<i> $ echo $DISPLAY
+</I>&gt;<i> :50
+</I>&gt;<i> $ wmctrl -l
+</I>&gt;<i> Cannot get client list properties.
+</I>&gt;<i> (_NET_CLIENT_LIST or _WIN_CLIENT_LIST)
+</I>&gt;<i> $ wmctrl -m
+</I>&gt;<i> Cannot get window manager info properties.
+</I>&gt;<i> (_NET_SUPPORTING_WM_CHECK or _WIN_SUPPORTING_WM_CHECK)
+</I>&gt;<i>
+</I>&gt;<i> Whereas if I run the same commands natively on the mac, XQuartz responds
+</I>&gt;<i> correctly to wmctrl.
+</I>&gt;<i>
+</I>&gt;<i> So the problem affects pretty much all tools related to window management I
+</I>&gt;<i> tried.
+</I>&gt;<i>
+</I>&gt;<i> I am no X11 expert, but I am a developer and very familiar with  
+</I>&gt;<i> linux systems.
+</I>&gt;<i> Right now I just need a few pointers, any thoughts?
+</I>
+With published applications you have to use wmctrl on your local  
+display (:0) not on the X2Go display (:50 or above...).
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-keys
+Size: 7251 bytes
+Desc: ?ffentlicher PGP-Schl?ssel
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131116/b1ad233e/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20131116/b1ad233e/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131116/b1ad233e/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131116/b1ad233e/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001773.html">[X2Go-User] wmctrl problems
+</A></li>
+	<LI>Next message: <A HREF="001777.html">[X2Go-User] wmctrl problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1776">[ date ]</a>
+              <a href="thread.html#1776">[ thread ]</a>
+              <a href="subject.html#1776">[ subject ]</a>
+              <a href="author.html#1776">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

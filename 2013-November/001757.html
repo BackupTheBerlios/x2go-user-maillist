@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] testing session broker in	WSGI/plain/inifile	configuration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20testing%20session%20broker%20in%0A%09WSGI/plain/inifile%09configuration&In-Reply-To=%3C1383581912.1760.2.camel%40Nokia-N900%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001756.html">
+   <LINK REL="Next"  HREF="001758.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] testing session broker in	WSGI/plain/inifile	configuration</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20testing%20session%20broker%20in%0A%09WSGI/plain/inifile%09configuration&In-Reply-To=%3C1383581912.1760.2.camel%40Nokia-N900%3E"
+       TITLE="[X2Go-User] testing session broker in	WSGI/plain/inifile	configuration">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Nov  4 17:18:32 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001756.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+        <LI>Next message: <A HREF="001758.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1757">[ date ]</a>
+              <a href="thread.html#1757">[ thread ]</a>
+              <a href="subject.html#1757">[ subject ]</a>
+              <a href="author.html#1757">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kermit,
+
+on Ubuntu 12.04, please use the packages from ppa:x2go/ppa (nightly builds).
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976148
+
+GnuPG Key ID 0x25771B13
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+
+----- Original message -----
+&gt;<i> Thanks Mike!&#160;  The testbed I'm working with right now is Ubuntu 12.04 LTS
+</I>&gt;<i> (64 bit).&#160;  I'm getting all the deb files from the x2go ppa, so whatever
+</I>&gt;<i> version is out there is what I'm running with.
+</I>&gt;<i> 
+</I>&gt;<i> I guess my question should be, is there a way I can compile just the
+</I>&gt;<i> broker agent from source, or do I have to compile the entire broker
+</I>&gt;<i> server?&#160;  If all I need to do is grab the nightly sources for the agent
+</I>&gt;<i> and then install that on all my x2go servers, I can do that.&#160;  If it's a
+</I>&gt;<i> matter of installing the entire broker on every x2go server, I may wait
+</I>&gt;<i> until you release to stable.
+</I>&gt;<i> 
+</I>&gt;<i> Thanks!
+</I>&gt;<i> -- 
+</I>&gt;<i> Kermit Short
+</I>&gt;<i> DCS-5 
+</I>&gt;<i> 
+</I>&gt;<i> On Mon, 2013-11-04 at 09:01 +0000, Mike Gabriel wrote:
+</I>&gt;<i> &gt; Hi Kermit,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; On&#160;  Sa 02 Nov 2013 22:14:01 CET, Short, Kermit wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; Thanks Mike!&#160;  That brings up a few questions for me, though.&#160;  I'm at
+</I>&gt;<i> &gt; &gt;&#160; &#160;  home, and don't have to contend with the firewalls on the
+</I>&gt;<i> &gt; &gt; workplace&#160; &#160;  networks, but I can never seem to clone any of the
+</I>&gt;<i> &gt; &gt; source repos.&#160; &#160; &#160;  More than likely, I'm doing something wrong with
+</I>&gt;<i> &gt; &gt; the git command,&#160; &#160;  but whenever I try to clone through our
+</I>&gt;<i> &gt; &gt; (mandatory) http proxy, the&#160; &#160;  clone command just sits there for
+</I>&gt;<i> &gt; &gt; about 5 minutes, and then errors&#160; &#160;  out.
+</I>&gt;<i> &gt; &gt; 
+</I>&gt;<i> &gt; &gt; I just tried to clone the x2gobroker.git project (at home) as
+</I>&gt;<i> &gt; &gt; follows: git clone <A HREF="http://git.x2go.org/projects">http://git.x2go.org/projects</A> x2gobroker.git
+</I>&gt;<i> &gt; &gt; or subsequently:
+</I>&gt;<i> &gt; &gt; git clone <A HREF="http://git.x2go.org">http://git.x2go.org</A> x2gobroker.git
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; This is probably, because you URL is wrong. Try this one instead:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; git clone <A HREF="http://code.x2go.org/git/x2gobroker.git">http://code.x2go.org/git/x2gobroker.git</A>
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; Once I do manage to get a clone of the source, should I be&#160;  
+</I>&gt;<i> &gt; &gt; uninstalling the existing x2gobroker-* packages installed on my&#160;  
+</I>&gt;<i> &gt; &gt; session broker server?&#160;  How would I then go about installing the&#160;  
+</I>&gt;<i> &gt; &gt; binaries after configure/make/make install from source?&#160;  Can I leave
+</I>&gt;<i> &gt; &gt;&#160; &#160;  at least something that I've done or do I blow it all away and
+</I>&gt;<i> &gt; &gt; start&#160; &#160;  over with nightly build codes?
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; The broker .deb package is well maintained in upstream code. In&#160;  
+</I>&gt;<i> &gt; theory, it should work to run make &amp;&amp; sudo make install. If you&#160;  
+</I>&gt;<i> &gt; install the broker that way, the broker codes gets installed to&#160;  
+</I>&gt;<i> &gt; /usr/local. Note: there is no configure script in x2gobroker.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; As you are on an RPM based system, I cannot be of great help with more
+</I>&gt;<i> &gt;&#160; &#160;  than the above. (/me only knows how to maintain DEB based systems).
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Greets,
+</I>&gt;<i> &gt; Mike
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; 
+</I>
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001756.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+	<LI>Next message: <A HREF="001758.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1757">[ date ]</a>
+              <a href="thread.html#1757">[ thread ]</a>
+              <a href="subject.html#1757">[ subject ]</a>
+              <a href="author.html#1757">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

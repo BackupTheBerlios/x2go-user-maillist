@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] x2go thinclient - custom xorg.conf
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3C201105241702.36985.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000169.html">
+   <LINK REL="Next"  HREF="000170.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] x2go thinclient - custom xorg.conf</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20x2go%20thinclient%20-%20custom%20xorg.conf&In-Reply-To=%3C201105241702.36985.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2go-user] x2go thinclient - custom xorg.conf">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Tue May 24 17:02:36 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000169.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+        <LI>Next message: <A HREF="000170.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Neil,
+
+thanks for answering. This is indeed a option. Since I got very good 
+experiences with the live-helper tools from debian (<A HREF="http://live.debian.net/">http://live.debian.net/</A>), 
+this would be a possibility to create the live-cd-image even easier and more 
+reproducable. 
+
+Bevor I've seen the x2gothinclient-environment I was already thinking to make 
+a pxe-bootable live-image with x2go-fullscreen-client this way.
+
+It's also available for ubuntu - but I've never tried. It shouldn't be more 
+difficult than with pure debian 
+(<A HREF="http://packages.ubuntu.com/de/hardy/live-helper">http://packages.ubuntu.com/de/hardy/live-helper</A>).
+
+But if possible I would prefer a generic debian solution.
+
+So far I see x possibilities
+
+1. hacking the x2gothinclientd script
+2. building live-cd image (ubuntu)
+3. setting up a special thinclient changeroot for each client which needs 
+special configuration (with hard-links for all unchanged files) and booting 
+with mac-specific pxe
+
+Since I've got already the custom xorg.conf for the clients which behave not 
+like they should, I'll start with 1.
+
+For second way it would be great to use the live-helper script and to publish 
+all configuration in the wiki. I'll do, if I find the time.
+
+The first way quick and dirty without changing the x2gothinclientd:
+
+I created a script 
+/etc/init.d/x2go_xorg_custom
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#!/bin/bash
+# Workaround for custom xorg.conf
+# tests if custom xorg.conf for mac-address exists.
+# if yes copy to /ramdrive/tmp
+# if no the default xorg.conf.default kopiert
+# ein symbolixher Link /etc/X11/xorg.conf verweist auf diese Datei
+
+# make shure having always the same output of ifconfig:
+export LANG=C
+
+# getting Mac-Address for the eth0 -&gt; has to be adjusted if the interface 
+# isn't always eth0
+xorg_file=&quot;xorg.conf.$(/sbin/ifconfig eth0|grep HWaddr | awk '{print $5}')&quot;
+
+# tests if a custom xorg.conf.MACADRESS exists
+
+if test -e /etc/X11/$xorg_file; then
+  echo $xorg_file;
+  else
+  xorg_file=&quot;xorg.conf.default&quot;
+#  echo $xorg_file
+fi
+
+# copiing the specific xorg.conf to ramdrive
+cp /etc/X11/$xorg_file /ramdrive/tmp/xorg.conf
+
+exit 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+in the changeroot I made a link from the xorg.conf to the new one
+and add a starting-script before the x2gothinclientd
+
+  chroot /opt/x2gothinclient
+  ln -s /ramdrive/tmp/xorg.conf /etc/X11/xorg.conf
+  ln -s /etc/init.d/x2go_custom_xorg /etc/rc2.d/S19x2go_custom_xorg
+
+
+Thanks a lot.
+Stefan
+
+Am Dienstag, 24. Mai 2011 schrieb Neil Hunt:
+&gt;<i> Stefan,
+</I>&gt;<i>
+</I>&gt;<i> I tried long and hard to get the xorg.conf file to work with my monitors to
+</I>&gt;<i> no avail. Debian simply did not have the intelligence to detect various
+</I>&gt;<i> monitor configurations and I finally had to unfortunately give up.
+</I>&gt;<i>
+</I>&gt;<i> Probably not the answer you want, however I can say that we went a
+</I>&gt;<i> different route and it's worked just fine: we decided to create a custom
+</I>&gt;<i> Ubuntu Live CD image and boot to that via PXE. Ubuntu picks up virtually
+</I>&gt;<i> any monitor settings and audio works great as well over PXE. I created a
+</I>&gt;<i> custom kiosk mode so a user boots up right to a full-screen x2go client,
+</I>&gt;<i> just as the x2go-thinclient package did. The two links I used were
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://help.ubuntu.com/community/LiveCDCustomization">https://help.ubuntu.com/community/LiveCDCustomization</A>
+</I>&gt;<i>
+</I>&gt;<i> and for setting up the kiosk mode, I used this description (made for NX,
+</I>&gt;<i> but just replace the NX settings with the x2go_gtk client and all worked
+</I>&gt;<i> fine). <A HREF="http://blog.nistu.de/A_kiosk_setup_with_nxclient.html">http://blog.nistu.de/A_kiosk_setup_with_nxclient.html</A>
+</I>&gt;<i>
+</I>&gt;<i> Let me know if you have any questions.
+</I>&gt;<i>
+</I>&gt;<i> Neil
+</I>&gt;<i>
+</I>&gt;<i> &gt; ------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Message: 2
+</I>&gt;<i> &gt; Date: Tue, 24 May 2011 00:59:55 +0200
+</I>&gt;<i> &gt; From: &quot;Stefan&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">lists at nosolution.doesntexist.org</A>&gt;
+</I>&gt;<i> &gt; To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> &gt; Subject: Re: [X2go-user] x2go thinclient - custom xorg.conf
+</I>&gt;<i> &gt; Message-ID: &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">201105240059.56128.lists at nosolution.doesntexist.org</A>&gt;
+</I>&gt;<i> &gt; Content-Type: text/plain;  charset=&quot;iso-8859-1&quot;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Am Montag, 23. Mai 2011 schrieb Stefan:
+</I>&gt;<i> &gt; &gt; Hi all,
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; I installed recently x2go-one and the thinclient-netboot-environment.
+</I>&gt;<i> &gt; &gt; So far all works fine. (Sound and printing not yet tested).
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; At the same network we have also a ltsp installation but I think to
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; replace
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; ist step by step with x2go mainly because of spee issues.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; One of the main questions I have ist if it's possible to offer custom
+</I>&gt;<i> &gt; &gt; xorg.conf to the clients which boot via pxe.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; Some of our monitors are not correctly recognized by the x-server an
+</I>&gt;<i> &gt; &gt; need
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; a
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; &gt; special xorg.conf.
+</I>&gt;<i> &gt; &gt;
+</I>&gt;<i> &gt; &gt; In the ltsp changeroot there is the possibility to offer something like
+</I>&gt;<i> &gt; &gt; xorg.conf.00:00:00:00:00 with mac-address as a suffix.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I've confused this: is not in ltsp but in the pxe configuration ;-)
+</I>&gt;<i> &gt; In ltsp you define the specifics for each host in the lts.conf
+</I>&gt;<i> &gt; but maybe the client mac is still a good starting point.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; Stefan
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; ------------------------------
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; _______________________________________________
+</I>&gt;<i> &gt; X2go-user mailing list
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-user at lists.berlios.de</A>
+</I>&gt;<i> &gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; End of X2go-user Digest, Vol 9, Issue 13
+</I>&gt;<i> &gt; ****************************************
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000169.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+	<LI>Next message: <A HREF="000170.html">[X2go-user] x2go thinclient - custom xorg.conf
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#167">[ date ]</a>
+              <a href="thread.html#167">[ thread ]</a>
+              <a href="subject.html#167">[ subject ]</a>
+              <a href="author.html#167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

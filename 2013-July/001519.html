@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Session resume fails with AFS home directories
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20resume%20fails%20with%20AFS%20home%20directories&In-Reply-To=%3C20130726164006.17531y7k798urzgm%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001518.html">
+   <LINK REL="Next"  HREF="001520.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Session resume fails with AFS home directories</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Session%20resume%20fails%20with%20AFS%20home%20directories&In-Reply-To=%3C20130726164006.17531y7k798urzgm%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Session resume fails with AFS home directories">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Jul 26 16:40:06 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001518.html">[X2Go-User] Session resume fails with AFS home directories
+</A></li>
+        <LI>Next message: <A HREF="001520.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1519">[ date ]</a>
+              <a href="thread.html#1519">[ thread ]</a>
+              <a href="subject.html#1519">[ subject ]</a>
+              <a href="author.html#1519">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Package: x2goserver
+Version: 4.0.1.3
+
+Hi Sebastian,
+
+(quoting your complete original mail, so we have it in the bug report  
+I create with this/my reply)
+
+On Fr 26 Jul 2013 15:08:50 CEST Sebastian Flothow wrote:
+
+&gt;<i> I've just set up a Debian 7 box with X2Go. It does work in that it  
+</I>&gt;<i> is possible to start new sessions, however, resuming a previous  
+</I>&gt;<i> session does not work, it always results in this message: &quot;The  
+</I>&gt;<i> remote proxy closed the connection while negotiating the session.  
+</I>&gt;<i> This may be due to the wrong authentication credentials passed to  
+</I>&gt;<i> the server.&quot;
+</I>&gt;<i>
+</I>&gt;<i> I suspect this is due to the fact that home directories are stored  
+</I>&gt;<i> in AFS (for regular users, that is; when logging in as root, whose  
+</I>&gt;<i> home directory is on a local ext4 FS, resume does work). Accessing  
+</I>&gt;<i> AFS requires an AFS token in the user's name, obtaining this in turn  
+</I>&gt;<i> requires a Kerberos ticket. PAM is set up to obtain both  
+</I>&gt;<i> automatically on login, but I guess something goes wrong there  
+</I>&gt;<i> during session resume.
+</I>&gt;<i>
+</I>&gt;<i> Is it possible to add custom commands to the X2Go login/resume  
+</I>&gt;<i> procedure? It would be quite helpful if the client could run klist  
+</I>&gt;<i> and tokens through the ssh session, and either log or display the  
+</I>&gt;<i> output.
+</I>
+Is there any environment variable that we have to set before we can  
+access the home directory of the user?
+
+My guess is that we have to set at least
+
+   export KRB5CCNAME=???
+
+Maybe any other env var for the AFS token?
+
+We should get this issue fixed upstream, so I have switched over to  
+x2go-dev and our bug tracker (done by sending my reply). Please reply  
+to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">272 at bugs.x2go.org</A> with your reply. Thanks.
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130726/9a3883ba/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130726/9a3883ba/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001518.html">[X2Go-User] Session resume fails with AFS home directories
+</A></li>
+	<LI>Next message: <A HREF="001520.html">[X2Go-User] X2Go and ssh forwarding
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1519">[ date ]</a>
+              <a href="thread.html#1519">[ thread ]</a>
+              <a href="subject.html#1519">[ subject ]</a>
+              <a href="author.html#1519">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

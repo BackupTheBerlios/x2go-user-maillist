@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Fwd:  [SOLVED] Re:  Call logout script
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Fwd%3A%20%20%5BSOLVED%5D%20Re%3A%20%20Call%20logout%20script&In-Reply-To=%3C8CEC4F6E0C49354-510-AECF%40webmail-d161.sysops.aol.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000656.html">
+   <LINK REL="Next"  HREF="000650.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Fwd:  [SOLVED] Re:  Call logout script</H1>
+    <B>senrabdet at aol.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Fwd%3A%20%20%5BSOLVED%5D%20Re%3A%20%20Call%20logout%20script&In-Reply-To=%3C8CEC4F6E0C49354-510-AECF%40webmail-d161.sysops.aol.com%3E"
+       TITLE="[X2Go-User] Fwd:  [SOLVED] Re:  Call logout script">senrabdet at aol.com
+       </A><BR>
+    <I>Wed Feb 29 13:43:32 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000656.html">[X2Go-User] [SOLVED] Re:  Call logout script
+</A></li>
+        <LI>Next message: <A HREF="000650.html">[X2Go-User] X2goserver on Ubuntu 10.04.4 server...can't login.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#666">[ date ]</a>
+              <a href="thread.html#666">[ thread ]</a>
+              <a href="subject.html#666">[ subject ]</a>
+              <a href="author.html#666">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi All:
+
+We've been trying to find a way to lock down bash once an x2go session has started to prevent (either by accident or on purpose) use of the command prompt to cause mischief as we want to use x2go on Internet exposed servers .  A few follow ups:
+
+1)  Progress to date
+
+We can accomplish a sort of bash lock down if we start an x2go session from a PC, and then manually as root (sudo su)  on the server run a script that creates a folder in the active x2go users home, replace that user's .bashrc file with one that has a new path value, and create a link from bash to the folder.  This doesn't disrupt the user's session, and disables most commands in gnome-terminal (users can do &quot;cd&quot; commands but no &quot;ls&quot; and can't do &quot;./&quot; to start scripts; users can still create .sh files and double click on them:  we are using Ubuntu Server 10.4).
+
+We've tried to find a way to automate all of this, including using .bash* files to call a script enabled in visudo to run as root.  This doesn't work we think because while the called script has root privileges, it is still really being run as the x2go user with root privileges and as best we can tell, the script needs to run as root itself, not the x2go user.  We get error messages and the session login doesn't complete which makes sense.  We tried using a test to look for a complete login and then run the script but think that's further evidence the script needs to be run as root not the x2go user with root privileges to that script. 
+
+We've tried various ways to switch to root inside of the script, and this may be possible but no joy so far (including various errors that there is no tty or that su doesn't run inside of a terminal), and this this whole approach is probably flawed in terms the security issues we want to address....
+
+2)  One Test
+
+We tried putting a simple script with one command &quot;touch ~/Desktop/Iwashere&quot; in some of the extension folders suggested below:
+
+/usr/lib/x2go/extensions/pre-start.d
+/usr/lib/x2go/extensions/post-runcommand.d
+/usr/lib/x2go/extensions/post-terminate.d
+/usr/lib/x2go/extensions/post-start.d
+
+and as best we can the script doesn't get executed.  There is a &quot;.profile&quot; in each of the extension folders - we tried putting the command in those files without success, whether we enable the executable bit or not.
+
+3)  Q:
+
+Is there a better approach to all of this? Or...
+Is there a way from the x2go code, to call our script as root &quot;at the right time&quot; after a user session has started but before the desktop, and call another one on logout to put the .bash* file back again so the logout can complete smoothly? Or...
+Is there a way outside of x2go anyone has used to do this sort of thing...detect that a new session has started, run a script etc.
+
+It would seem that this would be best handled within x2go code, but happy to be wrong about that.
+
+Also, even if this gets accomplished, we think we'll still have to address use the command prompt through ssh....
+
+Any suggestions appreciated!  Thanks,
+
+Ted
+
+
+ 
+
+-----Original Message-----
+From: Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+To: x2go-user &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+Cc: x2go-dev &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;
+Sent: Fri, Feb 24, 2012 4:10 pm
+Subject: [X2Go-User] [SOLVED] Re:  Call logout script
+
+
+Hi,
+
+On Fr 24 Feb 2012 14:21:55 CET  wrote:
+
+&gt;<i> Hi All:
+</I>&gt;<i>
+</I>&gt;<i> Is there a way to call a logout script (i.e., one that is specific  
+</I>&gt;<i> to each user upon ending a session)?  In Ubuntu Server 10.4 we've  
+</I>&gt;<i> tried various things including .bash_logout and  
+</I>&gt;<i> /etc/gdm/PostSession/Default either performing a command or calling  
+</I>&gt;<i> .bash_logout.
+</I>
+Approach one (for system-wide plugging-in of custom X2Go extensions):
+Install the package x2goserver-extensions (normally gets installed by  
+default).
+
+Place any script you like (best practice: via a .deb package) into any  
+of the folders:
+
+/usr/lib/x2go/extensions/pre-start.d
+/usr/lib/x2go/extensions/post-resume.d
+/usr/lib/x2go/extensions/post-suspend.d
+/usr/lib/x2go/extensions/pre-runcommand.d
+/usr/lib/x2go/extensions/pre-terminate.d
+/usr/lib/x2go/extensions/fail-start.d
+/usr/lib/x2go/extensions/pre-suspend.d
+/usr/lib/x2go/extensions/fail-runcommand.d
+/usr/lib/x2go/extensions/fail-suspend.d
+/usr/lib/x2go/extensions/post-start.d
+/usr/lib/x2go/extensions/post-runcommand.d
+/usr/lib/x2go/extensions/fail-resume.d
+/usr/lib/x2go/extensions/post-terminate.d
+/usr/lib/x2go/extensions/pre-resume.d
+/usr/lib/x2go/extensions/fail-terminate.d
+
+Approach two (developers, please take note of this commit!):
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=a21e0dc286c89e94790fe13de7a083cf8be5f5b9">http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=a21e0dc286c89e94790fe13de7a083cf8be5f5b9</A>
+
+&gt;<i> The &quot;/etc/gdm/PostSession/Default&quot; works if we log in directly, so  
+</I>&gt;<i> assume this has something to do with xsession(?) and hope there is a  
+</I>&gt;<i> way in an x2go session where when the user logs out, a script gets  
+</I>&gt;<i> called in the background.
+</I>
+The named GDM script is out of our reach when running X2Go sessions.  
+:<i>-(, it is not related to .Xsession calls.
+</I>
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+ 
+_______________________________________________
+X2Go-User mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120229/cd504213/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120229/cd504213/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: Attachment
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120229/cd504213/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120229/cd504213/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000656.html">[X2Go-User] [SOLVED] Re:  Call logout script
+</A></li>
+	<LI>Next message: <A HREF="000650.html">[X2Go-User] X2goserver on Ubuntu 10.04.4 server...can't login.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#666">[ date ]</a>
+              <a href="thread.html#666">[ thread ]</a>
+              <a href="subject.html#666">[ subject ]</a>
+              <a href="author.html#666">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

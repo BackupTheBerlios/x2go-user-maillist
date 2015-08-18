@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2goclient not mount the spool directory (Ubuntu 10.10)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20not%20mount%20the%20spool%20directory%20%28Ubuntu%0A%2010.10%29&In-Reply-To=%3C20110829223804.184337yip1f8m5d8%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000348.html">
+   <LINK REL="Next"  HREF="000351.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2goclient not mount the spool directory (Ubuntu 10.10)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2goclient%20not%20mount%20the%20spool%20directory%20%28Ubuntu%0A%2010.10%29&In-Reply-To=%3C20110829223804.184337yip1f8m5d8%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] x2goclient not mount the spool directory (Ubuntu 10.10)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Aug 29 22:38:04 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000348.html">[X2go-User] x2goclient not mount the spool directory (Ubuntu 10.10)
+</A></li>
+        <LI>Next message: <A HREF="000351.html">[X2go-User] x2go - Ubuntu 11.04 - Keyring problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#349">[ date ]</a>
+              <a href="thread.html#349">[ thread ]</a>
+              <a href="subject.html#349">[ subject ]</a>
+              <a href="author.html#349">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mario,
+
+On Mo 29 Aug 2011 22:13:41 CEST Mario OROZ wrote:
+
+&gt;<i> I'm trying x2goclient from Ubuntu (but the version Qt, where is the GTK
+</I>&gt;<i> version?) and
+</I>
+The GTK version is dead. It was decided a year ago that dual  
+development (GTK and QT is to much of an effort).
+
+&gt;<i> I see that the print spool directory of the client is not properly mounted on
+</I>&gt;<i> the server.
+</I>
+Is your server-side user member of the fuse group? This is needed to  
+use SSHFS.
+
+&gt;<i> My server is a Debian 6.0 with x2goserver, from the corresponding  
+</I>&gt;<i> repositories.
+</I>
+Also: tomorrow (hopefully), I will fix the bug already discussed on the list.
+
+   - create x2goprint user / group on x2goserver package installation
+   - try to find a setgid solution for the x2goprint script
+
+&gt;<i> I used the mount command to check the server as root, like said John  
+</I>&gt;<i> Sullivan III
+</I>&gt;<i>
+</I>&gt;<i> I'm using the ppa repository (launchpad ppa: x2go/stable) to Ubuntu 10.10
+</I>
+Your might try the ppa: x2go/ppa (nightly builds) as we have not  
+updated the stable ppa for quite a while and the nightly builds have  
+quite some fixed issues.
+
+&gt;<i> Add the user to group fuse in Ubuntu 10.10. I do not see the fuse  
+</I>&gt;<i> module loaded
+</I>&gt;<i> with lsmod
+</I>&gt;<i> but the command &quot;sshfs usr @ server: dir local-dir /&quot; works!
+</I>
+Hmmm... ok...
+
+&gt;<i> Someone could indicate how to get sshfs to mount the client's spool  
+</I>&gt;<i> diresctorio?
+</I>
+PyHoca-GUI is much more verbose in debugging... Please install
+
+   apt-get install pyhoca-gui
+
+and run
+
+   pyhoca-gui --libdebug
+
+A tray applet appears that allows you to connect to the sessions  
+configured in x2goclient. Try to get printing running there and send  
+the debug output (run in terminal) to the list.
+
+&gt;<i> Other questions:
+</I>&gt;<i> How to make the printer driver created with x2go, print raw? Without creating
+</I>&gt;<i> the postscript which then results in pdf, let me understand?
+</I>
+Maybe this helps? I think you have to search for raw printing in CUPS  
+itself... And then we have to tweak cups-x2go to handle the raw print  
+file...
+
+<A HREF="http://distro.ibiblio.org/smeserver/contribs/rvandenaker/testing/smeserver-cups/documentation/howtos/printing-to-raw-queues.html">http://distro.ibiblio.org/smeserver/contribs/rvandenaker/testing/smeserver-cups/documentation/howtos/printing-to-raw-queues.html</A>
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110829/a321eb6e/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110829/a321eb6e/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000348.html">[X2go-User] x2goclient not mount the spool directory (Ubuntu 10.10)
+</A></li>
+	<LI>Next message: <A HREF="000351.html">[X2go-User] x2go - Ubuntu 11.04 - Keyring problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#349">[ date ]</a>
+              <a href="thread.html#349">[ thread ]</a>
+              <a href="subject.html#349">[ subject ]</a>
+              <a href="author.html#349">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

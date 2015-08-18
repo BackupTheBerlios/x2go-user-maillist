@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go printing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20printing&In-Reply-To=%3C50F6935C.1%40elexis-austria.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001235.html">
+   <LINK REL="Next"  HREF="001244.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go printing</H1>
+    <B>Bernhard J. Mayr</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20printing&In-Reply-To=%3C50F6935C.1%40elexis-austria.net%3E"
+       TITLE="[X2Go-User] x2go printing">bernhard.mayr at elexis-austria.net
+       </A><BR>
+    <I>Wed Jan 16 12:47:40 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001235.html">[X2Go-User] desktop sharing
+</A></li>
+        <LI>Next message: <A HREF="001244.html">[X2Go-User] x2go printing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1239">[ date ]</a>
+              <a href="thread.html#1239">[ thread ]</a>
+              <a href="subject.html#1239">[ subject ]</a>
+              <a href="author.html#1239">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA1
+ 
+Hallo!
+I am trying to install the local printing capability of x2go. I did
+everythink as explained in the wiki:
+<A HREF="http://www.x2go.org/doku.php/wiki:components:printing">http://www.x2go.org/doku.php/wiki:components:printing</A>
+
+I set the log-level to debug and the error_log file contains the
+following lines:
+
+D [16/Jan/2013:12:38:57 +0100] [Job 3] Started filter
+/usr/lib/cups/filter/commandtops (PID 16856)
+D [16/Jan/2013:12:38:57 +0100] [Job 3] Started backend
+/usr/lib/cups/backend/cups-x2go (PID 16857)
+D [16/Jan/2013:12:38:57 +0100] [Job 3] Restarted by &quot;administrator&quot;.
+D [16/Jan/2013:12:38:57 +0100] [Job 3] Unable to auto-configure
+PostScript Printer - no bidirectional I/O available!
+D [16/Jan/2013:12:38:57 +0100] [Job 3] GPL Ghostscript 9.05: **** Could
+not open the file &quot;/tmp/3-administrator-cupsjob16857.pdf&quot; .
+D [16/Jan/2013:12:38:57 +0100] [Job 3] /usr/bin/x2goprint: Can't move
+/var/spool/x2goprint/administrator-50-1358335004_stDLXDE_dp17_3-administr$
+D [16/Jan/2013:12:38:57 +0100] [Job 3] End of messages
+D [16/Jan/2013:12:38:57 +0100] [Job 3] printer-state=3(idle)
+D [16/Jan/2013:12:38:57 +0100] [Job 3]
+printer-state-message=&quot;/usr/lib/cups/filter/commandtops failed&quot;
+D [16/Jan/2013:12:38:57 +0100] [Job 3] printer-state-reasons=none
+
+Seems to be a problem with directory-permissions? Do I have to grant any
+privileges?
+
+Kind Regards,
+Bernhard
+
+- -- 
+####################################################################
+Das Projekt elexis-austria hat den Constantinus Award 2012 gewonnen!
+www.constantinus.net/award
+####################################################################
+- ----
+Dr. Bernhard J. Mayr, MBA
+elexis austria | Open-Source Software f&#252;r die Arztpraxis
+Projektkoordinator
+
+Tulpenweg 10
+4600 Wels, Austria
++43(0)660 31 96 763
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bernhard.mayr at elexis-austria.net</A>
+-----BEGIN PGP SIGNATURE-----
+Version: GnuPG v2.0.14 (MingW32)
+ 
+iQEcBAEBAgAGBQJQ9pNbAAoJEIC/l90o8tPVEkgIAKc7720B+ZXwUNQ3rxanAOCq
+2FS/vxQQJXu9MLQJfO3ZcoH32Jn/yZXWss42DDIxFQyNLRwbsB8sTH2lCzOt83xE
+eajilvmcX4dIL/+diFAECsOE4yM7DZRTRNWQGS4cYphEa1MvQYbUYkOOtySp/FGs
+JNhfu9tpEQGFkcU0nKzibPdg2JXQcuHWQ7rdZU2duhDt9Rdy2kNYkqkWj9DMHnte
+v5/aKzmG8KWwG8zA0DE5SQ7J8M6N6NW5rzK5jhKt3z5RiJUHT1HwhdhFV710KugT
+cYc72AQb/4iTwaiVeTnQkJ1UWHdbFZ8U3GV3Nt66J1uD4S6DraLeZmjtxlDn/X8=
+=hoDb
+-----END PGP SIGNATURE-----
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0x28F2D3D5.asc
+Type: application/pgp-keys
+Size: 2696 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130116/60d872b9/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20130116/60d872b9/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: 0x28F2D3D5.asc.sig
+Type: application/octet-stream
+Size: 287 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130116/60d872b9/attachment.obj">https://lists.berlios.de/pipermail/x2go-user/attachments/20130116/60d872b9/attachment.obj</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001235.html">[X2Go-User] desktop sharing
+</A></li>
+	<LI>Next message: <A HREF="001244.html">[X2Go-User] x2go printing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1239">[ date ]</a>
+              <a href="thread.html#1239">[ thread ]</a>
+              <a href="subject.html#1239">[ subject ]</a>
+              <a href="author.html#1239">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

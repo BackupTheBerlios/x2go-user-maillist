@@ -1,0 +1,169 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C20111004194959.177478ef8b00vwp3%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000424.html">
+   <LINK REL="Next"  HREF="000418.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3C20111004194959.177478ef8b00vwp3%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Crashing sessions">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Oct  4 19:49:59 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000424.html">[X2go-User] Crashing sessions
+</A></li>
+        <LI>Next message: <A HREF="000418.html">[X2go-User] x2gothinclientmanagement
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Daniel,
+
+On Di 04 Okt 2011 19:21:13 CEST Daniel Lindgren wrote:
+
+&gt;<i> Still having problems, I can log in but sessions die on me several  
+</I>&gt;<i> times a day.
+</I>&gt;<i>
+</I>&gt;<i> Server side auth.log, at the time of session crash:
+</I>&gt;<i>
+</I>&gt;<i> Oct  4 18:46:45 fileserv gnome-keyring-daemon[5990]: dbus failure
+</I>&gt;<i> unregistering from session: Connection is closed
+</I>&gt;<i> Oct  4 18:46:45 fileserv gnome-keyring-daemon[5990]: dbus failure
+</I>&gt;<i> unregistering from session: Connection is closed
+</I>&gt;<i> Oct  4 18:46:46 fileserv sshd[23183]: Received disconnect from
+</I>&gt;<i> 192.168.0.103: 11: disconnected by user
+</I>&gt;<i>
+</I>&gt;<i> daemon.log:
+</I>&gt;<i>
+</I>&gt;<i> Oct  4 18:46:45 fileserv gnome-session[5975]: WARNING: Detected that
+</I>&gt;<i> screensaver has left the bus
+</I>&gt;<i>
+</I>&gt;<i> The ~/.x2go/&lt;session&gt;/session log on my client:
+</I>&gt;<i>
+</I>&gt;<i> NXPROXY - Version 3.5.0
+</I>&gt;<i>
+</I>&gt;<i> Copyright (C) 2001, 2011 NoMachine.
+</I>&gt;<i> See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+</I>&gt;<i>
+</I>&gt;<i> Info: Proxy running in client mode with pid '17564'.
+</I>&gt;<i> Session: Starting session at 'Tue Oct  4 18:33:23 2011'.
+</I>&gt;<i> Info: Connecting to remote host 'localhost:30201'.
+</I>&gt;<i> Info: Connection to remote proxy 'localhost:30201' established.
+</I>&gt;<i> Loop: WARNING! Disabling NX delta compression.
+</I>&gt;<i> Loop: WARNING! Disabling use of NX persistent cache.
+</I>&gt;<i> Info: Connection with remote proxy completed.
+</I>&gt;<i> Loop: WARNING! Unrecognized session type 'unix-kde-depth_32'. Assuming
+</I>&gt;<i> agent session.
+</I>&gt;<i> Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming  
+</I>&gt;<i> agent session.
+</I>&gt;<i> Info: Using LAN link parameters 1536/24/1/0.
+</I>&gt;<i> Info: Using pack method '16m-png-9' with session 'unix-kde-depth_32'.
+</I>&gt;<i> Info: Not using NX delta compression.
+</I>&gt;<i> Info: Not using ZLIB data compression.
+</I>&gt;<i> Info: Not using ZLIB stream compression.
+</I>&gt;<i> Info: Not using a persistent cache.
+</I>&gt;<i> Info: Forwarding X11 connections to display ':0.0'.
+</I>&gt;<i> Session: Session started at 'Tue Oct  4 18:33:23 2011'.
+</I>&gt;<i> Info: Established X server connection.
+</I>&gt;<i> Info: Using shared memory parameters 1/2048K.
+</I>&gt;<i> Proxy: PANIC! Failure reading from the peer proxy on FD#5.
+</I>&gt;<i> Error: Failure reading from the peer proxy.
+</I>&gt;<i> Loop: PANIC! No shutdown of proxy link performed by remote proxy.
+</I>&gt;<i> Error: Connection with remote peer broken.
+</I>&gt;<i> Error: Please check the state of your network and retry.
+</I>&gt;<i> Session: Terminating session at 'Tue Oct  4 18:46:48 2011'.
+</I>&gt;<i> Session: Session terminated at 'Tue Oct  4 18:46:48 2011'.
+</I>&gt;<i> NXTransDialog: WARNING! Couldn't start '/usr/NX/bin/nxclient'. Error
+</I>&gt;<i> is 2 'No such file or directory'.
+</I>&gt;<i> Warning: Couldn't start '/usr/NX/bin/nxclient'. Error is 2 'No such
+</I>&gt;<i> file or directory'.
+</I>&gt;<i> NXTransDialog: WARNING! Trying with path
+</I>&gt;<i> '/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+</I>&gt;<i> Warning: Trying with path
+</I>&gt;<i> '/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+</I>&gt;<i> NXTransDialog: WARNING! Couldn't start 'nxclient'. Error is 2 'No such
+</I>&gt;<i> file or directory'.
+</I>&gt;<i> Warning: Couldn't start 'nxclient'. Error is 2 'No such file or directory'.
+</I>&gt;<i> NXTransDialog: WARNING! Trying with path
+</I>&gt;<i> '/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+</I>&gt;<i> Warning: Trying with path
+</I>&gt;<i> '/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/NX/bin:/opt/NX/bin:/usr/local/NX/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/games:/usr/games'.
+</I>&gt;<i>
+</I>&gt;<i> The session is completely gone from the server, as if I'd logged out.
+</I>&gt;<i>
+</I>&gt;<i> I have the latest nightly packages installed (ie x2goagent 3.5.0.5) on
+</I>&gt;<i> both client and server.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Daniel
+</I>
+we ourselves are neither really happy about the changes in nxagent and  
+we will have to take a closer look still. Note, the nightly builds are  
+the developers' testing packages.
+
+Currently, x2goagent from nightly builds is not at all recommended.
+
+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111004/34fce874/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111004/34fce874/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000424.html">[X2go-User] Crashing sessions
+</A></li>
+	<LI>Next message: <A HREF="000418.html">[X2go-User] x2gothinclientmanagement
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#425">[ date ]</a>
+              <a href="thread.html#425">[ thread ]</a>
+              <a href="subject.html#425">[ subject ]</a>
+              <a href="author.html#425">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

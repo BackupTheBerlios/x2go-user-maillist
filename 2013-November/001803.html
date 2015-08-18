@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4jYyV4jhpe2jZfSTNM_KdyGQxWj3eM-O7No%2BmdvhQ97LA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001802.html">
+   <LINK REL="Next"  HREF="001804.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Nirav Shah</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4jYyV4jhpe2jZfSTNM_KdyGQxWj3eM-O7No%2BmdvhQ97LA%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">shah.niravk at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 01:18:55 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001802.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001804.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1803">[ date ]</a>
+              <a href="thread.html#1803">[ thread ]</a>
+              <a href="subject.html#1803">[ subject ]</a>
+              <a href="author.html#1803">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Java graphics are not that complex but it has run time debugging features
+which is performing(or displaying) very slow when we use x2go client.  Is
+it possible to use Nxclient with X2go server? I am fine with that too. I
+have tried to use NXServer but I found it difficult to install/configure
+compared to X2go server.
+
+I am going to try all the options if I am able to test different latency on
+my machine. I tried with Charles but somehow, it was not giving me the
+proper result of latency after configuring it.
+
+
+On Sat, Nov 23, 2013 at 6:12 PM, Steve Bergman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sbergman27 at gmail.com</A>&gt; wrote:
+
+&gt;<i> It's hard to get around the cold hard fact that a 400ms round trip time
+</I>&gt;<i> means that nothing that requires talking to the server can happen in less
+</I>&gt;<i> than 400ms, which is nearly half a second. (Consider that Einstein,
+</I>&gt;<i> himself, is imposing at least 50ms of that latency upon you from the grave.)
+</I>&gt;<i>
+</I>&gt;<i> How large/complex are these java graphics? The NoMachine NX client has
+</I>&gt;<i> controls for both RAM and on-disk caches. The RAM cache is configurable
+</I>&gt;<i> from 4MB to 128M. And the on-disk cache is configurable from 0MB to 512MB.
+</I>&gt;<i> Depending upon the exact workload, large caches may help. But I'm not sure
+</I>&gt;<i> how to set that in x2go. (What does the '16m' in '16m-jpeg' actually mean,
+</I>&gt;<i> I wonder? 16m RAM cache? Something else?)
+</I>&gt;<i>
+</I>&gt;<i> Regarding trying out 'LAN', I can tell you right now that's going to
+</I>&gt;<i> perform *extremely* badly. I'd have a lot more hope for 'WAN'. My best
+</I>&gt;<i> *guess* is that ADSL *may* be your best bet. But do try everything and see
+</I>&gt;<i> what works best.
+</I>&gt;<i>
+</I>&gt;<i> -Steve
+</I>&gt;<i>
+</I>
+
+
+-- 
+Thanks,
+
+Nirav Shah
+(C) (412) 296-9491
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/d7c58c14/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/d7c58c14/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001802.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001804.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1803">[ date ]</a>
+              <a href="thread.html#1803">[ thread ]</a>
+              <a href="subject.html#1803">[ subject ]</a>
+              <a href="author.html#1803">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go debug syslog info - failed session on 12.04 ubuntu server and client using ppa:x2go/stable
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20debug%20syslog%20info%20-%20failed%20session%20on%2012.04%20ubuntu%0A%20server%20and%20client%20using%20ppa%3Ax2go/stable&In-Reply-To=%3CCAFX-c4tfAwzmM%2BgZjtM4YH2bUVEiAWd%2BxcPvCLGKY6P9J976QQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000811.html">
+   <LINK REL="Next"  HREF="000802.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go debug syslog info - failed session on 12.04 ubuntu server and client using ppa:x2go/stable</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20debug%20syslog%20info%20-%20failed%20session%20on%2012.04%20ubuntu%0A%20server%20and%20client%20using%20ppa%3Ax2go/stable&In-Reply-To=%3CCAFX-c4tfAwzmM%2BgZjtM4YH2bUVEiAWd%2BxcPvCLGKY6P9J976QQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2go debug syslog info - failed session on 12.04 ubuntu server and client using ppa:x2go/stable">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Sat Apr 21 23:12:11 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000811.html">[X2Go-User] sed error on server
+</A></li>
+        <LI>Next message: <A HREF="000802.html">[X2Go-User] ubuntu 12.04 beta 2 - gnomebindings install fails due	to dependency problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#801">[ date ]</a>
+              <a href="thread.html#801">[ thread ]</a>
+              <a href="subject.html#801">[ subject ]</a>
+              <a href="author.html#801">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Background...
+
+For some time now I've been trying to get x2go client/server working ubuntu
+12.04 beta 2.
+
+But I am consistently getting failed x2go session starts.
+
+Brand new client install of Ubuntu 12.04 desktop:
+
+   - sudo add-apt-repository ppa:x2go/stable
+   - sudo apt-get update
+   - sudo apt-get install x2goclient
+
+Brand new Ubuntu 12.04 server with ubuntu-desktop installed
+
+   - sudo apt-get install ubuntu-desktop
+   - sudo add-apt-repository ppa:x2go/stable
+   - sudo apt-get update
+   - sudo apt-get install x2goserver
+
+
+On client:
+I start x2goclient and set Session type to Gnome
+I start the session and everything looks normal as I see my x2goclient
+display &quot;running&quot; then it just returns &quot;Finished&quot; and
+no real remote desktop session ever gets started.
+
+I enabled x2goserver debugging and the output is below.
+
+Can anyone decipher the messages and give me an idea why the session never
+starts fully on my client?
+
+thanks for any tips
+Brian
+
+---------- x2go /var/log/syslog debug output from x2go ----------
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan at ip-10-64-34-228</A>:~$ tail -f /var/log/syslog | grep x2go
+
+Apr 21 20:51:11 ip-10-64-34-228 /usr/bin/x2golistsessions[3946]:
+x2golistsessions has been called with no option
+Apr 21 20:51:11 ip-10-64-34-228 /usr/bin/x2gostartagent: x2gostartagent
+called with options: 800x600 lan 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1
+D GNOME
+Apr 21 20:51:11 ip-10-64-34-228 /usr/bin/x2gostartagent: client announced
+itself as ,,70.63.158.198''
+Apr 21 20:51:12 ip-10-64-34-228 /usr/bin/x2gosessionlimit[3968]:
+x2gosessionlimit has been called
+Apr 21 20:51:13 ip-10-64-34-228 /usr/bin/x2golistsessions[3972]:
+x2golistsessions has been called with options: --all-servers
+Apr 21 20:51:14 ip-10-64-34-228 /usr/lib/x2go/x2gogetdisplays[4005]:
+db_getdisplays called, server: ip-10-64-34-228; return value:
+Apr 21 20:51:14 ip-10-64-34-228 /usr/lib/x2go/x2gogetports[4014]:
+db_getports called, server: ip-10-64-34-228; return value:
+Apr 21 20:51:15 ip-10-64-34-228 /usr/lib/x2go/x2goinsertsession[4032]:
+db_insertsession called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+server: ip-10-64-34-228, session ID: bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:16 ip-10-64-34-228 /usr/lib/x2go/x2goinsertport[4044]:
+db_insertport called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+server: ip-10-64-34-228, SSH port: 30001
+Apr 21 20:51:16 ip-10-64-34-228 /usr/lib/x2go/x2goinsertport[4056]:
+db_insertport called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+server: ip-10-64-34-228, SSH port: 30002
+Apr 21 20:51:17 ip-10-64-34-228 /usr/lib/x2go/x2goinsertport[4068]:
+db_insertport called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+server: ip-10-64-34-228, SSH port: 30003
+Apr 21 20:51:17 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:17 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:17 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+bmullan-50-1335041474_stDGNOME_dp24 pre-start
+Apr 21 20:51:18 ip-10-64-34-228 /usr/bin/x2gostartagent: successfully
+started X2Go agent session with ID bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:18 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:18 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:19 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+bmullan-50-1335041474_stDGNOME_dp24 post-start
+Apr 21 20:51:20 ip-10-64-34-228 /usr/lib/x2go/x2gocreatesession[4169]:
+db_createsession called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+cookie: 9e8ae7b854c9c36c9e5cf0a9165793de, client: 70.63.158.198, pid: 4111,
+graphics port: 30001, sound port: 30002, file sharing port: 30003
+Apr 21 20:51:23 ip-10-64-34-228 /usr/bin/x2goruncommand: x2goruncommand
+called with options: 50 4111 bmullan-50-1335041474_stDGNOME_dp24 30002
+gnome-session nosnd D
+Apr 21 20:51:23 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:24 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:24 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+bmullan-50-1335041474_stDGNOME_dp24 pre-runcommand
+Apr 21 20:51:25 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+executing
+/usr/lib/x2go/extensions/pre-runcommand.d/005_GNOME-monitors-xml-ignore
+with option bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:26 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+/usr/lib/x2go/extensions/pre-runcommand.d/005_GNOME-monitors-xml-ignore
+(x2goserver-run-extensions) for session bmullan-50-1335041474_stDGNOME_dp24
+has finished sucessfully
+Apr 21 20:51:26 ip-10-64-34-228 /usr/bin/x2goruncommand: running command
+/usr/bin/gnome-session
+Apr 21 20:51:27 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_XSESSION
+Apr 21 20:51:27 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]: x2gomountdirs
+has been called with options: dir bmullan-50-1335041474_stDGNOME_dp24
+bmullan /home/bmullan/.x2go/ssh/key.TJ3110
+/home/bmullan/.x2go/S-bmullan-50-1335041474_stDGNOME_dp24/spool__PRINT_SPOOL___REVERSESSH_PORT__30003
+Apr 21 20:51:27 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]: mounting
+/tmp/spool_bmullan/bmullan-50-1335041474_stDGNOME_dp24, mount point type is
+print spool directory
+Apr 21 20:51:27 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_XSESSION
+Apr 21 20:51:28 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]:
+db_insertmount called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+path: /tmp/spool_bmullan/bmullan-50-1335041474_stDGNOME_dp24, client:
+127.0.0.1; return value: 1
+Apr 21 20:51:28 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]: executing:
+sshfs  -o idmap=user,uid=`id -u`,gid=`id
+-g`,ServerAliveInterval=300,Cipher=blowfish,IdentityFile=/home/bmullan/.x2go/ssh/key.TJ3110,UserKnownHostsFile=/home/bmullan/.x2go/ssh/key.TJ3110.ident
+&quot;bmullan&quot;@127.0.0.1:&quot;/home/bmullan/.x2go/S-bmullan-50-1335041474_stDGNOME_dp24/spool&quot;
+&quot;/tmp/spool_bmullan/bmullan-50-1335041474_stDGNOME_dp24&quot; -p 30003
+Apr 21 20:51:28 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver.features: x2goserver.features
+called with options: X2GO_XSESSION
+Apr 21 20:51:28 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-gnomebindings.features:
+x2goserver-gnomebindings.features called with options: X2GO_XSESSION
+Apr 21 20:51:28 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:28 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]: WARNING:
+mounting of /home/bmullan/.x2go/S-bmullan-50-1335041474_stDGNOME_dp24/spool
+failed
+Apr 21 20:51:29 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+Apr 21 20:51:29 ip-10-64-34-228 /usr/bin/x2gomountdirs[4470]:
+db_deletemount called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+path: /tmp/spool_bmullan/bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:29 ip-10-64-34-228 /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+bmullan-50-1335041474_stDGNOME_dp24 post-runcommand
+Apr 21 20:51:29 ip-10-64-34-228 /usr/bin/x2gofeature: x2gofeature called
+with options: X2GO_DESKTOPSHARING
+Apr 21 20:51:30 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options: X2GO_DESKTOPSHARING
+Apr 21 20:51:30 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver.features: x2goserver.features
+called with options: X2GO_DESKTOPSHARING
+Apr 21 20:51:30 ip-10-64-34-228
+/usr/share/x2go/x2gofeature.d/x2goserver-gnomebindings.features:
+x2goserver-gnomebindings.features called with options: X2GO_DESKTOPSHARING
+Apr 21 20:51:31 ip-10-64-34-228 /usr/lib/x2go/x2gochangestatus[4605]:
+db_changestatus called, session ID: bmullan-50-1335041474_stDGNOME_dp24,
+new status: F
+Apr 21 20:51:31 ip-10-64-34-228 /usr/bin/x2gocmdexitmessage:
+x2gocmdexitmessage called with options: bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:31 ip-10-64-34-228 /usr/bin/x2goumount-session[4614]:
+x2goumount-session has been called with options:
+bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:32 ip-10-64-34-228 /usr/bin/x2goumount-session[4614]:
+db_getdisplay called, session ID: bmullan-50-1335041474_stDGNOME_dp24;
+return value: 50
+Apr 21 20:51:32 ip-10-64-34-228 /usr/bin/x2gocmdexitmessage: command output
+starts with:
+Apr 21 20:51:33 ip-10-64-34-228 /usr/bin/x2goumount-session[4614]:
+db_getmounts called, session ID: bmullan-50-1335041474_stDGNOME_dp24;
+return value:
+Apr 21 20:51:33 ip-10-64-34-228 /usr/lib/x2go/x2golistsessions_sql[4619]:
+Purging finished session from X2Go db, session ID:
+bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:33 ip-10-64-34-228 /usr/sbin/x2gocleansessions[3019]:
+bmullan-50-1335041474_stDGNOME_dp24 is blocked
+Apr 21 20:51:33 ip-10-64-34-228 /usr/sbin/x2gocleansessions[3019]:
+bmullan-50-1335041474_stDGNOME_dp24: unmounting all shares
+Apr 21 20:51:34 ip-10-64-34-228 /usr/bin/x2goumount-session[4677]:
+x2goumount-session has been called with options:
+bmullan-50-1335041474_stDGNOME_dp24
+Apr 21 20:51:34 ip-10-64-34-228 /usr/bin/x2goumount-session[4677]:
+db_getdisplay called, session ID: bmullan-50-1335041474_stDGNOME_dp24;
+return value:
+Apr 21 20:51:34 ip-10-64-34-228 /usr/bin/x2goumount-session[4677]:
+db_getmounts called, session ID: bmullan-50-1335041474_stDGNOME_dp24;
+return value:
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120421/6b442ab6/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120421/6b442ab6/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000811.html">[X2Go-User] sed error on server
+</A></li>
+	<LI>Next message: <A HREF="000802.html">[X2Go-User] ubuntu 12.04 beta 2 - gnomebindings install fails due	to dependency problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#801">[ date ]</a>
+              <a href="thread.html#801">[ thread ]</a>
+              <a href="subject.html#801">[ subject ]</a>
+              <a href="author.html#801">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

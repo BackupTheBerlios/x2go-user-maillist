@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Folder sharing does not work with x2goclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C20120508120942.GA26388%40uranus.toltech%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000820.html">
+   <LINK REL="Next"  HREF="000822.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Folder sharing does not work with x2goclient</H1>
+    <B>Emanuele Rocca</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C20120508120942.GA26388%40uranus.toltech%3E"
+       TITLE="[X2Go-User] Folder sharing does not work with x2goclient">ema at linux.it
+       </A><BR>
+    <I>Tue May  8 14:09:42 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000820.html">[X2Go-User] scrambled keyboard when using mac client?
+</A></li>
+        <LI>Next message: <A HREF="000822.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#821">[ date ]</a>
+              <a href="thread.html#821">[ thread ]</a>
+              <a href="subject.html#821">[ subject ]</a>
+              <a href="author.html#821">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+While folder sharing works fine using pyhoca-cli, it does not work at all with
+x2goclient. This is what sshd says on the client side when trying to &quot;share&quot; a
+folder from the gui:
+
+May  8 13:55:43 uranus sshd[23908]: Connection from 127.0.0.1 port 51821
+May  8 13:55:43 uranus sshd[23908]: Connection closed by 127.0.0.1 [preauth]
+
+mount's output on the server side does not show anything interesting.
+
+I am running Ubuntu precise (12.04), both on the client and the server.
+
+Do you have any hints on how to debug this further?
+
+Installed packages:
+
+ii  cups-x2go                                3.0.0.3-0~54~oneiric1                      X2GO printer for CUPS
+ii  python-x2go                              0.1.1.9-0-0~612~oneiric1                   Python module for X2go client support
+ii  x2goagent                                2:3.5.0.11-0~220~oneiric1                  X2Go agent
+ii  x2goclient                               3.99.0.6-0~144~oneiric1                    X2Go Client application (Qt4)
+ii  x2gognomebindings                        2.0.1.4-0~53~oneiric1                      Description: x2gognomebindings (GNOME mimetypes for X2go)
+ii  x2goserver                               3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts
+ii  x2goserver-compat                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (backwards compatitbity to old client versions)
+ii  x2goserver-extensions                    3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (extensions)
+ii  x2goserver-fmbindings                    3.1.0.0-0~477~oneiric1                     Generic (freedesktop-based) file manager bindings for X2Go
+ii  x2goserver-printing                      3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (printing)
+ii  x2goserver-pyhoca                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (add-ons for pyhoca client)
+ii  x2goserver-xsession                      3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (Xsession runner)
+ii  pyhoca-cli                               0.1.4.2-0~108~oneiric1                     A command line X2go client written in Python
+ii  pyhoca-gui                               0.1.0.10-0~487~oneiric1                    A graphical X2go client written in (wx)Python
+ii  x2goserver-pyhoca                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (add-ons for pyhoca client)
+
+Conf file:
+
+[20120503160857309]
+speed=3
+pack=16m-jpeg
+quality=9
+fstunnel=true
+export=&quot;/media:1;&quot;
+iconvto=UTF-8
+iconvfrom=ISO8859-1
+useiconv=false
+fullscreen=false
+width=1024
+multidisp=false
+display=1
+height=768
+dpi=96
+setdpi=false
+xinerama=false
+usekbd=true
+layout=us
+type=pc105/us
+sound=true
+soundsystem=pulse
+startsoundsystem=true
+soundtunnel=true
+defsndport=true
+sndport=4713
+print=true
+name=xxx
+icon=:icons/128x128/x2gosession.png
+host=host.example.org
+user=username
+key=
+sshport=22
+autologin=false
+krblogin=false
+rootless=false
+applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL, gnome-session-fallback
+command=gnome-session-fallback
+rdpoptions=
+rdpserver=
+xdmcpserver=localhost
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000820.html">[X2Go-User] scrambled keyboard when using mac client?
+</A></li>
+	<LI>Next message: <A HREF="000822.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#821">[ date ]</a>
+              <a href="thread.html#821">[ thread ]</a>
+              <a href="subject.html#821">[ subject ]</a>
+              <a href="author.html#821">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

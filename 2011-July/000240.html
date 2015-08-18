@@ -1,0 +1,180 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Fairly severe problems for our Windows users
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Fairly%20severe%20problems%20for%20our%20Windows%20users&In-Reply-To=%3C20110720222527.17501uou60u6fik7%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000237.html">
+   <LINK REL="Next"  HREF="000241.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Fairly severe problems for our Windows users</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Fairly%20severe%20problems%20for%20our%20Windows%20users&In-Reply-To=%3C20110720222527.17501uou60u6fik7%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Fairly severe problems for our Windows users">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Jul 20 22:25:27 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000237.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+        <LI>Next message: <A HREF="000241.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi John,
+
+On Mi 20 Jul 2011 20:00:15 CEST &quot;John A. Sullivan III&quot; wrote:
+
+&gt;<i> Ah, got it.  I like that approach and much that I saw in Pyhoca -
+</I>&gt;<i> including still being able to open multiple sessions.  The application
+</I>&gt;<i> itself seemed much, much slower but I suppose that is the difference
+</I>&gt;<i> between Python and C++.
+</I>
+Not so on Linux. I guess it is also the wxPython stuff for Windows. On  
+Linux wxPython wraps around GTK2+. The performance is pretty normal.
+
+I suppose the long startup of PyHoca-GUI on Windows relates to the way  
+the Python code is shipped (py2exe has been used to create a  
+PyHoca-GUI that does not require a locally installed Python).
+
+&gt;<i> To deal with the primary thread subject, I was at first hopeful that the
+</I>&gt;<i> screen painting pause was solved as I was able to work for quite a while
+</I>&gt;<i> without the problem appearing but, eventually it did. So all platforms
+</I>&gt;<i> I've tested so far have this crippling problem.
+</I>
+What x2goagent version are you using on the server-side??? We have a  
+3.5.0.2 version at hand that has a lot of stuff solved.
+
+I have recently also backported all server-side packages that are  
+currently hosted in the new X2go Git to Debian lenny.
+
+Summarized: every observation you make with the session screen itself  
+is a NXv3 issue. That is
+
+   server:
+   -------
+   libxcomp3
+   libxcompext3
+   libxcompshad3
+   x2goagent (which is a nxagent 3.5.0-1 fork)
+
+   client:
+   -------
+   libxcomp3
+   nxproxy
+
+
+&gt;<i> I did notice a few strange things about Pyhoca itself. I also hit the 17
+</I>&gt;<i> bit pixel depth problem.
+</I>
+It seems that some Windows desktops report 17bit depth when they use  
+16bit. I'll keep this in mind the next time I look at the color depth  
+stuff...
+
+&gt;<i> Response time to the one local LAN server I have was abysmal - utterly
+</I>&gt;<i> unusable and much slower than the WAN based servers.  It was literally
+</I>&gt;<i> click and wait ten to twenty seconds.  I thought this might be because
+</I>&gt;<i> of full screen versus windowed but changing that did not help.  I then
+</I>&gt;<i> thought it might be because I had set the connection to LAN.  I tried
+</I>&gt;<i> setting it to DSL but then hit my next problem.
+</I>
+This has been the complete time that you were connected? Or only after  
+a while?
+
+&gt;<i> Suddenly, all the images became completely corrupt.  I tried reverting
+</I>&gt;<i> to the regulat 3.0.1.18 X2Go client but it also displayed all images as
+</I>&gt;<i> completely corrupt.  They are not when connecting from my Linux based
+</I>&gt;<i> X2Go Client.  I still have not fixed this problem on Windows.  Here is
+</I>&gt;<i> the long list of things I tried.
+</I>&gt;<i>
+</I>&gt;<i> Rebooting my physical computer rather than simply closing Pyhoca and
+</I>&gt;<i> opening X2Goclient.
+</I>&gt;<i>
+</I>&gt;<i> Clearing all the session information on the client.
+</I>&gt;<i> Clearing all the session information on the server.
+</I>&gt;<i> Deleting the 17 bit cache directory on the client.
+</I>&gt;<i> Deleting all cache directories on the client.
+</I>&gt;<i> Rebooting the server.
+</I>&gt;<i> Clearing all the cache directories on the server and rebooting.
+</I>&gt;<i> Uninstalling Pyhoca (after which X2Go client complained it could not
+</I>&gt;<i> start the X server)
+</I>&gt;<i> Uninstalling and reinstalling vcxsrv.
+</I>&gt;<i> Uninstalling and reinstalling x2goclient 3.0.1.18
+</I>&gt;<i>
+</I>&gt;<i> None of those solved the image corruption problem; I am currently unable
+</I>&gt;<i> to use X2goclient in Windows.
+</I>
+Ihhhhh.... This is yukkie... Have never had that before...
+
+&gt;<i> I also noticed that Pyhoca only had jpeg packing.  We have found the
+</I>&gt;<i> 16m-png-jpeg packing has generally given us substantially better
+</I>&gt;<i> performance and clarity.
+</I>
+Ah... Ok. Good point. I will put that on my todo list. Should be quite  
+simple to add that...
+
+&gt;<i> Thanks - John
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+Thanks for your feedback, unfortuntely not being of much help with out  
+issues...
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110720/2066c7d6/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110720/2066c7d6/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000237.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+	<LI>Next message: <A HREF="000241.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#240">[ date ]</a>
+              <a href="thread.html#240">[ thread ]</a>
+              <a href="subject.html#240">[ subject ]</a>
+              <a href="author.html#240">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

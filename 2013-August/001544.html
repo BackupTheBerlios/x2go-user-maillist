@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redirect only specific sound devices?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3C20130820081956.119270c3bdmm3xjg%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001543.html">
+   <LINK REL="Next"  HREF="001546.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redirect only specific sound devices?</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3C20130820081956.119270c3bdmm3xjg%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Redirect only specific sound devices?">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Aug 20 08:19:56 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001543.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+        <LI>Next message: <A HREF="001546.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1544">[ date ]</a>
+              <a href="thread.html#1544">[ thread ]</a>
+              <a href="subject.html#1544">[ subject ]</a>
+              <a href="author.html#1544">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Buddy,
+
+On Mo 19 Aug 2013 17:09:20 CEST Buddy Butterfly wrote:
+
+&gt;<i> for a headless system I am trying to run a headset
+</I>&gt;<i> locally on it. For operation I have used x2go which
+</I>&gt;<i> works perfect, even for sound. So this solved the
+</I>&gt;<i> headache with KVM ;-).
+</I>&gt;<i>
+</I>&gt;<i> Now I would like to use a headset locally on the headless
+</I>&gt;<i> system which is connected via USB and its own usb sound
+</I>&gt;<i> card (Logitech, works always perfect!). I am unable to
+</I>&gt;<i> get the headset to work while being connected to via x2go.
+</I>&gt;<i> Headset should be primarily for voip.
+</I>&gt;<i>
+</I>&gt;<i> So, how I could use this headset? Is it possible to configure
+</I>&gt;<i> somehwere that not all sound devices should be redirected but
+</I>&gt;<i> only specific ones? With this I could try to leave out the
+</I>&gt;<i> headset sound card.
+</I>
+Easiest probably would be to unset the ENV variable PULSE_CLIENTCONFIG  
+before starting your VoIP application...
+
+&quot;&quot;&quot; (wrapper script untested)
+#!/bin/bash
+
+unset PULSE_CLIENTCONFIG
+ekiga
+&quot;&quot;&quot;
+
+Sort of like this...
+
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130820/cab3f55a/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130820/cab3f55a/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001543.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+	<LI>Next message: <A HREF="001546.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1544">[ date ]</a>
+              <a href="thread.html#1544">[ thread ]</a>
+              <a href="subject.html#1544">[ subject ]</a>
+              <a href="author.html#1544">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] [X2go-Dev] Windows Client Issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20Windows%20Client%20Issue&In-Reply-To=%3CCAAWyt1qT-DGL8iP11nZ_vSsUTGz64YpaR1A%2BAFkEqA--aB9Xbg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000198.html">
+   <LINK REL="Next"  HREF="000200.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] [X2go-Dev] Windows Client Issue</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20%5BX2go-Dev%5D%20Windows%20Client%20Issue&In-Reply-To=%3CCAAWyt1qT-DGL8iP11nZ_vSsUTGz64YpaR1A%2BAFkEqA--aB9Xbg%40mail.gmail.com%3E"
+       TITLE="[X2go-User] [X2go-Dev] Windows Client Issue">bd.dali at gmail.com
+       </A><BR>
+    <I>Mon Jul  4 15:02:20 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000198.html">[X2go-User] [X2go-Dev] Windows Client Issue
+</A></li>
+        <LI>Next message: <A HREF="000200.html">[X2go-User] X2go backport packages for Debian lenny
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>(Accidentally replied to Mike only, resending to list).
+
+Hi Mike,
+
+&gt;&gt;<i> 3.01-18 has never worked for me, it just won't connect succesfully. The
+</I>&gt;&gt;<i> latest version that seems to work well is 3.01-13, you can download it
+</I>&gt;&gt;<i> here:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> <A HREF="http://www.x2go.org/deb/pool-untested/x2goclient/x2goclient-3.01-13-setup.exe">http://www.x2go.org/deb/pool-untested/x2goclient/x2goclient-3.01-13-setup.exe</A>
+</I>&gt;<i>
+</I>&gt;<i> What Xserver are you using on Windows? The next x2goclient version will ship
+</I>&gt;<i> with vcxsrv (can be downloaded from SourceForge). The x2goclient-3.0.1.18
+</I>&gt;<i> (current version) allows you to configure the Xserver to run with
+</I>&gt;<i> x2goclient. Install VcXsrv manually and select its usage in the client
+</I>&gt;<i> settings of x2goclient.
+</I>
+I've tested both XMing (internal in 3.01-18) and vcxsrv 1.10.1.1,
+neither work. While testing 3.01-18 I've disabled firewalls, antivirus
+and anything else that could cause problems. No luck.
+
+This is what it normally looks like:
+
+NXPROXY - Version 3.4.0
+
+Copyright (C) 2001, 2007 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '2068'.
+Session: Starting session at 'Mon Jul &#160;4 14:31:47 2011'.
+Info: Connecting to remote host 'localhost:30004'.
+Info: Connection to remote proxy 'localhost:30004' established.
+Info: Connection with remote proxy completed.
+Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming agent session.
+Warning: Failed to read data from the X auth command.
+Warning: Generated a fake cookie for X authentication.
+Info: Using LAN link parameters 1536/24/1/0.
+Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_32'.
+Info: Not using NX delta compression.
+Info: Not using ZLIB data compression.
+Info: Not using ZLIB stream compression.
+Info: Not using a persistent cache.
+Info: Forwarding X11 connections to display 'localhost:0'.
+Session: Session started at 'Mon Jul &#160;4 14:31:48 2011'.
+Info: Established X server connection.
+Info: Using shared memory parameters 0/0K.
+Warning: No data received from remote proxy within 30 seconds.
+
+At best I get a grey X window with the session ID in the window title,
+but normally nothing at all shows up. Sometimes x2goclient.exe crashes
+immediatley after connecting.
+
+3.01-13 works out of the box (with working cut and paste to/from X window).
+
+I use Windows 7 Pro x64 SP1 with Swedish language settings. The server
+is Debian Squeeze with x2goserver 3.0.99-5+squeeze~main~31~build1.
+
+Cheers,
+Daniel
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000198.html">[X2go-User] [X2go-Dev] Windows Client Issue
+</A></li>
+	<LI>Next message: <A HREF="000200.html">[X2go-User] X2go backport packages for Debian lenny
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#199">[ date ]</a>
+              <a href="thread.html#199">[ thread ]</a>
+              <a href="subject.html#199">[ subject ]</a>
+              <a href="author.html#199">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Feedback &amp; Questions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Feedback%20%26%20Questions&In-Reply-To=%3C4CADD57C.9040904%40debian.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000004.html">
+   <LINK REL="Next"  HREF="000006.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Feedback &amp; Questions</H1>
+    <B>Philipp Huebner</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Feedback%20%26%20Questions&In-Reply-To=%3C4CADD57C.9040904%40debian.org%3E"
+       TITLE="[X2go-user] Feedback &amp; Questions">debalance at debian.org
+       </A><BR>
+    <I>Thu Oct  7 16:13:16 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000004.html">[X2go-user] Debian repository - lastest stable release?
+</A></li>
+        <LI>Next message: <A HREF="000006.html">[X2go-user] x2go integration with windows domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey all,
+
+
+I am trying to set up x2goserver multi node on debian.
+For that I followed the documentation in the wiki and used the debian
+lenny repository only.
+
+
+I noticed that using the samba scheme was NOT optional:
+./genconf wants to have the arguments for samba anyway and the generated
+ldap setup also employs samba.
+Commenting out the include in /etc/ldap/slapd.conf didn't help because
+the samba parts are already in the database.
+So installing the samba scheme is mandatory (unless you want to set up
+LDAP yourself).
+
+
+What I have running now are 2 machines:
+One has LDAP and PostgreSQL, the other does not, but uses the servers on
+the first one.
+I can use both as normal (separate) X2Go Terminalservers (with the same
+users, thanks to LDAP), that stuff works.
+
+What I don't see is any hint about the promised Load Balancing.
+
+I hope(d) that the Client connects to always one IP and is then told to
+in fact use one of the two servers, but that is not happening.
+
+What is needed to get the Load Balancing feature working?
+
+Both servers have been added with ldap.addserver.
+
+
+Regards,
+-- 
+ .''`.   Philipp Huebner &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">debalance at debian.org</A>&gt;
+:<i> :'  :  pgp fp: 6719 25C5 B8CD E74A 5225  3DF9 E5CA 8C49 25E4 205F
+</I>`. `'`   HP: <A HREF="http://www.debalance.de,">http://www.debalance.de,</A> Skype: philipp-huebner
+  `-     ICQ: 235-524-440, Jabber: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">der_schakal at jabber.org</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20101007/97143c83/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20101007/97143c83/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000004.html">[X2go-user] Debian repository - lastest stable release?
+</A></li>
+	<LI>Next message: <A HREF="000006.html">[X2go-user] x2go integration with windows domain
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#5">[ date ]</a>
+              <a href="thread.html#5">[ thread ]</a>
+              <a href="subject.html#5">[ subject ]</a>
+              <a href="author.html#5">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

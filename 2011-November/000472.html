@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] no session resume
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20no%20session%20resume&In-Reply-To=%3C4EB16C39.7080205%40parabol-pictures.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000471.html">
+   <LINK REL="Next"  HREF="000473.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] no session resume</H1>
+    <B>Ralph Sikau</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20no%20session%20resume&In-Reply-To=%3C4EB16C39.7080205%40parabol-pictures.de%3E"
+       TITLE="[X2go-User] no session resume">r.sikau at parabol-pictures.de
+       </A><BR>
+    <I>Wed Nov  2 17:13:45 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000471.html">[X2go-User] Support for extra mouse buttons?
+</A></li>
+        <LI>Next message: <A HREF="000473.html">[X2go-User] no session resume
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#472">[ date ]</a>
+              <a href="thread.html#472">[ thread ]</a>
+              <a href="subject.html#472">[ subject ]</a>
+              <a href="author.html#472">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have created a fresh Xen domu after all, based on Ubuntu Oneiric with 
+the x2goserver from the Ubuntu PPA. And big surprise, it works: I can 
+suspend and resume gnome sessions correctly.
+So I would say, Linux Mint is not a good choice to work with through x2go.
+But now I have another strange behaviour: I login via x2go / ssh to a 
+gnome session, using my login name and a private sha key. Within this 
+session I can execute root commands with sudo, but I cannot change any 
+system preferences or modify users and groups within gnome. Obviously 
+I'm lacking admin rights, although I am a member of the admin group.
+Might this have to do with LDAP or is the reason somewhere in x2go? Any 
+hints?
+
+Cheers,
+
+Ralph
+
+Am 19.10.2011 21:30, schrieb Mike Gabriel:
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;<i> On Mi 19 Okt 2011 14:34:21 CEST Ralph Sikau wrote:
+</I>&gt;<i>
+</I>&gt;&gt;<i> I'm using the x2goserver (latest version) on a virtual xen machine 
+</I>&gt;&gt;<i> running an LMDE desktop.
+</I>&gt;&gt;<i> The strange behavior is that the x2go sessions are never resumed but 
+</I>&gt;&gt;<i> whenever I login, a new session is created and all programs have to 
+</I>&gt;&gt;<i> be started again.
+</I>&gt;&gt;<i> The client is a Windows XP PC, and it makes no difference whether I 
+</I>&gt;&gt;<i> use the windows client or the pyhoca gui to connect.
+</I>&gt;&gt;<i> Can anybody tell me what is going wrong here?
+</I>&gt;<i>
+</I>&gt;<i> please do the following...
+</I>&gt;<i>
+</I>&gt;<i> 1.
+</I>&gt;<i> Become a watcher on the x2goserver (ssh -l&lt;remote_user&gt; &lt;x2gserver&gt;)...
+</I>&gt;<i>
+</I>&gt;<i> 2.
+</I>&gt;<i> Then start a session on that server as user &lt;remote_user&gt; (where 
+</I>&gt;<i> &lt;remote_user&gt; is to be replaced by the username that you connect to 
+</I>&gt;<i> the server with).
+</I>&gt;<i>
+</I>&gt;<i> 3.
+</I>&gt;<i> From the ssh session run ,,x2golistsessions'' (and if not promiscuous: 
+</I>&gt;<i> send the output here).
+</I>&gt;<i>
+</I>&gt;<i> 4.
+</I>&gt;<i> Suspend the X2go session (describe us how you do that!!!)
+</I>&gt;<i>
+</I>&gt;<i> 5.
+</I>&gt;<i> From the ssh session run ,,x2golistsessions'' again (and if not 
+</I>&gt;<i> promiscuous: send the output here).
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+-- 
+
+
+------------------------------------------------------------------------
+
+Parabol Pictures
+Sikau, Kohlwey &amp; Pettelkau GbR
+K&#246;nigstra&#223;e 76
+
+D-53115 Bonn
+
+Fon +49 228 264858
+Fax +49 228 213287
+
+Mail <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">_contact at parabol-pictures.de_</A> &lt;mailto:<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">contact at parabol-pictures.de</A>&gt;
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111102/a39cfb48/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20111102/a39cfb48/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000471.html">[X2go-User] Support for extra mouse buttons?
+</A></li>
+	<LI>Next message: <A HREF="000473.html">[X2go-User] no session resume
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#472">[ date ]</a>
+              <a href="thread.html#472">[ thread ]</a>
+              <a href="subject.html#472">[ subject ]</a>
+              <a href="author.html#472">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

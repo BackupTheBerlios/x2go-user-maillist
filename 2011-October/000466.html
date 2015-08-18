@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Mounting problem WARNING: mounting of	/home/***********/spool failed
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Mounting%20problem%20WARNING%3A%20mounting%20of%0A%09/home/%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A/spool%20failed&In-Reply-To=%3CCADd0bM1NuEsxcmWcH%2B7TM35Ct_G%2BnFMz-zQPoxqyZrMGca5xCw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000465.html">
+   <LINK REL="Next"  HREF="000468.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Mounting problem WARNING: mounting of	/home/***********/spool failed</H1>
+    <B>MyCloud Service &amp; Computers</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Mounting%20problem%20WARNING%3A%20mounting%20of%0A%09/home/%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A%2A/spool%20failed&In-Reply-To=%3CCADd0bM1NuEsxcmWcH%2B7TM35Ct_G%2BnFMz-zQPoxqyZrMGca5xCw%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Mounting problem WARNING: mounting of	/home/***********/spool failed">MSC at go2mycloud.net
+       </A><BR>
+    <I>Wed Oct 26 16:43:52 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000465.html">[X2go-User] Mounting problem WARNING: mounting of	/home/***********/spool failed
+</A></li>
+        <LI>Next message: <A HREF="000468.html">[X2go-User] Mounting problem WARNING: mounting of /home/***********/spool failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I did some more investigation enabling the logs in x2gomountdirs:
+
+there are some difference in the 2 calls one no success the first and
+success the second:
+first:
+sshfs  -o idmap=user,uid=`id -u`,gid=`id
+-g`,ServerAliveInterval=300,Cipher=blowfish,IdentityFile=/home/menno/.x2go/ssh/key.jk2003,UserKnownHostsFile=/home/menno/.x2go/ssh/key.jk2003.ident
+&quot;menno&quot;@127.0.0.1:&quot;/home/menno/.x2go/S-menno-51-1319639509_stDLXDE_dp24/spool&quot;
+&quot;/tmp/spool_menno/menno-51-1319639509_stDLXDE_dp24&quot; -p 30006
+second:
+sshfs  -o idmap=user,uid=`id -u`,gid=`id
+-g`,ServerAliveInterval=300,Cipher=blowfish,IdentityFile=/home/menno/.x2go/ssh/key.sc3028,UserKnownHostsFile=/home/menno/.x2go/ssh/key.sc3028.ident
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">menno at 127.0.0.1</A>:&quot;/home/menno/.x2go/S-menno-51-1319639509_stDLXDE_dp24/spool&quot;
+&quot;/tmp/spool_menno/menno-51-1319639509_stDLXDE_dp24&quot; -p 30006
+
+Look at the name notation  &quot;menno&quot;@127.0.0.1 and <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">menno at 127.0.0.1</A>
+This explains why it is failing?
+
+Thanks,
+Menno
+
+On Wed, Oct 26, 2011 at 3:43 PM, MyCloud Service &amp; Computers
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">MSC at go2mycloud.net</A>&gt; wrote:
+&gt;<i> I have a problem in sharing a client directory to the server instance,
+</I>&gt;<i> mounting fails
+</I>&gt;<i> both on server and client I use
+</I>&gt;<i> deb <A HREF="http://ppa.launchpad.net/x2go/ppa/ubuntu">http://ppa.launchpad.net/x2go/ppa/ubuntu</A> oneiric main
+</I>&gt;<i> openssh 1:5.8p1-7ubuntu1
+</I>&gt;<i>
+</I>&gt;<i> (Dis)Connection to the server is going fine (not always) but when I
+</I>&gt;<i> share a local directory the remote desktop is working but the mount
+</I>&gt;<i> always fails
+</I>&gt;<i> mentioned in the syslog.
+</I>&gt;<i>
+</I>&gt;<i> Oct 26 15:17:45 MSC-Enschede /usr/bin/x2gomountdirs[9830]: WARNING:
+</I>&gt;<i> mounting of /home/menno/Documents failed
+</I>&gt;<i> Oct 26 15:17:45 MSC-Enschede /usr/bin/x2gomountdirs[9830]: WARNING:
+</I>&gt;<i> mounting of /home/menno/Music failed
+</I>&gt;<i> Oct 26 15:17:46 MSC-Enschede /usr/bin/x2gomountdirs[9830]: WARNING:
+</I>&gt;<i> mounting of /home/menno/.x2go/S-mycloud-50-1319635062_stDLXDE_dp24/spool
+</I>&gt;<i> failed
+</I>&gt;<i>
+</I>&gt;<i> and in mount.log &quot;read: Connection reset by peer&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> When I connect from an different PC to the same server with x2goclient
+</I>&gt;<i> version 3.01-5 the share is working fine.
+</I>&gt;<i> openssh 1:5.3p1-3ubuntu7
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> What can be the problem?
+</I>&gt;<i>
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Menno de Jong
+</I>&gt;<i>
+</I>
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000465.html">[X2go-User] Mounting problem WARNING: mounting of	/home/***********/spool failed
+</A></li>
+	<LI>Next message: <A HREF="000468.html">[X2go-User] Mounting problem WARNING: mounting of /home/***********/spool failed
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#466">[ date ]</a>
+              <a href="thread.html#466">[ thread ]</a>
+              <a href="subject.html#466">[ subject ]</a>
+              <a href="author.html#466">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

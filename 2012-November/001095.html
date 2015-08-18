@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] run commands on the x2goclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20run%20commands%20on%20the%20x2goclient&In-Reply-To=%3C20121105130358.317320qfyop5pdta%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001091.html">
+   <LINK REL="Next"  HREF="001093.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] run commands on the x2goclient</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20run%20commands%20on%20the%20x2goclient&In-Reply-To=%3C20121105130358.317320qfyop5pdta%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] run commands on the x2goclient">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Nov  5 13:03:58 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001091.html">[X2Go-User] run commands on the x2goclient
+</A></li>
+        <LI>Next message: <A HREF="001093.html">[X2Go-User] x2godesktopsharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1095">[ date ]</a>
+              <a href="thread.html#1095">[ thread ]</a>
+              <a href="subject.html#1095">[ subject ]</a>
+              <a href="author.html#1095">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Paul,
+
+On So 04 Nov 2012 06:42:47 CET Paul Daniels wrote:
+
+&gt;<i> I've been playing with X2go for a while now, and have a Thin Client
+</I>&gt;<i> Environment(TCE) that I PXE boot from, or copy to USB and boot via
+</I>&gt;<i> syslinux (after I've changed the initramfs.conf and regenerated the
+</I>&gt;<i> initrd so it boots locally rather than via nfs).
+</I>&gt;<i>
+</I>&gt;<i> But Although X2go works well, its still not fast enough for watching
+</I>&gt;<i> videos.  My solution was to put mplayer on the TCE and pipe video to it
+</I>&gt;<i> at the moment with netcat, but Ill probably move to a multicast solution
+</I>&gt;<i> when I get all of the other issues sorted.
+</I>&gt;<i>
+</I>&gt;<i> So on the client I need to run the command
+</I>&gt;<i>
+</I>&gt;<i> netcat $SERVER $PORT | mplayer -display 0:0 -
+</I>&gt;<i>
+</I>&gt;<i> now whilst I can open up a console terminal, log into the x2goclient
+</I>&gt;<i> user and run the command, or write something that does the same it would
+</I>&gt;<i> be nice to run a command from within the x2go-session that does just
+</I>&gt;<i> that.  Ive tried using x2goruncommand but it seems to kill of my
+</I>&gt;<i> currently running session.
+</I>&gt;<i>
+</I>&gt;<i> Is there a supported way to run a command locally, from withing an
+</I>&gt;<i> established x2go session, or do I have to code something up myself
+</I>
+There is a mechanism to drop files into a MIMEBOX and trigger a local  
+application launch (only support by Python X2Go + PyHoca-GUI/-CLI,  
+though).
+
+However, I guess, this is not appropriate for video streaming.
+
+The X2Go project has some unspoken of plans to crowd-fund a code  
+project that gets the XV extension in NX usable with X2Go.
+
+Having a mechanism that can be used to launch localapps (like in LTSP:  
+ltsp-localapp, I guess is the name) would also be awesome!
+
+Please subscribe to <A HREF="http://lists.berlios.de/mailman/listinfo/x2go-dev">http://lists.berlios.de/mailman/listinfo/x2go-dev</A>  
+and discuss your ideas with the upstream developers of X2Go.
+
+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121105/2500854d/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121105/2500854d/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001091.html">[X2Go-User] run commands on the x2goclient
+</A></li>
+	<LI>Next message: <A HREF="001093.html">[X2Go-User] x2godesktopsharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1095">[ date ]</a>
+              <a href="thread.html#1095">[ thread ]</a>
+              <a href="subject.html#1095">[ subject ]</a>
+              <a href="author.html#1095">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

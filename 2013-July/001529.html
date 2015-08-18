@@ -1,0 +1,442 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3C51F53A7E.5060900%40giesler.za.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001526.html">
+   <LINK REL="Next"  HREF="001531.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.</H1>
+    <B>Roland Giesler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Failure%20negotiating%20the%20session%20in%20stage%20%277%27.%20Wrong%0A%20version%20or%20invalid%20session%20authentication%20cookie.&In-Reply-To=%3C51F53A7E.5060900%40giesler.za.net%3E"
+       TITLE="[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.">roland at giesler.za.net
+       </A><BR>
+    <I>Sun Jul 28 17:36:30 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001526.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+        <LI>Next message: <A HREF="001531.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1529">[ date ]</a>
+              <a href="thread.html#1529">[ thread ]</a>
+              <a href="subject.html#1529">[ subject ]</a>
+              <a href="author.html#1529">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On 28/07/2013 02:55, Roland Giesler wrote:
+
+Before continuing, I upgrade the client and server to the latest stable
+version:
+
+    X2Go client 4.0.1.0 (Qt - 4.8.3)
+
+    X2Go Server 4.0.1.5-0~709~precise1
+
+
+After installation, I restarted the x2goserver.
+
+On the client, I connect to the server (client Ubuntu 12.10, server
+Ubuntu 12.04)
+
+After displaying a message that a connection has been made, finally the
+error message pops up.
+
+Since I started x2goclient from the command line, this output was produced:
+
+    $ x2goclient
+    ONMainWindow constructor
+
+    Can't load translator (:/x2goclient_en_za) !
+
+    Can't load translator  :/qt_en_ZA
+    remove apps
+     
+    plugging apps
+     
+    ONMainWindows constructor finished, home Directory is: &quot;/home/roland&quot;
+
+    read  1  sessions from config file
+    remove apps
+     
+    start new ssh connection to server: &quot;aaa.fff.co.za&quot; : &quot;22&quot; krb:  false
+
+    ssh connection ok
+
+    continue normal x2go session
+
+    remove apps
+     
+    &quot;x2gostartagent 1440x900 adsl 16m-jpeg-9 unix-kde-depth_24 us
+    pc105/us 1 D UNITY&quot;
+
+    Agent output: &quot;50
+    8f9f6270723f48e0a98a21254639cf9a
+    5177
+    roland-50-1375013942_stDUNITY_dp24
+    30001
+    30002
+    30003
+    &quot;
+    starting nxproxy with:  &quot;nxproxy -S
+    nx/nx,options=/home/roland/.x2go/S-roland-50-1375013942_stDUNITY_dp24/options:50&quot;
+
+
+    &quot;
+    NXPROXY - Version 3.5.0
+
+    Copyright (C) 2001, 2011 NoMachine.
+    See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+    Info: Proxy running in client mode with pid '28293'.
+    Session: Starting session at 'Sun Jul 28 14:19:00 2013'.
+    Info: Connecting to remote host 'localhost:31001'.
+    Info: Connection to remote proxy 'localhost:31001' established.
+    &quot;
+
+    &quot;Error: The remote NX proxy closed the connection.
+    Error: Failure negotiating the session in stage '7'.
+    Error: Wrong version or invalid session authentication cookie.
+    Session: Terminating session at 'Sun Jul 28 14:19:06 2013'.
+    Session: Session terminated at 'Sun Jul 28 14:19:06 2013'.
+    &quot;
+
+    deleting proxy
+
+    nxproxy not running
+
+    proxy deleted
+
+    checking exit status
+    check command message
+
+    X Error: BadWindow (invalid Window parameter) 3
+      Major opcode: 20 (X_GetProperty)
+      Resource id:  0x4004bbc
+    X Error: BadWindow (invalid Window parameter) 3
+      Major opcode: 15 (X_QueryTree)
+      Resource id:  0x4004bbc
+    close event
+    saving settings
+    done
+
+Things that I noticed above:
+
+1. The line &quot;x2gostartagent 1440x900 adsl 16m-jpeg-9 unix-kde-depth_24
+us pc105/us 1 D UNITY&quot;seems to be asking for a KDE session despite the
+fact that I set Gnome as the session in my client config.
+
+Here is my config in /home/roland/.x2goclient/sessions:
+
+    [20130701230755080]
+    speed=2
+    pack=16m-jpeg
+    quality=9
+    fstunnel=true
+    export=
+    iconvto=UTF-8
+    iconvfrom=ISO8859-1
+    useiconv=false
+    fullscreen=false
+    width=1440
+    multidisp=false
+    display=1
+    height=900
+    dpi=96
+    setdpi=false
+    xinerama=false
+    usekbd=true
+    layout=us
+    type=pc105/us
+    sound=true
+    soundsystem=pulse
+    startsoundsystem=true
+    soundtunnel=true
+    defsndport=true
+    sndport=4713
+    print=true
+    name=Ashton
+    icon=:icons/128x128/x2gosession.png
+    host=aaa.fff.co.za
+    user=roland
+    key=
+    sshport=22
+    autologin=false
+    krblogin=false
+    rootless=false
+    published=false
+    applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL
+    command=GNOME
+    rdpoptions=
+    rdpserver=
+    xdmcpserver=localhost
+    maxdim=false
+    rdpclient=rdesktop
+    directrdpsettings=
+    rdpport=3389
+    directrdp=false
+    usesshproxy=false
+    sshproxytype=SSH
+    sshproxyuser=
+    sshproxykeyfile=
+    sshproxyhost=
+    sshproxyport=22
+    sshproxysamepass=false
+
+
+At the server:
+
+    $ ls -la /home/roland/.x2go/C-roland-50-1375019027_stDGNOME_dp24/
+    total 32
+    drwxrwxr-x  4 roland roland 4096 Jul 28 15:43 .
+    drwxrwxr-x 24 roland roland 4096 Jul 28 15:43 ..
+    drwx------  2 roland roland 4096 Jul 28 15:43
+    C-roland-50-1375019027_stDGNOME_dp24
+    drwxrwxr-x  2 roland roland 4096 Jul 28 15:43 keyboard
+    -rw-rw-r--  1 roland roland  405 Jul 28 15:43 options
+    -rw-rw-r--  1 roland roland  100 Jul 28 15:43 .pulse-client.conf
+    -rw-------  1 roland roland  256 Jul 28 15:43 .pulse-cookie
+    lrwxrwxrwx  1 roland roland   66 Jul 28 15:43 session.log -&gt;
+    /tmp/.x2go-roland/session-C-roland-50-1375019027_stDGNOME_dp24.log
+
+
+And the contents of session log above is:
+
+    $ cat .x2go/C-roland-50-1375019027_stDGNOME_dp24/session.log
+
+    running as X2Go Agent
+
+    NXAGENT - Version 3.5.0
+
+    Copyright (C) 2001, 2011 NoMachine.
+    See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+    Info: Agent running with pid '27929'.
+    Session: Starting session at 'Sun Jul 28 15:43:48 2013'.
+    Info: Proxy running in server mode with pid '27929'.
+    Info: Waiting for connection from 'localhost' on port '30001'.
+    Warning: Refusing connection from '192.168.1.3'.
+    Error: Connection with remote host 'localhost' could not be established.
+    Error: Aborting session with 'Unable to open display
+    'nx/nx,options=/home/roland/.x2go/C-roland-50-1375019027_stDGNOME_dp24/options:50''.
+    Session: Aborting session at 'Sun Jul 28 15:44:38 2013'.
+    Session: Session aborted at 'Sun Jul 28 15:44:38 2013'.
+
+What I do notice is the &quot;refusing connection from 192.168.1.3&quot;.  This is
+the ADSL router port, which forwards port 22 to the x2goserver.
+
+In the following file
+
+    $ cat .x2go/C-roland-50-1375019027_stDGNOME_dp24/options
+    nx/nx,link=adsl,pack=16m-jpeg-9,limit=0,root=/home/roland/.x2go/C-roland-50-1375019027_stDGNOME_dp24,cache=8M,images=32M,type=unix-kde-depth_24,id=roland-50-1375019027_stDGNOME_dp24,cookie=72bfbf8ddda3489cab3462411822a417,errors=/tmp/.x2go-roland/session-C-roland-50-1375019027_stDGNOME_dp24.log,kbtype=pc105/us,geometry=1440x900,resize=0,fullscreen=0,accept=localhost,listen=30001,client=linux,menu=0:50
+
+It seems that &quot;accept=localhost&quot; should be &quot;accept=192.168.1.3&quot;, but the
+this file seems to be created for each session, so changing it, doesn't
+fix the problem. 
+
+I have added &quot;192.168.1.3 localhost&quot; to /etc/hosts as well as changed
+/etc/x2go/x2goagent.conf as follows:
+
+    X2GO_NXAGENT_DEFAULT_OPTIONS+=&quot; -extension GLX -from 192.168.1.3&quot;
+
+This doesn't seem to change the session options in
+.x2go/C-roland-50-1375019027_stDGNOME_dp24/options
+
+in /var/log/syslog, the following is logged:
+
+    Jul 28 14:17:01 Ashton CRON[4353]: (root) CMD (   cd / &amp;&amp; run-parts
+    --report /etc/cron.hourly)
+    Jul 28 14:19:01 Ashton /usr/bin/x2golistsessions[4987]:
+    x2golistsessions has been called with no option
+    Jul 28 14:19:01 Ashton /usr/bin/x2gostartagent: x2gostartagent
+    called with options: 1440x900 adsl 16m-jpeg-9 unix-kde-depth_24 us
+    pc105/us 1 D UNITY
+    Jul 28 14:19:01 Ashton /usr/bin/x2gostartagent: client announced
+    itself as ,,105.236.170.173''
+    Jul 28 14:19:01 Ashton /usr/bin/x2gosessionlimit[5009]:
+    x2gosessionlimit has been called
+    Jul 28 14:19:01 Ashton /usr/bin/x2golistsessions[5012]:
+    x2golistsessions has been called with options: --all-servers
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2gogetdisplays[5027]:
+    db_getdisplays called, server: Ashton; return value:
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2gogetports[5036]: db_getports
+    called, server: Ashton; return value:
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2goinsertsession[5054]:
+    db_insertsession called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, server: Ashton, session ID:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2gogetports[5072]: db_getports
+    called, server: Ashton; return value:
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2goinsertport[5086]:
+    db_insertport called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, server: Ashton, SSH port: 30001
+    Jul 28 14:19:02 Ashton /usr/lib/x2go/x2gogetports[5095]: db_getports
+    called, server: Ashton; return value: |30001|
+    Jul 28 14:19:03 Ashton /usr/lib/x2go/x2goinsertport[5109]:
+    db_insertport called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, server: Ashton, SSH port: 30002
+    Jul 28 14:19:03 Ashton /usr/lib/x2go/x2gogetports[5118]: db_getports
+    called, server: Ashton; return value: |30001| |30002|
+    Jul 28 14:19:03 Ashton /usr/lib/x2go/x2goinsertport[5132]:
+    db_insertport called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, server: Ashton, SSH port: 30003
+    Jul 28 14:19:03 Ashton /usr/bin/x2gofeature: x2gofeature called with
+    options: X2GO_RUN_EXTENSIONS
+    Jul 28 14:19:03 Ashton
+    /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+    x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+    Jul 28 14:19:03 Ashton /usr/bin/x2goserver-run-extensions:
+    x2goserver-run-extensions called with options:
+    roland-50-1375013942_stDUNITY_dp24 pre-start
+    Jul 28 14:19:03 Ashton /usr/bin/x2gostartagent: successfully started
+    X2Go agent session with ID roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:03 Ashton /usr/bin/x2gofeature: x2gofeature called with
+    options: X2GO_RUN_EXTENSIONS
+    Jul 28 14:19:03 Ashton
+    /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+    x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONS
+    Jul 28 14:19:03 Ashton /usr/bin/x2goserver-run-extensions:
+    x2goserver-run-extensions called with options:
+    roland-50-1375013942_stDUNITY_dp24 post-start
+    Jul 28 14:19:04 Ashton /usr/lib/x2go/x2gocreatesession[5210]:
+    db_createsession called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, cookie:
+    8f9f6270723f48e0a98a21254639cf9a, client: 105.236.170.173, pid:
+    5177, graphics port: 30001, sound port: 30002, file sharing port: 30003
+    Jul 28 14:19:04 Ashton /usr/bin/x2gostartagent: blocking creation of
+    agent's keyboard file
+    /home/roland/.x2go/C-roland-50-1375013942_stDUNITY_dp24/keyboard as
+    requested by session startup command
+    Jul 28 14:19:10 Ashton /usr/bin/x2gocmdexitmessage:
+    x2gocmdexitmessage called with options:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:54 Ashton /usr/lib/x2go/x2gochangestatus[5660]:
+    db_changestatus called, session ID:
+    roland-50-1375013942_stDUNITY_dp24, new status: F
+    Jul 28 14:19:54 Ashton /usr/sbin/x2gocleansessions[3457]:
+    roland-50-1375013942_stDUNITY_dp24, pid 5177 does not exist,
+    changing status from R to F
+    Jul 28 14:19:54 Ashton /usr/sbin/x2gocleansessions[3457]:
+    roland-50-1375013942_stDUNITY_dp24: unmounting all shares
+    Jul 28 14:19:54 Ashton /usr/bin/x2goumount-session[5683]:
+    x2goumount-session has been called with options:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:54 Ashton /usr/bin/x2goumount-session[5683]:
+    db_getdisplay called, session ID:
+    roland-50-1375013942_stDUNITY_dp24; return value: 50
+    Jul 28 14:19:54 Ashton /usr/bin/x2goumount-session[5683]:
+    db_getmounts called, session ID: roland-50-1375013942_stDUNITY_dp24;
+    return value:
+    Jul 28 14:19:56 Ashton /usr/lib/x2go/x2golistsessions_sql[5699]:
+    dbsys_deletemounts called, session ID:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:56 Ashton /usr/lib/x2go/x2golistsessions_sql[5699]:
+    Purging finished session from X2Go db, session ID:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:56 Ashton /usr/sbin/x2gocleansessions[3457]:
+    roland-50-1375013942_stDUNITY_dp24 is blocked
+    Jul 28 14:19:56 Ashton /usr/sbin/x2gocleansessions[3457]:
+    roland-50-1375013942_stDUNITY_dp24: unmounting all shares
+    Jul 28 14:19:57 Ashton /usr/bin/x2goumount-session[5718]:
+    x2goumount-session has been called with options:
+    roland-50-1375013942_stDUNITY_dp24
+    Jul 28 14:19:57 Ashton /usr/bin/x2goumount-session[5718]:
+    db_getdisplay called, session ID:
+    roland-50-1375013942_stDUNITY_dp24; return value:
+    Jul 28 14:19:57 Ashton /usr/bin/x2goumount-session[5718]:
+    db_getmounts called, session ID: roland-50-1375013942_stDUNITY_dp24;
+    return value:
+
+This problem has been persistent for a long time and I have not been
+able to find any solution.
+
+I'd really appreciate if anyone would be able to help me find and fix
+this issue.
+
+thanks again
+
+Roland
+
+
+&gt;<i> On 17/07/2013 11:18, Kjell Otto wrote:
+</I>&gt;&gt;<i> Hey Roland,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I'm sorry but I'm quite busy right now. 
+</I>&gt;&gt;<i> Following things to try:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Kill all sessions on your server.
+</I>&gt;&gt;<i> Use the root command to list all users sessions with:
+</I>&gt;&gt;<i> sudo x2golistsessions_root
+</I>&gt;&gt;<i> Delete all involved users .Xauthority files.
+</I>&gt;&gt;<i> If you've got hanging sessions left, manually execute
+</I>&gt;&gt;<i> x2goterminatesessions with the ID.
+</I>&gt;&gt;<i> Make the x2goserver logging level to debug in /etc/x2go/x2xgoserver.conf
+</I>&gt;&gt;<i> Reboot the machine.
+</I>&gt;<i> I finally got around to trying this out tonight.  There are no sessions
+</I>&gt;<i> running and I deleted all the .Xauthority file from the users' home
+</I>&gt;<i> directories.
+</I>&gt;<i> Then I rebooted.
+</I>&gt;<i>
+</I>&gt;&gt;<i> Then open a new Master Session -&gt; KDE or xterm, whatever..
+</I>&gt;<i> I've have searched high and low.  What is a new Master Session?  I
+</I>&gt;<i> cannot find anything about it.  I have logged in on the server console,
+</I>&gt;<i> but it makes not difference?
+</I>&gt;<i>
+</I>&gt;&gt;<i> Use the root command again to make sure it's known by the x2goserver.
+</I>&gt;&gt;<i> Then start the Shadow Session to the Master Session.
+</I>&gt;<i> And of course, what is a Shadow Session? 
+</I>&gt;<i>
+</I>&gt;<i> I'm not trying to connect to a logged-in user at this stage, I just want
+</I>&gt;<i> to start a new X-session when I connect with x2goclient.
+</I>&gt;<i>
+</I>&gt;<i> thanks again
+</I>&gt;<i>
+</I>&gt;<i> Roland
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/022d0591/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/022d0591/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 555 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/022d0591/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20130728/022d0591/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001526.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+	<LI>Next message: <A HREF="001531.html">[X2Go-User] Failure negotiating the session in stage '7'. Wrong version or invalid session authentication cookie.
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1529">[ date ]</a>
+              <a href="thread.html#1529">[ thread ]</a>
+              <a href="subject.html#1529">[ subject ]</a>
+              <a href="author.html#1529">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] X2Go client printing issues if application queries printer parameters
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2Go%20client%20printing%20issues%20if%20application%20queries%0A%20printer%20parameters&In-Reply-To=%3C1299632689.12593.6.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000069.html">
+   <LINK REL="Next"  HREF="000071.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] X2Go client printing issues if application queries printer parameters</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2Go%20client%20printing%20issues%20if%20application%20queries%0A%20printer%20parameters&In-Reply-To=%3C1299632689.12593.6.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-user] X2Go client printing issues if application queries printer parameters">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Wed Mar  9 02:04:49 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000069.html">[X2go-user] Manual Install of x2go on SLES11 running on system Z
+</A></li>
+        <LI>Next message: <A HREF="000071.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello, all.  We are working on a problem for one of our clients where
+print margins are not being set properly on a critical financial
+application, Timberline.  To save retyping, I'll paste in most of the
+contents of our internal GLPI Help Desk
+(<A HREF="http://www.glpi-project.org/spip.php?lang=en">http://www.glpi-project.org/spip.php?lang=en</A>) ticket:
+
+One of Maryann's critical functions is printing checks. If they print
+incorrectly, it is extra critical because of the difficulty of
+reprinting them. Maryann eventually figured out that she needed to
+override the margin settings of 0,0,0,0 to 0.25,0.25,0,0 to have them
+print correctly. However, these defaults were never saved and had to be
+re-entered for every check run. That's a problem and prone to human
+error.
+
+The call with Timberline was enlightening and may reveal a system design
+issue. Unlike reports, check runs do not have custom printer settings.
+They draw their margin settings from the physical print device. They can
+be overridden which is what Maryann has been doing but there are no
+settings to save; they always draw from the print device.
+
+As much as this is working against Maryann, it is probably good design.
+It means that the checks will adapt to whichever printer they are sent.
+
+The problem is when a check run is sent to the X2Go printer for printing
+to local printers. Now the problem is that two very well designed
+&quot;features&quot; interfere with each other and become a problem. Timberline is
+trying to adapt to whichever printer is chosen. However, the X2Go
+printer is also trying to adapt to whichever printer is chosen to give
+users the flexibility to print to whichever local printer happens to be
+attached. The problem is that, to do this, the X2Go print driver does
+not specify any margins (or it specifies them as 0,0,0,0) as it is
+physical printer independent. Now the Timberline check printer queries
+the X2Go printer to ask what its margins are (so Timberline can adapt to
+the printer) and the X2Go printer says, &quot;I don't have any because I'm
+trying to adapt to whatever printer the user connects to me!&quot; This is
+why the check runs work perfectly when sent to the network attached
+printers - they tell Timberline what their physical margins are.
+
+I can see two ways to solve this problem. Each with distinct advantages
+and disadvantages.
+
+The way I think is best is to leave the X2Go printer undefined. The user
+receives the PDf file and, when printing, after selecting the target
+printer should select &quot;fit to printable area&quot; in the PDF reader print
+dialog. This preserves the ability of the X2Go printer to adapt to any
+printer the user has, e.g., if Maryann decides she needs to print from
+home rather than from the office. The BIG downside is that is still an
+extra step and, if Maryann forgets to do it, a check run can be mangled
+and we have the problem of reprinting checks. [Note - this is a Windows
+client user and thus cannot print directly to the printer from the X2Go
+printer dialog]
+
+The other solution is to hack the PPD file for Maryann's X2Go printer
+and set fixed margins. I'm not 100% sure how to do that but we can
+figure out how. The big advantage is that no user intervention is needed
+for the check runs. However, the big disadvantage is that we no longer
+adapt to the target printer; the margins are fixed.
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000069.html">[X2go-user] Manual Install of x2go on SLES11 running on system Z
+</A></li>
+	<LI>Next message: <A HREF="000071.html">[X2go-user] Question about the source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#70">[ date ]</a>
+              <a href="thread.html#70">[ thread ]</a>
+              <a href="subject.html#70">[ subject ]</a>
+              <a href="author.html#70">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,126 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2goclient and HTTP proxy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goclient%20and%20HTTP%20proxy&In-Reply-To=%3CCAJ0cceZY2x0X9A7j34YVDKOc49QEAQEn5gG98WGxoz__How6Ng%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000836.html">
+   <LINK REL="Next"  HREF="000851.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2goclient and HTTP proxy</H1>
+    <B>Reinhard Tartler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2goclient%20and%20HTTP%20proxy&In-Reply-To=%3CCAJ0cceZY2x0X9A7j34YVDKOc49QEAQEn5gG98WGxoz__How6Ng%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] x2goclient and HTTP proxy">siretart at gmail.com
+       </A><BR>
+    <I>Sat May 19 17:19:47 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000836.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+        <LI>Next message: <A HREF="000851.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#850">[ date ]</a>
+              <a href="thread.html#850">[ thread ]</a>
+              <a href="subject.html#850">[ subject ]</a>
+              <a href="author.html#850">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, May 12, 2012 at 6:30 PM, Maarten Boekhold &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">boekhold at gmail.com</A>&gt; wrote:
+&gt;<i> Hi all,
+</I>&gt;<i>
+</I>&gt;<i> After a hiatus of a couple of years, I decided to try x2go again, since NX
+</I>&gt;<i> Client from Nomachine doesn't seem to handle an XFCE desktop very well. I
+</I>&gt;<i> was pleasantly surprised, x2go seems to have improved massively and works
+</I>&gt;<i> just beautifully. One thing I am missing however is the ability to
+</I>&gt;<i> establish a session through an HTTP proxy server (using HTTP CONNECT). NX
+</I>&gt;<i> Client 3.x does do this (but it seems it's not possible in the NX Client
+</I>&gt;<i> 4 beta client).
+</I>&gt;<i>
+</I>&gt;<i> I've done a little bit of research, and it looks like LIBSSH does have
+</I>&gt;<i> some facilities to support a &quot;proxy command&quot;:
+</I>
+While this proxy command feature is a really cool feature, it has
+nothing to do with http proxys.
+
+&gt;<i>
+</I>&gt;<i> &#160; &#160;ssh_options_set(my_ssh_session, SSH_OPTION_PROXYCOMMAND, &quot;command&quot;);
+</I>&gt;<i>
+</I>&gt;<i> &quot;command&quot; in this case would be something like 'corkscrew' or
+</I>&gt;<i> 'proxytunnel'.
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160;<A HREF="http://www.agroman.net/corkscrew/">http://www.agroman.net/corkscrew/</A>
+</I>&gt;<i> &#160; &#160;<A HREF="http://proxytunnel.sourceforge.net/">http://proxytunnel.sourceforge.net/</A>
+</I>&gt;<i>
+</I>&gt;<i> What are the chances that this SSH_OPTION_PROXYCOMMAND could be integrated
+</I>&gt;<i> into the x2go client? It looks like x2goclient is built using cygwin, and
+</I>&gt;<i> I believe that both corkscrew as well as proxytunnel can be built on
+</I>&gt;<i> cygwin as well. So I wonder if the following additions to x2goclient are
+</I>&gt;<i> possible:
+</I>&gt;<i>
+</I>&gt;<i> - Add the following GUI options to x2go sessions:
+</I>&gt;<i> &#160; &#160;- HTTP proxy host: takes hostname/ip of your HTTP proxy
+</I>&gt;<i> &#160; &#160;- HTTP proxy port: takes port of HTTP proxy
+</I>&gt;<i> &#160; &#160;- HTTP proxy username : for optional authentication
+</I>&gt;<i> &#160; &#160;- HTTP proxy password : for optional authentication
+</I>&gt;<i> &#160; &#160;- I'm not sure if corkscrew supports proxy authentication...
+</I>&gt;<i> - On start of a session, if HTTP proxy host+port is specified, use
+</I>&gt;<i> &#160;ssh_options_set() with command
+</I>&gt;<i>
+</I>&gt;<i> &#160; &#160; &#160;corkscrew &lt;proxy host&gt; &lt;proxy port&gt; &lt;remote host&gt; &lt;remote_ip&gt;
+</I>&gt;<i>
+</I>&gt;<i> &#160;(I *think* you can harcode %h and %p for the remote host and remote
+</I>&gt;<i> &#160; ip...)
+</I>&gt;<i> - Add corkscrew to the x2goclient distribution
+</I>&gt;<i>
+</I>
+I'd suggest rather something else: Use corkscrew to ssh to your x2go
+server and forward port 22 to your host by using something like this:
+
+ ssh -luser -L2222:localhost:22 your.server.somewhere
+
+Now you can use x2goclient to connect to 'localhost' port 2222.
+
+This can be faciliated by a few lines in your ~/.ssh/config and the
+ProxyCommand option ;-)
+
+Cheers,
+Reinhard
+
+
+-- 
+regards,
+&#160; &#160; Reinhard
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000836.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+	<LI>Next message: <A HREF="000851.html">[X2Go-User] x2goclient and HTTP proxy
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#850">[ date ]</a>
+              <a href="thread.html#850">[ thread ]</a>
+              <a href="subject.html#850">[ subject ]</a>
+              <a href="author.html#850">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

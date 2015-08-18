@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redirect only specific sound devices?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3Ckvadnd%246mf%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001546.html">
+   <LINK REL="Next"  HREF="001547.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redirect only specific sound devices?</H1>
+    <B>Buddy Butterfly</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redirect%20only%20specific%20sound%20devices%3F&In-Reply-To=%3Ckvadnd%246mf%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] Redirect only specific sound devices?">buddy.butterfly at web.de
+       </A><BR>
+    <I>Sat Aug 24 15:50:45 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001546.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+        <LI>Next message: <A HREF="001547.html">[X2Go-User] Mike on Debconf video
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1558">[ date ]</a>
+              <a href="thread.html#1558">[ thread ]</a>
+              <a href="subject.html#1558">[ subject ]</a>
+              <a href="author.html#1558">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi Mike,
+
+sorted it out. So, if someone is interested, here is how to do
+it. I tested it on Kubuntu 12.10.
+
+On Ubuntu, pulse is in session mode by default. This means, it
+obviously starts an instance per session. This is why I could
+not see any devices when unsetting PULSE_CLIENTCONFIG. So,
+to make it work, pulse has to be started system wide at boot.
+Background on how to do it:
+
+<A HREF="http://rudd-o.com/linux-and-free-software/how-to-make-pulseaudio-run-once-at-boot-for-all-your-users">http://rudd-o.com/linux-and-free-software/how-to-make-pulseaudio-run-once-at-boot-for-all-your-users</A>
+
+What I did:
+
+1. In /etc/init/pulseaudio.conf
+   activate the line
+
+	start on runlevel [2345]&quot;
+
+   which is commented out by default.
+
+2. In /etc/pulse/client.conf set
+
+	default-server = /var/run/pulse/native
+	autospawn = no
+
+3. Place the users that should have sound into group &quot;pulse-access&quot;.
+
+4. Reboot.
+
+Only drawback is that KDE does not show the devices in system settings
+anymore when natively using the system. But sound in KDE is working
+perfekt. Devices can be seen with KMIX and outputs can also be
+redirected (select output streams, right click on the currently playing
+stream and choose move to....).
+
+When you now connect via x2go everything is fine and the sound
+gets redirected to the local system. But you can now start voip and
+other programs to use the local sound devices with unsetting
+$PULSE_CLIENTCONFIG beforehand. Example running in konsole:
+
+unset PULSE_CLIENTCONFIG
+jitsi
+
+Runs jitis with the local sound devices. It can be configured to use
+usb sound card of a headset directly, etc.
+
+Cheers,
+Matt
+
+
+
+Am 20.08.2013 12:38, schrieb Buddy Butterfly:
+&gt;<i> 
+</I>&gt;<i> Hi Mike,
+</I>&gt;<i> 
+</I>&gt;<i> thanks a lot for the hint.
+</I>&gt;<i> I think this is the right point to get grip at.
+</I>&gt;<i> Unfortunately it does not work. After unsetting,
+</I>&gt;<i> simply, there are no devices at all.
+</I>&gt;<i> 
+</I>&gt;<i> And as I saw, the whole KDE sound is configured
+</I>&gt;<i> as a client of the sound server of the local
+</I>&gt;<i> machine (running x2goclient).
+</I>&gt;<i> 
+</I>&gt;<i> Maybe we have to start a separate pulse instance
+</I>&gt;<i> on the system? Any clue on how to do this?
+</I>&gt;<i> 
+</I>&gt;<i> Cheers,
+</I>&gt;<i> Matt
+</I>&gt;<i> 
+</I>&gt;<i> Am 20.08.2013 08:19, schrieb Mike Gabriel:
+</I>&gt;&gt;<i> Hi Buddy,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Mo 19 Aug 2013 17:09:20 CEST Buddy Butterfly wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> for a headless system I am trying to run a headset
+</I>&gt;&gt;&gt;<i> locally on it. For operation I have used x2go which
+</I>&gt;&gt;&gt;<i> works perfect, even for sound. So this solved the
+</I>&gt;&gt;&gt;<i> headache with KVM ;-).
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Now I would like to use a headset locally on the headless
+</I>&gt;&gt;&gt;<i> system which is connected via USB and its own usb sound
+</I>&gt;&gt;&gt;<i> card (Logitech, works always perfect!). I am unable to
+</I>&gt;&gt;&gt;<i> get the headset to work while being connected to via x2go.
+</I>&gt;&gt;&gt;<i> Headset should be primarily for voip.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> So, how I could use this headset? Is it possible to configure
+</I>&gt;&gt;&gt;<i> somehwere that not all sound devices should be redirected but
+</I>&gt;&gt;&gt;<i> only specific ones? With this I could try to leave out the
+</I>&gt;&gt;&gt;<i> headset sound card.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Easiest probably would be to unset the ENV variable PULSE_CLIENTCONFIG
+</I>&gt;&gt;<i> before starting your VoIP application...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &quot;&quot;&quot; (wrapper script untested)
+</I>&gt;&gt;<i> #!/bin/bash
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> unset PULSE_CLIENTCONFIG
+</I>&gt;&gt;<i> ekiga
+</I>&gt;&gt;<i> &quot;&quot;&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Sort of like this...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Mike
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001546.html">[X2Go-User] Redirect only specific sound devices?
+</A></li>
+	<LI>Next message: <A HREF="001547.html">[X2Go-User] Mike on Debconf video
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1558">[ date ]</a>
+              <a href="thread.html#1558">[ thread ]</a>
+              <a href="subject.html#1558">[ subject ]</a>
+              <a href="author.html#1558">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

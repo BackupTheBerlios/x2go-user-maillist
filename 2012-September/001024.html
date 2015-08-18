@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] search proxy win: loops forever
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20search%20proxy%20win%3A%20loops%20forever&In-Reply-To=%3C201209220449.q8M4npDs012411%40199.vc.fo4.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001035.html">
+   <LINK REL="Next"  HREF="001025.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] search proxy win: loops forever</H1>
+    <B>gregrwm</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20search%20proxy%20win%3A%20loops%20forever&In-Reply-To=%3C201209220449.q8M4npDs012411%40199.vc.fo4.net%3E"
+       TITLE="[X2Go-User] search proxy win: loops forever">x2gou at whitleymott.net
+       </A><BR>
+    <I>Sat Sep 22 06:49:51 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001035.html">[X2Go-User] x2go without instalation
+</A></li>
+        <LI>Next message: <A HREF="001025.html">[X2Go-User] search proxy win: loops forever
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1024">[ date ]</a>
+              <a href="thread.html#1024">[ thread ]</a>
+              <a href="subject.html#1024">[ subject ]</a>
+              <a href="author.html#1024">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>i reinstalled and kept things simple
+client:  x2goclient 3.99.2.2-0~243~natty1 (i686)
+server:  x2goserver 3.1.1.3 2.1 (rhel6) x86_64
+
+the behaviour now is a tad different from before but it still never completes connecting,
+a pair of incoming ssh connections are shown by ps -eHo on the server but i don't see any subservient processes:
+
+root      9202    -1  9202  7558  9202 23:26:13   0 unix_s Ss       sshd: g [priv]
+g         9202    -1  9202  9202  9206 23:26:15   0 poll_s S          sshd: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">g at notty</A>
+root      9203    -1  9203  7558  9203 23:26:13   0 unix_s Ss       sshd: g [priv]
+g         9203    -1  9203  9203  9220 23:26:16   0 poll_s S          sshd: g
+
+so it's not clear to me if it's looping serverside or clientside.
+below is what can be seen in the terminal from which i launched x2goclient, the final line repeats forever:
+
+$ x2goclient
+ONMainWindow constructor 
+
+Can't load translator  :/qt_en_US 
+primary screen geometry:  QRect(0,0 1024x768) 
+ONMainWindows constructor finished, home Directory is: &quot;/home/g&quot; 
+
+read  3  sessions from config file 
+Have key, starting session 
+
+start new ssh connection to server: &quot;209.240.82.5&quot; : &quot;38134&quot; krb:  false 
+
+start new ssh connection to server: &quot;209.240.82.5&quot; : &quot;38134&quot; krb:  false 
+
+ssh connection ok 
+
+continue normal x2go session 
+
+executing remote command:  &quot;sh -c &quot;export HOSTNAME &amp;&amp; x2golistsessions&quot;&quot; 
+
+&quot;x2gostartagent 800x600 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 R xterm&quot; 
+
+executing remote command:  &quot;sh -c &quot;x2gostartagent 800x600 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 R xterm&quot;&quot; 
+
+ssh connection ok 
+
+continue normal x2go session 
+
+executing remote command:  &quot;sh -c &quot;export HOSTNAME &amp;&amp; x2golistsessions&quot;&quot; 
+
+&quot;x2gostartagent 800x600 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 R xterm&quot; 
+
+executing remote command:  &quot;sh -c &quot;x2gostartagent 800x600 adsl 16m-jpeg-9 unix-kde-depth_24 us pc105/us 1 R xterm&quot;&quot; 
+
+Agent output: &quot;58
+63237b296286e6220ec9442c1a5001b5
+8732
+g-58-1348287422_stRxterm_dp24
+30048
+30049
+30050
+&quot; 
+starting nxproxy with:  &quot;nxproxy -S nx/nx,options=/home/g/.x2go/S-g-58-1348287422_stRxterm_dp24/options:58&quot; 
+
+&quot;
+NXPROXY - Version 3.5.0
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Proxy running in client mode with pid '7919'.
+Session: Starting session at 'Fri Sep 21 23:17:06 2012'.
+Info: Connecting to remote host 'localhost:31048'.
+Info: Connection to remote proxy 'localhost:31048' established.
+&quot; 
+
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot; 
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+search proxy win:  &quot;X2GO-g-58-1348287422_stRxterm_dp24&quot;
+</PRE>
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001035.html">[X2Go-User] x2go without instalation
+</A></li>
+	<LI>Next message: <A HREF="001025.html">[X2Go-User] search proxy win: loops forever
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1024">[ date ]</a>
+              <a href="thread.html#1024">[ thread ]</a>
+              <a href="subject.html#1024">[ subject ]</a>
+              <a href="author.html#1024">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

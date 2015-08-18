@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problem with xfreerdp ( any version )
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20xfreerdp%20%28%20any%20version%20%29&In-Reply-To=%3C1356674.xh6gTWy9uq%40zen-mobile%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000590.html">
+   <LINK REL="Next"  HREF="000592.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problem with xfreerdp ( any version )</H1>
+    <B>Helmer Teles</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20with%20xfreerdp%20%28%20any%20version%20%29&In-Reply-To=%3C1356674.xh6gTWy9uq%40zen-mobile%3E"
+       TITLE="[X2go-User] Problem with xfreerdp ( any version )">helmer.teles at gmail.com
+       </A><BR>
+    <I>Tue Feb  7 11:52:55 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000590.html">[X2go-User] Blank x2go client screen
+</A></li>
+        <LI>Next message: <A HREF="000592.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#591">[ date ]</a>
+              <a href="thread.html#591">[ thread ]</a>
+              <a href="subject.html#591">[ subject ]</a>
+              <a href="author.html#591">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+On Monday 06 February 2012 11:53:15 Oleksandr Shneyder wrote:
+
+&gt;<i>Am 03.02.2012 17:33, schrieb Helmer Teles:
+</I>
+&gt;<i>Hello Helmer,
+</I>&gt;<i>On debian squeeze I have no issues if running xfreerdp in x2go session.
+</I>&gt;<i>I'm not sure, that it is X2Go bug. And I have unfortunately no idea how
+</I>&gt;<i>I can help you.
+</I>
+&gt;<i>regards,
+</I>&gt;<i>Alex
+</I>
+&gt;<i>-- 
+</I>&gt;<i>Oleksandr Shneyder
+</I>&gt;<i>Dipl. Informatik
+</I>&gt;<i>X2go Core Developer Team
+</I>
+&gt;<i>email:  <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">oleksandr.shneyder at obviously-nice.de</A>
+</I>&gt;<i>web: www.obviously-nice.de
+</I>
+&gt;<i>--&gt; X2go - <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">everywhere at home</A>
+</I>
+
+Hello Oleksandr
+
+I've submited this problem also to xfreerdp ML's, but i've emailed the text 
+below to the wrong mailing list. I've pasted it here. Sorry for any 
+inconvenience.
+
+
+[PASTE]
+
+&gt;<i> I've trid with x2goserver 3.0.99 / nxagent 3.4 / x2goclient 3.01 /
+</I>&gt;<i> squeeze 32bit on XCP/ freerdp 1.0 from git (FreeRDP-FreeRDP-b6ec892),
+</I>&gt;<i> and it was ok for a connexion to a winxp sp3 32 bit. So it looks like
+</I>&gt;<i> the issue seems to be more related to the x2goagent 3.5 like you pointed
+</I>&gt;<i> out. I haven't upgraded that one yet.
+</I>&gt;<i>
+</I>&gt;<i> Cheers,
+</I>&gt;<i>
+</I>&gt;<i> Denis
+</I>&gt;<i>
+</I>&gt;<i> &gt; --
+</I>&gt;<i> &gt;
+</I> 
+Hi Denis,
+ 
+ 
+I've installed a new sqeeze vm running on quem/kvm, and i'm still facing the 
+same problem. Does anyone knows where i can download nxagent 3.4? it will help 
+to debug the cause of the problem. Still can run a simple script with xfreerdp 
+like xfreerdp -u &quot;&quot; -d pikets 192.168.122.114:3389 with ssh -X 
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">hteles at mysqueeze_machine.</A> It fails completely with x2goagent.
+ 
+This is my package enviroment info.
+ 
+dpkg -l |grep -i ii |grep -i 'nx\|x2go\|freerdp' |awk '{print $1 &quot; &quot; $2 $3}'; 
+lsb_release -a; uname -a
+ 
+ii cups-x2go3.0.0.3-0~x2go1+squeeze~main~54~build1
+ii freerdp-x110.7.4-1
+ii libfreerdp00.7.4-1
+ii libnx-x112:3.5.0.8-0+squeeze~main~235~build1
+ii libxcomp32:3.5.0.8-0+squeeze~main~235~build1
+ii libxcompext32:3.5.0.8-0+squeeze~main~235~build1
+ii libxcompshad32:3.5.0.8-0+squeeze~main~235~build1
+ii nxagent2:3.5.0.8-0+squeeze~main~235~build1
+ii nxproxy2:3.5.0.8-0+squeeze~main~235~build1
+ii x2go-keyring2011.12.07+squeeze~main~12~build1
+ii x2goagent2:3.5.0.8-0+squeeze~main~235~build1
+ii x2goclient3.99.0.6-0~x2go1+squeeze~main~144~build1
+ii x2goplugin3.99.0.6-0~x2go1+squeeze~main~144~build1
+ii x2goserver3.0.99.10-0~x2go1+squeeze~main~434~build1
+ii x2goserver-compat3.0.99.10-0~x2go1+squeeze~main~434~build1
+ii x2goserver-extensions3.0.99.10-0~x2go1+squeeze~main~434~build1
+ii x2goserver-printing3.0.99.10-0~x2go1+squeeze~main~434~build1
+No LSB modules are available.
+Distributor ID: Debian
+Description: Debian GNU/Linux 6.0.4 (squeeze)
+Release: 6.0.4
+Codename: squeeze
+Linux x2gosqueeze 2.6.32-5-686 #1 SMP Mon Jan 16 16:04:25 UTC 2012 i686 
+GNU/Linux
+ 
+ 
+Cheers,
+ 
+Helmer Teles
+
+
+[/PASTE]
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">eM at il</A> : helmer[dot]teles[at]google mail.
+Web Page: <A HREF="http://hteles.wordpress.com">http://hteles.wordpress.com</A>
+
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120207/60a49619/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120207/60a49619/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000590.html">[X2go-User] Blank x2go client screen
+</A></li>
+	<LI>Next message: <A HREF="000592.html">[X2go-User] Problem with xfreerdp ( any version )
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#591">[ date ]</a>
+              <a href="thread.html#591">[ thread ]</a>
+              <a href="subject.html#591">[ subject ]</a>
+              <a href="author.html#591">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

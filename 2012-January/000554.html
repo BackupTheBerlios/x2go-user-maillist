@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Why doesn't x2go support ecdsa certificates?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Why%20doesn%27t%20x2go%20support%20ecdsa%20certificates%3F&In-Reply-To=%3CCADwDc1D3v-am13uBcAcs1KTUnpGiPcA2Eo0D7j2BdTo-a%2B%2Bk5g%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000544.html">
+   <LINK REL="Next"  HREF="000545.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Why doesn't x2go support ecdsa certificates?</H1>
+    <B>Joe Millenbach</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Why%20doesn%27t%20x2go%20support%20ecdsa%20certificates%3F&In-Reply-To=%3CCADwDc1D3v-am13uBcAcs1KTUnpGiPcA2Eo0D7j2BdTo-a%2B%2Bk5g%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Why doesn't x2go support ecdsa certificates?">jmillenbach at gmail.com
+       </A><BR>
+    <I>Sat Jan 21 05:57:06 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000544.html">[X2go-User] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)
+</A></li>
+        <LI>Next message: <A HREF="000545.html">[X2go-User] How to disable file share
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I was attempting to use x2go for the first time and ran into the issue
+where I already had made an existing connection to my target machine using
+a current OpenSSH connection.  This creates the existing default ecdsa
+certificate in the known_hosts file and somehow breaks x2go.  I found a few
+posts on how to fix this at
+<A HREF="http://john.wesorick.com/2011/11/issues-installing-x2go.html">http://john.wesorick.com/2011/11/issues-installing-x2go.html</A> and
+<A HREF="https://lists.berlios.de/pipermail/x2go-user/2011-October/000448.html,">https://lists.berlios.de/pipermail/x2go-user/2011-October/000448.html,</A> but
+my question is why doesn't x2go support any certificate type that the
+underlying SSH client supports?  Or why can't it just request the other
+type of connection and then offer to store the new key?
+
+Also I didn't see a bug section on your website so I'm not sure who best to
+send this to, but the related error dialog needs some clean up.  The title
+has &quot;Authentification&quot; which I've never heard of before.  I'd assume it
+should be &quot;Authentication&quot;.  And the text inside the dialog has a number of
+spaces missing that make it look odd.  Some that should be between words,
+and others between words and punctuation.  If I knew where to look I'd be
+happy to edit the source file and pass along the fixed version to someone
+who knew how to submit it properly.
+
+Thanks for your time,
+Joe
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120120/a2bae1e0/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120120/a2bae1e0/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000544.html">[X2go-User] X2Go release day: x2goserver, x2goclient, x2gothinclient, nx-libs (incl. x2goagent)
+</A></li>
+	<LI>Next message: <A HREF="000545.html">[X2go-User] How to disable file share
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#554">[ date ]</a>
+              <a href="thread.html#554">[ thread ]</a>
+              <a href="subject.html#554">[ subject ]</a>
+              <a href="author.html#554">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

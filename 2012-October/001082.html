@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] session resuming after disconnect/reconnect
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20session%20resuming%20after%20disconnect/reconnect&In-Reply-To=%3C20121024102227.53642ngi2olbep1f%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001078.html">
+   <LINK REL="Next"  HREF="001084.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] session resuming after disconnect/reconnect</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20session%20resuming%20after%20disconnect/reconnect&In-Reply-To=%3C20121024102227.53642ngi2olbep1f%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] session resuming after disconnect/reconnect">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Oct 24 10:22:27 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001078.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+        <LI>Next message: <A HREF="001084.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1082">[ date ]</a>
+              <a href="thread.html#1082">[ thread ]</a>
+              <a href="subject.html#1082">[ subject ]</a>
+              <a href="author.html#1082">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Gerald,
+
+On Mi 24 Okt 2012 07:03:36 CEST  wrote:
+
+&gt;<i> when a session gets disconnected (e.g. network connection is lost,  
+</I>&gt;<i> computer is powered down, without disconnect) I cannot simply resume  
+</I>&gt;<i> the session after the next connect.
+</I>
+Yes, this is a known issue with SSH and port forwarding. As X2Go media  
+is transported over SSH port forwarding connections all parts of a  
+session (graphics, audio, sshfs) are affected by disrupted connections  
+that do not properly close open SSH port forwarding requests.
+
+&gt;<i> I have first to pause the session, that wait a long time (don't know  
+</I>&gt;<i> exactly how long, but needs to be more than 30-60 seconds) and than  
+</I>&gt;<i> I am able to resume the session.
+</I>
+Yes, this exactly describes the phenomen. I have tried to catch these  
+situations in Python X2Go code, but these precautions only work on  
+some occasions.
+
+&gt;<i> If I simply pause/resume the session or try to take it over, the  
+</I>&gt;<i> operation fails and the session is closed.
+</I>&gt;<i>
+</I>&gt;<i> Looks like after the pause of the old session, something does not  
+</I>&gt;<i> get terminated correctly and needs to timeout before I can resume  
+</I>&gt;<i> the session.
+</I>&gt;<i>
+</I>&gt;<i> Simply pausing/resuming a session works without problems, as long as  
+</I>&gt;<i> the ssh session isn't closed in between. It also works if I pause  
+</I>&gt;<i> the session, than disconnect the ssh connection. Than I can resume  
+</I>&gt;<i> after I have reconnected to the server.
+</I>
+What also works is restarting the SSH daemon on the server side.
+
+Unfortunately, I cannot give more of a solution to this. If you find  
+any ways to tweak the ssh daemon then we could put that into a README  
+for Python X2Go (or into the wiki of X2Go).
+
+Thanks,
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121024/c1d97d32/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121024/c1d97d32/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001078.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+	<LI>Next message: <A HREF="001084.html">[X2Go-User] session resuming after disconnect/reconnect
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1082">[ date ]</a>
+              <a href="thread.html#1082">[ thread ]</a>
+              <a href="subject.html#1082">[ subject ]</a>
+              <a href="author.html#1082">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

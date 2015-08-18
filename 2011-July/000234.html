@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Fairly severe problems for our Windows users
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Fairly%20severe%20problems%20for%20our%20Windows%20users&In-Reply-To=%3C20110720151950.73121n7jr7ooo4qe%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000233.html">
+   <LINK REL="Next"  HREF="000237.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Fairly severe problems for our Windows users</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Fairly%20severe%20problems%20for%20our%20Windows%20users&In-Reply-To=%3C20110720151950.73121n7jr7ooo4qe%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] Fairly severe problems for our Windows users">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Jul 20 15:19:50 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000233.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+        <LI>Next message: <A HREF="000237.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi John,
+
+On Mi 20 Jul 2011 15:13:40 CEST &quot;John A. Sullivan III&quot; wrote:
+
+&gt;<i> On Wed, 2011-07-20 at 10:39 +0200, Mike Gabriel wrote:
+</I>&gt;&gt;<i> Hi John,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On Mi 20 Jul 2011 04:52:21 CEST &quot;John A. Sullivan III&quot; wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &gt; I also tried Pyhoca (0.7) but it kept mangling my
+</I>&gt;&gt;<i> &gt; authentication so I cannot report on it.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I cannot say much about the native x2goclient, but if there are any
+</I>&gt;&gt;<i> problems with PyHoca-GUI we surely will be able to sort them out.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If you are interested in that, you could give a more detailed error
+</I>&gt;&gt;<i> description (and maybe a screen shot?).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thanks,
+</I>&gt;&gt;<i> Mike
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;<i> Sure.  I haven't taken a lot of time to troubleshoot it.  When I try to
+</I>&gt;<i> connect, Pyhoca says I have authenticated but nothing happens.  I first
+</I>&gt;<i> suspected it might not be starting the X server since I unchecked vcxsrv
+</I>&gt;<i> during the bundle installation routine because I had already installed
+</I>&gt;<i> it (default location).  However, I then noticed errors in the logs on
+</I>&gt;<i> the X2Go server that authentication had failed.  So Pyhoca thinks I have
+</I>&gt;<i> authenticated whereas the server does not - John
+</I>
+Note, that PyHoca-GUI does not start a session immediately.  
+Authentication is one thing. Starting a session is another thing...
+
+Once you have authenticated against a session profile, this session  
+profile appears in the left-click main menu and contains submenus.  
+There you can find ,,Start session''. Use that menu item to start the  
+actual session.
+
+I am not sure about your server-side log files, though. But maybe the  
+issues is sorted once you have used the described menu item?!?
+
+Also make sure you use the latest version...
+
+Bundles...
+<A HREF="http://code.x2go.org/releases/binary-win32/pyhoca-gui/bundled/pyhoca-gui+vcxsrv+gsprint-0.1.0.7rc1_win32-setup.exe">http://code.x2go.org/releases/binary-win32/pyhoca-gui/bundled/pyhoca-gui+vcxsrv+gsprint-0.1.0.7rc1_win32-setup.exe</A>
+
+Or standalone...
+<A HREF="http://code.x2go.org/releases/binary-win32/pyhoca-gui/pure/pyhoca-gui_0.1.0.7rc1_win32-setup.exe">http://code.x2go.org/releases/binary-win32/pyhoca-gui/pure/pyhoca-gui_0.1.0.7rc1_win32-setup.exe</A>
+
+Thanks+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110720/ca52beda/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110720/ca52beda/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000233.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+	<LI>Next message: <A HREF="000237.html">[X2go-User] Fairly severe problems for our Windows users
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#234">[ date ]</a>
+              <a href="thread.html#234">[ thread ]</a>
+              <a href="subject.html#234">[ subject ]</a>
+              <a href="author.html#234">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

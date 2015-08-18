@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C20131101132733.Horde.-h8iA6BtboxHHhrhos3zEg2%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001740.html">
+   <LINK REL="Next"  HREF="001742.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C20131101132733.Horde.-h8iA6BtboxHHhrhos3zEg2%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Nov  1 14:27:33 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001740.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+        <LI>Next message: <A HREF="001742.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1741">[ date ]</a>
+              <a href="thread.html#1741">[ thread ]</a>
+              <a href="subject.html#1741">[ subject ]</a>
+              <a href="author.html#1741">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Ted,
+
+On  Fr 01 Nov 2013 14:04:49 CET, Ted Barnes wrote:
+
+&gt;<i> [...]
+</I>
+The problem is your authentication service's socket file...
+
+x2gobroker and x2gobroker-authservice do talk to each other.  
+x2gobroker sends username + password to the authservice via a socket  
+and receives True or False back from the auth service.
+
+The socket file on Debian wheezy normall is in  
+/var/run/x2gobroker/x2gobroker-authservice.socket, on wheezy it is in  
+/run/x2gobroker/x2gobroker-authservice.
+
+The path of the authservice must be configured in  
+/etc/defaults/python-x2gobroker. The configuration you make there does  
+apply to all parts of the x2gobroker code.
+
+However, obviously you found a bug here. See below...
+
+&gt;<i> *authservice.log
+</I>&gt;<i> 2013-11-01 08:25:13,324 - authservice - INFO - X2Go Session Broker  
+</I>&gt;<i> (0.0.3.0), written by Mike Gabriel (X2Go Project)  
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-11-01 08:25:13,325 - authservice - INFO - Setting up the PAM  
+</I>&gt;<i> authentication service's environment...
+</I>&gt;<i> 2013-11-01 08:25:13,325 - authservice - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-11-01 08:25:13,326 - authservice - INFO -
+</I>
+
+here...
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET:  
+</I>&gt;<i> /var/run/x2gobroker/x2gobroker-authservice.socket
+</I>
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+&gt;<i> *broker.log
+</I>&gt;<i> 2013-11-01 08:26:41,081 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-11-01 08:26:41,086 - broker - INFO -   written by Mike Gabriel  
+</I>&gt;<i> (X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-11-01 08:26:41,086 - broker - INFO - Setting up the broker's  
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_CONFIG:  
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_AGENT_CMD:  
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-11-01 08:26:41,087 - broker - INFO -
+</I>
+and here...
+vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv
+&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+&gt;<i> 2013-11-01 08:26:41,087 - broker - INFO -    
+</I>&gt;<i> X2GOBROKER_DEFAULT_BACKEND: zeroconf
+</I>&gt;<i> 2013-11-01 08:26:41,087 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-11-01 08:26:41,087 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-11-01 08:26:42,543 - broker - INFO - client address is xxx.xxx.xxx.xxx
+</I>&gt;<i> 2013-11-01 08:26:42,544 - broker - DEBUG - username: user, password:  
+</I>&gt;<i> XXXXX, task: listsessions, profile_id: , cookie:
+</I>&gt;<i> 2013-11-01 08:26:42,544 - broker - DEBUG -  
+</I>&gt;<i> base_broker.X2GoBroker.get_authentication_mechanism(): found  
+</I>&gt;<i> default-auth-mech in global config section: pam
+</I>&gt;<i> 2013-11-01 08:26:42,882 - broker - DEBUG -  
+</I>&gt;<i> base_broker.X2GoBroker._do_authenticate(): authenticating user=user  
+</I>&gt;<i> with password=&lt;hidden&gt; against backend=inifile.
+</I>&gt;<i> 2013-11-01 08:26:42,882 - broker - DEBUG - connecting to  
+</I>&gt;<i> authentication service socket  
+</I>&gt;<i> /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-11-01 08:26:44,842 - broker - DEBUG -  
+</I>&gt;<i> base_broker.X2GoBroker.check_access(): result of authentication  
+</I>&gt;<i> check is: False
+</I>
+&gt;<i> [...]
+</I>
+&gt;<i> * wsgi.log
+</I>&gt;<i> wsgilog.log: Fri, 01 Nov 2013 08:26:44 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>   File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line  
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>     return self.application(environ, start_response)
+</I>&gt;<i>   File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>     return _tornado_application(environ, start_response)
+</I>&gt;<i>   File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94,  
+</I>&gt;<i> in __call__
+</I>&gt;<i>     assert handler._finished
+</I>&gt;<i> AssertionError
+</I>
+I am not sure about this one above, yet...
+
+Greets,
+Mike
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-keys
+Size: 7251 bytes
+Desc: ?ffentlicher PGP-Schl?ssel
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131101/e0bb64ec/attachment.key">https://lists.berlios.de/pipermail/x2go-user/attachments/20131101/e0bb64ec/attachment.key</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131101/e0bb64ec/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131101/e0bb64ec/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001740.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+	<LI>Next message: <A HREF="001742.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1741">[ date ]</a>
+              <a href="thread.html#1741">[ thread ]</a>
+              <a href="subject.html#1741">[ subject ]</a>
+              <a href="author.html#1741">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

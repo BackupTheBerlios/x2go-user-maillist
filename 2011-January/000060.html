@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] X2gothinclient system not working entirely
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2gothinclient%20system%20not%20working%20entirely&In-Reply-To=%3C5392961.3250.1294419878687.JavaMail.pcdog%40ultra%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000059.html">
+   <LINK REL="Next"  HREF="000061.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] X2gothinclient system not working entirely</H1>
+    <B>Silvan M. Gebhardt</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20X2gothinclient%20system%20not%20working%20entirely&In-Reply-To=%3C5392961.3250.1294419878687.JavaMail.pcdog%40ultra%3E"
+       TITLE="[X2go-user] X2gothinclient system not working entirely">gebhardt at openfactory.ch
+       </A><BR>
+    <I>Fri Jan  7 18:04:54 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000059.html">[X2go-user] Session switching (NX'ing and PXE booting transparency?)
+</A></li>
+        <LI>Next message: <A HREF="000061.html">[X2go-user] no automatic authentication prompts within x2go sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mailinglist
+
+
+I am right now trying to get the Thinclient system running
+
+
+I have to problems:
+
+1) Can't get my Keyboard layout set right, but that's minor. Ia m configuring it via cmdline like this:
+
+netboot:/usr/share/x2gothinclientsystem# cat /etc/default/x2gothinclient 
+#Command to run x2goclient
+#
+#############################
+#x2goclient --pgp-card --ldap=&quot;192.168.0.1:389:o=obviously nice,c=de&quot; --external-login=/ramdrive/logins --no-menu --maximize --link=lan --kbd-layout=de --kbd-type=pc105/de --set-kbd=1 --geometry=fullscreen --add-to-known-hosts --read-exports-from=/ramdrive/export --add-to-known-hosts
+x2goclient --external-login=/ramdrive/logins --no-menu --maximize --link=lan --kbd-type=pc105/de_CH --set-kbd=1 --geometry=fullscreen --add-to-known-hosts --read-exports-from=/ramdrive/export --add-to-known-hosts
+
+
+
+
+bascically it could work
+
+
+I get this:
+
+&quot;connection failed: creation failed: cannot create /home/x2goclient/.x2go/ssh
+(in german, I translated it for this mailinglist)
+
+how can I fix this?
+how can I preconfigure it to work with the -one installation? I have no LDAP or anything, and I do not want to go there, too overkill :)
+how can I get it to be gnome? the x2gothinclientsystem bash script creates KDE folders, but no gnome folders!
+
+
+
+
+than you for your help here!
+
+
+
+
+so again the scenario is:
+
+- 10.4.0.7 = x2goserver
+session works standalone
+
+
+10.4.0.196(via DHCP) the thin client boots and shows the x2goclient CONFIGURATION dialog. so I am quite far!
+
+
+
+Silvan
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000059.html">[X2go-user] Session switching (NX'ing and PXE booting transparency?)
+</A></li>
+	<LI>Next message: <A HREF="000061.html">[X2go-user] no automatic authentication prompts within x2go sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#60">[ date ]</a>
+              <a href="thread.html#60">[ thread ]</a>
+              <a href="subject.html#60">[ subject ]</a>
+              <a href="author.html#60">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

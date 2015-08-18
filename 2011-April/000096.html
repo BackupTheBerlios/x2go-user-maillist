@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] [X2go-dev] 10x printing speed increase for x2go	printing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20%5BX2go-dev%5D%2010x%20printing%20speed%20increase%20for%0A%20x2go%09printing&In-Reply-To=%3C20110411111803.1458642spy6c5jrf%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000100.html">
+   <LINK REL="Next"  HREF="000101.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] [X2go-dev] 10x printing speed increase for x2go	printing</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20%5BX2go-dev%5D%2010x%20printing%20speed%20increase%20for%0A%20x2go%09printing&In-Reply-To=%3C20110411111803.1458642spy6c5jrf%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-user] [X2go-dev] 10x printing speed increase for x2go	printing">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Apr 11 11:18:03 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000100.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+        <LI>Next message: <A HREF="000101.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#96">[ date ]</a>
+              <a href="thread.html#96">[ thread ]</a>
+              <a href="subject.html#96">[ subject ]</a>
+              <a href="author.html#96">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Phil,
+
+On Mo 11 Apr 2011 10:26:16 CEST &quot;--[ UxBoD ]--&quot; wrote:
+
+&gt;<i> Agreed Mike; though I have the feeling it may be less worth than the  
+</I>&gt;<i> effort involved unless somebody knows the internal working of Perl  
+</I>&gt;<i> and SSHFS ? A sleep could be added though I have tried to avoid  
+</I>&gt;<i> slowing down the process to much. Since adding that loop code we  
+</I>&gt;<i> have not experiencing any further failures; though time will tell.
+</I>
+I already had a look at the printing code in x2go some time ago.
+
+There basically are three components:
+
+   o cups-x2go
+   o x2goprint
+   o x2goclient
+
+If I recall it corrently the interaction between cups-x2go and  
+x2goprint was not optimal then. I guess it was cups-x2go that left  
+over some print job files whenever a print job was sent to the client,  
+but I am not sure anymore. A person that was not in the x2goprint  
+group also created orphaned print jobs in /, because they were not  
+picked up properly by x2goprint. My observations all were a little  
+odd. Whenever I have time, I will take a look at the mechanism and  
+come up with some patches.
+
+The x2goprint &lt;-&gt; x2goclient communication is rather simple: x2goprint  
+drops two job files in the spool dir: &lt;job&gt;.pdf and &lt;job&gt;.pdf.ready.  
+The X2go client has to run a thread that watches this spool dir (it's  
+in the x2go session cache folder under ~/.x2go/C-.../spooll). On each  
+incoming print job it has to wake up and take over the task of  
+processing the print job. My Python implementation of this printqueue  
+can be found here (if you prefer Python to Perl for a lecture...):
+
+<A HREF="http://code.x2go.org/gitweb?p=python-x2go.git;a=blob;f=x2go/printqueue.py;h=a71f6367b00b15fa4d33974d9dfdcbc8f2816161;hb=313fe031ef65286789af8deb6e4a2be28951d4ab">http://code.x2go.org/gitweb?p=python-x2go.git;a=blob;f=x2go/printqueue.py;h=a71f6367b00b15fa4d33974d9dfdcbc8f2816161;hb=313fe031ef65286789af8deb6e4a2be28951d4ab</A>
+
+Greets,
+Mike
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110411/3e6d795d/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110411/3e6d795d/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000100.html">[X2go-user] Fwd: Hooking Up To A Running X-Session
+</A></li>
+	<LI>Next message: <A HREF="000101.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#96">[ date ]</a>
+              <a href="thread.html#96">[ thread ]</a>
+              <a href="subject.html#96">[ subject ]</a>
+              <a href="author.html#96">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

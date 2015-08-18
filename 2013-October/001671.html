@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] pyhoca-cli sound issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pyhoca-cli%20sound%20issues&In-Reply-To=%3Cl3lqm6%24cmo%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001663.html">
+   <LINK REL="Next"  HREF="001672.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] pyhoca-cli sound issues</H1>
+    <B>Tim Kruse</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20pyhoca-cli%20sound%20issues&In-Reply-To=%3Cl3lqm6%24cmo%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] pyhoca-cli sound issues">tim.kruse at kikxxl.de
+       </A><BR>
+    <I>Wed Oct 16 12:44:31 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001663.html">[X2Go-User] pyhoca-cli sound issues
+</A></li>
+        <LI>Next message: <A HREF="001672.html">[X2Go-User] pyhoca-cli sound issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1671">[ date ]</a>
+              <a href="thread.html#1671">[ thread ]</a>
+              <a href="subject.html#1671">[ subject ]</a>
+              <a href="author.html#1671">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Am 14.10.2013 13:51, schrieb Tim Kruse:
+&gt;<i> [...]
+</I>&gt;<i>
+</I>&gt;<i> If I try to connect from client (within a fresh KDE session) to server
+</I>&gt;<i> with the following command, I don't have any sound in this x2gosession:
+</I>&gt;<i>
+</I>&gt;<i> pyhoca-cli --server $SERVER --new --command startkde --username $USR
+</I>&gt;<i> --sound pulse --geometry 1440x900 --link adsl --pack 16m-png-9
+</I>&gt;<i> --kbd-layout de --kbd-type '105/de'
+</I>&gt;<i>
+</I>&gt;<i> Now I connect to the server (or another x2goserver, that doesn't matter)
+</I>&gt;<i> with x2goclient and there is sound. When I then connect again with above
+</I>&gt;<i> pyhoca-cli command, I have sound in this session.
+</I>&gt;<i>
+</I>&gt;<i> When I restart the local KDE Desktop on the client, I don't have any
+</I>&gt;<i> sound with pyhoca, until I connect with x2goclient ...
+</I>&gt;<i>
+</I>&gt;<i> I think, there is some process/program, that pyhoca-cli is not able to
+</I>&gt;<i> start, until x2goclient will start it, but I can't find it ...
+</I>
+An update about this ...
+
+I digged into this problem a bit deeper and found one inportant 
+difference. The pulseaudio deamon get's started with KDE, so this is ok:
+
+ps -ef | grep pulse
+tkruse    3887     1  0 07:02 ?        00:00:00 /usr/bin/pulseaudio 
+--start --log-target=syslog
+
+But at this time no TCP port for pulseaudio is opened, so that no 
+network sound connection is possible (I use the standard port 4713). If 
+I start pyhoca-cli, it does not open the port (or is not able to, 
+dunno). X2Goclient DOES open the port, so that the connection can be 
+made. If I close the x2goclient session, the port remains open, so now a 
+pyhoca-cli session has sound, too.
+
+I started pyhoca-cli with --debug --libdebug and got the messages
+
+pyhoca-cli[10399] (x2gorevtunnel-pylib) DEBUG: notifying thread of 
+incoming channel: &lt;X2GoRevFwTunnel(Thread-5, started daemon 24821416)&gt;
+pyhoca-cli[10399] (x2gorevtunnel-pylib) DEBUG: detected incoming data 
+channel on X2Go server port: [127.0.0.1]:30089
+pyhoca-cli[10399] (x2gorevtunnel-pylib) DEBUG: data channel 
+&lt;paramiko.Channel 14 (open) window=2097152 -&gt; &lt;paramiko.Transport at 
+0x1813710L (cipher aes128-ctr, 128 bits) (active; 2 open channel(s))&gt;&gt; 
+for server port [127.0.0.1]:30089 is up
+pyhoca-cli[10399] (x2gorevtunnel-pylib) DEBUG: waiting for incoming data 
+channel on X2Go server port: [127.0.0.1]:30089
+
+which is clear, as there is no open port 4713.
+
+So, if pyhoca or python-x2go is not able to handle this, is there a 
+chance to let pulseaudio open this port otherwise? I think of some kind 
+of script, which will be executed before pyhoca ...
+
+So long,
+Tim
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001663.html">[X2Go-User] pyhoca-cli sound issues
+</A></li>
+	<LI>Next message: <A HREF="001672.html">[X2Go-User] pyhoca-cli sound issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1671">[ date ]</a>
+              <a href="thread.html#1671">[ thread ]</a>
+              <a href="subject.html#1671">[ subject ]</a>
+              <a href="author.html#1671">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

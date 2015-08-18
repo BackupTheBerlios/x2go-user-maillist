@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go segmentation fault
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20segmentation%20fault&In-Reply-To=%3Clcqjsn%24vgm%241%40ger.gmane.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="002005.html">
+   <LINK REL="Next"  HREF="002018.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go segmentation fault</H1>
+    <B>Buddy Butterfly</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20segmentation%20fault&In-Reply-To=%3Clcqjsn%24vgm%241%40ger.gmane.org%3E"
+       TITLE="[X2Go-User] x2go segmentation fault">buddy.butterfly at web.de
+       </A><BR>
+    <I>Tue Feb  4 12:45:40 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="002005.html">[X2Go-User] Have I found a bug or does X2Go Client win32 require 3D	acceleration?
+</A></li>
+        <LI>Next message: <A HREF="002018.html">[X2Go-User] x2go segmentation fault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2006">[ date ]</a>
+              <a href="thread.html#2006">[ thread ]</a>
+              <a href="subject.html#2006">[ subject ]</a>
+              <a href="author.html#2006">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hi there,
+
+we started to use x2go via ssh proxying.
+&gt;<i>From there on we experience segmentation faults.
+</I>In the syslog excerpt below you can see that it starts
+with the segfault. The last line with the pulse audio
+is repeated hundreds of times.
+
+Server: Kubuntu 12.10 amd64, version 4.0.1.13-0~814~ubuntu12.10.1
+
+Client: Windows 7 Professional SP1 - 64bit, X2GoClient V. 4.0.1.3 (Qt -
+4.8.5)
+
+After the crash there is a stale session.
+
+Any clue what reason it could be?
+
+Cheers,
+Matt
+
+
+Excerpt from syslog:
+
+--- snip ---
+
+kernel: [18229.879394] x2goagent[17619]: segfault at 7fff1780fff8 ip
+00007fcb8ac64c29 sp 00007fff17810000 error 6 in
+libNX_X11.so.6.2[7fcb8ac1a000+11b000]
+Feb  4 11:56:53 mwwst2 /usr/bin/x2gosuspend-session: session with ID
+XXXX-50-1391503950_stDKDE_dp32 has been suspended successfully
+Feb  4 11:56:54 mwwst2 /usr/bin/x2goumount-session[20602]: successfully
+unmounted &quot;/tmp/.x2go-XXXX/media/disk/_cygdrive_E_transfer&quot;
+Feb  4 11:56:55 mwwst2 /usr/bin/x2goumount-session[20602]: successfully
+unmounted &quot;/tmp/.x2go-XXXX/spool/C-XXXX-50-1391503950_stDKDE_dp32&quot;
+Feb  4 11:56:55 mwwst2 /usr/bin/x2goumount-session[20657]: ERROR: failed
+to unmount &quot;/tmp/.x2go-XXXX/spool/C-XXXX-50-1391503950_stDKDE_dp32&quot;
+Feb  4 11:56:56 mwwst2 kernel: [18232.328575] QProcessManager[18602]:
+segfault at 0 ip           (null) sp 00007f3c20a4d868 error 14 in
+nepomukservicestub[400000+7000]
+Feb  4 11:56:56 mwwst2 kernel: [18232.549131] device eth2 left
+promiscuous mode
+Feb  4 11:56:56 mwwst2 kernel: [18232.580286] vboxnetflt: 14424 out of
+235203 packets were not sent (directed to host)
+Feb  4 11:57:34 mwwst2 /usr/bin/x2gostartagent: successfully started
+X2Go agent session with ID XXXX-51-1391511452_stDKDE_dp32
+Feb  4 11:57:38 mwwst2 /usr/bin/x2goruncommand: launching session with
+Xsession-x2go mechanism, using STARTUP=&quot;startkde&quot;
+Feb  4 11:57:39 mwwst2 /usr/bin/x2gosetkeyboard: Setting X keyboard
+according to /home/XXXX/.x2go/C-XXXX-51-1391511452_stDKDE_dp32/keyboard
+Feb  4 11:57:42 mwwst2 dbus[1572]: [system] Activating service
+name='org.kde.powerdevil.backlighthelper' (using servicehelper)
+Feb  4 11:57:42 mwwst2 org.kde.powerdevil.backlighthelper:
+QDBusConnection: system D-Bus connection created before
+QCoreApplication. Application may misbehave.
+Feb  4 11:57:42 mwwst2 dbus[1572]: [system] Successfully activated
+service 'org.kde.powerdevil.backlighthelper'
+Feb  4 11:57:44 mwwst2 NetworkManager[1676]: &lt;info&gt; Unmanaged Device
+found; state CONNECTED forced. (see <A HREF="http://bugs.launchpad.net/bugs/191889">http://bugs.launchpad.net/bugs/191889</A>)
+Feb  4 11:57:45  NetworkManager[1676]: last message repeated 3 times
+Feb  4 11:57:45 mwwst2 /usr/bin/x2gomountdirs[22353]: successfully
+mounted <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">Rubilak at 127.0.0.1</A>:30009/cygdrive/E/transfer to
+/tmp/.x2go-XXXX/media/disk/_cygdrive_E_transfer
+Feb  4 11:57:47 mwwst2 /usr/bin/x2gomountdirs[22353]: successfully
+mounted
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">Rubilak at 127.0.0.1</A>:30009/cygdrive/C/Users/Rubilak/X2GO~1/S-0B78~1/spool
+to /tmp/.x2go-XXXX/spool/C-XXXX-51-1391511452_stDKDE_dp32
+Feb  4 11:57:57 mwwst2 hp-systray: hp-systray[22566]: warning: No hp: or
+hpfax: devices found in any installed CUPS queue. Exiting.
+Feb  4 11:58:00 mwwst2 /usr/bin/x2gosuspend-session: session with ID
+XXXX-51-1391511452_stDKDE_dp32 has been suspended successfully
+Feb  4 11:58:01 mwwst2 /usr/bin/x2goumount-session[22773]: successfully
+unmounted &quot;/tmp/.x2go-XXXX/media/disk/_cygdrive_E_transfer&quot;
+Feb  4 11:58:01 mwwst2 /usr/bin/x2goumount-session[22773]: ERROR: failed
+to unmount &quot;/tmp/.x2go-XXXX/spool/C-XXXX-51-1391511452_stDKDE_dp32&quot;
+Feb  4 11:58:04 mwwst2 pulseaudio[22879]: [pulseaudio] main.c:
+Benutzerkonfigurierter Server unter localhost:30008 verweigert den
+Start/Autospawn.
+Feb  4 11:58:06 mwwst2 pulseaudio[22890]: [pulseaudio] main.c:
+Benutzerkonfigurierter Server unter localhost:30008 verweigert den
+Start/Autospawn.
+Feb  4 11:58:06 mwwst2 pulseaudio[22892]: [pulseaudio] main.c:
+Benutzerkonfigurierter Server unter localhost:30008 verweigert den
+Start/Autospawn.
+Feb  4 11:58:10 mwwst2 pulseaudio[22908]: [pulseaudio] main.c:
+Benutzerkonfigurierter Server unter localhost:30008 verweigert den
+Start/Autospawn.
+
+--- snap ---
+
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="002005.html">[X2Go-User] Have I found a bug or does X2Go Client win32 require 3D	acceleration?
+</A></li>
+	<LI>Next message: <A HREF="002018.html">[X2Go-User] x2go segmentation fault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#2006">[ date ]</a>
+              <a href="thread.html#2006">[ thread ]</a>
+              <a href="subject.html#2006">[ subject ]</a>
+              <a href="author.html#2006">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

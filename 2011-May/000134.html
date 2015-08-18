@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Script 'x2gocreatebase.sh' not found
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Script%20%27x2gocreatebase.sh%27%20not%20found&In-Reply-To=%3C4DC46755.2050708%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000133.html">
+   <LINK REL="Next"  HREF="000135.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Script 'x2gocreatebase.sh' not found</H1>
+    <B>wforumw</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Script%20%27x2gocreatebase.sh%27%20not%20found&In-Reply-To=%3C4DC46755.2050708%40gmail.com%3E"
+       TITLE="[X2go-user] Script 'x2gocreatebase.sh' not found">wforumw at gmail.com
+       </A><BR>
+    <I>Fri May  6 23:25:41 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000133.html">[X2go-user] Script 'x2gocreatebase.sh' not found
+</A></li>
+        <LI>Next message: <A HREF="000135.html">[X2go-user] Script 'x2gocreatebase.sh' not found
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Strange, this is what I did
+
+|<i>/etc/apt/sources.list.d/x2go.list |||
+</I>
+    |deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main |||
+    |deb-src <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A> squeeze main |
+    ||
+
+|<i>
+</I>||<i>gpg --keyserver keys.gnupg.net --recv-keys E1F958385BFE2B6E |
+</I>|<i>gpg -a --export E1F958385BFE2B6E | apt-key add - |
+</I>|<i>
+</I>||||<i>aptitude install x2go-keyring &amp;&amp; aptitude update |
+</I>|<i>aptitude ||install x2goserver|
+</I>
+And then I only find the script x2godbadmin.sh
+
+Ane one an idea??
+
+Many thanks
+
+On 05/06/2011 07:54 PM, John A. Sullivan III wrote:
+&gt;<i> On Fri, 2011-05-06 at 11:42 +0200, WforumW wrote:
+</I>&gt;&gt;<i> Hi,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I try to test and install x2goserver described on
+</I>&gt;&gt;<i> <A HREF="http://wiki.x2go.org/installing_x2goserver_debian">http://wiki.x2go.org/installing_x2goserver_debian</A>
+</I>&gt;&gt;<i> When I try to install the database with the script x2gocreatebase.sh
+</I>&gt;&gt;<i> it seems not to be included
+</I>&gt;&gt;<i> The only script I found under /usr/lib/x2go/script is x2godbadmin
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Do I miss something ?
+</I>&gt;&gt;<i> Many thanks, I really would like to try and test x2go to replace the
+</I>&gt;&gt;<i> freenx
+</I>&gt;<i> Strange - my installation is quite old but I have no x2godbadmin but I
+</I>&gt;<i> do have x2gocreatebase.sh - John
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110506/9bbafdd4/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20110506/9bbafdd4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000133.html">[X2go-user] Script 'x2gocreatebase.sh' not found
+</A></li>
+	<LI>Next message: <A HREF="000135.html">[X2go-user] Script 'x2gocreatebase.sh' not found
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#134">[ date ]</a>
+              <a href="thread.html#134">[ thread ]</a>
+              <a href="subject.html#134">[ subject ]</a>
+              <a href="author.html#134">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

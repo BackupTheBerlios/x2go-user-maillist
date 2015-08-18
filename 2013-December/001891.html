@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Keyboard mapping issues with Windows client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20mapping%20issues%20with%20Windows%20client&In-Reply-To=%3C52C07C7F.3040400%40ast.cam.ac.uk%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001882.html">
+   <LINK REL="Next"  HREF="001893.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Keyboard mapping issues with Windows client</H1>
+    <B>Roderick Johnstone</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Keyboard%20mapping%20issues%20with%20Windows%20client&In-Reply-To=%3C52C07C7F.3040400%40ast.cam.ac.uk%3E"
+       TITLE="[X2Go-User] Keyboard mapping issues with Windows client">rmj at ast.cam.ac.uk
+       </A><BR>
+    <I>Sun Dec 29 20:48:15 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001882.html">[X2Go-User] [newb] fedora 20 gnome won't start
+</A></li>
+        <LI>Next message: <A HREF="001893.html">[X2Go-User] Keyboard mapping issues with Windows client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1891">[ date ]</a>
+              <a href="thread.html#1891">[ thread ]</a>
+              <a href="subject.html#1891">[ subject ]</a>
+              <a href="author.html#1891">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>@Mike Gabriel
+
+I have broken this out of the thread &quot;[X2Go-User] [newb] display size 
+ignored&quot;.
+
+I wanted to clarify the keyboard mapping issues that I'm seeing. I need, 
+at least, to connect to a KDE session from a Windows client with a UK 
+keyboard and from a UK model Mac laptop correctly. When connecting a 
+Windows KDE session I invariably get a US keyboard layout.
+
+I'm sorry this post is so long, but its all a bit complicated...
+
+My early tests were a bit confusing, I think because the system I'm 
+connecting to has a system-wide UK keyboard setting. So, sometimes tests 
+with xterm seem to be working when its just getting a default.
+
+In order to resolve this ambiguity, I've been testing from my Windows 
+laptop with the keyboard set to French mapping which is not a default 
+for the system I'm connecting to or for kde.
+
+I've been testing from Windows client 4.01.2 and server  package 
+x2goserver-4.0.1.9-2.fc20.x86_64 from the Fedora 20 repo.
+
+When I start a single application session (/usr/bin/xterm) the only 
+setup that seems to get the correct French keyboard mappings is when I 
+explicitly set the Keyboard layout to fr and the Keyboard model to 
+pc105/fr. Choosing either auto for the layout or ticking the checkbox 
+&quot;Keep current keyboard settings&quot; does not result in a French layout. (In 
+both cases I get a UK keyboard layout which is the system default for 
+the system I'm connecting to).
+
+Having established how to get the correct keyboard mapping in a plain 
+xterm I try a kde session with the same client keyboard settings; now I 
+get a US keyboard layout, which I suspect is a kde default.
+
+I'm doing a setxkbmap -print &gt;&amp; /tmp/temp.lis very early on in 
+/usr/bin/startkde and I can see that at that point a French keyboard is 
+set. However, by the time the KDE session is running and I can type into 
+a konsole I have a US key layout. (Logging in to a KDE session at the 
+console on this system gets me a UK keyboard as expected).
+
+I thought that maybe KDE is setting its own US keyboard map (or just 
+defaulting to US) so I took some advice from the Fedora KDE list on how 
+to stop KDE setting its own keyboard map. However, that had no effect. I 
+still get the US keyboard map.
+
+So, I think there are at least two problems:
+
+1) For the simple xterm session setting the layout to &quot;auto&quot; or checking 
+the box &quot;Keep current keyboard settings&quot; is not working.
+
+2) KDE is possibly overriding the already set keyboard map with a US layout.
+
+Is it likely that the nightly Windows client builds will address both 
+these issues or perhaps just 1)?
+
+Can you confirm that its possible (for you) to get a KDE session with 
+the correct keyboard mapping that is not the default?
+
+Thanks
+
+Roderick
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001882.html">[X2Go-User] [newb] fedora 20 gnome won't start
+</A></li>
+	<LI>Next message: <A HREF="001893.html">[X2Go-User] Keyboard mapping issues with Windows client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1891">[ date ]</a>
+              <a href="thread.html#1891">[ thread ]</a>
+              <a href="subject.html#1891">[ subject ]</a>
+              <a href="author.html#1891">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

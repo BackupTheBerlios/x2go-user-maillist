@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Ubuntu Natty X2go client
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%20Natty%20X2go%20client&In-Reply-To=%3C20110606195734.51734h9y6ttqwfm6%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000178.html">
+   <LINK REL="Next"  HREF="000181.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Ubuntu Natty X2go client</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Ubuntu%20Natty%20X2go%20client&In-Reply-To=%3C20110606195734.51734h9y6ttqwfm6%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-user] Ubuntu Natty X2go client">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Jun  6 19:57:34 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000178.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+        <LI>Next message: <A HREF="000181.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Neil,
+
+On Mo 06 Jun 2011 14:36:10 CEST Neil Hunt wrote:
+
+&gt;<i> I know Mike got X2go server running on Ubuntu 11.04 Natty. I haven't been
+</I>&gt;<i> able to do that yet but that's not my particular concern at the moment. I
+</I>&gt;<i> was wondering if anybody has used X2go client (either standard GTK client or
+</I>&gt;<i> Py Hoca) on an Ubuntu Natty desktop machine. I am trying to use Py Hoca
+</I>
+What desktop shell are you using? Unity? Or GNOME classic? Please try  
+with GNOME classic, first. Make sure you have the Info Tray enabled  
+(the applet area that network manager, padevchooser,  
+gnome-power-manager etc. dock to). PyHoca-GUI should appear there as  
+another icon.
+
+With Unity then, you should make sure to have this same applet/info  
+tray available...
+
+&gt;<i> pyhoca-gui[5662] (PyHoca-GUI) WARN: the current release of PyHoca-GUI does
+</I>&gt;<i> not support client configuration
+</I>
+This line is normal!!!! It just warns you, that there is still a  
+programme component missing in PyHoca-GUI... Nothing to worry about.  
+If you do a
+
+  $ cd /usr/bin
+  $ ./pyhoca-gui
+
+in a shell, then the option menu item ,,Client Settings'' is not  
+greyed out anymore, you are warned that pyhoca-gui runs in development  
+mode etc. This way of running pyhoca-gui is not recommended (as it  
+will raise some more python exceptions that are normally silent -&gt;  
+needed by myself for debugging...).
+
+&gt;<i> The logo pops up in the middle of the screen, but then nothing shows up
+</I>&gt;<i> anywhere. I see the process running, but I can't find any icon indicating
+</I>&gt;<i> it's running. Has anyone tried this successfully?
+</I>
+Look for the info tray! Once you have a solution, sign up for the X2go  
+wiki and place it at an appropriate place, e.g.:
+<A HREF="http://wiki.x2go.org/pyhoca-gui">http://wiki.x2go.org/pyhoca-gui</A>
+
+Thanks,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110606/8d332bd5/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110606/8d332bd5/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000178.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+	<LI>Next message: <A HREF="000181.html">[X2go-user] Ubuntu Natty X2go client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#179">[ date ]</a>
+              <a href="thread.html#179">[ thread ]</a>
+              <a href="subject.html#179">[ subject ]</a>
+              <a href="author.html#179">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

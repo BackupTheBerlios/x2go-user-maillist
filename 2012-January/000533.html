@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Problem sharing folder on Ubuntu 11.10
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20sharing%20folder%20on%20Ubuntu%2011.10&In-Reply-To=%3CCAN-h0Du70wbb5omF%2BTsK8vPmJ0OYSBw8qTm%3DO7KHAv1Q8aJ7WA%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000531.html">
+   <LINK REL="Next"  HREF="000574.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Problem sharing folder on Ubuntu 11.10</H1>
+    <B>Carthik Sharma</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Problem%20sharing%20folder%20on%20Ubuntu%2011.10&In-Reply-To=%3CCAN-h0Du70wbb5omF%2BTsK8vPmJ0OYSBw8qTm%3DO7KHAv1Q8aJ7WA%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Problem sharing folder on Ubuntu 11.10">mail at carthik.net
+       </A><BR>
+    <I>Thu Jan  5 15:23:45 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000531.html">[X2go-User] connection issue
+</A></li>
+        <LI>Next message: <A HREF="000574.html">[X2go-User] Problem sharing folder on Ubuntu 11.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I have problems sharing folder from a client to the server on Ubuntu 11.10
+
+Both the x2gouser and the user with the active session are members of
+the fuse group on the server
+I have installed the stable version of the server and client from the
+launchpad x2go/stable ppa.
+
+Here's what I see on the server, with loglevel debug:
+
+
+Jan  5 09:11:40 zax /usr/bin/x2goresume-session: client 10.173.156.160
+has successfully resumed session with ID
+carthik-51-1325771783_stDGNOME_dp24
+Jan  5 09:11:40 zax /usr/bin/x2gofeature: x2gofeature called with
+options: X2GO_DESKTOPSHARING
+Jan  5 09:11:40 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-compat.features:
+x2goserver-compat.features called with options: X2GO_DESKTOPSHARING
+Jan  5 09:11:40 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options:
+X2GO_DESKTOPSHARING
+Jan  5 09:11:40 zax /usr/share/x2go/x2gofeature.d/x2goserver.features:
+x2goserver.features called with options: X2GO_DESKTOPSHARING
+Jan  5 09:11:41 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-printing.features:
+x2goserver-printing.features called with options: X2GO_DESKTOPSHARING
+Jan  5 09:11:41 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-xsession.features:
+x2goserver-xsession.features called with options: X2GO_DESKTOPSHARING
+Jan  5 09:11:41 zax /usr/bin/x2gofeature: x2gofeature called with
+options: X2GO_RUN_EXTENSIONS
+Jan  5 09:11:41 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-compat.features:
+x2goserver-compat.features called with options: X2GO_RUN_EXTENSIONS
+Jan  5 09:11:41 zax
+/usr/share/x2go/x2gofeature.d/x2goserver-extensions.features:
+x2goserver-extensions.features called with options:
+X2GO_RUN_EXTENSIONS
+Jan  5 09:11:41 zax /usr/bin/x2goserver-run-extensions:
+x2goserver-run-extensions called with options:
+carthik-51-1325771783_stDGNOME_dp24 post-resume
+Jan  5 09:11:42 zax /usr/bin/x2gomountdirs[29677]: x2golistmountdirs
+has been called with options: dir carthik-51-1325771783_stDGNOME_dp24
+carthik home/carthik/.x2go/ssh/key.Vs1670
+/home/carthik/.x2go/S-carthik-51-1325771783_stDGNOME_dp24/spool__PRINT_SPOOL___REVERSESSH_PORT__30004
+Jan  5 09:11:42 zax /usr/bin/x2gomountdirs[29677]: mounting
+/tmp/spool_carthik/carthik-51-1325771783_stDGNOME_dp24, mount point
+type is print spool directory
+Jan  5 09:11:42 zax /usr/bin/x2gomountdirs[29677]: db_insertmount
+called, session ID: carthik-51-1325771783_stDGNOME_dp24, path:
+/tmp/spool_carthik/carthik-1-1325771783_stDGNOME_dp24, client:
+127.0.0.1; return value: 1
+Jan  5 09:11:42 zax /usr/bin/x2gomountdirs[29677]: executing: sshfs
+-o idmap=user,uid=`id -u`,gid=`id
+-`,ServerAliveInterval=300,Cipher=blowfish,IdentityFile=/home/carthik/.x2go/ssh/key.Vs1670,UserKnownHostsFile=/home/carthik/.x2go/ssh/key.Vs1670.ident
+carthik&quot;@127.0.0.1:&quot;/home/carthik/.x2go/S-carthik-51-1325771783_stDGNOME_dp24/spool&quot;
+&quot;/tmp/spool_carthik/carthik-51-1325771783_stDGNOME_dp24&quot; -p 30004
+Jan  5 09:11:43 zax /usr/bin/x2gomountdirs[29677]: WARNING: mounting
+of /home/carthik/.x2go/S-carthik-51-1325771783_stDGNOME_dp24/spool
+failed
+Jan  5 09:11:43 zax /usr/bin/x2gomountdirs[29677]: db_deletemount
+called, session ID: carthik-51-1325771783_stDGNOME_dp24, path:
+/tmp/spool_carthik/carthik-1-1325771783_stDGNOME_dp24
+Jan  5 09:13:03 zax /usr/bin/x2gomountdirs[29884]: x2golistmountdirs
+has been called with options: dir carthik-51-1325771783_stDGNOME_dp24
+carthik /home/carthik/.x2go/ssh/key.Wr1670
+/home/carthik/pers/docs__REVERSESSH_PORT__30004
+Jan  5 09:13:03 zax /usr/bin/x2gomountdirs[29884]: db_insertmount
+called, session ID: carthik-51-1325771783_stDGNOME_dp24, path:
+/tmp/carthik_media/disk/_home_carthik_pers_docs, client: 127.0.0.1;
+return value: 1
+Jan  5 09:13:03 zax /usr/bin/x2gomountdirs[29884]: executing: sshfs
+-o idmap=user,uid=`id -u`,gid=`id
+-g`,ServerAliveInterval=300,Cipher=blowfish,IdentityFile=/home/carthik/.x2go/ssh/key.Wr1670,UserKnownHostsFile=/home/carthik/.x2go/ssh/key.Wr1670.ident
+&quot;carthik&quot;@127.0.0.1:&quot;/home/carthik/pers/docs&quot;
+&quot;/tmp/carthik_media/disk/_home_carthik_pers_docs&quot; -p 30004
+Jan  5 09:13:03 zax /usr/bin/x2gomountdirs[29884]: WARNING: mounting
+of /home/carthik/pers/docs failed
+Jan  5 09:13:04 zax /usr/bin/x2gomountdirs[29884]: db_deletemount
+called, session ID: carthik-51-1325771783_stDGNOME_dp24, path:
+/tmp/carthik_media/disk/_home_carthik_pers_docs
+
+
+Any help would be great.
+Please let me know if any other info is required or missing.
+
+Thanks,
+Carthik.
+*****
+Phone: 407 421 3062
+Email: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mail at carthik.net</A>
+Skype: carthikdotnet
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000531.html">[X2go-User] connection issue
+</A></li>
+	<LI>Next message: <A HREF="000574.html">[X2go-User] Problem sharing folder on Ubuntu 11.10
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#533">[ date ]</a>
+              <a href="thread.html#533">[ thread ]</a>
+              <a href="subject.html#533">[ subject ]</a>
+              <a href="author.html#533">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

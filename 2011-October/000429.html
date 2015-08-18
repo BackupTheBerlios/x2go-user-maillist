@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] can't launch pxe session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20can%27t%20launch%20pxe%20session&In-Reply-To=%3C4E8DF4F6.4030305%40rmtohio.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000428.html">
+   <LINK REL="Next"  HREF="000431.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] can't launch pxe session</H1>
+    <B>Joe Konecny</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20can%27t%20launch%20pxe%20session&In-Reply-To=%3C4E8DF4F6.4030305%40rmtohio.com%3E"
+       TITLE="[X2go-User] can't launch pxe session">jkonecny at rmtohio.com
+       </A><BR>
+    <I>Thu Oct  6 20:35:34 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000428.html">[X2go-User] x2gothinclient_preptftpboot further instructions
+</A></li>
+        <LI>Next message: <A HREF="000431.html">[X2go-User] can't launch pxe session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#429">[ date ]</a>
+              <a href="thread.html#429">[ thread ]</a>
+              <a href="subject.html#429">[ subject ]</a>
+              <a href="author.html#429">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've installed x2go (SQLite) with PXE boot and everything looks like it
+went ok.  The server is an HP DL-385 G7 with 16GB ram, 1TB drive and AMD
+Opteron Model 6128 HE 8 core, 2.0 GHz, 12MB L3 processor.  Runing with a Wyse
+S50 thin client at 100Mbps on a switch directly to the server.  The server
+is doing nothing other than hosting this x2go project.  PXE boots and I'm
+presented with a logon screen but the response is extremely slow.  Even as
+I type in my password the characters are echoed to the screen several
+seconds after I type them.  Nothing ever happens after I enter the password,
+the screen goes blank and there it sits.  I've left it for hours and nothing
+changes.  The nic light blinks like crazy so I watched with tcpdump and posted
+it below if that helps (sorry about the wrap).  Loads of nfs traffic for some
+reason.  Never ending.  Not sure where to look at this point.  Any help is
+appreciated.
+
+
+     10.0.0.118.1565611263 &gt; 10.0.0.25.nfs: 112 getattr fh 
+Unknown/0100070107009802000000000B3CE9DF7EBC40B79767B6A5157166FE3A229802
+14:20:12.301227 IP (tos 0x0, ttl 64, id 53582, offset 0, flags [DF], proto TCP (6), length 168)
+     10.0.0.25.nfs &gt; 10.0.0.118.1565611263: reply ok 112 getattr REG 100644 ids 0/0 sz 21494
+14:20:12.305717 IP (tos 0x0, ttl 64, id 31678, offset 0, flags [DF], proto TCP (6), length 168)
+     10.0.0.118.1582388479 &gt; 10.0.0.25.nfs: 112 getattr fh 
+Unknown/0100070107009802000000000B3CE9DF7EBC40B79767B6A5157166FE6E059802
+14:20:12.305837 IP (tos 0x0, ttl 64, id 53583, offset 0, flags [DF], proto TCP (6), length 168)
+     10.0.0.25.nfs &gt; 10.0.0.118.1582388479: reply ok 112 getattr REG 100755 ids 0/0 sz 1319176
+14:20:12.344420 IP (tos 0x0, ttl 64, id 31679, offset 0, flags [DF], proto TCP (6), length 52)
+     10.0.0.118.801 &gt; 10.0.0.25.nfs: Flags [.], cksum 0x5ddd (correct), seq 21496, ack 19553, win 40001, options 
+[nop,nop,TS val 5608091 ecr 27371128], length 0
+14:20:12.554111 IP (tos 0x0, ttl 64, id 31680, offset 0, flags [DF], proto TCP (6), length 172)
+     10.0.0.118.1599165695 &gt; 10.0.0.25.nfs: 116 access fh 
+Unknown/0100070107009802000000000B3CE9DF7EBC40B79767B6A5157166FE0A009802 
+NFS_ACCESS_READ|NFS_ACCESS_LOOKUP|NFS_ACCESS_MODIFY|NFS_ACCESS_EXTEND|NFS_ACCESS_DELETE
+14:20:12.554258 IP (tos 0x0, ttl 64, id 53584, offset 0, flags [DF], proto TCP (6), length 176)
+     10.0.0.25.nfs &gt; 10.0.0.118.1599165695: reply ok 120 access attr: DIR 40755 ids 0/0 sz 4096 nlink 13 rdev 0/0 fsid 
+4926cd6b7a5f5b9c fileid 298000a a/m/ctime 1317734895.560868495 1317735279.990868336 1317735279.990868336 c 0003
+14:20:12.554755 IP (tos 0x0, ttl 64, id 31681, offset 0, flags [DF], proto TCP (6), length 52)
+     10.0.0.118.801 &gt; 10.0.0.25.nfs: Flags [.], cksum 0x5c9d (correct), seq 21616, ack 19677, win 40001, options 
+[nop,nop,TS val 5608143 ecr 27371152], length 0
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000428.html">[X2go-User] x2gothinclient_preptftpboot further instructions
+</A></li>
+	<LI>Next message: <A HREF="000431.html">[X2go-User] can't launch pxe session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#429">[ date ]</a>
+              <a href="thread.html#429">[ thread ]</a>
+              <a href="subject.html#429">[ subject ]</a>
+              <a href="author.html#429">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

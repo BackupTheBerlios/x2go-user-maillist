@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] No login after upgrade
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20No%20login%20after%20upgrade&In-Reply-To=%3C4EBAFAF5.3030007%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000488.html">
+   <LINK REL="Next"  HREF="000503.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] No login after upgrade</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20No%20login%20after%20upgrade&In-Reply-To=%3C4EBAFAF5.3030007%40vandervlis.nl%3E"
+       TITLE="[X2go-User] No login after upgrade">paul at vandervlis.nl
+       </A><BR>
+    <I>Wed Nov  9 23:13:09 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000488.html">[X2go-User] No login after upgrade
+</A></li>
+        <LI>Next message: <A HREF="000503.html">[X2go-User] No login after upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#490">[ date ]</a>
+              <a href="thread.html#490">[ thread ]</a>
+              <a href="subject.html#490">[ subject ]</a>
+              <a href="author.html#490">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 09-11-11 20:15, Mike Gabriel schreef:
+&gt;<i> Hi Paul,
+</I>&gt;<i> 
+</I>&gt;<i> On Mi 09 Nov 2011 18:23:28 CET Paul van der Vlis wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Great that it seems to be clear now why sometimes session are lost.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I've upgraded to the latest version of X2go, but after the upgrade I
+</I>&gt;&gt;<i> cannot login anymore. I've removed x2go completely with a --purge and
+</I>&gt;&gt;<i> reinstalled it again. But it's not possible to login, hmmm.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> In /etc/group there is no group &quot;x2gousers&quot; anymore. Maybe I don't know
+</I>&gt;&gt;<i> how to add a user, but I don't find documentation about how to add a
+</I>&gt;&gt;<i> user on the wiki.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> With regards,
+</I>&gt;&gt;<i> Paul van der Vlis.
+</I>&gt;<i> 
+</I>&gt;<i> Just cross checked here... Updated another of my servers -&gt; works. Be a
+</I>&gt;<i> bit more verbose on your setup.
+</I>
+I've tested Pyhoca-gui, and there is no problem.
+And no crashes anymore! Great!
+
+
+So it's a problem with x2goclient, it's not really stable too, I saw
+some crashes of the client. I've reinstalled it, but it did not help.
+
+When the autothentication failes, I see &quot;Access denied. Authentication
+that can continue: publickey,keyboard-interactive&quot;. It's not a timeout,
+it comes fast.
+
+In the auth.log on the server there is nothing. I've changed loglevel to
+debug, but I don't see any logs, but I am not really sure where to find
+them.
+
+I've tried to run x2client with strace, but then it works most of the
+time. Without strace it does not.
+
+This is the client, Squeeze, 64-bits. AMD processor:
+server2:/home/paul# aptitude -F '%p %V' --disable-columns search x2go
+cups-x2go 3.0.0.3-0~x2go1+squeeze~main~54~build1
+pinentry-x2go 0.7.5.0-0~x2go1+squeeze~main~12~build1
+plasma-widget-x2go 3.0.1.2-0~x2go2+squeeze~main~24~build1
+python-x2go 0.1.1.8-0-x2go1+squeeze~main~612~build1
+x2go-keyring 2011.04.19+squeeze~main~10~build1
+x2goagent 3.5.0.2-0~x2go1+squeeze~main~49~build1
+x2gocdmanager 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2goclient 3.99.0.1-0~x2go1+squeeze~main~109~build1
+x2godesktopsharing 3.0.1.3-0~x2go1+squeeze~main~61~build1
+x2gognomebindings 2.0.1.3-0~x2go1+squeeze~main~47~build1
+x2golxdebindings 1.0.1.1-0~x2go1+squeeze~main~16~build1
+x2goplugin 3.99.0.1-0~x2go1+squeeze~main~109~build1
+x2goserver 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-compat 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-extensions 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-printing 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2gosmartcardrules 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinclient 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinclientmanagement 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinshutdown 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gotrinitybindings 0.0.0.1+squeeze~main~10~build1
+x2gousbmount 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+
+This is the server. Squeeze 32-bits, Intel processor. There was an older
+heuler version on it before but I've removed it.
+jet2:/var/log# aptitude -F '%p %V' --disable-columns search x2go
+cups-x2go 3.0.0.3-0~x2go1+squeeze~main~54~build1
+pinentry-x2go 0.7.5.0-0~x2go1+squeeze~main~12~build1
+plasma-widget-x2go 3.0.1.2-0~x2go2+squeeze~main~24~build1
+python-x2go 0.1.1.8-0-x2go1+squeeze~main~612~build1
+x2go-keyring 2011.04.19+squeeze~main~10~build1
+x2goagent 3.5.0.2-0~x2go1+squeeze~main~49~build1
+x2gocdmanager 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2goclient 3.99.0.1-0~x2go1+squeeze~main~109~build1
+x2godesktopsharing 3.0.1.3-0~x2go1+squeeze~main~61~build1
+x2gognomebindings 2.0.1.3-0~x2go1+squeeze~main~47~build1
+x2golxdebindings 1.0.1.1-0~x2go1+squeeze~main~16~build1
+x2goplugin 3.99.0.1-0~x2go1+squeeze~main~109~build1
+x2goserver 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-compat 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-extensions 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2goserver-printing 3.0.99.7-0~x2go1+squeeze~main~355~build1
+x2gosmartcardrules 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinclient 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinclientmanagement 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gothinshutdown 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+x2gotrinitybindings 0.0.0.1+squeeze~main~10~build1
+x2gousbmount 1.0.1.3-0~x2go1.1+squeeze~main~274~build1
+
+With regards,
+Paul.
+
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000488.html">[X2go-User] No login after upgrade
+</A></li>
+	<LI>Next message: <A HREF="000503.html">[X2go-User] No login after upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#490">[ date ]</a>
+              <a href="thread.html#490">[ thread ]</a>
+              <a href="subject.html#490">[ subject ]</a>
+              <a href="author.html#490">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

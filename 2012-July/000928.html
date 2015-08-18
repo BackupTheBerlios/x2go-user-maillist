@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] NX Agent refuses connections from localhost
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20Agent%20refuses%20connections%20from%20localhost&In-Reply-To=%3C714877596.100082.1342123653975.JavaMail.apache%40nm23.abv.bg%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000931.html">
+   <LINK REL="Next"  HREF="000932.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] NX Agent refuses connections from localhost</H1>
+    <B>Angel Tsankov</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20NX%20Agent%20refuses%20connections%20from%20localhost&In-Reply-To=%3C714877596.100082.1342123653975.JavaMail.apache%40nm23.abv.bg%3E"
+       TITLE="[X2Go-User] NX Agent refuses connections from localhost">angel.tsankov at abv.bg
+       </A><BR>
+    <I>Thu Jul 12 22:07:33 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000931.html">[X2Go-User] Sound support (PulseAudio) only works at times
+</A></li>
+        <LI>Next message: <A HREF="000932.html">[X2Go-User] NX Agent refuses connections from localhost
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#928">[ date ]</a>
+              <a href="thread.html#928">[ thread ]</a>
+              <a href="subject.html#928">[ subject ]</a>
+              <a href="author.html#928">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Hello, I cannot connect to an x2go server. The relevant logs seem to be in
+files such as
+/tmp/.x2go-angel/session-C-angel-50-1341822798_stDGNOME_dp24.log:
+
+running as X2Go Agent
+
+NXAGENT - Version 3.5.0
+
+Copyright (C) 2001, 2011 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+Info: Agent running with pid '15649'.
+Session: Starting session at 'Mon Jul  9 11:49:10 2012'.
+Info: Proxy running in server mode with pid '15649'.
+Info: Waiting for connection from 'localhost' on port '30001'.
+Warning: Refusing connection from '109.160.110.246'.
+246' on port '30001'.
+
+The contents of my /etc/hosts file are:
+
+192.168.8.1     localhost
+127.0.0.1       localhost
+109.160.110.246 localhost
+
+If I put the last line at the top, then I can connect. However, after a
+reboot, I need to put the 192.168.8.1 address at the top. Can I have this
+issue handled automatically? What if the server uses dynamically assigned
+IP's?
+
+Regards,
+Angel Tsankov
+
+
+-----------------------------------------------------------------
+&#1043;&#1088;&#1072;&#1078;&#1076;&#1072;&#1085;&#1089;&#1082;&#1072; &#1086;&#1090;&#1075;&#1086;&#1074;&#1086;&#1088;&#1085;&#1086;&#1089;&#1090; &#8211; &#1062;&#1077;&#1085;&#1080;&#1090;&#1077; &#1085;&#1072; &#1082;&#1086;&#1084;&#1087;&#1072;&#1085;&#1080;&#1080;&#1090;&#1077;
+<A HREF="http://www.sdi.bg/onlineInsurance/?utm_source=gbg&amp;utm_medium=txtLink&amp;utm_content=home">http://www.sdi.bg/onlineInsurance/?utm_source=gbg&amp;utm_medium=txtLink&amp;utm_content=home</A>
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000931.html">[X2Go-User] Sound support (PulseAudio) only works at times
+</A></li>
+	<LI>Next message: <A HREF="000932.html">[X2Go-User] NX Agent refuses connections from localhost
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#928">[ date ]</a>
+              <a href="thread.html#928">[ thread ]</a>
+              <a href="subject.html#928">[ subject ]</a>
+              <a href="author.html#928">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

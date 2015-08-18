@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Failure - Server Key
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Failure%20-%20Server%20Key&In-Reply-To=%3C201110170609.43543.CACook%40quantum-sci.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000451.html">
+   <LINK REL="Next"  HREF="000462.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Failure - Server Key</H1>
+    <B>CACook at quantum-sci.com</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Failure%20-%20Server%20Key&In-Reply-To=%3C201110170609.43543.CACook%40quantum-sci.com%3E"
+       TITLE="[X2go-User] Failure - Server Key">CACook at quantum-sci.com
+       </A><BR>
+    <I>Mon Oct 17 15:09:43 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000451.html">[X2go-User] Failure - Server Key
+</A></li>
+        <LI>Next message: <A HREF="000462.html">[X2go-User] Failure - Server Key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#452">[ date ]</a>
+              <a href="thread.html#452">[ thread ]</a>
+              <a href="subject.html#452">[ subject ]</a>
+              <a href="author.html#452">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sunday, October 16, 2011 07:08:21 AM Ivan Kabaivanov wrote:
+&gt;<i> I forgot to tell you that you also need to remove the server key from 
+</I>&gt;<i> ~HOME/.ssh/known_hosts.  x2go tries to use the keys from that file.  After 
+</I>&gt;<i> removing the key (and enabling ssh-dsa keys on the server side and restarting 
+</I>&gt;<i> sshd) x2go should work.
+</I>
+Thanks, OK that fixed that.
+
+But now it's not finding the default key for some reason:
+&quot;No public key matched
+Access denied. Authentication that can continue: publickey,password&quot;
+
+I have &quot;Try auto login&quot; Xed.  I can ssh over as my user without a password.
+
+Is there any prospect of x2go supporting elliptic curve?
+
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000451.html">[X2go-User] Failure - Server Key
+</A></li>
+	<LI>Next message: <A HREF="000462.html">[X2go-User] Failure - Server Key
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#452">[ date ]</a>
+              <a href="thread.html#452">[ thread ]</a>
+              <a href="subject.html#452">[ subject ]</a>
+              <a href="author.html#452">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

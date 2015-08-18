@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C52914DA0.6040206%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001803.html">
+   <LINK REL="Next"  HREF="001805.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Steve Bergman</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3C52914DA0.6040206%40gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">sbergman27 at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 01:51:44 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001803.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001805.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1804">[ date ]</a>
+              <a href="thread.html#1804">[ thread ]</a>
+              <a href="subject.html#1804">[ subject ]</a>
+              <a href="author.html#1804">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>No. Although both use the same underlying NX libraries, you can't mix 
+and match X2GO/FreeNX clients/servers. (Although you *can* run 
+x2goserver and FreeNX server in parallel on the same server. In fact, 
+I'm doing this right now in preparation for our transition to x2go.) I'm 
+finding x2go to perform at least as well as NX. And FreeNX is more or 
+less an abandoned project at this point, as is NeatX. It's probably not 
+worth the trouble of trying to get FreeNX installed and working on 
+CentOS. (CentOS 4 was the last release that I've installed FreeNX on.)  
+I've no reason to think FreeNX would do any better than x2go. But if 
+there's a way to up the cache size in x2go, that might be worth a try. 
+I've looked in the sessions and settings files in ~/.x2goclient/ and 
+there don't seem to be any hidden options there that would apply. I'm 
+guessing that we're probably getting the NX default values of 16MB RAM 
+cache and 32MB disk cache, which ought to cover most situations 
+reasonably well.
+
+One other option that would be easy enough to try would be one of the 
+VNCs. In general, x2go way outperforms them. But you never know. For 
+this particular workload, something like tightvnc, tigervnc, or vnc4 
+might work better. I doubt it. But vnc is easy to set up for a test.
+
+Any possibility that changing settings in the java application might 
+mitigate the problem?
+
+BTW, thanks for the reference to 'charles':
+
+<A HREF="http://www.charlesproxy.com/documentation/proxying/throttling/">http://www.charlesproxy.com/documentation/proxying/throttling/</A>
+
+I didn't know about this, and had been looking for something similar.
+
+-Steve
+
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001803.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001805.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1804">[ date ]</a>
+              <a href="thread.html#1804">[ thread ]</a>
+              <a href="subject.html#1804">[ subject ]</a>
+              <a href="author.html#1804">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

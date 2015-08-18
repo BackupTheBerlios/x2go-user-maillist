@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Hooking Up To A Running X-Session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C20110412205612.6152635pp7hguslo%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000101.html">
+   <LINK REL="Next"  HREF="000103.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Hooking Up To A Running X-Session</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Hooking%20Up%20To%20A%20Running%20X-Session&In-Reply-To=%3C20110412205612.6152635pp7hguslo%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-user] Hooking Up To A Running X-Session">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Tue Apr 12 20:56:12 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000101.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+        <LI>Next message: <A HREF="000103.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#102">[ date ]</a>
+              <a href="thread.html#102">[ thread ]</a>
+              <a href="subject.html#102">[ subject ]</a>
+              <a href="author.html#102">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Axel,
+
+On Di 12 Apr 2011 19:23:48 CEST Axel Klein wrote:
+
+&gt;<i> Hi Mike,
+</I>&gt;<i>
+</I>&gt;<i> My usecases are:
+</I>&gt;<i>
+</I>&gt;<i> 1) I am working on computer A. Then I change room and want to  
+</I>&gt;<i> continue working from computer B on the desktop of computer A. So  
+</I>&gt;<i> that would be your case (a).
+</I>
+Currently, it is not possible to start X2go sessions on localhost. So  
+your usecase 1) could be:
+
+You sit at computer A and start an X2go session on server S. Then you  
+suspend your session and start and resume the same X2go session on  
+computer B. This is X2go default functionality.
+
+In the process of starting a session, suspending it, resuming it from  
+another PC - do you have any difficulty with any of these?
+
+Note again: sitting at computer A and starting an X2go session on  
+computer A is currently not possible.
+
+&gt;<i> 2) I am working on computer A. I want to show some results on my  
+</I>&gt;<i> screen to my colleague in the U.S. or in the next cubical, in any  
+</I>&gt;<i> case in the same network. I think that would be exactly your case (b).
+</I>&gt;<i>
+</I>&gt;<i> Summarized you described exactly my usecases.
+</I>&gt;<i> Now the interesting question: How can I do that?
+</I>&gt;<i> Did I overlook something in the Wiki or is there another documentation?
+</I>
+The second usecase is more tricky than the first. X2go shadow session  
+(that's what the guest user sessions are called) have only been  
+implemented quite recently. They are not available in the lenny  
+repositories. Use these two (both!) line in /etc/apt/sources.list (on  
+server and linux clients):
+
+deb <A HREF="http://x2go.obviously-nice.de/deb">http://x2go.obviously-nice.de/deb</A> lenny main
+deb <A HREF="http://x2go.obviously-nice.de/deb">http://x2go.obviously-nice.de/deb</A> heuler main
+
+On the server you currently have to install (this will change in the  
+near future):
+
+Debian:
+apt-get install x2goserver-one x2godesktopsharing x2gognomebindings  
+x2goplasmoid
+
+Ubuntu:
+apt-get install x2goserver-home x2godesktopsharing x2gognomebindings  
+x2goplasmoid
+
+On the client you simply need the x2goclient package:
+
+apt-get install x2goclient
+
+
+YOU:
+----
+On the server you have to start the x2godesktopsharing util that will  
+dock to your systray panel. Make sure you allow other to knock on your  
+door.
+
+
+YOUR GUEST:
+-----------
+The guest user first of all needs an SSH account on the X2go server.  
+Hope, this is not a hurdle. The guest user then has to start a  
+shared/shadow session from his local x2goclient app. The session name  
+for this in the session profile preference is:
+
+   ,,Connect to local desktop''
+   ,,Zugriff auf lokalen Desktop'' in Deutsch
+
+So, instead of using GNOME or KDE your guest user has to use either of  
+the above with the hostname, port, username etc. of your X2go server.
+
+If the guest user then starts a session, he/she will knock on your  
+x2godesktopsharing icon virtual door and you can decide to let him/her  
+in or not.
+
+Greets &amp; good luck,
+Mike
+
+PS: as an exchange of time and energy you could test the described  
+above, fix bits and pieces and then post it back to the list so that  
+we can set up a Wiki page for x2godesktopsharing... :-)
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110412/4e4b1be7/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110412/4e4b1be7/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000101.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+	<LI>Next message: <A HREF="000103.html">[X2go-user] Hooking Up To A Running X-Session
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#102">[ date ]</a>
+              <a href="thread.html#102">[ thread ]</a>
+              <a href="subject.html#102">[ subject ]</a>
+              <a href="author.html#102">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

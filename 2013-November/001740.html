@@ -1,0 +1,1158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C5273A6F1.3080203%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001741.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26</H1>
+    <B>Ted Barnes</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Non-Digest%2C%20Vol%2038%2C%20Issue%2026&In-Reply-To=%3C5273A6F1.3080203%40gmail.com%3E"
+       TITLE="[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26">madogdevelopment at gmail.com
+       </A><BR>
+    <I>Fri Nov  1 14:04:49 CET 2013</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001741.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1740">[ date ]</a>
+              <a href="thread.html#1740">[ thread ]</a>
+              <a href="subject.html#1740">[ subject ]</a>
+              <a href="author.html#1740">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike:
+
+Thanks - sorry for dumb mistake on &quot;enable = false&quot;....set that right, 
+and have attached configs and logs (hope this approach is helpful - let 
+me know if another is better for you?).  HTTP error message the same, 
+though ssh one changed (I think &quot;Mathias&quot; was having similar issue maybe):
+
+* Connect command attempts &amp; messages
+x2goclient --debug 
+--broker-url=<A HREF="http://user@xxx.xxx.xxx.xxx/x2gobroker/plain/inifile">http://user@xxx.xxx.xxx.xxx/x2gobroker/plain/inifile</A>
+
+Login failed!  Please try again.
+
+x2goclient --debug 
+--broker-url=&quot;<A HREF="ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker">ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker</A> 
+--backend=inifile&quot;
+
+ssh:  No X2Go sessions found, closing.
+
+
+**LOGS
+*Apache - access.log
+xxx.xxx.xxx.xxx - - [01/Nov/2013:08:26:40 -0400] &quot;POST 
+/x2gobroker/plain/inifile HTTP/1.1&quot; 500 7927 &quot;-&quot; &quot;-&quot;
+
+*Apache - error.log
+[Fri Nov 01 08:25:00 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3 
+Python/2.6.6 configured -- resuming normal operations
+[Fri Nov 01 08:26:44 2013] [error] wsgilog.log: Fri, 01 Nov 2013 
+08:26:44 ERROR Server got itself in trouble
+[Fri Nov 01 08:26:44 2013] [error] Traceback (most recent call last):
+[Fri Nov 01 08:26:44 2013] [error]   File 
+&quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in 
+__call__
+[Fri Nov 01 08:26:44 2013] [error]     return self.application(environ, 
+start_response)
+[Fri Nov 01 08:26:44 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line 
+243, in _application
+[Fri Nov 01 08:26:44 2013] [error]     return 
+_tornado_application(environ, start_response)
+[Fri Nov 01 08:26:44 2013] [error]   File 
+&quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+[Fri Nov 01 08:26:44 2013] [error]     assert handler._finished
+[Fri Nov 01 08:26:44 2013] [error] AssertionError
+[Fri Nov 01 08:26:44 2013] [error] Server got itself in trouble
+[Fri Nov 01 08:26:44 2013] [error] Traceback (most recent call last):
+[Fri Nov 01 08:26:44 2013] [error]   File 
+&quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in 
+__call__
+[Fri Nov 01 08:26:44 2013] [error]     return self.application(environ, 
+start_response)
+[Fri Nov 01 08:26:44 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line 
+243, in _application
+[Fri Nov 01 08:26:44 2013] [error]     return 
+_tornado_application(environ, start_response)
+[Fri Nov 01 08:26:44 2013] [error]   File 
+&quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+[Fri Nov 01 08:26:44 2013] [error]     assert handler._finished
+[Fri Nov 01 08:26:44 2013] [error] AssertionError
+[Fri Nov 01 08:26:45 2013] [error] /usr/lib/python2.6/cgitb.py:173: 
+DeprecationWarning: BaseException.message has been deprecated as of 
+Python 2.6
+[Fri Nov 01 08:26:45 2013] [error]   value = 
+pydoc.html.repr(getattr(evalue, name))
+
+**X2GO LOGS
+*authservice.log
+2013-11-01 08:25:13,324 - authservice - INFO - X2Go Session Broker 
+(0.0.3.0), written by Mike Gabriel (X2Go Project) 
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-11-01 08:25:13,325 - authservice - INFO - Setting up the PAM 
+authentication service's environment...
+2013-11-01 08:25:13,325 - authservice - INFO -   X2GOBROKER_DEBUG: False
+2013-11-01 08:25:13,326 - authservice - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: 
+/var/run/x2gobroker/x2gobroker-authservice.socket
+
+*broker.log
+2013-11-01 08:26:41,081 - broker - INFO - X2Go Session Broker (0.0.3.0),
+2013-11-01 08:26:41,086 - broker - INFO -   written by Mike Gabriel 
+(X2Go Project) &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+2013-11-01 08:26:41,086 - broker - INFO - Setting up the broker's 
+environment...
+2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_DEBUG: False
+2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_CONFIG: 
+/etc/x2go/x2gobroker.conf
+2013-11-01 08:26:41,086 - broker - INFO -   X2GOBROKER_AGENT_CMD: 
+/usr/lib/x2go/x2gobroker-agent
+2013-11-01 08:26:41,087 - broker - INFO -   
+X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+2013-11-01 08:26:41,087 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND: 
+zeroconf
+2013-11-01 08:26:41,087 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+2013-11-01 08:26:41,087 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+2013-11-01 08:26:42,543 - broker - INFO - client address is xxx.xxx.xxx.xxx
+2013-11-01 08:26:42,544 - broker - DEBUG - username: user, password: 
+XXXXX, task: listsessions, profile_id: , cookie:
+2013-11-01 08:26:42,544 - broker - DEBUG - 
+base_broker.X2GoBroker.get_authentication_mechanism(): found 
+default-auth-mech in global config section: pam
+2013-11-01 08:26:42,882 - broker - DEBUG - 
+base_broker.X2GoBroker._do_authenticate(): authenticating user=user with 
+password=&lt;hidden&gt; against backend=inifile.
+2013-11-01 08:26:42,882 - broker - DEBUG - connecting to authentication 
+service socket /run/x2gobroker/x2gobroker-authservice.socket
+2013-11-01 08:26:44,842 - broker - DEBUG - 
+base_broker.X2GoBroker.check_access(): result of authentication check 
+is: False
+
+* error.log
+2013-11-01 08:26:42,883 - error - ERROR - Authentication against 
+authentication service failed, trying direct PAM authentication (which 
+is likely to fail on most PAM setups).
+2013-11-01 08:26:44,843 - error - ERROR - HTTP request error: HTTP 401: 
+Unauthorized
+
+* wsgi.log
+wsgilog.log: Fri, 01 Nov 2013 08:26:44 ERROR Server got itself in trouble
+Traceback (most recent call last):
+   File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 
+179, in __call__
+     return self.application(environ, start_response)
+   File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+     return _tornado_application(environ, start_response)
+   File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in 
+__call__
+     assert handler._finished
+AssertionError
+
+** CONFIGS
+*x2gobroker.conf
+###
+### GLOBAL section
+###
+[global]
+default-auth-mech = pam
+default-user-db = libnss
+default-group-db = libnss
+###
+### BACKEND section
+###
+[zeroconf]
+#enable = true
+#auth-mech = pam
+#user-db = libnss
+#group-db = libnss
+#desktop-shell = GNOME
+[inifile]
+enable = true
+session-profiles = /etc/x2go/broker/x2gobroker-sessionprofiles.conf
+*x2gobroker-wsgi.apache.conf
+SetEnv X2GOBROKER_DEBUG on
+WSGIDaemonProcess x2gobroker user=x2gobroker group=x2gobroker 
+processes=5 threads=15
+WSGIPassAuthorization On
+SetEnv X2GOBROKER_DEFAULT_BACKEND inifile
+SetEnv X2GOBROKER_CONFIG /etc/x2go/x2gobroker.conf
+SetEnv X2GOBROKER_SESSIONPROFILES 
+/etc/x2go/broker/x2gobroker-sessionprofiles.conf
+SetEnv X2GOBROKER_AUTHSOCKET /run/x2gobroker/x2gobroker-authservice.socket
+WSGIScriptAlias /x2gobroker /usr/bin/x2gobroker
+WSGIProcessGroup x2gobroker
+&lt;Directory /usr/bin/x2gobroker&gt;
+     Order deny,allow
+     Deny from all
+
+     # grant explicit access below
+     Allow from localhost
+     Allow from localhost-ip6
+
+     Options +FollowSymLinks
+     Options -Indexes
+&lt;/Directory&gt;
+
+
+*x2gobroker-sessionprofiles.conf
+[DEFAULT]
+command=TERMINAL
+defsndport=true
+useiconv=false
+iconvfrom=UTF-8
+height=600
+export=
+quality=9
+fullscreen=false
+layout=
+useexports=true
+width=800
+speed=2
+soundsystem=pulse
+print=true
+type=auto
+sndport=4713
+xinerama=true
+variant=
+usekbd=true
+fstunnel=true
+applications=TERMINAL,WWWBROWSER,MAILCLIENT,OFFICE
+multidisp=false
+sshproxyport=22
+sound=true
+rootless=false
+iconvto=UTF-8
+soundtunnel=true
+dpi=96
+sshport=22
+setdpi=0
+pack=16m-jpeg
+directrdp=false
+
+[GNOME]
+user=
+host=xxx.xx.xxx.xxx
+name=GNOME
+command=GNOME
+rootless=false
+acl-groups-allow=gnome-users,admins,user
+acl-groups-deny=ALL
+acl-clients-deny=ALL
+acl-clients-allow=xxx.xxx.xxx.0/24
+acl-any-order=deny-allow
+broker-session-autologin=true
+sshport=22
+
+* x2gobroker-wsgi.apache.conf
+SetEnv X2GOBROKER_DEBUG on
+WSGIDaemonProcess x2gobroker user=x2gobroker group=x2gobroker 
+processes=5 threads=15
+WSGIPassAuthorization On
+SetEnv X2GOBROKER_DEFAULT_BACKEND inifile
+SetEnv X2GOBROKER_CONFIG /etc/x2go/x2gobroker.conf
+SetEnv X2GOBROKER_SESSIONPROFILES 
+/etc/x2go/broker/x2gobroker-sessionprofiles.conf
+SetEnv X2GOBROKER_AUTHSOCKET /run/x2gobroker/x2gobroker-authservice.socket
+WSGIScriptAlias /x2gobroker /usr/bin/x2gobroker
+WSGIProcessGroup x2gobroker
+
+&lt;Directory /usr/bin/x2gobroker&gt;
+     Order deny,allow
+     Deny from all
+
+     # grant explicit access below
+     Allow from localhost
+     Allow from localhost-ip6
+
+     Options +FollowSymLinks
+     Options -Indexes
+&lt;/Directory&gt;
+
+
+
+
+On 11/01/13 11:00, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A> wrote:
+&gt;<i> Send X2Go-User mailing list submissions to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of X2Go-User digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>     1. Re: X2Go-User Non-Digest, Vol 38, Issue 26 (Ted Barnes)
+</I>&gt;<i>     2. Re: X2Go-User Non-Digest, Vol 38, Issue 26 (Mike Gabriel)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------------------------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 1
+</I>&gt;<i> Date: Thu, 31 Oct 2013 11:48:52 +0000
+</I>&gt;<i> From: Ted Barnes&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">madogdevelopment at gmail.com</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</I>&gt;<i> Message-ID:&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">527243A4.7000005 at gmail.com</A>&gt;
+</I>&gt;<i> Content-Type: text/plain; charset=ISO-8859-1; format=flowed
+</I>&gt;<i>
+</I>&gt;<i> Hi Mike:
+</I>&gt;<i>
+</I>&gt;<i> How are you?  Another update...hope am making progress, but not there
+</I>&gt;<i> yet.  Let me know if it would help to send over copies of
+</I>&gt;<i> x2gobroker.conf and the other configs?
+</I>&gt;<i>
+</I>&gt;<i> Is it the case I am using the wrong backend, and don't know how to set
+</I>&gt;<i> it to backend inifile?  Thanks for the help(!)
+</I>&gt;<i>
+</I>&gt;<i> 1)  Rebuilt server (using Squeeze) and incorporated nightly x2go builds
+</I>&gt;<i>
+</I>&gt;<i> apt-get install -y x2goserver x2goserver-xsession
+</I>&gt;<i> apt-get install -y x2gobroker-wsgi
+</I>&gt;<i> apt-get install -y apache2 (apache fails until instill libapache2-mod-wsgi)
+</I>&gt;<i> apt-get install -y libapache2-mod-wsgi
+</I>&gt;<i> apt-get install -y x2gobroker-authservice
+</I>&gt;<i>
+</I>&gt;<i> 2)  Checked versions
+</I>&gt;<i> x2gobroker-wsgi:  0.0.3.0-0~x2go1+squeeze~heuler~20131002~558~build1
+</I>&gt;<i> x2goserver:  4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1
+</I>&gt;<i> x2gobroker-authservice:  0.0.3.0-0~x2go1+squeeze~heuler~20131002~558~build1
+</I>&gt;<i>
+</I>&gt;<i> 3)  Set backend to inifile
+</I>&gt;<i> In x2gobroker.conf:
+</I>&gt;<i> [inifile]
+</I>&gt;<i> enable = false
+</I>&gt;<i> session-profiles = /etc/x2go/broker/x2gobroker-sessionprofiles.conf
+</I>&gt;<i>
+</I>&gt;<i> * have made various tweaks to x2gobroker-sessionprofiles.conf,
+</I>&gt;<i> x2gobroker.conf, and x2gobroker-wsgi.apache.conf - have not touched
+</I>&gt;<i> x2gobroker-wsgi.apache.vhost without noticeable difference in outcome.
+</I>&gt;<i>
+</I>&gt;<i> 4)  When try to connect:
+</I>&gt;<i> Not sure this matters, but on client get:
+</I>&gt;<i> x2go-INFO-1&gt;  &quot;Starting x2goclient...&quot;
+</I>&gt;<i> x2go-WARNING-1&gt;  &quot;Can't load translator: :/x2goclient_en_us&quot;
+</I>&gt;<i> x2go-WARNING-2&gt;  &quot;Can't load translator: :/qt_en_US&quot;
+</I>&gt;<i>
+</I>&gt;<i> And...
+</I>&gt;<i>
+</I>&gt;<i> SSH - says inifile not enabled....(when try to connect first time, does
+</I>&gt;<i> ask if I want to trust key and creates known hosts file)
+</I>&gt;<i>
+</I>&gt;<i> x2goclient --broker-url=&quot;<A HREF="ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker">ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker</A>
+</I>&gt;<i> --backend=inifile&quot;
+</I>&gt;<i>
+</I>&gt;<i> 2013-10-31 07:00:32,777 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-31 07:00:32,786 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-31 07:00:32,789 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_DEBUG: True
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-31 07:00:32,791 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-31 07:00:33,039 - broker - ERROR - broker backend ,,inifile'' is
+</I>&gt;<i> disabled on this system
+</I>&gt;<i>
+</I>&gt;<i> When try HTTP, get &quot;Error Login failed!  Please try again&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 5)  Some log output
+</I>&gt;<i>
+</I>&gt;<i> ---------------------------authservice.log
+</I>&gt;<i> 2013-10-30 18:04:56,904 - authservice - INFO - X2Go Session Broker
+</I>&gt;<i> (0.0.3.0), written by Mike Gabriel (X2Go Project)
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:04:56,905 - authservice - INFO - Setting up the PAM
+</I>&gt;<i> authentication service's environment...
+</I>&gt;<i> 2013-10-30 18:04:56,905 - authservice - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:04:56,905 - authservice - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET:
+</I>&gt;<i> /var/run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:24:22,544 - authservice - INFO - X2Go Session Broker
+</I>&gt;<i> (0.0.3.0), written by Mike Gabriel (X2Go Project)
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:24:22,550 - authservice - INFO - Setting up the PAM
+</I>&gt;<i> authentication service's environment...
+</I>&gt;<i> 2013-10-30 18:24:22,550 - authservice - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:24:22,551 - authservice - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET:
+</I>&gt;<i> /var/run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:35:29,230 - authservice - INFO - X2Go Session Broker
+</I>&gt;<i> (0.0.3.0), written by Mike Gabriel (X2Go Project)
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:35:29,237 - authservice - INFO - Setting up the PAM
+</I>&gt;<i> authentication service's environment...
+</I>&gt;<i> 2013-10-30 18:35:29,237 - authservice - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:35:29,238 - authservice - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET:
+</I>&gt;<i> /var/run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i>
+</I>&gt;<i> ---------------------broker.log
+</I>&gt;<i> 2013-10-30 18:32:38,025 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 18:32:38,030 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:32:38,030 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 18:32:38,030 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:32:38,030 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 18:32:38,030 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 18:32:38,031 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:32:38,031 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 18:32:38,031 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 18:32:38,031 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-30 18:34:02,981 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 18:34:02,981 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:34:02,981 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 18:34:02,981 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:34:02,982 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 18:34:02,990 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 18:34:02,990 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:34:02,990 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 18:34:02,990 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 18:34:02,990 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-30 18:36:41,065 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 18:36:41,090 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:36:41,090 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 18:36:41,091 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-30 18:41:20,430 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 18:41:20,430 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 18:41:20,430 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 18:41:20,431 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 19:37:42,084 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 19:37:42,085 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 19:37:42,085 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 19:37:42,085 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 19:37:42,085 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-30 19:42:28,903 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-30 19:42:28,904 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-30 19:42:28,904 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-30 19:42:28,904 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-30 19:42:28,904 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-30 19:42:28,904 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-30 19:42:28,905 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-30 19:42:28,905 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-30 19:42:28,905 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-30 19:42:28,905 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i> 2013-10-31 07:02:02,769 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO -   written by Mike Gabriel
+</I>&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO - Setting up the broker's
+</I>&gt;<i> environment...
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO -   X2GOBROKER_DEBUG: False
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;<i> 2013-10-31 07:02:02,778 - broker - INFO -
+</I>&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET: /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-31 07:02:02,779 - broker - INFO -   X2GOBROKER_DEFAULT_BACKEND:
+</I>&gt;<i> zeroconf
+</I>&gt;<i> 2013-10-31 07:02:02,779 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;<i> 2013-10-31 07:02:02,779 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;<i>
+</I>&gt;<i> -------------------------error.log
+</I>&gt;<i> 2013-10-30 18:32:38,894 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-30 18:34:03,439 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-30 18:36:41,908 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-30 18:41:20,938 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-30 19:37:42,566 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-30 19:42:29,411 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i> 2013-10-31 07:02:03,211 - error - ERROR - HTTP request error: HTTP 404:
+</I>&gt;<i> Not Found
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------wsgi.log
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 18:32:38 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 18:34:03 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 18:36:41 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 18:41:20 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 19:37:42 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Wed, 30 Oct 2013 19:42:29 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i> wsgilog.log: Thu, 31 Oct 2013 07:02:03 ERROR Server got itself in trouble
+</I>&gt;<i> Traceback (most recent call last):
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line
+</I>&gt;<i> 179, in __call__
+</I>&gt;<i>       return self.application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/bin/x2gobroker&quot;, line 243, in _application
+</I>&gt;<i>       return _tornado_application(environ, start_response)
+</I>&gt;<i>     File &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in
+</I>&gt;<i> __call__
+</I>&gt;<i>       assert handler._finished
+</I>&gt;<i> AssertionError
+</I>&gt;<i>
+</I>&gt;<i> ----------------------------access.log (apache)
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:18:32:37 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7927 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:18:34:02 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7946 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:18:36:40 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7927 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:18:41:20 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7946 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:19:37:41 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7946 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:19:41:21 -0400] &quot;POST
+</I>&gt;<i> /cgi-bin/x2gobroker.cgi HTTP/1.1&quot; 404 540 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [30/Oct/2013:19:42:28 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7946 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i> xxx.xxx.xxx.xxx - - [31/Oct/2013:07:02:02 -0400] &quot;POST
+</I>&gt;<i> /x2gobroker/plain/inifile HTTP/1.1&quot; 500 7946 &quot;-&quot; &quot;-&quot;
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> -----------------------------error.log (apache)
+</I>&gt;<i> [Wed Oct 30 18:01:12 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:08:05 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:08:06 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:15:46 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:15:47 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:21:38 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:21:39 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:22:51 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:22:52 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:23:30 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:24:10 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:28:56 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:28:57 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:31:33 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:31:34 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 18:32:38 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:32:38 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:32:39 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 18:32:39 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Wed Oct 30 18:33:58 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:33:59 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 18:34:03 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 18:34:03 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Wed Oct 30 18:34:32 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:35:14 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 18:36:41 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:36:41 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:36:42 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 18:36:42 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Wed Oct 30 18:41:15 2013] [notice] caught SIGTERM, shutting down
+</I>&gt;<i> [Wed Oct 30 18:41:16 2013] [notice] Apache/2.2.16 (Debian) mod_wsgi/3.3
+</I>&gt;<i> Python/2.6.6 configured -- resuming normal operations
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 18:41:20 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 18:41:20 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 18:41:21 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 18:41:21 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 19:37:42 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 19:37:42 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Wed Oct 30 19:41:21 2013] [error] [client xxx.xxx.xxx.xxx] script not
+</I>&gt;<i> found or unable to stat: /usr/lib/cgi-bin/x2gobroker.cgi
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] wsgilog.log: Wed, 30 Oct 2013
+</I>&gt;<i> 19:42:29 ERROR Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]     assert handler._finished
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] AssertionError
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Wed Oct 30 19:42:29 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] wsgilog.log: Thu, 31 Oct 2013
+</I>&gt;<i> 07:02:03 ERROR Server got itself in trouble
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     assert handler._finished
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] AssertionError
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] Server got itself in trouble
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] Traceback (most recent call last):
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/wsgilog/__init__.py&quot;, line 179, in
+</I>&gt;<i> __call__
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     return self.application(environ,
+</I>&gt;<i> start_response)
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File &quot;/usr/bin/x2gobroker&quot;, line
+</I>&gt;<i> 243, in _application
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     return
+</I>&gt;<i> _tornado_application(environ, start_response)
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   File
+</I>&gt;<i> &quot;/usr/lib/python2.6/dist-packages/tornado/wsgi.py&quot;, line 94, in __call__
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]     assert handler._finished
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] AssertionError
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error] /usr/lib/python2.6/cgitb.py:173:
+</I>&gt;<i> DeprecationWarning: BaseException.message has been deprecated as of
+</I>&gt;<i> Python 2.6
+</I>&gt;<i> [Thu Oct 31 07:02:03 2013] [error]   value =
+</I>&gt;<i> pydoc.html.repr(getattr(evalue, name))
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 10/30/13 11:00, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A> wrote:
+</I>&gt;<i>    
+</I>&gt;&gt;<i> Send X2Go-User mailing list submissions to
+</I>&gt;&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> You can reach the person managing the list at
+</I>&gt;&gt;<i> 	<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-owner at lists.berlios.de</A>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;&gt;<i> than &quot;Re: Contents of X2Go-User digest...&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Today's Topics:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      1. X2Go-User] x2go  connect problem (Coen, Kay L)
+</I>&gt;&gt;<i>      2. Re: X2Go-User] x2go connect problem (Mike Gabriel)
+</I>&gt;&gt;<i>      3. Re: X2Go-User Digest, Vol 38, Issue 25 (Ted Barnes)
+</I>&gt;&gt;<i>      4. session broker setup (was: Re:  X2Go-User Digest, Vol 38,
+</I>&gt;&gt;<i>         Issue 25) (Mike Gabriel)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ----------------------------------------------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Message: 1
+</I>&gt;&gt;<i> Date: Tue, 29 Oct 2013 14:28:14 +0000
+</I>&gt;&gt;<i> From: &quot;Coen, Kay L&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">coen at lanl.gov</A>&gt;
+</I>&gt;&gt;<i> To: &quot;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&quot;&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>&gt;
+</I>&gt;&gt;<i> Subject: [X2Go-User] X2Go-User] x2go  connect problem
+</I>&gt;&gt;<i> Message-ID:&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">D4899739-211B-4E68-A5A3-FBC350F9829F at lanl.gov</A>&gt;
+</I>&gt;&gt;<i> Content-Type: text/plain; charset=&quot;us-ascii&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I am using X2Go, version  X2Go client V. 3.99.2.1 (Qt - 4.7.4) on a Mac, OS X 10.7.5.  When I attempt to a RHEL6 server I receive the following error message:   Connection failed export: Command not found
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Doe anyone have any ideas on how to get X2Go working.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thank you!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Kay Coen
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ------------------------------
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Message: 2
+</I>&gt;&gt;<i> Date: Tue, 29 Oct 2013 14:57:27 +0000
+</I>&gt;&gt;<i> From: Mike Gabriel&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;&gt;<i> Subject: Re: [X2Go-User] X2Go-User] x2go connect problem
+</I>&gt;&gt;<i> Message-ID:
+</I>&gt;&gt;<i> 	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">20131029145727.Horde.B-TA07F5aKcs6gRwSL5Ltw1 at mail.das-netzwerkteam.de</A>&gt;
+</I>&gt;&gt;<i> 	
+</I>&gt;&gt;<i> Content-Type: text/plain; charset=&quot;utf-8&quot;; Format=&quot;flowed&quot;;
+</I>&gt;&gt;<i> 	DelSp=&quot;Yes&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> On  Di 29 Okt 2013 15:28:14 CET, Coen, Kay L wrote:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;&gt;&gt;<i> I am using X2Go, version  X2Go client V. 3.99.2.1 (Qt - 4.7.4) on a
+</I>&gt;&gt;&gt;<i> Mac, OS X 10.7.5.  When I attempt to a RHEL6 server I receive the
+</I>&gt;&gt;&gt;<i> following error message:   Connection failed export: Command not found
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Doe anyone have any ideas on how to get X2Go working.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Thank you!
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Kay Coen
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i>        
+</I>&gt;&gt;<i> How about installing X2Go Server on the machine you want to connect to?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If X2Go Server is installed, make sure the desktop shell you aim at
+</I>&gt;&gt;<i> using is installed on that machine, as well.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Also, I have heard several people having problems with X2Go on RHEL6.
+</I>&gt;&gt;<i> Fedora 19+20 are the best supported RPM based distros atm.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Mike
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i>      
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ------------------------------
+</I>&gt;<i>
+</I>&gt;<i> Message: 2
+</I>&gt;<i> Date: Thu, 31 Oct 2013 13:23:54 +0000
+</I>&gt;<i> From: Mike Gabriel&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Subject: Re: [X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</I>&gt;<i> Message-ID:
+</I>&gt;<i> 	&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">20131031132354.Horde.rGzfcLCEgyMP1c3oDSEKkg1 at mail.das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> 	
+</I>&gt;<i> Content-Type: text/plain; charset=&quot;utf-8&quot;; Format=&quot;flowed&quot;;
+</I>&gt;<i> 	DelSp=&quot;Yes&quot;
+</I>&gt;<i>
+</I>&gt;<i> Hi Ted,
+</I>&gt;<i>
+</I>&gt;<i> On  Do 31 Okt 2013 12:48:52 CET, Ted Barnes wrote:
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> Hi Mike:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> How are you?  Another update...hope am making progress, but not
+</I>&gt;&gt;<i> there yet.  Let me know if it would help to send over copies of
+</I>&gt;&gt;<i> x2gobroker.conf and the other configs?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Is it the case I am using the wrong backend, and don't know how to
+</I>&gt;&gt;<i> set it to backend inifile?  Thanks for the help(!)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1)  Rebuilt server (using Squeeze) and incorporated nightly x2go builds
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> apt-get install -y x2goserver x2goserver-xsession
+</I>&gt;&gt;<i> apt-get install -y x2gobroker-wsgi
+</I>&gt;&gt;<i> apt-get install -y apache2 (apache fails until instill libapache2-mod-wsgi)
+</I>&gt;&gt;<i> apt-get install -y libapache2-mod-wsgi
+</I>&gt;&gt;<i> apt-get install -y x2gobroker-authservice
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2)  Checked versions
+</I>&gt;&gt;<i> x2gobroker-wsgi:  0.0.3.0-0~x2go1+squeeze~heuler~20131002~558~build1
+</I>&gt;&gt;<i> x2goserver:  4.1.0.0-0~x2go1+squeeze~heuler~20130731~779~build1
+</I>&gt;&gt;<i> x2gobroker-authservice:  0.0.3.0-0~x2go1+squeeze~heuler~20131002~558~build1
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 3)  Set backend to inifile
+</I>&gt;&gt;<i> In x2gobroker.conf:
+</I>&gt;&gt;<i> [inifile]
+</I>&gt;&gt;<i> enable = false
+</I>&gt;&gt;<i> session-profiles = /etc/x2go/broker/x2gobroker-sessionprofiles.conf
+</I>&gt;&gt;<i>      
+</I>&gt;<i> If you want to use the inifile backend, you have to set enable = true
+</I>&gt;<i> (not false).
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>&gt;&gt;<i> * have made various tweaks to x2gobroker-sessionprofiles.conf,
+</I>&gt;&gt;<i> x2gobroker.conf, and x2gobroker-wsgi.apache.conf - have not touched
+</I>&gt;&gt;<i> x2gobroker-wsgi.apache.vhost without noticeable difference in outcome.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 4)  When try to connect:
+</I>&gt;&gt;<i> Not sure this matters, but on client get:
+</I>&gt;&gt;<i> x2go-INFO-1&gt;  &quot;Starting x2goclient...&quot;
+</I>&gt;&gt;<i> x2go-WARNING-1&gt;  &quot;Can't load translator: :/x2goclient_en_us&quot;
+</I>&gt;&gt;<i> x2go-WARNING-2&gt;  &quot;Can't load translator: :/qt_en_US&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> And...
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> SSH - says inifile not enabled....(when try to connect first time,
+</I>&gt;&gt;<i> does ask if I want to trust key and creates known hosts file)
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> x2goclient
+</I>&gt;&gt;<i> --broker-url=&quot;<A HREF="ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker">ssh://user@xxx.xxx.xxx.xxx/usr/bin/x2gobroker</A>
+</I>&gt;&gt;<i> --backend=inifile&quot;
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,777 - broker - INFO - X2Go Session Broker (0.0.3.0),
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,786 - broker - INFO -   written by Mike Gabriel
+</I>&gt;&gt;<i> (X2Go Project)&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,789 - broker - INFO - Setting up the broker's
+</I>&gt;&gt;<i> environment...
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_DEBUG: True
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_CONFIG:
+</I>&gt;&gt;<i> /etc/x2go/x2gobroker.conf
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_AGENT_CMD:
+</I>&gt;&gt;<i> /usr/lib/x2go/x2gobroker-agent
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -
+</I>&gt;&gt;<i> X2GOBROKER_AUTHSERVICE_SOCKET:
+</I>&gt;&gt;<i> /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -
+</I>&gt;&gt;<i> X2GOBROKER_DEFAULT_BACKEND: zeroconf
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,790 - broker - INFO -   X2GOBROKER_SSL_CERTFILE:
+</I>&gt;&gt;<i> 2013-10-31 07:00:32,791 - broker - INFO -   X2GOBROKER_SSL_KEYFILE:
+</I>&gt;&gt;<i> 2013-10-31 07:00:33,039 - broker - ERROR - broker backend
+</I>&gt;&gt;<i> ,,inifile'' is disabled on this system
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> When try HTTP, get &quot;Error Login failed!  Please try again&quot;
+</I>&gt;&gt;<i>      
+</I>&gt;<i> Well then, how about enabling it in x2gobroker.conf (see above)?
+</I>&gt;<i>
+</I>&gt;<i> I am not sure about the AssertionErrors. I will look at those. They
+</I>&gt;<i> should not occur. Instead, you should just see the 404 Not Found
+</I>&gt;<i> errors. However, if you enable the inifile backend, I guess those
+</I>&gt;<i> errors will go away, too.
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i> PS: please receive non-digest mails from x2go-user ML as long as we
+</I>&gt;<i> lead this discussion...
+</I>&gt;<i>
+</I>&gt;<i>    
+</I>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001741.html">[X2Go-User] X2Go-User Non-Digest, Vol 38, Issue 26
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1740">[ date ]</a>
+              <a href="thread.html#1740">[ thread ]</a>
+              <a href="subject.html#1740">[ subject ]</a>
+              <a href="author.html#1740">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

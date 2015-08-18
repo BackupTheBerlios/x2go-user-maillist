@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails&In-Reply-To=%3CCAFX-c4vLzNsiaZvNH28RHPicOu%3DbV%2BKV255g0wKqADojcuZ0nw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000678.html">
+   <LINK REL="Next"  HREF="000682.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails&In-Reply-To=%3CCAFX-c4vLzNsiaZvNH28RHPicOu%3DbV%2BKV255g0wKqADojcuZ0nw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Tue Mar  6 01:52:38 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000678.html">[X2Go-User] Problem with X2GO session
+</A></li>
+        <LI>Next message: <A HREF="000682.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#679">[ date ]</a>
+              <a href="thread.html#679">[ thread ]</a>
+              <a href="subject.html#679">[ subject ]</a>
+              <a href="author.html#679">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, Mar 5, 2012 at 7:48 PM, brian mullan &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">bmullan.mail at gmail.com</A>&gt; wrote:
+
+&gt;<i> I've had the flu and not been doing much until today when I finally got
+</I>&gt;<i> back to looking at this problem with ssh &amp; x2go.
+</I>&gt;<i>
+</I>&gt;<i> I've found a very good explanation of the error I am receiving after
+</I>&gt;<i> upgrading my x2go client &amp; servers.
+</I>&gt;<i>
+</I>&gt;<i> After entering my password in x2go client (ubuntu 11.10) and click OK I
+</I>&gt;<i> see... (*sorry for the prev. embedded .PNG crap) !*
+</I>&gt;<i>
+</I>
+The error message displayed to the x2go client user says:
+
+
+&gt;<i> *AUTHENTICATION FAILED - *
+</I>&gt;<i>
+</I>&gt;<i> *Access denied. Authentication that can continue:
+</I>&gt;<i> publickey,keyboard-interactive*
+</I>&gt;<i>
+</I>
+So using google to search I found...
+
+
+&gt;<i> This URL describes the issues with SSH that are involved:
+</I>&gt;<i> <A HREF="http://fixunix.com/ssh/73976-difference-between-password-keyboard-interactive.html">http://fixunix.com/ssh/73976-difference-between-password-keyboard-interactive.html</A>
+</I>&gt;<i> in particular this seems like a very good explanation of the problem...
+</I>&gt;<i> although I haven't found out how to fix it ??
+</I>&gt;<i>
+</I>&gt;<i>  10-03-2007 04:12 AM  #3&lt;<A HREF="http://fixunix.com/ssh/73976-difference-between-password-keyboard-interactive.html#post242273">http://fixunix.com/ssh/73976-difference-between-password-keyboard-interactive.html#post242273</A>&gt;
+</I>&gt;<i>   Re: Difference between password and keyboard-interactive
+</I>&gt;<i> In article &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">1168327274.938793.197960 at i15g2000cwa.googlegroups.</A> com&gt;
+</I>&gt;<i> &quot;Gushi&quot; writes:
+</I>&gt;<i> &gt;I can't seem to find this anywhere.
+</I>&gt;<i>
+</I>&gt;<i> See RFC 4252 (<A HREF="http://www.ietf.org/rfc/rfc4252.txt">http://www.ietf.org/rfc/rfc4252.txt</A>) which describes (among
+</I>&gt;<i> other things) the mandatory password method, and RFC 4256
+</I>&gt;<i> (<A HREF="http://www.ietf.org/rfc/rfc4256.txt">http://www.ietf.org/rfc/rfc4256.txt</A>), which describes the optional
+</I>&gt;<i> keyboard-interactive method.
+</I>&gt;<i>
+</I>&gt;<i> &gt;*What's the difference between password auth and keyboard-interactive?*
+</I>&gt;<i> &gt;They'd seem to me to be the same thing, no?
+</I>&gt;<i>
+</I>&gt;<i> Essentially, in password the client sends username+password and gets a
+</I>&gt;<i> yes/no response from the server, *in keyboard-interactive* the client
+</I>&gt;<i> sends the username, and then gets prompted (possibly multiple times,
+</I>&gt;<i> possibly zero times) by the server for additional information, before a
+</I>&gt;<i> yes/no response is finally sent by the server.
+</I>&gt;<i>
+</I>&gt;<i> In the most common usage case, *keyboard-interactive *will prompt exactly
+</I>&gt;<i> once, for the user's password (well, it will typically re-prompt if the
+</I>&gt;<i> password is wrong:-), *which to the user looks essentially the same as
+</I>&gt;<i> password authentication* - the difference is mainly that in the password
+</I>&gt;<i> case, it is the client that prompts the user, while in
+</I>&gt;<i> keyboard-interactive, the client just relays the server's prompt (and
+</I>&gt;<i> relays the response back).
+</I>&gt;<i>
+</I>&gt;<i> However *keyboard-interactive* can thus support a variety of mechanisms
+</I>&gt;<i> besides single fixed password, e.g. challenge-response types where the
+</I>&gt;<i> server sends some random data, which the user feeds into a hardware token
+</I>&gt;<i> that generates a response for the user to type in. Being a perfect fit for
+</I>&gt;<i> PAM that is used on most current Unices, it allows for almost anything that
+</I>&gt;<i> you can plug into PAM to be used by ssh without any changes to the ssh code.
+</I>&gt;<i> *
+</I>&gt;<i> The password method on the other hand is a very bad fit for PAM, which is
+</I>&gt;<i> why for a while it wasn't possible to combine password and PAM in
+</I>&gt;<i> OpenSSH's sshd.* In current versions sshd &quot;fakes&quot; the interaction towards
+</I>&gt;<i> PAM, by internally supplying the password that it has already received when
+</I>&gt;<i> PAM tries to prompt the user for it.
+</I>&gt;<i>
+</I>&gt;<i> --Per Hedeland
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">per at hedeland.org</A>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120305/0301c335/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120305/0301c335/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000678.html">[X2Go-User] Problem with X2GO session
+</A></li>
+	<LI>Next message: <A HREF="000682.html">[X2Go-User] thinclient image and automounting usb-devices
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#679">[ date ]</a>
+              <a href="thread.html#679">[ thread ]</a>
+              <a href="subject.html#679">[ subject ]</a>
+              <a href="author.html#679">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

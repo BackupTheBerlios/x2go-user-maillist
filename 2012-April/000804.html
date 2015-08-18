@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4sr2p3V7%2BozGYAfvia2MZZTBSgPc-EPgpG9R0q%3DM2NXZg%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000803.html">
+   <LINK REL="Next"  HREF="000805.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20ubuntu%2012.04%20and%20x2go%20server%20installation%20-%20found%0A%20reason%20for%20failed%20remote%20desktop%20session%20starts&In-Reply-To=%3CCAFX-c4sr2p3V7%2BozGYAfvia2MZZTBSgPc-EPgpG9R0q%3DM2NXZg%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Wed Apr 25 00:01:16 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000803.html">[X2Go-User] ubuntu 12.04 beta 2 - gnomebindings install fails due to dependency problem
+</A></li>
+        <LI>Next message: <A HREF="000805.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#804">[ date ]</a>
+              <a href="thread.html#804">[ thread ]</a>
+              <a href="subject.html#804">[ subject ]</a>
+              <a href="author.html#804">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I recently had reported installing x2goserver on a totally new server
+machine and the x2goclient on a totally new client machine both running
+Ubuntu 12.04 beta 2 and the fact that when trying to start an x2go session
+it would always indicate &quot;running&quot; then immediately fail/terminate.
+
+I've found out the following.
+
+After adding the x2go PPA for debian/ubuntu
+
+*sudo add-apt-repository ppa:x2go/stable
+sudo apt-get update*
+
+In the past all I've had to do on the server was install x2goserver
+
+*sudo apt-get install x2goserver*
+
+then edit /etc/ssh/sshd_config and enable ChallengeResponseAuthentication
+to YES
+
+*ChallengeResponseAuthentication yes*
+
+However, with the new x2go versions apparently that is NOT they only module
+that needs to be installed.
+
+On the server you now also must install x2goserver-xsession
+*
+sudo apt-get install x2goserver-xsession*
+
+My best guess is that this was introduced when the new x2go versions
+implemented the ability to *published apps* on the x2go server without
+having to install any sort of desktop environment on the remote &quot;server&quot;
+machine.
+
+After installing the x2goserver-xsession the x2goclient now successfully
+creates a remote desktop session with one caveate... I've had to setup the
+remote server for ssh automatic login
+
+If using Ubuntu refer to:
+<A HREF="https://help.ubuntu.com/community/SSH/OpenSSH/Keys">https://help.ubuntu.com/community/SSH/OpenSSH/Keys</A>
+
+If I do not do this then the login to the remote server will always fail
+due to some ssh failure but I am not sure if its the client or server side
+that fails but that is another problem to figure out later.   At least I
+can get a remote desktop now.
+
+I'm not sure if the above change was documented anywhere on the x2go wiki
+but I will check and add it if it doesn't exist yet.
+
+Brian
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120424/e1edb46f/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120424/e1edb46f/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000803.html">[X2Go-User] ubuntu 12.04 beta 2 - gnomebindings install fails due to dependency problem
+</A></li>
+	<LI>Next message: <A HREF="000805.html">[X2Go-User] ubuntu 12.04 and x2go server installation - found reason for failed remote desktop session starts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#804">[ date ]</a>
+              <a href="thread.html#804">[ thread ]</a>
+              <a href="subject.html#804">[ subject ]</a>
+              <a href="author.html#804">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

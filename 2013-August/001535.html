@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] emacs crashes on ctrl-g (visible bell)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-August/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20emacs%20crashes%20on%20ctrl-g%20%28visible%20bell%29&In-Reply-To=%3C5204C9BA.8070001%40tbz-pariv.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001534.html">
+   <LINK REL="Next"  HREF="001536.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] emacs crashes on ctrl-g (visible bell)</H1>
+    <B>Thomas G&#252;ttler</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20emacs%20crashes%20on%20ctrl-g%20%28visible%20bell%29&In-Reply-To=%3C5204C9BA.8070001%40tbz-pariv.de%3E"
+       TITLE="[X2Go-User] emacs crashes on ctrl-g (visible bell)">hv at tbz-pariv.de
+       </A><BR>
+    <I>Fri Aug  9 12:51:38 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001534.html">[X2Go-User] Mac OS X client and ssh-agent?
+</A></li>
+        <LI>Next message: <A HREF="001536.html">[X2Go-User] Missing Dependencies while installing on RHEL5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1535">[ date ]</a>
+              <a href="thread.html#1535">[ thread ]</a>
+              <a href="subject.html#1535">[ subject ]</a>
+              <a href="author.html#1535">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I found a reproducable bug, which happens only if I connect via x2go:
+
+ssh -X <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">user at opensuse12.3</A>
+
+emacs (GUI)
+
+ctrl-g (visible bell)
+
+
+** (emacs:20636): WARNING **: Error retrieving accessibility bus address: org.freedesktop.DBus.Error.ServiceUnknown: The 
+name org.a11y.Bus was not provided by any .service files
+X protocol error: BadValue (integer parameter out of range for operation) on protocol request 147
+When compiled with GTK, Emacs cannot recover from X disconnects.
+This is a GTK bug: <A HREF="https://bugzilla.gnome.org/show_bug.cgi?id=85715">https://bugzilla.gnome.org/show_bug.cgi?id=85715</A>
+For details, see etc/PROBLEMS.
+X protocol error: BadValue (integer parameter out of range for operation) on protocol request 147
+When compiled with GTK, Emacs cannot recover from X disconnects.
+This is a GTK bug: <A HREF="https://bugzilla.gnome.org/show_bug.cgi?id=85715">https://bugzilla.gnome.org/show_bug.cgi?id=85715</A>
+For details, see etc/PROBLEMS.
+
+
+x2goagent Version: 2:3.5.0.21-0~354~lucid1
+
+x2goserver 4.1.0.0-0~771~lucid1
+
+What can I do to get Emacs running?
+
+  Thomas
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001534.html">[X2Go-User] Mac OS X client and ssh-agent?
+</A></li>
+	<LI>Next message: <A HREF="001536.html">[X2Go-User] Missing Dependencies while installing on RHEL5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1535">[ date ]</a>
+              <a href="thread.html#1535">[ thread ]</a>
+              <a href="subject.html#1535">[ subject ]</a>
+              <a href="author.html#1535">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

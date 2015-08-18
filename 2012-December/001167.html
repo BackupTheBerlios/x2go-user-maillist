@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2godesktopsharing, what's the point?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2godesktopsharing%2C%20what%27s%20the%20point%3F&In-Reply-To=%3C20121203090659.249568eslfx8zaub%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="001168.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2godesktopsharing, what's the point?</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2godesktopsharing%2C%20what%27s%20the%20point%3F&In-Reply-To=%3C20121203090659.249568eslfx8zaub%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] x2godesktopsharing, what's the point?">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Dec  3 09:06:59 CET 2012</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="001168.html">[X2Go-User] x2godesktopsharing, what's the point?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1167">[ date ]</a>
+              <a href="thread.html#1167">[ thread ]</a>
+              <a href="subject.html#1167">[ subject ]</a>
+              <a href="author.html#1167">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Jochen,
+
+the issue has been fixed:
+<A HREF="http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=69">http://bugs.x2go.org/cgi-bin/bugreport.cgi?bug=69</A>
+
+Greets,
+Mike
+
+On Fr 30 Nov 2012 20:04:51 CET Jochen Schulz wrote:
+
+&gt;<i> Hi,
+</I>&gt;<i>
+</I>&gt;&gt;&gt;&gt;<i> FYI: Alex and I have just fixed an issue with cross-user
+</I>&gt;&gt;&gt;&gt;<i> x2godesktopsharing. A bugfix release is currently being prepared
+</I>&gt;&gt;&gt;&gt;<i> (3.1.1.9).
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> i am using x2godesktopsharing 3.0.1.5-0~74~precise1 and i tried using
+</I>&gt;&gt;&gt;<i> the feature but faild other than with the same user, which runs the
+</I>&gt;&gt;&gt;<i> original desktop  or x2go-session.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Import thing is that you have x2goserver 3.1.1.9 installed. Should be in
+</I>&gt;&gt;<i> the stable Ubuntu ppa by now.
+</I>&gt;<i>
+</I>&gt;<i> i am using x2goserver 3.1.19, so this should be fine.
+</I>&gt;<i>
+</I>&gt;&gt;<i> There are two approaches.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> 1.
+</I>&gt;&gt;<i> Every member of the posix group x2godesktopsharing may share each
+</I>&gt;&gt;<i> other's desktop.
+</I>&gt;<i>
+</I>&gt;<i> i tried this, but it changed nothing.
+</I>&gt;<i>
+</I>&gt;<i> i looked briefly into the code of x2godesktopsharing and it wants to
+</I>&gt;<i> connect to a socket which simple is not there. The socketname is for
+</I>&gt;<i> example /tmp/user/2001/<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2godesktopsharing_ at schul04</A>@:0.0 when trying to
+</I>&gt;<i> connect to &quot;schul04's&quot; desktop with &quot;schulz&quot; and it is never created.
+</I>&gt;<i>
+</I>&gt;<i> Thats why x2godesktopsharing spits out a DENY, as it seems.
+</I>&gt;<i>
+</I>&gt;<i> any ideas?
+</I>&gt;<i>
+</I>&gt;<i> Jochen
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121203/990e117f/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121203/990e117f/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="001168.html">[X2Go-User] x2godesktopsharing, what's the point?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1167">[ date ]</a>
+              <a href="thread.html#1167">[ thread ]</a>
+              <a href="subject.html#1167">[ subject ]</a>
+              <a href="author.html#1167">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

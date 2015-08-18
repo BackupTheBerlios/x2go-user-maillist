@@ -1,0 +1,232 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Crashing sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1oQORCBuip%2Bqg%2BrAuO7RtyVMXXqOG8D3qviT7cJ607Qyw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   
+   <LINK REL="Next"  HREF="000415.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Crashing sessions</H1>
+    <B>Daniel Lindgren</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Crashing%20sessions&In-Reply-To=%3CCAAWyt1oQORCBuip%2Bqg%2BrAuO7RtyVMXXqOG8D3qviT7cJ607Qyw%40mail.gmail.com%3E"
+       TITLE="[X2go-User] Crashing sessions">bd.dali at gmail.com
+       </A><BR>
+    <I>Sun Oct  2 10:54:58 CEST 2011</I>
+    <P><UL>
+        
+        <LI>Next message: <A HREF="000415.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#414">[ date ]</a>
+              <a href="thread.html#414">[ thread ]</a>
+              <a href="subject.html#414">[ subject ]</a>
+              <a href="author.html#414">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>OK, I'm in trouble. Today libxcomp3 package was updated on my server,
+apt history log:
+
+Upgrade: libxcomp3:amd64 (3.5.0-1-0~x2go2+squeeze~main~32~build1,
+3.5.0-2-0~x2go1+squeeze~heuler~20110930~46~build1)
+
+Logged out of a running x2go session and tried to start a new session.
+A X windows with the &quot;X2GO&quot; is displayed for a few seconds and then
+disappears. Happened before, no worries, retry and it should work. Not
+this time, I've spent a couple of hours trying to resolve this but can
+currently not start a new desktop session.
+
+This is what the logs on the server say during session start/logon
+(session started at ~8:36:00).
+
+auth.log:
+Oct  2 08:36:01 debian sshd[5016]: Accepted publickey for dali from
+192.168.0.103 port 48349 ssh2
+Oct  2 08:36:01 debian sshd[5016]: pam_unix(sshd:session): session
+opened for user dali by (uid=0)
+Oct  2 08:36:01 debian sshd[5023]: Received disconnect from
+192.168.0.103: 11: disconnected by user
+Oct  2 08:36:01 debian sshd[5016]: pam_unix(sshd:session): session
+closed for user dali
+Oct  2 08:36:01 debian sshd[5033]: Accepted publickey for dali from
+192.168.0.103 port 48350 ssh2
+Oct  2 08:36:01 debian sshd[5033]: pam_unix(sshd:session): session
+opened for user dali by (uid=0)
+Oct  2 08:36:06 debian sshd[5042]: Received disconnect from
+192.168.0.103: 11: disconnected by user
+Oct  2 08:36:06 debian sshd[5033]: pam_unix(sshd:session): session
+closed for user dali
+Oct  2 08:36:06 debian sshd[5253]: Accepted publickey for dali from
+192.168.0.103 port 48351 ssh2
+Oct  2 08:36:06 debian sshd[5253]: pam_unix(sshd:session): session
+opened for user dali by (uid=0)
+Oct  2 08:36:08 debian sshd[5264]: Accepted publickey for dali from
+192.168.0.103 port 48353 ssh2
+Oct  2 08:36:08 debian sshd[5264]: pam_unix(sshd:session): session
+opened for user dali by (uid=0)
+Oct  2 08:36:08 debian sshd[5271]: Received disconnect from
+192.168.0.103: 11: disconnected by user
+Oct  2 08:36:08 debian sshd[5264]: pam_unix(sshd:session): session
+closed for user dali
+--- X window with X2GO logo is shown on client for a few seconds, then
+disappears ---
+Oct  2 08:36:12 debian dbus-daemon: [system] Rejected send message, 2
+matched rules; type=&quot;method_call&quot;, sender=&quot;:1.307&quot; (uid=1000 pid=5372
+comm=&quot;bluetooth-applet) interface=&quot;org.bluez.Manager&quot;
+member=&quot;ListAdapters&quot; error name=&quot;(unset)&quot; requested_reply=0
+destination=&quot;org.bluez&quot; (uid=0 pid=1601 comm=&quot;/usr/sbin/bluetoothd))
+Oct  2 08:36:12 debian dbus-daemon: [system] Rejected send message, 2
+matched rules; type=&quot;method_call&quot;, sender=&quot;:1.307&quot; (uid=1000 pid=5372
+comm=&quot;bluetooth-applet) interface=&quot;org.bluez.Manager&quot;
+member=&quot;DefaultAdapter&quot; error name=&quot;(unset)&quot; requested_reply=0
+destination=&quot;org.bluez&quot; (uid=0 pid=1601 comm=&quot;/usr/sbin/bluetoothd))
+Oct  2 08:36:13 debian gnome-keyring-daemon[5339]: dbus failure
+unregistering from session: Connection is closed
+Oct  2 08:36:13 debian gnome-keyring-daemon[5339]: dbus failure
+unregistering from session: Connection is closed
+Oct  2 08:36:13 debian sshd[5261]: Received disconnect from
+192.168.0.103: 11: disconnected by user
+Oct  2 08:36:13 debian sshd[5253]: pam_unix(sshd:session): session
+closed for user dali
+Oct  2 08:36:19 debian su[5525]: Successful su for dali by root
+Oct  2 08:36:19 debian su[5525]: + ??? root:dali
+Oct  2 08:36:19 debian su[5525]: pam_unix(su:session): session opened
+for user dali by (uid=0)
+Oct  2 08:36:20 debian su[5525]: pam_unix(su:session): session closed
+for user dali
+
+daemon.log:
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: GSIdleMonitor:
+IDLETIME counter not found
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Unable to
+determine session: Unable to find session for cookie
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Could not parse
+desktop file /home/dali/.config/autostart/xfce4-tips-autostart.desktop:
+Nyckelfilen har inte nyckeln &quot;Name&quot;
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: could not read
+/home/dali/.config/autostart/xfce4-tips-autostart.desktop
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Could not parse
+desktop file /home/dali/.config/autostart/xfconf-migration-4.6.desktop:
+Nyckelfilen har inte nyckeln &quot;Name&quot;
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: could not read
+/home/dali/.config/autostart/xfconf-migration-4.6.desktop
+Oct  2 08:36:13 debian gnome-session[5324]: WARNING: Detected that
+screensaver has left the bus
+
+messages:
+Oct  2 08:36:05 debian /usr/bin/x2gostartagent: successfully started
+X2go agent session with ID dali-55-1317537362
+Also this:
+Oct  2 08:59:20 debian pulseaudio[2867]: main.c: Unable to contact
+D-Bus: org.freedesktop.DBus.Error.NoServer: Failed to connect to
+socket /tmp/dbus-PkD1IzeCrk: F&#246;rbindelse v&#228;gras
+
+syslog:
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: GSIdleMonitor:
+IDLETIME counter not found
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Unable to
+determine session: Unable to find session for cookie
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Could not parse
+desktop file /home/dali/.config/autostart/xfce4-tips-autostart.desktop:
+Nyckelfilen har inte nyckeln &quot;Name&quot;
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: could not read
+/home/dali/.config/autostart/xfce4-tips-autostart.desktop
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: Could not parse
+desktop file /home/dali/.config/autostart/xfconf-migration-4.6.desktop:
+Nyckelfilen har inte nyckeln &quot;Name&quot;
+Oct  2 08:36:10 debian gnome-session[5324]: WARNING: could not read
+/home/dali/.config/autostart/xfconf-migration-4.6.desktop
+Oct  2 08:36:12 debian pulseaudio[5391]: pid.c: Daemon already running.
+Oct  2 08:36:13 debian gnome-session[5324]: WARNING: Detected that
+screensaver has left the bus
+Oct  2 08:36:13 debian pulseaudio[5412]: pid.c: Daemon already running.
+Oct  2 08:36:13 debian pulseaudio[4135]: x11wrap.c: XOpenDisplay() failed
+Oct  2 08:36:13 debian pulseaudio[4135]: module.c: Failed to load
+module &quot;module-x11-publish&quot; (argument: &quot;display=:55.0&quot;):
+initialization failed.
+Oct  2 08:36:13 debian pulseaudio[5423]: pid.c: Daemon already running.
+
+user.log:
+Oct  2 08:36:05 debian /usr/bin/x2gostartagent: successfully started
+X2go agent session with ID dali-55-1317537362
+Oct  2 08:36:12 debian pulseaudio[5391]: pid.c: Daemon already running.
+Oct  2 08:36:13 debian pulseaudio[5412]: pid.c: Daemon already running.
+Oct  2 08:36:13 debian pulseaudio[4135]: x11wrap.c: XOpenDisplay() failed
+Oct  2 08:36:13 debian pulseaudio[4135]: module.c: Failed to load
+module &quot;module-x11-publish&quot; (argument: &quot;display=:55.0&quot;):
+initialization failed.
+Oct  2 08:36:13 debian pulseaudio[5423]: pid.c: Daemon already running.
+
+What I've tried so far:
+
+- Restarting x2goserver. No difference.
+- Restarting pulseaudio. No difference.
+- Updating client and server. Nothing new.
+- Getting  desperate:
+   - Rebooted server. No difference.
+   - Removed all x2go heuler packages (purge + autoremove) and
+reinstalled them on server. No difference.
+   - Removed all x2go heuler packages (purge + autoremove) and
+reinstalled from &quot;main&quot; repo. x2gousers group reintroduced. No
+difference.
+   - Discovered that libxcomp3 from heuler was still installed: ii
+libxcomp3  3.5.0-2-0~x2go1+squeeze~heuler~20110930~46~build1  NX X
+compression library.
+     - Removed all server packages and reinstalled from main again. No
+difference.
+   - Tried connecting to a different Debian Squeeze server. Success, i
+e the client is not the problem.
+   - Added a brand new user to problem server (and x2gousers, fuse
+groups). Doesn't work.
+   - Tried starting single application (gedit). Success.
+
+I've done a lot of googling and this message could be a clue (it's
+logged when the X window closes):
+
+gnome-keyring-daemon[...]: dbus failure unregistering from session:
+Connection is closed
+
+I get a lot of hits regarding similar problems with failed logins, but
+unfortunately no known fixes (that worked for me, tried the metacity
+gconf thing).
+
+I've tried x2goclient-cli, x2goclient, pyhoca-cli and x2goclient on
+Windows. Can't get a desktop session running with either.
+
+Any ideas?
+
+Cheers,
+Daniel
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	
+	<LI>Next message: <A HREF="000415.html">[X2go-User] Crashing sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#414">[ date ]</a>
+              <a href="thread.html#414">[ thread ]</a>
+              <a href="subject.html#414">[ subject ]</a>
+              <a href="author.html#414">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

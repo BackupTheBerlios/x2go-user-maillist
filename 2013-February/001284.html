@@ -1,0 +1,206 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go-User Digest, Vol 30, Issue 6
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2030%2C%20Issue%206&In-Reply-To=%3CCAFX-c4u9pSCFU2DO-Y0UbBXeyV2kT3N2SRKyyU%2BCn0N9S8Jijw%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001294.html">
+   <LINK REL="Next"  HREF="001285.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go-User Digest, Vol 30, Issue 6</H1>
+    <B>brian mullan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go-User%20Digest%2C%20Vol%2030%2C%20Issue%206&In-Reply-To=%3CCAFX-c4u9pSCFU2DO-Y0UbBXeyV2kT3N2SRKyyU%2BCn0N9S8Jijw%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] X2Go-User Digest, Vol 30, Issue 6">bmullan.mail at gmail.com
+       </A><BR>
+    <I>Mon Feb 11 13:27:36 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001294.html">[X2Go-User] x2go Webbrowser Plugin
+</A></li>
+        <LI>Next message: <A HREF="001285.html">[X2Go-User] Using X2Go Plugin on non-Debian systems (was: X2Go-User Digest, Vol 30, Issue 6)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1284">[ date ]</a>
+              <a href="thread.html#1284">[ thread ]</a>
+              <a href="subject.html#1284">[ subject ]</a>
+              <a href="author.html#1284">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>I've got a idea/proposal.
+
+Since the x2go Plugin .DEB is for Ubuntu only currently.
+
+I have a solution for nearly every Linux distro that has LXC and I think
+the Mac also but this
+won't work on Windows.
+
+Linux Containers (LXC) has been part of the linux kernel for quite a while
+now.   Using LXC on Ubuntu
+I can install LXC containers running other Linux distro's very easily:
+
+    sudo lxc-create -t centos -n my_centos
+
+for instance would create a Centos container with a name &quot;my_centos&quot;
+
+My idea/proposal is not for Ubuntu since the x2go plugin already exists for
+it.
+
+My idea is for all other Distro's that support LXC (I believe most do).. an
+Ubuntu LXC container could be
+created by this command:
+
+as root:
+
+$ lxc-create -t ubuntu -n my_x2go
+
+then start the container:
+
+$ lxc-start -n my_x2go
+
+then loging to lxc (not sure what the default login on another distro is
+but on ubuntu
+its &quot;ubuntu&quot; and &quot;ubuntu&quot;.
+
+At that point you would be at the LXC container's ubuntu command line
+prompt and
+could proceed with installing firefox, the x2go firefox .deb plugin etc etc.
+
+After that everyone would have an x2go plugin enabled web browser available
+within a container on their system.
+
+Because LXC doesn't use HW virtualization but &quot;process&quot; isolation and LXC
+shares the &quot;host&quot; OS kernel... LXC
+is very fast and doesn't use up any of your PC's CPU core's like a
+virtualbox or kvm VM would just to run this.
+
+Anyway, I am pretty certain this would work quite well for people using
+other than Ubuntu assuming the plugin
+on Ubuntu works as it used to.
+
+I'd be glad to help someone interested in trying this on some other distro
+if they'd like to contact me directly.
+
+If it does work as expected then a plugin solution process could be to
+produce an LXC container for each distro
+that supports LXC then just copy that file up to the x2go wiki for later
+download and use by others as it would
+be pre-configured in a sense for use except they'd still have to start the
+container on thier system, login and
+change any of the plugin config files (index.html etc) to match their needs.
+
+Anyway, just wanted to throw this idea out there.
+
+Brian
+
+
+
+On Mon, Feb 11, 2013 at 6:00 AM, &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>&gt; wrote:
+
+&gt;<i> Send X2Go-User mailing list submissions to
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> To subscribe or unsubscribe via the World Wide Web, visit
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> or, via email, send a message with subject or body 'help' to
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-request at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> You can reach the person managing the list at
+</I>&gt;<i>         <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-owner at lists.berlios.de</A>
+</I>&gt;<i>
+</I>&gt;<i> When replying, please edit your Subject line so it is more specific
+</I>&gt;<i> than &quot;Re: Contents of X2Go-User digest...&quot;
+</I>&gt;<i>
+</I>&gt;<i> Today's Topics:
+</I>&gt;<i>
+</I>&gt;<i>    1. Re: x2go Webbrowser Plugin (Mike Gabriel)
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> ---------- Forwarded message ----------
+</I>&gt;<i> From: Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+</I>&gt;<i> To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+</I>&gt;<i> Cc:
+</I>&gt;<i> Date: Mon, 11 Feb 2013 10:34:50 +0100
+</I>&gt;<i> Subject: Re: [X2Go-User] x2go Webbrowser Plugin
+</I>&gt;<i> Hi Bernhard,
+</I>&gt;<i>
+</I>&gt;<i> On Mo 04 Feb 2013 16:18:43 CET &quot;Bernhard J. Mayr&quot; wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Is there a plan to reimplement the Webbrowser Plugin for x2go?
+</I>&gt;&gt;<i> The Wiki says &quot;Note: the current plugin does not yet support Firefox
+</I>&gt;&gt;<i> 4.x.&quot; Is there a plan for a Plugin for FF 4.x ?
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> The wiki page desperately needs an update.
+</I>&gt;<i>
+</I>&gt;<i> The x2goplugin is available as .deb package for Debian and Ubuntu.
+</I>&gt;<i>
+</I>&gt;<i> On your webserver you can install x2goplugin-provider. The package
+</I>&gt;<i> contains a little example that shows how to configure a webpage, so that
+</I>&gt;<i> the x2goplugin gets launched once the webpage is visited.
+</I>&gt;<i>
+</I>&gt;<i> The x2goplugin package has to be installed on the systems from where the
+</I>&gt;<i> browser connects to the x2goplugin-provider site.
+</I>&gt;<i>
+</I>&gt;<i> Greets,
+</I>&gt;<i> Mike
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.</A>**de&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;,
+</I>&gt;<i> <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**">https://mail.das-netzwerkteam.**de/freebusy/m.gabriel%40das-**</A>
+</I>&gt;<i> netzwerkteam.de.xfb&lt;<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>&gt;
+</I>&gt;<i>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130211/747bafbf/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130211/747bafbf/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001294.html">[X2Go-User] x2go Webbrowser Plugin
+</A></li>
+	<LI>Next message: <A HREF="001285.html">[X2Go-User] Using X2Go Plugin on non-Debian systems (was: X2Go-User Digest, Vol 30, Issue 6)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1284">[ date ]</a>
+              <a href="thread.html#1284">[ thread ]</a>
+              <a href="subject.html#1284">[ subject ]</a>
+              <a href="author.html#1284">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

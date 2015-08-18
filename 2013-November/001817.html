@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Is it possible to run the X2Go PXE Server (for X2Go TCE) in a Linux-VServer environment?
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Is%20it%20possible%20to%20run%20the%20X2Go%20PXE%20Server%20%28for%20X2Go%0A%20TCE%29%20in%20a%20Linux-VServer%20environment%3F&In-Reply-To=%3C529460DD.9010900%40stefanbaur.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001816.html">
+   <LINK REL="Next"  HREF="001818.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Is it possible to run the X2Go PXE Server (for X2Go TCE) in a Linux-VServer environment?</H1>
+    <B>Stefan Baur</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Is%20it%20possible%20to%20run%20the%20X2Go%20PXE%20Server%20%28for%20X2Go%0A%20TCE%29%20in%20a%20Linux-VServer%20environment%3F&In-Reply-To=%3C529460DD.9010900%40stefanbaur.de%3E"
+       TITLE="[X2Go-User] Is it possible to run the X2Go PXE Server (for X2Go TCE) in a Linux-VServer environment?">newsgroups.mail2 at stefanbaur.de
+       </A><BR>
+    <I>Tue Nov 26 09:50:37 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001816.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+        <LI>Next message: <A HREF="001818.html">[X2Go-User] Started getting weird error: Connection failed. Cannot open display &quot;default display&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1817">[ date ]</a>
+              <a href="thread.html#1817">[ thread ]</a>
+              <a href="subject.html#1817">[ subject ]</a>
+              <a href="author.html#1817">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi list,
+
+I tried to install the X2Go PXE Server in a VServer environment.
+
+This failed for several reasons:
+1) Linux-VServer isn't included in Wheezy any more, so I had to try it 
+using Squeeze.
+2) The nfs-kernel-server package cannot be installed in a VServer 
+environment - this is a general limitation of Linux-VServer 
+(<A HREF="http://linux-vserver.org/Frequently_Asked_Questions_scratch#NFS-server">http://linux-vserver.org/Frequently_Asked_Questions_scratch#NFS-server</A>). Said 
+FAQ and &quot;apt-cache show nfs-kernel-server&quot; point to the packages 
+nfs-user-server and unfs3 as alternatives. However, in Squeeze, only the 
+nfs-kernel-server package is available, but neither nfs-user-server nor 
+unfs3 are available.
+3) unfs3 is available in sid, but only for the m68k platform, not for 
+i386 or amd64.
+4) I can't find nfs-user-server anywhere on packages.debian.org (for any 
+release), which means either the package name is wrong or the package no 
+longer exists.
+
+So it seems I'm stuck.
+
+Other PXE boot solutions use http/ftp instead of nfs and pass along the 
+client root file system as squashfs. I'm not sure if switching to that 
+method would help much, though, as it means having to load the entire 
+root file system into the client's RAM. At present, the file system 
+needs almost 850 MB of space, which would not fit into my clients - they 
+have between 256 MB and 512 MB.
+
+Any suggestions what I could try next?
+
+-Stefan
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001816.html">[X2Go-User] No sound in X2Go TCE (ATTN: @Mike)
+</A></li>
+	<LI>Next message: <A HREF="001818.html">[X2Go-User] Started getting weird error: Connection failed. Cannot open display &quot;default display&quot;
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1817">[ date ]</a>
+              <a href="thread.html#1817">[ thread ]</a>
+              <a href="subject.html#1817">[ subject ]</a>
+              <a href="author.html#1817">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

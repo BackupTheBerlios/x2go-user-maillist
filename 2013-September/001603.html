@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Installing x2go client on Fedora 18
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-September/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Installing%20x2go%20client%20on%20Fedora%2018&In-Reply-To=%3C52446346.8080708%40mcw.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001592.html">
+   <LINK REL="Next"  HREF="001604.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Installing x2go client on Fedora 18</H1>
+    <B>Rodney Sparapani</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Installing%20x2go%20client%20on%20Fedora%2018&In-Reply-To=%3C52446346.8080708%40mcw.edu%3E"
+       TITLE="[X2Go-User] Installing x2go client on Fedora 18">rsparapa at mcw.edu
+       </A><BR>
+    <I>Thu Sep 26 18:39:34 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001592.html">[X2Go-User] X2Go on Android
+</A></li>
+        <LI>Next message: <A HREF="001604.html">[X2Go-User] Big screen problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1603">[ date ]</a>
+              <a href="thread.html#1603">[ thread ]</a>
+              <a href="subject.html#1603">[ subject ]</a>
+              <a href="author.html#1603">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Gang:
+
+I spent several hours over the last couple of days (successfully!!)
+installing x2go on Fedora 18 based on the tips provided at
+wiki.x2go.org/doku.php/doc:installation:x2goclient
+
+For whatever reason, I needed to install a lot more packages.
+But, first, one of the file names has changed, i.e.
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libjpeg8-1.2.1-3-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libjpeg8-1.2.1-3-mdv2012.0.i586.rpm</A>
+
+Here are the additional packages...
+
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libldap2.4_2-2.4.31-1-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libldap2.4_2-2.4.31-1-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libopenssl1.0.0-1.0.1c-1-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libopenssl1.0.0-1.0.1c-1-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libcups2-1.5.3-2-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libcups2-1.5.3-2-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libgnutls28-3.0.21-1-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libgnutls28-3.0.21-1-mdv2012.0.i586.rpm</A>
+
+yum install libgnutls28-3.0.21-1-mdv2012.0.i586.rpm 
+libcups2-1.5.3-2-mdv2012.0.i586.rpm 
+libldap2.4_2-2.4.31-1-mdv2012.0.i586.rpm 
+libopenssl1.0.0-1.0.1c-1-mdv2012.0.i586.rpm
+
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtcore4-4.8.2-2-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtcore4-4.8.2-2-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtgui4-4.8.2-2-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtgui4-4.8.2-2-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtnetwork4-4.8.2-2-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtnetwork4-4.8.2-2-mdv2012.0.i586.rpm</A>
+wget 
+<A HREF="ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtsvg4-4.8.2-2-mdv2012.0.i586.rpm">ftp://ftp.pbone.net/mirror/carroll.cac.psu.edu/pub/linux/distributions/mandrakelinux/devel/cooker/i586/media/main/release/libqtsvg4-4.8.2-2-mdv2012.0.i586.rpm</A>
+
+yum install libqtcore4-4.8.2-2-mdv2012.0.i586.rpm 
+libqtgui4-4.8.2-2-mdv2012.0.i586.rpm 
+libqtnetwork4-4.8.2-2-mdv2012.0.i586.rpm 
+libqtsvg4-4.8.2-2-mdv2012.0.i586.rpm
+
+Everything works so far.  This is a new laptop and there is one
+error that pops up.  I'm sure this is something that I have done
+(or not done), but I see:
+Can't read host rsa
+key:/etc/ssh/ssh_host_key_rsa_key.pub
+
+I guess I need to generate this with ssh-keygen, correct?  However,
+after looking at the man page, I can't seem to figure this out.
+Is this related to Certificates?  Any help will be appreciated.
+-- 
+Rodney Sparapani, PhD
+Manager of Statistical &amp; Computational Operations
+Center for Patient Care and Outcomes Research (PCOR)
+Medical College of Wisconsin (MCW), Milwaukee, USA
+<A HREF="http://www.linkedin.com/in/rodneysparapani">http://www.linkedin.com/in/rodneysparapani</A>
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001592.html">[X2Go-User] X2Go on Android
+</A></li>
+	<LI>Next message: <A HREF="001604.html">[X2Go-User] Big screen problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1603">[ date ]</a>
+              <a href="thread.html#1603">[ thread ]</a>
+              <a href="subject.html#1603">[ subject ]</a>
+              <a href="author.html#1603">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

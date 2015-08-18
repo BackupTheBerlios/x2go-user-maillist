@@ -1,0 +1,459 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] New X2go releases (as of 2011-10-12)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20X2go%20releases%20%28as%20of%202011-10-12%29&In-Reply-To=%3C20111012125922.27351p06ur1xpjbe%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000441.html">
+   <LINK REL="Next"  HREF="000443.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] New X2go releases (as of 2011-10-12)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20New%20X2go%20releases%20%28as%20of%202011-10-12%29&In-Reply-To=%3C20111012125922.27351p06ur1xpjbe%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] New X2go releases (as of 2011-10-12)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Oct 12 12:59:22 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000441.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+        <LI>Next message: <A HREF="000443.html">[X2go-User] x2go OS X Lion 10.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+two weeks ago the X2go project developers team has agreed on releasing  
+X2go source projects in shorter release intervals than before. The  
+goal of this is to make new code and X2go features available to the  
+community sooner rather then later and to provide more clarity on what  
+is considered stable and up-to-date and what not.
+
+The plan is to release code that
+
+   - we consider as stable
+   - has been tested by more than one person and
+   - has not been changed in X2go Git for more than 14 days
+
+the upcoming Wednesday.
+
+As this is the first release shot we will take (after a long time with  
+only irregurlar releases), the changelogs of the individual projects  
+are quite long. Feel free to study these changelog (at the end of this  
+mail) or not.
+
+The released source projects of this Wednesday (2011-10-12) are:
+
+   CLIENT:
+
+     - x2goclient (3.99.0.1)
+     - pinentry-x2go (0.7.5.1)
+     - python-x2go (0.1.1.18)
+     - x2gothinclient (v1.0.1.3)
+
+   SERVER:
+
+     - x2goserver (3.0.99.6)
+     - x2gognomebindings (2.0.1.3)
+     - x2golxdebindings (1.0.1.1)
+     - x2godesktopsharing (3.0.1.3)
+     - cups-x2go (3.0.0.3)
+
+Stable packages for Debian/Ubuntu are currently building, a Windows  
+and Debian Armel installer/package of x2goclient will follow within  
+the next days. For server-side packages we will also provide lenny  
+backports within the next week.
+
+Please take a good look at the changelogs before upgrading your  
+systems, rather test on a non-production server first, if unsure. The  
+X2go team does not give you any warranties if anything fails with your  
+environment (we simply give our best to provide you with stable code).
+
+Greets+HaveFun,
+Mike Gabriel
+
+PS: the changelogs...
+
+x2goclient (3.99.0.1-0~x2go1) unstable; urgency=low
+
+   * New upstream version (3.99.0.1):
+     - Set TCP_NODELAY (equals: turn Nagle off) for SSH graphical port  
+forwarding
+       tunnel.
+     - Include cups/ppd.h in cupsprint.h, fixes build on Debian wheezy/sid.
+     - Add build_man/clean_man stanzas to Makefile.
+   * Explicitly use source format 3.0 (native).
+   * Build-depend on libssh-dev (&gt;=0.4.7).
+   * Update menu file in /debian folder (rename title to ,,X2go Client (Qt)'').
+   * Do not run man2html from rules file anymore.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+      Wed, 12 Oct 2011 11:11:50 +0200
+
+pinentry-x2go (0.7.5.1-0~x2go1) unstable; urgency=low
+
+   [ Oleksandr Shneyder ]
+   * Set font size in pinentry dialog to 14
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 10:42:21 +0200
+
+x2gothinclient (1.0.1.3-0~x2go1.1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   New upstream version (1.0.1.3):
+     - Split up x2gocdmanager package into x2gocdmanager and x2gothinshutdown
+       package
+     - Fix USB mounting, CD mounting,
+     - Improve code layout (tab stops, inline comments)
+     - Add HTTP_PROXY and FTP_PROXY support to x2gothinclientmanagement (APT
+       package download)
+     - Add example files/symlinks for tftpboot environment.
+     - Add syslinux boot splash with X2go flavour.
+     - Install 486 and 686 kernels in TCE chroot.
+     - Move PXE tftpboot examples to x2gothinclient/share/tftpboot.
+     - Improval of syslinux boot screen.
+     - Add x2gothinclient_preptftpboot script.
+     - Add man page for x2gothinclient_preptftpboot.
+     - Do not run management script if there is a problem with the X2go TCE
+       chroot.
+     - Sanity checks: X2go TCE management script have to run as root.
+     - Add HTTPS_PROXY support.
+     - Add x2gothinclient_cleanup script.
+     - Add man page for x2gothinclient_cleanup.
+     - Run x2gothinclient_init from x2gothinclientd init script.
+     - Fix udev rules path in x2gosmartcardrules, improval of udev script, plus
+       man page.
+     - Fix udev rules path in x2gousbmount.
+     - Add comment that names possible boot profiles to tftp config template.
+     - Add kernel module blacklisting for x2gothinclient_create.
+     - Tweak mtab diversion on X2go Thin Client to avoid error messages.
+     - Add some more PXE/TFTP info at end of x2gothinclient_pretftpboot script.
+     - Disable service restarts in chroot.
+     - Add a ,,hit &lt;RETURN&gt; before TCE creation.
+     - Add tmpfs mount for /var/lib/dbus.
+     - Reduce x2goclient CPU load from ~100% to ~0-1%.
+     - Boot TCE kernel with nomodeset boot option to avoid gCard
+       incompatibilities (Fb vs. Xorg).
+     - Move kernel/initrd symlinks after install rather than copying.
+     - Add detection of kernel upgrades to x2gothinclient_upgrade script.
+     - Adapt chroot file created by x2gothinclient_upgrade, escaping $-signs.
+     - Use --no-session-edit option when starting x2goclient on TCE.
+     - Delay thinshutdown button appearance for 4+6 seconds on X server
+       (re)start (that is: 10s on tce start or X server restart and 4s after
+       session logout).
+     - Add post-run instructions of x2gothinclient_preptftpboot to its  
+man page.
+   * Add acpid to x2gothinclient's Recommends: section.
+   * Remove ssh (=openssh-server) dependency for x2gothinclient package.
+   * Add memtest86+ to x2gothinclient's Recommends: section.
+   * Add midnight commander to Recommends: of x2gothinclient.
+   * x2gothinshutdown: conflicts x2gocdmanager&lt;=1.0.1.2.
+
+   [ Coco ]
+   * Improvements for upstream version (1.0.1.3):
+     - Replace tmpfs mount on /etc/network/run with symlink /etc/network/run -&gt;
+       /dev/shm.
+
+   [ Oleksandr Shneyder ]
+   * Improvements for upstream version (1.0.1.3):
+     - x2gosmartcardrules: support for SCM SCR331-LC1 SmartCard Reader.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 12:16:59 +0200
+
+
+python-x2go (0.1.1.8-0-x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (0.1.1.8), bugfix release for 0.1.1.x series:
+     - Bugfix for: Test for existence of remote home directory on connect.
+     - Unshare local folders during session cleanup.
+     - Remove local session cache folders after sessions have terminated.
+     - Fix missing import of socket module in backends/control/_stdout.py.
+     - Catch failures on sftp_write in control session instance.
+     - Always disconnect from X2goSession instance.
+     - Use random passwords for checking SSH host keys.
+     - Fix duplication of SSH keys in known_hosts file, use hashed hostnames in
+       known_hosts file. Make sure SSH keys written to known_hosts file are
+       available to other SSHClient instances immediately.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 10:54:23 +0200
+
+x2goserver (3.0.99.6-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.0.99.6):
+     - Rename x2goumount_session calls to x2goumount-session calls in
+       x2goserver internal scripts.
+     - Re-arranged script files into /bin and /lib directories.
+     - Tab'ified all script files, proper indentation, coding style.
+     - Fix for x2gomountdirs, now also usernames containing blanks can use
+       local folder sharing.
+     - Provide C wrapper for setgid call of x2gosqlitewrapper.pl. Remove
+       dependency from perlsuid.
+     - Store SQLite db in /var/lib/x2go to comply to latest FHS.
+     - Add x2gobasepath script to reliably detect x2goserver install path.
+     - Add man page for x2gobasepath.
+     - Remove Debianisms from INSTALL howto.
+     - Add chromium-browser as possible WWWBROWSER to x2goruncommand.
+     - Add lxterminal as possible TERMINAL to x2goruncommand.
+     - Add LibreOffice.org as possible OFFICE application to x2goruncommand.
+     - Fix for TERMINAL command execution if konsole (KDE4) is installed on the
+       server (closes upstream issue #87).
+     - Silence x2golistsessions on missing session.log files.
+     - Add x2goprint user creation information to INSTALL howto.
+     - Add sanity checks to x2goprint, script can only be run as root.
+     - Fix x2goprint, add syslogging, add inline comments.
+     - Add script lib/x2gologlevel: introduce [log] section in x2goserver.conf
+       with only parameter ,,loglevel''.
+     - Initialize Syslog module for all Perl scripts in x2goserver package.
+     - Add debugging support for almost all DB functions in  
+x2godbwrapper.pm, fix
+       for Syslog module initialization in all Perl scripts.
+     - Add info loglevel messages for all scripts in bin dir.
+     - Add notice messages for start, suspend, resume, terminate, mountdirs
+       actions.
+     - Fix for x2godbwrapper.pm: we can't open/close the syslog socket in a
+       package. This has to be done by the scripts that use x2godbwrapper.pm.
+     - Add info loglevel messages for x2goserver-extensions scripts.
+     - Use usermapping for SSHFS mount points.
+     - Cleanup of man page area, thanks to Ivan Kabaivanov for  
+pointing that out.
+     - Rename example user and group for session limits in x2goserver.conf so
+       that people do not get the idea to put users in x2gouser group.
+     - Add real error message if client fails to resume/suspend/terminate
+       a session.
+     - Present an ISO-8601 compliant datetime string in session lists
+       rendered by x2golistsessions (and similar) command(s).
+     - Silence knotify SIGHUP signals in case that no knotify is running in the
+       X2go session.
+     - Fix x2goumount-session for individual paths (folder type: disk),
+       ToDo: folder type CDROM and removable media.
+     - Let db_insertmount create a proper return value (success vs. failed).
+     - If resuming or suspending of a session fails, mark the session as
+       finished (because the session's x2goagent is very probably dead).
+       Do not write an error to stderr if x2goterminate-session fails (i.e. if
+       x2goagent is dead).
+     - Identified x2goumount script (x2goserver-compat) as a necessary
+       component of x2gognomebindings and moved it there (with new name:
+       x2goumount-session-gnome).
+     - Add x2golistmounts script to X2go server extensions.
+     - Add x2gofeature script and x2gofeature.d subscripts.
+     - Add x2gofeature man page.
+     - Move x2goversion script into x2goserver core.
+     - Add debug output around shadow session startup (in x2gostartagent).
+     - Pass extra argument $USER to client-mode x2godesktopsharing, requires
+       x2godesktopsharing (&gt;=3.0.1.3) for it to work.
+     - Clean session dir ~/.x2go/C-&lt;session_id&gt; after session  
+terminates, if not
+       running in debug mode.
+     - Change of Desktop icons for shared folders. This change is needed for
+       parallel installation of x2gognomebindings and x2golxdebindings.
+     - Terminate x2godesktopsharing cleanly for current session on
+       x2goterminate-session or when x2goruncommand is about to exit.
+     - Resume/suspend x2godesktopsharing during x2goresume-session,
+       x2gosuspend-session.
+     - Provide pluggable X2go extension system for main X2go server
+       functions.
+     - Provide man page for x2goserver-run-extensions that explains the new
+       plug-in mechanism of x2goserver.
+   * React to bug #627990, prefer man2html-base over man2html.
+   * Do not depend on package perlsuid anymore.
+   * Use source format 3.0 (native).
+   * Fix of Debian clean rules, fix of Makefile's clean rules.
+   * Breaks/replaces packages: x2goserver-one, x2goserver-home, x2goprint
+     (instead ofB Conflicts).
+   * Tab'ified postinst/postrm scripts.
+   * Install internal x2goserver scripts to /usr/lib/x2go, make sure scripts
+     in /usr/bin find these scripts.
+   * x2goserver.postinst: fix home path updates if new home path already exists
+   * Provide separate package x2goserver-printing: x2goprint script +  
+man page +
+     adduser x2goprint.
+
+   [ Moritz Str&#252;be ]
+   * Improvements for new upstream version (3.0.99.6):
+     - Make digits at the beginning of X2go server extension scripts a  
+must, not
+       a suggestion.
+
+   [ Ivan Kabaivanov ]
+   * Improvements for new upstream version (3.0.99.6):
+     - Many Makefile fixes around man page installation.
+     - Proof-reading code, fixing typos.
+
+   [ Martin Oehler ]
+   * Fixes for new upstream version (3.0.99.6):
+     - Removes old debug code fragment, fixes x2golistsessions parsing.
+
+   [ Oleksandr Shneyder ]
+   * Improvements for new upstream version (3.0.99.6):
+     - Remove session directory after 10 sec delay to let x2goclient check
+       cmdoutput file.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 11:44:59 +0200
+
+
+x2gognomebindings (2.0.1.3-0~x2go1) unstable; urgency=low
+
+   * New upstream version (2.0.1.3):
+     - Move ,,x2goumount'' script into source project as ,,x2goumount-session-
+       gnome''.
+     - Move x2gosuspend-session-gnome to /bin folder within source project.
+     - Add man pages for x2goumount-session-gnome, x2gosuspend-session-gnome.
+     - Add simple man page for x2gonautilus.
+     - Place x2go-suspend.desktop icon in GNOME Network submenu.
+     - Define unique MIME name spaces for X2go SSHFS GNOME icons.
+     - Rename sshfs.xml to sshfs-x2go-gnome.xml.
+     - Use desktop icon names that contain the name of the desktop session.
+     - Allow blanks in desktop icon names.
+     - Provide more GNOME'ish way to derive icon path name from GNOME object
+       URI.
+     - Let x2goumount-session-gnome be able to handle icons with blanks in
+       their name.
+   * Add gnome-menus as dependency.
+   * Now fully use debhelper for packaging. Fixed lintian issues.
+   * Use source format 3.0 (native).
+   * Add linitian-overrides an man pages to package.
+   * Depend on x2goserver (&gt;=3.0.99.6).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 11:30:51 +0200
+
+x2golxdebindings (1.0.1.1-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (1.0.1.1):
+     - Add icon symlinks for sshfs/LXDE MIME types.
+     - Use desktop icon names that contain the name of the
+       desktop session.
+   * Imported original tarball version (v1.0.1) to X2go Git.
+   * Adds Debian/Ubuntu packaging (/debian folder).
+   * Depend on destop-file-utils.
+   * Depend on x2goserver (&gt;=3.0.99.6).
+
+   [ Milan Kn&#237;&#382;ek ]
+   * New upstream version (1.0.1.1):
+     - Fix for wrong/test MIME type in x2gopcmanfm.desktop.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 11:35:28 +0200
+
+
+x2godesktopsharing (3.0.1.3-0~x2go1) unstable; urgency=low
+
+   * New upstream version (3.0.1.3):
+     - Fix incomplete DENY statement in main.cpp.
+     - System group for x2godesktopsharing changed from x2gousers -&gt;
+       x2godesktopsharing.
+     - Differentiate between local and remote user, fixes display of wrong
+       user name for remote user.
+     - Add signal handler so that unix signals can be handled within Qt.
+     - Add script x2godesktopsharing-terminate: detect  
+x2godesktopsharing process
+       of a given session and terminate that process.
+     - Save settings and tidy up lock and socket file on X-Server crash.
+     - Provide feature for suspending/resuming x2godesktopsharing
+       (x2godesktopsharing will be terminated on x2gosuspend-session and
+       operations will be resumed on x2goresume-session).
+     - Add man pages for x2go&lt;action&gt;-desktopsharing commands, re-arrange man
+       page folders in source project.
+   * Depend on x2goserver (&gt;=3.0.99.6).
+   * Make sure postinst script does not fail when checking for existence
+     of group x2godesktopsharing.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 11:17:38 +0200
+
+
+
+
+cups-x2go (3.0.0.3-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream release (3.0.0.3):
+     - Call x2goprint directly with root privileges if x2goserver and CUPS
+       server share the same machine.
+     - Major change of code, add comments, syslogging, fix ghostscript call.
+     - Fix remote printing, use host specified in X2go session information for
+       destination of print jobs, not the host specified in cups-x2go.conf.
+     - Add loglevel config option, allow different log levels (i.e. levels of
+       syslog verbosity).
+   * Add dpkg-statoverride for CUPS backend cups-x2go, file permission 0700
+     on CUPS backend makes CUPS run this backend with root-privileges which
+     is needed for cups-x2go to work.
+   * Add a proper dpkg-statoverride check in postinst script.
+
+   [ Mario Oroz ]
+   * New upstream release (3.0.0.3):
+     - Add syslog support for cups-x2go.
+     - Ownership fix for .title file.
+
+   [ Oleksandr Shneyder ]
+   * New upstream release (3.0.0.3):
+     - fixed reading deprecated /etc/x2go/sql.
+     - fixed saving temprary file in / instead of /tmp.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 12 Oct 2011 10:40:12 +0200
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111012/a87352fc/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111012/a87352fc/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000441.html">[X2go-User] dependency perl-suid can not be solved not able to install x2goserver in 11.10 (oneiric)
+</A></li>
+	<LI>Next message: <A HREF="000443.html">[X2go-User] x2go OS X Lion 10.7
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#442">[ date ]</a>
+              <a href="thread.html#442">[ thread ]</a>
+              <a href="subject.html#442">[ subject ]</a>
+              <a href="author.html#442">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

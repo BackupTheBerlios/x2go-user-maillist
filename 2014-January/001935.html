@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] wmctrl problems
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3CD22BD6B2-B3B2-44EC-B379-5C2971DB022F%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001940.html">
+   <LINK REL="Next"  HREF="001936.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] wmctrl problems</H1>
+    <B>Jean-Francois Dagenais</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3CD22BD6B2-B3B2-44EC-B379-5C2971DB022F%40gmail.com%3E"
+       TITLE="[X2Go-User] wmctrl problems">jeff.dagenais at gmail.com
+       </A><BR>
+    <I>Tue Jan  7 19:32:26 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001940.html">[X2Go-User] Pulseaudio muffles sounds from other applications in Windows 7
+</A></li>
+        <LI>Next message: <A HREF="001936.html">[X2Go-User] CTRL+ALT+T not working in MATE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1935">[ date ]</a>
+              <a href="thread.html#1935">[ thread ]</a>
+              <a href="subject.html#1935">[ subject ]</a>
+              <a href="author.html#1935">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, just following up on this old thread&#8230;
+
+On Nov 17, 2013, at 3:13, Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi jfd,
+</I>&gt;<i> 
+</I>&gt;<i> On  Sa 16 Nov 2013 19:08:10 CET, Jean-Francois Dagenais wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> On Nov 16, 2013, at 4:17, Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;&gt;<i> 
+</I>&gt;&gt;&gt;<i> With published applications you have to use wmctrl on your local display (:0) not on the X2Go display (:50 or above...).
+</I>&gt;&gt;&gt;<i> 
+</I>&gt;&gt;&gt;<i> Mike
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> Thanks for the answer Mike, is there any way around that? I.e. a nxagent option
+</I>&gt;&gt;<i> or something? The reason is it would be nice to implement the window
+</I>&gt;<i> 
+</I>&gt;<i> nxagent is a display manager, not a window manager.
+</I>
+I understand that. Here&#8217;s what I meant. If I run &#8216;xprop&#8217; from a linux gnome-terminal which displays through nxagent -&gt; nxproxy -&gt; Local X server, I get a very output than when I run xprop locally on my mac from the local terminal app (straight local connection to XQuartz). So the nxagent/nxproxy tunnel somehow breaks a few pieces of information and control paths. I was just wondering if this could be worked around somehow.
+
+&gt;<i> So, if you you want to apply some magic to X windows running on top of nxagent, you have to use display manager tools like ,,xprop''.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> management
+</I>&gt;&gt;<i> trickery part on the server side, and not have to redo the setup on all my
+</I>&gt;&gt;<i> client terminals. Plus, the server is ubuntu, which has all the required
+</I>&gt;&gt;<i> packages readily available, whereas on mac, I have to use macports which has
+</I>&gt;&gt;<i> some quirks here and there.
+</I>&gt;<i> 
+</I>&gt;<i> I'd be interested in the trickery you want to apply to the published applications.
+</I>
+&#8216;Trickery&#8217; is a bad choice of words. To keep it simple, let&#8217;s just say I would like to use the &#8216;wmctrl&#8217; program, but it should run from the remote machine (my ubuntu box that runs nxagent). Right now, I get:
+$ wmctrl -l
+Cannot get client list properties. 
+(_NET_CLIENT_LIST or _WIN_CLIENT_LIST)
+
+Why is that?
+
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001940.html">[X2Go-User] Pulseaudio muffles sounds from other applications in Windows 7
+</A></li>
+	<LI>Next message: <A HREF="001936.html">[X2Go-User] CTRL+ALT+T not working in MATE
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1935">[ date ]</a>
+              <a href="thread.html#1935">[ thread ]</a>
+              <a href="subject.html#1935">[ subject ]</a>
+              <a href="author.html#1935">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

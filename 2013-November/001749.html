@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] testing session broker in WSGI/plain/inifile configuration
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20testing%20session%20broker%20in%20WSGI/plain/inifile%0A%20configuration&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD2FCAE%40ECS-EXG-P-MB05.win.lanl.gov%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001748.html">
+   <LINK REL="Next"  HREF="001750.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] testing session broker in WSGI/plain/inifile configuration</H1>
+    <B>Short, Kermit</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20testing%20session%20broker%20in%20WSGI/plain/inifile%0A%20configuration&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD2FCAE%40ECS-EXG-P-MB05.win.lanl.gov%3E"
+       TITLE="[X2Go-User] testing session broker in WSGI/plain/inifile configuration">k_short at lanl.gov
+       </A><BR>
+    <I>Sat Nov  2 05:50:30 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001748.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+        <LI>Next message: <A HREF="001750.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1749">[ date ]</a>
+              <a href="thread.html#1749">[ thread ]</a>
+              <a href="subject.html#1749">[ subject ]</a>
+              <a href="author.html#1749">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Wow, thanks Mike!  Not only did I find the debug variable, I found a bunch of others that needed attention.  I apologize for not reading the commented sections more carefully.  I'd tried this before with the standalone daemon and I actually set the environment variable that time.  I totally spaced it out here.  I got the simple but amazingly rewarding 'Access Granted' and now I will start building the session configuration list and testing with the client.
+
+Thank you!!!
+-Kermit
+________________________________________
+From: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-bounces at lists.berlios.de</A> [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user-bounces at lists.berlios.de</A>] on behalf of Mike Gabriel [<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>]
+Sent: Friday, November 01, 2013 5:45 PM
+To: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-user at lists.berlios.de</A>
+Subject: Re: [X2Go-User] testing session broker in WSGI/plain/inifile configuration
+
+On  Fr 01 Nov 2013 23:28:00 CET, Short, Kermit wrote:
+
+&gt;<i> Me again...sorry!
+</I>&gt;<i>
+</I>&gt;<i> I've installed the WSGI implementation of the session broker, and
+</I>&gt;<i> configured the broker to run in text/plain and inifile configuration.
+</I>&gt;<i> When I try and hit the broker from a web
+</I>&gt;<i> browser(<A HREF="https://localhost:443/plain/inifile/">https://localhost:443/plain/inifile/</A>)
+</I>&gt;<i>
+</I>&gt;<i> I get Error 405: Method Not Allowed.
+</I>&gt;<i>
+</I>&gt;<i> Any ideas where I can start looking?  I'd love to have this working on a
+</I>&gt;<i> basic level to present on Monday, but so far I've hit this wall twice.
+</I>&gt;<i>
+</I>&gt;<i> Thanks!!
+</I>
+Enable X2GOBROKER_DEBUG in the wsgi config. The X2Go Client does those
+queries with POST requests. If you enter that URL into your browser,
+the browser does a GET request. GET requests are only enabled in
+X2GOBROKER_DEBUG=1 mode.
+
+Mike
+--
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001748.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+	<LI>Next message: <A HREF="001750.html">[X2Go-User] testing session broker in WSGI/plain/inifile configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1749">[ date ]</a>
+              <a href="thread.html#1749">[ thread ]</a>
+              <a href="subject.html#1749">[ subject ]</a>
+              <a href="author.html#1749">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

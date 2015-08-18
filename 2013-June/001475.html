@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Black screen for existing session
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Black%20screen%20for%20existing%20session&In-Reply-To=%3C51BE6095.6060102%40ruicruz.pt%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001474.html">
+   <LINK REL="Next"  HREF="001476.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Black screen for existing session</H1>
+    <B>Rui Cruz</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Black%20screen%20for%20existing%20session&In-Reply-To=%3C51BE6095.6060102%40ruicruz.pt%3E"
+       TITLE="[X2Go-User] Black screen for existing session">mail at ruicruz.pt
+       </A><BR>
+    <I>Mon Jun 17 03:04:21 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001474.html">[X2Go-User] Black screen for existing session
+</A></li>
+        <LI>Next message: <A HREF="001476.html">[X2Go-User] Future kerberos support?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1475">[ date ]</a>
+              <a href="thread.html#1475">[ thread ]</a>
+              <a href="subject.html#1475">[ subject ]</a>
+              <a href="author.html#1475">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike,
+
+Responding to your questions
+- upgrate is from stable
+- I try this client versions, in order: 4.0.0.1 (the ond I had before
+the problem appear), 4.0.0.3 and 3.99.2.1.
+- about the gnome version:
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">rcruz at remote1</A>:~$ gnome-shell --version
+GNOME Shell 3.4.1
+- at the momment I don't have a Ubuntu or Linux distribuition installed
+and probably can only do it next weekend. If you fell that it will prove
+worh to finding the bug let me know and I will inform you when I'm able
+to install it
+
+Also, can you let me know what do I need to install to work with PyHoca
+as an alternative?
+I've this results with apt-cache search pyhoca:
+pyhoca-gui - Graphical X2Go client written in (wx)Python
+pyhoca-cli - Command line X2Go client written in Python
+x2goserver-pyhoca - X2Go server daemon scripts (add-ons for pyhoca client)
+
+
+Is there anything else to install on the server-side?
+
+
+
+Rui Cruz
+Journalist
++351 96 827 1502
+
+Em 6/17/2013 1:33 AM, Mike Gabriel escreveu:
+&gt;<i> Hi Rui,
+</I>&gt;<i> 
+</I>&gt;<i> On Sa 15 Jun 2013 10:29:15 CEST Rui Cruz wrote:
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Hi there,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> After the recent Ubuntu update of x2go I'm having some problems with my
+</I>&gt;&gt;<i> windows client on Windows 7:
+</I>&gt;<i> 
+</I>&gt;<i> Have you upgraded from ppa:x2go/ppa, ppa:x2go/stable or ppa:x2go/baikal
+</I>&gt;<i> (LTS stable)?
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Everytime I try to resume a session the screen goes completly dark, even
+</I>&gt;&gt;<i> the x2go logo dosn't appear. The only way I can regain graphics is to
+</I>&gt;&gt;<i> terminate the session and start it again.
+</I>&gt;<i> 
+</I>&gt;<i> Urggh... Anyone else observing this (apart from Karel)?
+</I>&gt;<i> 
+</I>&gt;&gt;<i> I try then to update the Client to the last on the site and the
+</I>&gt;&gt;<i> problem is
+</I>&gt;&gt;<i> still hapening.
+</I>&gt;<i> 
+</I>&gt;<i> Which version is this exactly?
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Sometimes I run the install for Windows and the problem is solved but
+</I>&gt;&gt;<i> this
+</I>&gt;&gt;<i> seems a question of &quot;luck&quot; since this dosn't allways solve the problem.
+</I>&gt;<i> 
+</I>&gt;<i> Hmmm...
+</I>&gt;<i> 
+</I>&gt;&gt;<i> The server is using gnome.
+</I>&gt;<i> 
+</I>&gt;<i> GNOMEv2 or GNOMEv3???
+</I>&gt;<i> 
+</I>&gt;&gt;<i> also, I try to decrease the bandwith and image quality in the session
+</I>&gt;&gt;<i> options but didn't work and even create a new Windows profile and run a
+</I>&gt;&gt;<i> fresh x2go profile.
+</I>&gt;<i> 
+</I>&gt;<i> As you noticed that things changed after a server upgrade, the client
+</I>&gt;<i> configuration cannot be what causes the observed problem.
+</I>&gt;<i> 
+</I>&gt;&gt;<i> Any ideas on how to fix this?
+</I>&gt;<i> 
+</I>&gt;<i> Is the issue also occurring with x2goclient on Linux? Use a similar
+</I>&gt;<i> version if possible (from ppa:x2go/stable or ppa:x2go/baikal). Also try
+</I>&gt;<i> with the latest development version available (ppa:x2go/ppa).
+</I>&gt;<i> 
+</I>&gt;<i> Thanks,
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> 
+</I></PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001474.html">[X2Go-User] Black screen for existing session
+</A></li>
+	<LI>Next message: <A HREF="001476.html">[X2Go-User] Future kerberos support?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1475">[ date ]</a>
+              <a href="thread.html#1475">[ thread ]</a>
+              <a href="subject.html#1475">[ subject ]</a>
+              <a href="author.html#1475">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] NX workaround packages,	temporarily SOLVES: crashing X2Go sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20workaround%20packages%2C%0A%09temporarily%20SOLVES%3A%20crashing%20X2Go%20sessions&In-Reply-To=%3C20111109114857.484458cs6fjrdpqx%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000484.html">
+   <LINK REL="Next"  HREF="000486.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] NX workaround packages,	temporarily SOLVES: crashing X2Go sessions</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20NX%20workaround%20packages%2C%0A%09temporarily%20SOLVES%3A%20crashing%20X2Go%20sessions&In-Reply-To=%3C20111109114857.484458cs6fjrdpqx%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] NX workaround packages,	temporarily SOLVES: crashing X2Go sessions">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Nov  9 11:48:57 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000484.html">[X2go-User] NX workaround packages,	temporarily SOLVES: crashing X2Go sessions
+</A></li>
+        <LI>Next message: <A HREF="000486.html">[X2go-User] No login after upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#485">[ date ]</a>
+              <a href="thread.html#485">[ thread ]</a>
+              <a href="subject.html#485">[ subject ]</a>
+              <a href="author.html#485">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+(resending this mail to x2go-user, x2go-dev, corrected mail address of  
+announcement list, fixed minor inaccuracies of the first version sent  
+to the lists)
+
+as many of you have reported, there are major issues with the version   
+  of NoMachine's NX libraries that are currently  provided on    
+packages.x2go.org and in X2Go's Ubuntu Launchpad.
+
+The occurring crashes of X2Go sessions do not relate to the code    
+itself but to the way the code (from X2Go Git) currently is built  
+(i.e. compiled and packaged). Only five weeks ago, Alex, Reinhard and  
+Mike could narrow the problems down to the build method being used.
+
+The issues probably also apply to the way other NX related projects  
+build their (Debian-ic) packages. So, if anyone needs more details on  
+this, feel free to contact us on this list.
+
+As a matter of fact, we currently can't consider the available NX  
+libraries provided on packages.x2go.org (with obvious effect on  
+x2goagent) as ,,stable'' at all; session crashes can easily be  
+reproduced on various setups. Certain actions within the X2Go session  
+cause naughty reconnect or disconnect messages for the client user and  
+   many times the sessions die seemingly without reason. This problem   
+is  due to NX libraries being built against the distribution's X   
+server  development files and not against the development files of   
+nx-X11  (Xserver provided by NoMachine). Unfortunately, the former  
+build method, however, has  been state-of-the-art for the Debian-like  
+packages ever since. We are working on a new way of building those  
+packages, see below.
+
+As there have been many complaints we'll respond by offering    
+intermediate packages that do not contain these problems. However,    
+these packages have been  built in a non-Debian state-of-the-art way  
+and the solution provided from us is only a temporary workaround until  
+   we have solved the  package build method for these packages.
+
+Alex has built packages using a non-Git based build environment, one    
+  we used before we changed to working with Git. The provided packages  
+   have the same package names as found in Git, they also have a  
+slightly    higher version number so your systems will upgrade easily  
+if you  use   the ,,workaround'' package set:
+
+   libxcomp3
+   libxcompext3
+   libxcompshad3
+
+These new packages should do their job well, as we can't reproduce the  
+    reported crashes with them anymore.
+
+Currently, we are working with high pressure on cleanly-built NX    
+packages (see: Git project nx-libs.git, test branch, also    
+x2goagent.git, test branch), so that we can provide Git based NX    
+packages soon again.
+
+DEBIAN
+======
+If you want to use those packages on Debian, please make sure that you have
+
+    deb <A HREF="http://packages.x2go.org/debain">http://packages.x2go.org/debain</A> squeeze main
+
+(or wheezy main, sid main) as package source configured in your APT system.
+
+If that is the case simply upgrade the above named packages and then  
+you should get the workaround NX packages installed.
+
+   $ apt-get update
+   $ apt-get install libxcomp3 libxcompext3 libxcompshad3
+
+If encountering errors during installation, also make sure to  
+uninstall all development packages around NX libs before upgrading to  
+the workaround package set:
+
+   $ apt-get remove libxcomp-dev libxcompshad-dev libxcompext-dev
+   $ apt-get remove libxcomp3-dbg libxcompshad3-dbg libxcompext3-dbg
+
+We'll keep the NX workaround packages in the &quot;main&quot; area of our Debian
+repos as long as needed. You'll still have access to the git based  
+packages using the &quot;heuler&quot; area. (deb <A HREF="http://packages.x2go.org/debian">http://packages.x2go.org/debian</A>  
+squeeze heuler).
+
+UBUNTU
+======
+For people who use Ubuntu GNU/Linux and install X2Go from Launchpad     
+the solution is not as simple. We have provided tar.gz files  
+containing the needed  packages. Download the tar.gz file appropriate  
+for your Ubuntu version from
+
+   <A HREF="http://packages.x2go.org/nx-3.5-workaround/ubuntu/">http://packages.x2go.org/nx-3.5-workaround/ubuntu/</A>
+
+Extract your downloaded tarball (=tar.gz file) and install packages     
+manually (e.g. for Ubuntu oneiric):
+
+   $ mkdir ubuntu-x2go
+   $ cd ubuntu-x2go
+   $ wget  
+<A HREF="http://packages.x2go.org/nx-3.5-workaround/ubuntu/nx-3.5-workaround_ubuntu-oneiric.tar.gz">http://packages.x2go.org/nx-3.5-workaround/ubuntu/nx-3.5-workaround_ubuntu-oneiric.tar.gz</A>
+   $ tar -xvzf nx-3.5-workaround_ubuntu-oneiric.tar.gz
+   $ eval $(dpkg-architecture -s)
+   $ dpkg -i *${DEB_HOST_ARCH}*.deb
+
+When encountering problems, also make sure to remove the development packages
+around NX before installation of the workaround packages:
+
+   $ apt-get remove libxcomp-dev libxcompshad-dev libxcompext-dev
+   $ apt-get remove libxcomp3-dbg libxcompshad3-dbg libxcompext3-dbg
+
+This is a temporary solution for the time we can't guarantee that the   
+   Git based built packages are stable. From our perspective stability  
+should come first, but of course we will try hard to solve the build  
+problem so that we can use our X2Go Git based build environment for NX  
+libs, as well (again).
+
+Regards,
+
+Heinz &amp; Alex &amp; Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/00f9d612/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/00f9d612/attachment.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/00f9d612/attachment-0001.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/00f9d612/attachment-0001.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000484.html">[X2go-User] NX workaround packages,	temporarily SOLVES: crashing X2Go sessions
+</A></li>
+	<LI>Next message: <A HREF="000486.html">[X2go-User] No login after upgrade
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#485">[ date ]</a>
+              <a href="thread.html#485">[ thread ]</a>
+              <a href="subject.html#485">[ subject ]</a>
+              <a href="author.html#485">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

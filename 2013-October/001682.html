@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] trouble building nxlibs 3.5.0.21
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20trouble%20building%20nxlibs%203.5.0.21&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD1DFA3%40ECS-EXG-P-MB05.win.lanl.gov%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001681.html">
+   <LINK REL="Next"  HREF="001683.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] trouble building nxlibs 3.5.0.21</H1>
+    <B>Short, Kermit</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20trouble%20building%20nxlibs%203.5.0.21&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA5DD1DFA3%40ECS-EXG-P-MB05.win.lanl.gov%3E"
+       TITLE="[X2Go-User] trouble building nxlibs 3.5.0.21">k_short at lanl.gov
+       </A><BR>
+    <I>Thu Oct 17 22:35:59 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001681.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+        <LI>Next message: <A HREF="001683.html">[X2Go-User] x2goclient SSL
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1682">[ date ]</a>
+              <a href="thread.html#1682">[ thread ]</a>
+              <a href="subject.html#1682">[ subject ]</a>
+              <a href="author.html#1682">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Many thanks, Jedi master. libjpeg-dev and libpng-dev were indeed
+missing.  It built, now I'll see if my path hacks get everything
+installed in a particular top level directory.
+-- 
+Kermit Short
+DCS-5 
+
+On Thu, 2013-10-17 at 14:25 -0600, Orion Poplawski wrote:
+&gt;<i> On 10/17/2013 02:16 PM, Short, Kermit wrote:
+</I>&gt;<i> &gt; Greetings,
+</I>&gt;<i> &gt;     I'm trying to build nx-libs from a source tarball for version
+</I>&gt;<i> &gt; 3.5.0.21.  When I run:
+</I>&gt;<i> &gt; make build-lite
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; I get a compilation abort while building nxcomp.  The compiler is
+</I>&gt;<i> &gt; looking for jpeglib.h.  I've run a quick find and that file doesn't
+</I>&gt;<i> &gt; exist in the hierarchy created by the tarball.
+</I>&gt;<i> &gt;
+</I>&gt;<i> &gt; g++ -c -O3 -fno-rtti -fno-exceptions -I../nx-X11/exports/include
+</I>&gt;<i> &gt; -Wmissing-declarations -fPIC -DIN_ADDR_T=in_addr_t -DVERSION=\&quot;3.5.0\&quot;
+</I>&gt;<i> &gt; -DPACKAGE_NAME=\&quot;\&quot; -DPACKAGE_TARNAME=\&quot;\&quot; -DPACKAGE_VERSION=\&quot;\&quot;
+</I>&gt;<i> &gt; -DPACKAGE_STRING=\&quot;\&quot; -DPACKAGE_BUGREPORT=\&quot;\&quot; -DPACKAGE_URL=\&quot;\&quot; -Wall
+</I>&gt;<i> &gt; -Wpointer-arith   Jpeg.cpp
+</I>&gt;<i> &gt; Jpeg.cpp:29:23: fatal error: jpeglib.h: No such file or directory
+</I>&gt;<i> &gt; compilation terminated.
+</I>&gt;<i> &gt; make[1]: *** [Jpeg.o] Error 1
+</I>&gt;<i> &gt; make[1]: Leaving directory `/var/tmp/nx-libs-3.5.0.21/nxcomp'
+</I>&gt;<i> &gt; make: *** [build-lite] Error 2
+</I>&gt;<i> &gt;
+</I>&gt;<i> 
+</I>&gt;<i> You need the libjpeg development library/headers.
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I></PRE>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001681.html">[X2Go-User] trouble building nxlibs 3.5.0.21
+</A></li>
+	<LI>Next message: <A HREF="001683.html">[X2Go-User] x2goclient SSL
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1682">[ date ]</a>
+              <a href="thread.html#1682">[ thread ]</a>
+              <a href="subject.html#1682">[ subject ]</a>
+              <a href="author.html#1682">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

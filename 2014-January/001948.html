@@ -1,0 +1,140 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] CTRL+ALT+T not working in MATE
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20CTRL%2BALT%2BT%20not%20working%20in%20MATE&In-Reply-To=%3CCAJ9yE0RRr-H6-VcVmT-4Rm3vKiq%3DcTVrppssU2-Ok8d9Xn-V7g%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001937.html">
+   <LINK REL="Next"  HREF="001938.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] CTRL+ALT+T not working in MATE</H1>
+    <B>Jean Gottschalk</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20CTRL%2BALT%2BT%20not%20working%20in%20MATE&In-Reply-To=%3CCAJ9yE0RRr-H6-VcVmT-4Rm3vKiq%3DcTVrppssU2-Ok8d9Xn-V7g%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] CTRL+ALT+T not working in MATE">jean at gottschalk.us
+       </A><BR>
+    <I>Sat Jan 11 18:35:12 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001937.html">[X2Go-User] CTRL+ALT+T not working in MATE
+</A></li>
+        <LI>Next message: <A HREF="001938.html">[X2Go-User] x2go segfault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1948">[ date ]</a>
+              <a href="thread.html#1948">[ thread ]</a>
+              <a href="subject.html#1948">[ subject ]</a>
+              <a href="author.html#1948">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Mike,
+
+thank you for the quick reply, just to make sure that I understood properly
+what you wanted me to do:
+I went into /etc/x2go/keystrokes.cfg on the server, and changed:
+
+&lt;keystroke action=&quot;close_session&quot; Control=&quot;1&quot; AltMeta= &quot;1&quot; key=&quot;t&quot; /&gt;
+to
+&lt;keystroke action=&quot;close_session&quot; Control=&quot;1&quot; AltMeta= &quot;1&quot; key=&quot;z&quot; /&gt;
+
+Then, in doubt, I rebooted the entire server (and client), logged into a
+new session, and neither CTRL+ALT+t nor CTRL+ALT+z will terminate my
+session.
+
+What am I doing wrong?
+
+Jean
+
+
+On Wed, Jan 8, 2014 at 1:58 AM, Mike Gabriel &lt;
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+
+&gt;<i> Hi Jean
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On  Mi 08 Jan 2014 06:15:58 CET, Jean Gottschalk wrote:
+</I>&gt;<i>
+</I>&gt;<i>  Hello,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> I have recently upgraded my Ubuntu installation, which is running
+</I>&gt;&gt;<i> x2goserver, to 13.10. I used to use GNOME as a window manager, but since
+</I>&gt;&gt;<i> 13.10, gnome seems to require 3D acceleration and can no longer be used
+</I>&gt;&gt;<i> with x2go, event in fallback mode (anyone, please tell me if you found a
+</I>&gt;&gt;<i> way to make gnome work in 13.10).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> So I installed MATE and upgraded x2goserver to 4.0.1.11 (Unfortunately
+</I>&gt;&gt;<i> both
+</I>&gt;&gt;<i> at the same time).
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Since then, the keyboard shortcut CTRL + ALT + T (which is the only
+</I>&gt;&gt;<i> shortcut I am using) is not longer working.
+</I>&gt;&gt;<i> After x2goserver upgrade, I have files /etc/nxagent/keystrokes.cfg and
+</I>&gt;&gt;<i> /etc/x2go/keystrokes.cfg (which were not there before) and they both
+</I>&gt;&gt;<i> contain a definition for CTRL + ALT + T to terminate a session.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Not sure what to do next. Is it perhaps a known issue that CTRL+ALT+T does
+</I>&gt;&gt;<i> not work in MATE, or perhaps a known issue in the current version of
+</I>&gt;&gt;<i> x2goserver?
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Any advice is appreciated!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Thank you!
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Jean
+</I>&gt;&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> the described scenario is exactly the reason why one of the devs (arw from
+</I>&gt;<i> Uni Erlangen, Germany) provided the keystrokes.cfg patch.
+</I>&gt;<i>
+</I>&gt;<i> Put another hotkey combination into the keystrokes.cfg file for session
+</I>&gt;<i> termination (/etc/x2go/keystrokes.cfg) and then CTRL-ALT-T should work
+</I>&gt;<i> again in MATE.
+</I>&gt;<i>
+</I>&gt;<i> Mike
+</I>&gt;<i> --
+</I>&gt;<i>
+</I>&gt;<i> DAS-NETZWERKTEAM
+</I>&gt;<i> mike gabriel, herweg 7, 24357 fleckeby
+</I>&gt;<i> fon: +49 (1520) 1976 148
+</I>&gt;<i>
+</I>&gt;<i> GnuPG Key ID 0x25771B31
+</I>&gt;<i> mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+</I>&gt;<i>
+</I>&gt;<i> freeBusy:
+</I>&gt;<i> <A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-</A>
+</I>&gt;<i> netzwerkteam.de.xfb
+</I>&gt;<i>
+</I>-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140111/d78470a7/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20140111/d78470a7/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001937.html">[X2Go-User] CTRL+ALT+T not working in MATE
+</A></li>
+	<LI>Next message: <A HREF="001938.html">[X2Go-User] x2go segfault
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1948">[ date ]</a>
+              <a href="thread.html#1948">[ thread ]</a>
+              <a href="subject.html#1948">[ subject ]</a>
+              <a href="author.html#1948">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

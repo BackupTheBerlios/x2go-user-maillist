@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2go-broker problem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20problem&In-Reply-To=%3Cdd4cd3a6b8f79e612578bc0ec7a0b6d8%40tscserver.upc.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001437.html">
+   <LINK REL="Next"  HREF="001443.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2go-broker problem</H1>
+    <B>Juan Carlos Corchado</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20problem&In-Reply-To=%3Cdd4cd3a6b8f79e612578bc0ec7a0b6d8%40tscserver.upc.edu%3E"
+       TITLE="[X2Go-User] X2go-broker problem">jcorchado at tsc.upc.edu
+       </A><BR>
+    <I>Fri May 31 11:33:44 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001437.html">[X2Go-User] can't connect to the server
+</A></li>
+        <LI>Next message: <A HREF="001443.html">[X2Go-User] X2go-broker problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1439">[ date ]</a>
+              <a href="thread.html#1439">[ thread ]</a>
+              <a href="subject.html#1439">[ subject ]</a>
+              <a href="author.html#1439">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+Hi all,
+
+I need to install a load balancing system and I know that
+is possible with x2go-broker.
+I have already installed and configured
+x2go-broker on a server and when I try to inicialice the app with this
+command:
+
+x2goclient --broker-url=<A HREF="http://server:8080/plain/inifile/">http://server:8080/plain/inifile/</A> 
+
+It
+is open in two windows. One with the toolbar and another one with the
+desktop.
+I tried to modify some options in
+/etc/x2go/broker/x2gobroker-sessionprofiles.conf but I have no
+success.
+
+------------------------x2gobroker-sessionprofiles.conf.........................
+[DEFAULT]
+command=TERMINAL
+defsndport=true
+useiconv=false
+iconvfrom=UTF-8
+#height=600
+export=
+quality=9
+fullscreen=false
+layout=
+useexports=true
+width=800
+speed=2
+soundsystem=pulse
+print=true
+type=auto
+sndport=4713
+xinerama=false
+variant=
+usekbd=true
+fstunnel=true
+applications=TERMINAL,WWWBROWSER,MAILCLIENT,OFFICE
+multidisp=false
+sshproxyport=22
+sound=true
+rootless=true
+iconvto=UTF-8
+soundtunnel=true
+dpi=96
+sshport=22
+setdpi=0
+pack=16m-jpeg
+directrdp=false
+
+[KDE]
+user=
+host=server
+name=KDE
+command=KDE
+
+[GNOME]
+user=
+host=server
+name=GNOME
+command=GNOME
+------------------------x2gobroker-sessionprofiles.conf.........................
+
+Can
+you help me, please?
+
+Thanks, 
+ 
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130531/394177a8/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130531/394177a8/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001437.html">[X2Go-User] can't connect to the server
+</A></li>
+	<LI>Next message: <A HREF="001443.html">[X2Go-User] X2go-broker problem
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1439">[ date ]</a>
+              <a href="thread.html#1439">[ thread ]</a>
+              <a href="subject.html#1439">[ subject ]</a>
+              <a href="author.html#1439">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

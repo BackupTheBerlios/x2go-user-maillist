@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] wmctrl problems
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3C8A951219-0423-4DE5-AC85-989DBBC41263%40gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001772.html">
+   <LINK REL="Next"  HREF="001776.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] wmctrl problems</H1>
+    <B>Jean-Francois Dagenais</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20wmctrl%20problems&In-Reply-To=%3C8A951219-0423-4DE5-AC85-989DBBC41263%40gmail.com%3E"
+       TITLE="[X2Go-User] wmctrl problems">jeff.dagenais at gmail.com
+       </A><BR>
+    <I>Thu Nov 14 19:58:14 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001772.html">[X2Go-User] keyboard mappings and xfce
+</A></li>
+        <LI>Next message: <A HREF="001776.html">[X2Go-User] wmctrl problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1773">[ date ]</a>
+              <a href="thread.html#1773">[ thread ]</a>
+              <a href="subject.html#1773">[ subject ]</a>
+              <a href="author.html#1773">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi all,
+
+Running x2go server on ubuntu (12.04), and my terminal is a mac running XQuartz
+(with quartz-wm) and the Qt x2go client.
+
+I used the Published apps rootless and spawn a few windows from the server.
+Things run pretty smoothly and Im happy with the performance.
+
+The thing that hurts is related to window management. Heres a relevant output:
+$ echo $DISPLAY
+:<i>50
+</I>$ wmctrl -l
+Cannot get client list properties.
+(_NET_CLIENT_LIST or _WIN_CLIENT_LIST)
+$ wmctrl -m
+Cannot get window manager info properties.
+(_NET_SUPPORTING_WM_CHECK or _WIN_SUPPORTING_WM_CHECK)
+
+Whereas if I run the same commands natively on the mac, XQuartz responds
+correctly to wmctrl.
+
+So the problem affects pretty much all tools related to window management I
+tried.
+
+I am no X11 expert, but I am a developer and very familiar with linux systems.
+Right now I just need a few pointers, any thoughts?
+
+Thanks in advance!
+/jfd
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001772.html">[X2Go-User] keyboard mappings and xfce
+</A></li>
+	<LI>Next message: <A HREF="001776.html">[X2Go-User] wmctrl problems
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1773">[ date ]</a>
+              <a href="thread.html#1773">[ thread ]</a>
+              <a href="subject.html#1773">[ subject ]</a>
+              <a href="author.html#1773">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

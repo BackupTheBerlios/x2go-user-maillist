@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Sudden problems with x2gobroker
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sudden%20problems%20with%20x2gobroker&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA6C2C5FAA%40ECS-EXG-P-MB05.win.lanl.gov%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001852.html">
+   <LINK REL="Next"  HREF="001837.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Sudden problems with x2gobroker</H1>
+    <B>Short, Kermit</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sudden%20problems%20with%20x2gobroker&In-Reply-To=%3C6B6377EE93327F459669902A516AD6DA6C2C5FAA%40ECS-EXG-P-MB05.win.lanl.gov%3E"
+       TITLE="[X2Go-User] Sudden problems with x2gobroker">k_short at lanl.gov
+       </A><BR>
+    <I>Thu Dec  5 00:31:31 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001852.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+        <LI>Next message: <A HREF="001837.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1832">[ date ]</a>
+              <a href="thread.html#1832">[ thread ]</a>
+              <a href="subject.html#1832">[ subject ]</a>
+              <a href="author.html#1832">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Greetings,
+
+   I recently ran upates on our broker server, and after doing so, I
+can't get any client to display the session list.  I get a &quot;could not
+login&quot; loop of death, and the following in the apache2 error log:
+
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+(pid=2715):
+Target WSGI script '/usr/bin/
+x2gobroker' cannot be loaded as Python module.
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+(pid=2715):
+Exception occurred processing
+ WSGI script '/usr/bin/x2gobroker'.
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] Traceback
+(most
+recent call last):
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+&quot;/usr/bin/x2gobroker&quot;, line 221, in &lt;module
+&gt;<i>
+</I>[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]
+prep_http_mode()
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+&quot;/usr/bin/x2gobroker&quot;, line 39, in prep_htt
+p_mode
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]     import
+x2gobroker.web.extras
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+&quot;/usr/lib/python2.7/dist-packages/x2gobroke
+r/web/extras.py&quot;, line 34, in &lt;module&gt;
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]     class
+X2GoBrokerItWorks(_RequestHandler):
+[Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] NameError:
+name
+'_RequestHandler' is not defined
+[Wed Dec 04 16:15:24 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+(pid=2716):
+Target WSGI script '/usr/bin/
+x2gobroker' cannot be loaded as Python module.
+[Wed Dec 04 16:15:24 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+(pid=2716):
+Exception occurred processing
+ WSGI script '/usr/bin/x2gobroker'.
+
+I believe I'm using the nightly build due to necessity, and I've got a
+presentation tomorrow on how well X2Go works.  Anyone know what I can do
+to get this working again?
+-- 
+Kermit Short
+DCS-5 
+
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001852.html">[X2Go-User] Fullscreen session stops working in unity
+</A></li>
+	<LI>Next message: <A HREF="001837.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1832">[ date ]</a>
+              <a href="thread.html#1832">[ thread ]</a>
+              <a href="subject.html#1832">[ subject ]</a>
+              <a href="author.html#1832">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

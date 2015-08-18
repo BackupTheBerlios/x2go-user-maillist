@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2014-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Thin%20Client%20Edition%20and%20USB/CD-ROM%20client-side%0A%20mounts&In-Reply-To=%3C20140106144154.Horde.xV2YfdbbapvxXRJkr3BpFQ1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001900.html">
+   <LINK REL="Next"  HREF="001946.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Thin%20Client%20Edition%20and%20USB/CD-ROM%20client-side%0A%20mounts&In-Reply-To=%3C20140106144154.Horde.xV2YfdbbapvxXRJkr3BpFQ1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Mon Jan  6 15:41:54 CET 2014</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001900.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts
+</A></li>
+        <LI>Next message: <A HREF="001946.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side	mounts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1916">[ date ]</a>
+              <a href="thread.html#1916">[ thread ]</a>
+              <a href="subject.html#1916">[ subject ]</a>
+              <a href="author.html#1916">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Stefan,
+
+On  Mo 06 Jan 2014 12:36:08 CET, Stefan Baur wrote:
+
+&gt;<i> I added &quot;x2gousbmount&quot; and &quot;x2gocdmanager&quot; to my thinclient image,  
+</I>&gt;<i> but all that happens is that I can see USB mass storage media being  
+</I>&gt;<i> mounted locally on the client when plugged in. CDs don't show up at  
+</I>&gt;<i> all, and nothing (neither USB media nor CDs) shows up inside the  
+</I>&gt;<i> X2Go session (where should they show up, anyways? Under which path  
+</I>&gt;<i> am I supposed to look for them?).
+</I>&gt;<i> I'm not sure if I made a mistake when configuring the session,  
+</I>&gt;<i> though. Is there a man page or wiki page explaining what the session  
+</I>&gt;<i> config is supposed look like when one wants to automatically share  
+</I>&gt;<i> client-side media?
+</I>
+You need to set the --read-exports-from &lt;dir&gt; cmdline options when  
+launching X2Go Client as also down in the X2Go Client start script of  
+the TCE [1].
+
+The &lt;dir&gt; is hard-coded in x2gousbmounts / x2gocdmanager and IIRC  
+points to ~/export.
+
+Mike
+
+[1]  
+<A HREF="http://code.x2go.org/gitweb?p=x2gothinclient.git;a=blob;f=x2gothinclientmanagement/share/etc/x2gothinclient_start">http://code.x2go.org/gitweb?p=x2gothinclient.git;a=blob;f=x2gothinclientmanagement/share/etc/x2gothinclient_start</A>
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20140106/9d84cdf7/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20140106/9d84cdf7/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001900.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side mounts
+</A></li>
+	<LI>Next message: <A HREF="001946.html">[X2Go-User] Thin Client Edition and USB/CD-ROM client-side	mounts
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1916">[ date ]</a>
+              <a href="thread.html#1916">[ thread ]</a>
+              <a href="subject.html#1916">[ subject ]</a>
+              <a href="author.html#1916">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

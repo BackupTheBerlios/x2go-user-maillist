@@ -1,0 +1,173 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2go client doesn't connect sucessfully to Ubuntu 11.10 server
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go%20client%20doesn%27t%20connect%20sucessfully%20to%20Ubuntu%0A%2011.10%20server&In-Reply-To=%3C1329861432.2788.134.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000642.html">
+   <LINK REL="Next"  HREF="000629.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2go client doesn't connect sucessfully to Ubuntu 11.10 server</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go%20client%20doesn%27t%20connect%20sucessfully%20to%20Ubuntu%0A%2011.10%20server&In-Reply-To=%3C1329861432.2788.134.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2Go-User] X2go client doesn't connect sucessfully to Ubuntu 11.10 server">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Tue Feb 21 22:57:12 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000642.html">[X2Go-User] X2go client doesn't connect sucessfully to Ubuntu 11.10 server
+</A></li>
+        <LI>Next message: <A HREF="000629.html">[X2go-User] cheap thin client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#643">[ date ]</a>
+              <a href="thread.html#643">[ thread ]</a>
+              <a href="subject.html#643">[ subject ]</a>
+              <a href="author.html#643">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Tue, 2012-02-21 at 14:34 -0500, Michael McFarlane wrote:
+&gt;<i> Client:  X2go 3.99.1.0 on Win 7, no Firewall or AV installed
+</I>&gt;<i> 
+</I>&gt;<i> Server:  Ubuntu server 11.10, Gnome desktop
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Client appears to connect, X2go panel is displayed, random desktop
+</I>&gt;<i> background is displayed, then client hangs.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Able to successfully login via putty to port 22  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Client message window:
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> NXPROXY - Version 3.4.0
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Copyright (C) 2001, 2007 NoMachine.
+</I>&gt;<i> 
+</I>&gt;<i> See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Info: Proxy running in client mode with pid '3024'.
+</I>&gt;<i> 
+</I>&gt;<i> Session: Starting session at 'Tue Feb 21 14:28:02 2012'.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Connecting to remote host 'localhost:31001'.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Connection to remote proxy 'localhost:31001' established.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: Connected to remote version 3.5.0 with local version 3.4.0.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: Consider checking <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for updates.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Connection with remote proxy completed.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: Unrecognized session type 'unix-kde-depth_32'. Assuming agent
+</I>&gt;<i> session.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: Failed to read data from the X auth command.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: Generated a fake cookie for X authentication.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Using LAN link parameters 1536/24/1/0.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Using pack method '16m-jpeg-9' with session 'unix-kde-depth_32'.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Not using NX delta compression.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Not using ZLIB data compression.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Not using ZLIB stream compression.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Not using a persistent cache.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Forwarding X11 connections to display 'localhost:0'.
+</I>&gt;<i> 
+</I>&gt;<i> Session: Session started at 'Tue Feb 21 14:28:02 2012'.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Established X server connection.
+</I>&gt;<i> 
+</I>&gt;<i> Info: Using shared memory parameters 0/0K.
+</I>&gt;<i> 
+</I>&gt;<i> Warning: No data received from remote proxy within 30 seconds.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Error message panel (image):
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Any help would be appreciated.
+</I>&gt;<i> 
+</I>&gt;<i>  
+</I>&gt;<i> 
+</I>&gt;<i> Michael
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+That error dialog looks pretty specific but I'm not sure which is the
+problem.  Have you stumbled into a bug where there is an improperly
+formatted sed call (I am guessing in one of the server side scripts) or
+is there a problem creating the specified directory.  I don't know
+enough to know what process is trying to do the creation - John
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120221/afea1899/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120221/afea1899/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: image001.png
+Type: image/png
+Size: 14465 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120221/afea1899/attachment.png">https://lists.berlios.de/pipermail/x2go-user/attachments/20120221/afea1899/attachment.png</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000642.html">[X2Go-User] X2go client doesn't connect sucessfully to Ubuntu 11.10 server
+</A></li>
+	<LI>Next message: <A HREF="000629.html">[X2go-User] cheap thin client
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#643">[ date ]</a>
+              <a href="thread.html#643">[ thread ]</a>
+              <a href="subject.html#643">[ subject ]</a>
+              <a href="author.html#643">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

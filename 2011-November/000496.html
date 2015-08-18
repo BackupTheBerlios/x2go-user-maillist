@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] Antw: Re:  Usability with latency ~200ms
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Antw%3A%20Re%3A%20%20Usability%20with%20latency%20%7E200ms&In-Reply-To=%3C1321299822.2936.2.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000495.html">
+   <LINK REL="Next"  HREF="000493.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] Antw: Re:  Usability with latency ~200ms</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20Antw%3A%20Re%3A%20%20Usability%20with%20latency%20%7E200ms&In-Reply-To=%3C1321299822.2936.2.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] Antw: Re:  Usability with latency ~200ms">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Mon Nov 14 20:43:41 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000495.html">[X2go-User] Antw: Re:  Usability with latency ~200ms
+</A></li>
+        <LI>Next message: <A HREF="000493.html">[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#496">[ date ]</a>
+              <a href="thread.html#496">[ thread ]</a>
+              <a href="subject.html#496">[ subject ]</a>
+              <a href="author.html#496">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Mon, 2011-11-14 at 13:14 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">Stefan.Klingner at brodos.de</A> wrote:
+&gt;<i> Hi John,
+</I>&gt;<i>  
+</I>&gt;<i> thanks for your answer.
+</I>&gt;<i>  
+</I>&gt;<i> Could you please provide some sources for
+</I>&gt;<i>  
+</I>&gt;<i> &quot;and any tweaks one can make to the IP stack or the SSH protocol. &quot;
+</I>&gt;<i>  
+</I>&gt;<i> ?
+</I>&gt;<i>  
+</I>&gt;<i> Regards,
+</I>&gt;<i>  
+</I>&gt;<i> Stefan
+</I>
+On high bandwidth, high latency links, one generally wants to enlarge
+the windows size to help compensate somewhat for the latency.  I've
+never done a packet size analysis on X2Go but I would guess this could
+help with large screen transfers.  Honestly, I've never taken a look at
+what WAN optimizations are available for SSH.  If anyone knows of any,
+please share them.  Thanks - John
+&gt;<i> 
+</I>&gt;<i> &gt;&gt;&gt; &quot;John A. Sullivan III&quot; &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jsullivan at opensourcedevel.com</A>&gt; 12.11.2011
+</I>&gt;<i> 03:28 &gt;&gt;&gt;
+</I>&gt;<i> 
+</I>&gt;<i> On Fri, 2011-11-11 at 14:21 +0100, <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">Stefan.Klingner at brodos.de</A> wrote:
+</I>&gt;<i> &gt; Hi,
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; we are trying to use X2Go to provide a devolpment environment for
+</I>&gt;<i> our
+</I>&gt;<i> &gt; employees in India. The problem is that the connection to India is
+</I>&gt;<i> &gt; really bad (latency ~200ms) and so working with X2Go is currently
+</I>&gt;<i> not
+</I>&gt;<i> &gt; possible.
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Is there a way to improve the performance on the X2Go client/server
+</I>&gt;<i> &gt; configuration? Does anybody have experience with such a szenario?
+</I>&gt;<i> &gt;  
+</I>&gt;<i> &gt; Please help.
+</I>&gt;<i> &lt;snip&gt;
+</I>&gt;<i> The first thought is the usual WAN improvements such as WAN
+</I>&gt;<i> accelerators
+</I>&gt;<i> and any tweaks one can make to the IP stack or the SSH protocol.  Also
+</I>&gt;<i> try to use hard wired connections on the client side rather than
+</I>&gt;<i> wireless.  We have seen a tangible difference on the same Internet
+</I>&gt;<i> connection between the two.
+</I>&gt;<i> 
+</I>&gt;<i> However, I am beginning to wonder if something important has changed.
+</I>&gt;<i> Our experience with the older 3.0.1 series clients was that they were
+</I>&gt;<i> adequate with 200ms latency and packet loss up to 4-5%.  We are still
+</I>&gt;<i> running the older server but have started using the newer client.  I'm
+</I>&gt;<i> currently using the version in the heuler repository.  I've noticed
+</I>&gt;<i> different and troubling behavior which I am guessing is a result of
+</I>&gt;<i> the
+</I>&gt;<i> switch to libssh.
+</I>&gt;<i> 
+</I>&gt;<i> My Internet connection has been a little less stable than usual lately
+</I>&gt;<i> and I've started to notice really problematic behavior.  I do not know
+</I>&gt;<i> why but, if we start experiencing moderate packet loss or latency, the
+</I>&gt;<i> behavior is almost as if nagle is enabled.  We'll type a series of key
+</I>&gt;<i> strokes and they will all type but the last one.  Two seconds later,
+</I>&gt;<i> the
+</I>&gt;<i> last key appears - makes editing documents a dangerous nightmare as
+</I>&gt;<i> the
+</I>&gt;<i> cursor is usually one character off from where one thinks it is.  We
+</I>&gt;<i> also see major screen painting delays - clicking on some action and we
+</I>&gt;<i> know the server has responded instantly but the old screen just sits
+</I>&gt;<i> there for two or three seconds and then suddenly changes.
+</I>&gt;<i> 
+</I>&gt;<i> We've not had the time to track it down and I'm guessing it will be a
+</I>&gt;<i> bear to find but something has definitely changed in the newer client
+</I>&gt;<i> code and not for the better - John
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000495.html">[X2go-User] Antw: Re:  Usability with latency ~200ms
+</A></li>
+	<LI>Next message: <A HREF="000493.html">[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#496">[ date ]</a>
+              <a href="thread.html#496">[ thread ]</a>
+              <a href="subject.html#496">[ subject ]</a>
+              <a href="author.html#496">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

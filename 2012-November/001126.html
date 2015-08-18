@@ -1,0 +1,312 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [X2Go-Announcement] New X2Go releases: x2goserver, x2goclient, nx-libs aka x2goagent
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20x2goserver%2C%0A%20x2goclient%2C%20nx-libs%20aka%20x2goagent&In-Reply-To=%3C20121110135003.80441gt8oy1l7nuj%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001127.html">
+   <LINK REL="Next"  HREF="001128.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [X2Go-Announcement] New X2Go releases: x2goserver, x2goclient, nx-libs aka x2goagent</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20x2goserver%2C%0A%20x2goclient%2C%20nx-libs%20aka%20x2goagent&In-Reply-To=%3C20121110135003.80441gt8oy1l7nuj%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] [X2Go-Announcement] New X2Go releases: x2goserver, x2goclient, nx-libs aka x2goagent">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Nov 10 13:50:03 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001127.html">[X2Go-User] Open GL dependencies
+</A></li>
+        <LI>Next message: <A HREF="001128.html">[X2Go-User] Mac client 'Can't connect to X-Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1126">[ date ]</a>
+              <a href="thread.html#1126">[ thread ]</a>
+              <a href="subject.html#1126">[ subject ]</a>
+              <a href="author.html#1126">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go core  
+component releases:
+
+   - x2goserver (3.1.1.6)
+   - x2goclient (3.99.3.0)
+   - nx-libs (incl. x2goagent, 3.5.0.16)
+
+All new packages are already available in our stable repositories  
+(Debian,      Ubuntu). The binaries for Windows / Mac OS of X2Go  
+Client will follow ASAP.
+
+PING@: Mihai (Mac OS build?), Alex (Windows build?)
+
+In the new X2Go Server release several issues got addressed:
+
+   o X2Go server now works with i18n ,,Desktop'' folder names (using XDG for
+     detecting the folder name)
+   o Prevent x2gocleansessions from leaving zombie processes behind
+
+In x2goclient, several new features have been added. We urgently ask  
+to report back new issue that may have come up by this massive code  
+change:
+
+   o Native / local RDP client support (Linux only, use it on your
+     thinclients!!!)
+   o Encapsulate X2Go-proxied fullscreen RDP session in desktop X2Go sessions,
+     not rootless anymore. =&gt; X2GO logo appears on screen after session
+     startup of such an RDP session
+   o Add SSH proxy and HTTP proxy support (HTTP proxy is only usable with a
+     libssh version not yet released, so this feature won't work for most
+     of you...)
+   o Fix creation of desktop shortcut icons for launching individual session
+     profiles in hidden mode
+   o Fix broken Xinerama support (got broken when we fixed x2goclient being
+     able to handle non-bash login sessions)
+   o new desktop shell in session type configuration: XFCE
+   o add package: x2goplugin-provider, shows an example plugin configuration
+     (visit: <A HREF="http://localhost/x2goplugin.html">http://localhost/x2goplugin.html</A>)
+   o Much work on the HTTP broker client code
+   o SSH broker added to the client code
+   o Fix x2goplugin (Failed to resolve hostname issue)
+   o New translations: Spanish, Danish (Thanks to Ricardo and Christoffer!!!)
+   o Updated translation files (thanks to the other translators, too!!!)
+
+In nx-libs the tarball installer has been improve. It now installs in  
+the same way as is done by the Debian packaging intelligence (only  
+difference, it installs to /usr/local). No configure script for  
+nx-libs.git, yet, but hopefully we have someone (Ralf) working on it  
+for some future release of nx-libs.
+
+People packaging nx-libs should thoroughly check their packaging mechanism!!!
+
+light+love,
+Mike
+
+
+X2GOSERVER
+==========
+
+x2goserver (3.1.1.6-0~x2go1) RELEASE; urgency=low
+
+   * Bugfix release (3.1.1.6):
+     - Fix for non-well-tested x2gomountdirs script.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Nov 2012 20:57:54 +0100
+
+x2goserver (3.1.1.5-0~x2go1) RELEASE; urgency=low
+
+   [ St&#233;phane Graber ]
+   * New upstream version (3.1.1.5):
+     - Add a very basic SIGCHLD handler to x2gocleansessions. on SIGCHLD
+       let the script wait for cleaning up after its children. (Closes
+       upstream issue #38).
+
+   [ Mike Gabriel ]
+   * New upstream version (3.1.1.5):
+     - Fix x2gogetapps when rendering multi-section .desktop files. (Closes
+       upstream issue #43).
+     - Remove redundant setting of loglevel in x2gogetapps.
+     - Fix ,,Only extend LD_LIBRARY_PATH by Xrandr extension for KDE. Breaks
+       GNOME.'' from last release.
+     - Detect i18n name of Desktop folder via XDG_DESKTOP_DIR environment
+       variable.
+     - Put option of database call in x2gogetagent into parantheses.
+   * /debian/control:
+     + Depend on libfile-basedir-perl.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Nov 2012 16:36:36 +0100
+
+
+X2GOCLIENT
+==========
+
+x2goclient (3.99.3.0-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.99.3.0):
+     - Rebuild i18n files, add x2goclient_dk.ts for the new
+       Danish translator (Christoffer Krakou).
+     - Update German translation.
+     - Run X2Go-proxied RDP session with fullscreen mode as sessions
+       of X2Go session type &quot;D&quot;. (Closes upstream issue #22)
+     - Allow pass-through of username and password for X2Go-proxied RDP
+       sessions. The strings X2GO_USER and X2GO_PASSWORD in rdpoptions
+       will be replaced by username+password enter into X2Go Clients
+       login dialog. Only replace username+password if they received a
+       value from the login widget of the main window.
+     - Drop i18n idea to translate English to English.
+     - Fix creation of session profile icon on desktop. The .desktop
+       files need the x-bit set. Also: add a compatibility profile name
+       rewrite for PyHoca-GUI profile names containing a slash, PyHoca-GUI
+       uses a slash as separator character for submenu cascades.
+     - Use ,,printf'' instead of ,,echo -e'' (Bashism). Fixes creation of
+       xinerama.conf files.
+     - Add XFCE as possible session type. (Closes upstream issue: #51)
+   * /debian/control:
+     + Maintainer change in package: X2Go Developers  
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+     + Add rdesktop and xfreerdp to Recommends.
+     + Priority: optional.
+     + Bin:package x2goplugin-provider: depend on x2goplugin.
+   * New bin:package (all): x2goplugin-provider. Provide basic Apache2
+     configuration for a demo x2goplugin website.
+   * Bump Standards version to 3.9.3.
+
+   [ Daniel Lindgren ]
+   * New upstream version (3.99.3.0):
+     - Update Swedish translation.
+
+   [ Terje Andersen ]
+   * New upstream version (3.99.3.0):
+     - Update Norwegian Bokmal translation.
+
+   [ Christoffer Krakou ]
+   * New upstream version (3.99.3.0):
+     - Add Danish translation to x2goclient.
+     - Proof read Danish translation.
+     - Update DirectRDP in Danish translation.
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.3.0):
+     - Add settings for direct RDP connection.
+     - Implement direct RDP connection using standalone client.
+     - Build direct RDP feature only for linux.
+     - Add DEFINES += __linux__ to project file when building linux binaries
+       (need to define Q_OS_LINUX in moc generator).
+     - Update &quot;ts&quot; files.
+     - Fixed label &quot;SSH port&quot; and &quot;RDP port&quot; to &quot;SSH port:&quot; and &quot;RDP port:&quot;.
+       Update &quot;ts&quot; files once again.
+     - Add translation for label &quot;RDP port:&quot;. Update &quot;ts&quot; files updated
+       Russian translation.
+     - Add translation for checkbox &quot;Direct RDP Connection&quot; and update Russian
+       and German translation.
+     - Restart pulse server on windows if it crashed.
+     - Show &quot;Advanced Options&quot; button only if RDP session chosen.
+     - Fixing kbd focus issue for all kinds of sessions in thinclient mode.
+       (Closes upstream issue #20).
+     - Add command line parameter --ssh-key and --autologin.
+     - Disable check box &quot;use default sound port&quot; if sound disabled.
+     - Add support for HTTP proxy - developed by Heinrich Schuchardt
+       (<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">xypron.glpk at gmx.de</A>). Closes upstream issue #34.
+     - Add support for SSH proxy in class SshMasterConnection.
+     - SshMasterConnection emit signal to GUI thread if it need a passphrase
+       to decrypt a ssh key. GUI thread use input dialog to read a passphrase
+       from user.
+     - Add support for SSH proxy (HTTP and SSH) to X2Go Client GUI.
+     - Clean some broker code.
+     - It is possible to add several ssh keys from commandline in form:
+       --ssh-key=[user@][server:][port:]&lt;path to key&gt;
+       it can be useful for TCE or login over broker.
+     - Improve broker code, add support for &quot;usebrokerpass&quot; config variable to
+       use broker pass for ssh auth on X2Go server.
+     - Commandline options --broker-noauth.
+     - Support for SSH broker. --broker-user removed, use username in  
+broker url
+       instead.
+     - Reduce listen interval for ssh-tunnel to 100 msec.
+     - Fix visibility of SSH-proxy box with direct RDP sessions.
+     - SshProcess is only usable over SshMasterConnection.
+     - Fixing SSH proxy support for Windows.
+     - Hide system tray icon before close.
+     - Fix error &quot;Failed to resolve hostname&quot; in plugin mode (Closes upstream
+       issue #55).
+     - Do not show &quot;RDP Settings&quot; group box in plugin mode (Closes  
+upstream issue
+       #56).
+
+   [ Ricardo Diaz ]
+   * New upstream version (3.99.3.0):
+     - Add Spanish translation file.
+     - Update Spanish translation file.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Nov 2012 16:07:43 +0100
+
+NX-LIBS
+=======
+
+nx-libs (2:3.5.0.16-0) RELEASE; urgency=low
+
+   * Fix installation of header files in Debian package.
+   * Fix patch file names concerning component nx-X11.
+   * Modify patch: 032_no-x11r6.full.patch. Install nx-X11 to  
+/usr/local/lib/nx.
+   * Add patch: 032_no-x11r6.debian.patch. Use /usr/lib/nx for nx-X11  
+on Debian.
+   * Drop patch 032, fix other patches so that installation via make install
+     installs NX components to /usr/local/lib/nx and /usr/local/include/nx.
+   * Add patches: 024_fix-make-clean.full.patch,
+     024_fix-make-clean.full+lite.patch. Fix clean-up of build tree after
+     make build has run.
+   * Add patch: 025_nxproxy_no-configure-file.full+lite.patch. Remove
+     unneeded build file from NoMachine's nxproxy sources.
+   * Modify patch: 001_add-main-makefile.full+lite.patch. Install nx* and
+     x2goagent wrapper scripts during make install.
+   * Fix wrapper scripts: make sure all NX executables can be launched
+     if NX gets installed via the tarball installation method.
+   * Modify patch: 001_add-main-makefile.full+lite.patch. Add uninstall
+     routine.
+   * Dropping empty override rules for quilt patch from /debian/rules.
+   * Bump Debian Standards to 3.9.3 (no changes needed). Update Home page and
+     Vcs information.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 07 Nov 2012 21:07:49 +0100
+
+-- 
+
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121110/dd8f3b53/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121110/dd8f3b53/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001127.html">[X2Go-User] Open GL dependencies
+</A></li>
+	<LI>Next message: <A HREF="001128.html">[X2Go-User] Mac client 'Can't connect to X-Server
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1126">[ date ]</a>
+              <a href="thread.html#1126">[ thread ]</a>
+              <a href="subject.html#1126">[ subject ]</a>
+              <a href="author.html#1126">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

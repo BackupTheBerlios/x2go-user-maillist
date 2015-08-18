@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails&In-Reply-To=%3C4F3E5816.1050902%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000612.html">
+   <LINK REL="Next"  HREF="000640.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20updated%20x2go%20on%20my%20ubuntu%2011.10%20system%20and%20it%20now%0A%09fails&In-Reply-To=%3C4F3E5816.1050902%40vandervlis.nl%3E"
+       TITLE="[X2go-User] updated x2go on my ubuntu 11.10 system and it now	fails">paul at vandervlis.nl
+       </A><BR>
+    <I>Fri Feb 17 14:37:26 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000612.html">[X2go-User] updated x2go on my ubuntu 11.10 system and it now fails
+</A></li>
+        <LI>Next message: <A HREF="000640.html">[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#613">[ date ]</a>
+              <a href="thread.html#613">[ thread ]</a>
+              <a href="subject.html#613">[ subject ]</a>
+              <a href="author.html#613">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Op 17-02-12 13:51, brian mullan schreef:
+&gt;<i> Mike
+</I>&gt;<i> 
+</I>&gt;<i> PyHoca was also updated and now it won't load and gives me a message:
+</I>&gt;<i> 
+</I>&gt;<i> /*pyhoca-gui[9111] (PyHoca-GUI) WARN: the current release of PyHoca-GUI
+</I>&gt;<i> does not support client configuration*
+</I>&gt;<i> /
+</I>&gt;<i> It did work before I updated this week.
+</I>&gt;<i> 
+</I>&gt;<i> To update I used the Ubuntu repository info from the x2go-wiki:
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/wiki:x2go-repository-ubuntu">http://wiki.x2go.org/wiki:x2go-repository-ubuntu</A>
+</I>&gt;<i> 
+</I>&gt;<i> $ sudo add-apt-repository ppa:x2go/stable
+</I>&gt;<i> $ sudo apt-get update
+</I>&gt;<i> 
+</I>&gt;<i> The x2goclient version is *3.99.0.6-0-144-oneiric*
+</I>&gt;<i> 
+</I>&gt;<i> As I'd mentioned my laptop hasn't been updated and it still connects
+</I>&gt;<i> fine with both x2goclient &amp; pyhoca to the same server AND
+</I>&gt;<i> on my desktop which was updated I CAN successfully connect to the server
+</I>&gt;<i> using just SSH.
+</I>&gt;<i> 
+</I>&gt;<i> I tried to find some troubleshooting guide on the wiki that would at
+</I>&gt;<i> least point to where log files might be but couldn't find anything.
+</I>&gt;<i> If there are some troubleshooting steps posted somewhere for x2go I'll
+</I>&gt;<i> use them to see if I can figure out what's going on.
+</I>&gt;<i> 
+</I>&gt;<i> thanks.   I have seen doing google searches that there are several posts
+</I>&gt;<i> in the past of people using x2go that are posting the same error message.  
+</I>&gt;<i> Never saw anyone post an answer to those inquiries suggesting how or if
+</I>&gt;<i> they fixed it.
+</I>&gt;<i> 
+</I>&gt;<i> Here are some of the other people that have posted the same error
+</I>&gt;<i> message with their x2go (although not all are ubuntu based)   From the
+</I>&gt;<i> dates on these posts
+</I>&gt;<i> though I don't think they were using the same version of x2go ??
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="http://comments.gmane.org/gmane.linux.terminal-server.x2go.user/301">http://comments.gmane.org/gmane.linux.terminal-server.x2go.user/301</A>
+</I>&gt;<i> 
+</I>&gt;<i> I have already tried the same steps Paul van der Vlis tried in the above
+</I>&gt;<i> post dated in November 2011.
+</I>&gt;<i> 
+</I>&gt;<i>     * purging x2goclient from system &amp; reinstalling
+</I>&gt;<i>     * tried connecting to a different x2goserver and it did not succeed
+</I>&gt;<i>       (whereas Paul's did)
+</I>&gt;<i> 
+</I>&gt;<i> I _can_ reach both of my x2go servers with ssh from this client and I
+</I>&gt;<i> can reach BOTH of them from my laptop with the older x2goclient and pyhoca.
+</I>&gt;<i> 
+</I>&gt;<i> Here is another post of the same error.
+</I>&gt;<i> 
+</I>&gt;<i> <A HREF="https://lists.berlios.de/pipermail/x2go-user/2011-September/000364.html">https://lists.berlios.de/pipermail/x2go-user/2011-September/000364.html</A>
+</I>&gt;<i> 
+</I>&gt;<i> thanks for any info or hints to troubleshoot this!    I'll cc Paul on
+</I>&gt;<i> this to see if he ever uncovered the cause as his post was a couple
+</I>&gt;<i> months ago.
+</I>
+I have this problem on 2 older machines, and not on other machines.
+I have tried much to get rit of this problem, but with no success.
+
+Interesting is that I can use pyhoca-gui without problems where
+X2goclient failes. But the last time I've tried this I had a problem
+with Pyhoca-gui: the keyboard did not work fine over the session. It did
+work, but often there where key-presses missing.  Over another direct
+SSH connection typing was no problem.
+
+With regards,
+Paul.
+
+-- 
+Paul van der Vlis Linux systeembeheer, Groningen
+<A HREF="http://www.vandervlis.nl">http://www.vandervlis.nl</A>
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000612.html">[X2go-User] updated x2go on my ubuntu 11.10 system and it now fails
+</A></li>
+	<LI>Next message: <A HREF="000640.html">[X2Go-User] updated x2go on my ubuntu 11.10 system and it now	fails
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#613">[ date ]</a>
+              <a href="thread.html#613">[ thread ]</a>
+              <a href="subject.html#613">[ subject ]</a>
+              <a href="author.html#613">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

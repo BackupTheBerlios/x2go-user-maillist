@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Starting multiple sessions
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2010-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3C4CBD9D2E.8070500%40vandervlis.nl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000014.html">
+   <LINK REL="Next"  HREF="000016.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Starting multiple sessions</H1>
+    <B>Paul van der Vlis</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Starting%20multiple%20sessions&In-Reply-To=%3C4CBD9D2E.8070500%40vandervlis.nl%3E"
+       TITLE="[X2go-user] Starting multiple sessions">paul at vandervlis.nl
+       </A><BR>
+    <I>Tue Oct 19 15:29:18 CEST 2010</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000014.html">[X2go-user] Starting multiple sessions
+</A></li>
+        <LI>Next message: <A HREF="000016.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>John Williams schreef:
+&gt;<i> On Fri, Oct 15, 2010 at 12:25 PM, Mike Gabriel
+</I>&gt;<i> &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">m.gabriel at das-netzwerkteam.de</A>&gt; wrote:
+</I>&gt;&gt;<i> Yes, currently this is the expected behaviour. I remember there was
+</I>&gt;&gt;<i> something about multi-session support mentioned in another posting ages ago
+</I>&gt;&gt;<i> on the x2go-dev list, but I am not sure at what position the feature
+</I>&gt;&gt;<i> currently is on Heinz's and Alex's todo list.
+</I>&gt;&gt;<i>
+</I>&gt;<i> 
+</I>&gt;<i> Okay, thanks for the response.
+</I>&gt;<i> 
+</I>&gt;<i> One other difficulty I have been having with multiple sessions is
+</I>&gt;<i> figuring out which X2Go-client instance corresponds with which
+</I>&gt;<i> X2Go-window instance. This is important when terminating a session,
+</I>&gt;<i> since I do not want to terminate the wrong one!
+</I>
+I would say: Close the session before you close X2goclient. Don't
+terminate a X2go client with status &quot;running&quot;.
+
+&gt;<i> The problem is that I do not see the session name anywhere, not in the
+</I>&gt;<i> program window, and not in the session window. Am I missing something?
+</I>
+You can see the server and the username when there is a connection.
+And a SessionID. And a CreationTime.
+
+&gt;<i> Is there any way for a user to make the session name show up? It could
+</I>&gt;<i> even be pre-pended to the session ID. Anything so I don't have to
+</I>&gt;<i> carefully compare the 10-digit session ID number between the session
+</I>&gt;<i> window and the X2go program window!
+</I>&gt;<i> 
+</I>&gt;<i> I am coming from nomachine NX-client, where you just clicked the close
+</I>&gt;<i> button on the window and it asked whether you wanted to suspend or
+</I>&gt;<i> terminate, which was convenient. Since I am new to x2go, it is
+</I>&gt;<i> possible that I am missing something with x2go that would make it
+</I>&gt;<i> equally convenient.
+</I>
+X2go just closes the session.
+
+I also don't know a nice way to suspend a session other then using the
+client-window. Normally I don't suspend sessions. Maybe somebody else
+knows a way.
+
+When you are using a PGP-card as authentication, the session is
+suspended when you remove the card.
+
+&gt;<i> By the way, I am using the Windows x2go client, v3.01-13
+</I>
+I am talking about the Linux client. No idea if there is much
+difference, because I have never used the Windows client.
+
+With regards,
+Paul van der Vlis.
+
+
+
+
+-- 
+<A HREF="http://www.vandervlis.nl/">http://www.vandervlis.nl/</A>
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000014.html">[X2go-user] Starting multiple sessions
+</A></li>
+	<LI>Next message: <A HREF="000016.html">[X2go-user] Starting multiple sessions
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#15">[ date ]</a>
+              <a href="thread.html#15">[ thread ]</a>
+              <a href="subject.html#15">[ subject ]</a>
+              <a href="author.html#15">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

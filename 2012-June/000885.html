@@ -1,0 +1,191 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [X2Go-Announcement] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli, python-x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20x2goclient%2C%0A%20pyhoca-gui%2C%20pyhoca-cli%2C%20python-x2go&In-Reply-To=%3C20120621162614.99493oo8drvifpxi%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000884.html">
+   <LINK REL="Next"  HREF="000887.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [X2Go-Announcement] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli, python-x2go</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20x2goclient%2C%0A%20pyhoca-gui%2C%20pyhoca-cli%2C%20python-x2go&In-Reply-To=%3C20120621162614.99493oo8drvifpxi%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] [X2Go-Announcement] New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli, python-x2go">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Jun 21 16:26:14 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000884.html">[X2Go-User] x2go without instalation
+</A></li>
+        <LI>Next message: <A HREF="000887.html">[X2Go-User] WRONG SUBJECT-&gt; Must be: New X2Go releases: x2goserver, pinentry-x2go (was: New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli, python-x2go)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#885">[ date ]</a>
+              <a href="thread.html#885">[ thread ]</a>
+              <a href="subject.html#885">[ subject ]</a>
+              <a href="author.html#885">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go component releases:
+
+   - x2goserver (3.1.1.1)
+   - pinentry-x2go (0.7.5.4)
+
+All new packages will be available in our stable repositories (Debian,  
+    Ubuntu) within the next 24h.
+
+In X2Go server we have put some focus on automatic client keybaord  
+recognition. Put ,,auto'' as keyboard type/model in x2goclient and  
+check your keyboard settings within the X2Go session with ,,setxkbmap  
+-print''. PyHoca-GUI already has a widget in the session profile  
+management window to enable auto-keyboard recognition.
+
+Also, this version of X2Go Server now has Unity and GNOME3 session  
+support. Use X2Go Client 3.99.2.1 or PyHoca-GUI 0.2.0.x to enjoy Unity  
+session on Ubuntu servers running X2Go.
+
+Also a fix for an error that occurred when unmounting client-side  
+shares on NFS homes has been added to this release.
+
+The pinentry-x2go project experienced a very comprehensive code clean  
+up. No new features have been added, but the X2Go pinentry fork has  
+been prepared for upload to Debian.
+
+light+love,
+Mike
+
+
+X2Go Server changes
+===================
+
+x2goserver (3.1.1.1-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.1.1.1):
+     - Add/fix Python X2Go folder sharing/unsharing support from Windows.
+     - Handle whitespace in folder names appropriately.
+     - Allow .desktop file parameter Terminal=... to pass through to X2Go
+       client-side.
+     - Avoid error messages in x2gocmdexistmessage if cmdoutput file could
+       not be found.
+     - Provide nx-X11 libraries for applications launched via x2goruncommand.
+     - Add feature X2GO_SERVERSIDE_DESKTOPCOMMANDS. Let client provide  
+a generic
+       desktop shell command (GNOME, UNITRY, KDE, etc.) which then gets
+       translated into an executable command by x2goruncommand.
+     - Detect desktop session mode to use for Ubuntu precise and later.
+     - Complete UNITY/GNOME support for Ubuntu/Debian.
+     - Use ,,-nolisten tcp'' option when evoking x2goagent from within
+       x2gostartagent.
+     - Export NX_ROOT=$HOME/.x2go in x2gostartagent. Makes the keyboard file
+       in X2Go session cache directory.
+     - Add support for client-side keyboard detection. Moved script
+       x2gosetkeyboard from x2goserver-pyhoca into x2goserver package.
+     - Make x2gosetkeyboard set the client-side keyboard on session start and
+       resume if usekbd is set to True and the keyboard type is set ,,auto''.
+     - Reset keyboard settings to pc104/us before setting client-side keyboard
+       parameters.
+     - For finished sessions purge all mount points that still hover in the
+       DB's mounts table.
+     - Make sure we run fusermount from within a directory that the  
+user has read
+       access to.
+   * Depend on x2goagent (&gt;= 2:3.5.0.12), make sure that x2goagent has  
+the patch
+     105_nxagent_export-remote-keyboard-config.full.patch included.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Thu, 21 Jun 2012 14:16:08 +0200
+
+
+Pinentry X2Go changes
+=====================
+
+pinentry-x2go (0.7.5.4-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.7.5.4):
+     - Drop mdate-sh and texinfo.tex from /doc folder (autotools build cruft).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Thu, 14 Jun 2012 09:47:09 +0200
+
+pinentry-x2go (0.7.5.3-0~x2go1) unstable; urgency=low
+
+   * Update of copyright information in several file headers.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 13 Jun 2012 17:11:48 +0200
+
+pinentry-x2go (0.7.5.2-0~x2go1) unstable; urgency=low
+
+   * New upstream version (0.7.5.2):
+     - Strip code project down to its essentials, remove a lot of unneeded
+       cruft.
+     - Make code tree fully build with autotools, see README file for further
+       info.
+     - Replace string pinentry-qt with pinentry-x2go.
+   * Make dh_clean remove all build cruft.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 13 Jun 2012 15:11:19 +0200
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120621/d87ec5f5/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120621/d87ec5f5/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000884.html">[X2Go-User] x2go without instalation
+</A></li>
+	<LI>Next message: <A HREF="000887.html">[X2Go-User] WRONG SUBJECT-&gt; Must be: New X2Go releases: x2goserver, pinentry-x2go (was: New X2Go releases: x2goclient, pyhoca-gui, pyhoca-cli, python-x2go)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#885">[ date ]</a>
+              <a href="thread.html#885">[ thread ]</a>
+              <a href="subject.html#885">[ subject ]</a>
+              <a href="author.html#885">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

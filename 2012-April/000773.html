@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Fail to install x2goclient from source - ISO C++ forbids declaration of &#8216;LDAP&#8217; with no type
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-April/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%0A%20%3D%3Fwindows-1252%3Fq%3FFail_to_install_x2goclient_from_sour%3F%3D%0A%20%3D%3Fwindows-1252%3Fq%3Fce_-_ISO_C%2B%2B_forbids_declaration_of_%3D91LDAP%3D92_with_no_t%3F%3D%0A%20%3D%3Fwindows-1252%3Fq%3Fype%3F%3D&In-Reply-To=%3C4F7AF703.3090808%40obviously-nice.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000771.html">
+   <LINK REL="Next"  HREF="000772.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Fail to install x2goclient from source - ISO C++ forbids declaration of &#8216;LDAP&#8217; with no type</H1>
+    <B>Oleksandr Shneyder</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%0A%20%3D%3Fwindows-1252%3Fq%3FFail_to_install_x2goclient_from_sour%3F%3D%0A%20%3D%3Fwindows-1252%3Fq%3Fce_-_ISO_C%2B%2B_forbids_declaration_of_%3D91LDAP%3D92_with_no_t%3F%3D%0A%20%3D%3Fwindows-1252%3Fq%3Fype%3F%3D&In-Reply-To=%3C4F7AF703.3090808%40obviously-nice.de%3E"
+       TITLE="[X2Go-User] Fail to install x2goclient from source - ISO C++ forbids declaration of &#8216;LDAP&#8217; with no type">oleksandr.shneyder at obviously-nice.de
+       </A><BR>
+    <I>Tue Apr  3 15:11:31 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000771.html">[X2Go-User] Fail to install x2goclient from source - ISO C++ forbids declaration of &#8216;LDAP&#8217; with no type
+</A></li>
+        <LI>Next message: <A HREF="000772.html">[X2Go-User] x2go and vnc interconnection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#773">[ date ]</a>
+              <a href="thread.html#773">[ thread ]</a>
+              <a href="subject.html#773">[ subject ]</a>
+              <a href="author.html#773">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+possible you have some dependencies missing. Try to build x2goclient
+package with dpkg-buildpackage
+regards,
+Alex
+
+Am 03.04.2012 02:54, schrieb Ademar Arvati:
+&gt;<i> I am getting the error bellow when trying to install x2goclient on a
+</I>&gt;<i> armel machine based on ubuntu jaunty.
+</I>&gt;<i> What i did until now was:
+</I>&gt;<i> 
+</I>&gt;<i> sudo apt-get install build-essential git-core qt4-dev-tools libmpfr1ldbl
+</I>&gt;<i> mkdir -p ~/x2go
+</I>&gt;<i> cd ~/x2go
+</I>&gt;<i> git clone <A HREF="git://code.x2go.org/x2goclient.git">git://code.x2go.org/x2goclient.git</A>
+</I>&gt;<i> cd ~/x2go/x2goclient
+</I>&gt;<i> make
+</I>&gt;<i> 
+</I>&gt;<i> ERROR MESSAGE bellow.
+</I>&gt;<i> 
+</I>&gt;<i> lrelease x2goclient.pro
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(116):Project MESSAGE: if
+</I>&gt;<i> you want to build x2goplugin you should export X2GO_CLIENT_TARGET=plugin
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(125):Project MESSAGE:
+</I>&gt;<i> building x2goplugin x2goclient x2goclient with ldap and cups
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(129):Project MESSAGE:
+</I>&gt;<i> building x2goplugin x2goclient x2goclient with ldap and cups
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(133):Project MESSAGE:
+</I>&gt;<i> linking all libs statically
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(140):Project MESSAGE:
+</I>&gt;<i> building x2goplugin x2goclient x2goclient with ldap and cups
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/x2goclient.pro(145):Project MESSAGE:
+</I>&gt;<i> building x2goplugin x2goclient x2goclient for windows without ldap and cups
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(34):Project
+</I>&gt;<i> MESSAGE: Firefox not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(41):Project
+</I>&gt;<i> MESSAGE: Opera not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(48):Project
+</I>&gt;<i> MESSAGE: Netscape not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(34):Project
+</I>&gt;<i> MESSAGE: Firefox not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(41):Project
+</I>&gt;<i> MESSAGE: Opera not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(48):Project
+</I>&gt;<i> MESSAGE: Netscape not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(34):Project
+</I>&gt;<i> MESSAGE: Firefox not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(41):Project
+</I>&gt;<i> MESSAGE: Opera not found at default location
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/qtbrowserplugin-2.4_1-opensource/src/qtbrowserplugin.pri(48):Project
+</I>&gt;<i> MESSAGE: Netscape not found at default location
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_de.qm'...
+</I>&gt;<i>     Generated 442 translation(s) (439 finished and 3 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 27 untranslated source text(s)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_en.qm'...
+</I>&gt;<i>     Generated 0 translation(s) (0 finished and 0 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 469 untranslated source text(s)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_fr.qm'...
+</I>&gt;<i>     Generated 0 translation(s) (0 finished and 0 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 469 untranslated source text(s)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_nb_no.qm'...
+</I>&gt;<i>     Generated 441 translation(s) (438 finished and 3 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 28 untranslated source text(s)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_ru.qm'...
+</I>&gt;<i>     Generated 469 translation(s) (469 finished and 0 unfinished)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_sv.qm'...
+</I>&gt;<i>     Generated 441 translation(s) (438 finished and 3 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 28 untranslated source text(s)
+</I>&gt;<i> Updating '/data/home/adas/x2go/x2goclient/x2goclient_zh_tw.qm'...
+</I>&gt;<i>     Generated 400 translation(s) (394 finished and 6 unfinished)
+</I>&gt;<i> 
+</I>&gt;<i>     Ignored 69 untranslated source text(s)
+</I>&gt;<i> mkdir -p /data/home/adas/x2go/x2goclient/client_build &amp;&amp; cd
+</I>&gt;<i> /data/home/adas/x2go/x2goclient/client_build &amp;&amp; qmake-qt4 ../x2goclient.pro
+</I>&gt;<i> Project MESSAGE: if you want to build x2goplugin you should export
+</I>&gt;<i> X2GO_CLIENT_TARGET=plugin
+</I>&gt;<i> Project MESSAGE: building x2goclient with ldap and cups
+</I>&gt;<i> /usr/bin/rcc: File does not exist '../resources.rcc'
+</I>&gt;<i> cd /data/home/adas/x2go/x2goclient/client_build &amp;&amp; make
+</I>&gt;<i> make[1]: Entrando no diret&#243;rio
+</I>&gt;<i> `/data/home/adas/x2go/x2goclient/client_build'
+</I>&gt;<i> g++ -c -pipe -O2 -Wall -W -D_REENTRANT -DCFGCLIENT -DQT_NO_DEBUG
+</I>&gt;<i> -DQT_SVG_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_CORE_LIB -DQT_SHARED
+</I>&gt;<i> -I/osh/usr/share/qt4/mkspecs/linux-g++ -I../../x2goclient
+</I>&gt;<i> -I/osh/usr/include/qt4/QtCore -I/osh/usr/include/qt4/QtNetwork
+</I>&gt;<i> -I/osh/usr/include/qt4/QtGui -I/osh/usr/include/qt4/QtSvg
+</I>&gt;<i> -I/osh/usr/include/qt4 -I../../x2goclient -I../../x2goclient
+</I>&gt;<i> -I../../x2goclient -I. -o sharewidget.o ../sharewidget.cpp
+</I>&gt;<i> No arquivo inclu&#237;do de ../onmainwindow.h:43,
+</I>&gt;<i>                  de ../sharewidget.cpp:13:
+</I>&gt;<i> ../LDAPSession.h:19:18: erro: ldap.h: Arquivo ou diret&#243;rio n&#227;o encontrado
+</I>&gt;<i> In file included from ../onmainwindow.h:43,
+</I>&gt;<i>                  from ../sharewidget.cpp:13:
+</I>&gt;<i> ../LDAPSession.h:92: erro: ISO C++ forbids declaration of &#8216;LDAP&#8217; with no
+</I>&gt;<i> type
+</I>&gt;<i> ../LDAPSession.h:92: erro: expected &#8216;;&#8217; before &#8216;*&#8217; token
+</I>&gt;<i> make[1]: ** [sharewidget.o] Erro 1
+</I>&gt;<i> make[1]: Saindo do diret&#243;rio `/data/home/adas/x2go/x2goclient/client_build'
+</I>&gt;<i> make: ** [build_client] Erro 2
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> Any help ?
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> 
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>
+
+-- 
+Oleksandr Shneyder
+Dipl. Informatik
+X2go Core Developer Team
+
+email:  <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">oleksandr.shneyder at obviously-nice.de</A>
+web: www.obviously-nice.de
+
+--&gt; X2go - <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">everywhere at home</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: signature.asc
+Type: application/pgp-signature
+Size: 262 bytes
+Desc: OpenPGP digital signature
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120403/105e9b80/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120403/105e9b80/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000771.html">[X2Go-User] Fail to install x2goclient from source - ISO C++ forbids declaration of &#8216;LDAP&#8217; with no type
+</A></li>
+	<LI>Next message: <A HREF="000772.html">[X2Go-User] x2go and vnc interconnection
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#773">[ date ]</a>
+              <a href="thread.html#773">[ thread ]</a>
+              <a href="subject.html#773">[ subject ]</a>
+              <a href="author.html#773">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

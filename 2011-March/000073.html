@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] Question about the source
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3C20110319040314.20156or7e5i95uya%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000072.html">
+   <LINK REL="Next"  HREF="000074.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] Question about the source</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20Question%20about%20the%20source&In-Reply-To=%3C20110319040314.20156or7e5i95uya%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-user] Question about the source">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Sat Mar 19 04:03:14 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000072.html">[X2go-user] Question about the source
+</A></li>
+        <LI>Next message: <A HREF="000074.html">[X2go-user]  X2go client on debian ARM?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Tyler,
+
+I will divert this posting to <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de.</A> Please let us  
+continue the discussion there.
+
+On Sa 19 M&#228;r 2011 03:24:51 CET Tyler Jameson Little wrote:
+
+&gt;<i> I downloaded a copy of the source by using this command: git clone <A HREF="git://">git://</A>
+</I>&gt;<i> code.x2go.org/x2goserver.git
+</I>
+The site is still under construction. The package has been uploaded  
+for evaluation by two guys from university of Erlangen, Germany. For  
+now, please refer to their Git site for the other packages (x2goagent,  
+nxlibs etc.):
+
+<A HREF="http://i4git.informatik.uni-erlangen.de">http://i4git.informatik.uni-erlangen.de</A>
+
+&gt;<i> I want to try to make a module on NodeJS, and I had assumed that I would get
+</I>&gt;<i> a bunch of source files written in C or C++, but what I got was a bunch of
+</I>&gt;<i> Perl scripts.
+</I>&gt;<i>
+</I>&gt;<i> Is that all the server is?  Am I missing something?  My goal is to make an
+</I>&gt;<i> NX server that can run over a simple TCP or HTTP server and I was going to
+</I>&gt;<i> write a client for display in the browser.
+</I>
+The X2go developers are already working on a QtPlugin based browser  
+plugin. Maybe you should take a look at that. Code is included in the  
+x2goclient project:
+<A HREF="http://i4git.informatik.uni-erlangen.de/x2goclient.git/">http://i4git.informatik.uni-erlangen.de/x2goclient.git/</A>
+
+&gt;<i> From my research, X2Go is
+</I>&gt;<i> supposed to be the most fully featured, open source NX implementation out
+</I>&gt;<i> there.  I downloaded the source from NoMachine.com for part of their server
+</I>&gt;<i> and it was as I expected, a bunch of C and C++ sources.
+</I>&gt;<i>
+</I>&gt;<i> With NodeJS, I have a couple of options:
+</I>&gt;<i>
+</I>&gt;<i>    - Include a C++ module by exporting certain functions
+</I>&gt;<i>    - Write the source in server-side JavaScript
+</I>&gt;<i>    - Use the exec command to execute scripts on the command-line
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> If the server really is that simple, then my project will be a lot less
+</I>&gt;<i> painful and will take me a lot less time than expected to make work with
+</I>&gt;<i> NodeJS.  If the server really is this simple, how does it compare
+</I>&gt;<i> performance-wise with the open source version from NoMachine?  I want to
+</I>&gt;<i> possibly have several NX servers piped through a single webserver where each
+</I>&gt;<i> NX server is running in it's own VM, so efficiency is what I'm after.  I am
+</I>&gt;<i> primarily looking at just running this on Ubuntu, so this package looked
+</I>&gt;<i> like it was the right one (debian).
+</I>
+For Ubuntu there is the development ppa of university of Erlangen:
+<A HREF="https://launchpad.net/~siretart/+archive/x2go">https://launchpad.net/~siretart/+archive/x2go</A>
+
+&gt;<i> Any help that any of you could offer would be much appreciated.  I'm excited
+</I>&gt;<i> to start playing with this software!!  Don't worry, anything I produce will
+</I>&gt;<i> be Open Source, regardless of whether I do a complete rewrite.
+</I>
+Note that most of components of X2go will become AGPL  
+(<A HREF="http://www.gnu.org/licenses/agpl.html">http://www.gnu.org/licenses/agpl.html</A>) before the next release  
+(,,Baikal'').
+
+Greets,
+Mike
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110319/36d610b5/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110319/36d610b5/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000072.html">[X2go-user] Question about the source
+</A></li>
+	<LI>Next message: <A HREF="000074.html">[X2go-user]  X2go client on debian ARM?
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#73">[ date ]</a>
+              <a href="thread.html#73">[ thread ]</a>
+              <a href="subject.html#73">[ subject ]</a>
+              <a href="author.html#73">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

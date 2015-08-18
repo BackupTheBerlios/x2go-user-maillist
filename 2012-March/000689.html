@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] thinclient image and automounting usb-devices
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3C201203082323.29937.lists%40nosolution.doesntexist.org%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000685.html">
+   <LINK REL="Next"  HREF="000686.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] thinclient image and automounting usb-devices</H1>
+    <B>Stefan</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20thinclient%20image%20and%20automounting%20usb-devices&In-Reply-To=%3C201203082323.29937.lists%40nosolution.doesntexist.org%3E"
+       TITLE="[X2Go-User] thinclient image and automounting usb-devices">lists at nosolution.doesntexist.org
+       </A><BR>
+    <I>Thu Mar  8 23:23:29 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000685.html">[X2Go-User]  thinclient image and automounting usb-devices
+</A></li>
+        <LI>Next message: <A HREF="000686.html">[X2Go-User] X2Go-User Digest, Vol 19, Issue 5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>
+Am Thursday 08 March 2012 schrieb brian mullan:
+&gt;<i> Stefan
+</I>&gt;<i> 
+</I>&gt;<i> If you can configure your thin-client to boot off of USB ...
+</I>&gt;<i> 
+</I>&gt;<i>    1. create a 1 or 2 GB USB stick configured to auto-boot into linux and
+</I>&gt;<i>    some locked down user account
+</I>
+Hi Brian,
+
+thanks for your Ideas. My Ideas go in a very similar direction. At the moment 
+I see two main aproaches: either using live-helper creating live-images for 
+usb-stick (or in our case for the harddisk) or using voyage-linux (a debian 
+distro for embedded systems). Both have the advantage, that they are readonly 
+images - in the case of voyage together with the possibility to change things 
+on the fly - without building the whole root.
+
+&gt;<i> Hand out USB's to students at Registration or leave in the
+</I>&gt;<i> Thin-Clients.
+</I>
+We will prefer internal devices - because the machines are thin-clients per 
+default. Additionally we could make some usb-sticks for the brought-in 
+computers.
+
+But the main question was concerning the possibility to automount usb-sticks. 
+I'd like to achieve that a usb-disk inserting in the client is accessible to 
+the x2go-session.
+
+So of course, I could advice the users to mount usb-sticks locally and than 
+making the /media/ directory available to x2go via the sshfs. But this is not 
+very convenient.
+
+The other possibility is to make usb-automount via udev - but with the problem 
+that usb-devices are not cleanly unmounted. The way ltsp works in this point 
+is, to automount devices as soon as the sshfs accesses the specific directory. 
+And unmounting them automatically when there is no access anymore. But that 
+seems to difficult to implementate for me.
+
+Maybe the easiest way is indeed to set up an minimal grafical environment with 
+the two functions: mounting and unmounting usb-devices and connecting to wlan. 
+Maybe additionally an local browser .... newer knows.
+
+How is this solved in the tce?
+
+
+ 
+&gt;<i> Brian
+</I>&gt;<i> 
+</I>&gt;<i> On 03/07/2012 11:29 AM, Stefan wrote:
+</I>&gt;<i> 
+</I>&gt;<i> Hi all,
+</I>&gt;<i> 
+</I>&gt;<i> we plan to set up an x2go-server in a school, where people should have
+</I>&gt;<i> access
+</I>&gt;<i> to with laptops throught wlan.
+</I>&gt;<i> 
+</I>&gt;<i> The laptops will have dual-boot systems an one of them should be a minimal
+</I>&gt;<i> setup with x2goclient (thinclient-image) and wlan access. It would be nice
+</I>&gt;<i> doing usb-automounting in the image - like the ltsp-thinclient environment
+</I>&gt;<i> does.
+</I>&gt;<i> 
+</I>&gt;<i> They should behave thin-client like - only that they can't boot through pxe
+</I>&gt;<i> because of wlan. (For the desktops we still use ltsp - because of features
+</I>&gt;<i> like local apps and automounging ...) So users should not have to open a
+</I>&gt;<i> desktop-environment, starting x2goclient and mount local devices manualy.
+</I>&gt;<i> 
+</I>&gt;<i> Are there any common approaches?
+</I>&gt;<i> 
+</I>&gt;<i> Is automounting working in the tce of x2go?
+</I>&gt;<i> 
+</I>&gt;<i> Thanks for your ideas.
+</I>&gt;<i> 
+</I>&gt;<i> stefan
+</I>
+
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000685.html">[X2Go-User]  thinclient image and automounting usb-devices
+</A></li>
+	<LI>Next message: <A HREF="000686.html">[X2Go-User] X2Go-User Digest, Vol 19, Issue 5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#689">[ date ]</a>
+              <a href="thread.html#689">[ thread ]</a>
+              <a href="subject.html#689">[ subject ]</a>
+              <a href="author.html#689">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

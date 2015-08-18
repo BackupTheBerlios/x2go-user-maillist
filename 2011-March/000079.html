@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-user] LDAP-Problem: Zertifikateproblem
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20LDAP-Problem%3A%20Zertifikateproblem&In-Reply-To=%3C20110323150756.12383w9wvykxcgcc%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000078.html">
+   
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-user] LDAP-Problem: Zertifikateproblem</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-user%5D%20LDAP-Problem%3A%20Zertifikateproblem&In-Reply-To=%3C20110323150756.12383w9wvykxcgcc%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-user] LDAP-Problem: Zertifikateproblem">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Mar 23 15:07:56 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000078.html">[X2go-user] LDAP-Problem: Zertifikateproblem
+</A></li>
+        
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Mike,
+
+On Mi 23 M&#228;r 2011 14:21:12 CET  wrote:
+
+&gt;<i> Yes, I know that LDAP is not absolutely necessary. I am using x2go    
+</I>&gt;<i> already that way. This is to make a test installation for a    
+</I>&gt;<i> presentation of the software with the option of using it for a    
+</I>&gt;<i> company, so LDAP is an option. I would like to use it, but I am not   
+</I>&gt;<i>  experienced with LDAP yet myself and the one who is experienced    
+</I>&gt;<i> proposes NX.
+</I>&gt;<i> Plus one can only gain experiences.
+</I>
+Do you want to use the load balancing support of X2go/LDAP? Or do you   
+  just want to administrate users in LDAP.
+
+For the latter, I personally recommend setting up your LDAP tree    
+manually (there are plenty of howtos in the web for this...). For    
+learning LDAP this should be your way to go. Then make sure you can    
+use LDAP as libnss and pam source for passwd, group, shadow. At last    
+you have to make sure that LDAP users are in the x2gousers group    
+(which can be local or also a group in LDAP).
+
+Once you have that, LDAP users can login via X2go.
+
+[Once you have such a simple LDAP DIT up and running you might want to  
+   start from scratch and set up an LDAP-server that gets administered  
+  by  GOsa&#178; or CIPUX ;-) ...]
+
+If you want to use load balancing with X2go, then this should also be   
+  possible manually, but basically that's what the scripts were  
+intended   for (they were also intended for easy LDAP-setup, but you  
+can do  this  manually...). However, to my personal view, the LDAP   
+implementation  needs quite some work before the Baikal release and   
+also needs proper  documentation of the way LDAP data is used and   
+interpreted...
+
+Maybe someone else has experience on LDAP/loadbalancing...
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+Hi Mike,
+
+On Mi 23 M&#228;r 2011 14:21:12 CET  wrote:
+
+&gt;<i> Yes, I know that LDAP is not absolutely necessary. I am using x2go   
+</I>&gt;<i> already that way. This is to make a test installation for a   
+</I>&gt;<i> presentation of the software with the option of using it for a   
+</I>&gt;<i> company, so LDAP is an option. I would like to use it, but I am not   
+</I>&gt;<i> experienced with LDAP yet myself and the one who is experienced   
+</I>&gt;<i> proposes NX.
+</I>&gt;<i> Plus one can only gain experiences.
+</I>
+Do you want to use the load balancing support of X2go/LDAP? Or do you   
+just want to administrate users in LDAP.
+
+For the latter, I personally recommend setting up your LDAP tree   
+manually (there are plenty of howtos in the web for this...). For   
+learning LDAP this should be your way to go. Then make sure you can   
+use LDAP as libnss and pam source for passwd, group, shadow. At last   
+you have to make sure that LDAP users are in the x2gousers group   
+(which can be local or also a group in LDAP).
+
+Once you have that, LDAP users can login via X2go.
+
+[Once you have such a simple LDAP DIT up and running you might want to  
+  start from scratch and set up an LDAP-server that gets administered  
+by  GOsa&#178; or CIPUX ;-) ...]
+
+If you want to use load balancing with X2go, then this should also be   
+possible manually, but basically that's what the scripts were intended  
+  for (they were also intended for easy LDAP-setup, but you can do  
+this  manually...). However, to my personal view, the LDAP  
+implementation  needs quite some work before the Baikal release and  
+also needs proper  documentation of the way LDAP data is used and  
+interpreted...
+
+Maybe someone else has experience on LDAP/loadbalancing...
+
+Greets,
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0001.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0001.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0002.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0002.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 489 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0003.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20110323/f1016ee9/attachment-0003.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000078.html">[X2go-user] LDAP-Problem: Zertifikateproblem
+</A></li>
+	
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#79">[ date ]</a>
+              <a href="thread.html#79">[ thread ]</a>
+              <a href="subject.html#79">[ subject ]</a>
+              <a href="author.html#79">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

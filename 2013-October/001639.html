@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gobroker on wheezy
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20wheezy&In-Reply-To=%3C5253D106.40003%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001638.html">
+   <LINK REL="Next"  HREF="001640.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gobroker on wheezy</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20wheezy&In-Reply-To=%3C5253D106.40003%40vxpertise.net%3E"
+       TITLE="[X2Go-User] x2gobroker on wheezy">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Tue Oct  8 11:31:50 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001638.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+        <LI>Next message: <A HREF="001640.html">[X2Go-User] x2gobroker session configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1639">[ date ]</a>
+              <a href="thread.html#1639">[ thread ]</a>
+              <a href="subject.html#1639">[ subject ]</a>
+              <a href="author.html#1639">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Sorry was a mistake in the config file. Dunno which as the log didnt 
+tell, but I restored the one from GIT and it worked.
+
+On 10/08/2013 11:10 AM, Mathias Ewald wrote:
+&gt;<i> Hi Mike,
+</I>&gt;<i>
+</I>&gt;<i> I am getting closer to a working setup :) Adding the parameters, of 
+</I>&gt;<i> course, helped. The Wiki doesn't tell about these so I am going to add 
+</I>&gt;<i> that later on. About the parameters though:
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://***.***.***.***/x2gobroker/plain/inifile?user=mathias&amp;password=**********">http://***.***.***.***/x2gobroker/plain/inifile?user=mathias&amp;password=**********</A> 
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> =&gt; Access granted.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://***.***.***.***/x2gobroker/plain/inifile?user=mathias&amp;password=**********&amp;task=listsessions">http://***.***.***.***/x2gobroker/plain/inifile?user=mathias&amp;password=**********&amp;task=listsessions</A> 
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> =&gt; 500: Internal Server Errror
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at x2gobroker</A>:/var/log/x2gobroker# tail -f -n 0 /var/log/x2gobroker/*
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/access.log &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/access.log.1 &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/authservice.log &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/authservice.log.1 &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/broker.log &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/broker.log.1 &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/error.log &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/wsgi.log &lt;==
+</I>&gt;<i>
+</I>&gt;<i> ==&gt; /var/log/x2gobroker/broker.log &lt;==
+</I>&gt;<i> 2013-10-08 05:45:28,142 - broker - WARNING - GET http request 
+</I>&gt;<i> detected, if unwanted: disable X2GOBROKER_DEBUG
+</I>&gt;<i> 2013-10-08 05:45:28,147 - broker - INFO - client address is 79.249.103.51
+</I>&gt;<i> 2013-10-08 05:45:28,148 - broker - DEBUG - username: mathias, 
+</I>&gt;<i> password: XXXXX, task: listsessions, profile_id:
+</I>&gt;<i> 2013-10-08 05:45:28,149 - broker - DEBUG - 
+</I>&gt;<i> base_broker.X2GoBroker.get_authentication_mechanism(): found 
+</I>&gt;<i> default-auth-mech in global config section: pam
+</I>&gt;<i> 2013-10-08 05:45:28,149 - broker - DEBUG - 
+</I>&gt;<i> base_broker.X2GoBroker._do_authenticate(): authenticating user=mathias 
+</I>&gt;<i> with password=&lt;hidden&gt; against backend=inifile.
+</I>&gt;<i> 2013-10-08 05:45:28,149 - broker - DEBUG - connecting to 
+</I>&gt;<i> authentication service socket 
+</I>&gt;<i> /run/x2gobroker/x2gobroker-authservice.socket
+</I>&gt;<i> 2013-10-08 05:45:28,150 - broker - DEBUG - sending username=mathias, 
+</I>&gt;<i> password=&lt;hidden&gt;, service=x2gobroker to authentication service
+</I>&gt;<i> 2013-10-08 05:45:28,165 - broker - INFO - authentication against PAM 
+</I>&gt;<i> service &#187;x2gobroker&#171; succeeded for user &#187;mathias&#171;
+</I>&gt;<i> 2013-10-08 05:45:28,166 - broker - DEBUG - 
+</I>&gt;<i> base_broker.X2GoBroker.check_access(): result of authentication check 
+</I>&gt;<i> is: True
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> x2goclient --broker-url=<A HREF="http://***.***.***.***/x2gobroker/plain/inifile">http://***.***.***.***/x2gobroker/plain/inifile</A>
+</I>&gt;<i>
+</I>&gt;<i> Shows me a login screen but then says login failed with the same error 
+</I>&gt;<i> messages on the server as above.
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> About the nightly builds: I need to get this working quickly. Once 
+</I>&gt;<i> that is done I will play with the nightly.
+</I>&gt;<i>
+</I>&gt;<i> cheers
+</I>&gt;<i> Mathias
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> On 10/05/2013 02:44 PM, Mike Gabriel wrote:
+</I>&gt;&gt;<i> Hi Mathias,
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> ----- Original message -----
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> the installation works now, thanks! I left most of the configuration at
+</I>&gt;&gt;&gt;<i> defaults but changed to iniconf and enabled debug mode. Following the
+</I>&gt;&gt;&gt;<i> instructions to browse <A HREF="http://IP:80/x2gobroker/plain/iniconf">http://IP:80/x2gobroker/plain/iniconf</A> shows this
+</I>&gt;&gt;&gt;<i> HTML:
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> &lt;html&gt;&lt;title&gt;404: Not Found&lt;/title&gt;&lt;body&gt;404: Not Found&lt;/body&gt;&lt;/html&gt;
+</I>&gt;&gt;<i> May this be related to using a wrong URL? It has to be inifile, not 
+</I>&gt;&gt;<i> iniconf.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> In the meantime, apache shows this
+</I>&gt;&gt;<i> [...]
+</I>&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> It's a bit confusing to see &quot;X2GOBROKER_DEBUG: False&quot; and then &quot;if
+</I>&gt;&gt;&gt;<i> unwanted: disable X2GOBROKER_DEBUG&quot;. First line makes me think debug is
+</I>&gt;&gt;&gt;<i> not enabled, second says it is. But the real problem for now is that I
+</I>&gt;&gt;&gt;<i> expected to see the contents
+</I>&gt;&gt;&gt;<i> /etc/x2go/broker/x2gobroker-sessionprofiles.conf but saw 404 instead.
+</I>&gt;&gt;&gt;<i>
+</I>&gt;&gt;&gt;<i> Wrong expectations, or misconfiguration? :D
+</I>&gt;&gt;<i> First, you have to give some parameters:
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> &lt;URL&gt;?user=&lt;user&gt;&amp;password=&lt;pw&gt;&amp;task=listsessions
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> If that is not somewhere in the wiki, then please add that piece of 
+</I>&gt;&gt;<i> information. Thanks
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Then, you should really try out the version from the nightly builds 
+</I>&gt;&gt;<i> which I am about to release (0.0.3.0). It would be cool if you could 
+</I>&gt;&gt;<i> play with that one, because the we can get some more fixes into 0.0.3.0.
+</I>&gt;&gt;<i>
+</I>&gt;&gt;<i> Greets,
+</I>&gt;&gt;<i> Mike
+</I>&gt;<i>
+</I>
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001638.html">[X2Go-User] x2gobroker on wheezy
+</A></li>
+	<LI>Next message: <A HREF="001640.html">[X2Go-User] x2gobroker session configuration
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1639">[ date ]</a>
+              <a href="thread.html#1639">[ thread ]</a>
+              <a href="subject.html#1639">[ subject ]</a>
+              <a href="author.html#1639">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

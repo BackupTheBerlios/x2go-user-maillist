@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-July/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20File%20and%20print%20sharing%20fails%20-%20was%3A%20Re%3A%20Building%0A%20X2GoClient%20from%20source&In-Reply-To=%3C1310810426.31314.15.camel%40denise.theartistscloset.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000225.html">
+   <LINK REL="Next"  HREF="000227.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source</H1>
+    <B>John A. Sullivan III</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20File%20and%20print%20sharing%20fails%20-%20was%3A%20Re%3A%20Building%0A%20X2GoClient%20from%20source&In-Reply-To=%3C1310810426.31314.15.camel%40denise.theartistscloset.com%3E"
+       TITLE="[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source">jsullivan at opensourcedevel.com
+       </A><BR>
+    <I>Sat Jul 16 12:00:26 CEST 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000225.html">[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source
+</A></li>
+        <LI>Next message: <A HREF="000227.html">[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#226">[ date ]</a>
+              <a href="thread.html#226">[ thread ]</a>
+              <a href="subject.html#226">[ subject ]</a>
+              <a href="author.html#226">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>On Sat, 2011-07-16 at 05:53 -0400, John A. Sullivan III wrote:
+&gt;<i> On Tue, 2011-07-12 at 13:27 +0200, Mike Gabriel wrote:
+</I>&gt;<i> &gt; Hi John,
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; On Di 12 Jul 2011 03:03:29 CEST &quot;John A. Sullivan III&quot; wrote:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; &gt; But I then downloaded the x2goclient 3.0.1.18 tarball.  I did not see a
+</I>&gt;<i> &gt; &gt; configure file, a make script, or any templates.  I did notice several
+</I>&gt;<i> &gt; &gt; project files so I downloaded kdevelop to open the project files.  I've
+</I>&gt;<i> &gt; &gt; not used Kdevelop4 before (dinosaur that I am).  It only wanted to open
+</I>&gt;<i> &gt; &gt; the x2goclient-libssh.kdev4 project file.  However, it cannot build it
+</I>&gt;<i> &gt; &gt; and there is nothing to create the configure/make files.  How does one
+</I>&gt;<i> &gt; &gt; build this x2goclient from source? Thanks - John
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; You have downloaded the last release without Makefile. The next   
+</I>&gt;<i> &gt; release (and also the code in X2go Git) contains a Makefile that you   
+</I>&gt;<i> &gt; can use with
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;    make &amp;&amp; make install
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; so that x2goclient gets installed to /usr/local/bin.
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt; Two options:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;    (a) wait for Wednesday/Thursday, then I will patch code from Alex into the
+</I>&gt;<i> &gt;        current Git code and after that x2goclient will be releases as 3.0.99.0
+</I>&gt;<i> &gt;        (as tarball).
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;    (b) clone the current Git code:
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;      $ git clone <A HREF="git://code.x2go.org/x2goclient.git">git://code.x2go.org/x2goclient.git</A>
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;      and then do
+</I>&gt;<i> &gt; 
+</I>&gt;<i> &gt;      $ cd x2goclient
+</I>&gt;<i> &gt;      $ make &amp;&amp; make install
+</I>&gt;<i> Hello, all.  I've gone the git clone route however I do not see the
+</I>&gt;<i> mounts in my X2Go server for printing or file sharing.  I am still using
+</I>&gt;<i> x2goserver 3.0.1-5.  Before I spend time troubleshooting, I thought I'd
+</I>&gt;<i> ask if there is no backwards compatibility between the proposed new
+</I>&gt;<i> client and the old server for file and print.  Thanks - John
+</I>&lt;snip&gt;
+I double-checked the client to make sure sshfs was installed and it was
+not.  Compilation had not complained about it missing.  I installed it
+but still have the same problem even after restarting the client - John
+
+
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000225.html">[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source
+</A></li>
+	<LI>Next message: <A HREF="000227.html">[X2go-User] File and print sharing fails - was: Re: Building X2GoClient from source
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#226">[ date ]</a>
+              <a href="thread.html#226">[ thread ]</a>
+              <a href="subject.html#226">[ subject ]</a>
+              <a href="author.html#226">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

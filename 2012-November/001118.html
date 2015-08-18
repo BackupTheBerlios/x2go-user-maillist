@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] User x2goprint - shell set to /bin/sh
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20User%20x2goprint%20-%20shell%20set%20to%20/bin/sh&In-Reply-To=%3C20121109065450.119150%40gmx.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001116.html">
+   <LINK REL="Next"  HREF="001119.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] User x2goprint - shell set to /bin/sh</H1>
+    <B>glpk xypron</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20User%20x2goprint%20-%20shell%20set%20to%20/bin/sh&In-Reply-To=%3C20121109065450.119150%40gmx.net%3E"
+       TITLE="[X2Go-User] User x2goprint - shell set to /bin/sh">xypron.glpk at gmx.de
+       </A><BR>
+    <I>Fri Nov  9 07:54:50 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001116.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+        <LI>Next message: <A HREF="001119.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1118">[ date ]</a>
+              <a href="thread.html#1118">[ thread ]</a>
+              <a href="subject.html#1118">[ subject ]</a>
+              <a href="author.html#1118">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello Mike,
+
+just to get things clear:
+
+Your suggestion would include:
+
+Remove this (and surrounding code) from debian/x2goserver-printing.postinst:
+
+adduser --system \
+--disabled-password --disabled-login \
+--shell /bin/sh --group --home /var/spool/x2goprint x2goprint
+
+Remove the corresponding code from debian/x2goserver-printing.postrm
+
+Create a new &quot;empty&quot; debian package &quot;x2goserver-printremote&quot; with postinst and postrm only, and run time dependency on package &quot;x2goserver-printing&quot;.
+
+Send patch to this list using &quot;git send-email&quot;.
+
+Did I get you right?
+
+Best regards
+
+Heinrich Schuchardt
+
+-------- Original-Nachricht --------
+&gt;<i> Datum: Thu, 08 Nov 2012 22:36:10 +0100
+</I>&gt;<i> Betreff: Re: [X2Go-User] User x2goprint - shell set to /bin/sh
+</I>
+&gt;<i> HI Heinrich,
+</I>
+&gt;<i> My suggestion would be splitting up the already tiny package  
+</I>&gt;<i> x2goserver-printing into two packages rather than one. The first  
+</I>&gt;<i> providing the x2goprint script, the second  
+</I>&gt;<i> (x2goserver-printing-multinode) creating the user.
+</I>&gt;<i> 
+</I>&gt;<i> I'd really appreciate it if you came up with a (git-based) patch.  
+</I>&gt;<i> Otherwise, the request will to get a high prio from my side.
+</I>&gt;<i> 
+</I>&gt;<i> If you cannot provide a patch, please drop a reminder into our  
+</I>&gt;<i> bugtracker. Thanks!
+</I>&gt;<i> 
+</I>&gt;<i> Mike
+</I>&gt;<i> 
+</I></PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001116.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+	<LI>Next message: <A HREF="001119.html">[X2Go-User] User x2goprint - shell set to /bin/sh
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1118">[ date ]</a>
+              <a href="thread.html#1118">[ thread ]</a>
+              <a href="subject.html#1118">[ subject ]</a>
+              <a href="author.html#1118">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

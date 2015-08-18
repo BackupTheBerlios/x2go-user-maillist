@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2011-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go%20Client%20on%20Mac%20OS%20X%20Lion%20%2810.7%29%20%5BWorkaround%5D&In-Reply-To=%3C34ED212D-5858-4A1B-A311-8DC686AABAB0%40opensolutions.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000504.html">
+   <LINK REL="Next"  HREF="000491.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]</H1>
+    <B>Stephan Diehl</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20x2go%20Client%20on%20Mac%20OS%20X%20Lion%20%2810.7%29%20%5BWorkaround%5D&In-Reply-To=%3C34ED212D-5858-4A1B-A311-8DC686AABAB0%40opensolutions.net%3E"
+       TITLE="[X2go-User] x2go Client on Mac OS X Lion (10.7) [Workaround]">stephan.diehl at opensolutions.net
+       </A><BR>
+    <I>Wed Nov  9 22:18:19 CET 2011</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000504.html">[X2go-User] No login after upgrade
+</A></li>
+        <LI>Next message: <A HREF="000491.html">[X2go-User] LAN connection slow
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#489">[ date ]</a>
+              <a href="thread.html#489">[ thread ]</a>
+              <a href="subject.html#489">[ subject ]</a>
+              <a href="author.html#489">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hello x2go mac os lion users, here is a workaround for using x2go client on os x lion:
+
+1. Download and install OpenNX Client for Mac. (<A HREF="http://sourceforge.net/projects/opennx/">http://sourceforge.net/projects/opennx/</A>)
+2. Inside the opennx...dmg right click the OpenNX.pkg and click &quot;show package content&quot;
+3. Doubleclick Contents/Archive.pax.gz
+4. Go inside Archive/Library/OpenNX
+5. Copy &quot;bin&quot; + &quot;lib&quot; + &quot;share&quot; to your clipboard (cmd-c)
+6. Go to your x2goclient.app
+7. Right click the x2goclient.app and click &quot;show package content&quot;
+8. Go to &quot;Contents&quot; folder
+9. Paste your clipboard inside this folder
+10. Copy the content inside the &quot;bin&quot; folder to the &quot;exe&quot; folder (nxproxy will be overwritten)
+
+Now you can start x2goclient and connect to your server. If you get this error: &quot;Invalid MIT-MAGIC-COOKIE-1 key&quot; click on X11, start a terminal an type &quot;xhost +localhost&quot;.
+
+Regards
+
+Stephan Diehl
+Gesch&#228;ftsf&#252;hrer
+
+Open Solutions GmbH &amp; Co. KG
+Luisenweg 109
+20537 Hamburg
+
+Fon: 040 / 7070806 - 70
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">stephan.diehl at opensolutions.net</A> 
+
+Registergericht: Amtsgericht Hamburg, HRA 105 704
+Pers&#246;nlich haftende Gesellschafterin: Open Solutions GmbH
+Registergericht: Amtsgericht Hamburg, HRB 999 00
+Gesch&#228;ftsf&#252;hrer: Stephan Diehl
+USt-Id-Nr: DE253775678; Steuer-Nr: 46/649/00349
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/5bcb5670/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20111109/5bcb5670/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000504.html">[X2go-User] No login after upgrade
+</A></li>
+	<LI>Next message: <A HREF="000491.html">[X2go-User] LAN connection slow
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#489">[ date ]</a>
+              <a href="thread.html#489">[ thread ]</a>
+              <a href="subject.html#489">[ subject ]</a>
+              <a href="author.html#489">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

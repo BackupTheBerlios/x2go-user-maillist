@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Latency Issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4jAg5QUb1m4awzL7Wcsa39q40QMk%3D%2B6QoVYhOy_O-7CzQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001804.html">
+   <LINK REL="Next"  HREF="001806.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Latency Issues</H1>
+    <B>Nirav Shah</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Latency%20Issues&In-Reply-To=%3CCAK%3DUp4jAg5QUb1m4awzL7Wcsa39q40QMk%3D%2B6QoVYhOy_O-7CzQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Latency Issues">shah.niravk at gmail.com
+       </A><BR>
+    <I>Sun Nov 24 02:10:40 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001804.html">[X2Go-User] Latency Issues
+</A></li>
+        <LI>Next message: <A HREF="001806.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1805">[ date ]</a>
+              <a href="thread.html#1805">[ thread ]</a>
+              <a href="subject.html#1805">[ subject ]</a>
+              <a href="author.html#1805">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Thanks Steve.
+
+I have tried VNCs before and I found X2Go better than any other. I tried to
+throttle using Charles with specifying 300-400 ms latency but from my
+location, it always shows the same result (70ms ping time).
+
+I am going to try some other tool to check this issue. It is possible to
+change few settings in java application like heap memory etc.
+
+
+On Sat, Nov 23, 2013 at 7:51 PM, Steve Bergman &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">sbergman27 at gmail.com</A>&gt; wrote:
+
+&gt;<i> No. Although both use the same underlying NX libraries, you can't mix and
+</I>&gt;<i> match X2GO/FreeNX clients/servers. (Although you *can* run x2goserver and
+</I>&gt;<i> FreeNX server in parallel on the same server. In fact, I'm doing this right
+</I>&gt;<i> now in preparation for our transition to x2go.) I'm finding x2go to perform
+</I>&gt;<i> at least as well as NX. And FreeNX is more or less an abandoned project at
+</I>&gt;<i> this point, as is NeatX. It's probably not worth the trouble of trying to
+</I>&gt;<i> get FreeNX installed and working on CentOS. (CentOS 4 was the last release
+</I>&gt;<i> that I've installed FreeNX on.)  I've no reason to think FreeNX would do
+</I>&gt;<i> any better than x2go. But if there's a way to up the cache size in x2go,
+</I>&gt;<i> that might be worth a try. I've looked in the sessions and settings files
+</I>&gt;<i> in ~/.x2goclient/ and there don't seem to be any hidden options there that
+</I>&gt;<i> would apply. I'm guessing that we're probably getting the NX default values
+</I>&gt;<i> of 16MB RAM cache and 32MB disk cache, which ought to cover most situations
+</I>&gt;<i> reasonably well.
+</I>&gt;<i>
+</I>&gt;<i> One other option that would be easy enough to try would be one of the
+</I>&gt;<i> VNCs. In general, x2go way outperforms them. But you never know. For this
+</I>&gt;<i> particular workload, something like tightvnc, tigervnc, or vnc4 might work
+</I>&gt;<i> better. I doubt it. But vnc is easy to set up for a test.
+</I>&gt;<i>
+</I>&gt;<i> Any possibility that changing settings in the java application might
+</I>&gt;<i> mitigate the problem?
+</I>&gt;<i>
+</I>&gt;<i> BTW, thanks for the reference to 'charles':
+</I>&gt;<i>
+</I>&gt;<i> <A HREF="http://www.charlesproxy.com/documentation/proxying/throttling/">http://www.charlesproxy.com/documentation/proxying/throttling/</A>
+</I>&gt;<i>
+</I>&gt;<i> I didn't know about this, and had been looking for something similar.
+</I>&gt;<i>
+</I>&gt;<i> -Steve
+</I>&gt;<i>
+</I>&gt;<i>
+</I>
+
+-- 
+Thanks,
+
+Nirav Shah
+(C) (412) 296-9491
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/2ef19501/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131123/2ef19501/attachment.html</A>&gt;
+</PRE>
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001804.html">[X2Go-User] Latency Issues
+</A></li>
+	<LI>Next message: <A HREF="001806.html">[X2Go-User] Latency Issues
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1805">[ date ]</a>
+              <a href="thread.html#1805">[ thread ]</a>
+              <a href="subject.html#1805">[ subject ]</a>
+              <a href="author.html#1805">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

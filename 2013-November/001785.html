@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Windows compiling pyhoca-gui - gevent issue
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-November/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Windows%20compiling%20pyhoca-gui%20-%20gevent%20issue&In-Reply-To=%3CCA%2BYXe5mZvcnL-vZeHsSYdnEGL%2BPzQ9%3DEARCJZqzkJ-YrUQGAQQ%40mail.gmail.com%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001783.html">
+   <LINK REL="Next"  HREF="001787.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Windows compiling pyhoca-gui - gevent issue</H1>
+    <B>Michael Gale</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Windows%20compiling%20pyhoca-gui%20-%20gevent%20issue&In-Reply-To=%3CCA%2BYXe5mZvcnL-vZeHsSYdnEGL%2BPzQ9%3DEARCJZqzkJ-YrUQGAQQ%40mail.gmail.com%3E"
+       TITLE="[X2Go-User] Windows compiling pyhoca-gui - gevent issue">gale.michael at gmail.com
+       </A><BR>
+    <I>Wed Nov 20 05:48:13 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001783.html">[X2Go-User] Windows compiling pyhoca-gui - gevent issue
+</A></li>
+        <LI>Next message: <A HREF="001787.html">[X2Go-User] Windows compiling pyhoca-gui - gevent issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1785">[ date ]</a>
+              <a href="thread.html#1785">[ thread ]</a>
+              <a href="subject.html#1785">[ subject ]</a>
+              <a href="author.html#1785">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hey,
+
+    I was too excited, the build is working however the installed version
+of Pyhoca-gui does not work.
+
+So the current state of affairs:
+- I can launch Pyhoca-gui from MINGW32 prompt by doing './pyhoca-gui
+--start-xserver'
+- python build_exe produces an installer exe which I can install and
+uninstall
+- Attempting to launch pyhoca-gui from the installed exe does nothing, no
+output and no errors
+
+&gt;<i>From C:\Program Files\Pyhoca-gui
+</I>I can get a Python prompt by running py.exe, however pyhoca-gui.exe does
+nothing.
+
+I compared the installed directories between the web site version and my
+version and they look identical except the web site has wxpython 2.9.4 and
+I am using 2.9.5.
+
+Any help is appreciated.
+
+Michael
+
+
+On Tue, Nov 19, 2013 at 1:08 PM, Michael Gale &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">gale.michael at gmail.com</A>&gt;wrote:
+
+&gt;<i> Hello,
+</I>&gt;<i>
+</I>&gt;<i>     I setup a Windows 7 32bit machine in order to compile Pyhoca-gui for
+</I>&gt;<i> windows.
+</I>&gt;<i>
+</I>&gt;<i> I have everything working thanks to:
+</I>&gt;<i> <A HREF="http://wiki.x2go.org/doku.php/wiki:development:build-howto-mswin:pyhoca-gui">http://wiki.x2go.org/doku.php/wiki:development:build-howto-mswin:pyhoca-gui</A>
+</I>&gt;<i>
+</I>&gt;<i> However I did run into an issue with gevent. Originally I was using the
+</I>&gt;<i> gevent binary release 0.13.8.
+</I>&gt;<i>
+</I>&gt;<i> However build_exe was failing, bbfreeze was calling multiplath and trying
+</I>&gt;<i> to import gevent.ares and failing. Sorry, I can't get the stack trace to
+</I>&gt;<i> copy/paste.
+</I>&gt;<i>
+</I>&gt;<i> From what I can tell the ares module was optional, so it may not be in the
+</I>&gt;<i> binary release. Is that correct??
+</I>&gt;<i>
+</I>&gt;<i> I got a binary release of 1.0b4 and installed it and now it is working. I
+</I>&gt;<i> did a basic sanity test only:
+</I>&gt;<i> - built and exe using build_exe
+</I>&gt;<i> - ran pyhoca-gui in dev mode and started and terminated a session.
+</I>&gt;<i>
+</I>&gt;<i> What I would like to know is what version of gevent was pyhoca-gui
+</I>&gt;<i> compiled with?
+</I>&gt;<i> How can I fix the binary gevent 0.13.8 release? Not sure I want to be
+</I>&gt;<i> running beta releases of gevent.
+</I>&gt;<i>
+</I>&gt;<i> Thanks
+</I>&gt;<i> Michael
+</I>&gt;<i>
+</I>
+
+
+-- 
+Ecclesiastes 1:18
+
+ 18 For with much wisdom comes much sorrow;
+   the more knowledge, the more grief.
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131119/ff61bd4c/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20131119/ff61bd4c/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001783.html">[X2Go-User] Windows compiling pyhoca-gui - gevent issue
+</A></li>
+	<LI>Next message: <A HREF="001787.html">[X2Go-User] Windows compiling pyhoca-gui - gevent issue
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1785">[ date ]</a>
+              <a href="thread.html#1785">[ thread ]</a>
+              <a href="subject.html#1785">[ subject ]</a>
+              <a href="author.html#1785">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

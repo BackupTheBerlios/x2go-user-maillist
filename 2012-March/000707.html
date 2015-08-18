@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go + chroot
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C20120316091957.19626ckxwxsxzoh9%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000706.html">
+   <LINK REL="Next"  HREF="000708.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go + chroot</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20%2B%20chroot&In-Reply-To=%3C20120316091957.19626ckxwxsxzoh9%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] x2go + chroot">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Mar 16 09:19:57 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000706.html">[X2Go-User] x2go + chroot
+</A></li>
+        <LI>Next message: <A HREF="000708.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#707">[ date ]</a>
+              <a href="thread.html#707">[ thread ]</a>
+              <a href="subject.html#707">[ subject ]</a>
+              <a href="author.html#707">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi BUGHUNTER,
+
+On Do 15 M&#228;r 2012 22:38:46 CET BUGHUNTER wrote:
+
+&gt;&gt;<i> How about installing X2Go + applications on the server and then
+</I>&gt;&gt;<i> setting up a chroot with --bind mounts and tmpfs directories. Each
+</I>&gt;&gt;<i> chroot jail will have _one_ homedir and ,,linked-in''-FHS-compliant
+</I>&gt;&gt;<i> directories.
+</I>&gt;<i>
+</I>&gt;<i> well, how exactly the chroot should be setup so that everything works?
+</I>
+Never chrooted X2Go myself, so you are the first one to develop that ;-)
+
+&gt;&gt;<i> Tricky approach this will be...
+</I>&gt;<i>
+</I>&gt;<i> if there is no best-practice in doing this already: how are people
+</I>&gt;<i> preventing users from walking up the directory tree?
+</I>
+No best practice here. I am not scared of people walking through the  
+Unix-Directory tree. If your file permissions are sane, this should  
+not be a problem. I love transparency, so I am not at all scared of  
+this.
+
+&gt;<i> One might argue that a chroot is not really needed (if you have no
+</I>&gt;<i> problem with users reading your /etc - why not) or e.g. SELinux might
+</I>&gt;<i> be the better way to setup tighter server-side security precautions -
+</I>&gt;<i> I am open to any solution, but I will prefer the one that is already
+</I>&gt;<i> in use somewhere and is best supported by x2go developers. I would not
+</I>&gt;<i> like to live on an island with this - should be easily reproducable
+</I>&gt;<i> and no super-specialized ultra-individual setup... ;)
+</I>
+We will supported anything you come up with. It has to make (generic)  
+sense, of course. :-)
+
+&gt;<i> Looks for me like best solution would be if x2go-server had a chroot
+</I>&gt;<i> feature, like e.g. ftp daemons - all other solutions look like
+</I>&gt;<i> maintenance hell. Any chance in getting this on the development road
+</I>&gt;<i> map? If it is tricky (certainly it is!) - this is one more argument
+</I>&gt;<i> for doing it the right way once and forever... one config variable
+</I>
+It would be awesome if we could get to a point where we finally have  
+such an option.
+
+&gt;<i> chroot-users=yes
+</I>&gt;<i>
+</I>&gt;<i> and everybody will go crazy :)))
+</I>
+Indeed!
+
+Mike
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120316/cdf9f0f4/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120316/cdf9f0f4/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000706.html">[X2Go-User] x2go + chroot
+</A></li>
+	<LI>Next message: <A HREF="000708.html">[X2Go-User] New X2Go user (missing privileges)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#707">[ date ]</a>
+              <a href="thread.html#707">[ thread ]</a>
+              <a href="subject.html#707">[ subject ]</a>
+              <a href="author.html#707">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

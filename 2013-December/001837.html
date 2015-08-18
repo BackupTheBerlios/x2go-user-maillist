@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Sudden problems with x2gobroker
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sudden%20problems%20with%20x2gobroker&In-Reply-To=%3C20131205155103.Horde.7d5cy_5Xv7uAmdHozzR-Zw1%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001832.html">
+   <LINK REL="Next"  HREF="001839.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Sudden problems with x2gobroker</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Sudden%20problems%20with%20x2gobroker&In-Reply-To=%3C20131205155103.Horde.7d5cy_5Xv7uAmdHozzR-Zw1%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Sudden problems with x2gobroker">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Dec  5 16:51:03 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001832.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+        <LI>Next message: <A HREF="001839.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1837">[ date ]</a>
+              <a href="thread.html#1837">[ thread ]</a>
+              <a href="subject.html#1837">[ subject ]</a>
+              <a href="author.html#1837">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Kermit,
+
+On  Do 05 Dez 2013 00:31:31 CET, Short, Kermit wrote:
+
+&gt;<i> Greetings,
+</I>&gt;<i>
+</I>&gt;<i>    I recently ran upates on our broker server, and after doing so, I
+</I>&gt;<i> can't get any client to display the session list.  I get a &quot;could not
+</I>&gt;<i> login&quot; loop of death, and the following in the apache2 error log:
+</I>&gt;<i>
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+</I>&gt;<i> (pid=2715):
+</I>&gt;<i> Target WSGI script '/usr/bin/
+</I>&gt;<i> x2gobroker' cannot be loaded as Python module.
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+</I>&gt;<i> (pid=2715):
+</I>&gt;<i> Exception occurred processing
+</I>&gt;<i>  WSGI script '/usr/bin/x2gobroker'.
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] Traceback
+</I>&gt;<i> (most
+</I>&gt;<i> recent call last):
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+</I>&gt;<i> &quot;/usr/bin/x2gobroker&quot;, line 221, in &lt;module
+</I>&gt;&gt;<i>
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]
+</I>&gt;<i> prep_http_mode()
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+</I>&gt;<i> &quot;/usr/bin/x2gobroker&quot;, line 39, in prep_htt
+</I>&gt;<i> p_mode
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]     import
+</I>&gt;<i> x2gobroker.web.extras
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]   File
+</I>&gt;<i> &quot;/usr/lib/python2.7/dist-packages/x2gobroke
+</I>&gt;<i> r/web/extras.py&quot;, line 34, in &lt;module&gt;
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16]     class
+</I>&gt;<i> X2GoBrokerItWorks(_RequestHandler):
+</I>&gt;<i> [Wed Dec 04 16:15:21 2013] [error] [client xxx.xxx.xxx.16] NameError:
+</I>&gt;<i> name
+</I>&gt;<i> '_RequestHandler' is not defined
+</I>&gt;<i> [Wed Dec 04 16:15:24 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+</I>&gt;<i> (pid=2716):
+</I>&gt;<i> Target WSGI script '/usr/bin/
+</I>&gt;<i> x2gobroker' cannot be loaded as Python module.
+</I>&gt;<i> [Wed Dec 04 16:15:24 2013] [error] [client xxx.xxx.xxx.16] mod_wsgi
+</I>&gt;<i> (pid=2716):
+</I>&gt;<i> Exception occurred processing
+</I>&gt;<i>  WSGI script '/usr/bin/x2gobroker'.
+</I>&gt;<i>
+</I>&gt;<i> I believe I'm using the nightly build due to necessity, and I've got a
+</I>&gt;<i> presentation tomorrow on how well X2Go works.  Anyone know what I can do
+</I>&gt;<i> to get this working again?
+</I>
+Urgg... Choke.
+
+The recommendation for the nightly builds is: always ask before upgrading...
+
+I'll take a quick look... Hope it is not too late.
+
+
+Mike
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, herweg 7, 24357 fleckeby
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0x25771B31
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Signatur
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20131205/e0fdfbf5/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20131205/e0fdfbf5/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001832.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+	<LI>Next message: <A HREF="001839.html">[X2Go-User] Sudden problems with x2gobroker
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1837">[ date ]</a>
+              <a href="thread.html#1837">[ thread ]</a>
+              <a href="subject.html#1837">[ subject ]</a>
+              <a href="author.html#1837">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

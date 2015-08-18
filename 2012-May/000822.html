@@ -1,0 +1,184 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Folder sharing does not work with x2goclient
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C12FADC81-006C-4D80-BE49-DBA9F725244A%40opensolutions.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000821.html">
+   <LINK REL="Next"  HREF="000823.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Folder sharing does not work with x2goclient</H1>
+    <B>Stephan Diehl</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Folder%20sharing%20does%20not%20work%20with%20x2goclient&In-Reply-To=%3C12FADC81-006C-4D80-BE49-DBA9F725244A%40opensolutions.net%3E"
+       TITLE="[X2Go-User] Folder sharing does not work with x2goclient">stephan.diehl at opensolutions.net
+       </A><BR>
+    <I>Tue May  8 14:27:15 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000821.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+        <LI>Next message: <A HREF="000823.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#822">[ date ]</a>
+              <a href="thread.html#822">[ thread ]</a>
+              <a href="subject.html#822">[ subject ]</a>
+              <a href="author.html#822">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+same here. I'm debugging the problem an the reason is, that the x2goclient did not update the local autorized_keys file.
+
+I have an old x2goclient installed on an old machine. When i start there a folder sharing, the client will add the servers key to the &quot;.ssh/authorized_keys&quot; file.
+
+On the new client (installed today) the &quot;.ss/authorized_keys&quot; file is empty. And the sshd logs shows that error (not allowed because not in authorized_keys).
+
+I thought this bug is inside x2goclient for linux.
+
+Anyone knows about this issue?
+
+Am 08.05.2012 um 14:09 schrieb Emanuele Rocca:
+
+&gt;<i> Hi list,
+</I>&gt;<i> 
+</I>&gt;<i> While folder sharing works fine using pyhoca-cli, it does not work at all with
+</I>&gt;<i> x2goclient. This is what sshd says on the client side when trying to &quot;share&quot; a
+</I>&gt;<i> folder from the gui:
+</I>&gt;<i> 
+</I>&gt;<i> May  8 13:55:43 uranus sshd[23908]: Connection from 127.0.0.1 port 51821
+</I>&gt;<i> May  8 13:55:43 uranus sshd[23908]: Connection closed by 127.0.0.1 [preauth]
+</I>&gt;<i> 
+</I>&gt;<i> mount's output on the server side does not show anything interesting.
+</I>&gt;<i> 
+</I>&gt;<i> I am running Ubuntu precise (12.04), both on the client and the server.
+</I>&gt;<i> 
+</I>&gt;<i> Do you have any hints on how to debug this further?
+</I>&gt;<i> 
+</I>&gt;<i> Installed packages:
+</I>&gt;<i> 
+</I>&gt;<i> ii  cups-x2go                                3.0.0.3-0~54~oneiric1                      X2GO printer for CUPS
+</I>&gt;<i> ii  python-x2go                              0.1.1.9-0-0~612~oneiric1                   Python module for X2go client support
+</I>&gt;<i> ii  x2goagent                                2:3.5.0.11-0~220~oneiric1                  X2Go agent
+</I>&gt;<i> ii  x2goclient                               3.99.0.6-0~144~oneiric1                    X2Go Client application (Qt4)
+</I>&gt;<i> ii  x2gognomebindings                        2.0.1.4-0~53~oneiric1                      Description: x2gognomebindings (GNOME mimetypes for X2go)
+</I>&gt;<i> ii  x2goserver                               3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts
+</I>&gt;<i> ii  x2goserver-compat                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (backwards compatitbity to old client versions)
+</I>&gt;<i> ii  x2goserver-extensions                    3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (extensions)
+</I>&gt;<i> ii  x2goserver-fmbindings                    3.1.0.0-0~477~oneiric1                     Generic (freedesktop-based) file manager bindings for X2Go
+</I>&gt;<i> ii  x2goserver-printing                      3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (printing)
+</I>&gt;<i> ii  x2goserver-pyhoca                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (add-ons for pyhoca client)
+</I>&gt;<i> ii  x2goserver-xsession                      3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (Xsession runner)
+</I>&gt;<i> ii  pyhoca-cli                               0.1.4.2-0~108~oneiric1                     A command line X2go client written in Python
+</I>&gt;<i> ii  pyhoca-gui                               0.1.0.10-0~487~oneiric1                    A graphical X2go client written in (wx)Python
+</I>&gt;<i> ii  x2goserver-pyhoca                        3.1.0.0-0~477~oneiric1                     X2Go server daemon scripts (add-ons for pyhoca client)
+</I>&gt;<i> 
+</I>&gt;<i> Conf file:
+</I>&gt;<i> 
+</I>&gt;<i> [20120503160857309]
+</I>&gt;<i> speed=3
+</I>&gt;<i> pack=16m-jpeg
+</I>&gt;<i> quality=9
+</I>&gt;<i> fstunnel=true
+</I>&gt;<i> export=&quot;/media:1;&quot;
+</I>&gt;<i> iconvto=UTF-8
+</I>&gt;<i> iconvfrom=ISO8859-1
+</I>&gt;<i> useiconv=false
+</I>&gt;<i> fullscreen=false
+</I>&gt;<i> width=1024
+</I>&gt;<i> multidisp=false
+</I>&gt;<i> display=1
+</I>&gt;<i> height=768
+</I>&gt;<i> dpi=96
+</I>&gt;<i> setdpi=false
+</I>&gt;<i> xinerama=false
+</I>&gt;<i> usekbd=true
+</I>&gt;<i> layout=us
+</I>&gt;<i> type=pc105/us
+</I>&gt;<i> sound=true
+</I>&gt;<i> soundsystem=pulse
+</I>&gt;<i> startsoundsystem=true
+</I>&gt;<i> soundtunnel=true
+</I>&gt;<i> defsndport=true
+</I>&gt;<i> sndport=4713
+</I>&gt;<i> print=true
+</I>&gt;<i> name=xxx
+</I>&gt;<i> icon=:icons/128x128/x2gosession.png
+</I>&gt;<i> host=host.example.org
+</I>&gt;<i> user=username
+</I>&gt;<i> key=
+</I>&gt;<i> sshport=22
+</I>&gt;<i> autologin=false
+</I>&gt;<i> krblogin=false
+</I>&gt;<i> rootless=false
+</I>&gt;<i> applications=WWWBROWSER, MAILCLIENT, OFFICE, TERMINAL, gnome-session-fallback
+</I>&gt;<i> command=gnome-session-fallback
+</I>&gt;<i> rdpoptions=
+</I>&gt;<i> rdpserver=
+</I>&gt;<i> xdmcpserver=localhost
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i> 
+</I>
+Stephan Diehl 
+Gesch&#228;ftsf&#252;hrer 
+
+Open Solutions GmbH &amp; Co. KG
+Luisenweg 109
+20537 Hamburg
+
+Fon: 040 / 7070806 - 70
+Mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">stephan.diehl at opensolutions.net</A>
+Web: www.opensolutions.net 
+
+Registergericht: Amtsgericht Hamburg, HRA 105 704
+Pers&#246;nlich haftende Gesellschafterin: Open Solutions GmbH
+Registergericht: Amtsgericht Hamburg, HRB 999 00
+Gesch&#228;ftsf&#252;hrer: Stephan Diehl
+USt-Id-Nr: DE253775678; Steuer-Nr: 46/649/00349
+
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120508/3bec8f62/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20120508/3bec8f62/attachment.html</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: smime.p7s
+Type: application/pkcs7-signature
+Size: 4372 bytes
+Desc: not available
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120508/3bec8f62/attachment.bin">https://lists.berlios.de/pipermail/x2go-user/attachments/20120508/3bec8f62/attachment.bin</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000821.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+	<LI>Next message: <A HREF="000823.html">[X2Go-User] Folder sharing does not work with x2goclient
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#822">[ date ]</a>
+              <a href="thread.html#822">[ thread ]</a>
+              <a href="subject.html#822">[ subject ]</a>
+              <a href="author.html#822">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

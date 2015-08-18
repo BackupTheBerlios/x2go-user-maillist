@@ -1,0 +1,335 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2Go release day: nx-libs, x2goserver, x2goclient, x2gognomebindings, x2golxdebindings, x2godesktopsharing
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-February/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20release%20day%3A%20nx-libs%2C%20x2goserver%2C%20x2goclient%2C%0A%20x2gognomebindings%2C%20x2golxdebindings%2C%20x2godesktopsharing&In-Reply-To=%3C20120222161519.169139csmdg4p18n%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000637.html">
+   <LINK REL="Next"  HREF="000645.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2Go release day: nx-libs, x2goserver, x2goclient, x2gognomebindings, x2golxdebindings, x2godesktopsharing</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2Go%20release%20day%3A%20nx-libs%2C%20x2goserver%2C%20x2goclient%2C%0A%20x2gognomebindings%2C%20x2golxdebindings%2C%20x2godesktopsharing&In-Reply-To=%3C20120222161519.169139csmdg4p18n%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] X2Go release day: nx-libs, x2goserver, x2goclient, x2gognomebindings, x2golxdebindings, x2godesktopsharing">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Feb 22 16:15:19 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000637.html">[X2go-User] [X2Go-Dev] Usernames with dashes causes errors?
+</A></li>
+        <LI>Next message: <A HREF="000645.html">[X2Go-User] X2Go release day: nx-libs, x2goserver, x2goclient, x2gognomebindings, x2golxdebindings, x2godesktopsharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#644">[ date ]</a>
+              <a href="thread.html#644">[ thread ]</a>
+              <a href="subject.html#644">[ subject ]</a>
+              <a href="author.html#644">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project it proud to announce a couple of new X2Go component releases:
+
+   - x2goserver (3.1.0.0)
+   - x2goclient (3.99.1.0)
+   - nx-libs incl. x2goagent (3.5.0.11)
+   - x2gognomebindings (2.0.1.4)
+   - x2golxdebindings (1.0.1.2)
+   - x2godesktopsharing (3.0.1.4)
+
+All new packages will be available in our stable repositories (Debian,  
+  Ubuntu) within the next 24h. The windows version of x2goclient will  
+probably be available today, as well.
+
+With X2Go Server and X2Go Client we introduce a slightly changed  
+session handshake when resuming an already running session.
+
+Older clients will be fully compatible with newer servers (and vice  
+versa). The fix addresses a session resume failure that occurred every  
+once in a while (quite rare, but annoying). For the code change please  
+refer to the commits in X2Go Git addressing this:
+
+X2Go Server...
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=63556d25c3a86f187d16b0e44a5beef76a27bc84">http://code.x2go.org/gitweb?p=x2goserver.git;a=commitdiff;h=63556d25c3a86f187d16b0e44a5beef76a27bc84</A>
+
+X2Go Client...
+<A HREF="http://code.x2go.org/gitweb?p=x2goclient.git;a=commitdiff;h=3f4eab56698f439deda4cce7629aef9558a5e9ac">http://code.x2go.org/gitweb?p=x2goclient.git;a=commitdiff;h=3f4eab56698f439deda4cce7629aef9558a5e9ac</A>
+
+Python X2Go... (though not released today, still mentioned here)
+<A HREF="http://code.x2go.org/gitweb?p=python-x2go.git;a=commitdiff;h=37cbc1fa5f77877a2a7c28f30947e0fe8027601e">http://code.x2go.org/gitweb?p=python-x2go.git;a=commitdiff;h=37cbc1fa5f77877a2a7c28f30947e0fe8027601e</A>
+
+People upgrading x2goserver and running PostgreSQL as session database  
+backend, make sure to read the README.upgrade-pgsql-database thorougly:
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=x2goserver/doc/README.upgrade-pgsql-database;h=5e7de9d6b87561d5ccf8212d59f65b35f9e61ada;hb=988da7922e3dc848d49c42ad2b6cff8fb2783297">http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=x2goserver/doc/README.upgrade-pgsql-database;h=5e7de9d6b87561d5ccf8212d59f65b35f9e61ada;hb=988da7922e3dc848d49c42ad2b6cff8fb2783297</A>
+
+Below, you can see the corresponding changelog entries for the new releases.
+
+One aspect we are really proud of is the number of people who have  
+contributed to this release set. Thanks to all people contributing to  
+X2Go.
+
+light+love,
+Mike
+
+
+X2GOSERVER
+==========
+
+x2goserver (3.1.0.0-0~x2go1) RELEASE; urgency=low
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.1.0.0):
+     - remove ports used by X2Go session from database after session  
+was finished
+       if postgres backend is used.
+     - before resuming X2Go session check if reserved ports still available
+       in other case find new free ports, save them in database and send to
+       x2goclient
+     - run netstat -tl --all to find free ports for graphic, sound and sshfs
+       tunnels in x2gostartagent and x2goresume-session
+
+   [ Milan Kn&#237;&#382;ek ]
+   * New upstream version (3.1.0.0):
+     - Fix removal of desktop link on x2goumount-session if local folder of a
+       Windows client gets unmounted.
+     - Remove redundant -S option from x2goagent start-up command line.
+     - Use -f $XAUTHORITY with xauth calls.
+
+   [ S&#246;ren Pl&#246;nnigs ]
+   * New upstream version (3.1.0.0):
+     - Only run kdialog/zenity from x2goumount-session if either of them exists
+       in the system's $PATH.
+
+   [ Jan Engelhardt ]
+   * New upstream version (3.1.0.0):
+     - Use /cgi-bin/man/ path in web'ified man pages.
+     - Use ,,${MAKE}'' instead of ,,make'' in Makefile.
+
+   [ Mike Gabriel ]
+   * New upstream version (3.1.0.0):
+     - Provide new package x2goserver-fmbindings. Derived from a package draft
+       provided by Milan Kn&#237;&#382;ek (Thanks!).
+     - Do not create desktop icons for rootless (i.e. non-desktop) sessions.
+     - Allow other $XAUTHORITY values than the default ($HOME/.Xauthority).
+     - For x2gomountdirs / x2goumount-session allow other TMP paths than
+       /tmp. Use ENV{'TMP'} instead, unless it is empty. Then use /tmp.
+     - Place quotations where appropriate into shell scripts.
+     - Fix call to x2goterminate-desktopsharing in x2goruncommand.
+     - Tolerate user names containing &quot;-&quot; characters (SQLite DB backend).
+     - Make sure x2gocleansessions close _all_ open file handles after
+       forking as a daemon.
+     - Add copyright header for x2gofm script.
+     - Add man page for x2gogetservers script.
+     - Add man page for x2gofm wrapper script.
+     - Update date and release version in man pages.
+   * Let x2goserver package suggest x2goserver-fmbindings.
+   * Add package upgrade warning for installation using PostgreSQL. The
+     upgrade warning refers to README.upgrade-pgsql-database.
+   * x2goserver-fmbindings does not have to depend on ${shlibs:Depends}.
+
+-- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+    Wed, 22 Feb 2012 14:37:34 +0100
+
+
+X2GOCLIENT
+==========
+
+x2goclient (3.99.1.0-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.99.1.0):
+     - Update German translation file (thanks to Stefan Baur).
+     - Build .qm translation files on the fly during build.
+     - Fix for zh_TW translation: add qt_zh_TW.qm file from Qt4.8.
+     - Add language property to the French translation file.
+     - Update qt_&lt;LANG&gt;.qm files from Qt4.8 (as in current Debian sid).
+     - Rename x2goclient_nb.ts to x2goclient_nb_no.ts.
+     - Update all translation files (lupdate), translate unfinished translation
+       tags in x2goclient_de.ts.
+     - Provide empty translation file x2goclient_en.ts.
+     - Fix misspelled word ,,Authentification'' -&gt; ,,Authentication''.
+     - Fix misspelled word ,,recieved'' -&gt; ,,received''.
+     - Update date and release version in man page.
+
+   [ Mihai Moldovan ]
+   * New upstream version (3.99.1.0):
+     - Mac OS patch: Raise the stack space to 2MB for secondary threads. It
+       previously used the 512KB system default.
+
+   [ Daniel Lindgren ]
+   * New upstream version (3.99.1.0):
+     - Add Swedish translation file.
+     - Fine-tune Swedish translation file.
+
+   [ Terje Andersen ]
+   * New upstream version (3.99.1.0):
+     - Add Norwegian (Bokmal) translation. Qt4 lacks Norwegian/Bokmal
+       support, so some of the widgets may stay in English.
+     - Fine-tune/fix Norwegian (Bokmal) translation.
+
+   [ Jan Engelhardt ]
+   * New upstream version (3.99.1.0):
+     - Use /cgi-bin/man/ path in web'ified man pages.
+     - Use ,,${MAKE}'' instead of ,,make'' in Makefile.
+     - Include &lt;netinet/in.h&gt; in sshprocess.h to fix missing
+       struct sockaddr_in.
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.1.0):
+     - Get new ports from x2goresume-session if reserved ports are busy
+     - Fix segmentation fault by failed SSH connection to X2Go server
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 22 Feb 2012 14:49:49 +0100
+
+
+NX-LIBS
+=======
+
+nx-libs (2:3.5.0.11-0) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * Use ,,$(MAKE) -C'' in main Makefile for calling Makefiles in  
+subdirectories,
+     make build stanza work for nx-libs-full and nx-libs-lite.
+   * Do not install libXinerama directly into /usr/lib/nx. Recommended  
+method is
+     installing to /usr/lib/nx/Xinerama, so that you can  
+enable/disable usage of
+     the Xinerama extension.
+   * Update patch: 001_add-main-makefile.full+lite.patch, use curly braces for
+     macros.
+   * Enable parallel build for Debian package.
+   * Merge honor-ac-dirs.patch from Jan Engelhardt (OpenSUSE) with already
+     existing Makefile patches (012_nxcomp..., 013_nxcompext_...,
+     014_nxcompshad_...).
+   * Rename patches 030_nx-X11_... and 031_nx-X11_..., the tarball roll script
+     currently requires ,,full'' or ,,full+lite'' in the file name.
+   * Make patch headers DEP5 compliant (030_nx-X11_... and 031_nx-X11_...).
+   * Update patch: 001_add-main-makefile.full+lite.patch, fix missing
+     $(CONFIGURE) variable.
+   * Update patches: 012_nxcomp..., 013_nxcompext_..., 014_nxcompshad_....
+     Also make use of $(LIBFULL) in Makefile.in's install and  
+uninstall stanzas.
+     Inspired by Jan Engelhardt's so-version.diff patch. However, the version
+     name change requested in that patch has been rejected for
+     NX (redistributed).
+   * Apply patches for the Debian package as the last patches in the series.
+   * Fix faulty patch name suffix (has to be .patch, not .diff).
+   * Fix Xinerama support in Debian package libnx-x11 when NX gets built with
+     patch 600_nx-X11+nxcompext+nxcompshad_unique-libnames.full.patch. Still on
+     the todo list: fix the nx-X11 installation via Makefile.
+   * Fine-tune symlinking of libXinerama.
+
+   [ Jan Engelhardt ]
+   * Update patch: 001_add-main-makefile.full+lite.patch, allow passing of
+     configure args.
+   * Add patch: 030_nx-X11_configure-args.diff. Allow passing of  
+configure args.
+   * Add patch: 031_nx-X11_parallel-make.diff, enable parallel make.
+   * Add patch: 301_nx-X11_use-shared-libs.full.diff, use shared libraries from
+     distribution rather then libs included in source tree.
+   * Add patch: 032_nx-X11_no-x11r6-project-root. We must not overlap with any
+     existing files, therefore, both /usr/X11R6 and /usr are excluded
+     possibilities for ProjectRoot. Use %_libexecdir/somename, since that is
+     still allowed by FHS.
+   * Add patch 600_nx-X11+nxcompext+nxcompshad_unique-libnames.full.patch, use
+     unique library names for nx-X11 based X11 libraries.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 22 Feb 2012 14:41:07 +0100
+
+
+X2GOGNOMEBINDINGS
+=================
+
+x2gognomebindings (2.0.1.4-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (2.0.1.4):
+     - Apply implicit.diff patch from Jan Engelhardt (OpenSUSE).
+     - Add x2gofeature support (feature provided: X2GO_GNOMEBINDINGS).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 22 Feb 2012 14:55:40 +0100
+
+
+X2GOLXDEBINDINGS
+================
+
+x2golxdebindings (1.0.1.2-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (1.0.1.2):
+     - Continue development...
+     - Add x2gofeature support (feature provided: X2GO_LXDEBINDINGS).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 22 Feb 2012 14:53:41 +0100
+
+
+X2GODESKTOPSHARING
+==================
+
+x2godesktopsharing (3.0.1.4-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (3.0.1.4):
+     - Always use /tmp for lock and session sharing socket
+       (Fixes user individual temp dirs in Debian Edu / Skolelinux).
+     - Pass username of user who requests desktop sharing to x2gostartagent.
+   * Depend on x2goserver (&gt;=3.0.99.9).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Wed, 22 Feb 2012 15:00:54 +0100
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120222/1c4dfecc/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120222/1c4dfecc/attachment.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000637.html">[X2go-User] [X2Go-Dev] Usernames with dashes causes errors?
+</A></li>
+	<LI>Next message: <A HREF="000645.html">[X2Go-User] X2Go release day: nx-libs, x2goserver, x2goclient, x2gognomebindings, x2golxdebindings, x2godesktopsharing
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#644">[ date ]</a>
+              <a href="thread.html#644">[ thread ]</a>
+              <a href="subject.html#644">[ subject ]</a>
+              <a href="author.html#644">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

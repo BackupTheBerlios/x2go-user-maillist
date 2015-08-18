@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2gobroker on debian wheeyz: syntax error
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-October/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20debian%20wheeyz%3A%20syntax%20error&In-Reply-To=%3C524ABA18.9010109%40vxpertise.net%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001624.html">
+   <LINK REL="Next"  HREF="001618.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2gobroker on debian wheeyz: syntax error</H1>
+    <B>Mathias Ewald</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2gobroker%20on%20debian%20wheeyz%3A%20syntax%20error&In-Reply-To=%3C524ABA18.9010109%40vxpertise.net%3E"
+       TITLE="[X2Go-User] x2gobroker on debian wheeyz: syntax error">mathias.ewald at vxpertise.net
+       </A><BR>
+    <I>Tue Oct  1 14:03:36 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001624.html">[X2Go-User] x2gobroker: redirect or tunnel?
+</A></li>
+        <LI>Next message: <A HREF="001618.html">[X2Go-User] x2gobroker on debian wheeyz: syntax error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1616">[ date ]</a>
+              <a href="thread.html#1616">[ thread ]</a>
+              <a href="subject.html#1616">[ subject ]</a>
+              <a href="author.html#1616">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi,
+
+I am trying to set up x2go broker just for testing and found out that 
+opening <A HREF="https://myip:4430">https://myip:4430</A> or <A HREF="https://myip:4430/plain/zeroconf">https://myip:4430/plain/zeroconf</A> both shows 
+this error message in apache's error.log:
+
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206] mod_wsgi 
+(pid=16873, process='x2gobroker', application='localhost|'): Failed to 
+parse WSGI script file '/usr/sbin/x2gobroker'.
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206] mod_wsgi 
+(pid=16873): Exception occurred processing WSGI script 
+'/usr/sbin/x2gobroker'.
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206]   File 
+&quot;/usr/sbin/x2gobroker&quot;, line 146
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206] except 
+socket.error, e:
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206] 
+           ^
+[Tue Oct 01 14:18:30 2013] [error] [client 87.151.247.206] SyntaxError: 
+invalid syntax
+
+My python is weak at best, so I though I drop you mail about this.
+
+OS: Debian Wheezy
+
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at termsrv</A>:~# dpkg -l | grep x2go
+ii  cups-x2go 3.0.0.4-0~62~raring1                       all 
+Virtual X2Go printer for CUPS
+ii  pinentry-x2go 0.7.5.6-0~45~raring1                       amd64 
+   Qt4-based PIN or pass-phrase entry dialog for x2goclient
+ii  python-x2go 0.4.0.8-0~1078~raring1                     all 
+Python module providing X2Go client API
+ii  python-x2gobroker 0.0.2.3-0~429~raring1                      all 
+       X2Go http(s) based session broker (Python modules)
+ii  x2goagent 2:3.5.0.21-0~358~ubuntu13.04.1             all 
+X2Go agent
+ii  x2gobroker 0.0.2.3-0~429~raring1                      all 
+X2Go http(s) based session broker (executable)
+ii  x2gobroker-agent 0.0.2.3-0~429~raring1                      amd64 
+      X2Go http(s) based session broker (common files)
+ii  x2gobroker-authservice 0.0.2.3-0~429~raring1 
+all          X2Go http(s) based session broker (PAM authentication service)
+ii  x2gobroker-daemon 0.0.2.3-0~429~raring1                      all 
+       X2Go http(s) based session broker (daemon)
+ii  x2gobroker-wsgi 0.0.2.3-0~429~raring1                      all 
+     X2Go http(s) based session broker (CGI)
+ii  x2gocdmanager 1.1.0.0-0~426~raring1                      amd64 
+   clientside daemon enabling automatic CD-Rom mounting
+ii  x2goclient 4.0.1.1-0~427~ubuntu13.04.1                amd64 
+X2Go Client application (Qt4)
+ii  x2godesktopsharing 3.1.1.0-0~104~raring1                      amd64 
+        share X2go desktops with other users (via shadow sessions)
+ii  x2goplugin 4.0.1.1-0~427~ubuntu13.04.1                amd64 
+X2Go Client (Qt4) as browser plugin
+ii  x2goserver 4.0.1.6-0~712~raring1                      amd64 
+X2Go server daemon scripts
+ii  x2goserver-extensions 4.0.1.6-0~712~raring1                      all 
+          X2Go server daemon scripts (extensions)
+ii  x2goserver-printing 4.0.1.6-0~712~raring1                      all 
+         X2Go server daemon scripts (printing)
+ii  x2goserver-xsession 4.0.1.6-0~712~raring1                      all 
+         X2Go server daemon scripts (Xsession runner)
+ii  x2gosmartcardrules 1.1.0.0-0~426~raring1                      all 
+        UDEV rules for smartcard readers
+ii  x2gousbmount 1.1.0.0-0~426~raring1                      all 
+  clientside usb mass-storage device mounting
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">root at termsrv</A>:~#
+
+cheers
+Mathias
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001624.html">[X2Go-User] x2gobroker: redirect or tunnel?
+</A></li>
+	<LI>Next message: <A HREF="001618.html">[X2Go-User] x2gobroker on debian wheeyz: syntax error
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1616">[ date ]</a>
+              <a href="thread.html#1616">[ thread ]</a>
+              <a href="subject.html#1616">[ subject ]</a>
+              <a href="author.html#1616">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

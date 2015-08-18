@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Redhat, runlevels and visibility (x2goserver)
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3C20120606080741.1276188jc42lrv71%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000857.html">
+   <LINK REL="Next"  HREF="000860.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Redhat, runlevels and visibility (x2goserver)</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Redhat%2C%20runlevels%20and%20visibility%20%28x2goserver%29&In-Reply-To=%3C20120606080741.1276188jc42lrv71%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Redhat, runlevels and visibility (x2goserver)">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Wed Jun  6 08:07:41 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000857.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+        <LI>Next message: <A HREF="000860.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#858">[ date ]</a>
+              <a href="thread.html#858">[ thread ]</a>
+              <a href="subject.html#858">[ subject ]</a>
+              <a href="author.html#858">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi Burnce,
+
+thanks for your detailled feedback.
+
+On Di 05 Jun 2012 14:14:33 CEST  wrote:
+
+&gt;<i> I am using x2go as an alternative to the overpriced commercial  
+</I>&gt;<i> product from NoMachine. So far the road has been bumpy. Here is an  
+</I>&gt;<i> honest description of problems I encountered when trying to install  
+</I>&gt;<i> x2go server on an rhel6 machine:
+</I>
+Note, that non of the upstream developers works under rhel or  
+opensuse. We have to rely on people like you giving feedback. So, may  
+I ask you to help us improving X2Go for RPM-based distributions.
+
+&gt;<i> 1) Contrary to debian packeages, the repo to use for rhel 6 is not  
+</I>&gt;<i> advertized on the main download page. This leads to attempts to  
+</I>&gt;<i> install from source, when a binary package is in fact available.
+</I>
+Please sign up for our wiki and prepare such a page. I have just  
+provided a skeleton.
+
+<A HREF="http://wiki.x2go.org/doku.php/wiki:x2go-repository-redhat">http://wiki.x2go.org/doku.php/wiki:x2go-repository-redhat</A>
+
+&gt;<i> 2) Instructions for installation from source are unclear and  
+</I>&gt;<i> outdated. GIT paths no longer work, configuration info is not  
+</I>&gt;<i> sufficient etc.
+</I>
+Please point us to the relevant (outdated) pages in the wiki. Send us  
+the URLs please.
+
+&gt;<i> 3) Once the repo has been found, and installation does not work out  
+</I>&gt;<i> of the box, because no package for fuse-sshfs.x86_64 available on  
+</I>&gt;<i> RHEL6. Could you add that package to your repo?
+</I>
+The RPM repositories are not maintained by us directly (at the  
+moment). I know that Alex has got involved with RPM packaging lately,  
+so he might give an update here. The RPM packaging had been induced by  
+Michael Kromer, the developer was Jan Engelhardt.
+
+&gt;<i> 4) Once installation is is complete, several things do not work as  
+</I>&gt;<i> expected...
+</I>&gt;<i>
+</I>&gt;<i>
+</I>&gt;<i> 4.1) File permissions are incorrect: sudo: /etc/sudoers.d/x2go is  
+</I>&gt;<i> mode 0644, should be 0440
+</I>
+-&gt; <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">PING at MichaelKromer</A> -&gt; this needs fixing in the RPM repositories
+
+&gt;<i> 4.2) On a server with gnome installed, but no complete X  
+</I>&gt;<i> installation, creating a connection fails (session terminates during  
+</I>&gt;<i> session start procedure with no clear error message). It turns out  
+</I>&gt;<i> that with X installed and running (runlevel 5) x2go works properly.  
+</I>&gt;<i> At runlevel 3, even with all packages installed it does not work.  
+</I>&gt;<i> This differs from the free trial version of the commercial  
+</I>&gt;<i> NX-server. Is this the way it is supposed to work or is there a  
+</I>&gt;<i> service that is required and missing at runlevel 3?
+</I>
+This is not so on Debian. If all packages mentioned in Debian control  
+files of x2goserver and x2goagent / libnx-x11 are installed (on  
+Debian/Ubuntu) then it is possible to draw in a minimal GNOME setup  
+(gnome-session package) and to use that with X2Go.
+
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/control">http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/control</A>
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/control">http://code.x2go.org/gitweb?p=nx-libs.git;a=blob;f=debian/control</A>
+
+About the runlevel issue, I am not sure. Is SSH started on runlevel 3?  
+I guess so. Hmmm... Once you can login via SSH, X2Go login should  
+normally work as well...
+
+&gt;<i> 4.3) In the install from source documentation, reference is made to  
+</I>&gt;<i> int scripts needed which should run 'x2gocleansessions' in  
+</I>&gt;<i> background/daemon mode. No such script is installed but connections  
+</I>&gt;<i> still can function (at runlevel 5, see point 4.2 above).
+</I>
+An example script can be this:
+<A HREF="http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/x2goserver.init">http://code.x2go.org/gitweb?p=x2goserver.git;a=blob;f=debian/x2goserver.init</A>
+
+If that is not in the RPM x2goserver package, then this needs fixing.
+
+&gt;<i> The X2Go project is a great initiative and fills a clear need in the  
+</I>&gt;<i> community. With a little effort, you could increase your visibility,  
+</I>&gt;<i> gain more traction and increase both your user and your developer  
+</I>&gt;<i> bases.
+</I>
+Please give us a hand and help improve the RPM aspects of X2Go! Thanks!
+
+&gt;<i> Regardless.. good work so far. I would appreciate an answer to the  
+</I>&gt;<i> runlevel question (point 4.2). With the rest, take it as  
+</I>&gt;<i> constructive criticism and act on it as you like.
+</I>&gt;<i>
+</I>&gt;<i> Best regards and keep up the good work,
+</I>&gt;<i>
+</I>&gt;<i> Burnce
+</I>&gt;<i> --
+</I>&gt;<i> Empfehlen Sie GMX DSL Ihren Freunden und Bekannten und wir
+</I>&gt;<i> belohnen Sie mit bis zu 50,- Euro! <A HREF="https://freundschaftswerbung.gmx.de">https://freundschaftswerbung.gmx.de</A>
+</I>&gt;<i> _______________________________________________
+</I>&gt;<i> X2Go-User mailing list
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+</I>&gt;<i>
+</I>
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, rothenstein 5, 24214 neudorf-bornstein
+fon: +49 (1520) 1976 148
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120606/847ddd47/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120606/847ddd47/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000857.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+	<LI>Next message: <A HREF="000860.html">[X2Go-User] Redhat, runlevels and visibility (x2goserver)
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#858">[ date ]</a>
+              <a href="thread.html#858">[ thread ]</a>
+              <a href="subject.html#858">[ subject ]</a>
+              <a href="author.html#858">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

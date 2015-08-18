@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] x2go timeout error after 4.0 upgrade
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-March/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20timeout%20error%20after%204.0%20upgrade&In-Reply-To=%3CCOL002-W921932E0AF287617D1724CA0D20%40phx.gbl%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001354.html">
+   <LINK REL="Next"  HREF="001358.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] x2go timeout error after 4.0 upgrade</H1>
+    <B>Chris P</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20x2go%20timeout%20error%20after%204.0%20upgrade&In-Reply-To=%3CCOL002-W921932E0AF287617D1724CA0D20%40phx.gbl%3E"
+       TITLE="[X2Go-User] x2go timeout error after 4.0 upgrade">m0ik0 at hotmail.com
+       </A><BR>
+    <I>Thu Mar 28 19:53:17 CET 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001354.html">[X2Go-User] 25 user logon problem
+</A></li>
+        <LI>Next message: <A HREF="001358.html">[X2Go-User] LDAP -
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1362">[ date ]</a>
+              <a href="thread.html#1362">[ thread ]</a>
+              <a href="subject.html#1362">[ subject ]</a>
+              <a href="author.html#1362">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi, I am getting connection timeout error from the client after upgrading to x2go server 4.0.0.1.It was working previously with 3.9xxx
+Any idea what I should do since I really need this to work?
+NXPROXY - Version 3.5.0
+
+
+Copyright (C) 2001, 2010 NoMachine.
+See <A HREF="http://www.nomachine.com/">http://www.nomachine.com/</A> for more information.
+
+
+Info: Proxy running in client mode with pid '65016'.
+Session: Starting session at 'Thu Mar 28 14:47:39 2013'.
+Info: Connecting to remote host 'localhost:31021'.
+Info: Connection to remote proxy 'localhost:31021' established.
+Connection timeout, aborting
+
+==================Server logging
+Mar 28 14:47:52 purnomp-lnx3 /usr/bin/x2golistsessions[25749]: x2golistsessions has been called with no optionMar 28 14:47:53 purnomp-lnx3 /usr/bin/x2gostartagent: x2gostartagent called with options: 1680x1024 wan 16m-rgb-8 unix-kde-depth_32 us pc105/us 1 D KDEMar 28 14:47:54 purnomp-lnx3 /usr/bin/x2gostartagent: client announced itself as ,,10.10.1.10''Mar 28 14:47:54 purnomp-lnx3 /usr/bin/x2gosessionlimit[25776]: x2gosessionlimit has been calledMar 28 14:47:54 purnomp-lnx3 /usr/bin/x2golistsessions[25780]: x2golistsessions has been called with options: --all-serversMar 28 14:47:54 purnomp-lnx3 /usr/lib/x2go/x2gogetdisplays[25797]: db_getdisplays called, server: purnomp-lnx3; return value: Mar 28 14:47:54 purnomp-lnx3 /usr/lib/x2go/x2gogetports[25810]: db_getports called, server: purnomp-lnx3; return value: Mar 28 14:47:55 purnomp-lnx3 /usr/lib/x2go/x2goinsertsession[25831]: db_insertsession called, session ID: purnomp-60-1364496474_stDKDE_dp32, server: purnomp-lnx3, session ID: purnomp-60-1364496474_stDKDE_dp32Mar 28 14:47:55 purnomp-lnx3 /usr/lib/x2go/x2goinsertport[25860]: db_insertport called, session ID: purnomp-60-1364496474_stDKDE_dp32, server: purnomp-lnx3, SSH port: 30021Mar 28 14:47:55 purnomp-lnx3 /usr/lib/x2go/x2goinsertport[25875]: db_insertport called, session ID: purnomp-60-1364496474_stDKDE_dp32, server: purnomp-lnx3, SSH port: 30022Mar 28 14:47:56 purnomp-lnx3 /usr/lib/x2go/x2goinsertport[25890]: db_insertport called, session ID: purnomp-60-1364496474_stDKDE_dp32, server: purnomp-lnx3, SSH port: 30023Mar 28 14:47:56 purnomp-lnx3 /usr/bin/x2gofeature: x2gofeature called with options: X2GO_RUN_EXTENSIONSMar 28 14:47:57 purnomp-lnx3 /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features: x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONSMar 28 14:47:57 purnomp-lnx3 /usr/bin/x2goserver-run-extensions: x2goserver-run-extensions called with options: purnomp-60-1364496474_stDKDE_dp32 pre-startMar 28 14:47:57 purnomp-lnx3 /usr/bin/x2gostartagent: successfully started X2Go agent session with ID purnomp-60-1364496474_stDKDE_dp32Mar 28 14:47:57 purnomp-lnx3 /usr/bin/x2gofeature: x2gofeature called with options: X2GO_RUN_EXTENSIONSMar 28 14:47:57 purnomp-lnx3 /usr/share/x2go/x2gofeature.d/x2goserver-extensions.features: x2goserver-extensions.features called with options: X2GO_RUN_EXTENSIONSMar 28 14:47:57 purnomp-lnx3 /usr/bin/x2goserver-run-extensions: x2goserver-run-extensions called with options: purnomp-60-1364496474_stDKDE_dp32 post-startMar 28 14:47:57 purnomp-lnx3 /usr/lib/x2go/x2gocreatesession[25981]: db_createsession called, session ID: purnomp-60-1364496474_stDKDE_dp32, cookie: 0f5b495c50c9328eca5ef6d3c78b0a3d, client: 10.10.1.10, pid: 25946, graphics port: 30021, sound port: 30022, file sharing port: 30023Mar 28 14:47:57 purnomp-lnx3 /usr/bin/x2gostartagent: blocking creation of agent's keyboard file /home/purnomp/.x2go/C-purnomp-60-1364496474_stDKDE_dp32/keyboard as requested by session startup commandMar 28 14:48:26 purnomp-lnx3 /usr/lib/x2go/x2gochangestatus[26092]: db_changestatus called, session ID: purnomp-60-1364496474_stDKDE_dp32, new status: FMar 28 14:48:26 purnomp-lnx3 /usr/bin/x2goumount-session[26119]: x2goumount-session has been called with options: purnomp-60-1364496474_stDKDE_dp32Mar 28 14:48:26 purnomp-lnx3 /usr/bin/x2goumount-session[26119]: db_getdisplay called, session ID: purnomp-60-1364496474_stDKDE_dp32; return value: 60Mar 28 14:48:26 purnomp-lnx3 /usr/bin/x2goumount-session[26119]: db_getmounts called, session ID: purnomp-60-1364496474_stDKDE_dp32; return value: Mar 28 14:48:31 purnomp-lnx3 /usr/lib/x2go/x2golistsessions_sql[26138]: dbsys_deletemounts called, session ID: purnomp-60-1364496474_stDKDE_dp32Mar 28 14:48:32 purnomp-lnx3 /usr/lib/x2go/x2golistsessions_sql[26138]: Purging finished session from X2Go db, session ID: purnomp-60-1364496474_stDKDE_dp32Mar 28 14:48:32 purnomp-lnx3 /usr/bin/x2goumount-session[26161]: x2goumount-session has been called with options: purnomp-60-1364496474_stDKDE_dp32Mar 28 14:48:32 purnomp-lnx3 /usr/bin/x2goumount-session[26161]: db_getdisplay called, session ID: purnomp-60-1364496474_stDKDE_dp32; return value: Mar 28 14:48:32 purnomp-lnx3 /usr/bin/x2goumount-session[26161]: db_getmounts called, session ID: purnomp-60-1364496474_stDKDE_dp32; return value: 
+
+
+ 		 	   		  
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130328/69c3f3a4/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130328/69c3f3a4/attachment.html</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001354.html">[X2Go-User] 25 user logon problem
+</A></li>
+	<LI>Next message: <A HREF="001358.html">[X2Go-User] LDAP -
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1362">[ date ]</a>
+              <a href="thread.html#1362">[ thread ]</a>
+              <a href="subject.html#1362">[ subject ]</a>
+              <a href="author.html#1362">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

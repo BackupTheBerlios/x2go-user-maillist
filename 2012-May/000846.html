@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] Authentication issues
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-May/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Authentication%20issues&In-Reply-To=%3C20120517212246.257167zkxsppfn5y%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000844.html">
+   <LINK REL="Next"  HREF="000845.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] Authentication issues</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20Authentication%20issues&In-Reply-To=%3C20120517212246.257167zkxsppfn5y%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] Authentication issues">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu May 17 21:22:46 CEST 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000844.html">[X2Go-User] Authentication issues
+</A></li>
+        <LI>Next message: <A HREF="000845.html">[X2Go-User] x2goplugin
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#846">[ date ]</a>
+              <a href="thread.html#846">[ thread ]</a>
+              <a href="subject.html#846">[ subject ]</a>
+              <a href="author.html#846">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Hi G. Ravenor
+
+On Do 17 Mai 2012 20:10:19 CEST Inquisitor SHM wrote:
+
+&gt;<i> I need assistance getting X2Go working. I have Ubuntu 12.04 running x2go
+</I>&gt;<i> server and OSX as the x2go client. I can ssh into ubuntu from mac. I cannot
+</I>&gt;<i> get x2go working - no matter what. The errors messages are non-descript and
+</I>&gt;<i> neither google or the documentation has been any help.
+</I>
+First thing is that Ubuntu 12.04 support is very new in X2Go and needs  
+to be released still. You have to use the nightly package on the server.
+
+There also is a documented issue about SSH key authentication:
+<A HREF="http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00618.html">http://www.mail-archive.com/x2go-user@lists.berlios.de/msg00618.html</A>
+
+&gt;<i> [ ... leaving out the login failure descriptiong ... ]
+</I>
+&gt;<i> I kindly ask for your assistance.
+</I>
+The Mac OS X client for X2Go (I assume you downloaded from
+<A HREF="http://code.x2go.org/releases/">http://code.x2go.org/releases/</A>
+) is very new and might still have bugs. Do you have the chance to  
+test from an x2goclient on MS Windows or on Linux? (It should even be  
+possible to connect from localhost to localhost if you are lacking  
+Linux machiens).
+
+&gt;<i> That request said, let me say this: I think this project is fantastic and
+</I>&gt;<i> has a lot of promise. However, as long as connectivity between server and
+</I>&gt;<i> client remains more difficult than what it should, and remains badly
+</I>&gt;<i> documented, then the entire project effort is meaningless. The entire
+</I>&gt;<i> project is therefore less than useless.
+</I>
+It is not less than useless, it lacks man power from time to time. If  
+you are interested you are welcome to contribute. Note, X2Go is an  
+open product and we only sometimes reveive sponsoring or service  
+contracts. Most of the work happens after work+family. Any help is  
+welcome (coding, documentation, translation, etc.).
+
+&gt;<i> I have some 20 years systems engineering/software development experience
+</I>&gt;<i> and am generally the most technical person in most companies that I work
+</I>&gt;<i> at, which is saying something when there are about 500 technical resources
+</I>&gt;<i> at any point in time.
+</I>
+Great!!! You sound like a good match!
+
+&gt;<i> If I get frustrated with setting up simple connectivity then clearly it is
+</I>&gt;<i> beyond the average user - who by the way is your target audience.
+</I>
+Understood and agreed. And: with every new Ubuntu version (esp.  
+Ubuntu) we have to adapt X2Go slightly in order to make it work with  
+older versions of Linux and the latest stuff distro developers come up  
+with. Our main focus, however, are the more stable distros (Debian  
+squeeze, Ubuntu lucid). Ubuntu precise will gradually come into focus  
+now. The half year releases, I must say,  I (as one of the X2Go  
+developers, I forgot to mention that) tend to ignore...
+
+&gt;<i> Again, please help me connect and understand how and why it fails to
+</I>&gt;<i> connect/authenticate.
+</I>
+Please read the posting I linked to above and see if it helps. Also  
+try another client OS.
+
+Mike
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120517/8ece4a27/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120517/8ece4a27/attachment.pgp</A>&gt;
+</PRE>
+
+
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000844.html">[X2Go-User] Authentication issues
+</A></li>
+	<LI>Next message: <A HREF="000845.html">[X2Go-User] x2goplugin
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#846">[ date ]</a>
+              <a href="thread.html#846">[ thread ]</a>
+              <a href="subject.html#846">[ subject ]</a>
+              <a href="author.html#846">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

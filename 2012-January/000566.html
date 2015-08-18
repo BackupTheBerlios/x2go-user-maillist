@@ -1,0 +1,274 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2go-User] X2Go bugfix release: x2goclient 3.99.0.5
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-January/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20X2Go%20bugfix%20release%3A%20x2goclient%203.99.0.5&In-Reply-To=%3C20120127124957.41162e8maly0lt9h%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="000565.html">
+   <LINK REL="Next"  HREF="000567.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2go-User] X2Go bugfix release: x2goclient 3.99.0.5</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2go-User%5D%20X2Go%20bugfix%20release%3A%20x2goclient%203.99.0.5&In-Reply-To=%3C20120127124957.41162e8maly0lt9h%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2go-User] X2Go bugfix release: x2goclient 3.99.0.5">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Fri Jan 27 12:49:57 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="000565.html">[X2go-User] Connection fails when connecting windows client
+</A></li>
+        <LI>Next message: <A HREF="000567.html">[X2go-User] X2Go bugfix release: x2goclient 3.99.0.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project has found and fixed a bug in X2Go Client and is  
+releasing a bugfix version:
+
+   - x2goclient (3.99.0.5)
+
+The release fixes a segmentation fault of X2Go Client after session  
+login failure.
+
+Packages for Debian/Ubuntu/Win32 will be available some time during today.
+
+light+love,
+Mike
+
+
+X2GOCLIENT
+==========
+
+x2goclient (3.99.0.5-0~x2go1) unstable; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (3.99.0.5):
+     - Rename in human readable text strings ,,X2go'' to ,,X2Go''.
+     - Fix version string on man page.
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (3.99.0.5):
+     - Waiting for SshMasterConnection thread to be finished before
+       deleting it (segfault by wrong authentication fix).
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;\
+     Fri, 27 Jan 2012 12:43:04 +0100
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+
+-------------- next part --------------
+Dear all,
+
+The X2Go Project has found and fixed a bug in NX (redistributed) and  
+is releasing a bugfix version (incl. x2goagent):
+
+   - nx-libs incl. x2goagent (3.5.0.8)
+
+The release fixes an issue that has been brougth to our attention by  
+Stefan Baur:
+
+&lt;quote&gt;
+&gt;<i> Steps to reproduce:
+</I>&gt;<i> 1. Run Terminal as single application (not in a full-blown desktop    
+</I>&gt;<i> -  everything works fine there)
+</I>&gt;<i> 2. Type: kdialog --yesno &quot;Test&quot;
+</I>&gt;<i> 3. Session will crash
+</I>&lt;/quote&gt;
+
+@Marcelo: This problem has been present in latest FreeNX packages as  
+well, please check this commit in X2Go Git:
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=commitdiff;h=cf5a5980cf0b3dc0c0c893d52594dbdfc7add0b4">http://code.x2go.org/gitweb?p=nx-libs.git;a=commitdiff;h=cf5a5980cf0b3dc0c0c893d52594dbdfc7add0b4</A>
+
+light+love,
+Mike
+
+
+NX-LIBS
+=======
+
+nx-libs (2:3.5.0.8-0) RELEASE; urgency=low
+
+   * Reorganize patch names, to reflect patch inclusion into lite+full or
+     full-only ,,NX (redistributed)'' tarball.
+   * Update patch: 001_add-main-makefile.full+lite.patch, only build, install,
+     clean etc. NX subprojects if the folder exists.
+   * Package x2goagent is an ,,all'' package, not ,,any''.
+   * Add folder /debian/patches-pending-evaluation with two newly discovered
+     patches from git.etersoft.ru (AltLinux packaging repository for NX).
+   * Fix patch: 109_nxagent_locale-utf8-compound-text.patch, fix crashes
+     reported from Stefan Baur. Thanks for reporting and testing!!!
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Sun, 22 Jan 2012 23:36:19 +0100
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0001.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0001.pgp</A>&gt;
+-------------- next part --------------
+Dear all,
+
+The X2Go Project has found and fixed a bug in NX (redistributed) and  
+is releasing a bugfix version (incl. x2goagent):
+
+   - nx-libs incl. x2goagent (3.5.0.8)
+
+The release fixes an issue that has been brougth to our attention by  
+Stefan Baur:
+
+&lt;quote&gt;
+&gt;<i> Steps to reproduce:
+</I>&gt;<i> 1. Run Terminal as single application (not in a full-blown desktop    
+</I>&gt;<i> -  everything works fine there)
+</I>&gt;<i> 2. Type: kdialog --yesno &quot;Test&quot;
+</I>&gt;<i> 3. Session will crash
+</I>&lt;/quote&gt;
+
+@Marcelo: This problem has been present in latest FreeNX packages as  
+well, please check this commit in X2Go Git:
+<A HREF="http://code.x2go.org/gitweb?p=nx-libs.git;a=commitdiff;h=cf5a5980cf0b3dc0c0c893d52594dbdfc7add0b4">http://code.x2go.org/gitweb?p=nx-libs.git;a=commitdiff;h=cf5a5980cf0b3dc0c0c893d52594dbdfc7add0b4</A>
+
+light+love,
+Mike
+
+
+NX-LIBS
+=======
+
+nx-libs (2:3.5.0.8-0) RELEASE; urgency=low
+
+   * Reorganize patch names, to reflect patch inclusion into lite+full or
+     full-only ,,NX (redistributed)'' tarball.
+   * Update patch: 001_add-main-makefile.full+lite.patch, only build, install,
+     clean etc. NX subprojects if the folder exists.
+   * Package x2goagent is an ,,all'' package, not ,,any''.
+   * Add folder /debian/patches-pending-evaluation with two newly discovered
+     patches from git.etersoft.ru (AltLinux packaging repository for NX).
+   * Fix patch: 109_nxagent_locale-utf8-compound-text.patch, fix crashes
+     reported from Stefan Baur. Thanks for reporting and testing!!!
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Sun, 22 Jan 2012 23:36:19 +0100
+
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0002.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0002.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0003.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0003.pgp</A>&gt;
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0004.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0004.pgp</A>&gt;
+-------------- next part --------------
+_______________________________________________
+X2go-Announcement mailing list
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2go-Announcement at lists.berlios.de</A>
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-announcement">https://lists.berlios.de/mailman/listinfo/x2go-announcement</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 490 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0005.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20120127/cbf8a9fc/attachment-0005.pgp</A>&gt;
+</PRE>
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="000565.html">[X2go-User] Connection fails when connecting windows client
+</A></li>
+	<LI>Next message: <A HREF="000567.html">[X2go-User] X2Go bugfix release: x2goclient 3.99.0.5
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#566">[ date ]</a>
+              <a href="thread.html#566">[ thread ]</a>
+              <a href="subject.html#566">[ subject ]</a>
+              <a href="author.html#566">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

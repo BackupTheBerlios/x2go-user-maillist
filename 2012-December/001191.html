@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] [X2Go-Announcement] New X2Go releases: pyhoca-gui, pyhoca-cli, python-x2go
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2012-December/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20pyhoca-gui%2C%0A%20pyhoca-cli%2C%20python-x2go&In-Reply-To=%3C20121220084428.19990ngb4o0bkhr0%40mail.das-netzwerkteam.de%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001190.html">
+   <LINK REL="Next"  HREF="001192.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] [X2Go-Announcement] New X2Go releases: pyhoca-gui, pyhoca-cli, python-x2go</H1>
+    <B>Mike Gabriel</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20%5BX2Go-Announcement%5D%20New%20X2Go%20releases%3A%20pyhoca-gui%2C%0A%20pyhoca-cli%2C%20python-x2go&In-Reply-To=%3C20121220084428.19990ngb4o0bkhr0%40mail.das-netzwerkteam.de%3E"
+       TITLE="[X2Go-User] [X2Go-Announcement] New X2Go releases: pyhoca-gui, pyhoca-cli, python-x2go">mike.gabriel at das-netzwerkteam.de
+       </A><BR>
+    <I>Thu Dec 20 08:44:28 CET 2012</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001190.html">[X2Go-User] RHEL6 package should create /tmp/.X11-unix directory
+</A></li>
+        <LI>Next message: <A HREF="001192.html">[X2Go-User] SSH Proxy for OS X interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1191">[ date ]</a>
+              <a href="thread.html#1191">[ thread ]</a>
+              <a href="subject.html#1191">[ subject ]</a>
+              <a href="author.html#1191">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE>Dear all,
+
+The X2Go Project is proud to announce a couple of new X2Go component releases:
+
+   - pyhoca-gui (0.2.0.0)
+   - pyhoca-cli (0.2.0.1)
+   - python-x2go (0.2.0.3)
+
+All new packages are already available in our stable repositories   
+(Debian,    Ubuntu) within the next 24h. The Windows version of   
+PyHoca-GUI also already has been built and provided on   
+<A HREF="http://code.x2go.org/releases/.">http://code.x2go.org/releases/.</A>
+
+I personally am very proud to be able to present a long-waited-for    
+major release of Python X2Go and PyHoca-GUI. Thanks again to Dick   
+Kniep  (<A HREF="http://www.lindix.nl">http://www.lindix.nl</A>) for sponsoring this piece of software.
+
+The latest API documentation of Python X2Go can be read here:
+<A HREF="http://code.x2go.org/doc/python-x2go">http://code.x2go.org/doc/python-x2go</A>
+
+Note for distro packagers: Python X2Go based applications have the   
+full range of functionality when used with Paramiko 1.8.0 and above.   
+For people you rely on flawless IPv6 functionality, I recommend   
+installing python-gevent 1.0b1 (or above).
+
+light+love,
+Mike
+
+Python X2Go
+===========
+
+python-x2go (0.2.1.1-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.2.1.1):
+     - Make sure that internal calls to _X2goClient__list_sessions are not
+       overridden by other method definitions in classes that inherit from
+       X2goClient class. (Fixes: #89).
+     - Rewrite colour depth of 17bits to 16bits when invoking rdesktop.
+       Relevant for X2Go-proxied RDP sessions started with PyHoca-GUI under
+       Windows.
+     - Handle control sessions being None in session list cache.
+     - In cases where several session profiles connect to the same machine
+       under the same user ID, we have to strictly differentiate between
+       running/suspend sessions associated to the several connected session
+       profiles.
+     - Make connection disruptures more robust.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 18 Dec 2012 12:36:34 +0100
+
+python-x2go (0.2.1.0-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.2.1.0):
+     - Prepare for staying compatible with new SSH proxy feature
+       in X2Go Client.
+     - Add sshproxy_port option to session (SSH proxy) options.
+     - Allow smooth session profile migration, prefer &lt;host&gt;:&lt;port&gt; (set
+       via sshproxy_host) for SSH proxy port detection.
+     - Implementation of session profile parameters ,,sshproxysameuser''
+       and ,,sshproxysameauth''.
+     - Fixing typos in __doc__ strings.
+     - Add support for starting maximized session windows. (Fixes: #12).
+     - Fix category ,,Utility'' when parsing .desktop files.
+     - For ,,maxdim'' session property fallback to _NET_DESKTOP_GEOMETRY if
+       _NET_WORKAREA is not available from the window manager.
+     - Mention ,,maximize'' as possible value for session option geometry
+       in __doc__string of class X2goTerminalSessionSTDOUT.
+     - Implement SSH agent authentication forwarding.
+     - Implement X2Go session profile features ,,autologin'' and
+       ,,sshproxyautologin'' (meaning: look_for_keys and allow_agent in Python
+       Paramiko terms).
+     - Make X2goClient instance available in initial X2goSession instances.
+     - Allow post-initialization updating of forward_sshagent class property.
+     - Enable autologin and sshproxyautologin for new session profiles.
+     - Only monkey patch Python Paramiko based on the currently used Paramiko
+       version (our monkey patches have been sent upstream, so we might not
+       need the monkey patching for paramiko &gt;= 1.8.0 anymore).
+     - Rename session type XFCE4 to XFCE (using an unversioned name).
+     - Avoid false positive notifications about started-by-other sessions.
+     - Introduce locks for session registrations.
+     - Wait for mounting of print and mimebox spooling share.
+     - Allow mixing key file, key object, key discovery and agent
+       authentication.
+     - Add progress bar support for session startup / resuming. (Fixes: #14).
+     - Set the session name in case a session start failed due to lack of
+       forwarding tunneling support in the server's SSH daemon.
+     - Fall back to password auth if agent auth and key discovery fail.
+     - Give the session window more time to appear.
+     - Catch rare condition in utils.find_session_window in case where
+       the list of window IDs is not available.
+     - Disable SSH agent forwarding on MS Windows platform for current
+       versions of Python Paramiko.
+     - Allow usernames containing space characters in user names (common
+       on MS Windows).
+     - Use threading.Lock to prohibit simultaneous calls of
+       get_published_applications() of control sessions.
+     - Implement some internal locking for X2goSession objects.
+     - Add option to disable auto-registration of pubapp sessions.
+     - Implement functionality for restoring mounted shares on session
+       resumption / re-start. Sponsored by Dick Kniep, LinDix NL.
+     - Catch exceptions where a user tries to resume a session that has
+       just been removed from the session list on the server (race
+       condition).
+     - Consolidating management of shared and unshared client-side
+       folders.
+     - Before suspending/terminating a session, make sure that the list of
+       shared folders is up-to-date.
+     - Fix password authentication in case no private RSA/DSA key for a
+       client user exists.
+   * /debian/rules:
+     + Allow package build on systems with missing dh_python2.
+   * /debian/control:
+     + Versioned depend on python-paramiko (&gt;= 1.8.0-0~).
+   * /debian/pyversions:
+     + Drop file as it is deprecated.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Mon, 10 Dec 2012 13:01:51 +0100
+
+
+PyHoca-GUI
+==========
+
+pyhoca-gui (0.2.1.1-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.2.1.1):
+     - Do not disable the session profile template when creating a session
+       profile from an already existing session profile. (Fixes: #90).
+     - Use new feature in Python X2Go 0.2.1.1 that allows the differentiation
+       of sessions associated to different session profiles.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Tue, 18 Dec 2012 12:52:57 +0100
+
+pyhoca-gui (0.2.1.0-0~x2go1) RELEASE; urgency=low
+
+   [ Mike Gabriel ]
+   * New upstream version (0.2.1.0):
+     - Session profile file option ,,export'': stay empty if no exports are
+       definded.
+     - Make sure RDP (X2Go-proxy) sessions stored by PyHoca-GUI get recognized
+       as such by X2goClient.
+     - Make session icon handling more robust, be more compatible with X2Go
+       Client about the session icon name. Rewrite mistakes pyhoca-gui
+       (&lt;= 0.2.0.4) did on the icon attribute in the session profile config.
+     - Make DirectRDP sessions configurable through PyHoca-GUI profile manager.
+     - Slight change in internal message box API, rename custom_message class
+       option to msg.
+     - Add a warning message box that DirectRDP is not yet supported by
+       PyHoca-GUI.
+     - Widen session type widget to make sure all widget (also when translated)
+       fit in.
+     - Do not offer DirectRDP sessions in profile manager while connected to a
+       real X2Go server via SSH.
+     - Configure SSH proxy port in a separate session profile option
+       (sshproxyport).
+     - Make sure that SSH proxy port migration works flawlessly.
+     - Rework session profile manager around SSH proxy settings. Implement
+       session
+       profile options ,,sshproxysameuser'' and ,,sshproxysamepass''.
+     - Rebuild of i18n files, update of en.po and de.po.
+     - Disable ,,usesshproxy'' for DirectRDP sessions.
+     - Make ,,maxdim'' option configurable through session profile manager.
+     - Fix naming mismatch ,,autologin'' vs. ,,autoconnect''.
+     - Introduce profile manager tab ,,Link Quality''. Move printing  into
+       renamed
+       tab ,,Resource Sharing''. Shrink profile manager window. (Fixes: #13).
+     - Implement SSH agent, automatic key discovery, and SSH agent
+       authentication
+       request forwarding in session profile manager.
+     - Add SSH agent README.
+     - Rename session type XFCE4 to XFCE (using an unversioned session type
+       name).
+     - Make pub app session startup more robust.
+     - Allow autologin and SSH key file at the same time.
+     - Scale profile manager differently on Windows and Linux (Windows needs
+       a slightly larger window).
+     - Profile manager: apply text field height to keyboard configuration radio
+       buttons.
+     - Disable SSH agent forwarding for Windows. Code in Python Paramiko is no
+       executable on MS Windows, currently.
+     - Use threading.Lock() to prevent from simultaneous calls of the
+       _init_pubapp_sessions() method.
+     - Implement functionality for restoring mounted shares on session
+       resumption / re-start. Sponsored by Dick Kniep, LinDix NL.
+     - Hide the file sharing submenu if the master session's submenu  is
+       currently
+       disabled due to some current action and an expected session  status
+       change.
+     - If the profile manager is open for a certain session profile, disable
+       all menu items that relate to this session profile. Re-enable the menu
+       items again, once the corresponding profile manager window has been
+       closed.
+   * /debian/control:
+     + Maintainer change in package: X2Go Developers
+       &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+     + Add Oleksandr Shneyder to Uploaders.
+     + Depend on python-x2go (&gt;=0.2.0.11-0~).
+     + Reduce python version in Build-Depends to allow build against Ubuntu
+       10.04.
+   * /debian/rules:
+     + Allow package build on systems with missing dh_python2.
+   * /debian/pyhoca-gui.docs:
+     + Install README.i18n into package.
+
+   [ Christoffer Krakou ]
+   * New upstream version (0.2.1.0):
+     - Add Danish translation.
+     - Add Danish translation (restoreexports feature).
+
+   [ Daniel Lindgren ]
+   * New upstream version (0.2.1.0):
+     - Update Swedish translation file.
+     - Add Swedish translation for NSIS installer.
+     - Update Swedish translation file (restoreexports).
+
+   [ Dick Kniep ]
+   * New upstream version (0.2.1.0):
+     - Update Dutch translation file.
+
+   [ Ricardo D&#237;az Mart&#237;n ]
+   * New upstream version (0.2.1.0):
+     - Update Spanish translation file.
+     - Update Spanish translation file (restoreexports).
+
+   [ Nable ]
+   * New upstream version (0.2.1.0):
+     - Add Russian translation for NSIS installer.
+     - Fine-tune Russion translation.
+
+   [ Terje Andersen ]
+   * New upstream version (0.2.1.0):
+     - Update Bokmal (Norway) translation file.
+     - Update Bokmal (Norway) translation file (restoreexports).
+
+   [ Oleksandr Shneyder ]
+   * New upstream version (0.2.1.0):
+     - Add Russian translation.
+     - Update Russian translation.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Mon, 10 Dec 2012 13:06:10 +0100
+
+
+PyHoca-CLI
+==========
+
+pyhoca-cli (0.2.1.0-0~x2go1) RELEASE; urgency=low
+
+   * New upstream version (0.2.1.0):
+     - Add cmdline option --from-stdin that facilitates lightdm remote login
+       session startup.
+     - The option ,,password'' is not allowed for session registration.
+     - When finishing the application, update session status before reporting
+       back to the user what happened to the session.
+     - Remove cmdline option --time-to-wait, Python X2Go now offers a progress
+       status for session startup/resumption. So we query this status instead.
+   * /debian/control:
+     + Maintainer change in package: X2Go Developers   
+&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">x2go-dev at lists.berlios.de</A>&gt;.
+     + Reduce python version in Build-Depends to allow build on Ubuntu 10.04.
+     + Depend on python-x2go (&gt;= 0.2.1.0).
+   * /debian/rules:
+     + Allow package build on systems with missing dh_python2.
+   * /man/man1/pyhoca-cli.1:
+     + Mention keyboard auto detection switch.
+     + Mention possible geometry value: maximize.
+
+  -- Mike Gabriel &lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>&gt;
+     Mon, 10 Dec 2012 14:51:11 +0100
+
+
+
+-- 
+
+DAS-NETZWERKTEAM
+mike gabriel, dorfstr. 27, 24245 barmissen
+fon: +49 (4302) 281418, fax: +49 (4302) 281419
+
+GnuPG Key ID 0xB588399B
+mail: <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">mike.gabriel at das-netzwerkteam.de</A>, <A HREF="http://das-netzwerkteam.de">http://das-netzwerkteam.de</A>
+
+freeBusy:
+<A HREF="https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb">https://mail.das-netzwerkteam.de/freebusy/m.gabriel%40das-netzwerkteam.de.xfb</A>
+-------------- next part --------------
+A non-text attachment was scrubbed...
+Name: not available
+Type: application/pgp-signature
+Size: 836 bytes
+Desc: Digitale PGP-Unterschrift
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20121220/9e33470f/attachment.pgp">https://lists.berlios.de/pipermail/x2go-user/attachments/20121220/9e33470f/attachment.pgp</A>&gt;
+</PRE>
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001190.html">[X2Go-User] RHEL6 package should create /tmp/.X11-unix directory
+</A></li>
+	<LI>Next message: <A HREF="001192.html">[X2Go-User] SSH Proxy for OS X interface
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1191">[ date ]</a>
+              <a href="thread.html#1191">[ thread ]</a>
+              <a href="subject.html#1191">[ subject ]</a>
+              <a href="author.html#1191">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>

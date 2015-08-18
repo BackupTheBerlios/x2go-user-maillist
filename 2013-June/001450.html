@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+ <HEAD>
+   <TITLE> [X2Go-User] X2go-broker user/password twice
+   </TITLE>
+   <LINK REL="Index" HREF="http://lists.berlios.de/pipermail/x2go-user/2013-June/index.html" >
+   <LINK REL="made" HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20user/password%20twice&In-Reply-To=%3C05343f6c81f184cb7ae662045e786d3a%40tscserver.upc.edu%3E">
+   <META NAME="robots" CONTENT="index,nofollow">
+   <style type="text/css">
+       pre {
+           white-space: pre-wrap;       /* css-2.1, curent FF, Opera, Safari */
+           }
+   </style>
+   <META http-equiv="Content-Type" content="text/html; charset=us-ascii">
+   <LINK REL="Previous"  HREF="001449.html">
+   <LINK REL="Next"  HREF="001451.html">
+ </HEAD>
+ <BODY BGCOLOR="#ffffff">
+   <H1>[X2Go-User] X2go-broker user/password twice</H1>
+    <B>Juan Carlos Corchado</B> 
+    <A HREF="mailto:x2go-user%40lists.berlios.de?Subject=Re%3A%20%5BX2Go-User%5D%20X2go-broker%20user/password%20twice&In-Reply-To=%3C05343f6c81f184cb7ae662045e786d3a%40tscserver.upc.edu%3E"
+       TITLE="[X2Go-User] X2go-broker user/password twice">jcorchado at tsc.upc.edu
+       </A><BR>
+    <I>Mon Jun  3 12:19:19 CEST 2013</I>
+    <P><UL>
+        <LI>Previous message: <A HREF="001449.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+        <LI>Next message: <A HREF="001451.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1450">[ date ]</a>
+              <a href="thread.html#1450">[ thread ]</a>
+              <a href="subject.html#1450">[ subject ]</a>
+              <a href="author.html#1450">[ author ]</a>
+         </LI>
+       </UL>
+    <HR>  
+<!--beginarticle-->
+<PRE> 
+
+Hi, 
+
+Thank you for the support. I have included the option
+&quot;broker-session-autologin=true&quot; on x2gobroker-sessionprofiles.conf but
+when I choose the KDE or GNOME appears &quot;connection refused (or timed
+out)&quot;. Some options that I set on /etc/x2go/x2gobroker.conf
+are:
+
+check-credentials = true
+default-session-autologin=true
+
+And I
+already include on /etc/ssh/sshd_config this line: 
+
+AuthorizedKeysFile2
+%h/.x2go/authorized_keys.
+
+I noticed that when ocurs this error I need
+to restart the process &quot;x2gobroker-daemon&quot; because is stopped.
+
+Thanks,
+
+
+A 2013-06-03 10:57, Anders Bruun Olsen escrigu&#233;: 
+
+&gt;<i> Hi Juan, 
+</I>&gt;<i> 
+</I>&gt;<i>
+</I>That was one of my first questions as well :) 
+&gt;<i> You will need to
+</I>configure auto-login, which means that your clients will only need to
+authenticate to the broker. The broker will then place a temporary
+public ssh-key on the chosen x2goserver and give the corresponding
+private key to the client, allowing the client to login to that server,
+without a password. If I remember correctly, you just need to enable it
+in /etc/x2go/broker/x2gobroker-sessionprofiles.conf, by setting
+broker-session-autologin=true for the profiles you wish to have
+autologin on. 
+&gt;<i> 
+</I>&gt;<i> 2013/6/3 Juan Carlos Corchado
+</I>&lt;<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">jcorchado at tsc.upc.edu</A>&gt;
+&gt;<i> 
+</I>&gt;&gt;<i> Hi all,
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i> The x2go-broker
+</I>configuration is working correctly but when I try the command x2goclient
+--broker-url=<A HREF="http://server:8080/plain/inifile/">http://server:8080/plain/inifile/</A> [1] and set the name and
+password appears another window to select KDE or GNOME (my
+configuration). When I choose one of them I have to set again the user
+and password. It's possible to put it just once?
+&gt;&gt;<i> 
+</I>&gt;&gt;<i> Thanks, 
+</I>&gt;&gt;<i> 
+</I>&gt;&gt;<i>
+</I>_______________________________________________
+&gt;&gt;<i> X2Go-User mailing
+</I>list
+&gt;&gt;<i> <A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">X2Go-User at lists.berlios.de</A>
+</I>&gt;&gt;<i>
+</I><A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A> [2]
+&gt;<i> 
+</I>&gt;<i> -- 
+</I>&gt;<i>
+</I>Anders Bruun Olsen
+&gt;<i> It-ansvarlig
+</I>&gt;<i> Det Danske Sprog- og
+</I>Litteraturselskab
+&gt;<i> (Society for Danish Language and Literature)
+</I>
+
+
+
+Links:
+------
+[1] <A HREF="http://server:8080/plain/inifile/">http://server:8080/plain/inifile/</A>
+[2]
+<A HREF="https://lists.berlios.de/mailman/listinfo/x2go-user">https://lists.berlios.de/mailman/listinfo/x2go-user</A>
+-------------- next part --------------
+An HTML attachment was scrubbed...
+URL: &lt;<A HREF="https://lists.berlios.de/pipermail/x2go-user/attachments/20130603/b557470b/attachment.html">https://lists.berlios.de/pipermail/x2go-user/attachments/20130603/b557470b/attachment.html</A>&gt;
+</PRE>
+
+
+
+<!--endarticle-->
+    <HR>
+    <P><UL>
+        <!--threads-->
+	<LI>Previous message: <A HREF="001449.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+	<LI>Next message: <A HREF="001451.html">[X2Go-User] X2go-broker user/password twice
+</A></li>
+         <LI> <B>Messages sorted by:</B> 
+              <a href="date.html#1450">[ date ]</a>
+              <a href="thread.html#1450">[ thread ]</a>
+              <a href="subject.html#1450">[ subject ]</a>
+              <a href="author.html#1450">[ author ]</a>
+         </LI>
+       </UL>
+
+<hr>
+<a href="https://lists.berlios.de/mailman/listinfo/x2go-user">More information about the X2Go-User
+mailing list</a><br>
+</body></html>
